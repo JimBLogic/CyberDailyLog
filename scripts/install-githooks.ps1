@@ -11,6 +11,16 @@ if (-not (Test-Path -Path '.githooks')) {
     New-Item -ItemType Directory -Path '.githooks' | Out-Null
 }
 
+# Prefer PowerShell 7 (pwsh) if available, otherwise fall back to Windows PowerShell
+Write-Output "Selecting appropriate hook variant (prefer pwsh)..."
+if (Get-Command -Name pwsh -ErrorAction SilentlyContinue) {
+    Copy-Item -Path .githooks/pre-commit.pwsh -Destination .githooks/pre-commit -Force
+    Write-Output "Using pwsh pre-commit hook"
+} else {
+    Copy-Item -Path .githooks/pre-commit.powershell -Destination .githooks/pre-commit -Force
+    Write-Output "Using Windows PowerShell pre-commit hook"
+}
+
 Write-Output "Configuring git to use .githooks as hooks path (local config)..."
 git config core.hooksPath .githooks
 
