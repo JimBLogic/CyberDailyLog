@@ -15,3 +15,4 @@ Store my daily‑log CSV, news‑scan markdown, and automation scripts.
 | 10:10‑10:15 | Motivational quote |
 <!-- precommit test 2025-11-17T15:19:54.2025407+01:00 -->
 <!-- precommit test 2025-11-17T15:20:23.1991552+01:00 -->
+\n**Developer Setup**\n\n- **Install hooks:** After cloning the repository, run make install-hooks from the repository root (or run the OS-specific installer in scripts/):\n\n  - Windows (PowerShell): ./scripts/install-githooks.ps1\n  - WSL / Git Bash / Linux: ./scripts/install-githooks.sh\n
