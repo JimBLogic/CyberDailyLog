@@ -1,13 +1,15 @@
-﻿name: CSV‑to‑MD
+﻿name: CSV-to-MD
 on:
   push:
     paths:
       - daily-log.csv
+
 jobs:
   convert:
-    runs-on: ubuntu‑latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Convert CSV to Markdown
         run: |
           python3 -c "
@@ -24,6 +26,7 @@ jobs:
           with open('log.md', 'w') as out:
               out.write('\n'.join(lines))
           "
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
