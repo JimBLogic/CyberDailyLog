@@ -8,6 +8,13 @@ from datetime import datetime
 import sys
 from typing import List, Tuple
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from scripts.normalize_dates import normalize_date
+
 
 DEFAULT_HEADER = 'date,pillar,task,notes'
 EXPECTED_HEADER = [h.strip().lower() for h in DEFAULT_HEADER.split(',')]
@@ -34,38 +41,6 @@ def looks_like_date(s: str) -> bool:
         return True
     except Exception:
         return False
-
-
-def normalize_date(s: str) -> Tuple[str, bool]:
-    """Return (normalized, changed) where normalized is YYYY-MM-DD if parseable.
-
-    Tries several common date formats and returns the normalized string and True
-    when it changed; otherwise returns original and False.
-    """
-    s0 = s.strip()
-    # already correct
-    try:
-        dt = datetime.strptime(s0, '%Y-%m-%d')
-        return s0, False
-    except Exception:
-        pass
-
-    formats = [
-        '%m/%d/%Y',
-        '%Y/%m/%d',
-        '%d-%m-%Y',
-        '%d/%m/%Y',
-        '%b %d, %Y',
-        '%B %d, %Y',
-        '%Y.%m.%d',
-    ]
-    for fmt in formats:
-        try:
-            dt = datetime.strptime(s0, fmt)
-            return dt.strftime('%Y-%m-%d'), True
-        except Exception:
-            continue
-    return s0, False
 
 
 def validate_and_normalize(path: Path) -> Tuple[int, List[str], bool]:

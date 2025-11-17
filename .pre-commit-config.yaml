@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: csv-validator
+        name: CSV validator
+        entry: python3 scripts/validate_csv.py
+        language: system
+        files: ^daily-log\.csv$

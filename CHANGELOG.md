@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - **CYBER_INTEL_LATEST.md**: Separated intel report from README to prevent merge conflicts
 - **CONTRIBUTING.md**: Comprehensive contribution guidelines with setup instructions
 - Executable permissions for all shell scripts (.sh files) using `git update-index`
+- `.pre-commit-config.yaml`: Local pre-commit hook that runs `scripts/validate_csv.py`
+- `scripts/archive.sh`: Appends the latest report to `cyber-intel-archive.md` and keeps the last 30 days
+- `scripts/normalize_dates.py`: Extracted date normalization helper for reuse
+- `scripts/ci-badge.sh`: Updates the README badge URL when workflow filenames change
+- `scripts/coverage.sh`: Runs `pytest` with coverage reporting for the validator
 
 ### Changed
 - **README.md**: Now links to CYBER_INTEL_LATEST.md instead of embedding full report

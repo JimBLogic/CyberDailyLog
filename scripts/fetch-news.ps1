@@ -108,15 +108,14 @@ $markdown += @"
 # ---------- 4. UPDATE CYBER_INTEL_LATEST.MD ----------
 $latestIntelPath = Join-Path $repoRoot 'CYBER_INTEL_LATEST.md'
 Set-Content -Path $latestIntelPath -Value $markdown -Encoding UTF8
-# ---------- 5. ARCHIVE OLD REPORT ----------
-$archivePath = Join-Path $repoRoot 'cyber-intel-archive.md'
-$archiveEntry = "`n---`n`n$markdown`n"
 
-if (Test-Path $archivePath) {
-    Add-Content -Path $archivePath -Value $archiveEntry -Encoding UTF8
+# ---------- 5. ROTATE ARCHIVE ----------
+$archivePath = Join-Path $repoRoot 'cyber-intel-archive.md'
+$archiveScript = Join-Path $repoRoot 'scripts/archive.sh'
+if (Get-Command bash -ErrorAction SilentlyContinue) {
+    bash $archiveScript
 } else {
-    $archiveHeader = "# Cyber Intelligence Archive`n`n> Historical daily reports`n"
-    Set-Content -Path $archivePath -Value ($archiveHeader + $archiveEntry) -Encoding UTF8
+    Write-Warning "bash not found; run scripts/archive.sh manually to rotate the archive"
 }
 
 # ---------- 6. COMMIT & PUSH ----------
