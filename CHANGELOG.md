@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-11-17
+
+### Added
+- **CYBER_INTEL_LATEST.md**: Separated intel report from README to prevent merge conflicts
+- **CONTRIBUTING.md**: Comprehensive contribution guidelines with setup instructions
+- Executable permissions for all shell scripts (.sh files) using `git update-index`
+
+### Changed
+- **README.md**: Now links to CYBER_INTEL_LATEST.md instead of embedding full report
+- **fetch-news.ps1**: Updated to write to CYBER_INTEL_LATEST.md instead of README
+- Improved Contributing section in README with link to detailed guide
+
+### Fixed
+- Shell scripts now have proper executable permissions for Unix-like systems
+- Intel report separation eliminates frequent README churn
+- Cleaner repository history with dynamic data isolated from documentation
+
 ## [1.0.0] - 2025-11-17
 
 ### Added
