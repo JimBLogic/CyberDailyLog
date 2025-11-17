@@ -1,0 +1,39 @@
+name: Daily Cyber-Sec News
+
+on:
+  workflow_dispatch:  # Manual trigger for testing
+  schedule:
+    - cron: '0 13 * * 1-5'   # 08:00 EST (13:00 UTC) Monday-Friday
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run news fetch script
+        run: |
+          chmod +x scripts/fetch-news.sh
+          ./scripts/fetch-news.sh
+
+      - name: Validate CSV
+        run: python3 scripts/validate_csv.py
+
+      - name: Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git push
+          fi
