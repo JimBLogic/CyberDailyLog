@@ -86,6 +86,80 @@ The installer sets the local Git config `core.hooksPath` to `.githooks` so hooks
 - The GitHub Actions workflow ` .github/workflows/validate-csv.yml` validates `daily-log.csv` on push and pull requests (server-side protection).
 
 If you'd like, I can also add a short CONTRIBUTING section that automates the installer on first clone via a recommended script.
+
+## **Make It Work**
+
+This section shows the quick commands to get the repository working on a fresh machine (Windows/PowerShell or WSL/Linux). It covers hooks, tests, and the validator.
+
+- **Prerequisites:** Git, Python 3.8+ (or 3.x), and optionally `pwsh` (PowerShell 7) if you want the preferred hook variant.
+
+- **Quick start (Windows, PowerShell)** — run these from the repo root:
+
+  ```powershell
+  # Create and activate a virtual environment (Windows PowerShell)
+  python -m venv .venv
+  .\.venv\Scripts\python -m pip install --upgrade pip
+
+  # Install test/developer tools
+  .\.venv\Scripts\python -m pip install pytest
+
+  # Install repository hooks (sets local git config core.hooksPath)
+  ./scripts/install-githooks.ps1
+
+  # Run unit tests
+  .\.venv\Scripts\python -m pytest -q
+
+  # Run validator (may auto-insert header / normalize dates)
+  .\.venv\Scripts\python scripts/validate_csv.py
+  ```
+
+- **Quick start (WSL / Git Bash / Linux)** — run these from the repo root:
+
+  ```bash
+  python3 -m venv .venv
+  . .venv/bin/activate
+  python -m pip install --upgrade pip
+  python -m pip install pytest
+  ./scripts/install-githooks.sh
+  pytest -q
+  python3 scripts/validate_csv.py
+  ```
+
+**Notes on hooks and validation**
+
+- Hooks are versioned in `.githooks`. The installer sets `core.hooksPath` to `.githooks` in the local clone, so no global Git state is changed.
+- The hook tries to run the canonical validator `scripts/validate_csv.py` using `python3` (or `python`) if available. If Python is not found, the hook uses a lightweight PowerShell fallback that enforces the 4-column rule.
+- `scripts/validate_csv.py`:
+  - strips a UTF‑8 BOM if present,
+  - auto-inserts the header `date,pillar,task,notes` when the file is empty or when the first row looks like data,
+  - normalizes common date formats into `YYYY-MM-DD`, and
+  - validates each data row for 4 columns, a valid date, and non-empty `pillar` and `task` fields.
+
+**CI behavior (GitHub Actions)**
+
+- The workflow `.github/workflows/validate-csv.yml` runs unit tests (`pytest`) and then the validator; if the validator reports issues on a PR, the workflow comments on the PR with the validator's output to help contributors fix problems quickly.
+
+**Troubleshooting**
+
+- If `pytest` isn't found on the command line, use the venv Python to run it, e.g. Windows:
+
+  ```powershell
+  .\.venv\Scripts\python -m pytest -q
+  ```
+
+- If `pwsh` (PowerShell 7) is not installed, the installer will default to the Windows PowerShell variant so hooks still run on typical Windows systems. To install PowerShell 7 (optional):
+
+  - Download the MSI: https://github.com/PowerShell/PowerShell/releases/latest
+  - Run the MSI and accept defaults (adds `pwsh` to PATH).
+  - Re-run the installer: `./scripts/install-githooks.ps1`.
+
+- If you see a BOM-only or empty `daily-log.csv` causing earlier validator failures, the validator now strips BOMs and will auto-add a header. You can also remove the BOM manually using:
+
+  ```powershell
+  (Get-Content -Raw -Encoding UTF8 daily-log.csv) -replace '^\uFEFF','' | Set-Content -Encoding UTF8 daily-log.csv
+  ```
+
+If you'd like, I can add a `CONTRIBUTING.md` that runs the venv + hook installer automatically for new clones, or add additional normalization rules (extra date formats, pillar canonicalization). Which would you prefer?
 # CyberDailyLog
 Store my daily‑log CSV, news‑scan markdown, and automation scripts.
 
