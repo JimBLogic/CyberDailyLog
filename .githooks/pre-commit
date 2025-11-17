@@ -1,0 +1,25 @@
+#!/usr/bin/env powershell
+# Versioned pre-commit hook: validate `daily-log.csv` (exactly 4 columns, non-empty)
+
+# If the hook is invoked, check only when `daily-log.csv` is staged
+$staged = git diff --cached --name-only
+
+if ($staged -match '^daily-log\.csv$') {
+    $csvPath = 'daily-log.csv'
+    if (-not (Test-Path $csvPath)) {
+        Write-Error "$csvPath not found"
+        exit 1
+    }
+
+    $lines = Get-Content $csvPath -Encoding UTF8
+    for ($i = 0; $i -lt $lines.Length; $i++) {
+        if ($lines[$i].Trim() -eq '') { continue }
+        $cols = $lines[$i] -split ','
+        if ($cols.Count -ne 4) {
+            Write-Error "Invalid CSV line $($i + 1): expected 4 columns, found $($cols.Count)"
+            exit 1
+        }
+    }
+}
+
+exit 0
