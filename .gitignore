@@ -1,7 +1,32 @@
 ﻿# Python artifacts
 __pycache__/
 *.py[cod]
-# VSCode settings (if you use it)
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# VSCode settings
 .vscode/
+
+# OS-specific caches
+Thumbs.db
+.DS_Store
+
+# Editor swap / backup files
+*~
+*.swp
+*.bak
+
 # Misc temp files
 *.log
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

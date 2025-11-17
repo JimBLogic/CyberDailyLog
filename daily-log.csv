@@ -1,2 +1,3 @@
-﻿
-date,pillar,task,notes
+﻿date,pillar,task,notes
+2025-11-17,Automation,Created validator with date normalization,Added robust CSV validation with pytest tests
+2025-11-17,DevOps,Set up GitHub Actions CI workflow,Automated testing and PR comments for validation errors

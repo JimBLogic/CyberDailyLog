@@ -1,6 +1,10 @@
 # CyberDailyLog
 
+![Validate CSV](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/validate-csv.yml/badge.svg)
+
 Store my daily‑log CSV, news‑scan markdown, and automation scripts.
+
+**License:** MIT
 
 ---
 

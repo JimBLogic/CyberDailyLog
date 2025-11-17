@@ -1,4 +1,12 @@
-.PHONY: install-hooks install-hooks-windows install-hooks-unix validate-csv
+.PHONY: help install-hooks install-hooks-windows install-hooks-unix validate-csv
+
+help:
+	@echo "Available make targets:"
+	@echo "  help                   – Show this help message"
+	@echo "  install-hooks          – Detect OS and install Git hooks"
+	@echo "  install-hooks-windows  – Force Windows PowerShell installer"
+	@echo "  install-hooks-unix     – Force Bash installer"
+	@echo "  validate-csv           – Run the CSV validator"
 
 install-hooks:
 	@echo "Detecting environment and installing hooks..."
