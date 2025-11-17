@@ -1,22 +1,23 @@
-name: Validate CSV
-
+name: "Validate CSV"
 on:
   push:
     paths:
-      - 'daily-log.csv'
+      - "daily-log.csv"
   pull_request:
     paths:
-      - 'daily-log.csv'
+      - "daily-log.csv"
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
+
       - name: Validate CSV
-        run: |
-          python3 scripts/validate_csv.py
+        run: python3 scripts/validate_csv.py
