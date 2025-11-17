@@ -3,3 +3,10 @@
 2025-11-17,DevOps,Set up CI/CD pipeline with GitHub Actions,Configured automated testing and PR validation with pytest and pre-commit hooks
 2025-11-17,Automation,Fixed YAML syntax issues in workflows,Debugged and resolved GitHub Actions workflow configuration errors
 2025-11-17,DevOps,Configured Git hooks system,Set up cross-platform pre-commit validation with PowerShell and Python fallbacks
+2025-11-17,Automation,Added .pre-commit-config.yaml & extracted normalize_date to normalize_dates.py,Enabled unified CSV validation via pre‑commit and reusable date‑normalisation library
+2025-11-17,DevOps,Created archive.sh and integrated it with fetch-news.ps1,Automated 30‑day intel archive rotation and history management
+2025-11-17,Security,Implemented pre‑commit CSV validator hook,Ensured every commit validates CSV structure to prevent malformed data leaks
+2025-11-17,Cloud,Added ci-badge.sh to auto‑update GitHub Actions badge in README,Kept CI status badge in sync with workflow name changes
+2025-11-17,Research,Extended cyber‑intel script to pull latest free certs & CVEs,Maintained up‑to‑date intelligence feed for daily security awareness
+2025-11-17,Certifications,Documented new free‑cert resources in CYBER_INTEL_LATEST.md,Curated a list of 10+ free certification opportunities for the team
+2025-11-17,Career,Updated requirements.txt with coverage tooling and expanded CHANGELOG,Improved onboarding docs and tracked project evolution for future hires
