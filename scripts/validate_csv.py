@@ -102,7 +102,7 @@ def validate_and_normalize(path: Path) -> Tuple[int, List[str], bool]:
         start = 1
     else:
         # header is at the first non-empty index
-        start = idx + 1 if has_header else idx + 1
+            start = idx + 1 if has_header else idx
 
     errors = 0
     # Normalize dates in-place, collect changes
