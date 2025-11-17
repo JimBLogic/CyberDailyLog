@@ -163,8 +163,17 @@ The installer sets the local Git config `core.hooksPath` to `.githooks` so hooks
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+1. Fork the repository.
+2. Run `make install-hooks` to enable the pre-commit hook.
+3. Keep `daily-log.csv` in the format `date,pillar,task,notes` (ISO-8601 dates).
+4. Submit a Pull Request – the CI badge will show validation status.
 
 For questions or suggestions, open an issue on GitHub.
+
+---
+
+## 📄 License
+
+MIT – see `LICENSE` for full text.
