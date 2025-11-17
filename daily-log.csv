@@ -1,6 +1,5 @@
 ﻿date,pillar,task,notes
-2025-11-17,Automation,Created validator with date normalization,Added robust CSV validation with pytest tests
-2025-11-17,DevOps,Set up GitHub Actions CI workflow,Automated testing and PR comments for validation errors
-2025-11-17,Learning,Studied GCP Security,Completed 3 modules2025-11-17,Learning,Studied GCP Security,Completed 3 modules
-2025-11-17,Learning,Studied GCP Security,Completed 3 modules
-2025-11-17,Networking,LinkedIn engagement,Commented on 3 posts
+2025-11-17,Automation,Built CSVvalidator with date normalization,Created Python validator that auto-fixes 8 date formats and validates daily log entries
+2025-11-17,DevOps,Set up CI/CD pipeline with GitHub Actions,Configured automated testing and PR validation with pytest and pre-commit hooks
+2025-11-17,Automation,Fixed YAML syntax issues in workflows,Debugged and resolved GitHub Actions workflow configuration errors
+2025-11-17,DevOps,Configured Git hooks system,Set up cross-platform pre-commit validation with PowerShell and Python fallbacks
