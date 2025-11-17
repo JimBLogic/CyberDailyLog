@@ -10,6 +10,17 @@ if ($staged -match '^daily-log\.csv$') {
         exit 1
     }
 
+    # Prefer running the canonical Python validator if available
+    $py = (Get-Command python3 -ErrorAction SilentlyContinue).Path
+    if (-not $py) { $py = (Get-Command python -ErrorAction SilentlyContinue).Path }
+    if ($py) {
+        & $py scripts/validate_csv.py
+        $rc = $LASTEXITCODE
+        if ($rc -ne 0) { exit $rc }
+        exit 0
+    }
+
+    # Fallback: minimal validation if Python not present
     $lines = Get-Content $csvPath -Encoding UTF8
     $bom = [char]0xfeff
     for ($i = 0; $i -lt $lines.Length; $i++) {
