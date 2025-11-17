@@ -1,113 +1,156 @@
 #!/usr/bin/env python3
-"""Validate `daily-log.csv`.
+"""Robust validator and normalizer for `daily-log.csv`.
 
-This script:
-- strips a leading UTF-8 BOM if present
-- inserts a header row if the file is empty or if it appears to be missing a header
-- validates each data row has 4 columns, a date in YYYY-MM-DD, and non-empty pillar/task
-
-Exit codes:
-  0 - OK (maybe after auto-fix)
-  1 - file missing
-  2 - validation errors
+Exports functions so unit tests can import behavior.
 """
 from pathlib import Path
 from datetime import datetime
 import sys
+from typing import List, Tuple
 
-path = Path('daily-log.csv')
-if not path.exists():
-    print('daily-log.csv not found', file=sys.stderr)
-    sys.exit(1)
 
-# Read and normalize (strip BOM)
-raw = path.read_text(encoding='utf-8')
-if raw.startswith('\ufeff'):
-    raw = raw.lstrip('\ufeff')
-lines = raw.splitlines()
+DEFAULT_HEADER = 'date,pillar,task,notes'
+EXPECTED_HEADER = [h.strip().lower() for h in DEFAULT_HEADER.split(',')]
 
-def is_blank(s):
-    return s.strip() == ''
 
-# find first non-empty
-first_non = None
-for i, l in enumerate(lines):
-    if not is_blank(l):
-        first_non = (i, l)
-        break
+def strip_bom_and_read(path: Path) -> List[str]:
+    raw = path.read_text(encoding='utf-8')
+    if raw.startswith('\ufeff'):
+        raw = raw.lstrip('\ufeff')
+    return raw.splitlines()
 
-# if empty -> write header
-header = 'date,pillar,task,notes'
-if first_non is None:
-    path.write_text(header + '\n', encoding='utf-8')
-    print('daily-log.csv was empty; header added')
-    sys.exit(0)
 
-hdr_candidate = first_non[1].strip()
-expected_header = [h.strip().lower() for h in header.split(',')]
-has_header = ([h.strip().lower() for h in hdr_candidate.split(',')] == expected_header)
+def find_first_nonempty(lines: List[str]):
+    for i, l in enumerate(lines):
+        if l.strip() != '':
+            return i, l
+    return None
 
-# if first data row looks date-like and there's no header, prepend header
-date_like = False
-cols0 = hdr_candidate.split(',')
-if len(cols0) >= 1:
+
+def looks_like_date(s: str) -> bool:
+    s = s.strip()
     try:
-        datetime.strptime(cols0[0].strip(), '%Y-%m-%d')
-        date_like = True
+        datetime.strptime(s, '%Y-%m-%d')
+        return True
     except Exception:
-        date_like = False
+        return False
 
-modified = False
-if not has_header and date_like:
-    lines.insert(0, header)
-    path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    modified = True
-    print('Header was missing; prepended header to daily-log.csv')
 
-# determine start index (row after header)
-if has_header:
-    start = first_non[0] + 1
-elif modified:
-    # header inserted at index 0
-    start = 1
-else:
-    # No header and we didn't modify; treat first non-empty as header if it had 4 cols
-    if len(hdr_candidate.split(',')) == 4:
-        start = first_non[0] + 1
+def normalize_date(s: str) -> Tuple[str, bool]:
+    """Return (normalized, changed) where normalized is YYYY-MM-DD if parseable.
+
+    Tries several common date formats and returns the normalized string and True
+    when it changed; otherwise returns original and False.
+    """
+    s0 = s.strip()
+    # already correct
+    try:
+        dt = datetime.strptime(s0, '%Y-%m-%d')
+        return s0, False
+    except Exception:
+        pass
+
+    formats = [
+        '%m/%d/%Y',
+        '%Y/%m/%d',
+        '%d-%m-%Y',
+        '%d/%m/%Y',
+        '%b %d, %Y',
+        '%B %d, %Y',
+        '%Y.%m.%d',
+    ]
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(s0, fmt)
+            return dt.strftime('%Y-%m-%d'), True
+        except Exception:
+            continue
+    return s0, False
+
+
+def validate_and_normalize(path: Path) -> Tuple[int, List[str], bool]:
+    """Validate and optionally normalize `daily-log.csv`.
+
+    Returns (exit_code, messages, modified) where exit_code is 0 for OK,
+    2 for validation errors, 1 for missing file. messages is a list of lines
+    describing actions/errors. modified is True when the file was written.
+    """
+    if not path.exists():
+        return 1, ['daily-log.csv not found'], False
+
+    lines = strip_bom_and_read(path)
+    first_non = find_first_nonempty(lines)
+    messages: List[str] = []
+    modified = False
+
+    if first_non is None:
+        # empty file -> write header
+        path.write_text(DEFAULT_HEADER + '\n', encoding='utf-8')
+        messages.append('daily-log.csv was empty; header added')
+        return 0, messages, True
+
+    idx, hdr_candidate = first_non
+    has_header = [h.strip().lower() for h in hdr_candidate.split(',')] == EXPECTED_HEADER
+
+    # header missing but first row looks like data -> insert header
+    if not has_header and looks_like_date(hdr_candidate.split(',')[0]):
+        lines.insert(0, DEFAULT_HEADER)
+        path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+        messages.append('Header was missing; prepended header to daily-log.csv')
+        modified = True
+        # recompute start index
+        start = 1
     else:
-        print('Unable to determine header in daily-log.csv', file=sys.stderr)
-        sys.exit(2)
+        # header is at the first non-empty index
+        start = idx + 1 if has_header else idx + 1
 
-errors = 0
-for idx in range(start, len(lines)):
-    lineno = idx + 1
-    line = lines[idx]
-    if is_blank(line):
-        continue
-    parts = [p.strip() for p in line.split(',')]
-    if len(parts) != 4:
-        print(f'Invalid CSV line {lineno}: expected 4 columns, found {len(parts)}', file=sys.stderr)
-        errors += 1
-        continue
-    date_s, pillar, task, notes = parts
-    # date
-    try:
-        datetime.strptime(date_s, '%Y-%m-%d')
-    except Exception:
-        print(f'Invalid date at line {lineno}: "{date_s}" (expected YYYY-MM-DD)', file=sys.stderr)
-        errors += 1
-    if pillar == '':
-        print(f'Empty pillar at line {lineno}', file=sys.stderr)
-        errors += 1
-    if task == '':
-        print(f'Empty task at line {lineno}', file=sys.stderr)
-        errors += 1
+    errors = 0
+    # Normalize dates in-place, collect changes
+    for i in range(start, len(lines)):
+        lineno = i + 1
+        line = lines[i]
+        if line.strip() == '':
+            continue
+        parts = [p.strip() for p in line.split(',')]
+        if len(parts) != 4:
+            messages.append(f'Invalid CSV line {lineno}: expected 4 columns, found {len(parts)}')
+            errors += 1
+            continue
+        date_s, pillar, task, notes = parts
+        norm_date, changed = normalize_date(date_s)
+        if changed:
+            lines[i] = ','.join([norm_date, pillar, task, notes])
+            modified = True
+            messages.append(f'Normalized date at line {lineno}: "{date_s}" -> "{norm_date}"')
+        # validate normalized date
+        try:
+            datetime.strptime(lines[i].split(',')[0].strip(), '%Y-%m-%d')
+        except Exception:
+            messages.append(f'Invalid date at line {lineno}: "{date_s}" (expected YYYY-MM-DD)')
+            errors += 1
+        if pillar == '':
+            messages.append(f'Empty pillar at line {lineno}')
+            errors += 1
+        if task == '':
+            messages.append(f'Empty task at line {lineno}')
+            errors += 1
 
-if errors:
-    sys.exit(2)
+    if modified:
+        path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
-if modified:
-    print('daily-log.csv OK (header inserted)')
-else:
-    print('daily-log.csv OK')
-sys.exit(0)
+    if errors:
+        return 2, messages, modified
+    messages.append('daily-log.csv OK' + (' (modified)' if modified else ''))
+    return 0, messages, modified
+
+
+def main():
+    path = Path('daily-log.csv')
+    code, messages, modified = validate_and_normalize(path)
+    for m in messages:
+        print(m)
+    sys.exit(code)
+
+
+if __name__ == '__main__':
+    main()

@@ -19,5 +19,37 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Validate CSV
-        run: python3 scripts/validate_csv.py
+      - name: Install test deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run unit tests
+        run: pytest -q
+
+      - name: Run validator (capture output)
+        id: runvalidator
+        run: |
+          set -e
+          python3 scripts/validate_csv.py > validator-output.txt 2>&1 || true
+          rc=$?
+          echo "rc=$rc"
+          echo "::set-output name=rc::$rc"
+
+      - name: Comment on PR with validator output
+        if: ${{ github.event_name == 'pull_request' && steps.runvalidator.outputs.rc != '0' }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const out = fs.readFileSync('validator-output.txt', 'utf8');
+            const body = `CSV validator found issues:\n\n```
+            + out + '\n```';
+            const pr = context.payload.pull_request.number;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body: body
+            });
