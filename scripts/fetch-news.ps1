@@ -109,26 +109,9 @@ $markdown += @"
 # ---------- 4. WRITE MARKDOWN FILE ----------
 Set-Content -Path $mdPath -Value $markdown -Encoding UTF8
 
-# ---------- 5. UPDATE README WITH LATEST INTEL ----------
-$readmePath = Join-Path $repoRoot 'README.md'
-$readmeContent = Get-Content $readmePath -Raw -Encoding UTF8
-
-# Find the intel section or create it
-$intelMarker = "<!-- CYBER-INTEL-START -->"
-$intelEndMarker = "<!-- CYBER-INTEL-END -->"
-
-if ($readmeContent -match [regex]::Escape($intelMarker)) {
-    # Replace existing intel section
-    $pattern = "(?s)$([regex]::Escape($intelMarker)).*?$([regex]::Escape($intelEndMarker))"
-    $replacement = "$intelMarker`n`n$markdown`n`n$intelEndMarker"
-    $readmeContent = $readmeContent -replace $pattern, $replacement
-} else {
-    # Insert at top after title
-    $intelSection = "`n`n$intelMarker`n`n$markdown`n`n$intelEndMarker`n"
-    $readmeContent = $readmeContent -replace "(# CyberDailyLog[^\n]*\n[^\n]*\n[^\n]*\n[^\n]*\n)", "`$1$intelSection"
-}
-
-Set-Content -Path $readmePath -Value $readmeContent -Encoding UTF8 -NoNewline
+# ---------- 5. UPDATE CYBER_INTEL_LATEST.MD ----------
+$latestIntelPath = Join-Path $repoRoot 'CYBER_INTEL_LATEST.md'
+Set-Content -Path $latestIntelPath -Value $markdown -Encoding UTF8
 
 # ---------- 6. ARCHIVE OLD REPORT ----------
 $archivePath = Join-Path $repoRoot 'cyber-intel-archive.md'
@@ -142,12 +125,12 @@ if (Test-Path $archivePath) {
 }
 
 # ---------- 7. COMMIT & PUSH ----------
-git add $mdPath $readmePath $archivePath $historyFile
+git add $mdPath $latestIntelPath $archivePath $historyFile
 git commit -m "intel: daily cyber intelligence report ($date)"
 git push
 
 Write-Host ""
 Write-Host "Cyber intelligence updated:" -ForegroundColor Green
-Write-Host "  - README.md (latest at top)" -ForegroundColor Cyan
-Write-Host "  - cyber-intel-$date.md (daily file)" -ForegroundColor Cyan
+Write-Host "  - CYBER_INTEL_LATEST.md (always current)" -ForegroundColor Cyan
+Write-Host "  - cyber-intel-$date.md (daily snapshot)" -ForegroundColor Cyan
 Write-Host "  - cyber-intel-archive.md (historical)" -ForegroundColor Cyan
