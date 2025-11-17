@@ -20,5 +20,6 @@ else
 fi
 
 chmod +x .githooks/pre-commit || true
+git update-index --add --chmod=+x .githooks/pre-commit || true
 git config core.hooksPath .githooks
 echo "Configured git to use .githooks for hooks"

@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.0] - 2025-11-17
+## [1.1.1] - 2025-11-17
 
 ### Added
 - **CYBER_INTEL_LATEST.md**: Separated intel report from README to prevent merge conflicts

@@ -24,6 +24,9 @@ if (Get-Command -Name pwsh -ErrorAction SilentlyContinue) {
 Write-Output "Configuring git to use .githooks as hooks path (local config)..."
 git config core.hooksPath .githooks
 
+Write-Output "Marking .githooks/pre-commit as executable in Git index..."
+git update-index --add --chmod=+x .githooks/pre-commit
+
 # If running on a system with chmod (WSL / Git Bash / Unix), try to set +x
 if (Get-Command -Name chmod -ErrorAction SilentlyContinue) {
     try {

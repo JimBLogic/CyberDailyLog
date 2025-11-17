@@ -1,4 +1,11 @@
-﻿# Cyber Intelligence Report - 2025-11-17
+﻿---
+title: "Cyber Intelligence Report"
+---
+
+# Cyber Intelligence Report - 2025-11-17
+---
+title: "Cyber Intelligence Report"
+---
 
 > Automated daily scan of free certifications and critical vulnerabilities
 

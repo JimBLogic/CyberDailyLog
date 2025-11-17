@@ -2,12 +2,10 @@
 
 ![Validate CSV](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/validate-csv.yml/badge.svg)
 
-<!-- CYBER-INTEL-START -->
 ## 🎯 Latest Cyber Intelligence
 
 📊 [**View Latest Report**](CYBER_INTEL_LATEST.md) - Updated daily with free certifications & critical CVEs
 
-<!-- CYBER-INTEL-END -->
 
 Store my daily‑log CSV, news‑scan markdown, and automation scripts.
 
