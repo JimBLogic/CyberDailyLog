@@ -11,9 +11,12 @@ if ($staged -match '^daily-log\.csv$') {
     }
 
     $lines = Get-Content $csvPath -Encoding UTF8
+    $bom = [char]0xfeff
     for ($i = 0; $i -lt $lines.Length; $i++) {
-        if ($lines[$i].Trim() -eq '') { continue }
-        $cols = $lines[$i] -split ','
+        $line = $lines[$i]
+        if ($line.Length -gt 0 -and $line[0] -eq $bom) { $line = $line.Substring(1) }
+        if ($line.Trim() -eq '') { continue }
+        $cols = $line -split ','
         if ($cols.Count -ne 4) {
             Write-Error "Invalid CSV line $($i + 1): expected 4 columns, found $($cols.Count)"
             exit 1

@@ -10,8 +10,11 @@ if not path.exists():
 
 errors = 0
 with path.open(encoding='utf-8') as f:
-    for i, line in enumerate(f, start=1):
-        line = line.rstrip('\n')
+    for i, raw in enumerate(f, start=1):
+        # remove trailing newline and any leading UTF-8 BOM
+        line = raw.rstrip('\n')
+        if line.startswith('\ufeff'):
+            line = line.lstrip('\ufeff')
         if not line.strip():
             continue
         parts = line.split(',')
