@@ -25,7 +25,9 @@ jobs:
           pip install pytest
 
       - name: Run unit tests
-        run: pytest -q
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+          pytest -q
 
       - name: Run validator (capture output)
         id: runvalidator
