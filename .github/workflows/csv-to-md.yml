@@ -1,4 +1,4 @@
-﻿name: CSV-to-MD
+﻿name: "CSV to Markdown"
 on:
   push:
     paths:
