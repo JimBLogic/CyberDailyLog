@@ -26,6 +26,9 @@ Thumbs.db
 # Misc temp files
 *.log
 
+# Keep cyber-intel reports but ignore old news-scan format
+news-scan-*.md
+
 # Build artifacts
 dist/
 build/

@@ -39,13 +39,14 @@ pytest -q
 ## Automation Scripts
 
 ### `fetch-news.ps1` / `fetch-news.sh`
-**Purpose**: Automated daily cyber-security news aggregator for +1% daily improvement.
+**Purpose**: Automated daily cyber intelligence report generator.
 
 **Features**:
 - Fetches 3 random free certification offers (Google Cloud, Cisco, AWS, Azure, Palo Alto)
 - Fetches 3 random high-severity CVEs (CVSS ≥ 7.5)
-- Appends entry to `daily-log.csv` with pillar: "News"
+- Creates formatted markdown report: `cyber-intel-YYYY-MM-DD.md`
 - Auto-commits and pushes to GitHub
+- Keeps news separate from personal daily-log.csv
 
 **Usage (PowerShell)**:
 ```powershell
@@ -63,9 +64,19 @@ chmod +x scripts/fetch-news.sh
 - **Linux/macOS**: Cron job `0 8 * * 1-5`
 - **GitHub Actions**: `.github/workflows/daily-news.yml` (runs at 08:00 EST weekdays)
 
-**Output**: Adds line like:
-```
-2025-11-17,News,Daily cyber-sec news scan,Certs: Google Cloud... | CVEs: CVE-2025-30397...
+**Output**: Creates markdown file:
+```markdown
+# Cyber Intelligence Report - 2025-11-17
+
+## 🎓 Free Cloud & Security Certifications
+1. Google Cloud Cybersecurity Certificate...
+2. AWS re/Start...
+3. Microsoft Azure Fundamentals...
+
+## 🔴 Critical CVEs (CVSS ≥ 7.5)
+1. CVE-2025-30397 - Edge scripting engine...
+2. CVE-2025-32709 - WinSock driver...
+3. CVE-2025-29813 - Azure DevOps Server...
 ```
 
 ## Utility Scripts
