@@ -1,0 +1,7 @@
+﻿# Python artifacts
+__pycache__/
+*.py[cod]
+# VSCode settings (if you use it)
+.vscode/
+# Misc temp files
+*.log
