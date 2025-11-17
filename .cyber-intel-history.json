@@ -4,13 +4,23 @@
                  "CVE-2025-32709",
                  "CVE-2025-30397",
                  "CVE-2025-11567",
-                 "CVE-2025-21234"
+                 "CVE-2025-21234",
+                 "CVE-2025-12098",
+                 "CVE-2025-29813",
+                 "CVE-2025-18765",
+                 "CVE-2025-08543",
+                 "CVE-2025-09876"
              ],
     "certs":  [
                   "Google Cybersecurity Professional Certificate",
                   "Cisco CBROPS",
                   "Palo Alto PCCET",
                   "Google Cloud Cybersecurity Certificate",
-                  "AWS re/Start"
+                  "AWS re/Start",
+                  "CompTIA Security+ Practice Labs",
+                  "AWS Security Fundamentals",
+                  "Microsoft Azure Fundamentals (AZ-900)",
+                  "ISC2 CC (Certified in Cybersecurity)",
+                  "Microsoft SC-900 Security Fundamentals"
               ]
 }
