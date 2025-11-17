@@ -1,22 +1,16 @@
 ﻿{
     "cves":  [
-                 "CVE-2025-11567",
-                 "CVE-2025-09876",
-                 "CVE-2025-30397",
-                 "CVE-2025-08543",
+                 "CVE-2025-15432",
                  "CVE-2025-32709",
-                 "CVE-2025-29813",
-                 "CVE-2025-18765",
+                 "CVE-2025-30397",
+                 "CVE-2025-11567",
                  "CVE-2025-21234"
              ],
     "certs":  [
-                  "Palo Alto PCCET",
+                  "Google Cybersecurity Professional Certificate",
                   "Cisco CBROPS",
-                  "AWS Security Fundamentals",
-                  "Microsoft Azure Fundamentals (AZ-900)",
-                  "Microsoft SC-900 Security Fundamentals",
-                  "AWS re/Start",
-                  "CompTIA Security+ Practice Labs",
-                  "ISC2 CC (Certified in Cybersecurity)"
+                  "Palo Alto PCCET",
+                  "Google Cloud Cybersecurity Certificate",
+                  "AWS re/Start"
               ]
 }
