@@ -1,8 +1,9 @@
 ﻿name: "CSV to Markdown"
 on:
-  push:
-    paths:
-      - daily-log.csv
+  workflow_dispatch:  # Manual trigger only
+  # push:
+  #   paths:
+  #     - daily-log.csv
 
 jobs:
   convert:
