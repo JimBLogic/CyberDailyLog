@@ -1,4 +1,3 @@
-
 #!/usr/bin/env powershell
 # Fallback pre-commit hook (Windows PowerShell): validate `daily-log.csv` (exactly 4 columns, non-empty)
 
