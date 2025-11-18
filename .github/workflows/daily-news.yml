@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Run news fetch script
         run: |
           chmod +x scripts/fetch-news.sh
@@ -27,13 +32,3 @@ jobs:
 
       - name: Validate CSV
         run: python3 scripts/validate_csv.py
-
-      - name: Push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git push
-          fi
