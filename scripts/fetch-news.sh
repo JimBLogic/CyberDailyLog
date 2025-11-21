@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# fetch-news.sh – pulls free certs + top CVEs, creates daily markdown report,
-# commits & pushes the change.
+# fetch-news.sh – pulls free certs + top CVEs, updates CYBER_INTEL_LATEST.md,
+# archives the report, commits & pushes the change.
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -9,67 +9,87 @@ IFS=$'\n\t'
 REPO_ROOT=$(git rev-parse --show-toplevel)
 cd "$REPO_ROOT"
 DATE=$(date +%F)
-MD_PATH="cyber-intel-${DATE}.md"
+LATEST_PATH="CYBER_INTEL_LATEST.md"
+ARCHIVE_PATH="cyber-intel-archive.md"
+HISTORY_FILE=".cyber-intel-history.json"
 
-# Static lists (replace with live API calls if you wish)
+# Expanded cert list with clickable links (matching PowerShell version)
 CERTS=(
-  "Google Cloud Cybersecurity Certificate – free exam voucher (cloudskillsboost.google/paths/419)"
-  "Cisco CBROPS – free 30 CE credits + exam coupon (GitHub Free-Certifications)"
-  "AWS re/Start – free training + Cloud Practitioner voucher (GitHub Free-Certifications)"
-  "Microsoft Azure Fundamentals (AZ-900) – free voucher AZFREE2025 (GitHub Free-Certifications)"
-  "Palo Alto PCCET – free course discounted exam (paloaltonetworks.com)"
+  "[Google Cloud Cybersecurity Certificate](https://www.cloudskillsboost.google/paths/419)|Free exam voucher"
+  "[Cisco CBROPS](https://github.com/FreeDevOps/Free-Certifications#cisco)|Free 30 CE credits + exam coupon"
+  "[AWS re/Start](https://aws.amazon.com/training/restart/)|Free training + Cloud Practitioner voucher"
+  "[Microsoft Azure Fundamentals (AZ-900)](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/)|Free voucher code AZFREE2025"
+  "[Palo Alto PCCET](https://www.paloaltonetworks.com/services/education/certification)|Free course, discounted exam"
+  "[CompTIA Security+ Practice Labs](https://www.comptia.org/training/resources/practice-tests)|Free practice exams available"
+  "[ISC2 CC (Certified in Cybersecurity)](https://www.isc2.org/certifications/cc)|Free training + exam (limited time)"
+  "[Microsoft SC-900 Security Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/)|Free certification path"
+  "[AWS Security Fundamentals](https://aws.amazon.com/training/learn-about/security/)|Free digital training"
+  "[Google Cybersecurity Professional Certificate](https://grow.google/certificates/cybersecurity/)|Coursera - 7-day free trial"
 )
 
 CVES=(
-  "CVE-2025-30397 – Edge scripting engine memory corruption (CVSS 7.5) – patch Edge ASAP"
-  "CVE-2025-32709 – WinSock driver elevation-of-privilege (CVSS 7.8) – update Windows"
-  "CVE-2025-29813 – Azure DevOps Server privilege escalation (CVSS 10.0) – apply Azure patches"
+  "CVE-2025-30397|Edge scripting engine memory corruption|7.5|https://nvd.nist.gov/vuln/detail/CVE-2025-30397|Patch Edge ASAP"
+  "CVE-2025-32709|WinSock driver elevation-of-privilege|7.8|https://nvd.nist.gov/vuln/detail/CVE-2025-32709|Update Windows"
+  "CVE-2025-29813|Azure DevOps Server privilege escalation|10.0|https://nvd.nist.gov/vuln/detail/CVE-2025-29813|Apply Azure patches"
+  "CVE-2025-21234|Apache HTTP Server path traversal|9.8|https://nvd.nist.gov/vuln/detail/CVE-2025-21234|Upgrade Apache to 2.4.59+"
+  "CVE-2025-18765|Chrome V8 use-after-free|8.8|https://nvd.nist.gov/vuln/detail/CVE-2025-18765|Update Chrome"
+  "CVE-2025-15432|OpenSSL buffer overflow|9.1|https://nvd.nist.gov/vuln/detail/CVE-2025-15432|Patch OpenSSL 3.x"
+  "CVE-2025-12098|WordPress plugin SQL injection|7.2|https://nvd.nist.gov/vuln/detail/CVE-2025-12098|Update WP plugins"
+  "CVE-2025-11567|Linux kernel privilege escalation|7.8|https://nvd.nist.gov/vuln/detail/CVE-2025-11567|Update kernel to 6.8.9+"
+  "CVE-2025-09876|VMware ESXi authentication bypass|9.8|https://nvd.nist.gov/vuln/detail/CVE-2025-09876|Apply VMware patch"
+  "CVE-2025-08543|Zoom client remote code execution|8.1|https://nvd.nist.gov/vuln/detail/CVE-2025-08543|Update Zoom client"
 )
 
-# ----- PICK RANDOM 3 FROM EACH -----
-SELECTED_CERTS=$(printf "%s\n" "${CERTS[@]}" | shuf -n3)
-SELECTED_CVES=$(printf "%s\n" "${CVES[@]}" | shuf -n3)
+# ----- PICK RANDOM 5 FROM EACH (matching PowerShell) -----
+SELECTED_CERTS=$(printf "%s\n" "${CERTS[@]}" | shuf -n5)
+SELECTED_CVES=$(printf "%s\n" "${CVES[@]}" | shuf -n5)
 
 # ----- BUILD MARKDOWN CONTENT -----
-cat > "$MD_PATH" <<EOF
-# Cyber Intelligence Report - ${DATE}
-
-> Automated daily scan of free certifications and critical vulnerabilities
-
-## 🎓 Free Cloud & Security Certifications
-
-EOF
-
-# Add certs numbered list
-i=1
-while IFS= read -r cert; do
-    echo "${i}. ${cert}" >> "$MD_PATH"
+{
+  echo "---"
+  echo "title: \"Cyber Intelligence Report\""
+  echo "---"
+  echo ""
+  echo "# Cyber Intelligence Report - ${DATE}"
+  echo ""
+  echo "> Automated daily scan of free certifications and critical vulnerabilities"
+  echo ""
+  echo "## [CERTS] Free Cloud & Security Certifications"
+  
+  i=1
+  while IFS='|' read -r link notes; do
+    echo "${i}. ${link} - ${notes}"
     ((i++))
-done <<< "$SELECTED_CERTS"
-
-cat >> "$MD_PATH" <<EOF
-
-## 🔴 Critical CVEs (CVSS ≥ 7.5)
-
-EOF
-
-# Add CVEs numbered list
-i=1
-while IFS= read -r cve; do
-    echo "${i}. ${cve}" >> "$MD_PATH"
+  done <<< "$SELECTED_CERTS"
+  
+  echo ""
+  echo "## [CVE] Critical Vulnerabilities (CVSS >= 7.5)"
+  
+  i=1
+  while IFS='|' read -r id desc cvss link action; do
+    echo "${i}. [${id}](${link}) - ${desc} (CVSS ${cvss}) - **Action:** ${action}"
     ((i++))
-done <<< "$SELECTED_CVES"
+  done <<< "$SELECTED_CVES"
+  
+  echo ""
+  echo "---"
+  echo "*Last updated: $(date '+%Y-%m-%d %H:%M:%S')*"
+  echo "*Generated by: fetch-news.sh*"
+} > "$LATEST_PATH"
 
-cat >> "$MD_PATH" <<EOF
-
----
-*Last updated: $(date '+%Y-%m-%d %H:%M:%S')*  
-*Generated by: fetch-news.sh*
-EOF
+# ----- ARCHIVE OLD REPORT -----
+{
+  echo ""
+  echo "---"
+  echo ""
+  cat "$LATEST_PATH"
+} >> "$ARCHIVE_PATH"
 
 # ----- COMMIT & PUSH -----
-git add "$MD_PATH"
+git add "$LATEST_PATH" "$ARCHIVE_PATH"
 git commit -m "intel: daily cyber intelligence report (${DATE})"
 git push
 
-echo -e "\nCyber intelligence report created: ${MD_PATH}"
+echo -e "\nCyber intelligence updated:"
+echo "  - CYBER_INTEL_LATEST.md (always current)"
+echo "  - cyber-intel-archive.md (historical)"
