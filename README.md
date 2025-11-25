@@ -6,6 +6,27 @@
 
 📊 [**View Latest Report**](CYBER_INTEL_LATEST.md) - Updated daily with free certifications & critical CVEs
 
+---
+### Latest Summary (2025-11-25)
+
+> Automated daily scan of free certifications and critical vulnerabilities
+
+#### [CERTS] Free Cloud & Security Certifications
+1. [Google Cloud Cybersecurity Certificate](https://www.cloudskillsboost.google/paths/419) - Free exam voucher
+2. [Cisco CBROPS](https://github.com/FreeDevOps/Free-Certifications#cisco) - Free 30 CE credits + exam coupon
+3. [AWS re/Start](https://aws.amazon.com/training/restart/) - Free training + Cloud Practitioner voucher
+4. [Microsoft Azure Fundamentals (AZ-900)](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/) - Free voucher code AZFREE2025
+5. [CompTIA Security+ Practice Labs](https://www.comptia.org/training/resources/practice-tests) - Free practice exams available
+
+#### [CVE] Critical Vulnerabilities (CVSS >= 7.5)
+1. [CVE-2025-30397](https://nvd.nist.gov/vuln/detail/CVE-2025-30397) - Edge scripting engine memory corruption (CVSS 7.5) - **Action:** Patch Edge ASAP
+2. [CVE-2025-32709](https://nvd.nist.gov/vuln/detail/CVE-2025-32709) - WinSock driver elevation-of-privilege (CVSS 7.8) - **Action:** Update Windows
+3. [CVE-2025-29813](https://nvd.nist.gov/vuln/detail/CVE-2025-29813) - Azure DevOps Server privilege escalation (CVSS 10.0) - **Action:** Apply Azure patches
+4. [CVE-2025-18765](https://nvd.nist.gov/vuln/detail/CVE-2025-18765) - Chrome V8 use-after-free (CVSS 8.8) - **Action:** Update Chrome
+5. [CVE-2025-15432](https://nvd.nist.gov/vuln/detail/CVE-2025-15432) - OpenSSL buffer overflow (CVSS 9.1) - **Action:** Patch OpenSSL 3.x
+
+---
+
 
 Store my daily‑log CSV, news‑scan markdown, and automation scripts.
 
