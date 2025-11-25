@@ -78,12 +78,16 @@ SELECTED_CVES=$(printf "%s\n" "${CVES[@]}" | shuf -n5)
 } > "$LATEST_PATH"
 
 # ----- ARCHIVE OLD REPORT -----
-{
-  echo ""
-  echo "---"
-  echo ""
-  cat "$LATEST_PATH"
-} >> "$ARCHIVE_PATH"
+
+# Avoid duplicate daily reports in archive
+if ! grep -q "# Cyber Intelligence Report - ${DATE}" "$ARCHIVE_PATH"; then
+  {
+    echo ""
+    echo "---"
+    echo ""
+    cat "$LATEST_PATH"
+  } >> "$ARCHIVE_PATH"
+fi
 
 # ----- COMMIT & PUSH -----
 git add "$LATEST_PATH" "$ARCHIVE_PATH"
