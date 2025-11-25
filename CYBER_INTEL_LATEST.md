@@ -1,6 +1,12 @@
----
 title: "Cyber Intelligence Report"
 ---
+
+## [CVE] Adicionales investigados por el usuario
+
+1. [CVE-2025-2146](https://nvd.nist.gov/vuln/detail/CVE-2025-2146) - Desbordamiento de búfer en impresoras multifunción y láser Canon. Medida: actualizar firmware a v05.07+, deshabilitar WSD si no se usa.
+2. [CVE-2025-1268](https://nvd.nist.gov/vuln/detail/CVE-2025-1268) - Fallos “out-of-bounds” en drivers de impresión Canon (Generic Plus PCL6, UFR II). Medida: instalar drivers actualizados desde el portal oficial.
+
+Recomendación adicional: segmentar la red y limitar acceso a colas de impresión para fortalecer la seguridad.
 
 # Cyber Intelligence Report - 2025-11-24
 
