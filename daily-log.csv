@@ -16,3 +16,8 @@
 2025-11-19,Career,Applied to local IT positions,Submitted applications and followed up with recruiters; scheduled initial phone screens
 2025-11-20,Research,Reviewed recent Cloudflare service incident,Read the post-mortem understood the high-level cause and noted a few mitigation ideas for our own environment
 2025-11-21,Learning,Read several cybersecurity articles,Covered topics such as supply-chain risks zero-trust concepts and emerging ransomware trends
+
+2025-11-22,Automatización,Automatización de organización de imágenes y videos,Organicé archivos multimedia en SSD locales y Drives en la nube usando scripts personalizados
+2025-11-23,Programación,Laboratorios locales y uso de VPN,Configuré laboratorios en VM y probé VPN para acceso seguro; PiHole para minimizar trackers y anuncios
+2025-11-24,Kali Linux,Estudio y noticias sobre ciberseguridad,Leí noticias relevantes y realicé prácticas en Kali Linux sobre pentesting básico
+2025-11-25,Raspberry Pi - Debian,Estudio Google Cloud y PiHole,Configuré Raspberry Pi con Debian para PiHole y estudié Google Cloud; optimicé privacidad y seguridad
