@@ -5,12 +5,6 @@
 ---
 
 # Cyber Intelligence Report - 2025-11-17
-
-> Automated daily scan of free certifications and critical vulnerabilities
-
-## [CERTS] Free Cloud & Security Certifications
-1. [Google Cybersecurity Professional Certificate](https://grow.google/certificates/cybersecurity/) - Coursera - 7-day free trial
-2. [Cisco CBROPS](https://github.com/FreeDevOps/Free-Certifications#cisco) - Free 30 CE credits + exam coupon
 3. [Palo Alto PCCET](https://www.paloaltonetworks.com/services/education/certification) - Free course, discounted exam
 4. [Google Cloud Cybersecurity Certificate](https://www.cloudskillsboost.google/paths/419) - Free exam voucher
 5. [AWS re/Start](https://aws.amazon.com/training/restart/) - Free training + Cloud Practitioner voucher
