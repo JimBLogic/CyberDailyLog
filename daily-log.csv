@@ -16,8 +16,10 @@
 2025-11-19,Career,Applied to local IT positions,Submitted applications and followed up with recruiters; scheduled initial phone screens
 2025-11-20,Research,Reviewed recent Cloudflare service incident,Read the post-mortem understood the high-level cause and noted a few mitigation ideas for our own environment
 2025-11-21,Learning,Read several cybersecurity articles,Covered topics such as supply-chain risks zero-trust concepts and emerging ransomware trends
-2025-11-22,Automatización,Automatización de organización de imágenes y videos,Organicé archivos multimedia en SSD locales y Drives en la nube usando scripts personalizados
-2025-11-23,Programación,Laboratorios locales y uso de VPN,Configuré laboratorios en VM y probé VPN para acceso seguro; PiHole para minimizar trackers y anuncios
-2025-11-24,Kali Linux,Estudio y noticias sobre ciberseguridad,Leí noticias relevantes y realicé prácticas en Kali Linux sobre pentesting básico
-2025-11-25,Raspberry Pi - Debian,Estudio Google Cloud y PiHole,Configuré Raspberry Pi con Debian para PiHole y estudié Google Cloud; optimicé privacidad y seguridad
-2025-11-25,Seguridad,Investigación sobre Canon PSIRT y CVEs,Descubrí el equipo PSIRT de Canon y su rol como CNA. Revisé CVE-2025-2146 y CVE-2025-1268. Medidas: actualizar firmware y drivers; segmentar red y limitar colas de impresión. Inspirador ver cómo Canon gestiona la seguridad y cómo compartir soluciones convierte la ciberseguridad en práctica diaria.
+2025-11-22,Automation,Automated organization of images and videos,Organized multimedia files on local SSDs and cloud Drives using custom scripts
+2025-11-23,Programming,Local labs and VPN usage,Configured labs in VMs and tested VPN for secure access; PiHole to minimize trackers and ads
+2025-11-24,Kali Linux,Studied and read cybersec news,Read relevant news and practiced basic pentesting in Kali Linux
+2025-11-25,Raspberry Pi - Debian,Studied Google Cloud and PiHole,Configured Raspberry Pi with Debian for PiHole and studied Google Cloud; optimized privacy and security
+2025-11-25,Security,Canon PSIRT and CVE research,Learned about Canon's PSIRT team and CNA role. Reviewed CVE-2025-2146 and CVE-2025-1268. Actions: update firmware and drivers; segment network and limit print queues. Inspiring to see Canon's security management and how sharing solutions turns cybersecurity into daily practice.
+
+2025-11-26,Security,Completed TryHackMe challenges,"Finished: Phishing Pond (https://tryhackme.com/room/phishingpond); Seven Minutes on the Seine (https://tryhackme.com/room/thecasesevenminutesontheseine); Adv3nt0fdbopsjcap (https://tryhackme.com/room/adv3nt0fdbopsjcap); Armageddon2r (https://tryhackme.com/room/armageddon2r)"
