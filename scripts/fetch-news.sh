@@ -80,18 +80,18 @@ SELECTED_CVES=$(printf "%s\n" "${CVES[@]}" | shuf -n5)
 # ----- ARCHIVE OLD REPORT -----
 
 # Avoid duplicate daily reports in archive
-if ! grep -q "# Cyber Intelligence Report - ${DATE}" "$ARCHIVE_PATH"; then
-  {
-    echo ""
-    echo "---"
-    echo ""
-    cat "$LATEST_PATH"
-  } >> "$ARCHIVE_PATH"
-fi
+{
+  echo ""
+  echo "---"
+  echo ""
+  cat "$LATEST_PATH"
+} >> "$ARCHIVE_PATH"
 
 # ----- COMMIT & PUSH -----
+
+# Always commit, even if only the timestamp changes
 git add "$LATEST_PATH" "$ARCHIVE_PATH"
-git commit -m "intel: daily cyber intelligence report (${DATE})"
+git commit -m "intel: daily cyber intelligence report (${DATE})" || echo "No changes to commit, but timestamp updated."
 git push
 
 echo -e "\nCyber intelligence updated:"

@@ -3,7 +3,7 @@ name: Daily Cyber-Sec News
 on:
   workflow_dispatch:  # Manual trigger for testing
   schedule:
-    - cron: '0 13 * * 1-5'   # 08:00 EST (13:00 UTC) Monday-Friday
+    - cron: '0 13 * * *'   # 08:00 EST (13:00 UTC) Every day
 
 jobs:
   update:
