@@ -11,7 +11,7 @@ class RssCollector(BaseCollector):
 
     def __init__(self, *a, sources=None, **kw):
         super().__init__(*a, **kw)
-        self.sources = sources or []
+        self.sources = [source for source in (sources or []) if source.get("enabled", True)]
 
     def collect(self, since, until):
         started = datetime.now(timezone.utc)
