@@ -1,0 +1,1 @@
+{"resultsPerPage":1,"startIndex":2,"totalResults":3,"vulnerabilities":[{"cve":{"id":"CVE-2099-0003","published":"2026-07-15T04:00:00.000Z","lastModified":"2026-07-15T04:00:00.000Z","vulnStatus":"Received","descriptions":[{"lang":"en","value":"Example library issue with missing optional CVSS data."}],"references":{"referenceData":[]}}}]}

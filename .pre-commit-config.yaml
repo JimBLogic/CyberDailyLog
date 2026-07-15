@@ -1,8 +1,13 @@
 repos:
   - repo: local
     hooks:
-      - id: csv-validator
-        name: CSV validator
-        entry: python3 scripts/validate_csv.py
+      - id: ruff-check
+        name: Ruff check
+        entry: ruff check
         language: system
-        files: ^daily-log\.csv$
+        types: [python]
+      - id: pytest-offline
+        name: Offline tests
+        entry: pytest
+        language: system
+        pass_filenames: false

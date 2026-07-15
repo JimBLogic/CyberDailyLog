@@ -1,193 +1,61 @@
-﻿# CyberDailyLog
+# CyberDailyLog
 
-![Validate CSV](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/validate-csv.yml/badge.svg)
+CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, correlates vulnerability and exploitation data, ranks actionable developments, and publishes reproducible daily reports.
 
-## 🎯 Latest Cyber Intelligence
+The current report lives at [`reports/latest.md`](reports/latest.md); the README deliberately does not embed a manually maintained latest summary.
 
-📊 [**View Latest Report**](CYBER_INTEL_LATEST.md) - Updated daily with free certifications & critical CVEs
+## What it collects
 
----
-### Latest Summary (2025-11-25)
+- Tier 1 structured sources: CISA KEV, NVD CVE API 2.0, FIRST EPSS, and GitHub-reviewed public security advisories.
+- Tier 2 official RSS/Atom advisories configured in `config/sources.yml`.
+- Tier 3 allowlisted defensive GitHub releases such as SigmaHQ Sigma, Elastic detection rules, and Wazuh.
 
-> Automated daily scan of free certifications and critical vulnerabilities
+## What it excludes
 
-#### [CERTS] Free Cloud & Security Certifications
-1. [Google Cloud Cybersecurity Certificate](https://www.cloudskillsboost.google/paths/419) - Free exam voucher
-2. [Cisco CBROPS](https://github.com/FreeDevOps/Free-Certifications#cisco) - Free 30 CE credits + exam coupon
-3. [AWS re/Start](https://aws.amazon.com/training/restart/) - Free training + Cloud Practitioner voucher
-4. [Microsoft Azure Fundamentals (AZ-900)](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/) - Free voucher code AZFREE2025
-5. [CompTIA Security+ Practice Labs](https://www.comptia.org/training/resources/practice-tests) - Free practice exams available
+The active pipeline excludes personal progress tracking, certification-offer scraping, arbitrary search results, proof-of-concept exploitation feeds, malware downloads, LLM-generated claims, and sources that require commercial access or fragile scraping.
 
-#### [CVE] Critical Vulnerabilities (CVSS >= 7.5)
-1. [CVE-2025-30397](https://nvd.nist.gov/vuln/detail/CVE-2025-30397) - Edge scripting engine memory corruption (CVSS 7.5) - **Action:** Patch Edge ASAP
-2. [CVE-2025-32709](https://nvd.nist.gov/vuln/detail/CVE-2025-32709) - WinSock driver elevation-of-privilege (CVSS 7.8) - **Action:** Update Windows
-3. [CVE-2025-29813](https://nvd.nist.gov/vuln/detail/CVE-2025-29813) - Azure DevOps Server privilege escalation (CVSS 10.0) - **Action:** Apply Azure patches
-4. [CVE-2025-18765](https://nvd.nist.gov/vuln/detail/CVE-2025-18765) - Chrome V8 use-after-free (CVSS 8.8) - **Action:** Update Chrome
-5. [CVE-2025-15432](https://nvd.nist.gov/vuln/detail/CVE-2025-15432) - OpenSSL buffer overflow (CVSS 9.1) - **Action:** Patch OpenSSL 3.x
+## Quick start
 
----
-
-
-Store my daily‑log CSV, news‑scan markdown, and automation scripts.
-
-**License:** MIT
-
----
-
-## Make It Work
-
-Quick commands to get the repository working on a fresh machine (Windows/PowerShell or WSL/Linux).
-
-### Prerequisites
-- Git
-- Python 3.8+ (or 3.x)
-- Optionally `pwsh` (PowerShell 7) for the preferred hook variant
-
-### Quick Start (Windows PowerShell)
-
-Run these from the repo root:
-
-```powershell
-# Create and activate a virtual environment
+```bash
 python -m venv .venv
-.\.venv\Scripts\python -m pip install --upgrade pip
-
-# Install test/developer tools
-.\.venv\Scripts\python -m pip install pytest
-
-# Install repository hooks (sets local git config core.hooksPath)
-./scripts/install-githooks.ps1
-
-# Run unit tests
-.\.venv\Scripts\python -m pytest -q
-
-# Run validator (may auto-insert header / normalize dates)
-.\.venv\Scripts\python scripts/validate_csv.py
-```
-
-### Quick Start (WSL / Git Bash / Linux)
-
-```bash
-python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install pytest
-./scripts/install-githooks.sh
-pytest -q
-python3 scripts/validate_csv.py
+python -m pip install -r requirements.txt
+python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports
+python -m cyberdailylog validate --output-dir tmp/reports
 ```
 
-Or use the Makefile:
+A real run is:
 
 ```bash
-make install-hooks
-make validate-csv
+python -m cyberdailylog run --lookback-hours 24
 ```
 
----
+Optional secrets are documented in `.env.example`: `NVD_API_KEY` and `GITHUB_TOKEN`. No repository secret is required for local offline fixture mode.
 
-## Developer Setup
+## Reports
 
-### Install Hooks
+The pipeline writes `reports/latest.md`, `reports/latest.json`, `reports/source-health.json`, and dated archive files under `reports/archive/YYYY/MM/`. Reports include coverage timestamps, generation timestamp, source health, selection reasons, and methodology limitations.
 
-After cloning the repository, enable the versioned Git hooks once:
+## Scoring transparency
 
-- **Windows (PowerShell):**
-  ```powershell
-  ./scripts/install-githooks.ps1
-  ```
+Scoring is deterministic and configurable in `config/scoring.yml`. It boosts confirmed exploitation, CISA KEV entries, known ransomware use, high CVSS, high EPSS, official sources, priority technology categories, and detection opportunities. Ranking assists prioritisation but does not replace asset-specific risk assessment.
 
-- **WSL / Git Bash / Linux:**
-  ```bash
-  ./scripts/install-githooks.sh
-  ```
+## Provenance and source health
 
-- **Or use the Makefile:**
-  ```bash
-  make install-hooks
-  ```
+Every canonical item keeps field-level provenance where collectors provide important values. Every run creates source-health records with status, timing, accepted/rejected counts, HTTP status when available, and sanitized errors.
 
-The installer sets the local Git config `core.hooksPath` to `.githooks` so hooks are enabled only for that clone.
+## Daily workflow
 
-### Why Hooks?
+`.github/workflows/daily-intelligence.yml` runs at 06:17 UTC and can also be dispatched manually. The workflow owns committing generated reports with the built-in `GITHUB_TOKEN`; the Python application never runs `git push`.
 
-- Hooks are versioned in the repository so pre-commit logic is reviewed and updated alongside code.
-- Local pre-commit checks give quick feedback and prevent malformed rows from entering `daily-log.csv`.
+## Security and copyright
 
-### What the Validator Checks
+CyberDailyLog stores metadata, identifiers, official links, and conservative defensive context. It does not download malware, execute exploit code, bypass access controls, republish full articles, or print secrets.
 
-- `scripts/validate_csv.py` validates that every non-empty line in `daily-log.csv` has exactly **4 comma-separated columns**.
-- The pre-commit hook runs the same check locally and will block commits that stage an invalid `daily-log.csv`.
-- Run locally with:
-  ```bash
-  make validate-csv
-  # or
-  python3 scripts/validate_csv.py
-  ```
+## Relationship to homelab work
 
-### PowerShell 7 (`pwsh`) vs Windows PowerShell
+This repository is independently useful and is not coupled to any Raspberry Pi or private homelab repository. `config/technologies.yml` is an editorial relevance list, not a claim about the maintainer's environment.
 
-- The installer prefers `pwsh` (PowerShell 7). If `pwsh` is available on PATH the installer will use the `pwsh`-shebang hook variant; otherwise it installs a Windows PowerShell fallback so hooks still run on typical Windows systems.
-- To install PowerShell 7 on Windows:
-  1. Download the latest MSI from: https://github.com/PowerShell/PowerShell/releases/latest
-  2. Run the MSI and accept the defaults (it installs to `C:\Program Files\PowerShell\7\` by default).
-  3. Open a new terminal and verify with:
-     ```powershell
-     pwsh -v
-     ```
-  4. Re-run the installer:
-     ```powershell
-     ./scripts/install-githooks.ps1
-     ```
+## Current status
 
-### Notes on Hooks and Validation
-
-- Hooks are versioned in `.githooks`. The installer sets `core.hooksPath` to `.githooks` in the local clone, so no global Git state is changed.
-- The hook tries to run the canonical validator `scripts/validate_csv.py` using `python3` (or `python`) if available. If Python is not found, the hook uses a lightweight PowerShell fallback that enforces the 4-column rule.
-- `scripts/validate_csv.py`:
-  - strips a UTF‑8 BOM if present,
-  - auto-inserts the header `date,pillar,task,notes` when the file is empty or when the first row looks like data,
-  - normalizes common date formats into `YYYY-MM-DD`, and
-  - validates each data row for 4 columns, a valid date, and non-empty `pillar` and `task` fields.
-
-### CI Behavior (GitHub Actions)
-
-- The workflow `.github/workflows/validate-csv.yml` runs unit tests (`pytest`) and then the validator; if the validator reports issues on a PR, the workflow comments on the PR with the validator's output to help contributors fix problems quickly.
-
----
-
-## Troubleshooting
-
-- **If `pytest` isn't found on the command line**, use the venv Python to run it:
-  ```powershell
-  .\.venv\Scripts\python -m pytest -q
-  ```
-
-- **If `pwsh` (PowerShell 7) is not installed**, the installer will default to the Windows PowerShell variant so hooks still run on typical Windows systems. To install PowerShell 7 (optional):
-  - Download the MSI: https://github.com/PowerShell/PowerShell/releases/latest
-  - Run the MSI and accept defaults (adds `pwsh` to PATH).
-  - Re-run the installer: `./scripts/install-githooks.ps1`.
-
-- **If you see a BOM-only or empty `daily-log.csv`** causing earlier validator failures, the validator now strips BOMs and will auto-add a header. You can also remove the BOM manually using:
-  ```powershell
-  (Get-Content -Raw -Encoding UTF8 daily-log.csv) -replace '^\uFEFF','' | Set-Content -Encoding UTF8 daily-log.csv
-  ```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
-- Setting up your development environment
-- Installing Git hooks
-- Running tests and validation
-- CSV format requirements
-- Pull request process
-
-For questions or suggestions, open an issue on GitHub.
-
----
-
-## 📄 License
-
-MIT – see `LICENSE` for full text.
+This is the first refactor release of the pipeline. Unit tests use deterministic fixtures; live scheduled generation should be considered unproven until the GitHub Actions run succeeds in this repository.

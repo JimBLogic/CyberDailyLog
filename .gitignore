@@ -1,35 +1,14 @@
-﻿# Python artifacts
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-
-# Virtual environment
+.env
 .venv/
-venv/
-ENV/
-env/
-
-# VSCode settings
-.vscode/
-
-# OS-specific caches
-Thumbs.db
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+tmp/
+.cache/
+*.pyc
 .DS_Store
-
-# Editor swap / backup files
-*~
-*.swp
-*.bak
-
-# Misc temp files
-*.log
-
-# Keep cyber-intel reports but ignore old news-scan format
-news-scan-*.md
-
-# Build artifacts
-dist/
-build/
-*.egg-info/
+reports/*.tmp
+test-artifacts/

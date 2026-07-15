@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "cyberdailylog"
+version = "2.0.0"
+requires-python = ">=3.12"
+dependencies = []
+[tool.setuptools.packages.find]
+where=["src"]
+[tool.ruff]
+line-length=120
+[tool.mypy]
+python_version="3.12"
+ignore_missing_imports=true
+[tool.pytest.ini_options]
+addopts="--cov=cyberdailylog --cov-report=term-missing --cov-fail-under=85"
+pythonpath=["src"]
