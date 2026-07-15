@@ -28,10 +28,10 @@ jobs:
           python -m pip install -r requirements-dev.txt
 
       - name: Ruff lint
-        run: ruff check .
+        run: ruff check src tests
 
       - name: Ruff format check
-        run: ruff format --check .
+        run: ruff format --check src tests
 
       - name: Mypy
         run: mypy src
