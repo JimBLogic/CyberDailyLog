@@ -10,6 +10,8 @@ dependencies = [
 ]
 [tool.setuptools.packages.find]
 where=["src"]
+[tool.setuptools.package-data]
+cyberdailylog = ["schemas/*.json"]
 [tool.ruff]
 line-length=120
 [tool.mypy]
@@ -18,4 +20,3 @@ ignore_missing_imports=true
 disable_error_code=["import-untyped"]
 [tool.pytest.ini_options]
 addopts="--cov=cyberdailylog --cov-report=term-missing --cov-fail-under=85"
-pythonpath=["src"]
