@@ -1,20 +1,61 @@
-import argparse, json
+import argparse
+import json
 from datetime import datetime, timezone
 from pathlib import Path
+
 from .pipeline import Pipeline
 
-def dt(s): return datetime.fromisoformat(s.replace('Z','+00:00')).astimezone(timezone.utc)
-def main(argv=None):
-    p=argparse.ArgumentParser(); sub=p.add_subparsers(dest='cmd',required=True)
-    for name in ['collect','generate','run','validate','source-health']:
-        sp=sub.add_parser(name); sp.add_argument('--since'); sp.add_argument('--until'); sp.add_argument('--lookback-hours',type=int,default=24); sp.add_argument('--output-dir',default='reports'); sp.add_argument('--config-dir',default='config'); sp.add_argument('--dry-run',action='store_true'); sp.add_argument('--offline-fixtures',action='store_true'); sp.add_argument('--log-level',default='INFO'); sp.add_argument('--fail-on-degraded',action='store_true')
-    a=p.parse_args(argv)
-    if a.cmd in {'run','collect','generate','source-health'}:
-        r=Pipeline(Path(a.config_dir),Path(a.output_dir),a.offline_fixtures).run(dt(a.since) if a.since else None, dt(a.until) if a.until else None, a.lookback_hours, a.dry_run, a.fail_on_degraded)
-        if a.cmd=='source-health': print(json.dumps([h.to_dict() for h in r.source_health],indent=2))
-        else: print(f'Generated {len(r.items)} selected items; degraded={r.degraded}')
-    elif a.cmd=='validate':
-        for f in [Path(a.output_dir)/'latest.json', Path(a.output_dir)/'source-health.json']:
-            if f.exists(): json.loads(f.read_text())
-        print('Validation OK')
-if __name__=='__main__': main()
+
+def parse_datetime(value: str) -> datetime:
+    """Parse an ISO-8601 datetime and normalize it to UTC."""
+    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def add_common_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--since")
+    parser.add_argument("--until")
+    parser.add_argument("--lookback-hours", type=int, default=24)
+    parser.add_argument("--output-dir", default="reports")
+    parser.add_argument("--config-dir", default="config")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--offline-fixtures", action="store_true")
+    parser.add_argument("--log-level", default="INFO")
+    parser.add_argument("--fail-on-degraded", action="store_true")
+
+
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers(dest="cmd", required=True)
+
+    for name in ["collect", "generate", "run", "validate", "source-health"]:
+        add_common_arguments(subparsers.add_parser(name))
+
+    args = parser.parse_args(argv)
+
+    if args.cmd in {"run", "collect", "generate", "source-health"}:
+        report = Pipeline(
+            Path(args.config_dir),
+            Path(args.output_dir),
+            args.offline_fixtures,
+        ).run(
+            parse_datetime(args.since) if args.since else None,
+            parse_datetime(args.until) if args.until else None,
+            args.lookback_hours,
+            args.dry_run,
+            args.fail_on_degraded,
+        )
+        if args.cmd == "source-health":
+            print(json.dumps([health.to_dict() for health in report.source_health], indent=2))
+        else:
+            print(f"Generated {len(report.items)} selected items; degraded={report.degraded}")
+        return
+
+    output_dir = Path(args.output_dir)
+    for path in [output_dir / "latest.json", output_dir / "source-health.json"]:
+        if path.exists():
+            json.loads(path.read_text(encoding="utf-8"))
+    print("Validation OK")
+
+
+if __name__ == "__main__":
+    main()
