@@ -1,0 +1,9 @@
+priority_terms:
+  windows: [Windows, WinSock, Active Directory]
+  microsoft_365: [Microsoft 365, Exchange, SharePoint]
+  linux: [Linux, kernel, Ubuntu, Debian, Red Hat]
+  browsers: [Chrome, Chromium, Firefox, Edge]
+  vpn_remote_access: [VPN, Ivanti, Fortinet, GlobalProtect]
+  firewalls: [firewall, FortiGate, PAN-OS]
+  cloud: [Azure, AWS, Google Cloud, Kubernetes, Docker]
+  security_products: [Sigma, Suricata, Zeek, YARA, osquery, Wazuh]

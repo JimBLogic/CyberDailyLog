@@ -1,0 +1,466 @@
+{
+  "coverage_end": "2026-07-16T00:00:00+00:00",
+  "coverage_start": "2026-07-14T00:00:00+00:00",
+  "degraded": false,
+  "generated_at": "2026-07-15T17:59:08+00:00",
+  "items": [
+    {
+      "affected_versions": [
+        "< 2.0.1"
+      ],
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2099-0001",
+      "category": "vulnerability",
+      "cisa_kev": true,
+      "collected_at": "2026-07-15T17:59:08.178031+00:00",
+      "confidence": "high",
+      "cve_ids": [
+        "CVE-2099-0001"
+      ],
+      "cvss_score": 10.0,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor guidance."
+      ],
+      "ecosystems": [
+        "pip"
+      ],
+      "epss_percentile": 0.99,
+      "epss_score": 0.91,
+      "exploitation_status": "confirmed_exploitation",
+      "fixed_versions": [
+        "2.0.1"
+      ],
+      "ghsa_ids": [
+        "GHSA-xxxx-yyyy-zzzz"
+      ],
+      "kev_date_added": "2026-07-15T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "modified_at": "2026-07-15T00:00:00+00:00",
+      "official_source": true,
+      "products": [
+        "Example VPN",
+        "example-vpn-client"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-07-15T17:59:08.178276+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD",
+            "value": 10.0
+          },
+          {
+            "collected_at": "2026-07-15T17:59:08.179208+00:00",
+            "field": "cvss_score",
+            "source_name": "GitHub Global Security Advisories",
+            "value": 9.8
+          }
+        ],
+        "cvss_vector": [
+          {
+            "collected_at": "2026-07-15T17:59:08.179186+00:00",
+            "field": "cvss_vector",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
+          },
+          {
+            "collected_at": "2026-07-15T17:59:08.179210+00:00",
+            "field": "cvss_vector",
+            "source_name": "GitHub Global Security Advisories",
+            "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "cvss_version": [
+          {
+            "collected_at": "2026-07-15T17:59:08.179184+00:00",
+            "field": "cvss_version",
+            "source_name": "NVD CVE API 2.0",
+            "value": "3.1"
+          }
+        ],
+        "epss_score": [
+          {
+            "collected_at": "2026-07-15T17:59:08.179155+00:00",
+            "field": "epss_score",
+            "source_name": "FIRST EPSS",
+            "value": 0.91
+          }
+        ],
+        "fixed_versions": [
+          {
+            "collected_at": "2026-07-15T17:59:08.178491+00:00",
+            "field": "fixed_versions",
+            "source_name": "GitHub reviewed advisory",
+            "value": [
+              "2.0.1"
+            ]
+          }
+        ],
+        "known_exploited": [
+          {
+            "collected_at": "2026-07-15T17:59:08.178056+00:00",
+            "field": "known_exploited",
+            "source_name": "CISA KEV",
+            "value": true
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-07-15T17:59:08.179188+00:00",
+            "field": "severity",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CRITICAL"
+          },
+          {
+            "collected_at": "2026-07-15T17:59:08.179212+00:00",
+            "field": "severity",
+            "source_name": "GitHub Global Security Advisories",
+            "value": "critical"
+          }
+        ]
+      },
+      "published_at": "2026-07-15T00:00:00+00:00",
+      "recommended_actions": [
+        "Apply vendor mitigation or disconnect affected interfaces."
+      ],
+      "references": [
+        "https://vendor.example/advisory/2099-0001",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25",
+        "critical CVSS +20",
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10",
+        "priority technology: vpn_remote_access +8",
+        "official source +5"
+      ],
+      "selection_score": 183,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "summary": "Example VPN command injection exploited in the wild.",
+      "title": "CVE-2099-0001 exploited in CISA KEV: ExampleCorp Example VPN",
+      "vendors": [
+        "ExampleCorp"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "blue_team_relevance": "Allowlisted defensive project release; review release notes for detection or monitoring updates.",
+      "canonical_id": "release:SigmaHQ/sigma:v2099.1",
+      "category": "tool_release",
+      "cisa_kev": null,
+      "collected_at": "2026-07-15T17:59:08.179033+00:00",
+      "confidence": "medium",
+      "cve_ids": [],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Review release notes for defensive content changes."
+      ],
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "exploitation_status": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "modified_at": "2026-07-15T09:00:00+00:00",
+      "official_source": true,
+      "products": [],
+      "provenance": {},
+      "published_at": "2026-07-15T09:00:00+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/SigmaHQ/sigma/releases/tag/v2099.1"
+      ],
+      "selection_reasons": [
+        "priority technology: security_products +8",
+        "official source +5",
+        "defensive detection opportunity +5"
+      ],
+      "selection_score": 18,
+      "severity": null,
+      "source_name": "GitHub Releases",
+      "source_tier": 3,
+      "source_type": "defensive_tool_release",
+      "source_url": "https://github.com/SigmaHQ/sigma/releases/tag/v2099.1",
+      "summary": "Fixture detection content release",
+      "title": "SigmaHQ/sigma v2099.1",
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "blue_team_relevance": "",
+      "canonical_id": "url:https://www.cisa.gov/news-events/alerts/fixture",
+      "category": "advisory",
+      "cisa_kev": null,
+      "collected_at": "2026-07-15T17:59:08.178867+00:00",
+      "confidence": "medium",
+      "cve_ids": [],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [],
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "exploitation_status": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "modified_at": "2026-07-15T08:00:00+00:00",
+      "official_source": true,
+      "products": [],
+      "provenance": {},
+      "published_at": "2026-07-15T08:00:00+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://www.cisa.gov/news-events/alerts/fixture"
+      ],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": null,
+      "source_name": "CISA Cybersecurity Advisories",
+      "source_tier": 2,
+      "source_type": "official_rss",
+      "source_url": "https://www.cisa.gov/news-events/alerts/fixture",
+      "summary": "Official advisory fixture.",
+      "title": "CISA advisory fixture",
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2099-0003",
+      "category": "vulnerability",
+      "cisa_kev": null,
+      "collected_at": "2026-07-15T17:59:08.178294+00:00",
+      "confidence": "medium",
+      "cve_ids": [
+        "CVE-2099-0003"
+      ],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor guidance."
+      ],
+      "ecosystems": [],
+      "epss_percentile": 0.5,
+      "epss_score": 0.12,
+      "exploitation_status": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "modified_at": "2026-07-15T04:00:00+00:00",
+      "official_source": true,
+      "products": [],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-07-15T17:59:08.178303+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD",
+            "value": null
+          }
+        ],
+        "epss_score": [
+          {
+            "collected_at": "2026-07-15T17:59:08.179153+00:00",
+            "field": "epss_score",
+            "source_name": "FIRST EPSS",
+            "value": 0.12
+          }
+        ]
+      },
+      "published_at": "2026-07-15T04:00:00+00:00",
+      "recommended_actions": [],
+      "references": [],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": null,
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2099-0003",
+      "summary": "Example library issue with missing optional CVSS data.",
+      "title": "CVE-2099-0003: Example library issue with missing optional CVSS data.",
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "blue_team_relevance": "",
+      "canonical_id": "GHSA-with-drawn",
+      "category": "vulnerability",
+      "cisa_kev": null,
+      "collected_at": "2026-07-15T17:59:08.178506+00:00",
+      "confidence": "high",
+      "cve_ids": [],
+      "cvss_score": 3.1,
+      "cvss_vector": "",
+      "cvss_version": null,
+      "detection_opportunities": [],
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "exploitation_status": null,
+      "fixed_versions": [],
+      "ghsa_ids": [
+        "GHSA-with-drawn"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "modified_at": "2026-07-15T06:00:00+00:00",
+      "official_source": true,
+      "products": [],
+      "provenance": {
+        "fixed_versions": [
+          {
+            "collected_at": "2026-07-15T17:59:08.178535+00:00",
+            "field": "fixed_versions",
+            "source_name": "GitHub reviewed advisory",
+            "value": []
+          }
+        ]
+      },
+      "published_at": "2026-07-15T06:00:00+00:00",
+      "recommended_actions": [],
+      "references": [],
+      "selection_reasons": [
+        "Withdrawn advisory retained for transparency but excluded from priority scoring"
+      ],
+      "selection_score": 0,
+      "severity": "low",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-with-drawn",
+      "summary": "Withdrawn.",
+      "title": "Withdrawn advisory fixture",
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": true
+    }
+  ],
+  "source_health": [
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.178060+00:00",
+      "http_status": null,
+      "items_accepted": 1,
+      "items_received": 1,
+      "items_rejected": 0,
+      "required": true,
+      "sanitized_error_message": null,
+      "source": "cisa_kev",
+      "started_at": "2026-07-15T17:59:08.177924+00:00",
+      "status": "fixture_only"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.178306+00:00",
+      "http_status": null,
+      "items_accepted": 2,
+      "items_received": 3,
+      "items_rejected": 1,
+      "required": true,
+      "sanitized_error_message": null,
+      "source": "nvd",
+      "started_at": "2026-07-15T17:59:08.178080+00:00",
+      "status": "fixture_only"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.178539+00:00",
+      "http_status": null,
+      "items_accepted": 2,
+      "items_received": 2,
+      "items_rejected": 0,
+      "required": true,
+      "sanitized_error_message": null,
+      "source": "github_advisories",
+      "started_at": "2026-07-15T17:59:08.178322+00:00",
+      "status": "fixture_only"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.178894+00:00",
+      "http_status": null,
+      "items_accepted": 1,
+      "items_received": 2,
+      "items_rejected": 1,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "rss_official",
+      "started_at": "2026-07-15T17:59:08.178550+00:00",
+      "status": "fixture_only"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.179045+00:00",
+      "http_status": null,
+      "items_accepted": 1,
+      "items_received": 1,
+      "items_rejected": 0,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "github_releases",
+      "started_at": "2026-07-15T17:59:08.178906+00:00",
+      "status": "fixture_only"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 0,
+      "error_type": null,
+      "finished_at": "2026-07-15T17:59:08.179136+00:00",
+      "http_status": null,
+      "items_accepted": 2,
+      "items_received": 2,
+      "items_rejected": 0,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "epss",
+      "started_at": "2026-07-15T17:59:08.179068+00:00",
+      "status": "fixture_only"
+    }
+  ]
+}

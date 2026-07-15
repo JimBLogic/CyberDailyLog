@@ -1,0 +1,20 @@
+rss_sources:
+  - name: CISA Cybersecurity Advisories
+    url: https://www.cisa.gov/news.xml
+    owner: Cybersecurity and Infrastructure Security Agency
+    category: government_advisory
+    primary: true
+  - name: Red Hat Security Advisories
+    url: https://access.redhat.com/security/data/oval/v2/RHEL9/rhel-9.oval.xml.bz2
+    enabled: false
+    reason: disabled until parser supports OVAL safely
+github_releases:
+  - SigmaHQ/sigma
+  - elastic/detection-rules
+  - wazuh/wazuh
+optional_future_sources:
+  - abuse.ch ThreatFox
+  - URLhaus
+  - MalwareBazaar
+  - AlienVault OTX
+  - MISP feeds

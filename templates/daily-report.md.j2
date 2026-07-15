@@ -1,0 +1,61 @@
+# Blue Team Intelligence Digest — {{ report.coverage_end.date() }}
+
+Coverage:
+{{ report.coverage_start.isoformat() }} → {{ report.coverage_end.isoformat() }}
+
+Generated:
+{{ report.generated_at.isoformat() }}
+
+## Executive Summary
+
+{{ items|length }} source-backed developments qualified for this coverage window. {% if report.degraded %}This report is degraded; review Source Health before using it operationally.{% endif %}
+
+## 1. Immediate Attention
+
+{% set imm = items|selectattr('cisa_kev')|list %}{% if imm %}{% for item in imm[:10] %}- **{{ item.canonical_id|e }}** — {{ item.title|e }}. Selected because: {{ item.selection_reasons|join(' + ')|e }}
+{% endfor %}{% else %}No confirmed exploitation or new KEV entries qualified in this run.
+{% endif %}
+## 2. Vulnerability Priorities
+
+| Priority | CVE/GHSA | Product | CVSS | EPSS | KEV | Reason |
+| --- | --- | --- | ---: | ---: | --- | --- |
+{% for item in items if item.category == 'vulnerability' -%}
+| {{ loop.index }} | {{ (item.cve_ids + item.ghsa_ids)|join(', ')|e }} | {{ item.products|join(', ')|e }} | {{ item.cvss_score if item.cvss_score is not none else 'n/a' }} | {{ '%.3f'|format(item.epss_score) if item.epss_score is not none else 'n/a' }} | {{ 'yes' if item.cisa_kev else 'no' }} | {{ item.selection_reasons|join('; ')|e }} |
+{% else %}| — | — | — | — | — | — | No qualifying vulnerability items. |
+{% endfor %}
+## 3. Threat and Ransomware Activity
+
+Only verified and source-backed activity is shown. {% set r = items|selectattr('known_ransomware_use')|list %}{% if r %}{% for item in r %}- {{ item.title|e }}
+{% endfor %}{% else %}No reliable ransomware-linked item qualified.
+{% endif %}
+## 4. Detection Opportunities
+
+Analyst context generated from structured source fields.
+{% for item in items if item.detection_opportunities %}- **{{ item.title|e }}**: {{ item.detection_opportunities|join(' ')|e }}
+{% else %}No detection-specific opportunities were derived.
+{% endfor %}
+## 5. Vendor and Government Advisories
+
+{% for item in items if item.category == 'advisory' %}- [{{ item.title|e }}]({{ item.source_url }}) — {{ item.source_name|e }}
+{% else %}No official advisory feed entries qualified.
+{% endfor %}
+## 6. Blue Team Tools and Detection Content
+
+{% for item in items if item.category == 'tool_release' %}- [{{ item.title|e }}]({{ item.source_url }}) — {{ item.blue_team_relevance|e }}
+{% else %}No allowlisted defensive project releases qualified.
+{% endfor %}
+## 7. Analyst Queue
+
+{% for item in items[:10] %}- Review {{ item.canonical_id|e }} against asset inventory and vendor guidance.
+{% else %}- No qualifying items; verify source health and coverage window.
+{% endfor %}
+## 8. Source Health
+
+| Source | Status | Items | Duration | Detail |
+| --- | --- | ---: | ---: | --- |
+{% for h in report.source_health -%}
+| {{ h.source }} | {{ h.status }} | {{ h.items_accepted }} | {{ h.duration_ms }} ms | {{ h.sanitized_error_message or '' }} |
+{% endfor %}
+## Methodology and Limitations
+
+Ranking assists prioritisation and does not replace asset-specific risk assessment. EPSS is a probability signal, not proof of exploitation. This product uses data from the NVD API but is not endorsed or certified by the NVD.

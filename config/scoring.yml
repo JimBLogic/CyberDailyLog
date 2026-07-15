@@ -1,0 +1,16 @@
+weights:
+  cisa_kev: 50
+  confirmed_exploitation: 40
+  known_ransomware_use: 25
+  cvss_critical: 20
+  cvss_high: 10
+  epss_very_high: 25
+  epss_high: 15
+  epss_percentile_high: 10
+  unauthenticated_rce: 15
+  authentication_bypass: 12
+  privilege_escalation: 8
+  priority_technology: 8
+  official_primary_source: 5
+  detection_opportunity: 5
+  metadata_only_modified: -5

@@ -1,0 +1,5 @@
+section_limits:
+  immediate_attention: 10
+  vulnerability_priorities: 20
+  advisories: 20
+  tool_releases: 10
