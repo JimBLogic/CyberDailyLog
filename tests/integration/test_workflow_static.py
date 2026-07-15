@@ -79,6 +79,15 @@ def test_ci_installs_runtime_and_dev_dependencies_and_strict_audit():
         == "python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports"
     )
     assert steps["Validate generated report"]["run"] == "python -m cyberdailylog validate --output-dir tmp/reports"
+    assert steps["Build wheel"]["run"] == "python -m build"
+    smoke = steps["Installed wheel smoke test"]["run"]
+    assert "python -m venv /tmp/cyberdailylog-wheel-test" in smoke
+    assert "/tmp/cyberdailylog-wheel-test/bin/python -m pip install dist/*.whl" in smoke
+    assert "/tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog run" in smoke
+    assert "/tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog validate" in smoke
+    assert "test -f /tmp/cyberdailylog-wheel-reports/latest.md" in smoke
+    assert "test -f /tmp/cyberdailylog-wheel-reports/latest.json" in smoke
+    assert "test -f /tmp/cyberdailylog-wheel-reports/source-health.json" in smoke
     audit = steps["Dependency audit"]["run"]
     assert audit == "python -m pip_audit -r requirements.txt -r requirements-dev.txt"
     assert "|| echo" not in audit

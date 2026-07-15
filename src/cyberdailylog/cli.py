@@ -1,5 +1,6 @@
 import argparse
 import json
+from importlib.resources import files
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -52,8 +53,15 @@ def validate_reports(output_dir: Path) -> None:
     health = _load_json(health_path)
     if not isinstance(latest, dict):
         raise ValidationError("latest.json must contain a JSON object")
-    schema_path = Path(__file__).resolve().parents[2] / "schemas" / "intelligence-item.schema.json"
-    schema = _load_json(schema_path)
+    schema_resource = files("cyberdailylog").joinpath("schemas/intelligence-item.schema.json")
+    try:
+        schema = json.loads(schema_resource.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise ValidationError(
+            "required package schema resource is missing: schemas/intelligence-item.schema.json"
+        ) from exc
+    except json.JSONDecodeError as exc:
+        raise ValidationError(f"invalid JSON in package schema resource: {exc}") from exc
     _validate_latest_schema_subset(latest, schema)
     if not isinstance(health, list):
         raise ValidationError("source-health.json must contain a list")

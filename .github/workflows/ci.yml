@@ -2,7 +2,7 @@ name: CI
 "on":
   pull_request:
   push:
-    branches: [main, codex/refactor-blue-team-intelligence-pipeline]
+    branches: [main]
 permissions:
   contents: read
 jobs:
@@ -35,9 +35,33 @@ jobs:
       - name: JSON schema validation
         run: |
           python - <<'PY'
-          import json, jsonschema
-          jsonschema.validate(json.load(open('tmp/reports/latest.json')), json.load(open('schemas/intelligence-item.schema.json')))
+          import json
+          from importlib.resources import files
+
+          import jsonschema
+
+          report = json.loads(open('tmp/reports/latest.json', encoding='utf-8').read())
+          schema = json.loads(
+              files('cyberdailylog').joinpath('schemas/intelligence-item.schema.json').read_text(encoding='utf-8')
+          )
+          jsonschema.validate(report, schema)
           PY
+      - name: Build wheel
+        run: python -m build
+      - name: Installed wheel smoke test
+        run: |
+          python -m venv /tmp/cyberdailylog-wheel-test
+          /tmp/cyberdailylog-wheel-test/bin/python -m pip install --upgrade pip
+          /tmp/cyberdailylog-wheel-test/bin/python -m pip install dist/*.whl
+          /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog run \
+            --offline-fixtures \
+            --config-dir "$PWD/config" \
+            --output-dir /tmp/cyberdailylog-wheel-reports
+          /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog validate \
+            --output-dir /tmp/cyberdailylog-wheel-reports
+          test -f /tmp/cyberdailylog-wheel-reports/latest.md
+          test -f /tmp/cyberdailylog-wheel-reports/latest.json
+          test -f /tmp/cyberdailylog-wheel-reports/source-health.json
       - name: Lightweight secret and policy scan
         run: |
           bad1="AZFREE""2025"; bad2="Free"" Cloud"; ! rg -n "$bad1|$bad2" src README.md config docs && ! rg -n "git push" src

@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 import json
 import pathlib
+from importlib.resources import files
 from cyberdailylog.pipeline import Pipeline
 from cyberdailylog.collectors.nvd import NvdCollector
 from cyberdailylog.collectors.cisa_kev import CisaKevCollector
@@ -64,6 +65,14 @@ def test_offline_generation_and_schema(tmp_path):
     assert (tmp_path / "archive" / "2026" / "07" / "2026-07-16.md").exists()
     text = (tmp_path / "latest.md").read_text()
     assert "Personal" not in text and "certification" not in text.lower()
+
+
+def test_schema_resource_matches_top_level_schema():
+    package_schema = (
+        files("cyberdailylog").joinpath("schemas/intelligence-item.schema.json").read_text(encoding="utf-8")
+    )
+    top_level_schema = pathlib.Path("schemas/intelligence-item.schema.json").read_text(encoding="utf-8")
+    assert json.loads(package_schema) == json.loads(top_level_schema)
 
 
 def test_no_static_pipeline_regressions():
