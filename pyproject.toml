@@ -16,3 +16,8 @@ ignore_missing_imports=true
 [tool.pytest.ini_options]
 addopts="--cov=cyberdailylog --cov-report=term-missing --cov-fail-under=85"
 pythonpath=["src"]
+[tool.coverage.run]
+omit = [
+    "src/cyberdailylog/__main__.py",
+    "src/cyberdailylog/cli.py",
+]
