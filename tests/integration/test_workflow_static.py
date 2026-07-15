@@ -1,13 +1,84 @@
 from pathlib import Path
 
+import yaml
+
+
+def load_workflow(path: str):
+    return yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+
 
 def test_workflows_do_not_require_gh_pat_or_csv():
     text = "\n".join(p.read_text(errors="ignore") for p in Path(".github/workflows").glob("*.yml"))
     assert "custom GitHub personal access token" not in text
     assert "daily-log.csv" not in text
+    assert "GH_PAT" not in text
+    assert "PERSONAL_ACCESS_TOKEN" not in text
 
 
 def test_readme_links_report_not_manual_summary():
     text = Path("README.md").read_text(encoding="utf-8")
     assert "reports/latest.md" in text
     assert "Free Cloud" not in text
+
+
+def test_daily_workflow_safe_mode_contract():
+    workflow = load_workflow(".github/workflows/daily-intelligence.yml")
+    dispatch = workflow["on"]["workflow_dispatch"]["inputs"]
+    assert dispatch["dry_run"]["type"] == "boolean"
+    assert dispatch["dry_run"]["default"] is True
+    assert dispatch["lookback_hours"]["required"] is True
+    collect = workflow["jobs"]["collect"]
+    publish = workflow["jobs"]["publish"]
+    assert collect["permissions"] == {"contents": "read"}
+    assert publish["permissions"] == {"contents": "write"}
+    assert "needs.collect.outputs.dry_run == 'false'" in publish["if"]
+    assert "github.ref == 'refs/heads/main'" in publish["if"]
+    steps = {step.get("name", step.get("id")): step for step in collect["steps"]}
+    mode_script = steps["Resolve execution mode"]["run"]
+    assert 'EVENT_NAME" = "schedule"' in mode_script
+    assert 'dry_run="false"' in mode_script
+    assert 'dry_run="true"' in mode_script
+    assert "lookback_hours must be a positive integer" in mode_script
+    install_script = steps["Install application"]["run"]
+    run_script = steps["Run collection"]["run"]
+    assert "python -m pip install ." in install_script
+    assert install_script.find("python -m pip install .") >= 0
+    assert 'python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS"\n' in run_script
+    assert "--fail-on-degraded" in run_script
+    assert "--dry-run" not in run_script
+    upload = steps["Upload reports"]
+    assert upload["with"]["name"] == "reports-${{ github.run_id }}"
+    assert upload["with"]["if-no-files-found"] == "error"
+    assert upload["with"]["retention-days"] == 7
+    assert "cat reports/source-health.json" in steps["Show source health"]["run"]
+    download = {step.get("name"): step for step in publish["steps"]}["Download reports"]
+    assert download["with"]["name"] == upload["with"]["name"]
+    publish_script = {step.get("name"): step for step in publish["steps"]}["Commit and push changed report files"][
+        "run"
+    ]
+    assert "git add reports" in publish_script
+    assert "git diff --cached --quiet" in publish_script
+    assert "exit 0" in publish_script
+    assert "git push" in publish_script
+    assert "git add ." not in publish_script
+
+
+def test_ci_installs_runtime_and_dev_dependencies_and_strict_audit():
+    workflow = load_workflow(".github/workflows/ci.yml")
+    steps = {step.get("name"): step for step in workflow["jobs"]["test"]["steps"]}
+    install = steps["Install dependencies"]["run"]
+    assert "python -m pip install ." in install
+    assert "python -m pip install -r requirements-dev.txt" in install
+    assert "python -m pip install -e" not in install
+    assert steps["Ruff lint"]["run"] == "ruff check ."
+    assert steps["Ruff format check"]["run"] == "ruff format --check ."
+    assert steps["Mypy"]["run"] == "mypy src"
+    assert steps["Pytest with coverage"]["run"] == "pytest"
+    assert (
+        steps["Offline fixture report"]["run"]
+        == "python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports"
+    )
+    assert steps["Validate generated report"]["run"] == "python -m cyberdailylog validate --output-dir tmp/reports"
+    audit = steps["Dependency audit"]["run"]
+    assert audit == "python -m pip_audit -r requirements.txt -r requirements-dev.txt"
+    assert "|| echo" not in audit

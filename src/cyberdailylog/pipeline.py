@@ -81,7 +81,6 @@ class Pipeline:
         )
         if report.degraded and fail_on_degraded:
             raise SystemExit(2)
-        if not dry_run:
-            write_markdown(report, self.output_dir)
-            write_json(report, self.output_dir)
+        write_markdown(report, self.output_dir)
+        write_json(report, self.output_dir)
         return report

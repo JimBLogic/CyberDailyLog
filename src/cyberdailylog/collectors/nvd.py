@@ -1,6 +1,31 @@
 from datetime import datetime, timezone
+from typing import Any
+
 from .base import BaseCollector
 from cyberdailylog.models import IntelligenceItem
+
+
+def extract_reference_urls(references: Any) -> list[str]:
+    if isinstance(references, dict):
+        raw_refs = references.get("referenceData", [])
+    else:
+        raw_refs = references
+    if not isinstance(raw_refs, list):
+        return []
+    urls: list[str] = []
+    seen: set[str] = set()
+    for ref in raw_refs:
+        if not isinstance(ref, dict):
+            continue
+        url = ref.get("url")
+        if not isinstance(url, str):
+            continue
+        url = url.strip()
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        urls.append(url)
+    return urls
 
 
 class NvdCollector(BaseCollector):
@@ -29,7 +54,7 @@ class NvdCollector(BaseCollector):
                 sev = m.get("baseSeverity") or d.get("baseSeverity")
                 break
         desc = next((d["value"] for d in cve.get("descriptions", []) if d.get("lang") == "en"), "")
-        refs = [r.get("url", "") for r in cve.get("references", {}).get("referenceData", []) if r.get("url")]
+        refs = extract_reference_urls(cve.get("references"))
         item = IntelligenceItem(
             canonical_id=cid,
             title=f"{cid}: {desc[:120]}",
