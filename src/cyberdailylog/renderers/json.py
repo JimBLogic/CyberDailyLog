@@ -1,7 +1,27 @@
 import json
 from pathlib import Path
-def write_json(report,out:Path):
-    out.mkdir(parents=True,exist_ok=True); text=report.model_dump_json(indent=2)
-    (out/'latest.json').write_text(text+'\n',encoding='utf-8')
-    (out/'source-health.json').write_text(json.dumps([h.to_dict() for h in report.source_health],indent=2,sort_keys=True)+'\n',encoding='utf-8')
-    d=report.coverage_end.date(); ad=out/'archive'/f'{d:%Y}'/f'{d:%m}'; ad.mkdir(parents=True,exist_ok=True); (ad/f'{d}.json').write_text(text+'\n',encoding='utf-8')
+
+from cyberdailylog.models import Report
+
+
+def write_json(report: Report, output_dir: Path) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    text = report.model_dump_json(indent=2)
+    (output_dir / "latest.json").write_text(text + "\n", encoding="utf-8")
+    (output_dir / "source-health.json").write_text(
+        json.dumps(
+            [health.to_dict() for health in report.source_health],
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    report_date = report.coverage_end.date()
+    archive_dir = output_dir / "archive" / f"{report_date:%Y}" / f"{report_date:%m}"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    (archive_dir / f"{report_date}.json").write_text(
+        text + "\n",
+        encoding="utf-8",
+    )
