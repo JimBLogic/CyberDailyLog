@@ -1,7 +1,7 @@
 {
   "coverage_end": "2026-07-16T08:33:48+00:00",
   "coverage_start": "2026-07-15T08:33:48+00:00",
-  "degraded": true,
+  "degraded": false,
   "generated_at": "2026-07-16T08:34:06+00:00",
   "immediate_attention": "No confirmed exploitation or CISA KEV entries qualified in this run.",
   "project": "CyberDailyLog",
