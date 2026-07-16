@@ -77,8 +77,21 @@ jobs:
           else
             python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS" --fail-on-degraded
           fi
+      - name: Generate compact portfolio feed
+        run: python -m cyberdailylog.portfolio_feed
       - name: Validate reports
         run: python -m cyberdailylog validate
+      - name: Validate portfolio feed
+        run: |
+          python - <<'PY'
+          import json
+
+          feed = json.loads(open('reports/portfolio-feed.json', encoding='utf-8').read())
+          assert feed['schema_version'] == 1
+          assert feed['project'] == 'CyberDailyLog'
+          assert isinstance(feed['top_vulnerabilities'], list)
+          assert len(feed['top_vulnerabilities']) <= 5
+          PY
       - name: Show source health
         run: cat reports/source-health.json
       - name: Upload reports # actions/upload-artifact@v4
