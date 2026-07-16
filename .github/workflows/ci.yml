@@ -30,6 +30,11 @@ jobs:
         run: pytest
       - name: Offline fixture report
         run: python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports
+      - name: Generate fixture portfolio feed
+        run: |
+          python -m cyberdailylog.portfolio_feed \
+            --report tmp/reports/latest.json \
+            --output tmp/reports/portfolio-feed.json
       - name: Validate generated report
         run: python -m cyberdailylog validate --output-dir tmp/reports
       - name: JSON schema validation
@@ -45,6 +50,12 @@ jobs:
               files('cyberdailylog').joinpath('schemas/intelligence-item.schema.json').read_text(encoding='utf-8')
           )
           jsonschema.validate(report, schema)
+
+          feed = json.loads(open('tmp/reports/portfolio-feed.json', encoding='utf-8').read())
+          assert feed['schema_version'] == 1
+          assert feed['project'] == 'CyberDailyLog'
+          assert feed['qualified_developments'] == len(report['items'])
+          assert len(feed['top_vulnerabilities']) <= 5
           PY
       - name: Build wheel
         run: python -m build
@@ -59,9 +70,13 @@ jobs:
             --output-dir /tmp/cyberdailylog-wheel-reports
           /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog validate \
             --output-dir /tmp/cyberdailylog-wheel-reports
+          /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog.portfolio_feed \
+            --report /tmp/cyberdailylog-wheel-reports/latest.json \
+            --output /tmp/cyberdailylog-wheel-reports/portfolio-feed.json
           test -f /tmp/cyberdailylog-wheel-reports/latest.md
           test -f /tmp/cyberdailylog-wheel-reports/latest.json
           test -f /tmp/cyberdailylog-wheel-reports/source-health.json
+          test -s /tmp/cyberdailylog-wheel-reports/portfolio-feed.json
       - name: Lightweight secret and policy scan
         run: |
           bad1="AZFREE""2025"; bad2="Free"" Cloud"; ! rg -n "$bad1|$bad2" src README.md config docs && ! rg -n "git push" src
