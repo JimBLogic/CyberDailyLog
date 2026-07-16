@@ -1,0 +1,131 @@
+{
+  "coverage_end": "2026-07-16T08:33:48+00:00",
+  "coverage_start": "2026-07-15T08:33:48+00:00",
+  "degraded": true,
+  "generated_at": "2026-07-16T08:34:06+00:00",
+  "immediate_attention": "No confirmed exploitation or CISA KEV entries qualified in this run.",
+  "project": "CyberDailyLog",
+  "qualified_developments": 331,
+  "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
+  "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
+  "schema_version": 1,
+  "source_health": {
+    "status_counts": {
+      "degraded": 1,
+      "healthy": 5
+    },
+    "total": 6
+  },
+  "title": "Blue Team Intelligence Digest",
+  "top_vulnerabilities": [
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-62948"
+      ],
+      "cvss_score": 9.6,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-62948",
+      "known_exploited": false,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "nvd",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62948",
+      "title": "CVE-2026-62948"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-61736"
+      ],
+      "cvss_score": 9.3,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-61736",
+      "known_exploited": false,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "nvd",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61736",
+      "title": "CVE-2026-61736"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-56699"
+      ],
+      "cvss_score": 10.0,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-56699",
+      "known_exploited": false,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: security_products +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "nvd",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56699",
+      "title": "CVE-2026-56699"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-50562"
+      ],
+      "cvss_score": 9.3,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-50562",
+      "known_exploited": false,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "nvd",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50562",
+      "title": "CVE-2026-50562"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-55652"
+      ],
+      "cvss_score": 9.8,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-55652",
+      "known_exploited": false,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "critical",
+      "source_name": "nvd",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55652",
+      "title": "CVE-2026-55652"
+    }
+  ]
+}
