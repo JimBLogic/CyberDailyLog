@@ -22,19 +22,31 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports
 python -m cyberdailylog validate --output-dir tmp/reports
+python -m cyberdailylog.portfolio_feed \
+  --report tmp/reports/latest.json \
+  --output tmp/reports/portfolio-feed.json
 ```
 
 A real run is:
 
 ```bash
 python -m cyberdailylog run --lookback-hours 24
+python -m cyberdailylog.portfolio_feed
 ```
 
 Optional secrets are documented in `.env.example`: `NVD_API_KEY` and `GITHUB_TOKEN`. No repository secret is required for local offline fixture mode.
 
 ## Reports
 
-The pipeline writes `reports/latest.md`, `reports/latest.json`, `reports/source-health.json`, and dated archive files under `reports/archive/YYYY/MM/`. Reports include coverage timestamps, generation timestamp, source health, selection reasons, and methodology limitations.
+The pipeline writes:
+
+- `reports/latest.md`: the complete human-readable daily brief;
+- `reports/latest.json`: the complete structured report and provenance payload;
+- `reports/portfolio-feed.json`: a compact, stable JSON view for the public portfolio and other lightweight clients;
+- `reports/source-health.json`: collector health and sanitized errors;
+- dated archive files under `reports/archive/YYYY/MM/`.
+
+The compact portfolio feed contains coverage timestamps, generation time, the qualified-item count, immediate-attention status, source-health totals and the five highest-ranked vulnerabilities. It avoids making a static website download the full daily report while preserving links to the complete brief and repository.
 
 ## Scoring transparency
 
