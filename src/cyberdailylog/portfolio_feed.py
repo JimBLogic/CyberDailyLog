@@ -80,9 +80,7 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
 
     exploited = [item for item in items if item.get("known_exploited") is True or item.get("cisa_kev") is True]
     if exploited:
-        immediate_attention = (
-            f"{len(exploited)} qualified item(s) include confirmed exploitation or CISA KEV status."
-        )
+        immediate_attention = f"{len(exploited)} qualified item(s) include confirmed exploitation or CISA KEV status."
     else:
         immediate_attention = "No confirmed exploitation or CISA KEV entries qualified in this run."
 
