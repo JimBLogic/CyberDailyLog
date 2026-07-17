@@ -1,5 +1,7 @@
 # CyberDailyLog
 
+[![Daily Blue Team Intelligence](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml/badge.svg)](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml)
+
 CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, correlates vulnerability and exploitation data, ranks actionable developments, and publishes reproducible daily reports.
 
 The current report lives at [`reports/latest.md`](reports/latest.md); the README deliberately does not embed a manually maintained latest summary.
