@@ -1,5 +1,7 @@
 # CyberDailyLog
 
+[![Daily Blue Team Intelligence](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml/badge.svg)](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml)
+
 CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, correlates vulnerability and exploitation data, ranks actionable developments, and publishes reproducible daily reports.
 
 The current report lives at [`reports/latest.md`](reports/latest.md); the README deliberately does not embed a manually maintained latest summary.
@@ -70,4 +72,4 @@ This repository is independently useful and is not coupled to any Raspberry Pi o
 
 ## Current status
 
-This is the first refactor release of the pipeline. Unit tests use deterministic fixtures; live scheduled generation should be considered unproven until the GitHub Actions run succeeds in this repository.
+Live GitHub Actions generation is operating on `main`, and the public portfolio feed updates from the generated reports. Unit tests continue to use deterministic fixtures. Review [`reports/source-health.json`](reports/source-health.json) alongside each report because optional sources can degrade independently without invalidating healthy required-source coverage.
