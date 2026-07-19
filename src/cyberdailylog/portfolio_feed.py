@@ -158,8 +158,8 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         immediate_attention = "No confirmed exploitation, CISA KEV or ransomware-linked item qualified."
 
     health_counts: dict[str, int] = {}
-    core = []
-    optional = []
+    core: list[dict[str, Any]] = []
+    optional: list[dict[str, Any]] = []
     for entry in health:
         status = str(entry.get("status") or "unknown")
         health_counts[status] = health_counts.get(status, 0) + 1
