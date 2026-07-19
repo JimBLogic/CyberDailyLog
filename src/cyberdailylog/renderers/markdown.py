@@ -62,12 +62,7 @@ def _identifier(item: IntelligenceItem) -> str:
 
 
 def _qualifies(item: IntelligenceItem, minimum: float) -> bool:
-    return bool(
-        item.priority_score >= minimum
-        or item.cisa_kev
-        or item.known_exploited
-        or item.known_ransomware_use
-    )
+    return bool(item.priority_score >= minimum or item.cisa_kev or item.known_exploited or item.known_ransomware_use)
 
 
 def _why(item: IntelligenceItem, limit: int) -> str:
@@ -121,31 +116,19 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
 
     used: set[str] = set()
     immediate = _take_unique(
-        [
-            item
-            for item in report.items
-            if item.cisa_kev or item.known_exploited or item.known_ransomware_use
-        ],
+        [item for item in report.items if item.cisa_kev or item.known_exploited or item.known_ransomware_use],
         int(curation["max_immediate_attention"]),
         used,
         total_limit,
     )
     vulnerabilities = _take_unique(
-        [
-            item
-            for item in report.items
-            if item.category == "vulnerability" and _qualifies(item, minimum)
-        ],
+        [item for item in report.items if item.category == "vulnerability" and _qualifies(item, minimum)],
         int(curation["max_priority_vulnerabilities"]),
         used,
         total_limit,
     )
     advisories = _take_unique(
-        [
-            item
-            for item in report.items
-            if item.category == "advisory" and _qualifies(item, minimum)
-        ],
+        [item for item in report.items if item.category == "advisory" and _qualifies(item, minimum)],
         int(curation["max_official_advisories"]),
         used,
         total_limit,
@@ -224,8 +207,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     lines += ["", "## Notable official advisories", ""]
     if advisories:
         lines.extend(
-            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url}) — "
-            f"{escape(_why(item, reason_limit))}"
+            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url}) — {escape(_why(item, reason_limit))}"
             for item in advisories
         )
     else:
