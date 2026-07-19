@@ -56,11 +56,14 @@ def _archive_previous_bundle(out: Path, incoming_date: date) -> None:
 def write_json(report: Report, out: Path):
     out.mkdir(parents=True, exist_ok=True)
     text = report.model_dump_json(indent=2) + "\n"
-    health_text = json.dumps(
-        [health.to_dict() for health in report.source_health],
-        indent=2,
-        sort_keys=True,
-    ) + "\n"
+    health_text = (
+        json.dumps(
+            [health.to_dict() for health in report.source_health],
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    )
     report_date = report.coverage_end.date()
 
     _archive_previous_bundle(out, report_date)
