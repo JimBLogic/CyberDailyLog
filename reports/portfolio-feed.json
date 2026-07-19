@@ -1,11 +1,11 @@
 {
-  "coverage_end": "2026-07-18T08:07:53+00:00",
-  "coverage_start": "2026-07-17T08:07:53+00:00",
+  "coverage_end": "2026-07-19T08:32:31+00:00",
+  "coverage_start": "2026-07-18T08:32:31+00:00",
   "degraded": false,
-  "generated_at": "2026-07-18T08:07:59+00:00",
+  "generated_at": "2026-07-19T08:32:33+00:00",
   "immediate_attention": "No confirmed exploitation or CISA KEV entries qualified in this run.",
   "project": "CyberDailyLog",
-  "qualified_developments": 252,
+  "qualified_developments": 100,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_version": 1,
@@ -21,12 +21,12 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-54159"
+        "CVE-2026-16117"
       ],
       "cvss_score": 10.0,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-54159",
+      "id": "CVE-2026-16117",
       "known_exploited": false,
       "products": [],
       "selection_reasons": [
@@ -36,18 +36,18 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54159",
-      "title": "CVE-2026-54159: PrestaShop ps_facetedsearch is a module that adds layered navigation filters. From 3.0.0 until 4.0.4, the ps_facetedsear"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16117",
+      "title": "CVE-2026-16117: Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-9135"
+        "CVE-2026-47865"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.8,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-9135",
+      "id": "CVE-2026-47865",
       "known_exploited": false,
       "products": [],
       "selection_reasons": [
@@ -57,18 +57,18 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9135",
-      "title": "CVE-2026-9135: IBM Langflow OSS 1.0.0 through 1.10.0 Langflow versions up to 1.9.2 (commit 94981c443d4918517b9e8163d70fc598dc33a32d) co"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47865",
+      "title": "CVE-2026-47865: VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-8859"
+        "CVE-2025-71392"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.4,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-8859",
+      "id": "CVE-2025-71392",
       "known_exploited": false,
       "products": [],
       "selection_reasons": [
@@ -78,18 +78,18 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8859",
-      "title": "CVE-2026-8859: IBM Langflow OSS 1.0.0 through 1.10.0 Langflow could allow an attacker to write arbitrary files to unintended locations "
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71392",
+      "title": "CVE-2025-71392: SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-8635"
+        "CVE-2026-9323"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.2,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-8635",
+      "id": "CVE-2026-9323",
       "known_exploited": false,
       "products": [],
       "selection_reasons": [
@@ -99,18 +99,18 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8635",
-      "title": "CVE-2026-8635: IBM Langflow OSS 1.0.0 through 1.10.0 allows authenticated users to escalate privileges to superuser by directly manipul"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9323",
+      "title": "CVE-2026-9323: The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-8481"
+        "CVE-2024-58366"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.0,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-8481",
+      "id": "CVE-2024-58366",
       "known_exploited": false,
       "products": [],
       "selection_reasons": [
@@ -120,8 +120,8 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8481",
-      "title": "CVE-2026-8481: IBM Langflow OSS 1.0.0 through 1.10.0 contain a critical remote code execution vulnerability in the code validation API "
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-58366",
+      "title": "CVE-2024-58366: SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script"
     }
   ]
 }
