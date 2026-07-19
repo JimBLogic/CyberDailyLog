@@ -17,7 +17,7 @@ def sample_report() -> dict:
         "items": [
             {
                 "canonical_id": "CVE-2026-10001",
-                "title": "Critical Linux vulnerability",
+                "title": "CVE-2026-10001: Critical Linux vulnerability",
                 "source_name": "nvd",
                 "source_url": "https://example.test/CVE-2026-10001",
                 "cve_ids": ["CVE-2026-10001"],
@@ -26,10 +26,15 @@ def sample_report() -> dict:
                 "cvss_score": 9.8,
                 "severity": "critical",
                 "epss_score": 0.72,
+                "epss_percentile": 0.98,
                 "cisa_kev": True,
                 "known_exploited": True,
+                "known_ransomware_use": False,
                 "selection_score": 42,
                 "selection_reasons": ["confirmed exploitation", "critical CVSS", "official source"],
+                "priority_score": 10.0,
+                "priority_reasons": ["CVSS 9.8", "CISA KEV"],
+                "recommended_actions": ["Patch exposed Linux systems immediately."],
             },
             {
                 "canonical_id": "GHSA-abcd-efgh-ijkl",
@@ -42,51 +47,73 @@ def sample_report() -> dict:
                 "cvss_score": 8.1,
                 "severity": "high",
                 "epss_score": None,
+                "epss_percentile": None,
                 "cisa_kev": False,
                 "known_exploited": False,
+                "known_ransomware_use": False,
                 "selection_score": 25,
                 "selection_reasons": ["high CVSS", "priority technology", "official source", "extra"],
+                "priority_score": 8.6,
+                "priority_reasons": ["CVSS 8.1", "priority technology: cloud"],
+            },
+            {
+                "canonical_id": "CVE-2026-LOW",
+                "title": "Low-priority item",
+                "source_name": "nvd",
+                "source_url": "https://example.test/CVE-2026-LOW",
+                "cve_ids": ["CVE-2026-LOW"],
+                "ghsa_ids": [],
+                "products": [],
+                "cvss_score": 3.0,
+                "severity": "low",
+                "epss_score": None,
+                "epss_percentile": None,
+                "cisa_kev": False,
+                "known_exploited": False,
+                "known_ransomware_use": False,
+                "selection_score": 5,
+                "selection_reasons": ["official source"],
+                "priority_score": 3.0,
+                "priority_reasons": ["CVSS 3.0"],
             },
         ],
         "source_health": [
-            {"source": "nvd", "status": "healthy"},
-            {"source": "rss_official", "status": "degraded"},
+            {"source": "nvd", "status": "healthy", "required": True},
+            {"source": "rss_official", "status": "degraded", "required": False},
         ],
     }
 
 
-def test_build_portfolio_feed_is_compact_and_ranked() -> None:
+def test_build_portfolio_feed_is_compact_ranked_and_enriched() -> None:
     feed = build_portfolio_feed(sample_report(), limit=1)
 
     assert feed["schema_version"] == 1
     assert feed["project"] == "CyberDailyLog"
-    assert feed["qualified_developments"] == 2
+    assert feed["qualified_developments"] == 3
+    assert feed["above_threshold"] == 2
     assert feed["degraded"] is True
+    assert feed["pipeline_status"] == "degraded"
     assert feed["top_vulnerabilities"][0]["id"] == "CVE-2026-10001"
-    assert feed["top_vulnerabilities"][0]["cisa_kev"] is True
+    assert feed["top_vulnerabilities"][0]["title"] == "Critical Linux vulnerability"
+    assert feed["top_vulnerabilities"][0]["priority_score"] == 10.0
+    assert feed["top_vulnerabilities"][0]["epss_percentile"] == 0.98
+    assert feed["top_vulnerabilities"][0]["defensive_action"].startswith("Patch exposed")
     assert len(feed["top_vulnerabilities"]) == 1
-    assert feed["source_health"] == {
-        "total": 2,
-        "status_counts": {"healthy": 1, "degraded": 1},
-    }
-    assert "confirmed exploitation" in feed["immediate_attention"]
+    assert feed["source_health"]["core"] == {"total": 1, "healthy": 1}
+    assert feed["source_health"]["optional"] == {"total": 1, "healthy": 0, "degraded": 1}
+    assert "exploitation" in feed["immediate_attention"]
+    assert feed["endpoints"]["compact_feed"].endswith("reports/portfolio-feed.json")
 
 
-def test_build_portfolio_feed_reports_no_exploitation() -> None:
-    report = sample_report()
-    for item in report["items"]:
-        item["known_exploited"] = False
-        item["cisa_kev"] = False
+def test_build_portfolio_feed_filters_below_threshold() -> None:
+    feed = build_portfolio_feed(sample_report(), limit=5)
 
-    feed = build_portfolio_feed(report)
-
-    assert feed["immediate_attention"] == "No confirmed exploitation or CISA KEV entries qualified in this run."
-    assert feed["top_vulnerabilities"][1]["products"] == ["package-a", "package-b", "package-c"]
-    assert feed["top_vulnerabilities"][1]["selection_reasons"] == [
-        "high CVSS",
-        "priority technology",
-        "official source",
+    assert [item["id"] for item in feed["top_vulnerabilities"]] == [
+        "CVE-2026-10001",
+        "GHSA-abcd-efgh-ijkl",
     ]
+    assert feed["top_vulnerabilities"][1]["products"] == ["package-a", "package-b", "package-c"]
+    assert feed["top_vulnerabilities"][1]["why_it_matters"] == "CVSS 8.1; priority technology: cloud"
 
 
 def test_write_portfolio_feed_writes_valid_json(tmp_path: Path) -> None:
@@ -111,3 +138,32 @@ def test_build_portfolio_feed_rejects_invalid_limit(limit: int) -> None:
 def test_build_portfolio_feed_rejects_missing_report_keys() -> None:
     with pytest.raises(ValueError, match="missing required keys"):
         build_portfolio_feed({"items": []})
+
+
+def test_build_portfolio_feed_uses_cvss_fallback_and_vendor_context():
+    report = sample_report()
+    item = report["items"][1]
+    item.pop("priority_score")
+    item["products"] = []
+    item["vendors"] = ["Example Vendor"]
+    item["priority_reasons"] = []
+
+    feed = build_portfolio_feed(report, limit=5)
+    selected = next(entry for entry in feed["top_vulnerabilities"] if entry["id"] == "GHSA-abcd-efgh-ijkl")
+
+    assert selected["priority_score"] == 8.1
+    assert selected["products"] == ["Example Vendor"]
+    assert selected["why_it_matters"].startswith("high CVSS")
+
+
+def test_build_portfolio_feed_reports_no_exploitation():
+    report = sample_report()
+    for item in report["items"]:
+        item["known_exploited"] = False
+        item["cisa_kev"] = False
+        item["known_ransomware_use"] = False
+
+    feed = build_portfolio_feed(report)
+
+    assert feed["immediate_attention_count"] == 0
+    assert feed["immediate_attention"].startswith("No confirmed exploitation")
