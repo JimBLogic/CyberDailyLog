@@ -24,6 +24,7 @@ class Pipeline:
         self.offline = offline
         self.sources = load_yaml(self.config_dir / "sources.yml")
         self.scoring = load_yaml(self.config_dir / "scoring.yml")
+        self.report_config = load_yaml(self.config_dir / "report.yml")
         self.tech = load_yaml(self.config_dir / "technologies.yml")
         hosts = {
             "www.cisa.gov",
@@ -40,6 +41,7 @@ class Pipeline:
         self.http = SafeHttpClient(hosts)
 
     def run(self, since=None, until=None, lookback_hours=24, dry_run=False, fail_on_degraded=False):
+        del dry_run
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
         since = since or until - timedelta(hours=lookback_hours)
         collectors = [
@@ -56,19 +58,19 @@ class Pipeline:
         ]
         items = []
         health = []
-        for c in collectors:
-            got, h = c.collect(since, until)
+        for collector in collectors:
+            got, source_health = collector.collect(since, until)
             items += got
-            health.append(h)
-        cves = sorted({c for i in items for c in i.cve_ids})
-        epss, h = EpssCollector(self.http, offline=self.offline).collect_scores(cves)
-        health.append(h)
-        for i in items:
-            for c in i.cve_ids:
-                if c in epss:
-                    i.epss_score = epss[c]["epss_score"]
-                    i.epss_percentile = epss[c]["epss_percentile"]
-                    i.add_provenance("epss_score", "FIRST EPSS", i.epss_score)
+            health.append(source_health)
+        cves = sorted({cve for item in items for cve in item.cve_ids})
+        epss, epss_health = EpssCollector(self.http, offline=self.offline).collect_scores(cves)
+        health.append(epss_health)
+        for item in items:
+            for cve in item.cve_ids:
+                if cve in epss:
+                    item.epss_score = float(epss[cve]["epss_score"])
+                    item.epss_percentile = float(epss[cve]["epss_percentile"])
+                    item.add_provenance("epss_score", "FIRST EPSS", item.epss_score)
         merged = merge_items(items)
         selected = score_items(merged, self.scoring, self.tech, since, until)
         report = Report(
@@ -81,6 +83,6 @@ class Pipeline:
         )
         if report.degraded and fail_on_degraded:
             raise SystemExit(2)
-        write_markdown(report, self.output_dir)
+        write_markdown(report, self.output_dir, self.report_config)
         write_json(report, self.output_dir)
         return report

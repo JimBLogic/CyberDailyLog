@@ -1,95 +1,309 @@
-from pathlib import Path
+from __future__ import annotations
+
+import re
 from html import escape
+from pathlib import Path
+from typing import Any
+
+from cyberdailylog.models import IntelligenceItem, Report
 
 
-def write_markdown(report, out: Path, template_dir: Path = Path("templates")):
-    items = report.items
+DEFAULT_CURATION = {
+    "minimum_priority": 5.0,
+    "max_immediate_attention": 5,
+    "max_priority_vulnerabilities": 10,
+    "max_official_advisories": 3,
+    "max_defensive_releases": 3,
+    "max_analyst_actions": 5,
+    "max_total_unique_items": 15,
+    "max_markdown_lines": 140,
+    "max_markdown_bytes": 12288,
+    "title_max_characters": 110,
+    "reason_max_characters": 160,
+}
+
+
+def _validated_curation(config: dict[str, Any] | None) -> dict[str, float | int]:
+    raw = (config or {}).get("curation", {})
+    values: dict[str, float | int] = dict(DEFAULT_CURATION)
+    if isinstance(raw, dict):
+        values.update(raw)
+
+    minimum = float(values["minimum_priority"])
+    if not 0.0 <= minimum <= 10.0:
+        raise ValueError("curation.minimum_priority must be between 0 and 10")
+    values["minimum_priority"] = minimum
+
+    for key in DEFAULT_CURATION:
+        if key == "minimum_priority":
+            continue
+        value = int(values[key])
+        if value <= 0:
+            raise ValueError(f"curation.{key} must be a positive integer")
+        values[key] = value
+    return values
+
+
+def _truncate(value: str, limit: int) -> str:
+    clean = " ".join(value.split())
+    if len(clean) <= limit:
+        return clean
+    shortened = clean[: max(1, limit - 1)].rsplit(" ", 1)[0]
+    return f"{shortened or clean[: max(1, limit - 1)]}…"
+
+
+def _table_cell(value: str) -> str:
+    return escape(value).replace("|", "\\|")
+
+
+def _identifier(item: IntelligenceItem) -> str:
+    identifiers = item.cve_ids + item.ghsa_ids
+    return ", ".join(identifiers) if identifiers else item.canonical_id
+
+
+def _qualifies(item: IntelligenceItem, minimum: float) -> bool:
+    return bool(item.priority_score >= minimum or item.cisa_kev or item.known_exploited or item.known_ransomware_use)
+
+
+def _why(item: IntelligenceItem, limit: int) -> str:
+    reasons = item.priority_reasons or item.selection_reasons
+    return _truncate("; ".join(reasons[:2]) or "source-backed defensive relevance", limit)
+
+
+def _action(item: IntelligenceItem, limit: int) -> str:
+    candidates = item.recommended_actions or item.detection_opportunities
+    if candidates:
+        return _truncate(candidates[0], limit)
+    subject = ", ".join(item.products[:2]) or _identifier(item)
+    return _truncate(f"Check {subject} against the asset inventory and apply vendor mitigation guidance.", limit)
+
+
+def _take_unique(
+    candidates: list[IntelligenceItem],
+    limit: int,
+    used: set[str],
+    total_limit: int,
+) -> list[IntelligenceItem]:
+    chosen: list[IntelligenceItem] = []
+    for item in candidates:
+        if item.canonical_id in used:
+            continue
+        if len(used) >= total_limit or len(chosen) >= limit:
+            break
+        chosen.append(item)
+        used.add(item.canonical_id)
+    return chosen
+
+
+def _health_summary(report: Report) -> str:
+    core = [health for health in report.source_health if health.required]
+    optional = [health for health in report.source_health if not health.required]
+    core_healthy = sum(health.status in {"healthy", "fixture_only"} for health in core)
+    optional_healthy = sum(health.status in {"healthy", "fixture_only"} for health in optional)
+    optional_degraded = sum(health.status in {"degraded", "failed"} for health in optional)
+    return (
+        f"Core sources: **{core_healthy}/{len(core)} healthy**. "
+        f"Optional sources: **{optional_healthy} healthy**, **{optional_degraded} degraded**."
+    )
+
+
+def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str:
+    curation = _validated_curation(config)
+    minimum = float(curation["minimum_priority"])
+    total_limit = int(curation["max_total_unique_items"])
+    title_limit = int(curation["title_max_characters"])
+    reason_limit = int(curation["reason_max_characters"])
+
+    used: set[str] = set()
+    immediate = _take_unique(
+        [item for item in report.items if item.cisa_kev or item.known_exploited or item.known_ransomware_use],
+        int(curation["max_immediate_attention"]),
+        used,
+        total_limit,
+    )
+    vulnerabilities = _take_unique(
+        [item for item in report.items if item.category == "vulnerability" and _qualifies(item, minimum)],
+        int(curation["max_priority_vulnerabilities"]),
+        used,
+        total_limit,
+    )
+    advisories = _take_unique(
+        [item for item in report.items if item.category == "advisory" and _qualifies(item, minimum)],
+        int(curation["max_official_advisories"]),
+        used,
+        total_limit,
+    )
+    releases = _take_unique(
+        [item for item in report.items if item.category == "tool_release"],
+        int(curation["max_defensive_releases"]),
+        used,
+        total_limit,
+    )
+    displayed = immediate + vulnerabilities + advisories + releases
+    above_threshold = sum(_qualifies(item, minimum) for item in report.items)
+
     lines = [
-        f"# Blue Team Intelligence Digest — {report.coverage_end.date()}",
+        f"# CyberDailyLog — Daily Blue Team Brief · {report.coverage_end.date()}",
         "",
-        "Coverage:",
-        f"{report.coverage_start.isoformat()} → {report.coverage_end.isoformat()}",
+        "> Automated, source-backed defensive intelligence for the previous 24 hours.",
         "",
-        "Generated:",
-        report.generated_at.isoformat(),
+        f"**Updated:** {report.generated_at.isoformat()}  ",
+        f"**Coverage:** {report.coverage_start.isoformat()} → {report.coverage_end.isoformat()}  ",
+        f"**Status:** {'Degraded — inspect source health' if report.degraded else 'Operational'}",
         "",
-        "## Executive Summary",
+        "[Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · "
+        "[Source health](source-health.json) · [Archive](archive/)",
         "",
-        f"{len(items)} source-backed developments qualified for this coverage window."
-        + (" This report is degraded; review Source Health before operational use." if report.degraded else ""),
+        "## Today in 30 seconds",
         "",
-        "## 1. Immediate Attention",
+        f"- **{len(report.items)}** source-backed developments assessed.",
+        f"- **{above_threshold}** met the editorial threshold of **{minimum:.1f}/10** or an exploitation override.",
+        f"- **{len(displayed)}** unique items are displayed after curation.",
+        f"- {_health_summary(report)}",
+        "",
+        "## Immediate attention",
         "",
     ]
-    imm = [i for i in items if i.cisa_kev]
-    lines += [
-        f"- **{escape(i.canonical_id)}** — {escape(i.title)}. Selected because: {escape(' + '.join(i.selection_reasons))}"
-        for i in imm[:10]
-    ] or ["No confirmed exploitation or new KEV entries qualified in this run."]
-    lines += [
-        "",
-        "## 2. Vulnerability Priorities",
-        "",
-        "| Priority | CVE/GHSA | Product | CVSS | EPSS | KEV | Reason |",
-        "| --- | --- | --- | ---: | ---: | --- | --- |",
-    ]
-    vul = [i for i in items if i.category == "vulnerability"]
-    if vul:
-        for n, i in enumerate(vul, 1):
+
+    if immediate:
+        for item in immediate:
+            title = escape(_truncate(item.title, title_limit))
+            link = item.source_url or "#"
             lines.append(
-                f"| {n} | {escape(', '.join(i.cve_ids + i.ghsa_ids))} | {escape(', '.join(i.products))} | {i.cvss_score if i.cvss_score is not None else 'n/a'} | {i.epss_score if i.epss_score is not None else 'n/a'} | {'yes' if i.cisa_kev else 'no'} | {escape('; '.join(i.selection_reasons))} |"
+                f"- **[{escape(_identifier(item))}]({link}) · {item.priority_score:.1f}/10** — "
+                f"{title}. **Action:** {escape(_action(item, reason_limit))}"
             )
     else:
-        lines.append("| — | — | — | — | — | — | No qualifying vulnerability items. |")
-    lines += ["", "## 3. Threat and Ransomware Activity", "", "Only verified and source-backed activity is shown."] + (
-        [f"- {escape(i.title)}" for i in items if i.known_ransomware_use]
-        or ["No reliable ransomware-linked item qualified."]
-    )
-    lines += ["", "## 4. Detection Opportunities", "", "Analyst context generated from structured source fields."] + (
-        [
-            f"- **{escape(i.title)}**: {escape(' '.join(i.detection_opportunities))}"
-            for i in items
-            if i.detection_opportunities
-        ]
-        or ["No detection-specific opportunities were derived."]
-    )
-    lines += ["", "## 5. Vendor and Government Advisories", ""] + (
-        [f"- [{escape(i.title)}]({i.source_url}) — {escape(i.source_name)}" for i in items if i.category == "advisory"]
-        or ["No official advisory feed entries qualified."]
-    )
-    lines += ["", "## 6. Blue Team Tools and Detection Content", ""] + (
-        [
-            f"- [{escape(i.title)}]({i.source_url}) — {escape(i.blue_team_relevance)}"
-            for i in items
-            if i.category == "tool_release"
-        ]
-        or ["No allowlisted defensive project releases qualified."]
-    )
-    lines += ["", "## 7. Analyst Queue", ""] + (
-        [f"- Review {escape(i.canonical_id)} against asset inventory and vendor guidance." for i in items[:10]]
-        or ["- No qualifying items; verify source health and coverage window."]
+        lines.append("No confirmed exploitation, CISA KEV or ransomware-linked item qualified in this run.")
+
+    lines += [
+        "",
+        f"## Priority vulnerabilities — {minimum:.1f}/10 or higher",
+        "",
+        "| Threat | Priority | CVSS | EPSS | Signal | Why it matters |",
+        "| --- | ---: | ---: | ---: | --- | --- |",
+    ]
+    if vulnerabilities:
+        for item in vulnerabilities:
+            title = _truncate(item.title, title_limit)
+            label = f"{_identifier(item)} — {title}"
+            epss = f"{item.epss_score:.1%}" if item.epss_score is not None else "n/a"
+            cvss = f"{item.cvss_score:.1f}" if item.cvss_score is not None else "n/a"
+            if item.cisa_kev:
+                signal = "KEV"
+            elif item.known_exploited:
+                signal = "Exploited"
+            elif item.known_ransomware_use:
+                signal = "Ransomware"
+            else:
+                signal = "—"
+            lines.append(
+                f"| [{_table_cell(label)}]({item.source_url or '#'}) | {item.priority_score:.1f} | "
+                f"{cvss} | {epss} | {signal} | {_table_cell(_why(item, reason_limit))} |"
+            )
+    else:
+        lines.append("| No qualifying vulnerability items. | — | — | — | — | — |")
+
+    lines += ["", "## Notable official advisories", ""]
+    if advisories:
+        lines.extend(
+            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url}) — {escape(_why(item, reason_limit))}"
+            for item in advisories
+        )
+    else:
+        lines.append("No additional official advisory qualified after de-duplication.")
+
+    lines += ["", "## Defensive tooling and detection content", ""]
+    if releases:
+        lines.extend(
+            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url})"
+            + (f" — {escape(_truncate(item.blue_team_relevance, reason_limit))}" if item.blue_team_relevance else "")
+            for item in releases
+        )
+    else:
+        lines.append("No allowlisted defensive release qualified in this coverage window.")
+
+    lines += ["", "## Analyst next actions", ""]
+    for item in displayed[: int(curation["max_analyst_actions"])]:
+        lines.append(f"- **{escape(_identifier(item))}:** {escape(_action(item, reason_limit))}")
+    if not displayed:
+        lines.append("- Confirm source health and reassess when new evidence is available.")
+
+    lines += [
+        "",
+        "## Source health",
+        "",
+        _health_summary(report),
+        "",
+        "<details>",
+        "<summary>Collector details</summary>",
+        "",
+        "| Source | Required | Status | Accepted | Duration | Detail |",
+        "| --- | --- | --- | ---: | ---: | --- |",
+    ]
+    lines.extend(
+        f"| {_table_cell(health.source)} | {'yes' if health.required else 'no'} | "
+        f"{_table_cell(health.status)} | {health.items_accepted} | {health.duration_ms} ms | "
+        f"{_table_cell(health.sanitized_error_message or '')} |"
+        for health in report.source_health
     )
     lines += [
         "",
-        "## 8. Source Health",
+        "</details>",
         "",
-        "| Source | Status | Items | Duration | Detail |",
-        "| --- | --- | ---: | ---: | --- |",
-    ]
-    lines += [
-        f"| {h.source} | {h.status} | {h.items_accepted} | {h.duration_ms} ms | {escape(h.sanitized_error_message or '')} |"
-        for h in report.source_health
-    ]
-    lines += [
+        "<details>",
+        "<summary>Methodology and limitations</summary>",
         "",
-        "## Methodology and Limitations",
+        "The 0–10 priority score is an editorial triage aid, not asset-specific risk. "
+        "EPSS is probabilistic, and source-backed findings still require asset, exposure and vendor validation.",
         "",
-        "Ranking assists prioritisation and does not replace asset-specific risk assessment. EPSS is a probability signal, not proof of exploitation. This product uses data from the NVD API but is not endorsed or certified by the NVD.",
+        "</details>",
     ]
+
     text = "\n".join(lines) + "\n"
+    if len(lines) > int(curation["max_markdown_lines"]):
+        raise ValueError("curated Markdown exceeds configured line limit")
+    if len(text.encode("utf-8")) > int(curation["max_markdown_bytes"]):
+        raise ValueError("curated Markdown exceeds configured byte limit")
+    return text
+
+
+def _atomic_write(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(f"{path.suffix}.tmp")
+    temporary.write_text(text, encoding="utf-8")
+    temporary.replace(path)
+
+
+def _archive_previous_latest(out: Path, incoming_date) -> None:
+    latest = out / "latest.md"
+    if not latest.exists():
+        return
+    existing = latest.read_text(encoding="utf-8")
+    match = re.search(r"(\d{4}-\d{2}-\d{2})", existing.splitlines()[0] if existing else "")
+    if not match:
+        raise ValueError("existing latest.md does not expose a coverage date")
+    previous_date = match.group(1)
+    if previous_date == str(incoming_date):
+        return
+    archive = out / "archive" / previous_date[:4] / previous_date[5:7] / f"{previous_date}.md"
+    if archive.exists() and archive.read_text(encoding="utf-8") != existing:
+        raise ValueError(f"historical Markdown archive conflict for {previous_date}")
+    if not archive.exists():
+        _atomic_write(archive, existing)
+
+
+def write_markdown(
+    report: Report,
+    out: Path,
+    config: dict[str, Any] | None = None,
+    template_dir: Path = Path("templates"),
+):
+    del template_dir
+    text = render_markdown(report, config)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "latest.md").write_text(text, encoding="utf-8")
-    d = report.coverage_end.date()
-    ad = out / "archive" / f"{d:%Y}" / f"{d:%m}"
-    ad.mkdir(parents=True, exist_ok=True)
-    (ad / f"{d}.md").write_text(text, encoding="utf-8")
+    date = report.coverage_end.date()
+    _archive_previous_latest(out, date)
+    archive = out / "archive" / f"{date:%Y}" / f"{date:%m}" / f"{date}.md"
+    _atomic_write(archive, text)
+    _atomic_write(out / "latest.md", text)

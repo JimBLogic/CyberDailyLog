@@ -2,26 +2,59 @@
 
 [![Daily Blue Team Intelligence](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml/badge.svg)](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml)
 
-CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, correlates vulnerability and exploitation data, ranks actionable developments, and publishes reproducible daily reports.
+CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, enriches and correlates vulnerability data, ranks actionable developments and publishes reproducible daily reports.
 
-The current report lives at [`reports/latest.md`](reports/latest.md); the README deliberately does not embed a manually maintained latest summary.
+<!-- CYBERDAILYLOG:DAILY:START -->
+## Latest automated brief
+
+**Updated:** 2026-07-19T08:32:33+00:00  
+**Coverage:** 2026-07-18T08:32:31+00:00 → 2026-07-19T08:32:31+00:00  
+**Pipeline:** **Operational**
+
+No confirmed exploitation or CISA KEV entries qualified in this run.
+
+- **Assessed:** 100 source-backed developments
+- **Above threshold:** 5
+- **1 degraded**, **5 healthy**.
+
+### Highest-priority items
+
+- **[CVE-2026-16117](https://nvd.nist.gov/vuln/detail/CVE-2026-16117) · 10.0/10** — Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segment contains reserved characters.
+- **[CVE-2026-47865](https://nvd.nist.gov/vuln/detail/CVE-2026-47865) · 9.8/10** — VMware Avi Load Balancer contains an authentication bypass vulnerability.
+- **[CVE-2025-71392](https://nvd.nist.gov/vuln/detail/CVE-2025-71392) · 9.4/10** — SurrealDB fails to properly escape table and field names in generated SQL.
+- **[CVE-2026-9323](https://nvd.nist.gov/vuln/detail/CVE-2026-9323) · 9.2/10** — The urwid web display backend generates predictable web session identifiers.
+- **[CVE-2024-58366](https://nvd.nist.gov/vuln/detail/CVE-2024-58366) · 9.0/10** — SurrealDB contains a format string vulnerability in its JavaScript exception handling.
+
+[Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
+<!-- CYBERDAILYLOG:DAILY:END -->
+
+## Use the data
+
+- **Human brief:** [`reports/latest.md`](reports/latest.md)
+- **Compact integration feed:** [`reports/portfolio-feed.json`](reports/portfolio-feed.json)
+- **Complete evidence JSON:** [`reports/latest.json`](reports/latest.json)
+- **Collector health:** [`reports/source-health.json`](reports/source-health.json)
+- **Daily archive:** [`reports/archive/`](reports/archive/)
+- **Integration examples:** [`docs/INTEGRATION.md`](docs/INTEGRATION.md)
+
+The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes a small ranked set with stable metadata while the complete JSON remains the source of truth.
 
 ## What it collects
 
-- Tier 1 structured sources: CISA KEV, NVD CVE API 2.0, FIRST EPSS, and GitHub-reviewed public security advisories.
+- Tier 1 structured sources: CISA KEV, NVD CVE API 2.0, FIRST EPSS and GitHub-reviewed public security advisories.
 - Tier 2 official RSS/Atom advisories configured in `config/sources.yml`.
-- Tier 3 allowlisted defensive GitHub releases such as SigmaHQ Sigma, Elastic detection rules, and Wazuh.
+- Tier 3 allowlisted defensive GitHub releases such as SigmaHQ Sigma, Elastic detection rules and Wazuh.
 
 ## What it excludes
 
-The active pipeline excludes personal progress tracking, certification-offer scraping, arbitrary search results, proof-of-concept exploitation feeds, malware downloads, LLM-generated claims, and sources that require commercial access or fragile scraping.
+The active pipeline excludes arbitrary search results, proof-of-concept exploitation feeds, malware downloads, LLM-generated claims, commercial-only sources and fragile scraping.
 
-## Quick start
+## Run locally
 
 ```bash
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install .
 python -m cyberdailylog run --offline-fixtures --output-dir tmp/reports
 python -m cyberdailylog validate --output-dir tmp/reports
 python -m cyberdailylog.portfolio_feed \
@@ -29,47 +62,30 @@ python -m cyberdailylog.portfolio_feed \
   --output tmp/reports/portfolio-feed.json
 ```
 
-A real run is:
+A real collection run is:
 
 ```bash
 python -m cyberdailylog run --lookback-hours 24
 python -m cyberdailylog.portfolio_feed
 ```
 
-Optional secrets are documented in `.env.example`: `NVD_API_KEY` and `GITHUB_TOKEN`. No repository secret is required for local offline fixture mode.
+Optional secrets are documented in `.env.example`. Offline fixture mode requires no repository secret.
 
-## Reports
+## Scoring and curation
 
-The pipeline writes:
+The pipeline keeps two transparent signals:
 
-- `reports/latest.md`: the complete human-readable daily brief;
-- `reports/latest.json`: the complete structured report and provenance payload;
-- `reports/portfolio-feed.json`: a compact, stable JSON view for the public portfolio and other lightweight clients;
-- `reports/source-health.json`: collector health and sanitized errors;
-- dated archive files under `reports/archive/YYYY/MM/`.
+- `selection_score`: the original deterministic source and evidence ranking;
+- `priority_score`: a normalized 0–10 editorial triage score for human and lightweight-feed curation.
 
-The compact portfolio feed contains coverage timestamps, generation time, the qualified-item count, immediate-attention status, source-health totals and the five highest-ranked vulnerabilities. It avoids making a static website download the full daily report while preserving links to the complete brief and repository.
-
-## Scoring transparency
-
-Scoring is deterministic and configurable in `config/scoring.yml`. It boosts confirmed exploitation, CISA KEV entries, known ransomware use, high CVSS, high EPSS, official sources, priority technology categories, and detection opportunities. Ranking assists prioritisation but does not replace asset-specific risk assessment.
+The human brief applies configurable limits and a minimum priority threshold. Lower-priority source-backed records remain available in the complete JSON.
 
 ## Provenance and source health
 
-Every canonical item keeps field-level provenance where collectors provide important values. Every run creates source-health records with status, timing, accepted/rejected counts, HTTP status when available, and sanitized errors.
+Canonical records retain field-level provenance where collectors provide important values. Every run records timing, accepted and rejected counts, sanitized failures and whether each source is required or optional.
 
-## Daily workflow
+## Automation and safety
 
-`.github/workflows/daily-intelligence.yml` runs at 06:17 UTC and can also be dispatched manually. The workflow owns committing generated reports with the built-in `GITHUB_TOKEN`; the Python application never runs `git push`.
+`.github/workflows/daily-intelligence.yml` runs daily and can also be dispatched manually. Manual runs default to `dry_run=true`. Scheduled publication requires the source quorum and writes only generated README/report outputs with the built-in `GITHUB_TOKEN`.
 
-## Security and copyright
-
-CyberDailyLog stores metadata, identifiers, official links, and conservative defensive context. It does not download malware, execute exploit code, bypass access controls, republish full articles, or print secrets.
-
-## Relationship to homelab work
-
-This repository is independently useful and is not coupled to any Raspberry Pi or private homelab repository. `config/technologies.yml` is an editorial relevance list, not a claim about the maintainer's environment.
-
-## Current status
-
-Live GitHub Actions generation is operating on `main`, and the public portfolio feed updates from the generated reports. Unit tests continue to use deterministic fixtures. Review [`reports/source-health.json`](reports/source-health.json) alongside each report because optional sources can degrade independently without invalidating healthy required-source coverage.
+CyberDailyLog stores defensive metadata and official links. It does not execute exploit code, download malware, bypass access controls or print credentials.

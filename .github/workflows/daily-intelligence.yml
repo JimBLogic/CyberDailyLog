@@ -79,26 +79,36 @@ jobs:
           fi
       - name: Generate compact portfolio feed
         run: python -m cyberdailylog.portfolio_feed
+      - name: Update repository landing snapshot
+        run: python -m cyberdailylog.readme_snapshot
       - name: Validate reports
         run: python -m cyberdailylog validate
-      - name: Validate portfolio feed
+      - name: Validate public outputs
         run: |
           python - <<'PY'
           import json
+          from pathlib import Path
 
-          feed = json.loads(open('reports/portfolio-feed.json', encoding='utf-8').read())
-          assert feed['schema_version'] == 1
-          assert feed['project'] == 'CyberDailyLog'
-          assert isinstance(feed['top_vulnerabilities'], list)
-          assert len(feed['top_vulnerabilities']) <= 5
+          feed = json.loads(Path("reports/portfolio-feed.json").read_text(encoding="utf-8"))
+          assert feed["schema_version"] == 1
+          assert feed["project"] == "CyberDailyLog"
+          assert feed["pipeline_status"] in {"operational", "degraded"}
+          assert len(feed["top_vulnerabilities"]) <= 5
+          assert all(0 <= item["priority_score"] <= 10 for item in feed["top_vulnerabilities"])
+
+          readme = Path("README.md").read_text(encoding="utf-8")
+          assert "<!-- CYBERDAILYLOG:DAILY:START -->" in readme
+          assert feed["generated_at"] in readme
           PY
       - name: Show source health
         run: cat reports/source-health.json
-      - name: Upload reports # actions/upload-artifact@v4
+      - name: Upload generated outputs # actions/upload-artifact@v4
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: reports-${{ github.run_id }}
-          path: reports/
+          path: |
+            README.md
+            reports/
           if-no-files-found: error
           retention-days: 7
   publish:
@@ -112,20 +122,20 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: main
-      - name: Download reports # actions/download-artifact@v4
+      - name: Download generated outputs # actions/download-artifact@v4
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: reports-${{ github.run_id }}
-          path: reports/
-      - name: Commit and push changed report files
+          path: .
+      - name: Commit and push generated outputs
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports
+          git add README.md reports
 
           if git diff --cached --quiet; then
-            echo "No report changes"
+            echo "No generated changes"
             exit 0
           fi
 
