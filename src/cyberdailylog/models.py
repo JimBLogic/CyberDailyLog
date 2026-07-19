@@ -76,6 +76,8 @@ class IntelligenceItem:
     confidence: str = "medium"
     selection_score: int = 0
     selection_reasons: list[str] = dataclass_field(default_factory=list)
+    priority_score: float = 0.0
+    priority_reasons: list[str] = dataclass_field(default_factory=list)
     provenance: dict[str, list[Provenance]] = dataclass_field(default_factory=dict)
     withdrawn: bool = False
 
