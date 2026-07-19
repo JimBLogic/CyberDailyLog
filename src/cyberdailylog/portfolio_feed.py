@@ -85,9 +85,7 @@ def _defensive_action(item: dict[str, Any]) -> str:
 
 def _priority_item(item: dict[str, Any]) -> dict[str, Any]:
     products = (
-        _string_list(item.get("products"))
-        or _string_list(item.get("ecosystems"))
-        or _string_list(item.get("vendors"))
+        _string_list(item.get("products")) or _string_list(item.get("ecosystems")) or _string_list(item.get("vendors"))
     )
     return {
         "id": _identifier(item),
