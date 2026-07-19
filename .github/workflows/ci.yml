@@ -35,27 +35,41 @@ jobs:
           python -m cyberdailylog.portfolio_feed \
             --report tmp/reports/latest.json \
             --output tmp/reports/portfolio-feed.json
+      - name: Generate fixture README snapshot
+        run: |
+          cp README.md tmp/README.md
+          python -m cyberdailylog.readme_snapshot \
+            --feed tmp/reports/portfolio-feed.json \
+            --readme tmp/README.md
       - name: Validate generated report
         run: python -m cyberdailylog validate --output-dir tmp/reports
-      - name: JSON schema validation
+      - name: JSON and public-output validation
         run: |
           python - <<'PY'
           import json
           from importlib.resources import files
+          from pathlib import Path
 
           import jsonschema
 
-          report = json.loads(open('tmp/reports/latest.json', encoding='utf-8').read())
+          report = json.loads(Path("tmp/reports/latest.json").read_text(encoding="utf-8"))
           schema = json.loads(
-              files('cyberdailylog').joinpath('schemas/intelligence-item.schema.json').read_text(encoding='utf-8')
+              files("cyberdailylog")
+              .joinpath("schemas/intelligence-item.schema.json")
+              .read_text(encoding="utf-8")
           )
           jsonschema.validate(report, schema)
 
-          feed = json.loads(open('tmp/reports/portfolio-feed.json', encoding='utf-8').read())
-          assert feed['schema_version'] == 1
-          assert feed['project'] == 'CyberDailyLog'
-          assert feed['qualified_developments'] == len(report['items'])
-          assert len(feed['top_vulnerabilities']) <= 5
+          feed = json.loads(Path("tmp/reports/portfolio-feed.json").read_text(encoding="utf-8"))
+          assert feed["schema_version"] == 1
+          assert feed["project"] == "CyberDailyLog"
+          assert feed["qualified_developments"] == len(report["items"])
+          assert len(feed["top_vulnerabilities"]) <= 5
+          assert all(0 <= item["priority_score"] <= 10 for item in feed["top_vulnerabilities"])
+
+          readme = Path("tmp/README.md").read_text(encoding="utf-8")
+          assert "<!-- CYBERDAILYLOG:DAILY:START -->" in readme
+          assert feed["generated_at"] in readme
           PY
       - name: Build wheel
         run: python -m build
@@ -73,10 +87,15 @@ jobs:
           /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog.portfolio_feed \
             --report /tmp/cyberdailylog-wheel-reports/latest.json \
             --output /tmp/cyberdailylog-wheel-reports/portfolio-feed.json
+          cp README.md /tmp/cyberdailylog-wheel-README.md
+          /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog.readme_snapshot \
+            --feed /tmp/cyberdailylog-wheel-reports/portfolio-feed.json \
+            --readme /tmp/cyberdailylog-wheel-README.md
           test -f /tmp/cyberdailylog-wheel-reports/latest.md
           test -f /tmp/cyberdailylog-wheel-reports/latest.json
           test -f /tmp/cyberdailylog-wheel-reports/source-health.json
           test -s /tmp/cyberdailylog-wheel-reports/portfolio-feed.json
+          grep -q "CYBERDAILYLOG:DAILY:START" /tmp/cyberdailylog-wheel-README.md
       - name: Lightweight secret and policy scan
         run: |
           bad1="AZFREE""2025"; bad2="Free"" Cloud"; ! rg -n "$bad1|$bad2" src README.md config docs && ! rg -n "git push" src
