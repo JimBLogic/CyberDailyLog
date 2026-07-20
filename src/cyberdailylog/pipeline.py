@@ -1,6 +1,8 @@
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import os
+from urllib.parse import urlparse
+
 from .settings import load_yaml
 from .http import SafeHttpClient
 from .models import Report
@@ -10,6 +12,7 @@ from .collectors.epss import EpssCollector
 from .collectors.github_advisories import GitHubAdvisoryCollector
 from .collectors.rss import RssCollector
 from .collectors.github_releases import GitHubReleaseCollector
+from .collectors.hacker_news import HackerNewsCollector
 from .correlation import merge_items
 from .scoring import score_items
 from .source_health import quorum_ok
@@ -38,17 +41,32 @@ class Pipeline:
             "www.debian.org",
             "chromereleases.googleblog.com",
         }
+        for source in self.sources.get("rss_sources", []):
+            if source.get("enabled", True):
+                host = urlparse(str(source.get("url") or "")).hostname
+                if host:
+                    hosts.add(host)
+        hacker_news = self.sources.get("hacker_news", {})
+        if hacker_news.get("enabled", False):
+            host = urlparse(str(hacker_news.get("base_url") or "")).hostname
+            if host:
+                hosts.add(host)
         self.http = SafeHttpClient(hosts)
 
     def run(self, since=None, until=None, lookback_hours=24, dry_run=False, fail_on_degraded=False):
         del dry_run
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
         since = since or until - timedelta(hours=lookback_hours)
+        rss_collectors = [
+            RssCollector(self.http, offline=self.offline, sources=[source])
+            for source in self.sources.get("rss_sources", [])
+            if source.get("enabled", True)
+        ]
         collectors = [
             CisaKevCollector(self.http, offline=self.offline),
             NvdCollector(self.http, offline=self.offline, token=os.getenv("NVD_API_KEY")),
             GitHubAdvisoryCollector(self.http, offline=self.offline, token=os.getenv("GITHUB_TOKEN")),
-            RssCollector(self.http, offline=self.offline, sources=self.sources.get("rss_sources", [])),
+            *rss_collectors,
             GitHubReleaseCollector(
                 self.http,
                 offline=self.offline,
@@ -56,6 +74,10 @@ class Pipeline:
                 repos=self.sources.get("github_releases", []),
             ),
         ]
+        hacker_news = self.sources.get("hacker_news", {})
+        if hacker_news.get("enabled", False):
+            collectors.append(HackerNewsCollector(self.http, offline=self.offline, config=hacker_news))
+
         items = []
         health = []
         for collector in collectors:
