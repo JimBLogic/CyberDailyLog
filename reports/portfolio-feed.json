@@ -1,15 +1,36 @@
 {
+  "above_threshold": 59,
   "coverage_end": "2026-07-19T08:32:31+00:00",
   "coverage_start": "2026-07-18T08:32:31+00:00",
   "degraded": false,
+  "endpoints": {
+    "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
+    "full_report": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/latest.json",
+    "human_report": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
+    "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
+    "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
+  },
   "generated_at": "2026-07-19T08:32:33+00:00",
-  "immediate_attention": "No confirmed exploitation or CISA KEV entries qualified in this run.",
+  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
+  "immediate_attention_count": 0,
+  "minimum_priority": 5.0,
+  "pipeline_status": "operational",
   "project": "CyberDailyLog",
   "qualified_developments": 100,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
+  "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
+    "core": {
+      "healthy": 3,
+      "total": 3
+    },
+    "optional": {
+      "degraded": 1,
+      "healthy": 2,
+      "total": 3
+    },
     "status_counts": {
       "degraded": 1,
       "healthy": 5
@@ -24,10 +45,14 @@
         "CVE-2026-16117"
       ],
       "cvss_score": 10.0,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
       "id": "CVE-2026-16117",
       "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -37,7 +62,8 @@
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
       "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16117",
-      "title": "CVE-2026-16117: Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme"
+      "title": "Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme",
+      "why_it_matters": "critical CVSS +20; official source +5"
     },
     {
       "cisa_kev": false,
@@ -45,10 +71,14 @@
         "CVE-2026-47865"
       ],
       "cvss_score": 9.8,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
       "id": "CVE-2026-47865",
       "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -58,7 +88,8 @@
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
       "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47865",
-      "title": "CVE-2026-47865: VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab"
+      "title": "VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab",
+      "why_it_matters": "critical CVSS +20; official source +5"
     },
     {
       "cisa_kev": false,
@@ -66,10 +97,14 @@
         "CVE-2025-71392"
       ],
       "cvss_score": 9.4,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
       "id": "CVE-2025-71392",
       "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -79,7 +114,8 @@
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
       "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71392",
-      "title": "CVE-2025-71392: SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the"
+      "title": "SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the",
+      "why_it_matters": "critical CVSS +20; official source +5"
     },
     {
       "cisa_kev": false,
@@ -87,10 +123,14 @@
         "CVE-2026-9323"
       ],
       "cvss_score": 9.2,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
       "id": "CVE-2026-9323",
       "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.2,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -100,7 +140,8 @@
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
       "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9323",
-      "title": "CVE-2026-9323: The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c"
+      "title": "The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c",
+      "why_it_matters": "critical CVSS +20; official source +5"
     },
     {
       "cisa_kev": false,
@@ -108,10 +149,14 @@
         "CVE-2024-58366"
       ],
       "cvss_score": 9.0,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
       "id": "CVE-2024-58366",
       "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -121,7 +166,8 @@
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
       "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-58366",
-      "title": "CVE-2024-58366: SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script"
+      "title": "SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script",
+      "why_it_matters": "critical CVSS +20; official source +5"
     }
   ]
 }

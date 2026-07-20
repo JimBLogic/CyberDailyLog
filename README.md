@@ -11,19 +11,19 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 **Coverage:** 2026-07-18T08:32:31+00:00 → 2026-07-19T08:32:31+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation or CISA KEV entries qualified in this run.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
 - **Assessed:** 100 source-backed developments
-- **Above threshold:** 5
-- **1 degraded**, **5 healthy**.
+- **Above threshold:** 59
+- Core sources: **3/3 healthy**. Optional sources: **2 healthy**, **1 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-16117](https://nvd.nist.gov/vuln/detail/CVE-2026-16117) · 10.0/10** — Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segment contains reserved characters.
-- **[CVE-2026-47865](https://nvd.nist.gov/vuln/detail/CVE-2026-47865) · 9.8/10** — VMware Avi Load Balancer contains an authentication bypass vulnerability.
-- **[CVE-2025-71392](https://nvd.nist.gov/vuln/detail/CVE-2025-71392) · 9.4/10** — SurrealDB fails to properly escape table and field names in generated SQL.
-- **[CVE-2026-9323](https://nvd.nist.gov/vuln/detail/CVE-2026-9323) · 9.2/10** — The urwid web display backend generates predictable web session identifiers.
-- **[CVE-2024-58366](https://nvd.nist.gov/vuln/detail/CVE-2024-58366) · 9.0/10** — SurrealDB contains a format string vulnerability in its JavaScript exception handling.
+- **[CVE-2026-16117](https://nvd.nist.gov/vuln/detail/CVE-2026-16117) · 10.0/10** — Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme — critical CVSS +20; official source +5
+- **[CVE-2026-47865](https://nvd.nist.gov/vuln/detail/CVE-2026-47865) · 9.8/10** — VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab — critical CVSS +20; official source +5
+- **[CVE-2025-71392](https://nvd.nist.gov/vuln/detail/CVE-2025-71392) · 9.4/10** — SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the — critical CVSS +20; official source +5
+- **[CVE-2026-9323](https://nvd.nist.gov/vuln/detail/CVE-2026-9323) · 9.2/10** — The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c — critical CVSS +20; official source +5
+- **[CVE-2024-58366](https://nvd.nist.gov/vuln/detail/CVE-2024-58366) · 9.0/10** — SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script — critical CVSS +20; official source +5
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
