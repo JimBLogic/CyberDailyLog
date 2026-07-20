@@ -7,11 +7,12 @@ CyberDailyLog publishes read-only static files from the `main` branch. Consumers
 | Purpose | URL |
 | --- | --- |
 | Compact feed | `https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json` |
+| Compact-feed schema | `https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json` |
 | Complete report | `https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/latest.json` |
 | Source health | `https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json` |
 | Human brief | `https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md` |
 
-`portfolio-feed.json` is the recommended interface for websites and other repositories. The complete report may be much larger.
+`portfolio-feed.json` is the recommended interface for websites and other repositories. The complete report may be much larger. The feed exposes the same contract URL in `schema_url` and `endpoints.schema` so consumers can discover it without hard-coding a second path.
 
 ## Compact-feed contract
 
@@ -26,6 +27,27 @@ The feed keeps `schema_version: 1` for backward compatibility and includes:
 - canonical links to the other outputs.
 
 Consumers should ignore unknown fields and reject unsupported major schema versions.
+
+## Strict JSON Schema validation
+
+The public Draft 2020-12 schema validates required fields, timestamps, URLs, score ranges and the compact vulnerability records while still allowing backward-compatible additive fields.
+
+```python
+import json
+from urllib.request import urlopen
+
+from jsonschema import Draft202012Validator, FormatChecker
+
+feed_url = "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json"
+schema_url = "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json"
+
+with urlopen(feed_url, timeout=15) as response:
+    feed = json.load(response)
+with urlopen(schema_url, timeout=15) as response:
+    schema = json.load(response)
+
+Draft202012Validator(schema, format_checker=FormatChecker()).validate(feed)
+```
 
 ## Browser JavaScript
 

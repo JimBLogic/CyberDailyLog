@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
+  "title": "CyberDailyLog compact feed",
+  "description": "Stable public contract for reports/portfolio-feed.json.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "schema_url",
+    "project",
+    "title",
+    "generated_at",
+    "coverage_start",
+    "coverage_end",
+    "degraded",
+    "pipeline_status",
+    "qualified_developments",
+    "above_threshold",
+    "minimum_priority",
+    "immediate_attention_count",
+    "immediate_attention",
+    "top_vulnerabilities",
+    "source_health",
+    "report_url",
+    "repository_url",
+    "endpoints"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "schema_url": {
+      "const": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json"
+    },
+    "project": {
+      "const": "CyberDailyLog"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "coverage_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "coverage_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "degraded": {
+      "type": "boolean"
+    },
+    "pipeline_status": {
+      "enum": [
+        "operational",
+        "degraded"
+      ]
+    },
+    "qualified_developments": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "above_threshold": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "minimum_priority": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "immediate_attention_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "immediate_attention": {
+      "type": "string",
+      "minLength": 1
+    },
+    "top_vulnerabilities": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/vulnerability"
+      }
+    },
+    "source_health": {
+      "$ref": "#/$defs/sourceHealth"
+    },
+    "report_url": {
+      "$ref": "#/$defs/url"
+    },
+    "repository_url": {
+      "$ref": "#/$defs/url"
+    },
+    "endpoints": {
+      "type": "object",
+      "required": [
+        "schema",
+        "compact_feed",
+        "full_report",
+        "source_health",
+        "human_report"
+      ],
+      "properties": {
+        "schema": {
+          "$ref": "#/$defs/url"
+        },
+        "compact_feed": {
+          "$ref": "#/$defs/url"
+        },
+        "full_report": {
+          "$ref": "#/$defs/url"
+        },
+        "source_health": {
+          "$ref": "#/$defs/url"
+        },
+        "human_report": {
+          "$ref": "#/$defs/url"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "nullableScore": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "nullableProbability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "healthTotals": {
+      "type": "object",
+      "required": [
+        "total",
+        "healthy"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "healthy": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "degraded": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "sourceHealth": {
+      "type": "object",
+      "required": [
+        "total",
+        "status_counts",
+        "core",
+        "optional"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status_counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "core": {
+          "$ref": "#/$defs/healthTotals"
+        },
+        "optional": {
+          "$ref": "#/$defs/healthTotals"
+        }
+      },
+      "additionalProperties": true
+    },
+    "vulnerability": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "cve_ids",
+        "ghsa_ids",
+        "products",
+        "cvss_score",
+        "severity",
+        "epss_score",
+        "epss_percentile",
+        "cisa_kev",
+        "known_exploited",
+        "known_ransomware_use",
+        "source_name",
+        "source_url",
+        "selection_score",
+        "selection_reasons",
+        "priority_score",
+        "why_it_matters",
+        "defensive_action"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "cve_ids": {
+          "$ref": "#/$defs/stringList"
+        },
+        "ghsa_ids": {
+          "$ref": "#/$defs/stringList"
+        },
+        "products": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "maxItems": 3
+            }
+          ]
+        },
+        "cvss_score": {
+          "$ref": "#/$defs/nullableScore"
+        },
+        "severity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epss_score": {
+          "$ref": "#/$defs/nullableProbability"
+        },
+        "epss_percentile": {
+          "$ref": "#/$defs/nullableProbability"
+        },
+        "cisa_kev": {
+          "type": "boolean"
+        },
+        "known_exploited": {
+          "type": "boolean"
+        },
+        "known_ransomware_use": {
+          "type": "boolean"
+        },
+        "source_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "$ref": "#/$defs/url"
+        },
+        "selection_score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selection_reasons": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "maxItems": 3
+            }
+          ]
+        },
+        "priority_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "defensive_action": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

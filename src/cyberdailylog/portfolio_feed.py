@@ -11,6 +11,7 @@ SCHEMA_VERSION = 1
 MINIMUM_PRIORITY = 5.0
 REPOSITORY_URL = "https://github.com/JimBLogic/CyberDailyLog"
 RAW_BASE_URL = "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main"
+SCHEMA_URL = f"{RAW_BASE_URL}/schemas/portfolio-feed.schema.json"
 
 
 def _string_list(value: Any) -> list[str]:
@@ -182,6 +183,7 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
 
     return {
         "schema_version": SCHEMA_VERSION,
+        "schema_url": SCHEMA_URL,
         "project": "CyberDailyLog",
         "title": "Blue Team Intelligence Digest",
         "generated_at": str(report["generated_at"]),
@@ -199,6 +201,7 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         "report_url": f"{REPOSITORY_URL}/blob/main/reports/latest.md",
         "repository_url": REPOSITORY_URL,
         "endpoints": {
+            "schema": SCHEMA_URL,
             "compact_feed": f"{RAW_BASE_URL}/reports/portfolio-feed.json",
             "full_report": f"{RAW_BASE_URL}/reports/latest.json",
             "source_health": f"{RAW_BASE_URL}/reports/source-health.json",

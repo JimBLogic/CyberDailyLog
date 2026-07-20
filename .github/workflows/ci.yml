@@ -53,14 +53,20 @@ jobs:
           import jsonschema
 
           report = json.loads(Path("tmp/reports/latest.json").read_text(encoding="utf-8"))
-          schema = json.loads(
+          report_schema = json.loads(
               files("cyberdailylog")
               .joinpath("schemas/intelligence-item.schema.json")
               .read_text(encoding="utf-8")
           )
-          jsonschema.validate(report, schema)
+          jsonschema.validate(report, report_schema)
 
           feed = json.loads(Path("tmp/reports/portfolio-feed.json").read_text(encoding="utf-8"))
+          feed_schema = json.loads(
+              files("cyberdailylog")
+              .joinpath("schemas/portfolio-feed.schema.json")
+              .read_text(encoding="utf-8")
+          )
+          jsonschema.validate(feed, feed_schema, format_checker=jsonschema.FormatChecker())
           assert feed["schema_version"] == 1
           assert feed["project"] == "CyberDailyLog"
           assert feed["qualified_developments"] == len(report["items"])
@@ -87,6 +93,8 @@ jobs:
           /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog.portfolio_feed \
             --report /tmp/cyberdailylog-wheel-reports/latest.json \
             --output /tmp/cyberdailylog-wheel-reports/portfolio-feed.json
+          /tmp/cyberdailylog-wheel-test/bin/python -c \
+            "from importlib.resources import files; assert files('cyberdailylog').joinpath('schemas/portfolio-feed.schema.json').is_file()"
           cp README.md /tmp/cyberdailylog-wheel-README.md
           /tmp/cyberdailylog-wheel-test/bin/python -m cyberdailylog.readme_snapshot \
             --feed /tmp/cyberdailylog-wheel-reports/portfolio-feed.json \

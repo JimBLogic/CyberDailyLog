@@ -91,6 +91,8 @@ jobs:
 
           feed = json.loads(Path("reports/portfolio-feed.json").read_text(encoding="utf-8"))
           assert feed["schema_version"] == 1
+          assert feed["schema_url"].endswith("schemas/portfolio-feed.schema.json")
+          assert feed["endpoints"]["schema"] == feed["schema_url"]
           assert feed["project"] == "CyberDailyLog"
           assert feed["pipeline_status"] in {"operational", "degraded"}
           assert len(feed["top_vulnerabilities"]) <= 5

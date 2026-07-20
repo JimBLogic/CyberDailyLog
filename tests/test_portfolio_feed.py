@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+from importlib.resources import files
 from pathlib import Path
 
 import pytest
+from jsonschema import Draft202012Validator, FormatChecker, ValidationError as JsonSchemaValidationError
 
 from cyberdailylog.portfolio_feed import build_portfolio_feed, write_portfolio_feed
 
@@ -102,6 +104,8 @@ def test_build_portfolio_feed_is_compact_ranked_and_enriched() -> None:
     assert feed["source_health"]["core"] == {"total": 1, "healthy": 1}
     assert feed["source_health"]["optional"] == {"total": 1, "healthy": 0, "degraded": 1}
     assert "exploitation" in feed["immediate_attention"]
+    assert feed["schema_url"].endswith("schemas/portfolio-feed.schema.json")
+    assert feed["endpoints"]["schema"] == feed["schema_url"]
     assert feed["endpoints"]["compact_feed"].endswith("reports/portfolio-feed.json")
 
 
@@ -127,6 +131,23 @@ def test_write_portfolio_feed_writes_valid_json(tmp_path: Path) -> None:
     assert written["generated_at"] == "2026-07-16T08:34:06+00:00"
     assert len(written["top_vulnerabilities"]) == 2
     assert not output_path.with_suffix(".json.tmp").exists()
+
+
+def test_compact_feed_matches_public_schema() -> None:
+    packaged_schema = json.loads(
+        files("cyberdailylog").joinpath("schemas/portfolio-feed.schema.json").read_text(encoding="utf-8")
+    )
+    public_schema = json.loads(Path("schemas/portfolio-feed.schema.json").read_text(encoding="utf-8"))
+    assert packaged_schema == public_schema
+
+    validator = Draft202012Validator(packaged_schema, format_checker=FormatChecker())
+    validator.check_schema(packaged_schema)
+    validator.validate(build_portfolio_feed(sample_report()))
+
+    invalid_feed = build_portfolio_feed(sample_report())
+    invalid_feed["top_vulnerabilities"][0]["priority_score"] = 10.1
+    with pytest.raises(JsonSchemaValidationError):
+        validator.validate(invalid_feed)
 
 
 @pytest.mark.parametrize("limit", [0, -1])

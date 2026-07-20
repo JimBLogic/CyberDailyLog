@@ -32,12 +32,13 @@ No confirmed exploitation or CISA KEV entries qualified in this run.
 
 - **Human brief:** [`reports/latest.md`](reports/latest.md)
 - **Compact integration feed:** [`reports/portfolio-feed.json`](reports/portfolio-feed.json)
+- **Compact-feed contract:** [`schemas/portfolio-feed.schema.json`](schemas/portfolio-feed.schema.json)
 - **Complete evidence JSON:** [`reports/latest.json`](reports/latest.json)
 - **Collector health:** [`reports/source-health.json`](reports/source-health.json)
 - **Daily archive:** [`reports/archive/`](reports/archive/)
 - **Integration examples:** [`docs/INTEGRATION.md`](docs/INTEGRATION.md)
 
-The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes a small ranked set with stable metadata while the complete JSON remains the source of truth.
+The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes a small ranked set with stable metadata and a downloadable JSON Schema contract, while the complete JSON remains the source of truth.
 
 ## What it collects
 
