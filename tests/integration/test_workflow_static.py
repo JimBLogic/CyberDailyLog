@@ -26,12 +26,26 @@ def test_readme_exposes_daily_outputs_and_integration():
 
 def test_daily_workflow_safe_mode_and_publication_contract():
     workflow = load_workflow(".github/workflows/daily-intelligence.yml")
+    assert workflow["on"]["schedule"] == [
+        {"cron": "17 8 * * *", "timezone": "Europe/Madrid"},
+        {"cron": "47 9 * * *", "timezone": "Europe/Madrid"},
+    ]
     dispatch = workflow["on"]["workflow_dispatch"]["inputs"]
     assert dispatch["dry_run"]["type"] == "boolean"
-    assert dispatch["dry_run"]["default"] is True
+    assert dispatch["dry_run"]["default"] is False
     assert dispatch["lookback_hours"]["required"] is True
+    preflight = workflow["jobs"]["preflight"]
     collect = workflow["jobs"]["collect"]
     publish = workflow["jobs"]["publish"]
+    assert preflight["permissions"] == {"contents": "read"}
+    assert preflight["outputs"]["should_run"] == "${{ steps.freshness.outputs.should_run }}"
+    preflight_steps = {step.get("name"): step for step in preflight["steps"]}
+    freshness_script = preflight_steps["Check daily publication freshness"]["run"]
+    assert 'EVENT_NAME" = "schedule"' in freshness_script
+    assert 'published_date" = "$today"' in freshness_script
+    assert 'should_run="false"' in freshness_script
+    assert collect["needs"] == "preflight"
+    assert collect["if"] == "${{ needs.preflight.outputs.should_run == 'true' }}"
     assert collect["permissions"] == {"contents": "read"}
     assert publish["permissions"] == {"contents": "write"}
     assert "needs.collect.outputs.dry_run == 'false'" in publish["if"]
@@ -70,6 +84,15 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert "exit 0" in publish_script
     assert "git push" in publish_script
     assert "git add ." not in publish_script
+
+
+def test_workflow_runtime_actions_use_current_node24_pins():
+    text = "\n".join(path.read_text(encoding="utf-8") for path in Path(".github/workflows").glob("*.yml"))
+    assert "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" in text
+    assert "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97" in text
+    assert "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a" in text
+    assert "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c" in text
+    assert "ubuntu-latest" not in text
 
 
 def test_ci_installs_runtime_and_dev_dependencies_and_strict_audit():

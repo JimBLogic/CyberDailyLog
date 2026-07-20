@@ -1,12 +1,18 @@
 # Operations
 
+## Automatic publication
+
+The primary run is scheduled for 08:17 Europe/Madrid. A recovery event runs at 09:47, but a freshness preflight skips collection when a report has already been published for the current UTC date. This also prevents a delayed primary event from creating a second daily report after recovery succeeds.
+
+Scheduled runs always request publication and stop before writing when the required-source quorum is degraded. Manual runs publish by default; explicitly set `dry_run=true` when you only want a preview artifact.
+
 ## First live dry run
 
 1. Open **Actions** in GitHub.
 2. Select the `Daily Blue Team Intelligence` workflow.
 3. Select the current `main` branch.
 4. Set `lookback_hours=24`.
-5. Keep `dry_run=true`.
+5. Set `dry_run=true`.
 6. Run the workflow.
 
 A workflow dry run performs live collection and writes real reports, but it does not commit or publish them. Do not treat the workflow as production-proven until a post-merge `dry_run=true` run on `main` has produced and uploaded real reports successfully.
@@ -38,7 +44,7 @@ After a successful dry-run inspection:
 2. Set `dry_run=false`.
 3. Confirm the run reaches publication only if source quorum succeeds.
 4. Review the generated commit.
-5. Confirm the commit changed only `reports/` files.
+5. Confirm the commit changed only `README.md` and files under `reports/`.
 
 The workflow uses the built-in `GITHUB_TOKEN`; no personal access token is required.
 
