@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,8 @@ DEFAULT_CURATION = {
     "max_immediate_attention": 5,
     "max_priority_vulnerabilities": 10,
     "max_official_advisories": 3,
+    "max_human_context": 1,
+    "max_community_pulse": 1,
     "max_defensive_releases": 3,
     "max_analyst_actions": 5,
     "max_total_unique_items": 15,
@@ -20,6 +23,8 @@ DEFAULT_CURATION = {
     "max_markdown_bytes": 12288,
     "title_max_characters": 110,
     "reason_max_characters": 160,
+    "excerpt_max_words": 24,
+    "excerpt_max_characters": 240,
 }
 
 
@@ -52,8 +57,12 @@ def _truncate(value: str, limit: int) -> str:
     return f"{shortened or clean[: max(1, limit - 1)]}…"
 
 
+def _md_text(value: str) -> str:
+    return escape(" ".join(value.split())).replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
+
+
 def _table_cell(value: str) -> str:
-    return escape(value).replace("|", "\\|")
+    return _md_text(value).replace("|", "\\|")
 
 
 def _identifier(item: IntelligenceItem) -> str:
@@ -95,6 +104,39 @@ def _take_unique(
     return chosen
 
 
+def _published_sort(item: IntelligenceItem) -> datetime:
+    return item.published_at or datetime.min.replace(tzinfo=timezone.utc)
+
+
+def _human_candidates(report: Report) -> list[IntelligenceItem]:
+    return sorted(
+        [item for item in report.items if item.category in {"expert_commentary", "analyst_diary"}],
+        key=lambda item: (_published_sort(item), item.source_name, item.canonical_id),
+        reverse=True,
+    )
+
+
+def _community_candidates(report: Report) -> list[IntelligenceItem]:
+    return sorted(
+        [item for item in report.items if item.category == "community_pulse"],
+        key=lambda item: (
+            item.community_score or 0,
+            item.community_comments or 0,
+            _published_sort(item),
+            item.canonical_id,
+        ),
+        reverse=True,
+    )
+
+
+def _excerpt(item: IntelligenceItem, max_words: int, max_characters: int) -> str:
+    words = " ".join(item.summary.split()).split()
+    text = " ".join(words[:max_words])
+    if len(words) > max_words:
+        text += "…"
+    return _truncate(text, max_characters) if text else ""
+
+
 def _health_summary(report: Report) -> str:
     core = [health for health in report.source_health if health.required]
     optional = [health for health in report.source_health if not health.required]
@@ -121,6 +163,18 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
         used,
         total_limit,
     )
+    human_context = _take_unique(
+        _human_candidates(report),
+        int(curation["max_human_context"]),
+        used,
+        total_limit,
+    )
+    community_pulse = _take_unique(
+        _community_candidates(report),
+        int(curation["max_community_pulse"]),
+        used,
+        total_limit,
+    )
     vulnerabilities = _take_unique(
         [item for item in report.items if item.category == "vulnerability" and _qualifies(item, minimum)],
         int(curation["max_priority_vulnerabilities"]),
@@ -139,7 +193,8 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
         used,
         total_limit,
     )
-    displayed = immediate + vulnerabilities + advisories + releases
+    displayed = immediate + human_context + community_pulse + vulnerabilities + advisories + releases
+    actionable = immediate + vulnerabilities + advisories + releases
     above_threshold = sum(_qualifies(item, minimum) for item in report.items)
 
     lines = [
@@ -167,11 +222,11 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
 
     if immediate:
         for item in immediate:
-            title = escape(_truncate(item.title, title_limit))
+            title = _md_text(_truncate(item.title, title_limit))
             link = item.source_url or "#"
             lines.append(
-                f"- **[{escape(_identifier(item))}]({link}) · {item.priority_score:.1f}/10** — "
-                f"{title}. **Action:** {escape(_action(item, reason_limit))}"
+                f"- **[{_md_text(_identifier(item))}]({link}) · {item.priority_score:.1f}/10** — "
+                f"{title}. **Action:** {_md_text(_action(item, reason_limit))}"
             )
     else:
         lines.append("No confirmed exploitation, CISA KEV or ransomware-linked item qualified in this run.")
@@ -204,10 +259,48 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     else:
         lines.append("| No qualifying vulnerability items. | — | — | — | — | — |")
 
+    lines += ["", "## Human context", ""]
+    if human_context:
+        item = human_context[0]
+        byline = " · ".join(part for part in [item.author, item.source_name] if part)
+        lines.extend(
+            [
+                f"### [{_md_text(_truncate(item.title, title_limit))}]({item.source_url or '#'})",
+                "",
+                f"**{_md_text(byline or item.source_name)}**",
+                "",
+            ]
+        )
+        excerpt = _excerpt(
+            item,
+            int(curation["excerpt_max_words"]),
+            int(curation["excerpt_max_characters"]),
+        )
+        if excerpt:
+            lines.append(f"> {_md_text(excerpt)}")
+            lines.append("")
+            lines.append("_Publisher-provided RSS excerpt; open the original article for full context._")
+        else:
+            lines.append("No publisher excerpt was supplied; open the original article for context.")
+    else:
+        lines.append("No recent expert or analyst commentary qualified in this coverage window.")
+
+    lines += ["", "## Community pulse", ""]
+    if community_pulse:
+        item = community_pulse[0]
+        metrics = f"{item.community_score or 0} points · {item.community_comments or 0} comments"
+        lines.append(f"- **[{_md_text(_truncate(item.title, title_limit))}]({item.source_url or '#'})**")
+        discussion = item.discussion_url or item.source_url or "#"
+        lines.append(f"  Hacker News · {metrics} · [Open discussion]({discussion})")
+        lines.append("  _Community interest signal only; validate claims against primary sources._")
+    else:
+        lines.append("No security-focused Hacker News discussion met the engagement threshold.")
+
     lines += ["", "## Notable official advisories", ""]
     if advisories:
         lines.extend(
-            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url}) — {escape(_why(item, reason_limit))}"
+            f"- [{_md_text(_truncate(item.title, title_limit))}]({item.source_url}) — "
+            f"{_md_text(_why(item, reason_limit))}"
             for item in advisories
         )
     else:
@@ -216,17 +309,17 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     lines += ["", "## Defensive tooling and detection content", ""]
     if releases:
         lines.extend(
-            f"- [{escape(_truncate(item.title, title_limit))}]({item.source_url})"
-            + (f" — {escape(_truncate(item.blue_team_relevance, reason_limit))}" if item.blue_team_relevance else "")
+            f"- [{_md_text(_truncate(item.title, title_limit))}]({item.source_url})"
+            + (f" — {_md_text(_truncate(item.blue_team_relevance, reason_limit))}" if item.blue_team_relevance else "")
             for item in releases
         )
     else:
         lines.append("No allowlisted defensive release qualified in this coverage window.")
 
     lines += ["", "## Analyst next actions", ""]
-    for item in displayed[: int(curation["max_analyst_actions"])]:
-        lines.append(f"- **{escape(_identifier(item))}:** {escape(_action(item, reason_limit))}")
-    if not displayed:
+    for item in actionable[: int(curation["max_analyst_actions"])]:
+        lines.append(f"- **{_md_text(_identifier(item))}:** {_md_text(_action(item, reason_limit))}")
+    if not actionable:
         lines.append("- Confirm source health and reassess when new evidence is available.")
 
     lines += [
@@ -255,7 +348,8 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
         "<summary>Methodology and limitations</summary>",
         "",
         "The 0–10 priority score is an editorial triage aid, not asset-specific risk. "
-        "EPSS is probabilistic, and source-backed findings still require asset, exposure and vendor validation.",
+        "EPSS is probabilistic, and source-backed findings still require asset, exposure and vendor validation. "
+        "Expert RSS excerpts and Hacker News engagement are contextual signals, not verified threat evidence.",
         "",
         "</details>",
     ]

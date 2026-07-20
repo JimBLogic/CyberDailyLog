@@ -3,6 +3,8 @@ curation:
   max_immediate_attention: 5
   max_priority_vulnerabilities: 10
   max_official_advisories: 3
+  max_human_context: 1
+  max_community_pulse: 1
   max_defensive_releases: 3
   max_analyst_actions: 5
   max_total_unique_items: 15
@@ -10,3 +12,5 @@ curation:
   max_markdown_bytes: 12288
   title_max_characters: 110
   reason_max_characters: 160
+  excerpt_max_words: 24
+  excerpt_max_characters: 240

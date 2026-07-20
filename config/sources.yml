@@ -4,14 +4,81 @@ rss_sources:
     owner: Cybersecurity and Infrastructure Security Agency
     category: government_advisory
     primary: true
+    enabled: false
+    reason: disabled because the endpoint consistently returns HTTP 403; CISA KEV remains the required CISA source
+  - name: Krebs on Security
+    url: https://krebsonsecurity.com/feed/
+    health_name: rss_krebs
+    author: Brian Krebs
+    category: expert_commentary
+    source_type: expert_rss
+    source_tier: 2
+    official_source: false
+    excerpt_max_words: 24
+    excerpt_max_characters: 240
+    blue_team_relevance: Independent security investigation and incident context.
+  - name: SANS Internet Storm Center Handler's Diary
+    url: https://isc.sans.edu/rssfeed_full.xml
+    health_name: rss_sans_isc
+    category: analyst_diary
+    source_type: analyst_rss
+    source_tier: 2
+    official_source: false
+    excerpt_max_words: 24
+    excerpt_max_characters: 240
+    blue_team_relevance: Operational analyst perspective from the SANS Internet Storm Center.
   - name: Red Hat Security Advisories
     url: https://access.redhat.com/security/data/oval/v2/RHEL9/rhel-9.oval.xml.bz2
     enabled: false
     reason: disabled until parser supports OVAL safely
+
+hacker_news:
+  enabled: true
+  base_url: https://hacker-news.firebaseio.com/v0
+  minimum_score: 80
+  minimum_comments: 20
+  max_story_ids: 40
+  max_items: 3
+  security_keywords:
+    - security
+    - cybersecurity
+    - vulnerability
+    - exploit
+    - zero-day
+    - 0-day
+    - breach
+    - ransomware
+    - malware
+    - phishing
+    - backdoor
+    - botnet
+    - credential
+    - authentication
+    - cryptography
+    - privacy
+    - supply chain
+    - incident response
+    - threat intelligence
+    - memory safety
+    - sandbox
+    - rootkit
+  allowed_domains:
+    - krebsonsecurity.com
+    - isc.sans.edu
+    - security.googleblog.com
+    - googleprojectzero.blogspot.com
+    - unit42.paloaltonetworks.com
+    - blog.talosintelligence.com
+    - microsoft.com
+    - github.com
+    - therecord.media
+    - bleepingcomputer.com
+
 github_releases:
   - SigmaHQ/sigma
   - elastic/detection-rules
   - wazuh/wazuh
+
 optional_future_sources:
   - abuse.ch ThreatFox
   - URLhaus

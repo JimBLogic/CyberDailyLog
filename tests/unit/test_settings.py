@@ -8,14 +8,26 @@ from cyberdailylog.settings import load_yaml
 
 def test_checked_in_sources_yaml_controls_source_configuration():
     data = load_yaml(Path("config/sources.yml"))
-    assert len(data["rss_sources"]) == 2
-    cisa = data["rss_sources"][0]
-    red_hat = data["rss_sources"][1]
+    rss_sources = {source["name"]: source for source in data["rss_sources"]}
+
+    cisa = rss_sources["CISA Cybersecurity Advisories"]
+    red_hat = rss_sources["Red Hat Security Advisories"]
+    krebs = rss_sources["Krebs on Security"]
+    sans = rss_sources["SANS Internet Storm Center Handler's Diary"]
+
     assert cisa["owner"] == "Cybersecurity and Infrastructure Security Agency"
     assert cisa["category"] == "government_advisory"
     assert cisa["primary"] is True
+    assert cisa["enabled"] is False
     assert red_hat["enabled"] is False
     assert red_hat["reason"] == "disabled until parser supports OVAL safely"
+    assert krebs["health_name"] == "rss_krebs"
+    assert krebs["category"] == "expert_commentary"
+    assert sans["health_name"] == "rss_sans_isc"
+    assert sans["category"] == "analyst_diary"
+    assert data["hacker_news"]["enabled"] is True
+    assert data["hacker_news"]["minimum_score"] == 80
+    assert data["hacker_news"]["minimum_comments"] == 20
     assert data["github_releases"] == ["SigmaHQ/sigma", "elastic/detection-rules", "wazuh/wazuh"]
     assert len(data["optional_future_sources"]) >= 5
 
