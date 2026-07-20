@@ -50,6 +50,11 @@ class IntelligenceItem:
     published_at: datetime | None = None
     modified_at: datetime | None = None
     collected_at: datetime = dataclass_field(default_factory=utc_now)
+    author: str | None = None
+    excerpt_origin: str | None = None
+    community_score: int | None = None
+    community_comments: int | None = None
+    discussion_url: str | None = None
     cve_ids: list[str] = dataclass_field(default_factory=list)
     ghsa_ids: list[str] = dataclass_field(default_factory=list)
     vendors: list[str] = dataclass_field(default_factory=list)
