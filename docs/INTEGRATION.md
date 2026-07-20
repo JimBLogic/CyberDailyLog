@@ -24,13 +24,23 @@ The feed keeps `schema_version: 1` for backward compatibility and includes:
 - immediate-attention count and summary;
 - up to five ranked vulnerabilities;
 - priority, CVSS, EPSS, exploitation and defensive-action fields;
+- an optional `human_context` object with one attributed publisher-provided RSS excerpt;
+- an optional `community_pulse` object with one filtered Hacker News story and engagement metadata;
 - canonical links to the other outputs.
 
 Consumers should ignore unknown fields and reject unsupported major schema versions.
 
+### Trust boundaries
+
+`human_context` and `community_pulse` are deliberately separate from `top_vulnerabilities`:
+
+- `human_context` is a short excerpt already supplied by a trusted publisher's RSS feed. CyberDailyLog does not scrape article bodies.
+- `community_pulse` is a popularity and discussion signal, not verified threat evidence. Validate it against primary sources before operational use.
+- `top_vulnerabilities` remains the ranked evidence-bearing security view.
+
 ## Strict JSON Schema validation
 
-The public Draft 2020-12 schema validates required fields, timestamps, URLs, score ranges and the compact vulnerability records while still allowing backward-compatible additive fields.
+The public Draft 2020-12 schema validates required fields, timestamps, URLs, score ranges, compact vulnerability records and the optional context objects while still allowing backward-compatible additive fields.
 
 ```python
 import json
@@ -72,7 +82,19 @@ if (ageHours > 36) {
 }
 
 console.table(feed.top_vulnerabilities);
+if (feed.human_context) {
+  console.log(feed.human_context.title, feed.human_context.source_url);
+}
+if (feed.community_pulse) {
+  console.log(
+    feed.community_pulse.title,
+    feed.community_pulse.score,
+    feed.community_pulse.discussion_url,
+  );
+}
 ```
+
+Never inject feed strings with `innerHTML`. Render them as text and keep links explicitly allowlisted as `http` or `https` URLs.
 
 ## Python
 
@@ -100,6 +122,11 @@ if age.total_seconds() > 36 * 3600:
 
 for item in feed["top_vulnerabilities"]:
     print(item["id"], item["priority_score"], item["source_url"])
+
+if context := feed.get("human_context"):
+    print("Human context:", context["title"], context["source_url"])
+if pulse := feed.get("community_pulse"):
+    print("Community pulse:", pulse["title"], pulse["score"], pulse["discussion_url"])
 ```
 
 ## curl
@@ -142,6 +169,8 @@ jobs:
           assert feed["schema_version"] == 1
           assert isinstance(feed["top_vulnerabilities"], list)
           assert len(feed["top_vulnerabilities"]) <= 5
+          assert "human_context" in feed
+          assert "community_pulse" in feed
           PY
 ```
 
@@ -152,7 +181,8 @@ jobs:
 - Keep the last known valid feed when a refresh fails.
 - Do not execute text or links received from the feed.
 - Use `source_health` to distinguish required-source failure from optional-source degradation.
-- Attribute CyberDailyLog and preserve official source links.
+- Treat a missing context item as normal: trusted publishers and Hacker News may have no qualifying post in a 24-hour window.
+- Attribute CyberDailyLog and preserve original publisher, discussion and primary-source links.
 
 ## Requesting changes or new sources
 
