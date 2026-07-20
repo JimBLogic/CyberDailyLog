@@ -92,9 +92,7 @@ def build_snapshot(feed: dict[str, Any]) -> str:
         title = _md_text(human_context.get("title") or "Human context")
         source_url = str(human_context.get("source_url") or "#")
         byline = " · ".join(
-            _md_text(value)
-            for value in [human_context.get("author"), human_context.get("source_name")]
-            if value
+            _md_text(value) for value in [human_context.get("author"), human_context.get("source_name")] if value
         )
         excerpt = _md_text(human_context.get("excerpt") or "")
         lines += ["", "### Human context", "", f"**[{title}]({source_url})**"]

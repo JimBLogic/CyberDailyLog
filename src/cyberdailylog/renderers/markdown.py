@@ -310,11 +310,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     if releases:
         lines.extend(
             f"- [{_md_text(_truncate(item.title, title_limit))}]({item.source_url})"
-            + (
-                f" — {_md_text(_truncate(item.blue_team_relevance, reason_limit))}"
-                if item.blue_team_relevance
-                else ""
-            )
+            + (f" — {_md_text(_truncate(item.blue_team_relevance, reason_limit))}" if item.blue_team_relevance else "")
             for item in releases
         )
     else:

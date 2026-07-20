@@ -181,8 +181,7 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         [
             item
             for item in items
-            if _qualifies(item)
-            and str(item.get("category") or "vulnerability") in {"vulnerability", "advisory"}
+            if _qualifies(item) and str(item.get("category") or "vulnerability") in {"vulnerability", "advisory"}
         ],
         key=lambda item: (
             _priority_score(item),
