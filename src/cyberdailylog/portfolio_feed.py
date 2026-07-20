@@ -28,6 +28,14 @@ def _number(value: Any) -> float | None:
     return None
 
 
+def _integer(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    return None
+
+
 def _identifier(item: dict[str, Any]) -> str:
     cve_ids = _string_list(item.get("cve_ids"))
     if cve_ids:
@@ -44,6 +52,14 @@ def _truncate_words(value: str, limit: int = 180) -> str:
         return clean
     shortened = clean[: limit - 1].rsplit(" ", 1)[0]
     return f"{shortened or clean[: limit - 1]}…"
+
+
+def _truncate_word_count(value: str, maximum_words: int = 24, maximum_characters: int = 240) -> str:
+    words = " ".join(value.split()).split()
+    text = " ".join(words[:maximum_words])
+    if len(words) > maximum_words:
+        text += "…"
+    return _truncate_words(text, maximum_characters) if text else ""
 
 
 def _clean_title(item: dict[str, Any]) -> str:
@@ -111,6 +127,31 @@ def _priority_item(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _editorial_context(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "title": _truncate_words(str(item.get("title") or "Untitled"), 180),
+        "source_name": str(item.get("source_name") or "unknown"),
+        "author": str(item.get("author") or "") or None,
+        "excerpt": _truncate_word_count(str(item.get("summary") or "")),
+        "excerpt_origin": str(item.get("excerpt_origin") or "publisher_feed"),
+        "source_url": str(item.get("source_url") or ""),
+        "published_at": str(item.get("published_at") or ""),
+    }
+
+
+def _community_context(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "title": _truncate_words(str(item.get("title") or "Untitled"), 180),
+        "source_name": str(item.get("source_name") or "Hacker News"),
+        "source_url": str(item.get("source_url") or ""),
+        "discussion_url": str(item.get("discussion_url") or item.get("source_url") or ""),
+        "score": _integer(item.get("community_score")) or 0,
+        "comments": _integer(item.get("community_comments")) or 0,
+        "published_at": str(item.get("published_at") or ""),
+        "caveat": "Community interest signal; validate claims against primary sources.",
+    }
+
+
 def _qualifies(item: dict[str, Any]) -> bool:
     return bool(
         _priority_score(item) >= MINIMUM_PRIORITY
@@ -137,11 +178,30 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
     items = [item for item in raw_items if isinstance(item, dict)]
     health = [entry for entry in raw_health if isinstance(entry, dict)]
     ranked = sorted(
-        [item for item in items if _qualifies(item)],
+        [
+            item
+            for item in items
+            if _qualifies(item)
+            and str(item.get("category") or "vulnerability") in {"vulnerability", "advisory"}
+        ],
         key=lambda item: (
             _priority_score(item),
             int(item.get("selection_score") or 0),
             str(item.get("canonical_id") or ""),
+        ),
+        reverse=True,
+    )
+    editorial = sorted(
+        [item for item in items if item.get("category") in {"expert_commentary", "analyst_diary"}],
+        key=lambda item: (str(item.get("published_at") or ""), str(item.get("canonical_id") or "")),
+        reverse=True,
+    )
+    community = sorted(
+        [item for item in items if item.get("category") == "community_pulse"],
+        key=lambda item: (
+            _integer(item.get("community_score")) or 0,
+            _integer(item.get("community_comments")) or 0,
+            str(item.get("published_at") or ""),
         ),
         reverse=True,
     )
@@ -197,6 +257,8 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         "immediate_attention_count": len(exploited),
         "immediate_attention": immediate_attention,
         "top_vulnerabilities": [_priority_item(item) for item in ranked[:limit]],
+        "human_context": _editorial_context(editorial[0]) if editorial else None,
+        "community_pulse": _community_context(community[0]) if community else None,
         "source_health": source_health,
         "report_url": f"{REPOSITORY_URL}/blob/main/reports/latest.md",
         "repository_url": REPOSITORY_URL,
