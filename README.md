@@ -2,7 +2,7 @@
 
 [![Daily Blue Team Intelligence](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml/badge.svg)](https://github.com/JimBLogic/CyberDailyLog/actions/workflows/daily-intelligence.yml)
 
-CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, enriches and correlates vulnerability data, ranks actionable developments and publishes reproducible daily reports.
+CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, enriches and correlates vulnerability data, adds clearly separated expert and community context, ranks actionable developments and publishes reproducible daily reports.
 
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
@@ -38,17 +38,26 @@ No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 - **Daily archive:** [`reports/archive/`](reports/archive/)
 - **Integration examples:** [`docs/INTEGRATION.md`](docs/INTEGRATION.md)
 
-The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes a small ranked set with stable metadata and a downloadable JSON Schema contract, while the complete JSON remains the source of truth.
+The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes ranked vulnerabilities plus one optional expert-context item and one optional community-pulse item, while the complete JSON remains the source of truth.
 
 ## What it collects
 
 - Tier 1 structured sources: CISA KEV, NVD CVE API 2.0, FIRST EPSS and GitHub-reviewed public security advisories.
-- Tier 2 official RSS/Atom advisories configured in `config/sources.yml`.
-- Tier 3 allowlisted defensive GitHub releases such as SigmaHQ Sigma, Elastic detection rules and Wazuh.
+- Curated expert and analyst RSS context from Krebs on Security and the SANS Internet Storm Center Handler's Diary.
+- A strictly filtered Hacker News community signal using the official API, engagement thresholds and security-topic matching.
+- Allowlisted defensive GitHub releases such as SigmaHQ Sigma, Elastic detection rules and Wazuh.
+
+## Trust boundaries
+
+Threat intelligence, expert commentary and community interest are deliberately separated:
+
+- CVE, KEV, EPSS and official advisories remain evidence-bearing security data;
+- RSS excerpts are short, attributed, publisher-provided context and never scraped from article bodies;
+- Hacker News entries are labelled as community signals and must be checked against primary sources.
 
 ## What it excludes
 
-The active pipeline excludes arbitrary search results, proof-of-concept exploitation feeds, malware downloads, LLM-generated claims, commercial-only sources and fragile scraping.
+The active pipeline excludes arbitrary search results, proof-of-concept exploitation feeds, malware downloads, LLM-generated claims, commercial-only sources, article-body scraping and unreviewed social-media ingestion.
 
 ## Run locally
 
@@ -79,7 +88,7 @@ The pipeline keeps two transparent signals:
 - `selection_score`: the original deterministic source and evidence ranking;
 - `priority_score`: a normalized 0–10 editorial triage score for human and lightweight-feed curation.
 
-The human brief applies configurable limits and a minimum priority threshold. Lower-priority source-backed records remain available in the complete JSON.
+The human brief applies configurable limits and a minimum priority threshold. Lower-priority source-backed records remain available in the complete JSON. Expert commentary and Hacker News engagement are displayed in dedicated sections and are not represented as verified risk scores.
 
 ## Provenance and source health
 
@@ -89,4 +98,4 @@ Canonical records retain field-level provenance where collectors provide importa
 
 `.github/workflows/daily-intelligence.yml` publishes at 08:17 Europe/Madrid, with an idempotent 09:47 recovery schedule if the first event is delayed or dropped. Manual runs publish by default; set `dry_run=true` for a preview. Every publication requires the source quorum and writes only generated README/report outputs with the built-in `GITHUB_TOKEN`.
 
-CyberDailyLog stores defensive metadata and official links. It does not execute exploit code, download malware, bypass access controls or print credentials.
+CyberDailyLog stores defensive metadata, short attributed feed excerpts and official links. It does not execute exploit code, download malware, bypass access controls or print credentials.
