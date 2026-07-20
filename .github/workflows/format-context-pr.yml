@@ -1,0 +1,34 @@
+name: Format context PR
+
+on:
+  push:
+    branches:
+      - agent/add-human-context-community-pulse
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: agent/add-human-context-community-pulse
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Format and remove helper
+        run: |
+          set -euo pipefail
+          python -m pip install 'ruff==0.12.10'
+          ruff format .
+          rm .github/workflows/format-context-pr.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'style: format expert context implementation'
+          git push
