@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from html import escape
 import json
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,11 @@ def _number(value: Any) -> float | None:
     if isinstance(value, bool):
         return None
     return float(value) if isinstance(value, (int, float)) else None
+
+
+def _md_text(value: object) -> str:
+    clean = " ".join(str(value or "").split())
+    return escape(clean).replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
 
 
 def _status_summary(feed: dict[str, Any]) -> str:
@@ -71,15 +77,46 @@ def build_snapshot(feed: dict[str, Any]) -> str:
         for raw in top[:5]:
             if not isinstance(raw, dict):
                 continue
-            identifier = str(raw.get("id") or "Unidentified item")
-            title = str(raw.get("title") or identifier)
+            identifier = _md_text(raw.get("id") or "Unidentified item")
+            title = _md_text(raw.get("title") or identifier)
             source_url = str(raw.get("source_url") or "#")
             priority = _number(raw.get("priority_score"))
             if priority is None:
                 priority = _number(raw.get("cvss_score")) or 0.0
-            why = str(raw.get("why_it_matters") or "")
+            why = _md_text(raw.get("why_it_matters") or "")
             suffix = f" — {why}" if why else ""
             lines.append(f"- **[{identifier}]({source_url}) · {priority:.1f}/10** — {title}{suffix}")
+
+    human_context = feed.get("human_context")
+    if isinstance(human_context, dict):
+        title = _md_text(human_context.get("title") or "Human context")
+        source_url = str(human_context.get("source_url") or "#")
+        byline = " · ".join(
+            _md_text(value)
+            for value in [human_context.get("author"), human_context.get("source_name")]
+            if value
+        )
+        excerpt = _md_text(human_context.get("excerpt") or "")
+        lines += ["", "### Human context", "", f"**[{title}]({source_url})**"]
+        if byline:
+            lines.append(f"{byline}  ")
+        if excerpt:
+            lines.append(f"> {excerpt}")
+
+    community = feed.get("community_pulse")
+    if isinstance(community, dict):
+        title = _md_text(community.get("title") or "Community pulse")
+        source_url = str(community.get("source_url") or "#")
+        discussion_url = str(community.get("discussion_url") or source_url)
+        points = int(community.get("score") or 0)
+        comments = int(community.get("comments") or 0)
+        lines += [
+            "",
+            "### Community pulse",
+            "",
+            f"**[{title}]({source_url})** — Hacker News · {points} points · {comments} comments",
+            f"[Open discussion]({discussion_url})",
+        ]
 
     lines += [
         "",
