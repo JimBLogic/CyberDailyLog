@@ -7,23 +7,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-19T08:32:33+00:00  
-**Coverage:** 2026-07-18T08:32:31+00:00 → 2026-07-19T08:32:31+00:00  
+**Updated:** 2026-07-20T07:18:13+00:00  
+**Coverage:** 2026-07-19T07:18:03+00:00 → 2026-07-20T07:18:03+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 100 source-backed developments
-- **Above threshold:** 59
+- **Assessed:** 464 source-backed developments
+- **Above threshold:** 9
 - Core sources: **3/3 healthy**. Optional sources: **2 healthy**, **1 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-16117](https://nvd.nist.gov/vuln/detail/CVE-2026-16117) · 10.0/10** — Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme — critical CVSS +20; official source +5
-- **[CVE-2026-47865](https://nvd.nist.gov/vuln/detail/CVE-2026-47865) · 9.8/10** — VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab — critical CVSS +20; official source +5
-- **[CVE-2025-71392](https://nvd.nist.gov/vuln/detail/CVE-2025-71392) · 9.4/10** — SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the — critical CVSS +20; official source +5
-- **[CVE-2026-9323](https://nvd.nist.gov/vuln/detail/CVE-2026-9323) · 9.2/10** — The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c — critical CVSS +20; official source +5
-- **[CVE-2024-58366](https://nvd.nist.gov/vuln/detail/CVE-2024-58366) · 9.0/10** — SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script — critical CVSS +20; official source +5
+- **[CVE-2026-44359](https://nvd.nist.gov/vuln/detail/CVE-2026-44359) · 10.0/10** — Meshtastic is an open source mesh networking solution. Prior to version 2.7.21.1370b23, the Meshtastic GitHub repository — CVSS 10.0; priority technology: linux
+- **[CVE-2026-12484](https://nvd.nist.gov/vuln/detail/CVE-2026-12484) · 8.1/10** — A vulnerability in keras-team/keras version 3.15.0 allows unsafe deserialization of attacker-controlled PyTorch pickle d — CVSS 7.8; detection opportunity
+- **[CVE-2026-42566](https://nvd.nist.gov/vuln/detail/CVE-2026-42566) · 7.8/10** — Meshtastic is an open source mesh networking solution. Prior to version 2.7.23.b246bcd, a single node advertising a User — CVSS 7.5; detection opportunity
+- **[CVE-2026-16221](https://nvd.nist.gov/vuln/detail/CVE-2026-16221) · 7.8/10** — Impact: fast-uri versions from 2.3.1 through 4.1.0 (including the 3.x line up to 3.1.3 and the 2.x line up to 2.4.2) do — CVSS 7.5; detection opportunity
+- **[CVE-2026-16228](https://nvd.nist.gov/vuln/detail/CVE-2026-16228) · 5.8/10** — A vulnerability was detected in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of — CVSS 5.5; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

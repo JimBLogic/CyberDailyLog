@@ -1,7 +1,7 @@
 {
-  "above_threshold": 59,
-  "coverage_end": "2026-07-19T08:32:31+00:00",
-  "coverage_start": "2026-07-18T08:32:31+00:00",
+  "above_threshold": 9,
+  "coverage_end": "2026-07-20T07:18:03+00:00",
+  "coverage_start": "2026-07-19T07:18:03+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -10,13 +10,13 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-19T08:32:33+00:00",
+  "generated_at": "2026-07-20T07:18:13+00:00",
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 100,
+  "qualified_developments": 464,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -42,132 +42,132 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-16117"
+        "CVE-2026-44359"
       ],
       "cvss_score": 10.0,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-16117",
+      "id": "CVE-2026-44359",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: linux +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16117",
-      "title": "Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segme",
-      "why_it_matters": "critical CVSS +20; official source +5"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44359",
+      "title": "Meshtastic is an open source mesh networking solution. Prior to version 2.7.21.1370b23, the Meshtastic GitHub repository",
+      "why_it_matters": "CVSS 10.0; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-47865"
+        "CVE-2026-12484"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "cvss_score": 7.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-47865",
+      "id": "CVE-2026-12484",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 8.1,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47865",
-      "title": "VMware Avi Load Balancer contains an authentication bypass vulnerability. A malicious user with network access may be ab",
-      "why_it_matters": "critical CVSS +20; official source +5"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12484",
+      "title": "A vulnerability in keras-team/keras version 3.15.0 allows unsafe deserialization of attacker-controlled PyTorch pickle d",
+      "why_it_matters": "CVSS 7.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2025-71392"
+        "CVE-2026-42566"
       ],
-      "cvss_score": 9.4,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "cvss_score": 7.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2025-71392",
+      "id": "CVE-2026-42566",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
+      "priority_score": 7.8,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71392",
-      "title": "SurrealDB before 2.0.5, 2.1.x before 2.1.5, and 2.2.x before 2.2.2 fails to properly escape table and field names in the",
-      "why_it_matters": "critical CVSS +20; official source +5"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42566",
+      "title": "Meshtastic is an open source mesh networking solution. Prior to version 2.7.23.b246bcd, a single node advertising a User",
+      "why_it_matters": "CVSS 7.5; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-9323"
+        "CVE-2026-16221"
       ],
-      "cvss_score": 9.2,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "cvss_score": 7.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-9323",
+      "id": "CVE-2026-16221",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 7.8,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9323",
-      "title": "The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by c",
-      "why_it_matters": "critical CVSS +20; official source +5"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16221",
+      "title": "Impact: fast-uri versions from 2.3.1 through 4.1.0 (including the 3.x line up to 3.1.3 and the 2.x line up to 2.4.2) do",
+      "why_it_matters": "CVSS 7.5; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2024-58366"
+        "CVE-2026-16228"
       ],
-      "cvss_score": 9.0,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
-      "epss_percentile": null,
-      "epss_score": null,
+      "cvss_score": 5.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.33439,
+      "epss_score": 0.00412,
       "ghsa_ids": [],
-      "id": "CVE-2024-58366",
+      "id": "CVE-2026-16228",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.0,
+      "priority_score": 5.8,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 5,
+      "severity": "MEDIUM",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-58366",
-      "title": "SurrealDB before 1.1.1 contains a format string vulnerability in the rquickjs Exception::throw_type function when script",
-      "why_it_matters": "critical CVSS +20; official source +5"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16228",
+      "title": "A vulnerability was detected in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of",
+      "why_it_matters": "CVSS 5.5; detection opportunity"
     }
   ]
 }
