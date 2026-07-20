@@ -1,0 +1,30 @@
+name: Context format preview
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Generate formatting patch
+        run: |
+          python -m pip install 'ruff==0.12.10'
+          ruff format .
+          git diff --binary > /tmp/ruff-format.patch
+      - name: Upload formatting patch
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: context-format-${{ github.run_id }}
+          path: /tmp/ruff-format.patch
+          if-no-files-found: error
+          retention-days: 1
