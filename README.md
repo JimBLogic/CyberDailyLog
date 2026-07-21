@@ -7,23 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-20T07:18:13+00:00  
-**Coverage:** 2026-07-19T07:18:03+00:00 → 2026-07-20T07:18:03+00:00  
+**Updated:** 2026-07-21T08:43:08+00:00  
+**Coverage:** 2026-07-20T08:42:54+00:00 → 2026-07-21T08:42:54+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 464 source-backed developments
-- **Above threshold:** 9
-- Core sources: **3/3 healthy**. Optional sources: **2 healthy**, **1 degraded**.
+- **Assessed:** 369 source-backed developments
+- **Above threshold:** 254
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-44359](https://nvd.nist.gov/vuln/detail/CVE-2026-44359) · 10.0/10** — Meshtastic is an open source mesh networking solution. Prior to version 2.7.21.1370b23, the Meshtastic GitHub repository — CVSS 10.0; priority technology: linux
-- **[CVE-2026-12484](https://nvd.nist.gov/vuln/detail/CVE-2026-12484) · 8.1/10** — A vulnerability in keras-team/keras version 3.15.0 allows unsafe deserialization of attacker-controlled PyTorch pickle d — CVSS 7.8; detection opportunity
-- **[CVE-2026-42566](https://nvd.nist.gov/vuln/detail/CVE-2026-42566) · 7.8/10** — Meshtastic is an open source mesh networking solution. Prior to version 2.7.23.b246bcd, a single node advertising a User — CVSS 7.5; detection opportunity
-- **[CVE-2026-16221](https://nvd.nist.gov/vuln/detail/CVE-2026-16221) · 7.8/10** — Impact: fast-uri versions from 2.3.1 through 4.1.0 (including the 3.x line up to 3.1.3 and the 2.x line up to 2.4.2) do — CVSS 7.5; detection opportunity
-- **[CVE-2026-16228](https://nvd.nist.gov/vuln/detail/CVE-2026-16228) · 5.8/10** — A vulnerability was detected in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of — CVSS 5.5; detection opportunity
+- **[CVE-2026-46412](https://nvd.nist.gov/vuln/detail/CVE-2026-46412) · 10.0/10** — @beproduct/nestjs-auth is a NestJS authentication module for BeProduct IDS (Identity Server) with OpenID Connect support — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-61900](https://nvd.nist.gov/vuln/detail/CVE-2026-61900) · 10.0/10** — The Joomla extension JDownloads is vulnerable to an unauthenticated file upload, leading to full RCE. — CVSS 10.0; detection opportunity
+- **[CVE-2026-61424](https://nvd.nist.gov/vuln/detail/CVE-2026-61424) · 10.0/10** — The Joomla extension DJ-Classifieds is vulnerable to an unauthenticated file upload, leading to full RCE. — CVSS 10.0; detection opportunity
+- **[CVE-2026-54051](https://nvd.nist.gov/vuln/detail/CVE-2026-54051) · 10.0/10** — Network-AI is a TypeScript/Node.js multi-agent orchestrator. Prior to version 5.9.1, the agent sandbox gates shell comma — CVSS 9.9; detection opportunity
+- **[CVE-2026-13439](https://nvd.nist.gov/vuln/detail/CVE-2026-13439) · 10.0/10** — The Easy Form Builder by WhiteStudio plugin for WordPress is vulnerable to Unauthenticated Privilege Escalation to Admin — CVSS 9.8; detection opportunity
+
+### Human context
+
+**[ISC Stormcast For Tuesday, July 21st, 2026 https://isc.sans.edu/podcastdetail/10016, (Tue, Jul 21st)](https://isc.sans.edu/diary/rss/33170)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Incremental – A library for incremental computations](https://github.com/janestreet/incremental)** — Hacker News · 163 points · 25 comments
+[Open discussion](https://news.ycombinator.com/item?id=48987822)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
