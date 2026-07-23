@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-22T08:43:30+00:00  
-**Coverage:** 2026-07-21T08:43:04+00:00 → 2026-07-22T08:43:04+00:00  
+**Updated:** 2026-07-23T08:43:46+00:00  
+**Coverage:** 2026-07-22T08:43:40+00:00 → 2026-07-23T08:43:40+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 1562 source-backed developments
-- **Above threshold:** 1276
+- **Assessed:** 298 source-backed developments
+- **Above threshold:** 188
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-8982](https://nvd.nist.gov/vuln/detail/CVE-2026-8982) · 10.0/10** — Two undocumented privileged accounts exist in Autel Maxi Charger Single firmware through V1.03.51. The accounts use vend — CVSS 10.0; priority technology: browsers
-- **[CVE-2026-60402](https://nvd.nist.gov/vuln/detail/CVE-2026-60402) · 10.0/10** — Vulnerability in the TimesTen In-Memory Database product of Oracle TimesTen In-Memory Database (component: Kubernetes Op — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-59891](https://github.com/advisories/GHSA-pf56-329r-95rw) · 10.0/10** — Credential confusion in @sigstore/oci can leak registry credentials to an attacker-controlled registry — CVSS 9.6; priority technology: microsoft_365
-- **[CVE-2026-22874](https://github.com/advisories/GHSA-2r5c-gw76-rh3w) · 10.0/10** — Gitea: Incomplete SSRF Protection in Webhook and Migration Allow-list Default Filter — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-8985](https://nvd.nist.gov/vuln/detail/CVE-2026-8985) · 10.0/10** — Autel Maxi Charger Single firmware through V1.03.51 is vulnerable to OS command injection in the /test endpoint exposed — CVSS 10.0; detection opportunity
+- **[CVE-2026-60372](https://nvd.nist.gov/vuln/detail/CVE-2026-60372) · 10.0/10** — Vulnerability in the Oracle Platform Security for Java product of Oracle Fusion Middleware (component: Centralized Third — CVSS 9.8; detection opportunity
+- **[CVE-2026-60369](https://nvd.nist.gov/vuln/detail/CVE-2026-60369) · 10.0/10** — Vulnerability in the Oracle Platform Security for Java product of Oracle Fusion Middleware (component: Centralized Third — CVSS 9.9; detection opportunity
+- **[CVE-2026-60367](https://nvd.nist.gov/vuln/detail/CVE-2026-60367) · 10.0/10** — Vulnerability in the Oracle Platform Security for Java product of Oracle Fusion Middleware (component: Centralized Third — CVSS 9.8; detection opportunity
+- **[CVE-2026-60366](https://nvd.nist.gov/vuln/detail/CVE-2026-60366) · 10.0/10** — Vulnerability in the Oracle Platform Security for Java product of Oracle Fusion Middleware (component: Centralized Third — CVSS 10.0; detection opportunity
+- **[CVE-2026-13072](https://nvd.nist.gov/vuln/detail/CVE-2026-13072) · 9.4/10** — When compute mode is enabled on a standalone mongod instance, insufficient validation of externally sourced BSON data du — CVSS 9.2; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, July 22nd, 2026 https://isc.sans.edu/podcastdetail/10018, (Wed, Jul 22nd)](https://isc.sans.edu/diary/rss/33174)**
+**[ISC Stormcast For Thursday, July 23rd, 2026 https://isc.sans.edu/podcastdetail/10020, (Thu, Jul 23rd)](https://isc.sans.edu/diary/rss/33178)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[OpenAI and Hugging Face address security incident during model evaluation](https://openai.com/index/hugging-face-model-evaluation-security-incident/)** — Hacker News · 1099 points · 746 comments
-[Open discussion](https://news.ycombinator.com/item?id=48997548)
+**[GigaToken: ~1000x faster Language model tokenization](https://github.com/marcelroed/gigatoken/)** — Hacker News · 489 points · 97 comments
+[Open discussion](https://news.ycombinator.com/item?id=49010167)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
