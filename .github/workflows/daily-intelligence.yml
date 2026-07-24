@@ -127,6 +127,8 @@ jobs:
           fi
       - name: Generate compact portfolio feed
         run: python -m cyberdailylog.portfolio_feed
+      - name: Generate dashboard history feed
+        run: python -m cyberdailylog.dashboard_feed
       - name: Update repository landing snapshot
         run: python -m cyberdailylog.readme_snapshot
       - name: Validate reports
@@ -138,6 +140,7 @@ jobs:
           from pathlib import Path
 
           feed = json.loads(Path("reports/portfolio-feed.json").read_text(encoding="utf-8"))
+          dashboard = json.loads(Path("reports/dashboard-feed.json").read_text(encoding="utf-8"))
           assert feed["schema_version"] == 1
           assert feed["schema_url"].endswith("schemas/portfolio-feed.schema.json")
           assert feed["endpoints"]["schema"] == feed["schema_url"]
@@ -145,6 +148,11 @@ jobs:
           assert feed["pipeline_status"] in {"operational", "degraded"}
           assert len(feed["top_vulnerabilities"]) <= 5
           assert all(0 <= item["priority_score"] <= 10 for item in feed["top_vulnerabilities"])
+          assert dashboard["schema_version"] == 1
+          assert dashboard["project"] == "CyberDailyLog"
+          assert dashboard["generated_at"] == feed["generated_at"]
+          assert 1 <= len(dashboard["history"]) <= 30
+          assert dashboard["history"][-1]["date"] == feed["generated_at"][:10]
 
           readme = Path("README.md").read_text(encoding="utf-8")
           assert "<!-- CYBERDAILYLOG:DAILY:START -->" in readme

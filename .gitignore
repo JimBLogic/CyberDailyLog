@@ -15,3 +15,7 @@ tmp/
 .DS_Store
 reports/*.tmp
 test-artifacts/
+dashboard/node_modules/
+dashboard/.next/
+dashboard/.env.local
+dashboard/tsconfig.tsbuildinfo
