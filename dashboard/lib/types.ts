@@ -60,16 +60,18 @@ export type HistoryPoint = {
   degraded: boolean;
 };
 
-export type ContextItem = {
+export type AnalystItem = {
   title: string;
   sourceName: string;
   author: string | null;
   excerpt: string;
   sourceUrl: string;
   publishedAt: string;
-} | null;
+};
 
-export type CommunityItem = {
+export type ContextItem = AnalystItem | null;
+
+export type CommunitySignal = {
   title: string;
   sourceName: string;
   sourceUrl: string;
@@ -78,7 +80,9 @@ export type CommunityItem = {
   comments: number;
   publishedAt: string;
   caveat: string;
-} | null;
+};
+
+export type CommunityItem = CommunitySignal | null;
 
 export type DashboardData = {
   schemaVersion: 1;
@@ -100,6 +104,8 @@ export type DashboardData = {
   history: HistoryPoint[];
   humanContext: ContextItem;
   communityPulse: CommunityItem;
+  analystBriefs: AnalystItem[];
+  communitySignals: CommunitySignal[];
   repositoryUrl: string;
   reportUrl: string;
   lastFetchAt: string;

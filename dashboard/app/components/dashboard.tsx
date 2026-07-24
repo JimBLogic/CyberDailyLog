@@ -126,6 +126,71 @@ const COPY = {
     refresh: "Refresh data",
     refreshFailed: "Live refresh failed; the verified snapshot remains visible.",
     refreshed: "Dashboard refreshed from the repository.",
+    primaryNavigation: "Primary navigation",
+    language: "Language",
+    runSummary: "Run summary",
+    sort: "Sort intelligence",
+    critical: "Critical",
+    high: "High",
+    medium: "Medium",
+    low: "Low",
+    unknown: "Unclassified",
+    exploited: "Exploitation reported",
+    ransomware: "Ransomware linked",
+    yes: "Yes",
+    no: "No",
+    comments: "comments",
+    points: "points",
+    reference: "Reference",
+    totalCollectorTime: "total collector time",
+    immediateAttention: "Immediate attention",
+    noImmediate:
+      "No item in this run has confirmed exploitation, CISA KEV or ransomware use.",
+    immediateCount:
+      "items require immediate review because they include exploitation, KEV or ransomware signals.",
+    scoreLabel: "Priority score · 0–10",
+    scoreFormula:
+      "CISA KEV +50 · confirmed exploitation +40 · ransomware +25 · critical CVSS +20 · very high EPSS +25 · official source +5",
+    statusOperational: "Operational",
+    statusDegraded: "Degraded",
+    statusHealthy: "Healthy",
+    statusFailed: "Failed",
+    statusFixture: "Test fixture",
+    statusUnknown: "Unknown",
+    signalDesk: "Signal desk",
+    signalDeskTitle: "More than CVEs: today’s analyst reading",
+    signalDeskText:
+      "Operational diaries and community leads collected in the same daily run, clearly separated by evidence level.",
+    analystBriefs: "Analyst & publisher briefings",
+    communitySignals: "Community signals",
+    originalSource: "Original source content",
+    originalSourceNote:
+      "Titles and excerpts remain in the publisher’s original language to preserve accuracy.",
+    viewSignal: "Open signal",
+    interviewEyebrow: "Interview-ready proof of work",
+    interviewTitle: "I did not just follow the news. I built the workflow.",
+    interviewQuote:
+      "When asked where I stay current, CyberDailyLog is my answer: a reproducible Blue Team pipeline that collects, validates, prioritizes and publishes a daily briefing.",
+    proofProblem: "Problem",
+    proofProblemText:
+      "Security information is fragmented, noisy and difficult to turn into a defensible daily routine.",
+    proofBuild: "Build",
+    proofBuildText:
+      "Python collectors, deterministic scoring, source-health checks, tests and GitHub Actions.",
+    proofResult: "Result",
+    proofResultText:
+      "A traceable morning brief, analyst dashboard, API-ready JSON and historical evidence.",
+    dailyAutomation: "Daily automation",
+    primaryRun: "Primary run",
+    recoveryRun: "Recovery run",
+    madridTime: "Europe/Madrid",
+    generatedOutputs: "Validated outputs",
+    outputKinds: "MD · JSON · API · HEALTH · HISTORY",
+    openWorkflow: "Inspect GitHub workflow",
+    portableEyebrow: "GitHub ↔ Full-stack dashboard",
+    sourceBackedFallback: "Source-backed defensive relevance",
+    inventoryFallback:
+      "Inventory affected products, verify exposure and follow vendor guidance.",
   },
   es: {
     overview: "Resumen",
@@ -239,6 +304,71 @@ const COPY = {
     refresh: "Actualizar datos",
     refreshFailed: "Falló la actualización; se mantiene el snapshot verificado.",
     refreshed: "Dashboard actualizado desde el repositorio.",
+    primaryNavigation: "Navegación principal",
+    language: "Idioma",
+    runSummary: "Resumen de la ejecución",
+    sort: "Ordenar inteligencia",
+    critical: "Crítica",
+    high: "Alta",
+    medium: "Media",
+    low: "Baja",
+    unknown: "Sin clasificar",
+    exploited: "Explotación reportada",
+    ransomware: "Vinculada a ransomware",
+    yes: "Sí",
+    no: "No",
+    comments: "comentarios",
+    points: "puntos",
+    reference: "Referencia",
+    totalCollectorTime: "tiempo total de recopilación",
+    immediateAttention: "Atención inmediata",
+    noImmediate:
+      "Ningún elemento de esta ejecución tiene explotación confirmada, consta en CISA KEV o está vinculado a ransomware.",
+    immediateCount:
+      "elementos requieren revisión inmediata por señales de explotación, KEV o ransomware.",
+    scoreLabel: "Puntuación de prioridad · 0–10",
+    scoreFormula:
+      "CISA KEV +50 · explotación confirmada +40 · ransomware +25 · CVSS crítico +20 · EPSS muy alto +25 · fuente oficial +5",
+    statusOperational: "Operativo",
+    statusDegraded: "Degradado",
+    statusHealthy: "Operativa",
+    statusFailed: "Fallida",
+    statusFixture: "Datos de prueba",
+    statusUnknown: "Desconocido",
+    signalDesk: "Mesa de señales",
+    signalDeskTitle: "Más que CVE: la lectura del analista para hoy",
+    signalDeskText:
+      "Diarios operativos y pistas de la comunidad recopilados en la misma ejecución, separados claramente por nivel de evidencia.",
+    analystBriefs: "Briefings de analistas y editores",
+    communitySignals: "Señales de la comunidad",
+    originalSource: "Contenido original de la fuente",
+    originalSourceNote:
+      "Los títulos y extractos se mantienen en el idioma original del editor para preservar su precisión.",
+    viewSignal: "Abrir señal",
+    interviewEyebrow: "Proof of Work para entrevistas",
+    interviewTitle: "No me limité a seguir las noticias. Construí el workflow.",
+    interviewQuote:
+      "Cuando me preguntan dónde me mantengo al día, CyberDailyLog es mi respuesta: un pipeline Blue Team reproducible que recopila, valida, prioriza y publica un briefing diario.",
+    proofProblem: "Problema",
+    proofProblemText:
+      "La información de seguridad está fragmentada, genera ruido y cuesta convertirla en una rutina diaria defendible.",
+    proofBuild: "Construcción",
+    proofBuildText:
+      "Recopiladores Python, scoring determinista, controles de salud, pruebas y GitHub Actions.",
+    proofResult: "Resultado",
+    proofResultText:
+      "Briefing matinal trazable, dashboard de analista, JSON integrable e histórico verificable.",
+    dailyAutomation: "Automatización diaria",
+    primaryRun: "Ejecución principal",
+    recoveryRun: "Ejecución de recuperación",
+    madridTime: "Europa/Madrid",
+    generatedOutputs: "Salidas validadas",
+    outputKinds: "MD · JSON · API · SALUD · HISTÓRICO",
+    openWorkflow: "Inspeccionar workflow de GitHub",
+    portableEyebrow: "GitHub ↔ Dashboard full-stack",
+    sourceBackedFallback: "Relevancia defensiva respaldada por la fuente",
+    inventoryFallback:
+      "Inventaría los productos afectados, verifica la exposición y sigue las indicaciones del proveedor.",
   },
 } as const;
 
@@ -279,8 +409,69 @@ function percent(value: number | null) {
   return `${(value * 100).toFixed(value < 0.01 ? 2 : 1)}%`;
 }
 
-function compactNumber(value: number) {
-  return new Intl.NumberFormat("en", { notation: "compact" }).format(value);
+function compactNumber(value: number, language: Language = "en") {
+  if (value < 1_000) return String(value);
+
+  const divisor = value >= 1_000_000 ? 1_000_000 : 1_000;
+  const suffix = value >= 1_000_000 ? "M" : language === "es" ? " mil" : "k";
+  const scaled = Math.round((value / divisor) * 10) / 10;
+  const formatted = Number.isInteger(scaled)
+    ? String(scaled)
+    : String(scaled).replace(".", language === "es" ? "," : ".");
+
+  return `${formatted}${suffix}`;
+}
+
+function severityLabel(severity: Severity, language: Language) {
+  const t = COPY[language];
+  return {
+    CRITICAL: t.critical,
+    HIGH: t.high,
+    MEDIUM: t.medium,
+    LOW: t.low,
+    UNKNOWN: t.unknown,
+  }[severity];
+}
+
+function statusLabel(status: SourceHealth["status"], language: Language) {
+  const t = COPY[language];
+  return {
+    healthy: t.statusHealthy,
+    degraded: t.statusDegraded,
+    failed: t.statusFailed,
+    fixture_only: t.statusFixture,
+    unknown: t.statusUnknown,
+  }[status];
+}
+
+function pipelineLabel(
+  status: DashboardData["pipelineStatus"],
+  language: Language,
+) {
+  return status === "operational"
+    ? COPY[language].statusOperational
+    : COPY[language].statusDegraded;
+}
+
+function localizedReason(value: string, language: Language) {
+  if (language === "en") return value;
+  return value
+    .replace(/official source/gi, "fuente oficial")
+    .replace(/detection opportunity/gi, "oportunidad de detección")
+    .replace(/confirmed exploitation/gi, "explotación confirmada")
+    .replace(/priority technology/gi, "tecnología prioritaria")
+    .replace(/critical CVSS/gi, "CVSS crítico")
+    .replace(/source-backed defensive relevance/gi, "relevancia defensiva respaldada por la fuente");
+}
+
+function localizedAction(value: string, language: Language) {
+  if (language === "en") return value;
+  if (
+    /inventory affected products.*verify exposure.*vendor/i.test(value)
+  ) {
+    return COPY.es.inventoryFallback;
+  }
+  return value;
 }
 
 function severityClass(severity: Severity) {
@@ -431,7 +622,7 @@ function RiskDistribution({
           <div className="risk-row" key={item.key}>
             <span className="risk-label">
               <i style={{ background: item.color }} />
-              {item.label}
+              {severityLabel(item.key, language)}
             </span>
             <span className="risk-track">
               <span
@@ -475,7 +666,7 @@ function PriorityCard({
       <div className="priority-score-row">
         <strong>{item.priorityScore.toFixed(1)}</strong>
         <div>
-          <span>{item.severity}</span>
+          <span>{severityLabel(item.severity, language)}</span>
           <h2>{item.title}</h2>
         </div>
       </div>
@@ -490,7 +681,7 @@ function PriorityCard({
         </span>
         <span>
           <i>◎</i>
-          {item.knownExploited ? "Exploitation reported" : t.noConfirmed}
+          {item.knownExploited ? t.exploited : t.noConfirmed}
         </span>
         <span>
           <i>□</i>
@@ -527,7 +718,7 @@ function MetricStrip({
     ["healthy", "fixture_only"].includes(source.status),
   ).length;
   return (
-    <section className="metric-strip" aria-label="Run summary">
+    <section className="metric-strip" aria-label={t.runSummary}>
       <div className="metric">
         <span className="metric-icon blue">
           <Icon name="database" />
@@ -599,7 +790,7 @@ function SourceRail({
                 <i className={`health-dot ${source.status}`} />
                 {source.status === "healthy"
                   ? formatRelative(source.finishedAt, language)
-                  : source.status}
+                  : statusLabel(source.status, language)}
               </small>
             </span>
           </a>
@@ -651,7 +842,7 @@ function HistoryChart({
         className="history-chart"
         viewBox={`0 0 ${width} ${height}`}
         role="img"
-        aria-label={`${t.historical}: ${history.length} points`}
+        aria-label={`${t.historical}: ${history.length} ${t.points}`}
       >
         {[0, 0.25, 0.5, 0.75, 1].map((ratio) => (
           <g key={ratio}>
@@ -663,7 +854,7 @@ function HistoryChart({
               className="chart-grid-line"
             />
             <text x={4} y={y(maximum * ratio) + 4} className="chart-label">
-              {compactNumber(Math.round(maximum * ratio))}
+              {compactNumber(Math.round(maximum * ratio), language)}
             </text>
           </g>
         ))}
@@ -731,7 +922,7 @@ function SourceArtwork({
   );
 }
 
-function ContextCards({
+function SignalDesk({
   data,
   language,
 }: {
@@ -739,56 +930,161 @@ function ContextCards({
   language: Language;
 }) {
   const t = COPY[language];
+  const analysts =
+    data.analystBriefs.length > 0
+      ? data.analystBriefs
+      : data.humanContext
+        ? [data.humanContext]
+        : [];
+  const community =
+    data.communitySignals.length > 0
+      ? data.communitySignals
+      : data.communityPulse
+        ? [data.communityPulse]
+        : [];
   return (
-    <div className="context-grid">
-      {data.humanContext ? (
-        <article className="context-card">
-          <SourceArtwork
-            url={data.humanContext.sourceUrl}
-            source={data.humanContext.sourceName}
-          />
-          <div className="context-content">
-            <span className="context-kicker">{t.humanContext}</span>
-            <h3>{data.humanContext.title}</h3>
-            <p>{data.humanContext.excerpt}</p>
-            <div>
-              <span>{data.humanContext.sourceName}</span>
-              <a
-                href={data.humanContext.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
+    <section className="signal-desk" aria-labelledby="signal-desk-title">
+      <div className="signal-desk-heading">
+        <div>
+          <span className="eyebrow">{t.signalDesk}</span>
+          <h2 id="signal-desk-title">{t.signalDeskTitle}</h2>
+          <p>{t.signalDeskText}</p>
+        </div>
+        <div className="original-language-note">
+          <strong>{t.originalSource}</strong>
+          <span>{t.originalSourceNote}</span>
+        </div>
+      </div>
+      <div className="signal-columns">
+        <div className="signal-column">
+          <div className="signal-column-title">
+            <span>{t.analystBriefs}</span>
+            <strong>{analysts.length}</strong>
+          </div>
+          <div className="signal-list">
+            {analysts.map((item, index) => (
+              <article
+                className={`signal-card analyst-signal ${index === 0 ? "featured" : ""}`}
+                key={`${item.sourceUrl}-${item.publishedAt}`}
               >
-                {t.readSource} <Icon name="external" size={15} />
-              </a>
-            </div>
+                <SourceArtwork url={item.sourceUrl} source={item.sourceName} />
+                <div className="signal-card-copy">
+                  <span className="context-kicker">{t.humanContext}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.excerpt}</p>
+                  <div className="signal-meta">
+                    <span>
+                      {item.sourceName} ·{" "}
+                      {formatDate(item.publishedAt, language, true)}
+                    </span>
+                    <a href={item.sourceUrl} target="_blank" rel="noreferrer">
+                      {t.readSource} <Icon name="external" size={14} />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </article>
-      ) : null}
-      {data.communityPulse ? (
-        <article className="context-card community-card">
-          <div className="community-score">
-            <span>HN</span>
-            <strong>{data.communityPulse.score}</strong>
-            <small>{data.communityPulse.comments} comments</small>
+        </div>
+        <div className="signal-column community-column">
+          <div className="signal-column-title">
+            <span>{t.communitySignals}</span>
+            <strong>{community.length}</strong>
           </div>
-          <div className="context-content">
-            <span className="context-kicker">{t.community}</span>
-            <h3>{data.communityPulse.title}</h3>
-            <p>{t.verify}</p>
-            <div>
-              <span>{data.communityPulse.sourceName}</span>
-              <a
-                href={data.communityPulse.discussionUrl}
-                target="_blank"
-                rel="noreferrer"
+          <div className="signal-list">
+            {community.map((item, index) => (
+              <article
+                className={`signal-card community-signal ${index === 0 ? "featured" : ""}`}
+                key={`${item.discussionUrl}-${item.publishedAt}`}
               >
-                {t.openDiscussion} <Icon name="external" size={15} />
-              </a>
-            </div>
+                <SourceArtwork url={item.sourceUrl} source={item.sourceName} />
+                <div className="signal-card-copy">
+                  <span className="context-kicker">{t.community}</span>
+                  <h3>{item.title}</h3>
+                  <p>{t.verify}</p>
+                  <div className="community-metrics">
+                    <span>
+                      <strong>{item.score}</strong> {t.points}
+                    </span>
+                    <span>
+                      <strong>{item.comments}</strong> {t.comments}
+                    </span>
+                  </div>
+                  <div className="signal-meta">
+                    <span>{item.sourceName}</span>
+                    <a
+                      href={item.discussionUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t.openDiscussion} <Icon name="external" size={14} />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </article>
-      ) : null}
-    </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InterviewProof({
+  data,
+  language,
+}: {
+  data: DashboardData;
+  language: Language;
+}) {
+  const t = COPY[language];
+  const cards = [
+    [t.proofProblem, t.proofProblemText, "01"],
+    [t.proofBuild, t.proofBuildText, "02"],
+    [t.proofResult, t.proofResultText, "03"],
+  ];
+  return (
+    <section className="interview-proof">
+      <div className="proof-story">
+        <span className="eyebrow">{t.interviewEyebrow}</span>
+        <h2>{t.interviewTitle}</h2>
+        <blockquote>{t.interviewQuote}</blockquote>
+        <div className="proof-cards">
+          {cards.map(([title, text, number]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <strong>{title}</strong>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+      <aside className="automation-card">
+        <span className="section-label">{t.dailyAutomation}</span>
+        <div>
+          <span>{t.primaryRun}</span>
+          <strong>08:17</strong>
+          <small>{t.madridTime}</small>
+        </div>
+        <div>
+          <span>{t.recoveryRun}</span>
+          <strong>09:47</strong>
+          <small>{t.madridTime}</small>
+        </div>
+        <div>
+          <span>{t.generatedOutputs}</span>
+          <strong>5</strong>
+          <small>{t.outputKinds}</small>
+        </div>
+        <a
+          href={`${data.repositoryUrl}/actions/workflows/daily-intelligence.yml`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t.openWorkflow} <Icon name="external" size={15} />
+        </a>
+      </aside>
+    </section>
   );
 }
 
@@ -873,7 +1169,7 @@ function VulnerabilityList({
             <option value="ALL">{t.allSeverities}</option>
             {SEVERITY_ORDER.map((value) => (
               <option value={value} key={value}>
-                {value}
+                {severityLabel(value, language)}
               </option>
             ))}
           </select>
@@ -892,7 +1188,7 @@ function VulnerabilityList({
         >
           <Icon name="star" size={17} /> {t.watchlistOnly}
         </button>
-        <div className="sort-group" aria-label="Sort">
+        <div className="sort-group" aria-label={t.sort}>
           {(["priority", "newest", "cvss"] as const).map((value) => (
             <button
               className={sort === value ? "active" : ""}
@@ -920,7 +1216,7 @@ function VulnerabilityList({
             </button>
             <div className={`severity-marker ${severityClass(item.severity)}`}>
               <span>{item.priorityScore.toFixed(1)}</span>
-              <small>{item.severity}</small>
+              <small>{severityLabel(item.severity, language)}</small>
             </div>
             <button className="vulnerability-main" onClick={() => onOpen(item)}>
               <span className="vulnerability-id">{item.id}</span>
@@ -938,8 +1234,8 @@ function VulnerabilityList({
             </button>
             <div className="vulnerability-flags">
               {item.cisaKev ? <span className="flag critical">KEV</span> : null}
-              {item.knownExploited ? <span className="flag critical">Exploited</span> : null}
-              {item.knownRansomwareUse ? <span className="flag critical">Ransomware</span> : null}
+              {item.knownExploited ? <span className="flag critical">{t.exploited}</span> : null}
+              {item.knownRansomwareUse ? <span className="flag critical">{t.ransomware}</span> : null}
               {!attentionItem(item) ? <span className="flag neutral">{t.noConfirmed}</span> : null}
             </div>
           </article>
@@ -968,7 +1264,7 @@ function SourcesView({
           <p>{t.sourceIntro}</p>
         </div>
         <div className={`pipeline-state ${data.pipelineStatus}`}>
-          <i /> {data.pipelineStatus}
+          <i /> {pipelineLabel(data.pipelineStatus, language)}
         </div>
       </div>
       <div className="source-summary-grid">
@@ -984,13 +1280,13 @@ function SourcesView({
         </div>
         <div className="summary-tile">
           <span>{t.received}</span>
-          <strong>{compactNumber(data.sourceHealth.reduce((sum, source) => sum + source.itemsReceived, 0))}</strong>
+          <strong>{compactNumber(data.sourceHealth.reduce((sum, source) => sum + source.itemsReceived, 0), language)}</strong>
           <small>{t.coverage}</small>
         </div>
         <div className="summary-tile">
           <span>{t.latency}</span>
           <strong>{(data.sourceHealth.reduce((sum, source) => sum + source.durationMs, 0) / 1000).toFixed(1)}s</strong>
-          <small>total collector time</small>
+          <small>{t.totalCollectorTime}</small>
         </div>
       </div>
       <div className="source-table" role="table" aria-label={t.sourceOperations}>
@@ -1018,7 +1314,7 @@ function SourcesView({
               </span>
             </span>
             <span className={`status-pill ${source.status}`}>
-              <i /> {source.status}
+              <i /> {statusLabel(source.status, language)}
             </span>
             <strong>{source.itemsReceived.toLocaleString()}</strong>
             <strong>{source.itemsAccepted.toLocaleString()}</strong>
@@ -1090,7 +1386,7 @@ function MethodologyView({
           </div>
         </article>
         <article className="paper-panel score-panel">
-          <span className="section-label">Priority score · 0–10</span>
+          <span className="section-label">{t.scoreLabel}</span>
           <div className="score-band-list">
             {data.scoreBands.map((band, index) => {
               const maximum = Math.max(...data.scoreBands.map((point) => point.count), 1);
@@ -1110,15 +1406,12 @@ function MethodologyView({
               );
             })}
           </div>
-          <p>
-            CISA KEV +50 · confirmed exploitation +40 · ransomware +25 ·
-            critical CVSS +20 · EPSS very high +25 · official source +5
-          </p>
+          <p>{t.scoreFormula}</p>
         </article>
       </div>
       <article className="portable-panel">
         <div>
-          <span className="eyebrow">GitHub ↔ Full-stack dashboard</span>
+          <span className="eyebrow">{t.portableEyebrow}</span>
           <h2>{t.portable}</h2>
           <p>{t.portableText}</p>
         </div>
@@ -1177,7 +1470,7 @@ function DetailDialog({
         <div className="dialog-header">
           <div>
             <span className={`severity-pill ${severityClass(item.severity)}`}>
-              {item.severity}
+              {severityLabel(item.severity, language)}
             </span>
             <h2 id="dialog-title">{item.id}</h2>
           </div>
@@ -1209,7 +1502,7 @@ function DetailDialog({
           </div>
           <div>
             <span>CISA KEV</span>
-            <strong>{item.cisaKev ? "Yes" : "No"}</strong>
+            <strong>{item.cisaKev ? t.yes : t.no}</strong>
           </div>
         </div>
         <div className="dialog-body">
@@ -1218,8 +1511,8 @@ function DetailDialog({
           <div className="dialog-section">
             <span>{t.reasons}</span>
             <ul>
-              {(item.reasons.length ? item.reasons : ["Source-backed defensive relevance"]).map((reason) => (
-                <li key={reason}><Icon name="check" size={16} />{reason}</li>
+              {(item.reasons.length ? item.reasons : [t.sourceBackedFallback]).map((reason) => (
+                <li key={reason}><Icon name="check" size={16} />{localizedReason(reason, language)}</li>
               ))}
             </ul>
           </div>
@@ -1228,9 +1521,9 @@ function DetailDialog({
             <ul>
               {(item.actions.length
                 ? item.actions
-                : ["Inventory affected products, verify exposure and follow vendor guidance."]
+                : [t.inventoryFallback]
               ).map((action) => (
-                <li key={action}><Icon name="shield" size={16} />{action}</li>
+                <li key={action}><Icon name="shield" size={16} />{localizedAction(action, language)}</li>
               ))}
             </ul>
           </div>
@@ -1240,7 +1533,7 @@ function DetailDialog({
               <div className="reference-links">
                 {item.references.map((reference, index) => (
                   <a href={reference} target="_blank" rel="noreferrer" key={reference}>
-                    Reference {index + 1} <Icon name="external" size={14} />
+                    {t.reference} {index + 1} <Icon name="external" size={14} />
                   </a>
                 ))}
               </div>
@@ -1346,7 +1639,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
         <button className="wordmark" onClick={() => navigate("overview")}>
           CyberDailyLog
         </button>
-        <nav aria-label="Primary navigation">
+        <nav aria-label={t.primaryNavigation}>
           {tabs.map(([key, label]) => (
             <button
               className={view === key ? "active" : ""}
@@ -1367,7 +1660,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
             <span aria-hidden="true">☼</span>
             {t.morning}
           </span>
-          <span className="language-toggle" aria-label="Language">
+          <span className="language-toggle" aria-label={t.language}>
             <button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")}>EN</button>
             <button className={language === "es" ? "active" : ""} onClick={() => changeLanguage("es")}>ES</button>
           </span>
@@ -1432,15 +1725,20 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
           <div className="below-fold-grid">
             <HistoryChart history={data.history} language={language} />
             <aside className="attention-panel">
-              <span className="section-label">Immediate attention</span>
+              <span className="section-label">{t.immediateAttention}</span>
               <strong>{data.immediateAttentionCount}</strong>
-              <p>{data.immediateAttention}</p>
+              <p>
+                {data.immediateAttentionCount
+                  ? `${data.immediateAttentionCount} ${t.immediateCount}`
+                  : t.noImmediate}
+              </p>
               <button onClick={() => navigate("vulnerabilities")}>
                 {t.openBrief} <Icon name="arrow" size={17} />
               </button>
             </aside>
           </div>
-          <ContextCards data={data} language={language} />
+          <SignalDesk data={data} language={language} />
+          <InterviewProof data={data} language={language} />
           <footer className="dashboard-footer">
             <span>
               {t.published}: {formatDate(data.generatedAt, language)} UTC

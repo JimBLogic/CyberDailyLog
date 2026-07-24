@@ -269,6 +269,30 @@ export const FALLBACK_DATA: DashboardData = {
     publishedAt: "2026-07-22T17:20:38+00:00",
     caveat: "Community interest signal; validate claims against primary sources.",
   },
+  analystBriefs: [
+    {
+      title: "ISC Stormcast for Thursday, July 23rd, 2026",
+      sourceName: "SANS Internet Storm Center Handler's Diary",
+      author: null,
+      excerpt:
+        "A bounded, publisher-provided excerpt from SANS ISC. Open the source for the complete analyst context.",
+      sourceUrl: "https://isc.sans.edu/diary/rss/33178",
+      publishedAt: "2026-07-23T02:00:03+00:00",
+    },
+  ],
+  communitySignals: [
+    {
+      title: "GigaToken: ~1000x faster language model tokenization",
+      sourceName: "Hacker News",
+      sourceUrl: "https://github.com/marcelroed/gigatoken/",
+      discussionUrl: "https://news.ycombinator.com/item?id=49010167",
+      score: 489,
+      comments: 97,
+      publishedAt: "2026-07-22T17:20:38+00:00",
+      caveat:
+        "Community interest signal; validate claims against primary sources.",
+    },
+  ],
   repositoryUrl: "https://github.com/JimBLogic/CyberDailyLog",
   reportUrl: "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   lastFetchAt: "2026-07-23T08:43:46+00:00",

@@ -1,7 +1,9 @@
 import { FALLBACK_DATA } from "./fallback-data";
 import { SOURCE_LABELS } from "./source-labels";
 import type {
+  AnalystItem,
   CommunityItem,
+  CommunitySignal,
   ContextItem,
   DashboardData,
   DashboardFeed,
@@ -196,7 +198,7 @@ function normalizeHumanContext(value: unknown): ContextItem {
     title: stringValue(item.title, "Untitled analyst context"),
     sourceName: stringValue(item.source_name, "Unknown publisher"),
     author: stringValue(item.author) || null,
-    excerpt: stringValue(item.excerpt),
+    excerpt: stringValue(item.excerpt, stringValue(item.summary)),
     sourceUrl: stringValue(item.source_url),
     publishedAt: stringValue(item.published_at),
   };
@@ -210,8 +212,9 @@ function normalizeCommunity(value: unknown): CommunityItem {
     sourceName: stringValue(item.source_name, "Community"),
     sourceUrl: stringValue(item.source_url),
     discussionUrl: stringValue(item.discussion_url, stringValue(item.source_url)),
-    score: numberValue(item.score) ?? 0,
-    comments: numberValue(item.comments) ?? 0,
+    score: numberValue(item.score) ?? numberValue(item.community_score) ?? 0,
+    comments:
+      numberValue(item.comments) ?? numberValue(item.community_comments) ?? 0,
     publishedAt: stringValue(item.published_at),
     caveat: stringValue(
       item.caveat,
@@ -278,6 +281,22 @@ export async function getDashboardData(): Promise<DashboardData> {
       stringValue(item.category, "vulnerability"),
     ),
   );
+  const analystBriefs = records
+    .filter((item) =>
+      ["expert_commentary", "analyst_diary"].includes(
+        stringValue(item.category),
+      ),
+    )
+    .map(normalizeHumanContext)
+    .filter((item): item is AnalystItem => item !== null)
+    .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+    .slice(0, 4);
+  const communitySignals = records
+    .filter((item) => stringValue(item.category) === "community_pulse")
+    .map(normalizeCommunity)
+    .filter((item): item is CommunitySignal => item !== null)
+    .sort((a, b) => b.score - a.score || b.comments - a.comments)
+    .slice(0, 4);
   const ranked = [...securityItems].sort((a, b) => {
     const attentionA =
       Number(booleanValue(a.cisa_kev)) +
@@ -375,8 +394,16 @@ export async function getDashboardData(): Promise<DashboardData> {
     vulnerabilities: ranked.slice(0, 80).map(normalizeVulnerability),
     sourceHealth,
     history: resolvedHistory,
-    humanContext: normalizeHumanContext(compact?.human_context),
-    communityPulse: normalizeCommunity(compact?.community_pulse),
+    humanContext:
+      normalizeHumanContext(compact?.human_context) ??
+      analystBriefs[0] ??
+      null,
+    communityPulse:
+      normalizeCommunity(compact?.community_pulse) ??
+      communitySignals[0] ??
+      null,
+    analystBriefs,
+    communitySignals,
     repositoryUrl: REPOSITORY_URL,
     reportUrl: REPORT_URL,
     lastFetchAt: new Date().toISOString(),

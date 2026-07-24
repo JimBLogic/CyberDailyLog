@@ -19,6 +19,16 @@ This gives the project three useful properties:
 - **Portable:** the dashboard can run locally or move to another compatible Node.js host.
 - **Auditable:** every plotted value can be traced to a committed report.
 
+## Interview narrative
+
+The dashboard is designed to answer “How do you stay current?” with evidence instead of a list of bookmarks:
+
+- **Problem:** security information is fragmented and noisy.
+- **Build:** scheduled collectors, deterministic scoring, health checks, tests and GitHub Actions turn it into a repeatable routine.
+- **Result:** a traceable morning brief, ranked analyst queue, API-ready JSON and historical evidence.
+
+The overview therefore includes an interview-ready proof-of-work panel with the workflow schedule and validated outputs. The signal desk also surfaces several analyst briefings and community leads from the same run, instead of hiding them behind a single contextual card. Community interest is deliberately presented as a lead, not verified intelligence.
+
 ## Data flow
 
 ```mermaid
@@ -95,6 +105,8 @@ The media route validates the article host, image host, protocol, MIME type and 
 - CVE, KEV, EPSS and official advisories remain evidence-bearing security data.
 - Expert RSS context remains attributed and visually separated.
 - Hacker News remains a community-interest signal.
+- Interface controls, statuses, filters and vulnerability explanations are available in English and Spanish.
+- Publisher titles and excerpts stay in their original language to avoid silently changing security meaning; the interface labels this boundary explicitly.
 - Watchlist and language preferences stay in the browser's local storage.
 - No credentials, private logs, exploit code or malware samples are sent to the dashboard.
 
