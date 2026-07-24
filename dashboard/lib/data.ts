@@ -344,12 +344,7 @@ export async function getDashboardData(): Promise<DashboardData> {
       ? [...history.filter((point) => point.date !== currentPoint.date), currentPoint]
           .sort((a, b) => a.date.localeCompare(b.date))
           .slice(-30)
-      : [
-          ...cloneFallback().history.filter(
-            (point) => point.date !== currentPoint.date,
-          ),
-          currentPoint,
-        ].slice(-30);
+      : [currentPoint];
 
   return {
     schemaVersion: 1,
