@@ -7,34 +7,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-24T08:41:07+00:00  
-**Coverage:** 2026-07-23T08:40:56+00:00 → 2026-07-24T08:40:56+00:00  
+**Updated:** 2026-07-25T08:22:44+00:00  
+**Coverage:** 2026-07-24T08:22:36+00:00 → 2026-07-25T08:22:36+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 419 source-backed developments
-- **Above threshold:** 271
+- **Assessed:** 260 source-backed developments
+- **Above threshold:** 163
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-63359](https://nvd.nist.gov/vuln/detail/CVE-2026-63359) · 10.0/10** — The Appriss Insights (Equifax) Victim Information Notification Exchange (VINE) applications allow an unauthenticated att — CVSS 9.3; priority technology: microsoft_365
-- **[CVE-2026-62825](https://nvd.nist.gov/vuln/detail/CVE-2026-62825) · 10.0/10** — Improper authentication in Azure Key Vault allows an unauthorized attacker to elevate privileges over a network. — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-58275](https://nvd.nist.gov/vuln/detail/CVE-2026-58275) · 10.0/10** — Missing authorization in Azure DNS allows an unauthorized attacker to elevate privileges over a network. — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-56191](https://nvd.nist.gov/vuln/detail/CVE-2026-56191) · 10.0/10** — Improper authentication in Microsoft Exchange Online allows an unauthorized attacker to perform tampering over a network — CVSS 10.0; priority technology: microsoft_365
-- **[CVE-2026-47724](https://nvd.nist.gov/vuln/detail/CVE-2026-47724) · 10.0/10** — nebula-mesh is a self-hosted control plane for Slack Nebula mesh virtual private network. Prior to version 0.3.4, the `/ — CVSS 9.9; priority technology: firewalls
-
-### Human context
-
-**[ISC Stormcast For Friday, July 24th, 2026 https://isc.sans.edu/podcastdetail/10022, (Fri, Jul 24th)](https://isc.sans.edu/diary/rss/33182)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+- **[GHSA-q6x4-v3qx-85qw](https://github.com/advisories/GHSA-q6x4-v3qx-85qw) · 10.0/10** — Budibase: SQL Injection via `multipleStatements: true` — CVSS 9.6; priority technology: firewalls
+- **[GHSA-f25v-x6vr-962g](https://github.com/advisories/GHSA-f25v-x6vr-962g) · 9.8/10** — Pheditor: Authentication Bypass in Forced Password-Change Flow via Unverified Current Password — CVSS 10.0; priority technology: browsers
+- **[CVE-2026-58630](https://nvd.nist.gov/vuln/detail/CVE-2026-58630) · 9.8/10** — Improper access control in Azure App Service allows an unauthorized attacker to elevate privileges over a network. — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-56163](https://nvd.nist.gov/vuln/detail/CVE-2026-56163) · 9.8/10** — Missing authentication for critical function in Microsoft Azure Kubernetes Service allows an unauthorized attacker to el — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-62263](https://github.com/advisories/GHSA-gf8h-gq53-288j) · 9.8/10** — OpenAM: WebAuthn Java deserialization RCE via ObjectInputFilter depth&gt;1 bypass — critical severity fallback; detection opportunity
 
 ### Community pulse
 
-**[Why Software Factories Fail (or: harness engineering is not enough)](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md)** — Hacker News · 303 points · 218 comments
-[Open discussion](https://news.ycombinator.com/item?id=49023019)
+**[My security camera shipped a GitHub admin token in its login page](https://hhh.hn/hanwha-github-token/)** — Hacker News · 579 points · 189 comments
+[Open discussion](https://news.ycombinator.com/item?id=49034292)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

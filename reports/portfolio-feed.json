@@ -1,17 +1,17 @@
 {
-  "above_threshold": 271,
+  "above_threshold": 163,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 218,
-    "discussion_url": "https://news.ycombinator.com/item?id=49023019",
-    "published_at": "2026-07-23T15:18:48+00:00",
-    "score": 303,
+    "comments": 189,
+    "discussion_url": "https://news.ycombinator.com/item?id=49034292",
+    "published_at": "2026-07-24T11:54:41+00:00",
+    "score": 579,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md",
-    "title": "Why Software Factories Fail (or: harness engineering is not enough)"
+    "source_url": "https://hhh.hn/hanwha-github-token/",
+    "title": "My security camera shipped a GitHub admin token in its login page"
   },
-  "coverage_end": "2026-07-24T08:40:56+00:00",
-  "coverage_start": "2026-07-23T08:40:56+00:00",
+  "coverage_end": "2026-07-25T08:22:36+00:00",
+  "coverage_start": "2026-07-24T08:22:36+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-24T08:41:07+00:00",
-  "human_context": {
-    "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-07-24T02:00:02+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33182",
-    "title": "ISC Stormcast For Friday, July 24th, 2026 https://isc.sans.edu/podcastdetail/10022, (Fri, Jul 24th)"
-  },
+  "generated_at": "2026-07-25T08:22:44+00:00",
+  "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 419,
+  "qualified_developments": 260,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -59,138 +51,144 @@
   "top_vulnerabilities": [
     {
       "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-63359"
-      ],
-      "cvss_score": 9.3,
+      "cve_ids": [],
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63359",
+      "ghsa_ids": [
+        "GHSA-q6x4-v3qx-85qw"
+      ],
+      "id": "GHSA-q6x4-v3qx-85qw",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
+      "products": [
+        "@budibase/server"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63359",
-      "title": "The Appriss Insights (Equifax) Victim Information Notification Exchange (VINE) applications allow an unauthenticated att",
-      "why_it_matters": "CVSS 9.3; priority technology: microsoft_365"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-62825"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-62825",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62825",
-      "title": "Improper authentication in Azure Key Vault allows an unauthorized attacker to elevate privileges over a network.",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-58275"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-58275",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58275",
-      "title": "Missing authorization in Azure DNS allows an unauthorized attacker to elevate privileges over a network.",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-56191"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-56191",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56191",
-      "title": "Improper authentication in Microsoft Exchange Online allows an unauthorized attacker to perform tampering over a network",
-      "why_it_matters": "CVSS 10.0; priority technology: microsoft_365"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-47724"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-47724",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
         "priority technology: firewalls +8",
         "official source +5"
       ],
       "selection_score": 33,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-q6x4-v3qx-85qw",
+      "title": "Budibase: SQL Injection via `multipleStatements: true`",
+      "why_it_matters": "CVSS 9.6; priority technology: firewalls"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-f25v-x6vr-962g"
+      ],
+      "id": "GHSA-f25v-x6vr-962g",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
+      "products": [
+        "pheditor/pheditor"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-f25v-x6vr-962g",
+      "title": "Pheditor: Authentication Bypass in Forced Password-Change Flow via Unverified Current Password",
+      "why_it_matters": "CVSS 10.0; priority technology: browsers"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-58630"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-58630",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47724",
-      "title": "nebula-mesh is a self-hosted control plane for Slack Nebula mesh virtual private network. Prior to version 0.3.4, the `/",
-      "why_it_matters": "CVSS 9.9; priority technology: firewalls"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58630",
+      "title": "Improper access control in Azure App Service allows an unauthorized attacker to elevate privileges over a network.",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-56163"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-56163",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56163",
+      "title": "Missing authentication for critical function in Microsoft Azure Kubernetes Service allows an unauthorized attacker to el",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-62263"
+      ],
+      "cvss_score": null,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-gf8h-gq53-288j"
+      ],
+      "id": "CVE-2026-62263",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
+      "products": [
+        "org.openidentityplatform.openam:openam-auth-webauthn"
+      ],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-gf8h-gq53-288j",
+      "title": "OpenAM: WebAuthn Java deserialization RCE via ObjectInputFilter depth>1 bypass",
+      "why_it_matters": "critical severity fallback; detection opportunity"
     }
   ]
 }
