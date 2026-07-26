@@ -1,17 +1,17 @@
 {
-  "above_threshold": 163,
+  "above_threshold": 6,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 189,
-    "discussion_url": "https://news.ycombinator.com/item?id=49034292",
-    "published_at": "2026-07-24T11:54:41+00:00",
-    "score": 579,
+    "comments": 37,
+    "discussion_url": "https://news.ycombinator.com/item?id=49050512",
+    "published_at": "2026-07-25T18:59:50+00:00",
+    "score": 174,
     "source_name": "Hacker News",
-    "source_url": "https://hhh.hn/hanwha-github-token/",
-    "title": "My security camera shipped a GitHub admin token in its login page"
+    "source_url": "https://github.com/slvDev/esp32-ai",
+    "title": "Running a 28.9M parameter LLM on an $8 microcontroller"
   },
-  "coverage_end": "2026-07-25T08:22:36+00:00",
-  "coverage_start": "2026-07-24T08:22:36+00:00",
+  "coverage_end": "2026-07-26T08:38:35+00:00",
+  "coverage_start": "2026-07-25T08:38:35+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,14 +20,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-25T08:22:44+00:00",
+  "generated_at": "2026-07-26T08:38:41+00:00",
   "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 260,
+  "qualified_developments": 289,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -51,144 +51,134 @@
   "top_vulnerabilities": [
     {
       "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 9.6,
+      "cve_ids": [
+        "CVE-2026-66012"
+      ],
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-q6x4-v3qx-85qw"
-      ],
-      "id": "GHSA-q6x4-v3qx-85qw",
+      "ghsa_ids": [],
+      "id": "CVE-2026-66012",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
-      "products": [
-        "@budibase/server"
-      ],
+      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: firewalls +8",
+        "priority technology: linux +8",
         "official source +5"
       ],
       "selection_score": 33,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-q6x4-v3qx-85qw",
-      "title": "Budibase: SQL Injection via `multipleStatements: true`",
-      "why_it_matters": "CVSS 9.6; priority technology: firewalls"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-f25v-x6vr-962g"
-      ],
-      "id": "GHSA-f25v-x6vr-962g",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.8,
-      "products": [
-        "pheditor/pheditor"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: browsers +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-f25v-x6vr-962g",
-      "title": "Pheditor: Authentication Bypass in Forced Password-Change Flow via Unverified Current Password",
-      "why_it_matters": "CVSS 10.0; priority technology: browsers"
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012",
+      "title": "SiYuan before v3.7.2 contains a missing authorization vulnerability in the POST /mcp kernel endpoint, which is gated onl",
+      "why_it_matters": "CVSS 10.0; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-58630"
+        "CVE-2026-66013"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-58630",
+      "id": "CVE-2026-66013",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 28,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58630",
-      "title": "Improper access control in Azure App Service allows an unauthorized attacker to elevate privileges over a network.",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66013",
+      "title": "OpenRemote before 1.26.2 contains an authentication bypass vulnerability in the console registration API that allows una",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-56163"
+        "CVE-2026-15962"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 8.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-56163",
+      "id": "CVE-2026-15962",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 9.1,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56163",
-      "title": "Missing authentication for critical function in Microsoft Azure Kubernetes Service allows an unauthorized attacker to el",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15962",
+      "title": "The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and i",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-62263"
+        "CVE-2026-63720"
       ],
-      "cvss_score": null,
+      "cvss_score": 7.5,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-gf8h-gq53-288j"
-      ],
-      "id": "CVE-2026-62263",
+      "ghsa_ids": [],
+      "id": "CVE-2026-63720",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
-      "products": [
-        "org.openidentityplatform.openam:openam-auth-webauthn"
-      ],
+      "priority_score": 7.8,
+      "products": [],
       "selection_reasons": [
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 5,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-gf8h-gq53-288j",
-      "title": "OpenAM: WebAuthn Java deserialization RCE via ObjectInputFilter depth>1 bypass",
-      "why_it_matters": "critical severity fallback; detection opportunity"
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720",
+      "title": "datamodel-code-generator prior to version 0.70.0 contains a code injection vulnerability that allows attackers who contr",
+      "why_it_matters": "CVSS 7.5; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-10681"
+      ],
+      "cvss_score": 6.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-10681",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 7.2,
+      "products": [],
+      "selection_reasons": [
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 13,
+      "severity": "MEDIUM",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10681",
+      "title": "In Zephyr's userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thre",
+      "why_it_matters": "CVSS 6.5; priority technology: linux"
     }
   ]
 }

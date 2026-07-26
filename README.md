@@ -7,28 +7,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-25T08:22:44+00:00  
-**Coverage:** 2026-07-24T08:22:36+00:00 → 2026-07-25T08:22:36+00:00  
+**Updated:** 2026-07-26T08:38:41+00:00  
+**Coverage:** 2026-07-25T08:38:35+00:00 → 2026-07-26T08:38:35+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 260 source-backed developments
-- **Above threshold:** 163
+- **Assessed:** 289 source-backed developments
+- **Above threshold:** 6
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[GHSA-q6x4-v3qx-85qw](https://github.com/advisories/GHSA-q6x4-v3qx-85qw) · 10.0/10** — Budibase: SQL Injection via `multipleStatements: true` — CVSS 9.6; priority technology: firewalls
-- **[GHSA-f25v-x6vr-962g](https://github.com/advisories/GHSA-f25v-x6vr-962g) · 9.8/10** — Pheditor: Authentication Bypass in Forced Password-Change Flow via Unverified Current Password — CVSS 10.0; priority technology: browsers
-- **[CVE-2026-58630](https://nvd.nist.gov/vuln/detail/CVE-2026-58630) · 9.8/10** — Improper access control in Azure App Service allows an unauthorized attacker to elevate privileges over a network. — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-56163](https://nvd.nist.gov/vuln/detail/CVE-2026-56163) · 9.8/10** — Missing authentication for critical function in Microsoft Azure Kubernetes Service allows an unauthorized attacker to el — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-62263](https://github.com/advisories/GHSA-gf8h-gq53-288j) · 9.8/10** — OpenAM: WebAuthn Java deserialization RCE via ObjectInputFilter depth&gt;1 bypass — critical severity fallback; detection opportunity
+- **[CVE-2026-66012](https://nvd.nist.gov/vuln/detail/CVE-2026-66012) · 10.0/10** — SiYuan before v3.7.2 contains a missing authorization vulnerability in the POST /mcp kernel endpoint, which is gated onl — CVSS 10.0; priority technology: linux
+- **[CVE-2026-66013](https://nvd.nist.gov/vuln/detail/CVE-2026-66013) · 9.6/10** — OpenRemote before 1.26.2 contains an authentication bypass vulnerability in the console registration API that allows una — CVSS 9.3; detection opportunity
+- **[CVE-2026-15962](https://nvd.nist.gov/vuln/detail/CVE-2026-15962) · 9.1/10** — The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and i — CVSS 8.8; detection opportunity
+- **[CVE-2026-63720](https://nvd.nist.gov/vuln/detail/CVE-2026-63720) · 7.8/10** — datamodel-code-generator prior to version 0.70.0 contains a code injection vulnerability that allows attackers who contr — CVSS 7.5; detection opportunity
+- **[CVE-2026-10681](https://nvd.nist.gov/vuln/detail/CVE-2026-10681) · 7.2/10** — In Zephyr&#x27;s userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thre — CVSS 6.5; priority technology: linux
 
 ### Community pulse
 
-**[My security camera shipped a GitHub admin token in its login page](https://hhh.hn/hanwha-github-token/)** — Hacker News · 579 points · 189 comments
-[Open discussion](https://news.ycombinator.com/item?id=49034292)
+**[Running a 28.9M parameter LLM on an $8 microcontroller](https://github.com/slvDev/esp32-ai)** — Hacker News · 174 points · 37 comments
+[Open discussion](https://news.ycombinator.com/item?id=49050512)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
