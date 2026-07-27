@@ -1,17 +1,17 @@
 {
-  "above_threshold": 6,
+  "above_threshold": 15,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 37,
-    "discussion_url": "https://news.ycombinator.com/item?id=49050512",
-    "published_at": "2026-07-25T18:59:50+00:00",
-    "score": 174,
+    "comments": 93,
+    "discussion_url": "https://news.ycombinator.com/item?id=49063175",
+    "published_at": "2026-07-26T22:46:10+00:00",
+    "score": 179,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/slvDev/esp32-ai",
-    "title": "Running a 28.9M parameter LLM on an $8 microcontroller"
+    "source_url": "https://github.com/vercel-labs/scriptc",
+    "title": "Scriptc by Vercel: TypeScript-to-Native compiler, no JavaScript engine in binary"
   },
-  "coverage_end": "2026-07-26T08:38:35+00:00",
-  "coverage_start": "2026-07-25T08:38:35+00:00",
+  "coverage_end": "2026-07-27T10:07:08+00:00",
+  "coverage_start": "2026-07-26T10:07:08+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,14 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-26T08:38:41+00:00",
-  "human_context": null,
+  "generated_at": "2026-07-27T10:07:15+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "Spring Boot exposes the endpoint \"/actuator/heapdump\" to collect debug information. By default, the endpoint will return a file heapdump.hprof, which includes a binary heapdump\u2026",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-07-27T10:04:51+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33188",
+    "title": "Java Spring Boot \"heapdump\" scans, (Mon, Jul 27th)"
+  },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 289,
+  "qualified_developments": 53,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -52,70 +60,17 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-66012"
+        "CVE-2026-65894"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 8.7,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-66012",
+      "id": "CVE-2026-65894",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012",
-      "title": "SiYuan before v3.7.2 contains a missing authorization vulnerability in the POST /mcp kernel endpoint, which is gated onl",
-      "why_it_matters": "CVSS 10.0; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-66013"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-66013",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66013",
-      "title": "OpenRemote before 1.26.2 contains an authentication bypass vulnerability in the console registration API that allows una",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-15962"
-      ],
-      "cvss_score": 8.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-15962",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.1,
+      "priority_score": 8.9,
       "products": [],
       "selection_reasons": [
         "high CVSS +10",
@@ -124,24 +79,24 @@
       "selection_score": 15,
       "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15962",
-      "title": "The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and i",
-      "why_it_matters": "CVSS 8.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65894",
+      "title": "This vulnerability exists in CP PLUS EZ-P21 IP Camera due to improper authentication of HTTP endpoints. A remote attacke",
+      "why_it_matters": "CVSS 8.7; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-63720"
+        "CVE-2026-14837"
       ],
-      "cvss_score": 7.5,
+      "cvss_score": 8.5,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-63720",
+      "id": "CVE-2026-14837",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 7.8,
+      "priority_score": 8.8,
       "products": [],
       "selection_reasons": [
         "high CVSS +10",
@@ -150,35 +105,87 @@
       "selection_score": 15,
       "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720",
-      "title": "datamodel-code-generator prior to version 0.70.0 contains a code injection vulnerability that allows attackers who contr",
-      "why_it_matters": "CVSS 7.5; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14837",
+      "title": "Multiple Lenze products are affected by an improper signature verification vulnerability in the SSH enablement mechanism",
+      "why_it_matters": "CVSS 8.5; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-10681"
+        "CVE-2026-17497"
       ],
-      "cvss_score": 6.5,
+      "cvss_score": 8.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-10681",
+      "id": "CVE-2026-17497",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 7.2,
+      "priority_score": 8.6,
       "products": [],
       "selection_reasons": [
-        "priority technology: linux +8",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 13,
-      "severity": "MEDIUM",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10681",
-      "title": "In Zephyr's userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thre",
-      "why_it_matters": "CVSS 6.5; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17497",
+      "title": "NoteGen before 0.32.0 grants the Tauri shell plugin shell:allow-execute capability for bash, python, and python3 with ar",
+      "why_it_matters": "CVSS 8.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-15928"
+      ],
+      "cvss_score": 8.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-15928",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.4,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15928",
+      "title": "XMLRPC-C Library versions 1.07 through 1.67.01 are vulnerable to a reflected cross-site scripting (XSS) vulnerability in",
+      "why_it_matters": "CVSS 8.2; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-17496"
+      ],
+      "cvss_score": 8.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-17496",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.3,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17496",
+      "title": "NoteGen before 0.32.0 renders AI chat responses with markdown-it configured with html:true and injects the result into t",
+      "why_it_matters": "CVSS 8.1; detection opportunity"
     }
   ]
 }

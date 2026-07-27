@@ -7,28 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-26T08:38:41+00:00  
-**Coverage:** 2026-07-25T08:38:35+00:00 → 2026-07-26T08:38:35+00:00  
+**Updated:** 2026-07-27T10:07:15+00:00  
+**Coverage:** 2026-07-26T10:07:08+00:00 → 2026-07-27T10:07:08+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 289 source-backed developments
-- **Above threshold:** 6
+- **Assessed:** 53 source-backed developments
+- **Above threshold:** 15
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-66012](https://nvd.nist.gov/vuln/detail/CVE-2026-66012) · 10.0/10** — SiYuan before v3.7.2 contains a missing authorization vulnerability in the POST /mcp kernel endpoint, which is gated onl — CVSS 10.0; priority technology: linux
-- **[CVE-2026-66013](https://nvd.nist.gov/vuln/detail/CVE-2026-66013) · 9.6/10** — OpenRemote before 1.26.2 contains an authentication bypass vulnerability in the console registration API that allows una — CVSS 9.3; detection opportunity
-- **[CVE-2026-15962](https://nvd.nist.gov/vuln/detail/CVE-2026-15962) · 9.1/10** — The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and i — CVSS 8.8; detection opportunity
-- **[CVE-2026-63720](https://nvd.nist.gov/vuln/detail/CVE-2026-63720) · 7.8/10** — datamodel-code-generator prior to version 0.70.0 contains a code injection vulnerability that allows attackers who contr — CVSS 7.5; detection opportunity
-- **[CVE-2026-10681](https://nvd.nist.gov/vuln/detail/CVE-2026-10681) · 7.2/10** — In Zephyr&#x27;s userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thre — CVSS 6.5; priority technology: linux
+- **[CVE-2026-65894](https://nvd.nist.gov/vuln/detail/CVE-2026-65894) · 8.9/10** — This vulnerability exists in CP PLUS EZ-P21 IP Camera due to improper authentication of HTTP endpoints. A remote attacke — CVSS 8.7; detection opportunity
+- **[CVE-2026-14837](https://nvd.nist.gov/vuln/detail/CVE-2026-14837) · 8.8/10** — Multiple Lenze products are affected by an improper signature verification vulnerability in the SSH enablement mechanism — CVSS 8.5; detection opportunity
+- **[CVE-2026-17497](https://nvd.nist.gov/vuln/detail/CVE-2026-17497) · 8.6/10** — NoteGen before 0.32.0 grants the Tauri shell plugin shell:allow-execute capability for bash, python, and python3 with ar — CVSS 8.3; detection opportunity
+- **[CVE-2026-15928](https://nvd.nist.gov/vuln/detail/CVE-2026-15928) · 8.4/10** — XMLRPC-C Library versions 1.07 through 1.67.01 are vulnerable to a reflected cross-site scripting (XSS) vulnerability in — CVSS 8.2; detection opportunity
+- **[CVE-2026-17496](https://nvd.nist.gov/vuln/detail/CVE-2026-17496) · 8.3/10** — NoteGen before 0.32.0 renders AI chat responses with markdown-it configured with html:true and injects the result into t — CVSS 8.1; detection opportunity
+
+### Human context
+
+**[Java Spring Boot &quot;heapdump&quot; scans, (Mon, Jul 27th)](https://isc.sans.edu/diary/rss/33188)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> Spring Boot exposes the endpoint &quot;/actuator/heapdump&quot; to collect debug information. By default, the endpoint will return a file heapdump.hprof, which includes a binary heapdump…
 
 ### Community pulse
 
-**[Running a 28.9M parameter LLM on an $8 microcontroller](https://github.com/slvDev/esp32-ai)** — Hacker News · 174 points · 37 comments
-[Open discussion](https://news.ycombinator.com/item?id=49050512)
+**[Scriptc by Vercel: TypeScript-to-Native compiler, no JavaScript engine in binary](https://github.com/vercel-labs/scriptc)** — Hacker News · 179 points · 93 comments
+[Open discussion](https://news.ycombinator.com/item?id=49063175)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
