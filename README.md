@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-27T10:07:15+00:00  
-**Coverage:** 2026-07-26T10:07:08+00:00 → 2026-07-27T10:07:08+00:00  
+**Updated:** 2026-07-28T08:50:05+00:00  
+**Coverage:** 2026-07-27T08:49:35+00:00 → 2026-07-28T08:49:35+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 53 source-backed developments
-- **Above threshold:** 15
+- **Assessed:** 445 source-backed developments
+- **Above threshold:** 192
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-65894](https://nvd.nist.gov/vuln/detail/CVE-2026-65894) · 8.9/10** — This vulnerability exists in CP PLUS EZ-P21 IP Camera due to improper authentication of HTTP endpoints. A remote attacke — CVSS 8.7; detection opportunity
-- **[CVE-2026-14837](https://nvd.nist.gov/vuln/detail/CVE-2026-14837) · 8.8/10** — Multiple Lenze products are affected by an improper signature verification vulnerability in the SSH enablement mechanism — CVSS 8.5; detection opportunity
-- **[CVE-2026-17497](https://nvd.nist.gov/vuln/detail/CVE-2026-17497) · 8.6/10** — NoteGen before 0.32.0 grants the Tauri shell plugin shell:allow-execute capability for bash, python, and python3 with ar — CVSS 8.3; detection opportunity
-- **[CVE-2026-15928](https://nvd.nist.gov/vuln/detail/CVE-2026-15928) · 8.4/10** — XMLRPC-C Library versions 1.07 through 1.67.01 are vulnerable to a reflected cross-site scripting (XSS) vulnerability in — CVSS 8.2; detection opportunity
-- **[CVE-2026-17496](https://nvd.nist.gov/vuln/detail/CVE-2026-17496) · 8.3/10** — NoteGen before 0.32.0 renders AI chat responses with markdown-it configured with html:true and injects the result into t — CVSS 8.1; detection opportunity
+- **[CVE-2026-15014](https://nvd.nist.gov/vuln/detail/CVE-2026-15014) · 10.0/10** — The SMS Alert – SMS &amp; OTP for WooCommerce, Order Notifications &amp; Abandoned Cart Recovery plugin for WordPress is vulnera — CVSS 9.8; detection opportunity
+- **[CVE-2026-11756](https://nvd.nist.gov/vuln/detail/CVE-2026-11756) · 10.0/10** — A Deserialization of Untrusted Data vulnerability affecting Station Launcher App in 3DEXPERIENCE platform from Release 3 — CVSS 10.0; detection opportunity
+- **[CVE-2026-66824](https://nvd.nist.gov/vuln/detail/CVE-2026-66824) · 9.4/10** — A stored cross-site scripting vulnerability existed in the capture tree visualization page. The application embedded the — CVSS 9.2; detection opportunity
+- **[CVE-2026-48030](https://nvd.nist.gov/vuln/detail/CVE-2026-48030) · 9.2/10** — Pheditor is a single-file editor and file manager written in PHP. From version 2.0.1 to before version 2.0.4, an OS Comm — CVSS 9.9; detection opportunity
+- **[CVE-2026-16812](https://nvd.nist.gov/vuln/detail/CVE-2026-16812) · 9.2/10** — VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile — CVSS 10.0; detection opportunity
 
 ### Human context
 
-**[Java Spring Boot &quot;heapdump&quot; scans, (Mon, Jul 27th)](https://isc.sans.edu/diary/rss/33188)**
+**[AutoIT Payload Injector , (Tue, Jul 28th)](https://isc.sans.edu/diary/rss/33192)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Spring Boot exposes the endpoint &quot;/actuator/heapdump&quot; to collect debug information. By default, the endpoint will return a file heapdump.hprof, which includes a binary heapdump…
+> For a long time, AutoIT\[ 1 \] has been pretty common in the malware ecosystem. Threat actors still use it because it&#x27;s easy to…
 
 ### Community pulse
 
-**[Scriptc by Vercel: TypeScript-to-Native compiler, no JavaScript engine in binary](https://github.com/vercel-labs/scriptc)** — Hacker News · 179 points · 93 comments
-[Open discussion](https://news.ycombinator.com/item?id=49063175)
+**[Benchmarking Opus 5 on SlopCodeBench](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md)** — Hacker News · 268 points · 62 comments
+[Open discussion](https://news.ycombinator.com/item?id=49076391)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

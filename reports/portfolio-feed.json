@@ -1,17 +1,17 @@
 {
-  "above_threshold": 15,
+  "above_threshold": 192,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 93,
-    "discussion_url": "https://news.ycombinator.com/item?id=49063175",
-    "published_at": "2026-07-26T22:46:10+00:00",
-    "score": 179,
+    "comments": 62,
+    "discussion_url": "https://news.ycombinator.com/item?id=49076391",
+    "published_at": "2026-07-27T22:37:52+00:00",
+    "score": 268,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/vercel-labs/scriptc",
-    "title": "Scriptc by Vercel: TypeScript-to-Native compiler, no JavaScript engine in binary"
+    "source_url": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md",
+    "title": "Benchmarking Opus 5 on SlopCodeBench"
   },
-  "coverage_end": "2026-07-27T10:07:08+00:00",
-  "coverage_start": "2026-07-26T10:07:08+00:00",
+  "coverage_end": "2026-07-28T08:49:35+00:00",
+  "coverage_start": "2026-07-27T08:49:35+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-27T10:07:15+00:00",
+  "generated_at": "2026-07-28T08:50:05+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Spring Boot exposes the endpoint \"/actuator/heapdump\" to collect debug information. By default, the endpoint will return a file heapdump.hprof, which includes a binary heapdump\u2026",
+    "excerpt": "For a long time, AutoIT[ 1 ] has been pretty common in the malware ecosystem. Threat actors still use it because it's easy to\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-07-27T10:04:51+00:00",
+    "published_at": "2026-07-28T07:42:27+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33188",
-    "title": "Java Spring Boot \"heapdump\" scans, (Mon, Jul 27th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33192",
+    "title": "AutoIT Payload Injector , (Tue, Jul 28th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 53,
+  "qualified_developments": 445,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,132 +60,134 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-65894"
+        "CVE-2026-15014"
       ],
-      "cvss_score": 8.7,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-65894",
+      "id": "CVE-2026-15014",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.9,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 25,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65894",
-      "title": "This vulnerability exists in CP PLUS EZ-P21 IP Camera due to improper authentication of HTTP endpoints. A remote attacke",
-      "why_it_matters": "CVSS 8.7; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15014",
+      "title": "The SMS Alert \u2013 SMS & OTP for WooCommerce, Order Notifications & Abandoned Cart Recovery plugin for WordPress is vulnera",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-14837"
+        "CVE-2026-11756"
       ],
-      "cvss_score": 8.5,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-14837",
+      "id": "CVE-2026-11756",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.8,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 25,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14837",
-      "title": "Multiple Lenze products are affected by an improper signature verification vulnerability in the SSH enablement mechanism",
-      "why_it_matters": "CVSS 8.5; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11756",
+      "title": "A Deserialization of Untrusted Data vulnerability affecting Station Launcher App in 3DEXPERIENCE platform from Release 3",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-17497"
+        "CVE-2026-66824"
       ],
-      "cvss_score": 8.3,
+      "cvss_score": 9.2,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-17497",
+      "id": "CVE-2026-66824",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.6,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 25,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17497",
-      "title": "NoteGen before 0.32.0 grants the Tauri shell plugin shell:allow-execute capability for bash, python, and python3 with ar",
-      "why_it_matters": "CVSS 8.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66824",
+      "title": "A stored cross-site scripting vulnerability existed in the capture tree visualization page. The application embedded the",
+      "why_it_matters": "CVSS 9.2; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-15928"
+        "CVE-2026-48030"
       ],
-      "cvss_score": 8.2,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-15928",
+      "id": "CVE-2026-48030",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.4,
+      "priority_score": 9.2,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
-        "official source +5"
+        "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 20,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15928",
-      "title": "XMLRPC-C Library versions 1.07 through 1.67.01 are vulnerable to a reflected cross-site scripting (XSS) vulnerability in",
-      "why_it_matters": "CVSS 8.2; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48030",
+      "title": "Pheditor is a single-file editor and file manager written in PHP. From version 2.0.1 to before version 2.0.4, an OS Comm",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-17496"
+        "CVE-2026-16812"
       ],
-      "cvss_score": 8.1,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-17496",
+      "id": "CVE-2026-16812",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.3,
+      "priority_score": 9.2,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
-        "official source +5"
+        "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 20,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17496",
-      "title": "NoteGen before 0.32.0 renders AI chat responses with markdown-it configured with html:true and injects the result into t",
-      "why_it_matters": "CVSS 8.1; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16812",
+      "title": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     }
   ]
 }
