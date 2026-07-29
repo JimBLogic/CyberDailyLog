@@ -1,17 +1,17 @@
 {
-  "above_threshold": 192,
+  "above_threshold": 236,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 62,
-    "discussion_url": "https://news.ycombinator.com/item?id=49076391",
-    "published_at": "2026-07-27T22:37:52+00:00",
-    "score": 268,
+    "comments": 163,
+    "discussion_url": "https://news.ycombinator.com/item?id=49089755",
+    "published_at": "2026-07-28T20:52:55+00:00",
+    "score": 492,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md",
-    "title": "Benchmarking Opus 5 on SlopCodeBench"
+    "source_url": "https://github.com/openai/codex-security",
+    "title": "Codex Security"
   },
-  "coverage_end": "2026-07-28T08:49:35+00:00",
-  "coverage_start": "2026-07-27T08:49:35+00:00",
+  "coverage_end": "2026-07-29T09:07:20+00:00",
+  "coverage_start": "2026-07-28T09:07:20+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-28T08:50:05+00:00",
+  "generated_at": "2026-07-29T09:07:43+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "For a long time, AutoIT[ 1 ] has been pretty common in the malware ecosystem. Threat actors still use it because it's easy to\u2026",
+    "excerpt": "I am a bit late with this summary, but this week Apple released updates to all its operating systems and Safari. The Safari update,\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-07-28T07:42:27+00:00",
+    "published_at": "2026-07-29T07:32:37+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33192",
-    "title": "AutoIT Payload Injector , (Tue, Jul 28th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33196",
+    "title": "Apple Patches Everything (July 2026), (Wed, Jul 29th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 445,
+  "qualified_developments": 301,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,134 +60,138 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-15014"
+        "CVE-2026-54588"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-15014",
+      "epss_percentile": 0.2361,
+      "epss_score": 0.00312,
+      "ghsa_ids": [
+        "GHSA-3735-5339-xfwx"
+      ],
+      "id": "CVE-2026-54588",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
-      "products": [],
+      "products": [
+        "poweradmin/poweradmin",
+        "poweradmin/poweradmin"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: vpn_remote_access +8",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15014",
-      "title": "The SMS Alert \u2013 SMS & OTP for WooCommerce, Order Notifications & Abandoned Cart Recovery plugin for WordPress is vulnera",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "selection_score": 33,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-3735-5339-xfwx",
+      "title": "Poweradmin has Host Header Injection in OIDC redirect_uri, SAML ACS/SLO URL, and Logout Redirect Construction.",
+      "why_it_matters": "CVSS 9.6; priority technology: vpn_remote_access"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-11756"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-11756",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11756",
-      "title": "A Deserialization of Untrusted Data vulnerability affecting Station Launcher App in 3DEXPERIENCE platform from Release 3",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-66824"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-66824",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66824",
-      "title": "A stored cross-site scripting vulnerability existed in the capture tree visualization page. The application embedded the",
-      "why_it_matters": "CVSS 9.2; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-48030"
+        "CVE-2026-63234"
       ],
       "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-48030",
+      "id": "CVE-2026-63234",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "official source +5"
       ],
-      "selection_score": 20,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48030",
-      "title": "Pheditor is a single-file editor and file manager written in PHP. From version 2.0.1 to before version 2.0.4, an OS Comm",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63234",
+      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
       "why_it_matters": "CVSS 9.9; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-16812"
+        "CVE-2026-63233"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-16812",
+      "id": "CVE-2026-63233",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "official source +5"
       ],
-      "selection_score": 20,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16812",
-      "title": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63233",
+      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-63232"
+      ],
+      "cvss_score": 9.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-63232",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63232",
+      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-63227"
+      ],
+      "cvss_score": 9.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-63227",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63227",
+      "title": "An unrestricted SCORM file upload vulnerability in Koollab LMS allowed an authenticated module designer to upload a SCOR",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
     }
   ]
 }

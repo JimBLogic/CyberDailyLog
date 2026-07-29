@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-28T08:50:05+00:00  
-**Coverage:** 2026-07-27T08:49:35+00:00 → 2026-07-28T08:49:35+00:00  
+**Updated:** 2026-07-29T09:07:43+00:00  
+**Coverage:** 2026-07-28T09:07:20+00:00 → 2026-07-29T09:07:20+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 445 source-backed developments
-- **Above threshold:** 192
+- **Assessed:** 301 source-backed developments
+- **Above threshold:** 236
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-15014](https://nvd.nist.gov/vuln/detail/CVE-2026-15014) · 10.0/10** — The SMS Alert – SMS &amp; OTP for WooCommerce, Order Notifications &amp; Abandoned Cart Recovery plugin for WordPress is vulnera — CVSS 9.8; detection opportunity
-- **[CVE-2026-11756](https://nvd.nist.gov/vuln/detail/CVE-2026-11756) · 10.0/10** — A Deserialization of Untrusted Data vulnerability affecting Station Launcher App in 3DEXPERIENCE platform from Release 3 — CVSS 10.0; detection opportunity
-- **[CVE-2026-66824](https://nvd.nist.gov/vuln/detail/CVE-2026-66824) · 9.4/10** — A stored cross-site scripting vulnerability existed in the capture tree visualization page. The application embedded the — CVSS 9.2; detection opportunity
-- **[CVE-2026-48030](https://nvd.nist.gov/vuln/detail/CVE-2026-48030) · 9.2/10** — Pheditor is a single-file editor and file manager written in PHP. From version 2.0.1 to before version 2.0.4, an OS Comm — CVSS 9.9; detection opportunity
-- **[CVE-2026-16812](https://nvd.nist.gov/vuln/detail/CVE-2026-16812) · 9.2/10** — VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile — CVSS 10.0; detection opportunity
+- **[CVE-2026-54588](https://github.com/advisories/GHSA-3735-5339-xfwx) · 10.0/10** — Poweradmin has Host Header Injection in OIDC redirect_uri, SAML ACS/SLO URL, and Logout Redirect Construction. — CVSS 9.6; priority technology: vpn_remote_access
+- **[CVE-2026-63234](https://nvd.nist.gov/vuln/detail/CVE-2026-63234) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
+- **[CVE-2026-63233](https://nvd.nist.gov/vuln/detail/CVE-2026-63233) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
+- **[CVE-2026-63232](https://nvd.nist.gov/vuln/detail/CVE-2026-63232) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
+- **[CVE-2026-63227](https://nvd.nist.gov/vuln/detail/CVE-2026-63227) · 10.0/10** — An unrestricted SCORM file upload vulnerability in Koollab LMS allowed an authenticated module designer to upload a SCOR — CVSS 9.9; detection opportunity
 
 ### Human context
 
-**[AutoIT Payload Injector , (Tue, Jul 28th)](https://isc.sans.edu/diary/rss/33192)**
+**[Apple Patches Everything (July 2026), (Wed, Jul 29th)](https://isc.sans.edu/diary/rss/33196)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> For a long time, AutoIT\[ 1 \] has been pretty common in the malware ecosystem. Threat actors still use it because it&#x27;s easy to…
+> I am a bit late with this summary, but this week Apple released updates to all its operating systems and Safari. The Safari update,…
 
 ### Community pulse
 
-**[Benchmarking Opus 5 on SlopCodeBench](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/benchmarking-opus-5-on-slop-code-bench.md)** — Hacker News · 268 points · 62 comments
-[Open discussion](https://news.ycombinator.com/item?id=49076391)
+**[Codex Security](https://github.com/openai/codex-security)** — Hacker News · 492 points · 163 comments
+[Open discussion](https://news.ycombinator.com/item?id=49089755)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
