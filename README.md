@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-29T09:07:43+00:00  
-**Coverage:** 2026-07-28T09:07:20+00:00 → 2026-07-29T09:07:20+00:00  
+**Updated:** 2026-07-30T08:47:30+00:00  
+**Coverage:** 2026-07-29T08:47:17+00:00 → 2026-07-30T08:47:17+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 301 source-backed developments
-- **Above threshold:** 236
+- **Assessed:** 715 source-backed developments
+- **Above threshold:** 244
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-54588](https://github.com/advisories/GHSA-3735-5339-xfwx) · 10.0/10** — Poweradmin has Host Header Injection in OIDC redirect_uri, SAML ACS/SLO URL, and Logout Redirect Construction. — CVSS 9.6; priority technology: vpn_remote_access
-- **[CVE-2026-63234](https://nvd.nist.gov/vuln/detail/CVE-2026-63234) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
-- **[CVE-2026-63233](https://nvd.nist.gov/vuln/detail/CVE-2026-63233) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
-- **[CVE-2026-63232](https://nvd.nist.gov/vuln/detail/CVE-2026-63232) · 10.0/10** — A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro — CVSS 9.9; detection opportunity
-- **[CVE-2026-63227](https://nvd.nist.gov/vuln/detail/CVE-2026-63227) · 10.0/10** — An unrestricted SCORM file upload vulnerability in Koollab LMS allowed an authenticated module designer to upload a SCOR — CVSS 9.9; detection opportunity
+- **[CVE-2026-54680](https://nvd.nist.gov/vuln/detail/CVE-2026-54680) · 10.0/10** — Logging operator automates the deployment and configuration of Kubernetes logging pipelines. Prior to 6.6.0, the Fluentd — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-44108](https://nvd.nist.gov/vuln/detail/CVE-2026-44108) · 10.0/10** — Due to a flaw in the execution order of scripts during shutdown, the firewall is terminated prematurely during system sh — CVSS 9.3; priority technology: firewalls
+- **[CVE-2026-44090](https://nvd.nist.gov/vuln/detail/CVE-2026-44090) · 10.0/10** — Due to missing authentication, an unauthenticated remote attacker may access the MQTT broker, which is only protected fr — CVSS 9.3; priority technology: firewalls
+- **[CVE-2026-41939](https://nvd.nist.gov/vuln/detail/CVE-2026-41939) · 10.0/10** — Care Everywhere Gateway 14.3.10 contains a hard-coded credentials vulnerability in the bundled WildFly 8.2.0.Final manag — CVSS 9.3; priority technology: windows
+- **[CVE-2026-58066](https://nvd.nist.gov/vuln/detail/CVE-2026-58066) · 10.0/10** — Rocket.Chat&#x27;s SAML SSO before versions 8.7.0, 8.6.1, 8.5.2, 8.4.5, 8.3.7, 8.2.7, 8.1.7, 8.0.8, and 7.10.14 verified XML — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[Apple Patches Everything (July 2026), (Wed, Jul 29th)](https://isc.sans.edu/diary/rss/33196)**
+**[ISC Stormcast For Thursday, July 30th, 2026 https://isc.sans.edu/podcastdetail/10030, (Thu, Jul 30th)](https://isc.sans.edu/diary/rss/33200)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> I am a bit late with this summary, but this week Apple released updates to all its operating systems and Safari. The Safari update,…
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Codex Security](https://github.com/openai/codex-security)** — Hacker News · 492 points · 163 comments
-[Open discussion](https://news.ycombinator.com/item?id=49089755)
+**[Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac](https://github.com/drumih/turbo-fieldfare)** — Hacker News · 779 points · 274 comments
+[Open discussion](https://news.ycombinator.com/item?id=49098510)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

@@ -1,17 +1,17 @@
 {
-  "above_threshold": 236,
+  "above_threshold": 244,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 163,
-    "discussion_url": "https://news.ycombinator.com/item?id=49089755",
-    "published_at": "2026-07-28T20:52:55+00:00",
-    "score": 492,
+    "comments": 274,
+    "discussion_url": "https://news.ycombinator.com/item?id=49098510",
+    "published_at": "2026-07-29T15:05:43+00:00",
+    "score": 779,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/openai/codex-security",
-    "title": "Codex Security"
+    "source_url": "https://github.com/drumih/turbo-fieldfare",
+    "title": "Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac"
   },
-  "coverage_end": "2026-07-29T09:07:20+00:00",
-  "coverage_start": "2026-07-28T09:07:20+00:00",
+  "coverage_end": "2026-07-30T08:47:17+00:00",
+  "coverage_start": "2026-07-29T08:47:17+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-29T09:07:43+00:00",
+  "generated_at": "2026-07-30T08:47:30+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "I am a bit late with this summary, but this week Apple released updates to all its operating systems and Safari. The Safari update,\u2026",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-07-29T07:32:37+00:00",
+    "published_at": "2026-07-30T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33196",
-    "title": "Apple Patches Everything (July 2026), (Wed, Jul 29th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33200",
+    "title": "ISC Stormcast For Thursday, July 30th, 2026 https://isc.sans.edu/podcastdetail/10030, (Thu, Jul 30th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 301,
+  "qualified_developments": 715,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,46 +60,126 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-54588"
+        "CVE-2026-54680"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.2361,
-      "epss_score": 0.00312,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [
-        "GHSA-3735-5339-xfwx"
+        "GHSA-mjqf-28ph-426h"
       ],
-      "id": "CVE-2026-54588",
+      "id": "CVE-2026-54680",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [
-        "poweradmin/poweradmin",
-        "poweradmin/poweradmin"
+        "github.com/kube-logging/logging-operator"
       ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: vpn_remote_access +8",
+        "priority technology: cloud +8",
         "official source +5"
       ],
       "selection_score": 33,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-3735-5339-xfwx",
-      "title": "Poweradmin has Host Header Injection in OIDC redirect_uri, SAML ACS/SLO URL, and Logout Redirect Construction.",
-      "why_it_matters": "CVSS 9.6; priority technology: vpn_remote_access"
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54680",
+      "title": "Logging operator automates the deployment and configuration of Kubernetes logging pipelines. Prior to 6.6.0, the Fluentd",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-63234"
+        "CVE-2026-44108"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-63234",
+      "id": "CVE-2026-44108",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: firewalls +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44108",
+      "title": "Due to a flaw in the execution order of scripts during shutdown, the firewall is terminated prematurely during system sh",
+      "why_it_matters": "CVSS 9.3; priority technology: firewalls"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-44090"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-44090",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: firewalls +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44090",
+      "title": "Due to missing authentication, an unauthenticated remote attacker may access the MQTT broker, which is only protected fr",
+      "why_it_matters": "CVSS 9.3; priority technology: firewalls"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-41939"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-41939",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41939",
+      "title": "Care Everywhere Gateway 14.3.10 contains a hard-coded credentials vulnerability in the bundled WildFly 8.2.0.Final manag",
+      "why_it_matters": "CVSS 9.3; priority technology: windows"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-58066"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-58066",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -111,87 +191,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63234",
-      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-63233"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63233",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63233",
-      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-63232"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63232",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63232",
-      "title": "A SQL injection and unsafe deserialisation vulnerability in Koollab LMS allowed an authenticated attacker to inject thro",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-63227"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63227",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63227",
-      "title": "An unrestricted SCORM file upload vulnerability in Koollab LMS allowed an authenticated module designer to upload a SCOR",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58066",
+      "title": "Rocket.Chat's SAML SSO before versions 8.7.0, 8.6.1, 8.5.2, 8.4.5, 8.3.7, 8.2.7, 8.1.7, 8.0.8, and 7.10.14 verified XML",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]
 }
