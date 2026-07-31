@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-30T08:47:30+00:00  
-**Coverage:** 2026-07-29T08:47:17+00:00 → 2026-07-30T08:47:17+00:00  
+**Updated:** 2026-07-31T09:16:05+00:00  
+**Coverage:** 2026-07-30T09:15:36+00:00 → 2026-07-31T09:15:36+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 715 source-backed developments
-- **Above threshold:** 244
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 26 source-backed developments
+- **Above threshold:** 17
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-54680](https://nvd.nist.gov/vuln/detail/CVE-2026-54680) · 10.0/10** — Logging operator automates the deployment and configuration of Kubernetes logging pipelines. Prior to 6.6.0, the Fluentd — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-44108](https://nvd.nist.gov/vuln/detail/CVE-2026-44108) · 10.0/10** — Due to a flaw in the execution order of scripts during shutdown, the firewall is terminated prematurely during system sh — CVSS 9.3; priority technology: firewalls
-- **[CVE-2026-44090](https://nvd.nist.gov/vuln/detail/CVE-2026-44090) · 10.0/10** — Due to missing authentication, an unauthenticated remote attacker may access the MQTT broker, which is only protected fr — CVSS 9.3; priority technology: firewalls
-- **[CVE-2026-41939](https://nvd.nist.gov/vuln/detail/CVE-2026-41939) · 10.0/10** — Care Everywhere Gateway 14.3.10 contains a hard-coded credentials vulnerability in the bundled WildFly 8.2.0.Final manag — CVSS 9.3; priority technology: windows
-- **[CVE-2026-58066](https://nvd.nist.gov/vuln/detail/CVE-2026-58066) · 10.0/10** — Rocket.Chat&#x27;s SAML SSO before versions 8.7.0, 8.6.1, 8.5.2, 8.4.5, 8.3.7, 8.2.7, 8.1.7, 8.0.8, and 7.10.14 verified XML — CVSS 9.8; detection opportunity
+- **[CVE-2026-67429](https://github.com/advisories/GHSA-2956-977x-2w3r) · 9.2/10** — Flyto2 Core: Arbitrary file write via image.download (and other file-writing modules) — CVSS 10.0; detection opportunity
+- **[CVE-2026-66066](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) · 9.2/10** — Active Storage has possible arbitrary file read and remote code execution in Active Storage variant processing — critical severity fallback; priority technology: windows
+- **[CVE-2025-4318](https://github.com/advisories/GHSA-hf3j-86p7-mfw8) · 9.2/10** — AWS Amplify Studio UI Component Properties Has an Input Validation Issue — critical severity fallback; priority technology: cloud
+- **[CVE-2026-67426](https://github.com/advisories/GHSA-jx74-cqjv-2c67) · 9.1/10** — Flyto2 Core: Unauthenticated flyto-verification /run: callback_url SSRF and internal runner-secret exfiltration — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-67427](https://github.com/advisories/GHSA-hr7p-wg7r-hg9m) · 8.3/10** — Flyto2 Core: ${env.VAR} interpolation reads any env secret despite env.get being denylisted — CVSS 8.6; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Thursday, July 30th, 2026 https://isc.sans.edu/podcastdetail/10030, (Thu, Jul 30th)](https://isc.sans.edu/diary/rss/33200)**
+**[ISC Stormcast For Friday, July 31st, 2026 https://isc.sans.edu/podcastdetail/10032, (Fri, Jul 31st)](https://isc.sans.edu/diary/rss/33204)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac](https://github.com/drumih/turbo-fieldfare)** — Hacker News · 779 points · 274 comments
-[Open discussion](https://news.ycombinator.com/item?id=49098510)
+**[Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)** — Hacker News · 180 points · 137 comments
+[Open discussion](https://news.ycombinator.com/item?id=49116922)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
