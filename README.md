@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-07-31T09:16:05+00:00  
-**Coverage:** 2026-07-30T09:15:36+00:00 → 2026-07-31T09:15:36+00:00  
+**Updated:** 2026-08-01T08:32:54+00:00  
+**Coverage:** 2026-07-31T08:32:48+00:00 → 2026-08-01T08:32:48+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 26 source-backed developments
-- **Above threshold:** 17
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 181 source-backed developments
+- **Above threshold:** 95
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-67429](https://github.com/advisories/GHSA-2956-977x-2w3r) · 9.2/10** — Flyto2 Core: Arbitrary file write via image.download (and other file-writing modules) — CVSS 10.0; detection opportunity
-- **[CVE-2026-66066](https://github.com/advisories/GHSA-xr9x-r78c-5hrm) · 9.2/10** — Active Storage has possible arbitrary file read and remote code execution in Active Storage variant processing — critical severity fallback; priority technology: windows
-- **[CVE-2025-4318](https://github.com/advisories/GHSA-hf3j-86p7-mfw8) · 9.2/10** — AWS Amplify Studio UI Component Properties Has an Input Validation Issue — critical severity fallback; priority technology: cloud
-- **[CVE-2026-67426](https://github.com/advisories/GHSA-jx74-cqjv-2c67) · 9.1/10** — Flyto2 Core: Unauthenticated flyto-verification /run: callback_url SSRF and internal runner-secret exfiltration — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-67427](https://github.com/advisories/GHSA-hr7p-wg7r-hg9m) · 8.3/10** — Flyto2 Core: ${env.VAR} interpolation reads any env secret despite env.get being denylisted — CVSS 8.6; priority technology: cloud
+- **[CVE-2026-3141](https://nvd.nist.gov/vuln/detail/CVE-2026-3141) · 9.8/10** — The FormGent plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability chec — CVSS 9.1; priority technology: linux
+- **[CVE-2026-52887](https://github.com/advisories/GHSA-p849-8hwh-84j9) · 9.8/10** — NocoBase: SQL injection in /api/myInAppChannels:list filter to PG-superuser RCE — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-52855](https://nvd.nist.gov/vuln/detail/CVE-2026-52855) · 9.7/10** — Wings is the server control plane for Pterodactyl, a free, open-source game server management panel. Prior to 1.12.3, {{ — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-68771](https://nvd.nist.gov/vuln/detail/CVE-2026-68771) · 9.6/10** — ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthentic — CVSS 9.3; detection opportunity
+- **[CVE-2026-68770](https://nvd.nist.gov/vuln/detail/CVE-2026-68770) · 9.6/10** — sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code e — CVSS 9.3; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Friday, July 31st, 2026 https://isc.sans.edu/podcastdetail/10032, (Fri, Jul 31st)](https://isc.sans.edu/diary/rss/33204)**
+**[Phishing Campaigns Targeting AI Solutions Providers, (Sat, Aug 1st)](https://isc.sans.edu/diary/rss/33206)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Most phishing campaigns rely on the fact that the victim is afraid to loose &quot;something&quot;: money, access to information, ... Many brands have been…
 
 ### Community pulse
 
-**[Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)** — Hacker News · 180 points · 137 comments
-[Open discussion](https://news.ycombinator.com/item?id=49116922)
+**[qm – Multiplayer agent harness for work](https://github.com/yc-software/qm)** — Hacker News · 554 points · 113 comments
+[Open discussion](https://news.ycombinator.com/item?id=49126604)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

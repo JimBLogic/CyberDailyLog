@@ -1,17 +1,17 @@
 {
-  "above_threshold": 17,
+  "above_threshold": 95,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 137,
-    "discussion_url": "https://news.ycombinator.com/item?id=49116922",
-    "published_at": "2026-07-30T23:00:51+00:00",
-    "score": 180,
+    "comments": 113,
+    "discussion_url": "https://news.ycombinator.com/item?id=49126604",
+    "published_at": "2026-07-31T18:04:58+00:00",
+    "score": 554,
     "source_name": "Hacker News",
-    "source_url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-    "title": "Investigating three real-world incidents in our cybersecurity evaluations"
+    "source_url": "https://github.com/yc-software/qm",
+    "title": "qm \u2013 Multiplayer agent harness for work"
   },
-  "coverage_end": "2026-07-31T09:15:36+00:00",
-  "coverage_start": "2026-07-30T09:15:36+00:00",
+  "coverage_end": "2026-08-01T08:32:48+00:00",
+  "coverage_start": "2026-07-31T08:32:48+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-07-31T09:16:05+00:00",
+  "generated_at": "2026-08-01T08:32:54+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "Most phishing campaigns rely on the fact that the victim is afraid to loose \"something\": money, access to information, ... Many brands have been\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-07-31T02:00:03+00:00",
+    "published_at": "2026-08-01T07:22:32+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33204",
-    "title": "ISC Stormcast For Friday, July 31st, 2026 https://isc.sans.edu/podcastdetail/10032, (Fri, Jul 31st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33206",
+    "title": "Phishing Campaigns Targeting AI Solutions Providers, (Sat, Aug 1st)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 26,
+  "qualified_developments": 181,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -51,8 +51,7 @@
       "total": 5
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 7
+      "healthy": 8
     },
     "total": 8
   },
@@ -61,116 +60,48 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-67429"
+        "CVE-2026-3141"
       ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.39703,
-      "epss_score": 0.00494,
-      "ghsa_ids": [
-        "GHSA-2956-977x-2w3r"
-      ],
-      "id": "CVE-2026-67429",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.2,
-      "products": [
-        "flyto-core"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
-      ],
-      "selection_score": 20,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-2956-977x-2w3r",
-      "title": "Flyto2 Core: Arbitrary file write via image.download (and other file-writing modules)",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-66066"
-      ],
-      "cvss_score": null,
+      "cvss_score": 9.1,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-xr9x-r78c-5hrm"
-      ],
-      "id": "CVE-2026-66066",
+      "ghsa_ids": [],
+      "id": "CVE-2026-3141",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
-      "products": [
-        "activestorage",
-        "activestorage",
-        "activestorage"
-      ],
+      "priority_score": 9.8,
+      "products": [],
       "selection_reasons": [
-        "priority technology: windows +8",
-        "official source +5",
-        "modified metadata in window -5"
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
       ],
-      "selection_score": 8,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-xr9x-r78c-5hrm",
-      "title": "Active Storage has possible arbitrary file read and remote code execution in Active Storage variant processing",
-      "why_it_matters": "critical severity fallback; priority technology: windows"
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3141",
+      "title": "The FormGent plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability chec",
+      "why_it_matters": "CVSS 9.1; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2025-4318"
+        "CVE-2026-52887"
       ],
-      "cvss_score": null,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.56847,
-      "epss_score": 0.00923,
+      "epss_percentile": 0.44984,
+      "epss_score": 0.00593,
       "ghsa_ids": [
-        "GHSA-hf3j-86p7-mfw8"
+        "GHSA-p849-8hwh-84j9"
       ],
-      "id": "CVE-2025-4318",
+      "id": "CVE-2026-52887",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 9.8,
       "products": [
-        "@aws-amplify/codegen-ui-react"
-      ],
-      "selection_reasons": [
-        "priority technology: cloud +8",
-        "official source +5",
-        "modified metadata in window -5"
-      ],
-      "selection_score": 8,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-hf3j-86p7-mfw8",
-      "title": "AWS Amplify Studio UI Component Properties Has an Input Validation Issue",
-      "why_it_matters": "critical severity fallback; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-67426"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.21392,
-      "epss_score": 0.00291,
-      "ghsa_ids": [
-        "GHSA-jx74-cqjv-2c67"
-      ],
-      "id": "CVE-2026-67426",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.1,
-      "products": [
-        "flyto-core"
+        "@nocobase/plugin-notification-in-app-message"
       ],
       "selection_reasons": [
         "critical CVSS +20",
@@ -180,40 +111,92 @@
       "selection_score": 28,
       "severity": "critical",
       "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-jx74-cqjv-2c67",
-      "title": "Flyto2 Core: Unauthenticated flyto-verification /run: callback_url SSRF and internal runner-secret exfiltration",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://github.com/advisories/GHSA-p849-8hwh-84j9",
+      "title": "NocoBase: SQL injection in /api/myInAppChannels:list filter to PG-superuser RCE",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-67427"
+        "CVE-2026-52855"
       ],
-      "cvss_score": 8.6,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.26513,
-      "epss_score": 0.00339,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [
-        "GHSA-hr7p-wg7r-hg9m"
+        "GHSA-pfvc-3p5h-x7h6"
       ],
-      "id": "CVE-2026-67427",
+      "id": "CVE-2026-52855",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.3,
+      "priority_score": 9.7,
       "products": [
-        "flyto-core"
+        "github.com/pterodactyl/wings"
       ],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
         "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 18,
-      "severity": "high",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-hr7p-wg7r-hg9m",
-      "title": "Flyto2 Core: ${env.VAR} interpolation reads any env secret despite env.get being denylisted",
-      "why_it_matters": "CVSS 8.6; priority technology: cloud"
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52855",
+      "title": "Wings is the server control plane for Pterodactyl, a free, open-source game server management panel. Prior to 1.12.3, {{",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-68771"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-68771",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771",
+      "title": "ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthentic",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-68770"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-68770",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770",
+      "title": "sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code e",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }
