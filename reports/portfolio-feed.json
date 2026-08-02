@@ -1,17 +1,17 @@
 {
-  "above_threshold": 95,
+  "above_threshold": 110,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 113,
-    "discussion_url": "https://news.ycombinator.com/item?id=49126604",
-    "published_at": "2026-07-31T18:04:58+00:00",
-    "score": 554,
+    "comments": 26,
+    "discussion_url": "https://news.ycombinator.com/item?id=49140396",
+    "published_at": "2026-08-02T02:07:09+00:00",
+    "score": 139,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/yc-software/qm",
-    "title": "qm \u2013 Multiplayer agent harness for work"
+    "source_url": "https://github.com/tom-ilan/cycloidal_gearbox",
+    "title": "Show HN: I'm a 15 Year Old Wannabe Engineer, This Is a Cycloidal Gearbox I Built"
   },
-  "coverage_end": "2026-08-01T08:32:48+00:00",
-  "coverage_start": "2026-07-31T08:32:48+00:00",
+  "coverage_end": "2026-08-02T08:35:55+00:00",
+  "coverage_start": "2026-08-01T08:35:55+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-01T08:32:54+00:00",
+  "generated_at": "2026-08-02T08:36:06+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Most phishing campaigns rely on the fact that the victim is afraid to loose \"something\": money, access to information, ... Many brands have been\u2026",
+    "excerpt": "Introduction",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-01T07:22:32+00:00",
+    "published_at": "2026-08-02T04:05:08+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33206",
-    "title": "Phishing Campaigns Targeting AI Solutions Providers, (Sat, Aug 1st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33208",
+    "title": "Atomic MacOS (AMOS) stealer infection, (Sun, Aug 2nd)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 181,
+  "qualified_developments": 143,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,106 +60,96 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-3141"
+        "CVE-2026-67305"
       ],
-      "cvss_score": 9.1,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-3141",
+      "id": "CVE-2026-67305",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: windows +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3141",
-      "title": "The FormGent plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability chec",
-      "why_it_matters": "CVSS 9.1; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67305",
+      "title": "FreeRDP Windows client before 3.29.0 contains a heap buffer overflow vulnerability in the clipboard virtual channel when",
+      "why_it_matters": "CVSS 9.4; priority technology: windows"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-52887"
+        "CVE-2026-8457"
       ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.44984,
-      "epss_score": 0.00593,
-      "ghsa_ids": [
-        "GHSA-p849-8hwh-84j9"
-      ],
-      "id": "CVE-2026-52887",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.8,
-      "products": [
-        "@nocobase/plugin-notification-in-app-message"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-p849-8hwh-84j9",
-      "title": "NocoBase: SQL injection in /api/myInAppChannels:list filter to PG-superuser RCE",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-52855"
-      ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-pfvc-3p5h-x7h6"
+      "ghsa_ids": [],
+      "id": "CVE-2026-8457",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
       ],
-      "id": "CVE-2026-52855",
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8457",
+      "title": "The WooCommerce - Social Login plugin for WordPress is vulnerable to Authentication Bypass in all versions up to and inc",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-15964"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.39437,
+      "epss_score": 0.00489,
+      "ghsa_ids": [],
+      "id": "CVE-2026-15964",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15964",
+      "title": "The Single Sign On For TNG plugin for WordPress is vulnerable to Authentication Bypass via unauthenticated password rese",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-67336"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-67336",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.7,
-      "products": [
-        "github.com/pterodactyl/wings"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52855",
-      "title": "Wings is the server control plane for Pterodactyl, a free, open-source game server management panel. Prior to 1.12.3, {{",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-68771"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-68771",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -168,24 +158,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771",
-      "title": "ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthentic",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67336",
+      "title": "better-auth versions before 1.6.11 contain insecure cryptographic defaults in the oidcProvider and mcp plugins that adve",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-68770"
+        "CVE-2026-67330"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-68770",
+      "id": "CVE-2026-67330",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 9.7,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -194,9 +184,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770",
-      "title": "sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code e",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67330",
+      "title": "@better-auth/scim (a better-auth plugin) versions >= 1.4.0-beta.27 through <= 1.6.21 and >= 1.7.0-beta.0 through <= 1.7.",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
     }
   ]
 }

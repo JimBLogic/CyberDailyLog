@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-01T08:32:54+00:00  
-**Coverage:** 2026-07-31T08:32:48+00:00 → 2026-08-01T08:32:48+00:00  
+**Updated:** 2026-08-02T08:36:06+00:00  
+**Coverage:** 2026-08-01T08:35:55+00:00 → 2026-08-02T08:35:55+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 181 source-backed developments
-- **Above threshold:** 95
+- **Assessed:** 143 source-backed developments
+- **Above threshold:** 110
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-3141](https://nvd.nist.gov/vuln/detail/CVE-2026-3141) · 9.8/10** — The FormGent plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability chec — CVSS 9.1; priority technology: linux
-- **[CVE-2026-52887](https://github.com/advisories/GHSA-p849-8hwh-84j9) · 9.8/10** — NocoBase: SQL injection in /api/myInAppChannels:list filter to PG-superuser RCE — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-52855](https://nvd.nist.gov/vuln/detail/CVE-2026-52855) · 9.7/10** — Wings is the server control plane for Pterodactyl, a free, open-source game server management panel. Prior to 1.12.3, {{ — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-68771](https://nvd.nist.gov/vuln/detail/CVE-2026-68771) · 9.6/10** — ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthentic — CVSS 9.3; detection opportunity
-- **[CVE-2026-68770](https://nvd.nist.gov/vuln/detail/CVE-2026-68770) · 9.6/10** — sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code e — CVSS 9.3; detection opportunity
+- **[CVE-2026-67305](https://nvd.nist.gov/vuln/detail/CVE-2026-67305) · 10.0/10** — FreeRDP Windows client before 3.29.0 contains a heap buffer overflow vulnerability in the clipboard virtual channel when — CVSS 9.4; priority technology: windows
+- **[CVE-2026-8457](https://nvd.nist.gov/vuln/detail/CVE-2026-8457) · 10.0/10** — The WooCommerce - Social Login plugin for WordPress is vulnerable to Authentication Bypass in all versions up to and inc — CVSS 9.8; detection opportunity
+- **[CVE-2026-15964](https://nvd.nist.gov/vuln/detail/CVE-2026-15964) · 10.0/10** — The Single Sign On For TNG plugin for WordPress is vulnerable to Authentication Bypass via unauthenticated password rese — CVSS 9.8; detection opportunity
+- **[CVE-2026-67336](https://nvd.nist.gov/vuln/detail/CVE-2026-67336) · 9.7/10** — better-auth versions before 1.6.11 contain insecure cryptographic defaults in the oidcProvider and mcp plugins that adve — CVSS 9.4; detection opportunity
+- **[CVE-2026-67330](https://nvd.nist.gov/vuln/detail/CVE-2026-67330) · 9.7/10** — @better-auth/scim (a better-auth plugin) versions &gt;= 1.4.0-beta.27 through &lt;= 1.6.21 and &gt;= 1.7.0-beta.0 through &lt;= 1.7. — CVSS 9.4; detection opportunity
 
 ### Human context
 
-**[Phishing Campaigns Targeting AI Solutions Providers, (Sat, Aug 1st)](https://isc.sans.edu/diary/rss/33206)**
+**[Atomic MacOS (AMOS) stealer infection, (Sun, Aug 2nd)](https://isc.sans.edu/diary/rss/33208)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Most phishing campaigns rely on the fact that the victim is afraid to loose &quot;something&quot;: money, access to information, ... Many brands have been…
+> Introduction
 
 ### Community pulse
 
-**[qm – Multiplayer agent harness for work](https://github.com/yc-software/qm)** — Hacker News · 554 points · 113 comments
-[Open discussion](https://news.ycombinator.com/item?id=49126604)
+**[Show HN: I&#x27;m a 15 Year Old Wannabe Engineer, This Is a Cycloidal Gearbox I Built](https://github.com/tom-ilan/cycloidal_gearbox)** — Hacker News · 139 points · 26 comments
+[Open discussion](https://news.ycombinator.com/item?id=49140396)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
