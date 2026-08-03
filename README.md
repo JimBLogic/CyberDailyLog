@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-02T08:36:06+00:00  
-**Coverage:** 2026-08-01T08:35:55+00:00 → 2026-08-02T08:35:55+00:00  
+**Updated:** 2026-08-03T10:04:05+00:00  
+**Coverage:** 2026-08-02T10:03:53+00:00 → 2026-08-03T10:03:53+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 143 source-backed developments
-- **Above threshold:** 110
+- **Assessed:** 146 source-backed developments
+- **Above threshold:** 73
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-67305](https://nvd.nist.gov/vuln/detail/CVE-2026-67305) · 10.0/10** — FreeRDP Windows client before 3.29.0 contains a heap buffer overflow vulnerability in the clipboard virtual channel when — CVSS 9.4; priority technology: windows
-- **[CVE-2026-8457](https://nvd.nist.gov/vuln/detail/CVE-2026-8457) · 10.0/10** — The WooCommerce - Social Login plugin for WordPress is vulnerable to Authentication Bypass in all versions up to and inc — CVSS 9.8; detection opportunity
-- **[CVE-2026-15964](https://nvd.nist.gov/vuln/detail/CVE-2026-15964) · 10.0/10** — The Single Sign On For TNG plugin for WordPress is vulnerable to Authentication Bypass via unauthenticated password rese — CVSS 9.8; detection opportunity
-- **[CVE-2026-67336](https://nvd.nist.gov/vuln/detail/CVE-2026-67336) · 9.7/10** — better-auth versions before 1.6.11 contain insecure cryptographic defaults in the oidcProvider and mcp plugins that adve — CVSS 9.4; detection opportunity
-- **[CVE-2026-67330](https://nvd.nist.gov/vuln/detail/CVE-2026-67330) · 9.7/10** — @better-auth/scim (a better-auth plugin) versions &gt;= 1.4.0-beta.27 through &lt;= 1.6.21 and &gt;= 1.7.0-beta.0 through &lt;= 1.7. — CVSS 9.4; detection opportunity
+- **[CVE-2026-68582](https://nvd.nist.gov/vuln/detail/CVE-2026-68582) · 9.6/10** — Vikunja versions &gt;= 0.24.0 and &lt;= 2.3.0 contain a broken object level authorization (BOLA) vulnerability in the task-col — CVSS 9.3; detection opportunity
+- **[CVE-2026-65321](https://nvd.nist.gov/vuln/detail/CVE-2026-65321) · 9.6/10** — PyAthena prior to 3.35.4 contains a sql injection vulnerability that allows unauthenticated attackers to inject arbitrar — CVSS 9.3; detection opportunity
+- **[CVE-2026-18588](https://nvd.nist.gov/vuln/detail/CVE-2026-18588) · 9.6/10** — A vulnerability has been found in Wavlink WL-NU516U1 708c073-mt7628. This affects the function fgets of the file nas.cgi — CVSS 9.3; detection opportunity
+- **[CVE-2025-71401](https://nvd.nist.gov/vuln/detail/CVE-2025-71401) · 9.6/10** — better-auth (npm) before 1.4.2 allows an external request to configure baseURL when it is not otherwise defined (e.g., B — CVSS 9.3; detection opportunity
+- **[CVE-2026-68579](https://nvd.nist.gov/vuln/detail/CVE-2026-68579) · 9.4/10** — FreeRDP before 3.30.0 (&lt;= 3.29.0) contains a heap-based buffer overflow in the Windows clipboard client&#x27;s CliprdrStream_ — CVSS 8.7; priority technology: windows
 
 ### Human context
 
-**[Atomic MacOS (AMOS) stealer infection, (Sun, Aug 2nd)](https://isc.sans.edu/diary/rss/33208)**
+**[ISC Stormcast For Monday, August 3rd, 2026 https://isc.sans.edu/podcastdetail/10034, (Mon, Aug 3rd)](https://isc.sans.edu/diary/rss/33210)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Introduction
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Show HN: I&#x27;m a 15 Year Old Wannabe Engineer, This Is a Cycloidal Gearbox I Built](https://github.com/tom-ilan/cycloidal_gearbox)** — Hacker News · 139 points · 26 comments
-[Open discussion](https://news.ycombinator.com/item?id=49140396)
+**[Show HN: Kakehashi – Experimental userspace to run macOS binaries on Linux ARM](https://github.com/wie-project/kakehashi)** — Hacker News · 220 points · 55 comments
+[Open discussion](https://news.ycombinator.com/item?id=49145937)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
