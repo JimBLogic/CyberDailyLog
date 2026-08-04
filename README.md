@@ -7,34 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-03T10:04:05+00:00  
-**Coverage:** 2026-08-02T10:03:53+00:00 → 2026-08-03T10:03:53+00:00  
+**Updated:** 2026-08-04T08:52:11+00:00  
+**Coverage:** 2026-08-03T08:52:00+00:00 → 2026-08-04T08:52:00+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 146 source-backed developments
-- **Above threshold:** 73
+- **Assessed:** 259 source-backed developments
+- **Above threshold:** 177
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-68582](https://nvd.nist.gov/vuln/detail/CVE-2026-68582) · 9.6/10** — Vikunja versions &gt;= 0.24.0 and &lt;= 2.3.0 contain a broken object level authorization (BOLA) vulnerability in the task-col — CVSS 9.3; detection opportunity
-- **[CVE-2026-65321](https://nvd.nist.gov/vuln/detail/CVE-2026-65321) · 9.6/10** — PyAthena prior to 3.35.4 contains a sql injection vulnerability that allows unauthenticated attackers to inject arbitrar — CVSS 9.3; detection opportunity
-- **[CVE-2026-18588](https://nvd.nist.gov/vuln/detail/CVE-2026-18588) · 9.6/10** — A vulnerability has been found in Wavlink WL-NU516U1 708c073-mt7628. This affects the function fgets of the file nas.cgi — CVSS 9.3; detection opportunity
-- **[CVE-2025-71401](https://nvd.nist.gov/vuln/detail/CVE-2025-71401) · 9.6/10** — better-auth (npm) before 1.4.2 allows an external request to configure baseURL when it is not otherwise defined (e.g., B — CVSS 9.3; detection opportunity
-- **[CVE-2026-68579](https://nvd.nist.gov/vuln/detail/CVE-2026-68579) · 9.4/10** — FreeRDP before 3.30.0 (&lt;= 3.29.0) contains a heap-based buffer overflow in the Windows clipboard client&#x27;s CliprdrStream_ — CVSS 8.7; priority technology: windows
+- **[CVE-2026-69240](https://nvd.nist.gov/vuln/detail/CVE-2026-69240) · 10.0/10** — Sequelize is a Node.js ORM tool. Prior to 6.37.4, SQL injection is possible with strings only if dialect is set to oracl — CVSS 9.8; detection opportunity
+- **[CVE-2026-48333](https://nvd.nist.gov/vuln/detail/CVE-2026-48333) · 10.0/10** — Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege esca — CVSS 9.8; detection opportunity
+- **[CVE-2026-48331](https://nvd.nist.gov/vuln/detail/CVE-2026-48331) · 10.0/10** — Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in priv — CVSS 10.0; detection opportunity
+- **[CVE-2026-48330](https://nvd.nist.gov/vuln/detail/CVE-2026-48330) · 10.0/10** — Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command (&#x27;SQL — CVSS 10.0; detection opportunity
+- **[CVE-2026-48326](https://nvd.nist.gov/vuln/detail/CVE-2026-48326) · 10.0/10** — Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command (&#x27;SQL — CVSS 9.9; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Monday, August 3rd, 2026 https://isc.sans.edu/podcastdetail/10034, (Mon, Aug 3rd)](https://isc.sans.edu/diary/rss/33210)**
+**[ISC Stormcast For Tuesday, August 4th, 2026 https://isc.sans.edu/podcastdetail/10036, (Tue, Aug 4th)](https://isc.sans.edu/diary/rss/33212)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Show HN: Kakehashi – Experimental userspace to run macOS binaries on Linux ARM](https://github.com/wie-project/kakehashi)** — Hacker News · 220 points · 55 comments
-[Open discussion](https://news.ycombinator.com/item?id=49145937)
+**[AirLLM 70B inference with single 4GB GPU](https://github.com/lyogavin/airllm)** — Hacker News · 218 points · 78 comments
+[Open discussion](https://news.ycombinator.com/item?id=49154228)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

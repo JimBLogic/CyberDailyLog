@@ -1,17 +1,17 @@
 {
-  "above_threshold": 73,
+  "above_threshold": 177,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 55,
-    "discussion_url": "https://news.ycombinator.com/item?id=49145937",
-    "published_at": "2026-08-02T16:26:40+00:00",
-    "score": 220,
+    "comments": 78,
+    "discussion_url": "https://news.ycombinator.com/item?id=49154228",
+    "published_at": "2026-08-03T11:15:48+00:00",
+    "score": 218,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/wie-project/kakehashi",
-    "title": "Show HN: Kakehashi \u2013 Experimental userspace to run macOS binaries on Linux ARM"
+    "source_url": "https://github.com/lyogavin/airllm",
+    "title": "AirLLM 70B inference with single 4GB GPU"
   },
-  "coverage_end": "2026-08-03T10:03:53+00:00",
-  "coverage_start": "2026-08-02T10:03:53+00:00",
+  "coverage_end": "2026-08-04T08:52:00+00:00",
+  "coverage_start": "2026-08-03T08:52:00+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-03T10:04:05+00:00",
+  "generated_at": "2026-08-04T08:52:11+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-03T02:00:02+00:00",
+    "published_at": "2026-08-04T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33210",
-    "title": "ISC Stormcast For Monday, August 3rd, 2026 https://isc.sans.edu/podcastdetail/10034, (Mon, Aug 3rd)"
+    "source_url": "https://isc.sans.edu/diary/rss/33212",
+    "title": "ISC Stormcast For Tuesday, August 4th, 2026 https://isc.sans.edu/podcastdetail/10036, (Tue, Aug 4th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 146,
+  "qualified_developments": 259,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,17 +60,47 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-68582"
+        "CVE-2026-69240"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-v8fg-2rw7-q452"
+      ],
+      "id": "CVE-2026-69240",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [
+        "sequelize"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69240",
+      "title": "Sequelize is a Node.js ORM tool. Prior to 6.37.4, SQL injection is possible with strings only if dialect is set to oracl",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-48333"
+      ],
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-68582",
+      "id": "CVE-2026-48333",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -79,24 +109,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68582",
-      "title": "Vikunja versions >= 0.24.0 and <= 2.3.0 contain a broken object level authorization (BOLA) vulnerability in the task-col",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48333",
+      "title": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege esca",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-65321"
+        "CVE-2026-48331"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-65321",
+      "id": "CVE-2026-48331",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -105,24 +135,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65321",
-      "title": "PyAthena prior to 3.35.4 contains a sql injection vulnerability that allows unauthenticated attackers to inject arbitrar",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48331",
+      "title": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in priv",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-18588"
+        "CVE-2026-48330"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-18588",
+      "id": "CVE-2026-48330",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -131,24 +161,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18588",
-      "title": "A vulnerability has been found in Wavlink WL-NU516U1 708c073-mt7628. This affects the function fgets of the file nas.cgi",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48330",
+      "title": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2025-71401"
+        "CVE-2026-48326"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2025-71401",
+      "id": "CVE-2026-48326",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -157,36 +187,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71401",
-      "title": "better-auth (npm) before 1.4.2 allows an external request to configure baseURL when it is not otherwise defined (e.g., B",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-68579"
-      ],
-      "cvss_score": 8.7,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-68579",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "high CVSS +10",
-        "priority technology: windows +8",
-        "official source +5"
-      ],
-      "selection_score": 23,
-      "severity": "HIGH",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68579",
-      "title": "FreeRDP before 3.30.0 (<= 3.29.0) contains a heap-based buffer overflow in the Windows clipboard client's CliprdrStream_",
-      "why_it_matters": "CVSS 8.7; priority technology: windows"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48326",
+      "title": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
     }
   ]
 }
