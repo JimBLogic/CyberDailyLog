@@ -7,29 +7,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-05T08:50:25+00:00  
-**Coverage:** 2026-08-04T08:50:19+00:00 → 2026-08-05T08:50:19+00:00  
+**Updated:** 2026-08-06T08:51:35+00:00  
+**Coverage:** 2026-08-05T08:51:21+00:00 → 2026-08-06T08:51:21+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 383 source-backed developments
-- **Above threshold:** 254
+- **Assessed:** 387 source-backed developments
+- **Above threshold:** 249
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-71214](https://nvd.nist.gov/vuln/detail/CVE-2026-71214) · 10.0/10** — The Aerie/PlanDev sequencing-server&#x27;s authorization middleware (sequencing-server/src/app.ts) derives the caller&#x27;s Hasur — CVSS 9.8; detection opportunity
-- **[CVE-2026-71207](https://nvd.nist.gov/vuln/detail/CVE-2026-71207) · 10.0/10** — The Stock-Inventory-Management-System application&#x27;s login.php assigns raw $_POST username/password values to $_SESSION a — CVSS 9.8; detection opportunity
-- **[CVE-2026-45538](https://nvd.nist.gov/vuln/detail/CVE-2026-45538) · 10.0/10** — OpenSIPS is a Session Initiation Protocol (SIP) server implementation. In versions 4.0.0 and prior, processing a SIP mes — CVSS 9.8; detection opportunity
-- **[CVE-2026-70477](https://nvd.nist.gov/vuln/detail/CVE-2026-70477) · 9.8/10** — Flowise is a drag &amp; drop user interface to build a customized large language model flow. Prior to 3.1.3, a prompt inject — CVSS 9.5; detection opportunity
-- **[CVE-2026-70376](https://nvd.nist.gov/vuln/detail/CVE-2026-70376) · 9.8/10** — Pluck CMS&#x27;s admin panel relies solely on a Referer-header comparison (requestedByTheSameDomain() in data/inc/functions.a — CVSS 9.6; detection opportunity
+- **[CVE-2026-15587](https://nvd.nist.gov/vuln/detail/CVE-2026-15587) · 10.0/10** — Improper Privilege Management in Google SecOps (Chronicle SOAR) versions prior to 6.3.85 on Google Cloud Platform allows — CVSS 9.4; priority technology: cloud
+- **[CVE-2026-5430](https://nvd.nist.gov/vuln/detail/CVE-2026-5430) · 10.0/10** — The JWT authentication mechanism accepts tokens signed with algorithms other than those explicitly configured or support — CVSS 10.0; detection opportunity
+- **[CVE-2026-1728](https://nvd.nist.gov/vuln/detail/CVE-2026-1728) · 10.0/10** — Tokens issued to a low-privileged user are not sufficiently restricted, allowing them to be used to access product-level — CVSS 9.8; detection opportunity
+- **[CVE-2026-71319](https://nvd.nist.gov/vuln/detail/CVE-2026-71319) · 9.8/10** — Nuxt is an open-source web development framework for Vue.js. Prior to 3.3.1, Nuxt DevTools (development mode only) expos — CVSS 9.6; detection opportunity
+- **[CVE-2026-10090](https://nvd.nist.gov/vuln/detail/CVE-2026-10090) · 9.7/10** — A flaw was found in the Application Subscription controller (multicluster-operators-subscription) of Red Hat Advanced Cl — CVSS 9.9; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, August 5th, 2026 https://isc.sans.edu/podcastdetail/10038, (Wed, Aug 5th)](https://isc.sans.edu/diary/rss/33216)**
+**[ISC Stormcast For Thursday, August 6th, 2026 https://isc.sans.edu/podcastdetail/10040, (Thu, Aug 6th)](https://isc.sans.edu/diary/rss/33222)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Celld: Self-hosted, distributed Durable Objects](https://github.com/denoland/celld)** — Hacker News · 206 points · 33 comments
+[Open discussion](https://news.ycombinator.com/item?id=49185430)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
