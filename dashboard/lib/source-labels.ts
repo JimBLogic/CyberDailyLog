@@ -40,6 +40,25 @@ export const SOURCE_URLS: Record<string, string> = {
   official_epss_backup: "https://www.first.org/epss/data",
 };
 
+/** Expected publication cadence used to judge freshness, not source quality. */
+export const SOURCE_EXPECTED_INTERVAL_MINUTES: Record<string, number> = {
+  cisa_kev: 1_440,
+  nvd: 1_440,
+  github_advisories: 1_440,
+  github_releases: 1_440,
+  rss_krebs: 1_440,
+  rss_sans_isc: 1_440,
+  hacker_news: 1_440,
+  epss: 1_440,
+  official_nvd_backup: 120,
+  official_cisa_backup: 120,
+  official_epss_backup: 120,
+};
+
+export function sourceExpectedIntervalMs(source: string) {
+  return (SOURCE_EXPECTED_INTERVAL_MINUTES[source] ?? 1_440) * 60_000;
+}
+
 export type SourceTrustLane = "evidence" | "expert" | "community";
 export type SourceProvenance =
   | "government"

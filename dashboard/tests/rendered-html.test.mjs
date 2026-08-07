@@ -61,6 +61,15 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.ok(
     ["live", "official-backup", "repository-snapshot"].includes(data.dataMode),
   );
+  assert.ok(["high", "medium", "low"].includes(data.coverageConfidence));
+  assert.ok(
+    ["sufficient", "limited", "insufficient"].includes(data.coverageState),
+  );
+  assert.ok(
+    data.deliveryChain.every((item) =>
+      ["used", "available", "failed", "skipped", "cooldown"].includes(item.status),
+    ),
+  );
 });
 
 test("keeps language controls touch-ready on mobile", async () => {

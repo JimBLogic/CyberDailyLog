@@ -41,8 +41,35 @@
 - Un fallo de EPSS no bloquea NVD o CISA.
 - Un feed vacío, una fecha inválida o una respuesta que no cumpla el esquema se trata como fallo; nunca se convierte en cero silencioso.
 - La cadena completa utiliza límites de espera, coalescencia de peticiones en curso, caché y una última copia local.
+- Cada combinación de ruta y documento tiene un circuito independiente. Tras un fallo entra en pausa entre 30 segundos y 15 minutos, respeta `Retry-After` cuando existe y prueba la siguiente ruta sin repetir tráfico inútil.
+- El panel enseña el motivo técnico resumido y la siguiente hora de intento; una pausa no se presenta como una fuente sana.
 - El modo de respaldo oficial no fabrica contexto de analistas, señales comunitarias ni histórico.
+
+## Frescura y confianza de cobertura
+
+La mayoría de recopiladores del pipeline publican una vez al día. Los respaldos
+oficiales tienen una cadencia esperada de dos horas. La interfaz clasifica cada
+marca temporal con relación a esa cadencia:
+
+- **Reciente:** hasta `1,25×` la cadencia.
+- **Envejeciendo:** hasta `2×`; sigue siendo utilizable, pero se acerca al límite.
+- **Desactualizada:** entre `2×` y `4×`.
+- **Crítica:** más de `4×`.
+
+La confianza de cobertura es **alta** solo con el informe vivo y todas las fuentes
+principales al día; es **media** si queda evidencia principal útil en un modo
+limitado, y **baja** con una copia antigua o incompleta. Esta etiqueta describe
+la capacidad del briefing, no la calidad universal del proveedor.
 
 ## Fuentes candidatas, no activadas
 
-abuse.ch Feodo Tracker, abuse.ch URLhaus, Ransomware.live, AlienVault OTX, AbuseIPDB y C2IntelFeeds pueden aportar IOC y ransomware, pero requieren una revisión separada de términos, precisión, falsos positivos, privacidad, geolocalización, volumen y retención. No se incorporan solo porque aparezcan en otro proyecto.
+- **URLhaus:** su API comunitaria requiere actualmente Auth-Key para datasets y
+  pide no descargar los dumps más de una vez cada cinco minutos. No se añade una
+  clave ni se asumen condiciones comerciales sin una decisión operativa.
+- **Feodo Tracker:** abuse.ch comunica que el dataset está vacío desde Operation
+  Endgame. Se evita convertir ausencia operativa del feed en “cero amenazas”.
+- **Ransomware.live, AlienVault OTX, AbuseIPDB y C2IntelFeeds:** pueden aportar IOC
+  y ransomware, pero requieren una revisión separada de términos, precisión,
+  falsos positivos, privacidad, geolocalización, volumen y retención.
+
+No se incorpora una fuente solo porque aparezca en otro proyecto.
