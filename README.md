@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-06T08:51:35+00:00  
-**Coverage:** 2026-08-05T08:51:21+00:00 → 2026-08-06T08:51:21+00:00  
+**Updated:** 2026-08-07T07:39:51+00:00  
+**Coverage:** 2026-08-06T07:39:24+00:00 → 2026-08-07T07:39:24+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 387 source-backed developments
-- **Above threshold:** 249
+- **Assessed:** 499 source-backed developments
+- **Above threshold:** 337
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-15587](https://nvd.nist.gov/vuln/detail/CVE-2026-15587) · 10.0/10** — Improper Privilege Management in Google SecOps (Chronicle SOAR) versions prior to 6.3.85 on Google Cloud Platform allows — CVSS 9.4; priority technology: cloud
-- **[CVE-2026-5430](https://nvd.nist.gov/vuln/detail/CVE-2026-5430) · 10.0/10** — The JWT authentication mechanism accepts tokens signed with algorithms other than those explicitly configured or support — CVSS 10.0; detection opportunity
-- **[CVE-2026-1728](https://nvd.nist.gov/vuln/detail/CVE-2026-1728) · 10.0/10** — Tokens issued to a low-privileged user are not sufficiently restricted, allowing them to be used to access product-level — CVSS 9.8; detection opportunity
-- **[CVE-2026-71319](https://nvd.nist.gov/vuln/detail/CVE-2026-71319) · 9.8/10** — Nuxt is an open-source web development framework for Vue.js. Prior to 3.3.1, Nuxt DevTools (development mode only) expos — CVSS 9.6; detection opportunity
-- **[CVE-2026-10090](https://nvd.nist.gov/vuln/detail/CVE-2026-10090) · 9.7/10** — A flaw was found in the Application Subscription controller (multicluster-operators-subscription) of Red Hat Advanced Cl — CVSS 9.9; priority technology: linux
+- **[CVE-2026-70558](https://nvd.nist.gov/vuln/detail/CVE-2026-70558) · 10.0/10** — Dinky&#x27;s POST /download/uploadFromRsByLocal handler passes the caller-supplied path parameter directly to new File(path) — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-70332](https://nvd.nist.gov/vuln/detail/CVE-2026-70332) · 10.0/10** — Server-side request forgery (ssrf) in Microsoft Office SharePoint allows an unauthorized attacker to perform spoofing ov — CVSS 9.6; priority technology: microsoft_365
+- **[CVE-2026-62830](https://nvd.nist.gov/vuln/detail/CVE-2026-62830) · 10.0/10** — Missing authorization in Azure SRE Agent allows an authorized attacker to elevate privileges over a network. — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-50515](https://nvd.nist.gov/vuln/detail/CVE-2026-50515) · 10.0/10** — Deserialization of untrusted data in Azure Service Bus allows an authorized attacker to execute code over a network. — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-11976](https://nvd.nist.gov/vuln/detail/CVE-2026-11976) · 10.0/10** — The official MonsterInsights Pro update distribution bucket (`monster-insights.s3.amazonaws.com`) was compromised. Both — CVSS 10.0; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Thursday, August 6th, 2026 https://isc.sans.edu/podcastdetail/10040, (Thu, Aug 6th)](https://isc.sans.edu/diary/rss/33222)**
+**[Linux Shell Forensic: Let?s Dive Into Atuin!, (Fri, Aug 7th)](https://isc.sans.edu/diary/rss/33226)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> UNIX systems (including Linux) are well-known to record a lot of activities in many different locations. But there is one domain where they definitely…
 
 ### Community pulse
 
-**[Celld: Self-hosted, distributed Durable Objects](https://github.com/denoland/celld)** — Hacker News · 206 points · 33 comments
-[Open discussion](https://news.ycombinator.com/item?id=49185430)
+**[Show HN: The Channels SDK – Bring Any Agent to Any Channel (Slack, MS Teams)](https://github.com/CopilotKit/channels-sdk)** — Hacker News · 101 points · 22 comments
+[Open discussion](https://news.ycombinator.com/item?id=49198583)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
