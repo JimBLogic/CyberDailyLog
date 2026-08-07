@@ -1,4 +1,5 @@
 import { FALLBACK_DATA } from "./fallback-data";
+import { getOfficialBackup } from "./official-backup";
 import { SOURCE_LABELS } from "./source-labels";
 import type {
   AnalystItem,
@@ -7,6 +8,7 @@ import type {
   ContextItem,
   DashboardData,
   DashboardFeed,
+  DeliveryAttempt,
   DistributionPoint,
   HistoryPoint,
   ScoreBand,
@@ -15,16 +17,19 @@ import type {
   Vulnerability,
 } from "./types";
 
-const DEFAULT_RAW_BASE =
-  "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main";
-const configuredRawBase = process.env.CYBERDAILYLOG_RAW_BASE?.trim();
 const RAW_BASE =
-  configuredRawBase?.startsWith("https://")
-    ? configuredRawBase.replace(/\/+$/, "")
-    : DEFAULT_RAW_BASE;
+  "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main";
+const CDN_BASE =
+  "https://cdn.jsdelivr.net/gh/JimBLogic/CyberDailyLog@main";
 const REPOSITORY_URL = "https://github.com/JimBLogic/CyberDailyLog";
 const REPORT_URL = `${REPOSITORY_URL}/blob/main/reports/latest.md`;
-const FETCH_TIMEOUT_MS = 8_000;
+const FETCH_TIMEOUT_MS = 4_500;
+const DATA_CACHE_TTL_MS = 15 * 60 * 1_000;
+const MAX_REPOSITORY_AGE_MS = 36 * 60 * 60 * 1_000;
+const MIN_VALID_TIMESTAMP = Date.UTC(2000, 0, 1);
+
+let cachedSnapshot: { data: DashboardData; expiresAt: number } | null = null;
+let refreshInFlight: Promise<DashboardData> | null = null;
 
 type RawRecord = Record<string, unknown>;
 
@@ -48,6 +53,27 @@ type RawCompactFeed = {
 
 function stringValue(value: unknown, fallback = "") {
   return typeof value === "string" && value.trim() ? value.trim() : fallback;
+}
+
+function dateValue(value: unknown, fallback = "") {
+  const candidate = stringValue(value);
+  const parsed = Date.parse(candidate);
+  return Number.isFinite(parsed) && parsed >= MIN_VALID_TIMESTAMP
+    ? new Date(parsed).toISOString()
+    : fallback;
+}
+
+function boundedPlainText(value: unknown, fallback: string, limit: number) {
+  const source = stringValue(value, fallback)
+    .replace(/```[\s\S]*?```/g, " [Code sample omitted in dashboard] ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\*\*|__|\*|_/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return source.length > limit
+    ? `${source.slice(0, Math.max(0, limit - 1)).trimEnd()}…`
+    : source;
 }
 
 function numberValue(value: unknown): number | null {
@@ -104,9 +130,10 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
   return {
     id,
     title: cleanTitle(id, item.title),
-    summary: stringValue(
+    summary: boundedPlainText(
       item.summary,
       "Open the primary source for the complete technical description.",
+      1_200,
     ),
     priorityScore: Math.round(priorityScore(item) * 10) / 10,
     cvssScore: numberValue(item.cvss_score),
@@ -120,7 +147,7 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
     knownRansomwareUse: booleanValue(item.known_ransomware_use),
     sourceName: stringValue(item.source_name, "Unknown source"),
     sourceUrl: stringValue(item.source_url),
-    publishedAt: stringValue(item.published_at),
+    publishedAt: dateValue(item.published_at),
     products: [
       ...stringArray(item.products),
       ...stringArray(item.ecosystems),
@@ -150,7 +177,7 @@ function normalizeSource(entry: RawRecord): SourceHealth {
     itemsReceived: numberValue(entry.items_received) ?? 0,
     itemsAccepted: numberValue(entry.items_accepted) ?? 0,
     itemsRejected: numberValue(entry.items_rejected) ?? 0,
-    finishedAt: stringValue(entry.finished_at),
+    finishedAt: dateValue(entry.finished_at),
     error: stringValue(entry.sanitized_error_message) || null,
   };
 }
@@ -191,6 +218,47 @@ function scoreBandsFor(items: RawRecord[]): ScoreBand[] {
   }));
 }
 
+function distributionForVulnerabilities(
+  items: Vulnerability[],
+): DistributionPoint[] {
+  const counts: Record<Severity, number> = {
+    CRITICAL: 0,
+    HIGH: 0,
+    MEDIUM: 0,
+    LOW: 0,
+    UNKNOWN: 0,
+  };
+  for (const item of items) counts[item.severity] += 1;
+  return [
+    { key: "CRITICAL", label: "Critical", count: counts.CRITICAL, color: "#c9342f" },
+    { key: "HIGH", label: "High", count: counts.HIGH, color: "#f27622" },
+    { key: "MEDIUM", label: "Medium", count: counts.MEDIUM, color: "#e7ad24" },
+    { key: "LOW", label: "Low", count: counts.LOW, color: "#1747d1" },
+    { key: "UNKNOWN", label: "Unknown", count: counts.UNKNOWN, color: "#8b8d91" },
+  ];
+}
+
+function scoreBandsForVulnerabilities(items: Vulnerability[]): ScoreBand[] {
+  const bands = [
+    { label: "0–2.4", from: 0, to: 2.4 },
+    { label: "2.5–4.9", from: 2.5, to: 4.9 },
+    { label: "5–7.4", from: 5, to: 7.4 },
+    { label: "7.5–8.9", from: 7.5, to: 8.9 },
+    { label: "9–10", from: 9, to: 10 },
+  ];
+  return bands.map((band) => ({
+    ...band,
+    count: items.filter(
+      (item) =>
+        item.priorityScore >= band.from && item.priorityScore <= band.to,
+    ).length,
+  }));
+}
+
+function attentionItem(item: Vulnerability) {
+  return item.cisaKev || item.knownExploited || item.knownRansomwareUse;
+}
+
 function normalizeHumanContext(value: unknown): ContextItem {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const item = value as RawRecord;
@@ -198,9 +266,13 @@ function normalizeHumanContext(value: unknown): ContextItem {
     title: stringValue(item.title, "Untitled analyst context"),
     sourceName: stringValue(item.source_name, "Unknown publisher"),
     author: stringValue(item.author) || null,
-    excerpt: stringValue(item.excerpt, stringValue(item.summary)),
+    excerpt: boundedPlainText(
+      item.excerpt,
+      stringValue(item.summary),
+      520,
+    ),
     sourceUrl: stringValue(item.source_url),
-    publishedAt: stringValue(item.published_at),
+    publishedAt: dateValue(item.published_at),
   };
 }
 
@@ -215,7 +287,7 @@ function normalizeCommunity(value: unknown): CommunityItem {
     score: numberValue(item.score) ?? numberValue(item.community_score) ?? 0,
     comments:
       numberValue(item.comments) ?? numberValue(item.community_comments) ?? 0,
-    publishedAt: stringValue(item.published_at),
+    publishedAt: dateValue(item.published_at),
     caveat: stringValue(
       item.caveat,
       "Community interest signal; validate claims against primary sources.",
@@ -241,36 +313,178 @@ function historyFromFeed(value: DashboardFeed | null): HistoryPoint[] {
     .slice(-30);
 }
 
-async function fetchJson<T>(path: string): Promise<T | null> {
-  try {
-    const response = await fetch(`${RAW_BASE}/${path}`, {
-      headers: { Accept: "application/json" },
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+const REPOSITORY_TRANSPORTS = [
+  {
+    id: "github-raw" as const,
+    label: "GitHub Raw",
+    role: "primary" as const,
+    base: RAW_BASE,
+  },
+  {
+    id: "jsdelivr-cdn" as const,
+    label: "jsDelivr CDN",
+    role: "transport-backup" as const,
+    base: CDN_BASE,
+  },
+];
+
+async function fetchJson<T>(path: string) {
+  const attempts: DeliveryAttempt[] = [];
+  for (const transport of REPOSITORY_TRANSPORTS) {
+    const url = `${transport.base}/${path}`;
+    try {
+      const response = await fetch(url, {
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
+      if (response.ok) {
+        attempts.push({
+          id: transport.id,
+          label: transport.label,
+          role: transport.role,
+          status: "used",
+          url,
+        });
+        for (const skipped of REPOSITORY_TRANSPORTS.slice(attempts.length)) {
+          attempts.push({
+            id: skipped.id,
+            label: skipped.label,
+            role: skipped.role,
+            status: "skipped",
+            url: `${skipped.base}/${path}`,
+          });
+        }
+        return {
+          data: (await response.json()) as T,
+          transport: transport.id,
+          attempts,
+        };
+      }
+    } catch {
+      // The next transport is the recovery path.
+    }
+    attempts.push({
+      id: transport.id,
+      label: transport.label,
+      role: transport.role,
+      status: "failed",
+      url,
     });
-    if (!response.ok) return null;
-    return (await response.json()) as T;
-  } catch {
-    return null;
   }
+  return { data: null as T | null, transport: null, attempts };
+}
+
+function completionChain(
+  attempts: DeliveryAttempt[],
+  officialStatus: DeliveryAttempt["status"],
+  snapshotStatus: DeliveryAttempt["status"],
+) {
+  return [
+    ...attempts,
+    {
+      id: "official-apis" as const,
+      label: "NVD + CISA KEV + FIRST EPSS",
+      role: "official-backup" as const,
+      status: officialStatus,
+      url: "https://nvd.nist.gov/developers/vulnerabilities",
+    },
+    {
+      id: "bundled-snapshot" as const,
+      label: "Copia verificada incluida",
+      role: "offline-fallback" as const,
+      status: snapshotStatus,
+      url: REPOSITORY_URL,
+    },
+  ];
 }
 
 function cloneFallback(): DashboardData {
   return JSON.parse(JSON.stringify(FALLBACK_DATA)) as DashboardData;
 }
 
-export async function getDashboardData(): Promise<DashboardData> {
-  const [report, compact, separateHealth, dashboardFeed] = await Promise.all([
-    fetchJson<RawReport>("reports/latest.json"),
+async function fetchDashboardData(): Promise<DashboardData> {
+  const reportResult = await fetchJson<RawReport>("reports/latest.json");
+  const report = reportResult.data;
+  const generatedAt = dateValue(report?.generated_at);
+  const reportIsStale =
+    !generatedAt || Date.now() - Date.parse(generatedAt) > MAX_REPOSITORY_AGE_MS;
+
+  if (!report || !Array.isArray(report.items) || reportIsStale) {
+    const official = await getOfficialBackup();
+    if (official?.vulnerabilities.length) {
+      const fetchedAt = Date.now();
+      const items = official.vulnerabilities;
+      const immediateItems = items.filter(
+        (item) =>
+          item.cisaKev || item.knownExploited || item.knownRansomwareUse,
+      );
+      return {
+        schemaVersion: 1,
+        project: "CyberDailyLog",
+        generatedAt: official.generatedAt,
+        coverageStart: official.coverageStart,
+        coverageEnd: official.coverageEnd,
+        pipelineStatus: "degraded",
+        dataMode: "official-backup",
+        deliveryOrigin: "official-apis",
+        deliveryChain: completionChain(
+          reportResult.attempts.map((attempt) => ({
+            ...attempt,
+            status: attempt.status === "used" ? "available" : attempt.status,
+          })),
+          "used",
+          "skipped",
+        ),
+        minimumPriority: 5,
+        assessed: items.length,
+        aboveThreshold: items.filter(
+          (item) => item.priorityScore >= 5 || attentionItem(item),
+        ).length,
+        immediateAttentionCount: immediateItems.length,
+        immediateAttention: immediateItems.length
+          ? `${immediateItems.length} item(s) are backed by CISA KEV or exploitation signals.`
+          : "No CISA KEV or exploitation signal was available in the official backup window.",
+        distribution: distributionForVulnerabilities(items),
+        scoreBands: scoreBandsForVulnerabilities(items),
+        vulnerabilities: items.slice(0, 80),
+        sourceHealth: official.sourceHealth,
+        history: [],
+        humanContext: null,
+        communityPulse: null,
+        analystBriefs: [],
+        communitySignals: [],
+        repositoryUrl: REPOSITORY_URL,
+        reportUrl: REPORT_URL,
+        lastFetchAt: new Date(fetchedAt).toISOString(),
+        nextRefreshAt: new Date(fetchedAt + DATA_CACHE_TTL_MS).toISOString(),
+        refreshIntervalMinutes: DATA_CACHE_TTL_MS / 60_000,
+      };
+    }
+  }
+
+  if (!report || !Array.isArray(report.items)) {
+    const fallback = cloneFallback();
+    const fetchedAt = Date.now();
+    fallback.lastFetchAt = new Date(fetchedAt).toISOString();
+    fallback.nextRefreshAt = new Date(fetchedAt + DATA_CACHE_TTL_MS).toISOString();
+    fallback.refreshIntervalMinutes = DATA_CACHE_TTL_MS / 60_000;
+    fallback.deliveryOrigin = "bundled-snapshot";
+    fallback.deliveryChain = completionChain(
+      reportResult.attempts,
+      "failed",
+      "used",
+    );
+    return fallback;
+  }
+
+  const [compactResult, healthResult, feedResult] = await Promise.all([
     fetchJson<RawCompactFeed>("reports/portfolio-feed.json"),
     fetchJson<unknown>("reports/source-health.json"),
     fetchJson<DashboardFeed>("reports/dashboard-feed.json"),
   ]);
-
-  if (!report || !Array.isArray(report.items)) {
-    const fallback = cloneFallback();
-    fallback.lastFetchAt = new Date().toISOString();
-    return fallback;
-  }
+  const compact = compactResult.data;
+  const separateHealth = healthResult.data;
+  const dashboardFeed = feedResult.data;
 
   const records = report.items.filter(
     (item): item is RawRecord =>
@@ -335,12 +549,12 @@ export async function getDashboardData(): Promise<DashboardData> {
         .map(normalizeSource)
     : cloneFallback().sourceHealth;
   const history = historyFromFeed(dashboardFeed);
-  const generatedAt = stringValue(
+  const resolvedGeneratedAt = dateValue(
     report.generated_at,
     FALLBACK_DATA.generatedAt,
   );
   const currentPoint: HistoryPoint = {
-    date: generatedAt.slice(0, 10),
+    date: resolvedGeneratedAt.slice(0, 10),
     assessed: records.length,
     aboveThreshold: securityItems.filter(
       (item) =>
@@ -365,19 +579,27 @@ export async function getDashboardData(): Promise<DashboardData> {
           .slice(-30)
       : [currentPoint];
 
+  const fetchedAt = Date.now();
+
   return {
     schemaVersion: 1,
     project: "CyberDailyLog",
-    generatedAt,
-    coverageStart: stringValue(
+    generatedAt: resolvedGeneratedAt,
+    coverageStart: dateValue(
       report.coverage_start,
       FALLBACK_DATA.coverageStart,
     ),
-    coverageEnd: stringValue(report.coverage_end, FALLBACK_DATA.coverageEnd),
+    coverageEnd: dateValue(report.coverage_end, FALLBACK_DATA.coverageEnd),
     pipelineStatus: booleanValue(report.degraded)
       ? "degraded"
       : "operational",
     dataMode: "live",
+    deliveryOrigin: reportResult.transport ?? "github-raw",
+    deliveryChain: completionChain(
+      reportResult.attempts,
+      reportIsStale ? "failed" : "skipped",
+      "skipped",
+    ),
     minimumPriority,
     assessed: records.length,
     aboveThreshold:
@@ -406,6 +628,31 @@ export async function getDashboardData(): Promise<DashboardData> {
     communitySignals,
     repositoryUrl: REPOSITORY_URL,
     reportUrl: REPORT_URL,
-    lastFetchAt: new Date().toISOString(),
+    lastFetchAt: new Date(fetchedAt).toISOString(),
+    nextRefreshAt: new Date(fetchedAt + DATA_CACHE_TTL_MS).toISOString(),
+    refreshIntervalMinutes: DATA_CACHE_TTL_MS / 60_000,
   };
+}
+
+export async function getDashboardData(): Promise<DashboardData> {
+  const now = Date.now();
+  if (cachedSnapshot && cachedSnapshot.expiresAt > now) {
+    return cachedSnapshot.data;
+  }
+
+  if (!refreshInFlight) {
+    refreshInFlight = fetchDashboardData()
+      .then((data) => {
+        cachedSnapshot = {
+          data,
+          expiresAt: Date.parse(data.nextRefreshAt),
+        };
+        return data;
+      })
+      .finally(() => {
+        refreshInFlight = null;
+      });
+  }
+
+  return refreshInFlight;
 }

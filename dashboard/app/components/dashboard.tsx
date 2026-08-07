@@ -1,7 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { SOURCE_SHORT_LABELS, SOURCE_URLS } from "@/lib/source-labels";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  SOURCE_PROFILES,
+  SOURCE_SHORT_LABELS,
+  SOURCE_URLS,
+} from "@/lib/source-labels";
+import type {
+  SourceProvenance,
+  SourceTrustLane,
+} from "@/lib/source-labels";
 import type {
   DashboardData,
   HistoryPoint,
@@ -10,24 +18,30 @@ import type {
   Vulnerability,
 } from "@/lib/types";
 
-type View = "overview" | "vulnerabilities" | "sources" | "methodology";
+type View =
+  | "overview"
+  | "vulnerabilities"
+  | "sources"
+  | "methodology"
+  | "engineering";
 type Language = "en" | "es";
 
 const COPY = {
   en: {
-    overview: "Overview",
-    vulnerabilities: "Vulnerabilities",
+    overview: "Today",
+    vulnerabilities: "Briefing",
     sources: "Sources",
     methodology: "Methodology",
-    morning: "Morning threat briefing",
+    engineering: "Project",
+    morning: "Daily threat brief",
     eyebrow: "Daily Blue Team intelligence",
-    heroA: "Intelligence today.",
-    heroB: "Protection ahead.",
+    heroA: "See the threat.",
+    heroB: "Act with confidence.",
     heroText:
-      "CyberDailyLog turns trusted vulnerability feeds and analyst sources into a prioritized morning briefing so defenders can act first.",
-    openBrief: "Open today’s brief",
+      "CyberDailyLog gathers trusted sources, separates evidence from noise and shows defenders what to review first.",
+    openBrief: "View priorities",
     how: "How it works",
-    operational: "Operational pipeline",
+    operational: "From source to action",
     collect: "Collect",
     normalize: "Normalize",
     score: "Score",
@@ -46,10 +60,11 @@ const COPY = {
     core: "Core sources",
     optional: "Optional sources",
     healthy: "healthy",
+    healthySingle: "healthy",
     riskDistribution: "Risk distribution",
     total: "of security items",
     sourceHealth: "Source health",
-    sourceFreshness: "Freshness reflects the latest collector run",
+    sourceFreshness: "Status from the latest collection run",
     historical: "Eight-day signal",
     historicalText:
       "Daily volume, high-impact items and pipeline status from the repository archive.",
@@ -85,6 +100,35 @@ const COPY = {
     accepted: "Accepted",
     latency: "Latency",
     status: "Status",
+    coverageLimits: "Coverage & limits",
+    coverageLimitsText:
+      "See what this run can support, which sources need attention and how every signal is used.",
+    whatWeSee: "What we can see",
+    currentSource: "source reported recently and without collection errors.",
+    currentSources: "sources reported recently and without collection errors.",
+    intelligenceGaps: "Intelligence gaps",
+    noGaps: "No source gaps detected in this run.",
+    gapSource: "source is late, degraded, unavailable or only using test data.",
+    gapSources: "sources are late, degraded, unavailable or only using test data.",
+    coverageCaveat:
+      "A healthy collector confirms access to that source, not complete coverage of the internet.",
+    fresh: "Recent",
+    late: "Needs update",
+    unavailableSource: "No reliable timestamp",
+    sourceUse: "How we use it",
+    provenanceGovernment: "Official public body",
+    provenanceAdvisoryRegistry: "Coordinated advisory registry",
+    provenanceProbabilityModel: "Independent probability model",
+    provenanceFirstParty: "First-party release",
+    provenanceSpecialist: "Specialist publisher",
+    provenanceCommunity: "Community discussion",
+    resiliencePath: "Resilient delivery path",
+    resilienceText:
+      "The dashboard changes route without hiding which source is currently in use.",
+    used: "In use",
+    available: "Available",
+    skipped: "On standby",
+    unavailableRoute: "Unavailable",
     methodTitle: "Transparent by design",
     methodIntro:
       "A reproducible collection and curation pipeline, with claims, context and community interest kept in separate trust lanes.",
@@ -125,7 +169,9 @@ const COPY = {
     refreshing: "Refreshing…",
     refresh: "Refresh data",
     refreshFailed: "Live refresh failed; the verified snapshot remains visible.",
-    refreshed: "Dashboard refreshed from the repository.",
+    refreshed: "Sources checked and refreshed.",
+    fallbackRetained:
+      "The primary report is unavailable. A labelled backup remains visible.",
     primaryNavigation: "Primary navigation",
     language: "Language",
     runSummary: "Run summary",
@@ -191,21 +237,25 @@ const COPY = {
     sourceBackedFallback: "Source-backed defensive relevance",
     inventoryFallback:
       "Inventory affected products, verify exposure and follow vendor guidance.",
+    calculating: "Checking…",
+    unavailable: "Not scheduled",
+    clearFilters: "Clear filters",
   },
   es: {
-    overview: "Resumen",
-    vulnerabilities: "Vulnerabilidades",
+    overview: "Hoy",
+    vulnerabilities: "Prioridades",
     sources: "Fuentes",
-    methodology: "Metodología",
-    morning: "Briefing matinal de amenazas",
+    methodology: "Método",
+    engineering: "Proyecto",
+    morning: "Resumen diario de amenazas",
     eyebrow: "Inteligencia Blue Team diaria",
-    heroA: "Inteligencia hoy.",
-    heroB: "Protección por delante.",
+    heroA: "Entiende la amenaza.",
+    heroB: "Actúa con criterio.",
     heroText:
-      "CyberDailyLog convierte fuentes fiables de vulnerabilidades y análisis en un briefing priorizado para que el defensor actúe primero.",
-    openBrief: "Abrir briefing de hoy",
+      "CyberDailyLog reúne fuentes fiables, separa la evidencia del ruido y te muestra qué conviene revisar primero.",
+    openBrief: "Ver prioridades",
     how: "Cómo funciona",
-    operational: "Pipeline operativo",
+    operational: "De la fuente a la acción",
     collect: "Recopilar",
     normalize: "Normalizar",
     score: "Puntuar",
@@ -213,7 +263,7 @@ const COPY = {
     live: "Activo",
     updated: "Actualizado",
     coverage: "Cobertura de 24 horas",
-    topPriority: "Máxima prioridad",
+    topPriority: "Prioridad destacada",
     why: "Por qué importa",
     action: "Acción defensiva",
     primarySource: "Abrir fuente primaria",
@@ -224,13 +274,14 @@ const COPY = {
     core: "Fuentes principales",
     optional: "Fuentes opcionales",
     healthy: "operativas",
+    healthySingle: "operativa",
     riskDistribution: "Distribución del riesgo",
     total: "de elementos de seguridad",
     sourceHealth: "Salud de las fuentes",
-    sourceFreshness: "La frescura refleja la última ejecución",
+    sourceFreshness: "Estado según la última recopilación",
     historical: "Señal de ocho días",
     historicalText:
-      "Volumen diario, elementos de alto impacto y estado del pipeline desde el archivo.",
+      "Volumen diario, elementos de alto impacto y estado del proceso desde el archivo.",
     humanContext: "Contexto de analistas",
     community: "Pulso de la comunidad",
     verify: "El interés comunitario es una pista, no inteligencia verificada.",
@@ -263,9 +314,38 @@ const COPY = {
     accepted: "Aceptados",
     latency: "Latencia",
     status: "Estado",
+    coverageLimits: "Cobertura y límites",
+    coverageLimitsText:
+      "Comprueba qué respalda esta ejecución, qué fuentes necesitan atención y cómo usamos cada señal.",
+    whatWeSee: "Qué podemos ver",
+    currentSource: "fuente ha respondido recientemente y sin errores de recopilación.",
+    currentSources: "fuentes han respondido recientemente y sin errores de recopilación.",
+    intelligenceGaps: "Huecos de inteligencia",
+    noGaps: "No se detectan huecos de fuente en esta ejecución.",
+    gapSource: "fuente está desactualizada, degradada, caída o solo aporta datos de prueba.",
+    gapSources: "fuentes están desactualizadas, degradadas, caídas o solo aportan datos de prueba.",
+    coverageCaveat:
+      "Un recopilador operativo confirma acceso a esa fuente; no garantiza una visión completa de Internet.",
+    fresh: "Reciente",
+    late: "Necesita actualizarse",
+    unavailableSource: "Sin fecha fiable",
+    sourceUse: "Cómo la usamos",
+    provenanceGovernment: "Organismo público oficial",
+    provenanceAdvisoryRegistry: "Registro coordinado de avisos",
+    provenanceProbabilityModel: "Modelo independiente de probabilidad",
+    provenanceFirstParty: "Publicación de primera parte",
+    provenanceSpecialist: "Editor especializado",
+    provenanceCommunity: "Debate comunitario",
+    resiliencePath: "Ruta de entrega resiliente",
+    resilienceText:
+      "El panel cambia de ruta sin ocultar qué fuente está usando en cada momento.",
+    used: "En uso",
+    available: "Disponible",
+    skipped: "En espera",
+    unavailableRoute: "No disponible",
     methodTitle: "Transparente por diseño",
     methodIntro:
-      "Un pipeline reproducible que mantiene afirmaciones, contexto e interés comunitario en carriles de confianza separados.",
+      "Un proceso reproducible que mantiene las afirmaciones, el contexto y el interés comunitario en niveles de confianza separados.",
     collection: "1. Recopilar",
     collectionText:
       "CISA KEV, NVD, GitHub Advisories y FIRST EPSS aportan evidencia estructurada. RSS y Hacker News añaden contexto etiquetado.",
@@ -277,17 +357,17 @@ const COPY = {
       "Pesos deterministas priorizan explotación, KEV, ransomware, CVSS, EPSS, condiciones de ataque y relevancia defensiva.",
     publication: "4. Publicar",
     publicationText:
-      "Briefing, evidencia completa, feed compacto, salud de fuentes y archivo se validan antes de publicarse.",
+      "El informe, la evidencia completa, el canal de datos, la salud de las fuentes y el archivo se validan antes de publicarse.",
     trustBoundaries: "Límites de confianza",
     evidence: "Evidencia",
     evidenceText: "CVE, KEV, EPSS y avisos oficiales.",
     expert: "Contexto experto",
     expertText: "Extractos breves y atribuidos de editores permitidos.",
     communityLane: "Señal comunitaria",
-    communityText: "El engagement nunca se presenta como riesgo verificado.",
-    portable: "Un proyecto, dos superficies útiles",
+    communityText: "La popularidad nunca se presenta como riesgo verificado.",
+    portable: "Un proyecto, dos formas de usarlo",
     portableText:
-      "El repositorio continúa siendo ejecutable por sí solo. Su JSON alimenta este backend y el código del dashboard vuelve al repositorio para usarlo localmente o en otro hosting.",
+      "El repositorio funciona por sí solo. Sus datos alimentan esta web y el panel también puede ejecutarse en local o alojarse en otro servicio.",
     repo: "Abrir repositorio",
     runLocal: "Instrucciones autónomas",
     dataContract: "Inspeccionar contrato JSON",
@@ -296,14 +376,16 @@ const COPY = {
     reasons: "Razones de prioridad",
     actions: "Acciones recomendadas",
     published: "Publicado",
-    fetched: "Consulta del dashboard",
+    fetched: "Consulta del panel",
     dataMode: "Fuente de datos",
     liveRepo: "Datos vivos del repositorio",
-    snapshot: "Snapshot verificado de respaldo",
+    snapshot: "Copia verificada de respaldo",
     refreshing: "Actualizando…",
     refresh: "Actualizar datos",
-    refreshFailed: "Falló la actualización; se mantiene el snapshot verificado.",
-    refreshed: "Dashboard actualizado desde el repositorio.",
+    refreshFailed: "Falló la actualización; se mantiene la copia verificada.",
+    refreshed: "Fuentes comprobadas y actualizadas.",
+    fallbackRetained:
+      "El informe principal no está disponible. Se mantiene un respaldo claramente etiquetado.",
     primaryNavigation: "Navegación principal",
     language: "Idioma",
     runSummary: "Resumen de la ejecución",
@@ -335,40 +417,43 @@ const COPY = {
     statusFailed: "Fallida",
     statusFixture: "Datos de prueba",
     statusUnknown: "Desconocido",
-    signalDesk: "Mesa de señales",
-    signalDeskTitle: "Más que CVE: la lectura del analista para hoy",
+    signalDesk: "Radar diario",
+    signalDeskTitle: "Más allá de los CVE: qué merece la pena leer hoy",
     signalDeskText:
       "Diarios operativos y pistas de la comunidad recopilados en la misma ejecución, separados claramente por nivel de evidencia.",
-    analystBriefs: "Briefings de analistas y editores",
+    analystBriefs: "Informes de analistas y editores",
     communitySignals: "Señales de la comunidad",
     originalSource: "Contenido original de la fuente",
     originalSourceNote:
       "Los títulos y extractos se mantienen en el idioma original del editor para preservar su precisión.",
     viewSignal: "Abrir señal",
-    interviewEyebrow: "Proof of Work para entrevistas",
-    interviewTitle: "No me limité a seguir las noticias. Construí el workflow.",
+    interviewEyebrow: "Un proyecto demostrable en entrevistas",
+    interviewTitle: "No solo sigo las noticias. Construí el sistema.",
     interviewQuote:
-      "Cuando me preguntan dónde me mantengo al día, CyberDailyLog es mi respuesta: un pipeline Blue Team reproducible que recopila, valida, prioriza y publica un briefing diario.",
+      "CyberDailyLog demuestra cómo trabajo: un sistema Blue Team reproducible que recopila, valida, prioriza y publica un informe diario.",
     proofProblem: "Problema",
     proofProblemText:
       "La información de seguridad está fragmentada, genera ruido y cuesta convertirla en una rutina diaria defendible.",
     proofBuild: "Construcción",
     proofBuildText:
-      "Recopiladores Python, scoring determinista, controles de salud, pruebas y GitHub Actions.",
+      "Recopiladores en Python, priorización determinista, controles de salud, pruebas y GitHub Actions.",
     proofResult: "Resultado",
     proofResultText:
-      "Briefing matinal trazable, dashboard de analista, JSON integrable e histórico verificable.",
+      "Informe diario trazable, panel de análisis, JSON integrable e histórico verificable.",
     dailyAutomation: "Automatización diaria",
     primaryRun: "Ejecución principal",
     recoveryRun: "Ejecución de recuperación",
     madridTime: "Europa/Madrid",
     generatedOutputs: "Salidas validadas",
     outputKinds: "MD · JSON · API · SALUD · HISTÓRICO",
-    openWorkflow: "Inspeccionar workflow de GitHub",
-    portableEyebrow: "GitHub ↔ Dashboard full-stack",
+    openWorkflow: "Ver automatización en GitHub",
+    portableEyebrow: "GitHub ↔ Panel web",
     sourceBackedFallback: "Relevancia defensiva respaldada por la fuente",
     inventoryFallback:
       "Inventaría los productos afectados, verifica la exposición y sigue las indicaciones del proveedor.",
+    calculating: "Comprobando…",
+    unavailable: "Sin programar",
+    clearFilters: "Limpiar filtros",
   },
 } as const;
 
@@ -380,28 +465,139 @@ const SEVERITY_ORDER: Severity[] = [
   "UNKNOWN",
 ];
 
-function formatDate(value: string, language: Language, short = false) {
-  if (!value) return "—";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "—";
-  return new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", {
-    day: "2-digit",
-    month: short ? "short" : "long",
-    year: "numeric",
-    ...(short ? {} : { hour: "2-digit", minute: "2-digit" }),
-    timeZone: "UTC",
-  }).format(date);
+const VIEW_KEYS: View[] = [
+  "overview",
+  "vulnerabilities",
+  "sources",
+  "methodology",
+  "engineering",
+];
+
+function readLocalPreference(key: string) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
 }
 
-function formatRelative(value: string, language: Language) {
-  const milliseconds = Date.now() - new Date(value).getTime();
-  if (!Number.isFinite(milliseconds)) return "—";
+function writeLocalPreference(key: string, value: string) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // The interface still works when private browsing blocks local storage.
+  }
+}
+
+function removeLocalPreference(key: string) {
+  try {
+    window.localStorage.removeItem(key);
+  } catch {
+    // Nothing to remove when browser storage is unavailable.
+  }
+}
+const MIN_VALID_TIMESTAMP = Date.UTC(2000, 0, 1);
+const MONTHS = {
+  en: {
+    short: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    long: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  },
+  es: {
+    short: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"],
+    long: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+  },
+} as const;
+
+function parseTimestamp(value: string) {
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) && timestamp >= MIN_VALID_TIMESTAMP
+    ? timestamp
+    : null;
+}
+
+function formatDate(value: string, language: Language, short = false) {
+  const timestamp = parseTimestamp(value);
+  if (timestamp === null) return "—";
+  const date = new Date(timestamp);
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const month = MONTHS[language][short ? "short" : "long"][date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+  if (short) return `${day} ${month} ${year}`;
+  const time = `${String(date.getUTCHours()).padStart(2, "0")}:${String(date.getUTCMinutes()).padStart(2, "0")}`;
+  return language === "es"
+    ? `${day} de ${month} de ${year} · ${time}`
+    : `${day} ${month} ${year} · ${time}`;
+}
+
+function formatRelative(value: string, language: Language, now: number | null) {
+  const timestamp = parseTimestamp(value);
+  if (timestamp === null || now === null) return COPY[language].calculating;
+  const milliseconds = now - timestamp;
   const minutes = Math.max(0, Math.round(milliseconds / 60_000));
   if (minutes < 60) return language === "es" ? `hace ${minutes} min` : `${minutes}m ago`;
   const hours = Math.round(minutes / 60);
   if (hours < 48) return language === "es" ? `hace ${hours} h` : `${hours}h ago`;
   const days = Math.round(hours / 24);
   return language === "es" ? `hace ${days} d` : `${days}d ago`;
+}
+
+function formatCountdown(value: string, now: number | null, language: Language) {
+  const target = parseTimestamp(value);
+  if (target === null || now === null) return COPY[language].calculating;
+  const remaining = Math.max(0, target - now);
+  if (remaining <= 0) {
+    return language === "es" ? "ahora" : "now";
+  }
+  const totalSeconds = Math.ceil(remaining / 1_000);
+  const hours = Math.floor(totalSeconds / 3_600);
+  const minutes = Math.floor((totalSeconds % 3_600) / 60);
+  const seconds = totalSeconds % 60;
+  return [hours, minutes, seconds]
+    .map((part) => String(part).padStart(2, "0"))
+    .join(":");
+}
+
+function nextMadridRunLabel(now: number | null, language: Language) {
+  if (now === null) return COPY[language].calculating;
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Madrid",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date(now));
+  const value = (type: Intl.DateTimeFormatPartTypes) =>
+    Number(parts.find((part) => part.type === type)?.value ?? 0);
+  const currentMinutes = value("hour") * 60 + value("minute");
+  const primaryMinutes = 8 * 60 + 17;
+  const recoveryMinutes = 9 * 60 + 47;
+  const useRecovery =
+    currentMinutes >= primaryMinutes && currentMinutes < recoveryMinutes;
+  const useNextDay = currentMinutes >= recoveryMinutes;
+  const nextHour = useRecovery ? 9 : 8;
+  const nextMinute = useRecovery ? 47 : 17;
+  const wallDate = new Date(
+    Date.UTC(
+      value("year"),
+      value("month") - 1,
+      value("day") + Number(useNextDay),
+      nextHour,
+      nextMinute,
+    ),
+  );
+  const date = new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", {
+    day: "2-digit",
+    month: "short",
+    timeZone: "UTC",
+  }).format(wallDate);
+  return `${date} · ${String(nextHour).padStart(2, "0")}:${String(nextMinute).padStart(2, "0")}`;
+}
+
+function isStaleSnapshot(value: string, now: number | null) {
+  const generatedAt = parseTimestamp(value);
+  return generatedAt === null || (now !== null && now - generatedAt > 36 * 3_600_000);
 }
 
 function percent(value: number | null) {
@@ -442,6 +638,80 @@ function statusLabel(status: SourceHealth["status"], language: Language) {
     fixture_only: t.statusFixture,
     unknown: t.statusUnknown,
   }[status];
+}
+
+function trustLaneLabel(lane: SourceTrustLane, language: Language) {
+  const t = COPY[language];
+  return {
+    evidence: t.evidence,
+    expert: t.expert,
+    community: t.communityLane,
+  }[lane];
+}
+
+function provenanceLabel(provenance: SourceProvenance, language: Language) {
+  const t = COPY[language];
+  return {
+    government: t.provenanceGovernment,
+    advisory_registry: t.provenanceAdvisoryRegistry,
+    probability_model: t.provenanceProbabilityModel,
+    first_party: t.provenanceFirstParty,
+    specialist: t.provenanceSpecialist,
+    community: t.provenanceCommunity,
+  }[provenance];
+}
+
+function hasRecentHealthyRun(source: SourceHealth, now: number | null) {
+  const finishedAt = parseTimestamp(source.finishedAt);
+  if (source.status !== "healthy" || finishedAt === null) return false;
+  return now === null || now - finishedAt <= 36 * 3_600_000;
+}
+
+function sourceFreshnessLabel(
+  source: SourceHealth,
+  language: Language,
+  now: number | null,
+) {
+  if (parseTimestamp(source.finishedAt) === null) {
+    return COPY[language].unavailableSource;
+  }
+  return hasRecentHealthyRun(source, now)
+    ? COPY[language].fresh
+    : COPY[language].late;
+}
+
+function deliveryStatusLabel(
+  status: DashboardData["deliveryChain"][number]["status"],
+  language: Language,
+) {
+  const t = COPY[language];
+  return {
+    used: t.used,
+    available: t.available,
+    skipped: t.skipped,
+    failed: t.unavailableRoute,
+  }[status];
+}
+
+function deliveryLabel(
+  id: DashboardData["deliveryChain"][number]["id"],
+  language: Language,
+) {
+  const labels = {
+    en: {
+      "github-raw": "Repository report",
+      "jsdelivr-cdn": "Repository CDN mirror",
+      "official-apis": "NVD + CISA KEV + FIRST EPSS",
+      "bundled-snapshot": "Verified bundled snapshot",
+    },
+    es: {
+      "github-raw": "Informe del repositorio",
+      "jsdelivr-cdn": "Espejo CDN del repositorio",
+      "official-apis": "NVD + CISA KEV + FIRST EPSS",
+      "bundled-snapshot": "Copia verificada incluida",
+    },
+  } as const;
+  return labels[language][id];
 }
 
 function pipelineLabel(
@@ -563,8 +833,30 @@ function Icon({
   );
 }
 
-function Pipeline({ language }: { language: Language }) {
+function Pipeline({
+  language,
+  status,
+  dataMode,
+}: {
+  language: Language;
+  status: DashboardData["pipelineStatus"];
+  dataMode: DashboardData["dataMode"];
+}) {
   const t = COPY[language];
+  const state =
+    dataMode === "repository-snapshot"
+      ? language === "es"
+        ? "Respaldo"
+        : "Fallback"
+      : dataMode === "official-backup"
+        ? language === "es"
+          ? "API oficial"
+          : "Official API"
+      : status === "degraded"
+        ? language === "es"
+          ? "Degradado"
+          : "Degraded"
+        : t.live;
   const steps = [
     [t.collect, "↓"],
     [t.normalize, "≡"],
@@ -579,7 +871,9 @@ function Pipeline({ language }: { language: Language }) {
           <div className="pipeline-step" key={label}>
             <span className="pipeline-icon">{glyph}</span>
             <strong>{label}</strong>
-            <small>{t.live}</small>
+            <small className={dataMode === "live" ? status : dataMode}>
+              {state}
+            </small>
             {index < steps.length - 1 ? (
               <span className="pipeline-arrow" aria-hidden="true">
                 →
@@ -589,6 +883,144 @@ function Pipeline({ language }: { language: Language }) {
         ))}
       </div>
     </div>
+  );
+}
+
+function DataDelivery({
+  data,
+  language,
+  now,
+}: {
+  data: DashboardData;
+  language: Language;
+  now: number | null;
+}) {
+  const stale = isStaleSnapshot(data.generatedAt, now);
+  const copy =
+    language === "es"
+      ? {
+          label: "Estado de los datos",
+          published: "Informe generado",
+          recheck: "Nueva comprobación",
+          daily: "Publicación prevista",
+          live: "Conectado al repositorio",
+          official: "Respaldo oficial activo",
+          fallback: "Informe de respaldo verificado",
+          stale: "El informe necesita actualizarse",
+          note: "El panel comprueba la mejor ruta disponible automáticamente. También puedes actualizarlo desde la cabecera.",
+        }
+      : {
+          label: "Data status",
+          published: "Report generated",
+          recheck: "Next check",
+          daily: "Expected publication",
+          live: "Connected to the repository",
+          official: "Official backup active",
+          fallback: "Verified backup report",
+          stale: "The report needs an update",
+          note: "The dashboard checks the best available route automatically. You can also refresh it from the header.",
+        };
+
+  return (
+    <section className={`delivery-card ${stale ? "stale" : ""}`}>
+      <div className="delivery-heading">
+        <span className="section-label">{copy.label}</span>
+        <span className={`delivery-mode ${data.dataMode}`}>
+          <i />
+          {data.dataMode === "live" && !stale
+            ? copy.live
+            : data.dataMode === "official-backup"
+              ? copy.official
+            : data.dataMode === "repository-snapshot"
+              ? copy.fallback
+              : copy.stale}
+        </span>
+      </div>
+      <div className="delivery-grid">
+        <div>
+          <span>{copy.published}</span>
+          <strong>{formatDate(data.generatedAt, language, true)}</strong>
+          <small>{formatRelative(data.generatedAt, language, now)}</small>
+        </div>
+        <div>
+          <span>{copy.recheck}</span>
+          <strong>{formatCountdown(data.nextRefreshAt, now, language)}</strong>
+          <small>{language === "es" ? `cada ${data.refreshIntervalMinutes} min` : `every ${data.refreshIntervalMinutes} min`}</small>
+        </div>
+        <div>
+          <span>{copy.daily}</span>
+          <strong>{nextMadridRunLabel(now, language)}</strong>
+          <small>{language === "es" ? "hora de Madrid" : "Madrid time"}</small>
+        </div>
+      </div>
+      <p>{copy.note}</p>
+    </section>
+  );
+}
+
+function FreshnessBanner({
+  data,
+  language,
+  now,
+  refreshing,
+  onRefresh,
+}: {
+  data: DashboardData;
+  language: Language;
+  now: number | null;
+  refreshing: boolean;
+  onRefresh: () => void;
+}) {
+  const stale = isStaleSnapshot(data.generatedAt, now);
+  if (data.dataMode === "live" && !stale) return null;
+  const copy =
+    language === "es"
+      ? data.dataMode === "official-backup"
+        ? {
+            title: "Respaldo oficial en uso",
+            text: "El informe del repositorio no estaba disponible o actualizado. Mostramos NVD y CISA KEV, con EPSS cuando responde; el contexto editorial queda fuera.",
+            action: "Comprobar ruta principal",
+          }
+        : data.dataMode === "repository-snapshot"
+          ? {
+              title: "Mostrando el último informe verificado",
+              text: `No respondió ninguna fuente en vivo. Conservamos el informe del ${formatDate(data.generatedAt, language, true)} para no dejarte sin contexto.`,
+              action: "Comprobar ahora",
+            }
+          : {
+              title: "El informe necesita actualizarse",
+              text: `La última publicación fue el ${formatDate(data.generatedAt, language, true)}. Los datos siguen visibles, pero deben tratarse como antiguos.`,
+              action: "Actualizar",
+            }
+      : data.dataMode === "official-backup"
+        ? {
+            title: "Official backup in use",
+            text: "The repository report was unavailable or out of date. NVD and CISA KEV are shown, with EPSS when available; editorial context is omitted.",
+            action: "Check primary route",
+          }
+        : data.dataMode === "repository-snapshot"
+          ? {
+              title: "Showing the last verified report",
+              text: `No live source responded. The ${formatDate(data.generatedAt, language, true)} report remains visible so the page still has context.`,
+              action: "Check now",
+            }
+          : {
+              title: "The report needs an update",
+              text: `The last publication was ${formatDate(data.generatedAt, language, true)}. It remains visible but should be treated as old.`,
+              action: "Refresh",
+            };
+  return (
+    <aside className={`freshness-banner ${data.dataMode}`} role="status">
+      <span className="freshness-icon" aria-hidden="true">!</span>
+      <div>
+        <strong>{copy.title}</strong>
+        <p>{copy.text}</p>
+      </div>
+      <button onClick={onRefresh} disabled={refreshing}>
+        <span className={refreshing ? "spinning" : ""}><Icon name="refresh" size={17} /></span>
+        {refreshing ? COPY[language].refreshing : copy.action}
+      </button>
+    </aside>
   );
 }
 
@@ -756,9 +1188,11 @@ function MetricStrip({
 function SourceRail({
   sources,
   language,
+  now,
 }: {
   sources: SourceHealth[];
   language: Language;
+  now: number | null;
 }) {
   const t = COPY[language];
   return (
@@ -789,7 +1223,7 @@ function SourceRail({
               <small>
                 <i className={`health-dot ${source.status}`} />
                 {source.status === "healthy"
-                  ? formatRelative(source.finishedAt, language)
+                  ? formatRelative(source.finishedAt, language, now)
                   : statusLabel(source.status, language)}
               </small>
             </span>
@@ -808,6 +1242,44 @@ function HistoryChart({
   language: Language;
 }) {
   const t = COPY[language];
+  if (history.length < 2) {
+    const point = history[0];
+    const copy =
+      language === "es"
+        ? {
+            title: "Histórico sin fabricar",
+            text: "El repositorio conserva el histórico diario, pero todavía no publica una serie de datos acotada para esta gráfica. Mostramos solo el punto actual en vez de inventar una tendencia.",
+            open: "Abrir archivo diario",
+          }
+        : {
+            title: "History without guesswork",
+            text: "The repository preserves its daily archive, but it does not yet publish a bounded feed for this chart. Only the current point is shown instead of inventing a trend.",
+            open: "Open daily archive",
+          };
+    return (
+      <section className="paper-panel history-panel history-empty">
+        <div>
+          <span className="section-label">{copy.title}</span>
+          <p>{copy.text}</p>
+        </div>
+        {point ? (
+          <div className="history-current-point">
+            <span>{point.date}</span>
+            <strong>{point.assessed}</strong>
+            <small>{t.assessed}</small>
+            <b>{point.aboveThreshold} {t.above}</b>
+          </div>
+        ) : null}
+        <a
+          href="https://github.com/JimBLogic/CyberDailyLog/tree/main/reports/archive"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {copy.open} <Icon name="external" size={15} />
+        </a>
+      </section>
+    );
+  }
   const width = 760;
   const height = 260;
   const padX = 40;
@@ -1249,12 +1721,22 @@ function VulnerabilityList({
 function SourcesView({
   data,
   language,
+  now,
 }: {
   data: DashboardData;
   language: Language;
+  now: number | null;
 }) {
   const t = COPY[language];
   const maxLatency = Math.max(...data.sourceHealth.map((source) => source.durationMs), 1);
+  const currentSources = data.sourceHealth.filter((source) =>
+    hasRecentHealthyRun(source, now),
+  );
+  const gapSources = data.sourceHealth.filter(
+    (source) => !hasRecentHealthyRun(source, now),
+  );
+  const currentCore = currentSources.filter((source) => source.required).length;
+  const currentOptional = currentSources.filter((source) => !source.required).length;
   return (
     <section className="view-section">
       <div className="view-heading">
@@ -1271,12 +1753,12 @@ function SourcesView({
         <div className="summary-tile">
           <span>{t.required}</span>
           <strong>{data.sourceHealth.filter((source) => source.required).length}</strong>
-          <small>{data.sourceHealth.filter((source) => source.required && source.status === "healthy").length} {t.healthy}</small>
+          <small>{currentCore} {currentCore === 1 ? t.healthySingle : t.healthy}</small>
         </div>
         <div className="summary-tile">
           <span>{t.optionalLabel}</span>
           <strong>{data.sourceHealth.filter((source) => !source.required).length}</strong>
-          <small>{data.sourceHealth.filter((source) => !source.required && source.status === "healthy").length} {t.healthy}</small>
+          <small>{currentOptional} {currentOptional === 1 ? t.healthySingle : t.healthy}</small>
         </div>
         <div className="summary-tile">
           <span>{t.received}</span>
@@ -1289,43 +1771,104 @@ function SourcesView({
           <small>{t.totalCollectorTime}</small>
         </div>
       </div>
-      <div className="source-table" role="table" aria-label={t.sourceOperations}>
-        <div className="source-table-head" role="row">
+      <section className="resilience-panel" aria-labelledby="resilience-title">
+        <div className="resilience-heading">
+          <span className="section-label" id="resilience-title">{t.resiliencePath}</span>
+          <p>{t.resilienceText}</p>
+        </div>
+        <ol className="delivery-chain">
+          {data.deliveryChain.map((attempt, index) => (
+            <li className={attempt.status} key={attempt.id}>
+              <span className="delivery-step">{String(index + 1).padStart(2, "0")}</span>
+              <a href={attempt.url} target="_blank" rel="noreferrer">
+                <strong>{deliveryLabel(attempt.id, language)}</strong>
+                <small>{deliveryStatusLabel(attempt.status, language)}</small>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section className="coverage-audit" aria-labelledby="coverage-audit-title">
+        <div className="coverage-audit-heading">
+          <span className="section-label" id="coverage-audit-title">{t.coverageLimits}</span>
+          <p>{t.coverageLimitsText}</p>
+        </div>
+        <div className="coverage-audit-grid">
+          <article className="coverage-status available">
+            <span>{t.whatWeSee}</span>
+            <strong>{currentSources.length}</strong>
+            <p>{currentSources.length === 1 ? t.currentSource : t.currentSources}</p>
+          </article>
+          <article className={`coverage-status ${gapSources.length ? "gap" : "available"}`}>
+            <span>{t.intelligenceGaps}</span>
+            <strong>{gapSources.length}</strong>
+            <p>
+              {gapSources.length
+                ? gapSources.length === 1
+                  ? t.gapSource
+                  : t.gapSources
+                : t.noGaps}
+            </p>
+            {gapSources.length ? <small>{gapSources.map((source) => source.label).join(" · ")}</small> : null}
+          </article>
+          <div className="coverage-lanes" aria-label={t.sourceUse}>
+            {(["evidence", "expert", "community"] as SourceTrustLane[]).map((lane) => (
+              <span className={`trust-lane ${lane}`} key={lane}>
+                <i /> {trustLaneLabel(lane, language)}
+              </span>
+            ))}
+            <p>{t.coverageCaveat}</p>
+          </div>
+        </div>
+      </section>
+      <div className="source-table" aria-label={t.sourceOperations}>
+        <div className="source-table-head" aria-hidden="true">
           <span>{t.sources}</span>
           <span>{t.status}</span>
           <span>{t.received}</span>
           <span>{t.accepted}</span>
           <span>{t.latency}</span>
         </div>
-        {data.sourceHealth.map((source) => (
-          <a
-            className="source-table-row"
-            role="row"
-            href={SOURCE_URLS[source.source] ?? "#"}
-            target="_blank"
-            rel="noreferrer"
-            key={source.source}
-          >
-            <span className="source-name-cell">
-              <b>{SOURCE_SHORT_LABELS[source.source]?.slice(0, 2) ?? source.label.slice(0, 2)}</b>
-              <span>
-                <strong>{source.label}</strong>
-                <small>{source.required ? t.required : t.optionalLabel}</small>
+        {data.sourceHealth.map((source) => {
+          const profile = SOURCE_PROFILES[source.source];
+          const isCurrent = hasRecentHealthyRun(source, now);
+          return (
+            <a
+              className="source-table-row"
+              href={SOURCE_URLS[source.source] ?? data.repositoryUrl}
+              target="_blank"
+              rel="noreferrer"
+              key={source.source}
+            >
+              <span className="source-name-cell">
+                <b>{SOURCE_SHORT_LABELS[source.source]?.slice(0, 2) ?? source.label.slice(0, 2)}</b>
+                <span>
+                  <strong>{source.label}</strong>
+                  <small>
+                    {source.required ? t.required : t.optionalLabel}
+                    {profile ? ` · ${provenanceLabel(profile.provenance, language)}` : ""}
+                  </small>
+                  {profile ? (
+                    <em className={`source-lane-label ${profile.lane}`}>
+                      {trustLaneLabel(profile.lane, language)}
+                    </em>
+                  ) : null}
+                </span>
               </span>
-            </span>
-            <span className={`status-pill ${source.status}`}>
-              <i /> {statusLabel(source.status, language)}
-            </span>
-            <strong>{source.itemsReceived.toLocaleString()}</strong>
-            <strong>{source.itemsAccepted.toLocaleString()}</strong>
-            <span className="latency-cell">
-              <span className="latency-track">
-                <i style={{ width: `${Math.max(3, (source.durationMs / maxLatency) * 100)}%` }} />
+              <span className={`status-pill ${isCurrent ? "healthy" : source.status === "healthy" ? "degraded" : source.status}`}>
+                <i /> {source.status === "healthy" ? sourceFreshnessLabel(source, language, now) : statusLabel(source.status, language)}
               </span>
-              <strong>{source.durationMs}ms</strong>
-            </span>
-          </a>
-        ))}
+              <strong>{source.itemsReceived.toLocaleString()}</strong>
+              <strong>{source.itemsAccepted.toLocaleString()}</strong>
+              <span className="latency-cell">
+                <span className="latency-track">
+                  <i style={{ width: `${Math.max(3, (source.durationMs / maxLatency) * 100)}%` }} />
+                </span>
+                <strong>{source.durationMs}ms</strong>
+              </span>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
@@ -1427,6 +1970,221 @@ function MethodologyView({
             {t.dataContract} <Icon name="arrow" size={17} />
           </a>
         </div>
+      </article>
+    </section>
+  );
+}
+
+function EngineeringView({
+  data,
+  language,
+}: {
+  data: DashboardData;
+  language: Language;
+}) {
+  const copy =
+    language === "es"
+      ? {
+          eyebrow: "Reproducibilidad y DevSecOps",
+          title: "Auditable desde el clon.",
+          intro:
+            "La calidad no depende de una demo bonita: el repositorio separa runtime, contratos, salidas e histórico, y valida un recorrido offline sin publicar nada.",
+          openCi: "Ver CI",
+          baseline: [
+            ["Python", "3.12", "Runtime fijado"],
+            ["Cobertura", "≥85 %", "El umbral no se rebaja"],
+            ["Automatización", "2 ventanas", "08:17 + recuperación 09:47"],
+            ["Modo local", "Offline", "Fixtures sin secretos ni publicación"],
+          ],
+          mapTitle: "Mapa autorizado del repositorio",
+          map: [
+            ["src/cyberdailylog/", "Runtime activo y lógica de publicación"],
+            ["tests/", "Pruebas unitarias, contratos y regresiones"],
+            ["config/", "Fuentes, priorización y configuración mantenida"],
+            ["reports/", "Salidas actuales generadas del producto"],
+            ["reports/archive/", "Histórico diario activo, no legado"],
+            ["schemas/", "Contratos JSON públicos y versionados"],
+            ["docs/", "Arquitectura, integración y operación"],
+            ["legacy/personal-progress/", "Contexto conservado fuera del proceso"],
+          ],
+          guardTitle: "Invariantes de publicación",
+          guards: [
+            "La comprobación de frescura impide dos publicaciones del mismo día.",
+            "El quorum obligatorio no se debilita y los fallos opcionales quedan visibles.",
+            "El JSON completo conserva los registros aunque el resumen aplique umbral.",
+            "El informe anterior se archiva antes de sustituir los archivos latest.",
+            "CI y ejecución local no publican ni modifican main.",
+            "No se ejecutan PoC, no se descarga malware y no se imprimen secretos.",
+          ],
+          matrixTitle: "Matriz real de validación",
+          matrix:
+            "Ruff lint + formato · MyPy · Pytest con cobertura · fixtures offline · JSON Schema · wheel smoke test · pip-audit · escaneo ligero de secretos",
+          commandsTitle: "Clon limpio → informe offline validado",
+          commandsNote:
+            "Estos comandos generan en tmp/reports y no tocan los informes publicados.",
+          historyTitle: "Dos archivos, dos responsabilidades",
+          productHistory: "Histórico del producto",
+          productHistoryText:
+            "reports/archive/ participa en la trazabilidad diaria y nunca debe usarse como cajón de código viejo.",
+          repoHistory: "Legado consultable",
+          repoHistoryText:
+            "archive/repository-history/ solo se crea si existe material útil que retirar; queda explícitamente fuera de runtime, CI y publicación.",
+          currentSource: "Fuente autorizada",
+          docs: "Abrir guía de integración",
+        }
+      : {
+          eyebrow: "Reproducibility & DevSecOps",
+          title: "Auditable from a fresh clone.",
+          intro:
+            "Quality does not depend on a polished demo: the repository separates runtime, contracts, outputs and history, then validates a fully offline path without publishing anything.",
+          openCi: "Inspect CI",
+          baseline: [
+            ["Python", "3.12", "Pinned runtime"],
+            ["Coverage", "≥85%", "The threshold is not lowered"],
+            ["Automation", "2 windows", "08:17 + 09:47 recovery"],
+            ["Local mode", "Offline", "Fixtures, no secrets or publishing"],
+          ],
+          mapTitle: "Authoritative repository map",
+          map: [
+            ["src/cyberdailylog/", "Active runtime and publication logic"],
+            ["tests/", "Unit, contract and regression tests"],
+            ["config/", "Maintained source and scoring configuration"],
+            ["reports/", "Current generated product outputs"],
+            ["reports/archive/", "Active daily history, not legacy"],
+            ["schemas/", "Versioned public JSON contracts"],
+            ["docs/", "Architecture, integration and operations"],
+            ["legacy/personal-progress/", "Preserved context outside the pipeline"],
+          ],
+          guardTitle: "Publication invariants",
+          guards: [
+            "The freshness gate prevents two publications for one day.",
+            "Required-source quorum stays strict; optional failures remain visible.",
+            "The complete JSON keeps records even when the brief applies a threshold.",
+            "The previous report is archived before latest files are replaced.",
+            "CI and local runs never publish or mutate main.",
+            "No PoC execution, malware download or secret output is allowed.",
+          ],
+          matrixTitle: "Real validation matrix",
+          matrix:
+            "Ruff lint + format · MyPy · Pytest with coverage · offline fixtures · JSON Schema · wheel smoke test · pip-audit · lightweight secret scan",
+          commandsTitle: "Fresh clone → validated offline report",
+          commandsNote:
+            "These commands generate into tmp/reports and leave published reports untouched.",
+          historyTitle: "Two archives, two responsibilities",
+          productHistory: "Product history",
+          productHistoryText:
+            "reports/archive/ is part of daily traceability and must never become a dumping ground for old code.",
+          repoHistory: "Consultable legacy",
+          repoHistoryText:
+            "archive/repository-history/ is created only when useful retired material exists; it stays outside runtime, CI and daily publication.",
+          currentSource: "Authoritative source",
+          docs: "Open integration guide",
+        };
+  const commands = `git clone https://github.com/JimBLogic/CyberDailyLog.git
+cd CyberDailyLog
+python -m venv .venv
+# macOS / Linux:  . .venv/bin/activate
+# Windows:        .venv\\Scripts\\activate
+python -m pip install . -r requirements-dev.txt
+make lint && make typecheck && make test
+make offline-report && make validate
+python -m cyberdailylog.portfolio_feed \\
+  --report tmp/reports/latest.json \\
+  --output tmp/reports/portfolio-feed.json`;
+
+  return (
+    <section className="view-section engineering-view">
+      <div className="view-heading">
+        <div>
+          <span className="eyebrow">{copy.eyebrow}</span>
+          <h1>{copy.title}</h1>
+          <p>{copy.intro}</p>
+        </div>
+        <a
+          className="button primary compact"
+          href={`${data.repositoryUrl}/actions/workflows/ci.yml`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon name="check" size={18} /> {copy.openCi}
+        </a>
+      </div>
+
+      <div className="engineering-baseline">
+        {copy.baseline.map(([label, value, note]) => (
+          <article key={label}>
+            <span>{label}</span>
+            <strong>{value}</strong>
+            <small>{note}</small>
+          </article>
+        ))}
+      </div>
+
+      <div className="engineering-grid">
+        <article className="paper-panel repository-map">
+          <span className="section-label">{copy.mapTitle}</span>
+          <div>
+            {copy.map.map(([path, purpose]) => (
+              <div key={path}>
+                <code>{path}</code>
+                <span>{purpose}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="paper-panel invariant-panel">
+          <span className="section-label">{copy.guardTitle}</span>
+          <ol>
+            {copy.guards.map((guard) => (
+              <li key={guard}>
+                <Icon name="check" size={16} />
+                <span>{guard}</span>
+              </li>
+            ))}
+          </ol>
+          <div className="validation-matrix">
+            <strong>{copy.matrixTitle}</strong>
+            <p>{copy.matrix}</p>
+          </div>
+        </article>
+      </div>
+
+      <article className="command-panel">
+        <div>
+          <span className="eyebrow">{copy.commandsTitle}</span>
+          <p>{copy.commandsNote}</p>
+          <a
+            href={`${data.repositoryUrl}/blob/main/docs/INTEGRATION.md`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {copy.docs} <Icon name="external" size={15} />
+          </a>
+        </div>
+        <pre aria-label={copy.commandsTitle}>
+          <code>{commands}</code>
+        </pre>
+      </article>
+
+      <article className="archive-policy">
+        <span className="section-label">{copy.historyTitle}</span>
+        <div>
+          <section>
+            <span>ACTIVE</span>
+            <h2>{copy.productHistory}</h2>
+            <code>reports/archive/</code>
+            <p>{copy.productHistoryText}</p>
+          </section>
+          <section>
+            <span>NON-RUNTIME</span>
+            <h2>{copy.repoHistory}</h2>
+            <code>archive/repository-history/</code>
+            <p>{copy.repoHistoryText}</p>
+          </section>
+        </div>
+        <a href={data.repositoryUrl} target="_blank" rel="noreferrer">
+          {copy.currentSource} <Icon name="github" size={16} />
+        </a>
       </article>
     </section>
   );
@@ -1554,38 +2312,59 @@ function DetailDialog({
 export function Dashboard({ initialData }: { initialData: DashboardData }) {
   const [data, setData] = useState(initialData);
   const [view, setView] = useState<View>("overview");
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("es");
   const [selected, setSelected] = useState<Vulnerability | null>(null);
   const [watchlist, setWatchlist] = useState<Set<string>>(new Set());
   const [refreshing, setRefreshing] = useState(false);
   const [notice, setNotice] = useState("");
+  const [clock, setClock] = useState<number | null>(null);
   const t = COPY[language];
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      const storedLanguage = window.localStorage.getItem(
+      const storedLanguage = readLocalPreference(
         "cyberdailylog-language",
       );
-      const storedWatchlist = window.localStorage.getItem(
+      const storedWatchlist = readLocalPreference(
         "cyberdailylog-watchlist",
       );
       if (storedLanguage === "en" || storedLanguage === "es") {
         setLanguage(storedLanguage);
       }
+      const hashView = window.location.hash.slice(1) as View;
+      if (VIEW_KEYS.includes(hashView)) setView(hashView);
       if (storedWatchlist) {
         try {
           setWatchlist(new Set(JSON.parse(storedWatchlist) as string[]));
         } catch {
-          window.localStorage.removeItem("cyberdailylog-watchlist");
+          removeLocalPreference("cyberdailylog-watchlist");
         }
       }
     });
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
+  useEffect(() => {
+    const syncView = () => {
+      const hashView = window.location.hash.slice(1) as View;
+      setView(VIEW_KEYS.includes(hashView) ? hashView : "overview");
+    };
+    window.addEventListener("hashchange", syncView);
+    return () => window.removeEventListener("hashchange", syncView);
+  }, []);
+
+  useEffect(() => {
+    const initialTick = window.setTimeout(() => setClock(Date.now()), 0);
+    const timer = window.setInterval(() => setClock(Date.now()), 1_000);
+    return () => {
+      window.clearTimeout(initialTick);
+      window.clearInterval(timer);
+    };
+  }, []);
+
   function changeLanguage(next: Language) {
     setLanguage(next);
-    window.localStorage.setItem("cyberdailylog-language", next);
+    writeLocalPreference("cyberdailylog-language", next);
   }
 
   function toggleWatchlist(id: string) {
@@ -1593,7 +2372,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       const next = new Set(current);
       if (next.has(id)) next.delete(id);
       else next.add(id);
-      window.localStorage.setItem(
+      writeLocalPreference(
         "cyberdailylog-watchlist",
         JSON.stringify([...next]),
       );
@@ -1601,27 +2380,44 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
     });
   }
 
-  async function refreshData() {
+  const refreshData = useCallback(async (showNotice = true) => {
     setRefreshing(true);
-    setNotice("");
+    if (showNotice) setNotice("");
     try {
-      const response = await fetch(`/api/intelligence?refresh=${Date.now()}`, {
+      const response = await fetch("/api/intelligence", {
         cache: "no-store",
       });
       if (!response.ok) throw new Error("refresh failed");
       const next = (await response.json()) as DashboardData;
       setData(next);
-      setNotice(t.refreshed);
+      if (showNotice) {
+        setNotice(
+          next.dataMode === "repository-snapshot" ? t.fallbackRetained : t.refreshed,
+        );
+      }
     } catch {
-      setNotice(t.refreshFailed);
+      if (showNotice) setNotice(t.refreshFailed);
     } finally {
       setRefreshing(false);
-      window.setTimeout(() => setNotice(""), 4_000);
+      if (showNotice) window.setTimeout(() => setNotice(""), 4_000);
     }
-  }
+  }, [t.fallbackRetained, t.refreshFailed, t.refreshed]);
+
+  useEffect(() => {
+    const target = parseTimestamp(data.nextRefreshAt);
+    const delay = target !== null
+      ? Math.max(5_000, target - Date.now() + 1_000)
+      : 60_000;
+    const timer = window.setTimeout(() => {
+      void refreshData(false);
+    }, Math.min(delay, 2_147_000_000));
+    return () => window.clearTimeout(timer);
+  }, [data.nextRefreshAt, refreshData]);
 
   function navigate(next: View) {
     setView(next);
+    const nextHash = next === "overview" ? window.location.pathname : `#${next}`;
+    window.history.pushState(null, "", nextHash);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -1631,17 +2427,23 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
     ["vulnerabilities", t.vulnerabilities],
     ["sources", t.sources],
     ["methodology", t.methodology],
+    ["engineering", t.engineering],
   ];
 
   return (
-    <main className="site-shell">
+    <>
+      <a className="skip-link" href="#main-content">
+        {language === "es" ? "Saltar al contenido" : "Skip to content"}
+      </a>
+      <main className="site-shell" id="main-content">
       <header className="masthead">
-        <button className="wordmark" onClick={() => navigate("overview")}>
+        <button type="button" className="wordmark" onClick={() => navigate("overview")}>
           CyberDailyLog
         </button>
         <nav aria-label={t.primaryNavigation}>
           {tabs.map(([key, label]) => (
             <button
+              type="button"
               className={view === key ? "active" : ""}
               onClick={() => navigate(key)}
               aria-current={view === key ? "page" : undefined}
@@ -1660,13 +2462,30 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
             <span aria-hidden="true">☼</span>
             {t.morning}
           </span>
-          <span className="language-toggle" aria-label={t.language}>
-            <button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")}>EN</button>
-            <button className={language === "es" ? "active" : ""} onClick={() => changeLanguage("es")}>ES</button>
+          <span className="language-toggle" role="group" aria-label={t.language}>
+            <button
+              type="button"
+              className={language === "en" ? "active" : ""}
+              aria-label="English"
+              aria-pressed={language === "en"}
+              onClick={() => changeLanguage("en")}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              className={language === "es" ? "active" : ""}
+              aria-label="Español"
+              aria-pressed={language === "es"}
+              onClick={() => changeLanguage("es")}
+            >
+              ES
+            </button>
           </span>
           <button
+            type="button"
             className="refresh-button"
-            onClick={refreshData}
+            onClick={() => void refreshData(true)}
             disabled={refreshing}
             aria-label={refreshing ? t.refreshing : t.refresh}
             title={refreshing ? t.refreshing : t.refresh}
@@ -1677,6 +2496,14 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       </header>
 
       {notice ? <div className="toast" role="status">{notice}</div> : null}
+
+      <FreshnessBanner
+        data={data}
+        language={language}
+        now={clock}
+        refreshing={refreshing}
+        onRefresh={() => void refreshData(true)}
+      />
 
       {view === "overview" ? (
         <div className="overview-view">
@@ -1701,17 +2528,12 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
                   </div>
                 </div>
                 <div className="pipeline-wrap">
-                  <Pipeline language={language} />
-                  <div className="freshness-row">
-                    <span>◷ {t.updated} {formatRelative(data.generatedAt, language)}</span>
-                    <span>◴ {t.coverage}</span>
-                  </div>
-                  <div className={`data-mode ${data.dataMode}`}>
-                    <i />
-                    <span>
-                      {data.dataMode === "live" ? t.liveRepo : t.snapshot}
-                    </span>
-                  </div>
+                  <Pipeline
+                    language={language}
+                    status={data.pipelineStatus}
+                    dataMode={data.dataMode}
+                  />
+                  <DataDelivery data={data} language={language} now={clock} />
                 </div>
               </div>
               <RiskDistribution data={data} language={language} />
@@ -1721,9 +2543,14 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
             ) : null}
           </section>
           <MetricStrip data={data} language={language} />
-          <SourceRail sources={data.sourceHealth} language={language} />
+          <SourceRail sources={data.sourceHealth} language={language} now={clock} />
           <div className="below-fold-grid">
-            <HistoryChart history={data.history} language={language} />
+            <HistoryChart
+              history={
+                data.dataMode === "live" ? data.history : data.history.slice(-1)
+              }
+              language={language}
+            />
             <aside className="attention-panel">
               <span className="section-label">{t.immediateAttention}</span>
               <strong>{data.immediateAttentionCount}</strong>
@@ -1762,8 +2589,9 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
           onOpen={setSelected}
         />
       ) : null}
-      {view === "sources" ? <SourcesView data={data} language={language} /> : null}
+      {view === "sources" ? <SourcesView data={data} language={language} now={clock} /> : null}
       {view === "methodology" ? <MethodologyView data={data} language={language} /> : null}
+      {view === "engineering" ? <EngineeringView data={data} language={language} /> : null}
 
       {selected ? (
         <DetailDialog
@@ -1774,6 +2602,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
           onClose={() => setSelected(null)}
         />
       ) : null}
-    </main>
+      </main>
+    </>
   );
 }
