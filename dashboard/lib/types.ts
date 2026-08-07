@@ -36,6 +36,14 @@ export type SourceHealth = {
   error: string | null;
 };
 
+export type DeliveryAttempt = {
+  id: "github-raw" | "jsdelivr-cdn" | "official-apis" | "bundled-snapshot";
+  label: string;
+  role: "primary" | "transport-backup" | "official-backup" | "offline-fallback";
+  status: "used" | "available" | "failed" | "skipped";
+  url: string;
+};
+
 export type DistributionPoint = {
   key: Severity;
   label: string;
@@ -91,7 +99,9 @@ export type DashboardData = {
   coverageStart: string;
   coverageEnd: string;
   pipelineStatus: "operational" | "degraded";
-  dataMode: "live" | "repository-snapshot";
+  dataMode: "live" | "official-backup" | "repository-snapshot";
+  deliveryOrigin: DeliveryAttempt["id"];
+  deliveryChain: DeliveryAttempt[];
   minimumPriority: number;
   assessed: number;
   aboveThreshold: number;
@@ -109,6 +119,8 @@ export type DashboardData = {
   repositoryUrl: string;
   reportUrl: string;
   lastFetchAt: string;
+  nextRefreshAt: string;
+  refreshIntervalMinutes: number;
 };
 
 export type DashboardFeed = {
