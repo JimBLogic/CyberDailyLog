@@ -4,6 +4,8 @@
 
 CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelligence pipeline. It collects trusted cybersecurity sources, enriches and correlates vulnerability data, adds clearly separated expert and community context, ranks actionable developments and publishes reproducible daily reports.
 
+**Live dashboard:** [CyberDailyLog Intelligence Dashboard](https://cyberdailylog-dashboard.jimblogic.chatgpt.site) — dynamic risk distribution, historical signal, collector health, ranked triage, EN/ES interface and portable JSON/CSV exports.
+
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
@@ -44,12 +46,18 @@ SANS Internet Storm Center Handler&#x27;s Diary
 - **Human brief:** [`reports/latest.md`](reports/latest.md)
 - **Compact integration feed:** [`reports/portfolio-feed.json`](reports/portfolio-feed.json)
 - **Compact-feed contract:** [`schemas/portfolio-feed.schema.json`](schemas/portfolio-feed.schema.json)
+- **Dashboard history feed:** [`reports/dashboard-feed.json`](reports/dashboard-feed.json)
+- **Dashboard-feed contract:** [`schemas/dashboard-feed.schema.json`](schemas/dashboard-feed.schema.json)
 - **Complete evidence JSON:** [`reports/latest.json`](reports/latest.json)
 - **Collector health:** [`reports/source-health.json`](reports/source-health.json)
 - **Daily archive:** [`reports/archive/`](reports/archive/)
 - **Integration examples:** [`docs/INTEGRATION.md`](docs/INTEGRATION.md)
+- **Full-stack dashboard:** [`dashboard/`](dashboard/)
+- **Dashboard architecture and local setup:** [`docs/DASHBOARD.md`](docs/DASHBOARD.md)
 
 The compact feed is designed for portfolios, static websites, dashboards and other repositories. It exposes ranked vulnerabilities plus one optional expert-context item and one optional community-pulse item, while the complete JSON remains the source of truth.
+
+The dashboard is a separate full-stack presentation layer in this same repository. Its backend reads the generated public artifacts, derives complete-distribution charts from `latest.json`, and uses `dashboard-feed.json` for the rolling history. The Python pipeline remains independently runnable; the website is a consumer, not a replacement.
 
 ## What it collects
 

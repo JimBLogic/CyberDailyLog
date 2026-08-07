@@ -64,6 +64,7 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert "--fail-on-degraded" in run_script
     assert "--dry-run" not in run_script
     assert steps["Generate compact portfolio feed"]["run"] == "python -m cyberdailylog.portfolio_feed"
+    assert steps["Generate dashboard history feed"]["run"] == "python -m cyberdailylog.dashboard_feed"
     assert steps["Update repository landing snapshot"]["run"] == "python -m cyberdailylog.readme_snapshot"
 
     upload = steps["Upload generated outputs"]

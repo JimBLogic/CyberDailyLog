@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/dashboard-feed.schema.json",
+  "title": "CyberDailyLog dashboard history feed",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "schema_url",
+    "project",
+    "generated_at",
+    "minimum_priority",
+    "history",
+    "endpoints"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "schema_url": { "type": "string", "format": "uri" },
+    "project": { "const": "CyberDailyLog" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "minimum_priority": { "type": "number", "minimum": 0, "maximum": 10 },
+    "history": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "generated_at",
+          "assessed",
+          "security_items",
+          "above_threshold",
+          "minimum_priority",
+          "immediate_attention",
+          "critical",
+          "high",
+          "medium",
+          "low",
+          "unknown",
+          "sources_total",
+          "sources_healthy",
+          "degraded"
+        ],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "generated_at": { "type": "string", "format": "date-time" },
+          "assessed": { "type": "integer", "minimum": 0 },
+          "security_items": { "type": "integer", "minimum": 0 },
+          "above_threshold": { "type": "integer", "minimum": 0 },
+          "minimum_priority": { "type": "number", "minimum": 0, "maximum": 10 },
+          "immediate_attention": { "type": "integer", "minimum": 0 },
+          "critical": { "type": "integer", "minimum": 0 },
+          "high": { "type": "integer", "minimum": 0 },
+          "medium": { "type": "integer", "minimum": 0 },
+          "low": { "type": "integer", "minimum": 0 },
+          "unknown": { "type": "integer", "minimum": 0 },
+          "sources_total": { "type": "integer", "minimum": 0 },
+          "sources_healthy": { "type": "integer", "minimum": 0 },
+          "degraded": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "endpoints": {
+      "type": "object",
+      "required": [
+        "dashboard_feed",
+        "compact_feed",
+        "full_report",
+        "source_health",
+        "repository"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+      }
+    }
+  },
+  "additionalProperties": false
+}
