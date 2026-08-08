@@ -1,17 +1,17 @@
 {
-  "above_threshold": 337,
+  "above_threshold": 152,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 22,
-    "discussion_url": "https://news.ycombinator.com/item?id=49198583",
-    "published_at": "2026-08-06T16:05:51+00:00",
-    "score": 101,
+    "comments": 74,
+    "discussion_url": "https://news.ycombinator.com/item?id=49214098",
+    "published_at": "2026-08-07T18:01:30+00:00",
+    "score": 312,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/CopilotKit/channels-sdk",
-    "title": "Show HN: The Channels SDK \u2013 Bring Any Agent to Any Channel (Slack, MS Teams)"
+    "source_url": "https://github.com/xoreaxeaxeax/asm-hall-of-shame",
+    "title": "Assembly Hall of Shame"
   },
-  "coverage_end": "2026-08-07T07:39:24+00:00",
-  "coverage_start": "2026-08-06T07:39:24+00:00",
+  "coverage_end": "2026-08-08T07:12:02+00:00",
+  "coverage_start": "2026-08-07T07:12:02+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-07T07:39:51+00:00",
+  "generated_at": "2026-08-08T07:12:09+00:00",
   "human_context": {
     "author": null,
     "excerpt": "UNIX systems (including Linux) are well-known to record a lot of activities in many different locations. But there is one domain where they definitely\u2026",
@@ -35,7 +35,7 @@
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 499,
+  "qualified_developments": 203,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,137 +60,133 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-70558"
+        "CVE-2026-61808"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-70558",
+      "id": "CVE-2026-61808",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
+        "priority technology: browsers +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70558",
-      "title": "Dinky's POST /download/uploadFromRsByLocal handler passes the caller-supplied path parameter directly to new File(path)",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61808",
+      "title": "LightRAG provides simple and fast retrieval-augmented generation. Through version 1.5.4, the LightRAG API server binds t",
+      "why_it_matters": "CVSS 9.8; priority technology: browsers"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-70332"
+        "CVE-2026-50540"
       ],
       "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-70332",
+      "id": "CVE-2026-50540",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.8,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70332",
-      "title": "Server-side request forgery (ssrf) in Microsoft Office SharePoint allows an unauthorized attacker to perform spoofing ov",
-      "why_it_matters": "CVSS 9.6; priority technology: microsoft_365"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50540",
+      "title": "Kata Containers is an open source project focusing on a standard implementation of lightweight Virtual Machines (VMs) th",
+      "why_it_matters": "CVSS 9.6; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-62830"
+        "CVE-2026-46409"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-62830",
+      "id": "CVE-2026-46409",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.8,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62830",
-      "title": "Missing authorization in Azure SRE Agent allows an authorized attacker to elevate privileges over a network.",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46409",
+      "title": "OpenYak is a local-first agent runtime for reliable tool-using models, with a desktop workspace built on top. Prior to v",
+      "why_it_matters": "CVSS 9.6; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-50515"
+        "CVE-2026-54203"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.2,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.43461,
+      "epss_score": 0.00559,
       "ghsa_ids": [],
-      "id": "CVE-2026-50515",
+      "id": "CVE-2026-54203",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50515",
-      "title": "Deserialization of untrusted data in Azure Service Bus allows an authorized attacker to execute code over a network.",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54203",
+      "title": "Memory Leak to an Unauthorized Actor vulnerability in Tobit Laboratories AG TeamDavid's Webbox allows reading of sensiti",
+      "why_it_matters": "CVSS 9.2; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-11976"
+        "CVE-2026-48170"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.1,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-11976",
+      "id": "CVE-2026-48170",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.3,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11976",
-      "title": "The official MonsterInsights Pro update distribution bucket (`monster-insights.s3.amazonaws.com`) was compromised. Both",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48170",
+      "title": "`scim-patch`, a library to perform SCIM patch, prior to version 0.9.1 performs prototype pollution when applying a SCIM",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
     }
   ]
 }

@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-07T07:39:51+00:00  
-**Coverage:** 2026-08-06T07:39:24+00:00 → 2026-08-07T07:39:24+00:00  
+**Updated:** 2026-08-08T07:12:09+00:00  
+**Coverage:** 2026-08-07T07:12:02+00:00 → 2026-08-08T07:12:02+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 499 source-backed developments
-- **Above threshold:** 337
+- **Assessed:** 203 source-backed developments
+- **Above threshold:** 152
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-70558](https://nvd.nist.gov/vuln/detail/CVE-2026-70558) · 10.0/10** — Dinky&#x27;s POST /download/uploadFromRsByLocal handler passes the caller-supplied path parameter directly to new File(path) — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-70332](https://nvd.nist.gov/vuln/detail/CVE-2026-70332) · 10.0/10** — Server-side request forgery (ssrf) in Microsoft Office SharePoint allows an unauthorized attacker to perform spoofing ov — CVSS 9.6; priority technology: microsoft_365
-- **[CVE-2026-62830](https://nvd.nist.gov/vuln/detail/CVE-2026-62830) · 10.0/10** — Missing authorization in Azure SRE Agent allows an authorized attacker to elevate privileges over a network. — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-50515](https://nvd.nist.gov/vuln/detail/CVE-2026-50515) · 10.0/10** — Deserialization of untrusted data in Azure Service Bus allows an authorized attacker to execute code over a network. — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-11976](https://nvd.nist.gov/vuln/detail/CVE-2026-11976) · 10.0/10** — The official MonsterInsights Pro update distribution bucket (`monster-insights.s3.amazonaws.com`) was compromised. Both — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-61808](https://nvd.nist.gov/vuln/detail/CVE-2026-61808) · 10.0/10** — LightRAG provides simple and fast retrieval-augmented generation. Through version 1.5.4, the LightRAG API server binds t — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-50540](https://nvd.nist.gov/vuln/detail/CVE-2026-50540) · 9.8/10** — Kata Containers is an open source project focusing on a standard implementation of lightweight Virtual Machines (VMs) th — CVSS 9.6; detection opportunity
+- **[CVE-2026-46409](https://nvd.nist.gov/vuln/detail/CVE-2026-46409) · 9.8/10** — OpenYak is a local-first agent runtime for reliable tool-using models, with a desktop workspace built on top. Prior to v — CVSS 9.6; detection opportunity
+- **[CVE-2026-54203](https://nvd.nist.gov/vuln/detail/CVE-2026-54203) · 9.4/10** — Memory Leak to an Unauthorized Actor vulnerability in Tobit Laboratories AG TeamDavid&#x27;s Webbox allows reading of sensiti — CVSS 9.2; detection opportunity
+- **[CVE-2026-48170](https://nvd.nist.gov/vuln/detail/CVE-2026-48170) · 9.3/10** — `scim-patch`, a library to perform SCIM patch, prior to version 0.9.1 performs prototype pollution when applying a SCIM — CVSS 9.1; detection opportunity
 
 ### Human context
 
@@ -35,8 +35,8 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Show HN: The Channels SDK – Bring Any Agent to Any Channel (Slack, MS Teams)](https://github.com/CopilotKit/channels-sdk)** — Hacker News · 101 points · 22 comments
-[Open discussion](https://news.ycombinator.com/item?id=49198583)
+**[Assembly Hall of Shame](https://github.com/xoreaxeaxeax/asm-hall-of-shame)** — Hacker News · 312 points · 74 comments
+[Open discussion](https://news.ycombinator.com/item?id=49214098)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
