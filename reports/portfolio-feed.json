@@ -1,17 +1,8 @@
 {
-  "above_threshold": 152,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 74,
-    "discussion_url": "https://news.ycombinator.com/item?id=49214098",
-    "published_at": "2026-08-07T18:01:30+00:00",
-    "score": 312,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/xoreaxeaxeax/asm-hall-of-shame",
-    "title": "Assembly Hall of Shame"
-  },
-  "coverage_end": "2026-08-08T07:12:02+00:00",
-  "coverage_start": "2026-08-07T07:12:02+00:00",
+  "above_threshold": 34,
+  "community_pulse": null,
+  "coverage_end": "2026-08-09T07:14:21+00:00",
+  "coverage_start": "2026-08-08T07:14:21+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +11,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-08T07:12:09+00:00",
-  "human_context": {
-    "author": null,
-    "excerpt": "UNIX systems (including Linux) are well-known to record a lot of activities in many different locations. But there is one domain where they definitely\u2026",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-07T07:22:28+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33226",
-    "title": "Linux Shell Forensic: Let?s Dive Into Atuin!, (Fri, Aug 7th)"
-  },
+  "generated_at": "2026-08-09T07:14:28+00:00",
+  "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 203,
+  "qualified_developments": 96,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,44 +43,70 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-61808"
+        "CVE-2026-71993"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-61808",
+      "id": "CVE-2026-71993",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
+        "priority technology: vpn_remote_access +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61808",
-      "title": "LightRAG provides simple and fast retrieval-augmented generation. Through version 1.5.4, the LightRAG API server binds t",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71993",
+      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the openvpn function tha",
+      "why_it_matters": "CVSS 9.3; priority technology: vpn_remote_access"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-50540"
+        "CVE-2026-14526"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.45987,
+      "epss_score": 0.00612,
+      "ghsa_ids": [],
+      "id": "CVE-2026-14526",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14526",
+      "title": "The AI Copilot \u2013 Content Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-71992"
+      ],
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-50540",
+      "id": "CVE-2026-71992",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -106,24 +115,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50540",
-      "title": "Kata Containers is an open source project focusing on a standard implementation of lightweight Virtual Machines (VMs) th",
-      "why_it_matters": "CVSS 9.6; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71992",
+      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the macfilter function t",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-46409"
+        "CVE-2026-71991"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-46409",
+      "id": "CVE-2026-71991",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.8,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -132,50 +141,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46409",
-      "title": "OpenYak is a local-first agent runtime for reliable tool-using models, with a desktop workspace built on top. Prior to v",
-      "why_it_matters": "CVSS 9.6; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71991",
+      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-54203"
+        "CVE-2026-71990"
       ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.43461,
-      "epss_score": 0.00559,
-      "ghsa_ids": [],
-      "id": "CVE-2026-54203",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54203",
-      "title": "Memory Leak to an Unauthorized Actor vulnerability in Tobit Laboratories AG TeamDavid's Webbox allows reading of sensiti",
-      "why_it_matters": "CVSS 9.2; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-48170"
-      ],
-      "cvss_score": 9.1,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-48170",
+      "id": "CVE-2026-71990",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.3,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -184,9 +167,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48170",
-      "title": "`scim-patch`, a library to perform SCIM patch, prior to version 0.9.1 performs prototype pollution when applying a SCIM",
-      "why_it_matters": "CVSS 9.1; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71990",
+      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }

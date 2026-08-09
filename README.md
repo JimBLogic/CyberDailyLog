@@ -9,34 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-08T07:12:09+00:00  
-**Coverage:** 2026-08-07T07:12:02+00:00 → 2026-08-08T07:12:02+00:00  
+**Updated:** 2026-08-09T07:14:28+00:00  
+**Coverage:** 2026-08-08T07:14:21+00:00 → 2026-08-09T07:14:21+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 203 source-backed developments
-- **Above threshold:** 152
+- **Assessed:** 96 source-backed developments
+- **Above threshold:** 34
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-61808](https://nvd.nist.gov/vuln/detail/CVE-2026-61808) · 10.0/10** — LightRAG provides simple and fast retrieval-augmented generation. Through version 1.5.4, the LightRAG API server binds t — CVSS 9.8; priority technology: browsers
-- **[CVE-2026-50540](https://nvd.nist.gov/vuln/detail/CVE-2026-50540) · 9.8/10** — Kata Containers is an open source project focusing on a standard implementation of lightweight Virtual Machines (VMs) th — CVSS 9.6; detection opportunity
-- **[CVE-2026-46409](https://nvd.nist.gov/vuln/detail/CVE-2026-46409) · 9.8/10** — OpenYak is a local-first agent runtime for reliable tool-using models, with a desktop workspace built on top. Prior to v — CVSS 9.6; detection opportunity
-- **[CVE-2026-54203](https://nvd.nist.gov/vuln/detail/CVE-2026-54203) · 9.4/10** — Memory Leak to an Unauthorized Actor vulnerability in Tobit Laboratories AG TeamDavid&#x27;s Webbox allows reading of sensiti — CVSS 9.2; detection opportunity
-- **[CVE-2026-48170](https://nvd.nist.gov/vuln/detail/CVE-2026-48170) · 9.3/10** — `scim-patch`, a library to perform SCIM patch, prior to version 0.9.1 performs prototype pollution when applying a SCIM — CVSS 9.1; detection opportunity
-
-### Human context
-
-**[Linux Shell Forensic: Let?s Dive Into Atuin!, (Fri, Aug 7th)](https://isc.sans.edu/diary/rss/33226)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> UNIX systems (including Linux) are well-known to record a lot of activities in many different locations. But there is one domain where they definitely…
-
-### Community pulse
-
-**[Assembly Hall of Shame](https://github.com/xoreaxeaxeax/asm-hall-of-shame)** — Hacker News · 312 points · 74 comments
-[Open discussion](https://news.ycombinator.com/item?id=49214098)
+- **[CVE-2026-71993](https://nvd.nist.gov/vuln/detail/CVE-2026-71993) · 10.0/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the openvpn function tha — CVSS 9.3; priority technology: vpn_remote_access
+- **[CVE-2026-14526](https://nvd.nist.gov/vuln/detail/CVE-2026-14526) · 10.0/10** — The AI Copilot – Content Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and — CVSS 9.8; detection opportunity
+- **[CVE-2026-71992](https://nvd.nist.gov/vuln/detail/CVE-2026-71992) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the macfilter function t — CVSS 9.3; detection opportunity
+- **[CVE-2026-71991](https://nvd.nist.gov/vuln/detail/CVE-2026-71991) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u — CVSS 9.3; detection opportunity
+- **[CVE-2026-71990](https://nvd.nist.gov/vuln/detail/CVE-2026-71990) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u — CVSS 9.3; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
