@@ -1,8 +1,17 @@
 {
-  "above_threshold": 34,
-  "community_pulse": null,
-  "coverage_end": "2026-08-09T07:14:21+00:00",
-  "coverage_start": "2026-08-08T07:14:21+00:00",
+  "above_threshold": 29,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 67,
+    "discussion_url": "https://news.ycombinator.com/item?id=49239751",
+    "published_at": "2026-08-10T06:02:38+00:00",
+    "score": 113,
+    "source_name": "Hacker News",
+    "source_url": "https://www.docker.com/products/docker-sandboxes/",
+    "title": "Docker Sandboxes \u2013 Disposable, isolated sandboxes for AI agents"
+  },
+  "coverage_end": "2026-08-10T08:02:29+00:00",
+  "coverage_start": "2026-08-09T08:02:29+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,14 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-09T07:14:28+00:00",
-  "human_context": null,
+  "generated_at": "2026-08-10T08:02:35+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-08-10T02:00:03+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33228",
+    "title": "ISC Stormcast For Monday, August 10th, 2026 https://isc.sans.edu/podcastdetail/10044, (Mon, Aug 10th)"
+  },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 96,
+  "qualified_developments": 100,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -43,133 +60,133 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-71993"
+        "CVE-2026-13133"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 8.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-71993",
+      "id": "CVE-2026-13133",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.2,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: vpn_remote_access +8",
+        "high CVSS +10",
+        "priority technology: windows +8",
         "official source +5"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
+      "selection_score": 23,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71993",
-      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the openvpn function tha",
-      "why_it_matters": "CVSS 9.3; priority technology: vpn_remote_access"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13133",
+      "title": "A vulnerability has been identified in LineInst.exe (LINE for Windows) prior to version 26.4.0, where Msftedit.dll is lo",
+      "why_it_matters": "CVSS 8.4; priority technology: windows"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-14526"
+        "CVE-2026-19348"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.45987,
-      "epss_score": 0.00612,
-      "ghsa_ids": [],
-      "id": "CVE-2026-14526",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14526",
-      "title": "The AI Copilot \u2013 Content Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-71992"
-      ],
-      "cvss_score": 9.3,
+      "cvss_score": 8.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-71992",
+      "id": "CVE-2026-19348",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 9.2,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71992",
-      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the macfilter function t",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19348",
+      "title": "A security flaw has been discovered in Shenzhen Aitemi M300 Wi-Fi Repeater r0-ea7890a. Impacted is the function sprintf",
+      "why_it_matters": "CVSS 8.9; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-71991"
+        "CVE-2026-19387"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 7.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-71991",
+      "id": "CVE-2026-19387",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 7.8,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71991",
-      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19387",
+      "title": "A heap out-of-bounds write vulnerability was found in the GStreamer gst-plugins-bad adpcmdec element when decoding IMA/D",
+      "why_it_matters": "CVSS 7.6; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-71990"
+        "CVE-2026-19346"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 7.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-71990",
+      "id": "CVE-2026-19346",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 7.7,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
+        "high CVSS +10",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
+      "selection_score": 15,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71990",
-      "title": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19346",
+      "title": "A vulnerability was determined in Tenda CH22 1.0.0.1. This vulnerability affects the function formCertListInfo of the fi",
+      "why_it_matters": "CVSS 7.4; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-19389"
+      ],
+      "cvss_score": 7.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-19389",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 7.3,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19389",
+      "title": "Multiple integer overflow and underflow vulnerabilities were found in the GStreamer gst-plugins-ugly ASF demuxer (asfdem",
+      "why_it_matters": "CVSS 7.1; detection opportunity"
     }
   ]
 }

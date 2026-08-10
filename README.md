@@ -9,23 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-09T07:14:28+00:00  
-**Coverage:** 2026-08-08T07:14:21+00:00 → 2026-08-09T07:14:21+00:00  
+**Updated:** 2026-08-10T08:02:35+00:00  
+**Coverage:** 2026-08-09T08:02:29+00:00 → 2026-08-10T08:02:29+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 96 source-backed developments
-- **Above threshold:** 34
+- **Assessed:** 100 source-backed developments
+- **Above threshold:** 29
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-71993](https://nvd.nist.gov/vuln/detail/CVE-2026-71993) · 10.0/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the openvpn function tha — CVSS 9.3; priority technology: vpn_remote_access
-- **[CVE-2026-14526](https://nvd.nist.gov/vuln/detail/CVE-2026-14526) · 10.0/10** — The AI Copilot – Content Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and — CVSS 9.8; detection opportunity
-- **[CVE-2026-71992](https://nvd.nist.gov/vuln/detail/CVE-2026-71992) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the macfilter function t — CVSS 9.3; detection opportunity
-- **[CVE-2026-71991](https://nvd.nist.gov/vuln/detail/CVE-2026-71991) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u — CVSS 9.3; detection opportunity
-- **[CVE-2026-71990](https://nvd.nist.gov/vuln/detail/CVE-2026-71990) · 9.6/10** — MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function u — CVSS 9.3; detection opportunity
+- **[CVE-2026-13133](https://nvd.nist.gov/vuln/detail/CVE-2026-13133) · 9.2/10** — A vulnerability has been identified in LineInst.exe (LINE for Windows) prior to version 26.4.0, where Msftedit.dll is lo — CVSS 8.4; priority technology: windows
+- **[CVE-2026-19348](https://nvd.nist.gov/vuln/detail/CVE-2026-19348) · 9.2/10** — A security flaw has been discovered in Shenzhen Aitemi M300 Wi-Fi Repeater r0-ea7890a. Impacted is the function sprintf — CVSS 8.9; detection opportunity
+- **[CVE-2026-19387](https://nvd.nist.gov/vuln/detail/CVE-2026-19387) · 7.8/10** — A heap out-of-bounds write vulnerability was found in the GStreamer gst-plugins-bad adpcmdec element when decoding IMA/D — CVSS 7.6; detection opportunity
+- **[CVE-2026-19346](https://nvd.nist.gov/vuln/detail/CVE-2026-19346) · 7.7/10** — A vulnerability was determined in Tenda CH22 1.0.0.1. This vulnerability affects the function formCertListInfo of the fi — CVSS 7.4; detection opportunity
+- **[CVE-2026-19389](https://nvd.nist.gov/vuln/detail/CVE-2026-19389) · 7.3/10** — Multiple integer overflow and underflow vulnerabilities were found in the GStreamer gst-plugins-ugly ASF demuxer (asfdem — CVSS 7.1; detection opportunity
+
+### Human context
+
+**[ISC Stormcast For Monday, August 10th, 2026 https://isc.sans.edu/podcastdetail/10044, (Mon, Aug 10th)](https://isc.sans.edu/diary/rss/33228)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Docker Sandboxes – Disposable, isolated sandboxes for AI agents](https://www.docker.com/products/docker-sandboxes/)** — Hacker News · 113 points · 67 comments
+[Open discussion](https://news.ycombinator.com/item?id=49239751)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
