@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-10T08:02:35+00:00  
-**Coverage:** 2026-08-09T08:02:29+00:00 → 2026-08-10T08:02:29+00:00  
+**Updated:** 2026-08-11T07:34:26+00:00  
+**Coverage:** 2026-08-10T07:34:02+00:00 → 2026-08-11T07:34:02+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 100 source-backed developments
-- **Above threshold:** 29
+- **Assessed:** 682 source-backed developments
+- **Above threshold:** 245
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-13133](https://nvd.nist.gov/vuln/detail/CVE-2026-13133) · 9.2/10** — A vulnerability has been identified in LineInst.exe (LINE for Windows) prior to version 26.4.0, where Msftedit.dll is lo — CVSS 8.4; priority technology: windows
-- **[CVE-2026-19348](https://nvd.nist.gov/vuln/detail/CVE-2026-19348) · 9.2/10** — A security flaw has been discovered in Shenzhen Aitemi M300 Wi-Fi Repeater r0-ea7890a. Impacted is the function sprintf — CVSS 8.9; detection opportunity
-- **[CVE-2026-19387](https://nvd.nist.gov/vuln/detail/CVE-2026-19387) · 7.8/10** — A heap out-of-bounds write vulnerability was found in the GStreamer gst-plugins-bad adpcmdec element when decoding IMA/D — CVSS 7.6; detection opportunity
-- **[CVE-2026-19346](https://nvd.nist.gov/vuln/detail/CVE-2026-19346) · 7.7/10** — A vulnerability was determined in Tenda CH22 1.0.0.1. This vulnerability affects the function formCertListInfo of the fi — CVSS 7.4; detection opportunity
-- **[CVE-2026-19389](https://nvd.nist.gov/vuln/detail/CVE-2026-19389) · 7.3/10** — Multiple integer overflow and underflow vulnerabilities were found in the GStreamer gst-plugins-ugly ASF demuxer (asfdem — CVSS 7.1; detection opportunity
+- **[CVE-2026-72902](https://nvd.nist.gov/vuln/detail/CVE-2026-72902) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated user to — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-72901](https://nvd.nist.gov/vuln/detail/CVE-2026-72901) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated low-pri — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-72879](https://nvd.nist.gov/vuln/detail/CVE-2026-72879) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.8, the getRegistryCommands() function in pa — CVSS 9.4; priority technology: cloud
+- **[CVE-2026-72877](https://nvd.nist.gov/vuln/detail/CVE-2026-72877) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the dockerImage field is interpolated w — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-72876](https://nvd.nist.gov/vuln/detail/CVE-2026-72876) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, swarm.getNodes, swarm.getNodeInfo, swar — CVSS 9.9; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Monday, August 10th, 2026 https://isc.sans.edu/podcastdetail/10044, (Mon, Aug 10th)](https://isc.sans.edu/diary/rss/33228)**
+**[ISC Stormcast For Tuesday, August 11th, 2026 https://isc.sans.edu/podcastdetail/10046, (Tue, Aug 11th)](https://isc.sans.edu/diary/rss/33232)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Docker Sandboxes – Disposable, isolated sandboxes for AI agents](https://www.docker.com/products/docker-sandboxes/)** — Hacker News · 113 points · 67 comments
-[Open discussion](https://news.ycombinator.com/item?id=49239751)
+**[H3-metal – Native MiniMax-H3 inference for Apple Silicon](https://github.com/antirez/h3.c)** — Hacker News · 206 points · 29 comments
+[Open discussion](https://news.ycombinator.com/item?id=49252179)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

@@ -1,17 +1,17 @@
 {
-  "above_threshold": 29,
+  "above_threshold": 245,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 67,
-    "discussion_url": "https://news.ycombinator.com/item?id=49239751",
-    "published_at": "2026-08-10T06:02:38+00:00",
-    "score": 113,
+    "comments": 29,
+    "discussion_url": "https://news.ycombinator.com/item?id=49252179",
+    "published_at": "2026-08-11T01:22:09+00:00",
+    "score": 206,
     "source_name": "Hacker News",
-    "source_url": "https://www.docker.com/products/docker-sandboxes/",
-    "title": "Docker Sandboxes \u2013 Disposable, isolated sandboxes for AI agents"
+    "source_url": "https://github.com/antirez/h3.c",
+    "title": "H3-metal \u2013 Native MiniMax-H3 inference for Apple Silicon"
   },
-  "coverage_end": "2026-08-10T08:02:29+00:00",
-  "coverage_start": "2026-08-09T08:02:29+00:00",
+  "coverage_end": "2026-08-11T07:34:02+00:00",
+  "coverage_start": "2026-08-10T07:34:02+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-10T08:02:35+00:00",
+  "generated_at": "2026-08-11T07:34:26+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-10T02:00:03+00:00",
+    "published_at": "2026-08-11T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33228",
-    "title": "ISC Stormcast For Monday, August 10th, 2026 https://isc.sans.edu/podcastdetail/10044, (Mon, Aug 10th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33232",
+    "title": "ISC Stormcast For Tuesday, August 11th, 2026 https://isc.sans.edu/podcastdetail/10046, (Tue, Aug 11th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 100,
+  "qualified_developments": 682,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,133 +60,137 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-13133"
+        "CVE-2026-72902"
       ],
-      "cvss_score": 8.4,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-13133",
+      "id": "CVE-2026-72902",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
-        "priority technology: windows +8",
+        "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 23,
-      "severity": "HIGH",
+      "selection_score": 33,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13133",
-      "title": "A vulnerability has been identified in LineInst.exe (LINE for Windows) prior to version 26.4.0, where Msftedit.dll is lo",
-      "why_it_matters": "CVSS 8.4; priority technology: windows"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72902",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated user to",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-19348"
+        "CVE-2026-72901"
       ],
-      "cvss_score": 8.9,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19348",
+      "id": "CVE-2026-72901",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 33,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19348",
-      "title": "A security flaw has been discovered in Shenzhen Aitemi M300 Wi-Fi Repeater r0-ea7890a. Impacted is the function sprintf",
-      "why_it_matters": "CVSS 8.9; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72901",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated low-pri",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-19387"
+        "CVE-2026-72879"
       ],
-      "cvss_score": 7.6,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19387",
+      "id": "CVE-2026-72879",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 7.8,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 33,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19387",
-      "title": "A heap out-of-bounds write vulnerability was found in the GStreamer gst-plugins-bad adpcmdec element when decoding IMA/D",
-      "why_it_matters": "CVSS 7.6; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72879",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.8, the getRegistryCommands() function in pa",
+      "why_it_matters": "CVSS 9.4; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-19346"
+        "CVE-2026-72877"
       ],
-      "cvss_score": 7.4,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19346",
+      "id": "CVE-2026-72877",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 7.7,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 33,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19346",
-      "title": "A vulnerability was determined in Tenda CH22 1.0.0.1. This vulnerability affects the function formCertListInfo of the fi",
-      "why_it_matters": "CVSS 7.4; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72877",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the dockerImage field is interpolated w",
+      "why_it_matters": "CVSS 9.6; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-19389"
+        "CVE-2026-72876"
       ],
-      "cvss_score": 7.1,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19389",
+      "id": "CVE-2026-72876",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 7.3,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 33,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19389",
-      "title": "Multiple integer overflow and underflow vulnerabilities were found in the GStreamer gst-plugins-ugly ASF demuxer (asfdem",
-      "why_it_matters": "CVSS 7.1; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72876",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, swarm.getNodes, swarm.getNodeInfo, swar",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     }
   ]
 }
