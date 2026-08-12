@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-11T07:34:26+00:00  
-**Coverage:** 2026-08-10T07:34:02+00:00 → 2026-08-11T07:34:02+00:00  
+**Updated:** 2026-08-12T07:49:51+00:00  
+**Coverage:** 2026-08-11T07:49:29+00:00 → 2026-08-12T07:49:29+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 682 source-backed developments
-- **Above threshold:** 245
+- **Assessed:** 961 source-backed developments
+- **Above threshold:** 775
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-72902](https://nvd.nist.gov/vuln/detail/CVE-2026-72902) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated user to — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-72901](https://nvd.nist.gov/vuln/detail/CVE-2026-72901) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated low-pri — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-72879](https://nvd.nist.gov/vuln/detail/CVE-2026-72879) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.8, the getRegistryCommands() function in pa — CVSS 9.4; priority technology: cloud
-- **[CVE-2026-72877](https://nvd.nist.gov/vuln/detail/CVE-2026-72877) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the dockerImage field is interpolated w — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-72876](https://nvd.nist.gov/vuln/detail/CVE-2026-72876) · 10.0/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, swarm.getNodes, swarm.getNodeInfo, swar — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-73032](https://nvd.nist.gov/vuln/detail/CVE-2026-73032) · 10.0/10** — PapersGPT for Zotero 0.6.1 contains a remote code execution vulnerability that allows attackers to execute arbitrary Jav — CVSS 9.4; priority technology: browsers
+- **[CVE-2026-70398](https://nvd.nist.gov/vuln/detail/CVE-2026-70398) · 10.0/10** — A flaw was found in multicloud-integrations, a component of Red Hat Advanced Cluster Management (RHACM). This vulnerabil — CVSS 9.6; priority technology: linux
+- **[CVE-2026-72920](https://nvd.nist.gov/vuln/detail/CVE-2026-72920) · 10.0/10** — SeaweedFS is a distributed storage system. Prior to 4.24, the filer registers the SeaweedIdentityAccessManagement gRPC s — CVSS 9.8; detection opportunity
+- **[CVE-2026-72526](https://nvd.nist.gov/vuln/detail/CVE-2026-72526) · 10.0/10** — A flaw was found in the multicloud-integrations component. The Application propagation controller processes the `ocm-man — CVSS 9.9; detection opportunity
+- **[CVE-2026-71398](https://nvd.nist.gov/vuln/detail/CVE-2026-71398) · 10.0/10** — Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code — CVSS 10.0; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, August 11th, 2026 https://isc.sans.edu/podcastdetail/10046, (Tue, Aug 11th)](https://isc.sans.edu/diary/rss/33232)**
+**[ISC Stormcast For Wednesday, August 12th, 2026 https://isc.sans.edu/podcastdetail/10048, (Wed, Aug 12th)](https://isc.sans.edu/diary/rss/33238)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[H3-metal – Native MiniMax-H3 inference for Apple Silicon](https://github.com/antirez/h3.c)** — Hacker News · 206 points · 29 comments
-[Open discussion](https://news.ycombinator.com/item?id=49252179)
+**[Show HN: Git-knife – Edit commit messages, authors, and dates like a spreadsheet](https://github.com/TheRealYT/git-knife)** — Hacker News · 150 points · 96 comments
+[Open discussion](https://news.ycombinator.com/item?id=49259611)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
