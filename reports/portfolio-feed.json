@@ -1,17 +1,17 @@
 {
-  "above_threshold": 775,
+  "above_threshold": 297,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 96,
-    "discussion_url": "https://news.ycombinator.com/item?id=49259611",
-    "published_at": "2026-08-11T15:09:34+00:00",
-    "score": 150,
+    "comments": 200,
+    "discussion_url": "https://news.ycombinator.com/item?id=49272569",
+    "published_at": "2026-08-12T14:02:46+00:00",
+    "score": 267,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/TheRealYT/git-knife",
-    "title": "Show HN: Git-knife \u2013 Edit commit messages, authors, and dates like a spreadsheet"
+    "source_url": "https://knownagents.com/insights",
+    "title": "Someone is running mass vulnerability scans, spoofing AI bots like ClaudeBot"
   },
-  "coverage_end": "2026-08-12T07:49:29+00:00",
-  "coverage_start": "2026-08-11T07:49:29+00:00",
+  "coverage_end": "2026-08-13T07:50:49+00:00",
+  "coverage_start": "2026-08-12T07:50:49+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-12T07:49:51+00:00",
+  "generated_at": "2026-08-13T07:51:16+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-12T02:00:03+00:00",
+    "published_at": "2026-08-13T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33238",
-    "title": "ISC Stormcast For Wednesday, August 12th, 2026 https://isc.sans.edu/podcastdetail/10048, (Wed, Aug 12th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33244",
+    "title": "ISC Stormcast For Thursday, August 13th, 2026 https://isc.sans.edu/podcastdetail/10050, (Thu, Aug 13th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 961,
+  "qualified_developments": 399,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,41 +60,41 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-73032"
+        "CVE-2026-73519"
       ],
-      "cvss_score": 9.4,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-73032",
+      "id": "CVE-2026-73519",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
+        "priority technology: cloud +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73032",
-      "title": "PapersGPT for Zotero 0.6.1 contains a remote code execution vulnerability that allows attackers to execute arbitrary Jav",
-      "why_it_matters": "CVSS 9.4; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73519",
+      "title": "WolfStack before 25.9.2 contains a hard-coded cluster-authentication secret compiled into every build and published as a",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-70398"
+        "CVE-2026-72508"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-70398",
+      "id": "CVE-2026-72508",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -107,87 +107,90 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70398",
-      "title": "A flaw was found in multicloud-integrations, a component of Red Hat Advanced Cluster Management (RHACM). This vulnerabil",
-      "why_it_matters": "CVSS 9.6; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72508",
+      "title": "A flaw was found in the multicloud-operators-subscription component of Red Hat Advanced Cluster Management (RHACM). This",
+      "why_it_matters": "CVSS 9.9; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-72920"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-72920",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72920",
-      "title": "SeaweedFS is a distributed storage system. Prior to 4.24, the filer registers the SeaweedIdentityAccessManagement gRPC s",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-72526"
+        "CVE-2026-63299"
       ],
       "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-72526",
+      "id": "CVE-2026-63299",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72526",
-      "title": "A flaw was found in the multicloud-integrations component. The Application propagation controller processes the `ocm-man",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63299",
+      "title": "An authorization bypass vulnerability in LXD allows an authenticated user to bypass project-level disk and volume limits",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-71398"
+        "CVE-2026-50561"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-71398",
+      "id": "CVE-2026-50561",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71398",
-      "title": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50561",
+      "title": "Yuxi is a large-model-based intelligent knowledge base and knowledge graph agent development platform. Prior to version",
+      "why_it_matters": "CVSS 9.4; priority technology: browsers"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-49481"
+      ],
+      "cvss_score": 9.6,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-49481",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49481",
+      "title": "UpSnap is a wake on lan web app. Versions prior to 5.4.0 have an OS command injection vulnerability in the UpSnap\u2019s devi",
+      "why_it_matters": "CVSS 9.6; priority technology: windows"
     }
   ]
 }
