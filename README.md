@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-13T07:51:16+00:00  
-**Coverage:** 2026-08-12T07:50:49+00:00 → 2026-08-13T07:50:49+00:00  
+**Updated:** 2026-08-14T07:47:48+00:00  
+**Coverage:** 2026-08-13T07:47:40+00:00 → 2026-08-14T07:47:40+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 399 source-backed developments
-- **Above threshold:** 297
+- **Assessed:** 625 source-backed developments
+- **Above threshold:** 486
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-73519](https://nvd.nist.gov/vuln/detail/CVE-2026-73519) · 10.0/10** — WolfStack before 25.9.2 contains a hard-coded cluster-authentication secret compiled into every build and published as a — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-72508](https://nvd.nist.gov/vuln/detail/CVE-2026-72508) · 10.0/10** — A flaw was found in the multicloud-operators-subscription component of Red Hat Advanced Cluster Management (RHACM). This — CVSS 9.9; priority technology: linux
-- **[CVE-2026-63299](https://nvd.nist.gov/vuln/detail/CVE-2026-63299) · 10.0/10** — An authorization bypass vulnerability in LXD allows an authenticated user to bypass project-level disk and volume limits — CVSS 9.9; priority technology: cloud
-- **[CVE-2026-50561](https://nvd.nist.gov/vuln/detail/CVE-2026-50561) · 10.0/10** — Yuxi is a large-model-based intelligent knowledge base and knowledge graph agent development platform. Prior to version — CVSS 9.4; priority technology: browsers
-- **[CVE-2026-49481](https://nvd.nist.gov/vuln/detail/CVE-2026-49481) · 10.0/10** — UpSnap is a wake on lan web app. Versions prior to 5.4.0 have an OS command injection vulnerability in the UpSnap’s devi — CVSS 9.6; priority technology: windows
+- **[CVE-2026-73843](https://nvd.nist.gov/vuln/detail/CVE-2026-73843) · 10.0/10** — OpenChoreo is a complete, open-source developer platform for Kubernetes. Prior to 1.0.2 and 1.1.2, internal/cluster-gate — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-73483](https://nvd.nist.gov/vuln/detail/CVE-2026-73483) · 10.0/10** — Flowise (packages flowise and flowise-components) in versions &lt;= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no — CVSS 9.4; priority technology: browsers
+- **[CVE-2026-72841](https://nvd.nist.gov/vuln/detail/CVE-2026-72841) · 10.0/10** — luci-app-openvpn fails to properly validate the instance_name2 parameter during file upload, allowing authenticated user — CVSS 9.4; priority technology: vpn_remote_access
+- **[CVE-2026-73656](https://nvd.nist.gov/vuln/detail/CVE-2026-73656) · 10.0/10** — Trigger.dev is a platform for building and deploying fully managed AI agents and workflows. Prior to 4.5.6, POST /api/v1 — CVSS 9.9; detection opportunity
+- **[CVE-2026-73649](https://nvd.nist.gov/vuln/detail/CVE-2026-73649) · 10.0/10** — Velocity.js is a JavaScript implementation of the Apache Velocity template engine. Prior to 2.1.7, the earlier fix for C — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Thursday, August 13th, 2026 https://isc.sans.edu/podcastdetail/10050, (Thu, Aug 13th)](https://isc.sans.edu/diary/rss/33244)**
+**[ISC Stormcast For Friday, August 14th, 2026 https://isc.sans.edu/podcastdetail/10052, (Fri, Aug 14th)](https://isc.sans.edu/diary/rss/33246)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Someone is running mass vulnerability scans, spoofing AI bots like ClaudeBot](https://knownagents.com/insights)** — Hacker News · 267 points · 200 comments
-[Open discussion](https://news.ycombinator.com/item?id=49272569)
+**[Spaghettifying DRAM](https://github.com/xoreaxeaxeax/skitter-creek-bath-salts)** — Hacker News · 591 points · 153 comments
+[Open discussion](https://news.ycombinator.com/item?id=49286341)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
