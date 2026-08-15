@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-14T07:47:48+00:00  
-**Coverage:** 2026-08-13T07:47:40+00:00 → 2026-08-14T07:47:40+00:00  
+**Updated:** 2026-08-15T06:56:02+00:00  
+**Coverage:** 2026-08-14T06:55:49+00:00 → 2026-08-15T06:55:49+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 625 source-backed developments
-- **Above threshold:** 486
+- **Assessed:** 928 source-backed developments
+- **Above threshold:** 177
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-73843](https://nvd.nist.gov/vuln/detail/CVE-2026-73843) · 10.0/10** — OpenChoreo is a complete, open-source developer platform for Kubernetes. Prior to 1.0.2 and 1.1.2, internal/cluster-gate — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-73483](https://nvd.nist.gov/vuln/detail/CVE-2026-73483) · 10.0/10** — Flowise (packages flowise and flowise-components) in versions &lt;= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no — CVSS 9.4; priority technology: browsers
-- **[CVE-2026-72841](https://nvd.nist.gov/vuln/detail/CVE-2026-72841) · 10.0/10** — luci-app-openvpn fails to properly validate the instance_name2 parameter during file upload, allowing authenticated user — CVSS 9.4; priority technology: vpn_remote_access
-- **[CVE-2026-73656](https://nvd.nist.gov/vuln/detail/CVE-2026-73656) · 10.0/10** — Trigger.dev is a platform for building and deploying fully managed AI agents and workflows. Prior to 4.5.6, POST /api/v1 — CVSS 9.9; detection opportunity
-- **[CVE-2026-73649](https://nvd.nist.gov/vuln/detail/CVE-2026-73649) · 10.0/10** — Velocity.js is a JavaScript implementation of the Apache Velocity template engine. Prior to 2.1.7, the earlier fix for C — CVSS 9.8; detection opportunity
+- **[CVE-2026-15341](https://nvd.nist.gov/vuln/detail/CVE-2026-15341) · 10.0/10** — The User Session Synchronizer plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-73849](https://nvd.nist.gov/vuln/detail/CVE-2026-73849) · 10.0/10** — Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall without aut — CVSS 9.8; detection opportunity
+- **[CVE-2026-73678](https://nvd.nist.gov/vuln/detail/CVE-2026-73678) · 10.0/10** — MindsDB Minds Platform version 26.1.0 and earlier contains an unauthenticated remote code execution vulnerability that a — CVSS 10.0; detection opportunity
+- **[CVE-2026-50027](https://nvd.nist.gov/vuln/detail/CVE-2026-50027) · 10.0/10** — mcp-memory-service is a semantic memory layer for AI applications. Prior to 10.67.1, all HTTP routes under /api/document — CVSS 9.8; detection opportunity
+- **[CVE-2026-48528](https://nvd.nist.gov/vuln/detail/CVE-2026-48528) · 10.0/10** — Metacat is data repository software that helps researchers preserve, share, and discover data. Metacat versions 2.0.0 th — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Friday, August 14th, 2026 https://isc.sans.edu/podcastdetail/10052, (Fri, Aug 14th)](https://isc.sans.edu/diary/rss/33246)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
-
-### Community pulse
-
-**[Spaghettifying DRAM](https://github.com/xoreaxeaxeax/skitter-creek-bath-salts)** — Hacker News · 591 points · 153 comments
-[Open discussion](https://news.ycombinator.com/item?id=49286341)
+**[Who’s Tracking You? Use This New Service to Find Out](https://krebsonsecurity.com/2026/08/whos-tracking-you-use-this-new-service-to-find-out/)**
+Brian Krebs · Krebs on Security  
+> It can be daunting to determine who&#x27;s responsible for showing ads on the websites we visit, or who&#x27;s harvesting data from the mobile apps…
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
