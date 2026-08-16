@@ -1,8 +1,8 @@
 {
-  "above_threshold": 177,
+  "above_threshold": 65,
   "community_pulse": null,
-  "coverage_end": "2026-08-15T06:55:49+00:00",
-  "coverage_start": "2026-08-14T06:55:49+00:00",
+  "coverage_end": "2026-08-16T06:57:11+00:00",
+  "coverage_start": "2026-08-15T06:57:11+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +11,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-15T06:56:02+00:00",
-  "human_context": {
-    "author": "Brian Krebs",
-    "excerpt": "It can be daunting to determine who's responsible for showing ads on the websites we visit, or who's harvesting data from the mobile apps\u2026",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-14T11:24:35+00:00",
-    "source_name": "Krebs on Security",
-    "source_url": "https://krebsonsecurity.com/2026/08/whos-tracking-you-use-this-new-service-to-find-out/",
-    "title": "Who\u2019s Tracking You? Use This New Service to Find Out"
-  },
+  "generated_at": "2026-08-16T06:57:20+00:00",
+  "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 928,
+  "qualified_developments": 253,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -51,67 +43,41 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-15341"
+        "CVE-2026-73046"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-15341",
+      "id": "CVE-2026-73046",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
+        "priority technology: linux +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15341",
-      "title": "The User Session Synchronizer plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73046",
+      "title": "SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basi",
+      "why_it_matters": "CVSS 9.3; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-73849"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-73849",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73849",
-      "title": "Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall without aut",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-73678"
+        "CVE-2026-74764"
       ],
       "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-73678",
+      "id": "CVE-2026-74764",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -123,21 +89,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73678",
-      "title": "MindsDB Minds Platform version 26.1.0 and earlier contains an unauthenticated remote code execution vulnerability that a",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74764",
+      "title": "Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted",
       "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-50027"
+        "CVE-2026-19598"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-50027",
+      "id": "CVE-2026-19598",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -149,21 +115,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50027",
-      "title": "mcp-memory-service is a semantic memory layer for AI applications. Prior to 10.67.1, all HTTP routes under /api/document",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19598",
+      "title": "The Pods \u2013 Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-48528"
+        "CVE-2026-18432"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-48528",
+      "id": "CVE-2026-18432",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -175,8 +141,34 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48528",
-      "title": "Metacat is data repository software that helps researchers preserve, share, and discover data. Metacat versions 2.0.0 th",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18432",
+      "title": "The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and i",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-16142"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.30865,
+      "epss_score": 0.00377,
+      "ghsa_ids": [],
+      "id": "CVE-2026-16142",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142",
+      "title": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]

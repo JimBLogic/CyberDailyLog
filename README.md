@@ -9,29 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-15T06:56:02+00:00  
-**Coverage:** 2026-08-14T06:55:49+00:00 → 2026-08-15T06:55:49+00:00  
+**Updated:** 2026-08-16T06:57:20+00:00  
+**Coverage:** 2026-08-15T06:57:11+00:00 → 2026-08-16T06:57:11+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 928 source-backed developments
-- **Above threshold:** 177
+- **Assessed:** 253 source-backed developments
+- **Above threshold:** 65
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-15341](https://nvd.nist.gov/vuln/detail/CVE-2026-15341) · 10.0/10** — The User Session Synchronizer plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in — CVSS 9.8; priority technology: browsers
-- **[CVE-2026-73849](https://nvd.nist.gov/vuln/detail/CVE-2026-73849) · 10.0/10** — Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall without aut — CVSS 9.8; detection opportunity
-- **[CVE-2026-73678](https://nvd.nist.gov/vuln/detail/CVE-2026-73678) · 10.0/10** — MindsDB Minds Platform version 26.1.0 and earlier contains an unauthenticated remote code execution vulnerability that a — CVSS 10.0; detection opportunity
-- **[CVE-2026-50027](https://nvd.nist.gov/vuln/detail/CVE-2026-50027) · 10.0/10** — mcp-memory-service is a semantic memory layer for AI applications. Prior to 10.67.1, all HTTP routes under /api/document — CVSS 9.8; detection opportunity
-- **[CVE-2026-48528](https://nvd.nist.gov/vuln/detail/CVE-2026-48528) · 10.0/10** — Metacat is data repository software that helps researchers preserve, share, and discover data. Metacat versions 2.0.0 th — CVSS 9.8; detection opportunity
-
-### Human context
-
-**[Who’s Tracking You? Use This New Service to Find Out](https://krebsonsecurity.com/2026/08/whos-tracking-you-use-this-new-service-to-find-out/)**
-Brian Krebs · Krebs on Security  
-> It can be daunting to determine who&#x27;s responsible for showing ads on the websites we visit, or who&#x27;s harvesting data from the mobile apps…
+- **[CVE-2026-73046](https://nvd.nist.gov/vuln/detail/CVE-2026-73046) · 10.0/10** — SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basi — CVSS 9.3; priority technology: linux
+- **[CVE-2026-74764](https://nvd.nist.gov/vuln/detail/CVE-2026-74764) · 10.0/10** — Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted — CVSS 10.0; detection opportunity
+- **[CVE-2026-19598](https://nvd.nist.gov/vuln/detail/CVE-2026-19598) · 10.0/10** — The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization — CVSS 9.8; detection opportunity
+- **[CVE-2026-18432](https://nvd.nist.gov/vuln/detail/CVE-2026-18432) · 10.0/10** — The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and i — CVSS 9.8; detection opportunity
+- **[CVE-2026-16142](https://nvd.nist.gov/vuln/detail/CVE-2026-16142) · 10.0/10** — The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This — CVSS 9.8; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
