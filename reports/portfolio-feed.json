@@ -1,8 +1,8 @@
 {
-  "above_threshold": 65,
+  "above_threshold": 45,
   "community_pulse": null,
-  "coverage_end": "2026-08-16T06:57:11+00:00",
-  "coverage_start": "2026-08-15T06:57:11+00:00",
+  "coverage_end": "2026-08-17T07:14:11+00:00",
+  "coverage_start": "2026-08-16T07:14:11+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,14 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-16T06:57:20+00:00",
-  "human_context": null,
+  "generated_at": "2026-08-17T07:14:28+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-08-17T02:00:02+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33250",
+    "title": "ISC Stormcast For Monday, August 17th, 2026 https://isc.sans.edu/podcastdetail/10054, (Mon, Aug 17th)"
+  },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 253,
+  "qualified_developments": 80,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -43,14 +51,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-73046"
+        "CVE-2026-73056"
       ],
       "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-73046",
+      "id": "CVE-2026-73056",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -63,47 +71,21 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73046",
-      "title": "SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basi",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73056",
+      "title": "SiYuan kernel versions before 3.7.4 contain an improper restriction of excessive authentication attempts vulnerability i",
       "why_it_matters": "CVSS 9.3; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-74764"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-74764",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74764",
-      "title": "Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-19598"
+        "CVE-2024-13784"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.41745,
+      "epss_score": 0.00519,
       "ghsa_ids": [],
-      "id": "CVE-2026-19598",
+      "id": "CVE-2024-13784",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -115,24 +97,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19598",
-      "title": "The Pods \u2013 Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13784",
+      "title": "The Contact Form, Survey, Quiz & Popup Form Builder \u2013 ARForms plugin for WordPress is vulnerable to PHP Object Injection",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-18432"
+        "CVE-2026-74790"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-18432",
+      "id": "CVE-2026-74790",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -141,24 +123,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18432",
-      "title": "The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and i",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74790",
+      "title": "Scriban before 7.0.0 caches TypedObjectAccessor by Type only without considering MemberFilter changes, allowing reused T",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-16142"
+        "CVE-2026-73061"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.30865,
-      "epss_score": 0.00377,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-16142",
+      "id": "CVE-2026-73061",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -167,9 +149,35 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142",
-      "title": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73061",
+      "title": "Scriban before 7.2.2 contains an access-modifier bypass vulnerability in TypedObjectAccessor that allows template code t",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-19977"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-19977",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19977",
+      "title": "A vulnerability was detected in EFM ipTIME A3004T 14.19.0. The affected element is the function httpcon_check_session_ur",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }

@@ -9,23 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-16T06:57:20+00:00  
-**Coverage:** 2026-08-15T06:57:11+00:00 → 2026-08-16T06:57:11+00:00  
+**Updated:** 2026-08-17T07:14:28+00:00  
+**Coverage:** 2026-08-16T07:14:11+00:00 → 2026-08-17T07:14:11+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 253 source-backed developments
-- **Above threshold:** 65
+- **Assessed:** 80 source-backed developments
+- **Above threshold:** 45
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-73046](https://nvd.nist.gov/vuln/detail/CVE-2026-73046) · 10.0/10** — SiYuan before v3.7.4 improperly restricts excessive authentication attempts in the CheckAuth() middleware. The HTTP Basi — CVSS 9.3; priority technology: linux
-- **[CVE-2026-74764](https://nvd.nist.gov/vuln/detail/CVE-2026-74764) · 10.0/10** — Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted — CVSS 10.0; detection opportunity
-- **[CVE-2026-19598](https://nvd.nist.gov/vuln/detail/CVE-2026-19598) · 10.0/10** — The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization — CVSS 9.8; detection opportunity
-- **[CVE-2026-18432](https://nvd.nist.gov/vuln/detail/CVE-2026-18432) · 10.0/10** — The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and i — CVSS 9.8; detection opportunity
-- **[CVE-2026-16142](https://nvd.nist.gov/vuln/detail/CVE-2026-16142) · 10.0/10** — The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This — CVSS 9.8; detection opportunity
+- **[CVE-2026-73056](https://nvd.nist.gov/vuln/detail/CVE-2026-73056) · 10.0/10** — SiYuan kernel versions before 3.7.4 contain an improper restriction of excessive authentication attempts vulnerability i — CVSS 9.3; priority technology: linux
+- **[CVE-2024-13784](https://nvd.nist.gov/vuln/detail/CVE-2024-13784) · 10.0/10** — The Contact Form, Survey, Quiz &amp; Popup Form Builder – ARForms plugin for WordPress is vulnerable to PHP Object Injection — CVSS 9.8; detection opportunity
+- **[CVE-2026-74790](https://nvd.nist.gov/vuln/detail/CVE-2026-74790) · 9.6/10** — Scriban before 7.0.0 caches TypedObjectAccessor by Type only without considering MemberFilter changes, allowing reused T — CVSS 9.3; detection opportunity
+- **[CVE-2026-73061](https://nvd.nist.gov/vuln/detail/CVE-2026-73061) · 9.6/10** — Scriban before 7.2.2 contains an access-modifier bypass vulnerability in TypedObjectAccessor that allows template code t — CVSS 9.3; detection opportunity
+- **[CVE-2026-19977](https://nvd.nist.gov/vuln/detail/CVE-2026-19977) · 9.6/10** — A vulnerability was detected in EFM ipTIME A3004T 14.19.0. The affected element is the function httpcon_check_session_ur — CVSS 9.3; detection opportunity
+
+### Human context
+
+**[ISC Stormcast For Monday, August 17th, 2026 https://isc.sans.edu/podcastdetail/10054, (Mon, Aug 17th)](https://isc.sans.edu/diary/rss/33250)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
