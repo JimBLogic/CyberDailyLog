@@ -9,29 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-17T07:14:28+00:00  
-**Coverage:** 2026-08-16T07:14:11+00:00 → 2026-08-17T07:14:11+00:00  
+**Updated:** 2026-08-18T07:02:18+00:00  
+**Coverage:** 2026-08-17T07:01:55+00:00 → 2026-08-18T07:01:55+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 80 source-backed developments
-- **Above threshold:** 45
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 340 source-backed developments
+- **Above threshold:** 220
+- Core sources: **3/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-73056](https://nvd.nist.gov/vuln/detail/CVE-2026-73056) · 10.0/10** — SiYuan kernel versions before 3.7.4 contain an improper restriction of excessive authentication attempts vulnerability i — CVSS 9.3; priority technology: linux
-- **[CVE-2024-13784](https://nvd.nist.gov/vuln/detail/CVE-2024-13784) · 10.0/10** — The Contact Form, Survey, Quiz &amp; Popup Form Builder – ARForms plugin for WordPress is vulnerable to PHP Object Injection — CVSS 9.8; detection opportunity
-- **[CVE-2026-74790](https://nvd.nist.gov/vuln/detail/CVE-2026-74790) · 9.6/10** — Scriban before 7.0.0 caches TypedObjectAccessor by Type only without considering MemberFilter changes, allowing reused T — CVSS 9.3; detection opportunity
-- **[CVE-2026-73061](https://nvd.nist.gov/vuln/detail/CVE-2026-73061) · 9.6/10** — Scriban before 7.2.2 contains an access-modifier bypass vulnerability in TypedObjectAccessor that allows template code t — CVSS 9.3; detection opportunity
-- **[CVE-2026-19977](https://nvd.nist.gov/vuln/detail/CVE-2026-19977) · 9.6/10** — A vulnerability was detected in EFM ipTIME A3004T 14.19.0. The affected element is the function httpcon_check_session_ur — CVSS 9.3; detection opportunity
-
-### Human context
-
-**[ISC Stormcast For Monday, August 17th, 2026 https://isc.sans.edu/podcastdetail/10054, (Mon, Aug 17th)](https://isc.sans.edu/diary/rss/33250)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+- **[CVE-2026-74798](https://nvd.nist.gov/vuln/detail/CVE-2026-74798) · 10.0/10** — SiYuan kernel before v3.7.4 contains a path traversal vulnerability in the database_clean MCP tool. The tool performs on — CVSS 9.3; priority technology: linux
+- **[CVE-2026-74253](https://nvd.nist.gov/vuln/detail/CVE-2026-74253) · 10.0/10** — Joomla Extension - regularlabs.com - Unauthenticated RCE through unverified reflected user input in Sourcerer &lt; 14.0.0 - — CVSS 10.0; detection opportunity
+- **[CVE-2026-66792](https://nvd.nist.gov/vuln/detail/CVE-2026-66792) · 10.0/10** — A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a user on a managed clust — CVSS 9.9; detection opportunity
+- **[CVE-2026-65974](https://nvd.nist.gov/vuln/detail/CVE-2026-65974) · 10.0/10** — ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.111.0 and 16.22.0, limited authenticate — CVSS 9.9; detection opportunity
+- **[CVE-2026-47698](https://nvd.nist.gov/vuln/detail/CVE-2026-47698) · 10.0/10** — vm2 is an open source vm/sandbox for Node.js. Prior to 3.11.6, lib/bridge.js and lib/setup-sandbox.js fail to block stac — CVSS 9.8; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
