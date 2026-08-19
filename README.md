@@ -9,23 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-18T07:02:18+00:00  
-**Coverage:** 2026-08-17T07:01:55+00:00 → 2026-08-18T07:01:55+00:00  
+**Updated:** 2026-08-19T07:04:09+00:00  
+**Coverage:** 2026-08-18T07:03:17+00:00 → 2026-08-19T07:03:17+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 340 source-backed developments
-- **Above threshold:** 220
-- Core sources: **3/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
+- **Assessed:** 1486 source-backed developments
+- **Above threshold:** 1239
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-74798](https://nvd.nist.gov/vuln/detail/CVE-2026-74798) · 10.0/10** — SiYuan kernel before v3.7.4 contains a path traversal vulnerability in the database_clean MCP tool. The tool performs on — CVSS 9.3; priority technology: linux
-- **[CVE-2026-74253](https://nvd.nist.gov/vuln/detail/CVE-2026-74253) · 10.0/10** — Joomla Extension - regularlabs.com - Unauthenticated RCE through unverified reflected user input in Sourcerer &lt; 14.0.0 - — CVSS 10.0; detection opportunity
-- **[CVE-2026-66792](https://nvd.nist.gov/vuln/detail/CVE-2026-66792) · 10.0/10** — A flaw was found in the multicloud-operators-subscription component. This vulnerability allows a user on a managed clust — CVSS 9.9; detection opportunity
-- **[CVE-2026-65974](https://nvd.nist.gov/vuln/detail/CVE-2026-65974) · 10.0/10** — ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.111.0 and 16.22.0, limited authenticate — CVSS 9.9; detection opportunity
-- **[CVE-2026-47698](https://nvd.nist.gov/vuln/detail/CVE-2026-47698) · 10.0/10** — vm2 is an open source vm/sandbox for Node.js. Prior to 3.11.6, lib/bridge.js and lib/setup-sandbox.js fail to block stac — CVSS 9.8; detection opportunity
+- **[CVE-2026-47627](https://nvd.nist.gov/vuln/detail/CVE-2026-47627) · 10.0/10** — NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A succes — CVSS 9.8; priority technology: linux
+- **[CVE-2026-76008](https://nvd.nist.gov/vuln/detail/CVE-2026-76008) · 10.0/10** — A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox- — CVSS 10.0; detection opportunity
+- **[CVE-2026-73996](https://nvd.nist.gov/vuln/detail/CVE-2026-73996) · 10.0/10** — Unauthenticated Arbitrary File Upload in Masteriyo - LMS &lt;= 2.3.2 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-73930](https://nvd.nist.gov/vuln/detail/CVE-2026-73930) · 10.0/10** — Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver — CVSS 9.9; detection opportunity
+- **[CVE-2026-73921](https://nvd.nist.gov/vuln/detail/CVE-2026-73921) · 10.0/10** — Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver — CVSS 9.8; detection opportunity
+
+### Human context
+
+**[ISC Stormcast For Wednesday, August 19th, 2026 https://isc.sans.edu/podcastdetail/10058, (Wed, Aug 19th)](https://isc.sans.edu/diary/rss/33258)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[A 3D fruit fly on macOS desktop powered by the real FlyWire connectome](https://github.com/DenisSergeevitch/desktop-fly)** — Hacker News · 243 points · 82 comments
+[Open discussion](https://news.ycombinator.com/item?id=49353221)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
