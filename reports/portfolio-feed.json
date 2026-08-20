@@ -1,17 +1,17 @@
 {
-  "above_threshold": 1239,
+  "above_threshold": 548,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 82,
-    "discussion_url": "https://news.ycombinator.com/item?id=49353221",
-    "published_at": "2026-08-18T21:50:33+00:00",
-    "score": 243,
+    "comments": 123,
+    "discussion_url": "https://news.ycombinator.com/item?id=49367350",
+    "published_at": "2026-08-19T21:19:50+00:00",
+    "score": 213,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/DenisSergeevitch/desktop-fly",
-    "title": "A 3D fruit fly on macOS desktop powered by the real FlyWire connectome"
+    "source_url": "https://github.com/anthropics/claude-code/issues/6235",
+    "title": "Feature Request: Support AGENTS.md"
   },
-  "coverage_end": "2026-08-19T07:03:17+00:00",
-  "coverage_start": "2026-08-18T07:03:17+00:00",
+  "coverage_end": "2026-08-20T07:04:10+00:00",
+  "coverage_start": "2026-08-19T07:04:10+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-19T07:04:09+00:00",
+  "generated_at": "2026-08-20T07:04:19+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-19T02:00:03+00:00",
+    "published_at": "2026-08-20T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33258",
-    "title": "ISC Stormcast For Wednesday, August 19th, 2026 https://isc.sans.edu/podcastdetail/10058, (Wed, Aug 19th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33262",
+    "title": "ISC Stormcast For Thursday, August 20th, 2026 https://isc.sans.edu/podcastdetail/10060, (Thu, Aug 20th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1486,
+  "qualified_developments": 645,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,41 +60,95 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-47627"
+        "CVE-2026-75916"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-47627",
+      "id": "CVE-2026-75916",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: windows +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47627",
-      "title": "NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A succes",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75916",
+      "title": "SiYuan through 3.7.3 contains a cross-site scripting vulnerability in the '((' block-reference autocomplete hint popup.",
+      "why_it_matters": "CVSS 9.3; priority technology: windows"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76008"
+        "CVE-2026-66794"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-66794",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66794",
+      "title": "A flaw was found in the `cluster-proxy-addon` component of Multicluster Engine for Kubernetes. This vulnerability allows",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-22306"
       ],
       "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76008",
+      "id": "CVE-2026-22306",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22306",
+      "title": "Download of code without integrity check, inclusion of functionality from untrusted control sphere, and cleartext trans",
+      "why_it_matters": "CVSS 10.0; priority technology: windows"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-75949"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-75949",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -106,21 +160,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76008",
-      "title": "A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox-",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75949",
+      "title": "Joomla Extension - cmsjunkie.com - Arbitrary file upload / deletion (path traversal) in J-BusinessDirectory < 6.2.3 - U",
       "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-73996"
+        "CVE-2026-74803"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-73996",
+      "id": "CVE-2026-74803",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -132,61 +186,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73996",
-      "title": "Unauthenticated Arbitrary File Upload in Masteriyo - LMS <= 2.3.2 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-73930"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-73930",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73930",
-      "title": "Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-73921"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-73921",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73921",
-      "title": "Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74803",
+      "title": "Joomla Extension - yootheme.com - Unauthenticated arbitrary file upload in Zoo < 4.1.64 - The image element accepts arbi",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     }
   ]
 }

@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-19T07:04:09+00:00  
-**Coverage:** 2026-08-18T07:03:17+00:00 → 2026-08-19T07:03:17+00:00  
+**Updated:** 2026-08-20T07:04:19+00:00  
+**Coverage:** 2026-08-19T07:04:10+00:00 → 2026-08-20T07:04:10+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 1486 source-backed developments
-- **Above threshold:** 1239
+- **Assessed:** 645 source-backed developments
+- **Above threshold:** 548
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-47627](https://nvd.nist.gov/vuln/detail/CVE-2026-47627) · 10.0/10** — NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A succes — CVSS 9.8; priority technology: linux
-- **[CVE-2026-76008](https://nvd.nist.gov/vuln/detail/CVE-2026-76008) · 10.0/10** — A flaw has been found in Comfast CF-N1-S 2.6.0.1. This affects the function get_para_from_uri of the file /cgi-bin/mbox- — CVSS 10.0; detection opportunity
-- **[CVE-2026-73996](https://nvd.nist.gov/vuln/detail/CVE-2026-73996) · 10.0/10** — Unauthenticated Arbitrary File Upload in Masteriyo - LMS &lt;= 2.3.2 versions. — CVSS 9.8; detection opportunity
-- **[CVE-2026-73930](https://nvd.nist.gov/vuln/detail/CVE-2026-73930) · 10.0/10** — Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver — CVSS 9.9; detection opportunity
-- **[CVE-2026-73921](https://nvd.nist.gov/vuln/detail/CVE-2026-73921) · 10.0/10** — Vulnerability in the Helidon product of Oracle Fusion Middleware (component: Imperative Web Server). The supported ver — CVSS 9.8; detection opportunity
+- **[CVE-2026-75916](https://nvd.nist.gov/vuln/detail/CVE-2026-75916) · 10.0/10** — SiYuan through 3.7.3 contains a cross-site scripting vulnerability in the &#x27;((&#x27; block-reference autocomplete hint popup. — CVSS 9.3; priority technology: windows
+- **[CVE-2026-66794](https://nvd.nist.gov/vuln/detail/CVE-2026-66794) · 10.0/10** — A flaw was found in the `cluster-proxy-addon` component of Multicluster Engine for Kubernetes. This vulnerability allows — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-22306](https://nvd.nist.gov/vuln/detail/CVE-2026-22306) · 10.0/10** — Download of code without integrity check, inclusion of functionality from untrusted control sphere, and cleartext trans — CVSS 10.0; priority technology: windows
+- **[CVE-2026-75949](https://nvd.nist.gov/vuln/detail/CVE-2026-75949) · 10.0/10** — Joomla Extension - cmsjunkie.com - Arbitrary file upload / deletion (path traversal) in J-BusinessDirectory &lt; 6.2.3 - U — CVSS 10.0; detection opportunity
+- **[CVE-2026-74803](https://nvd.nist.gov/vuln/detail/CVE-2026-74803) · 10.0/10** — Joomla Extension - yootheme.com - Unauthenticated arbitrary file upload in Zoo &lt; 4.1.64 - The image element accepts arbi — CVSS 10.0; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, August 19th, 2026 https://isc.sans.edu/podcastdetail/10058, (Wed, Aug 19th)](https://isc.sans.edu/diary/rss/33258)**
+**[ISC Stormcast For Thursday, August 20th, 2026 https://isc.sans.edu/podcastdetail/10060, (Thu, Aug 20th)](https://isc.sans.edu/diary/rss/33262)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[A 3D fruit fly on macOS desktop powered by the real FlyWire connectome](https://github.com/DenisSergeevitch/desktop-fly)** — Hacker News · 243 points · 82 comments
-[Open discussion](https://news.ycombinator.com/item?id=49353221)
+**[Feature Request: Support AGENTS.md](https://github.com/anthropics/claude-code/issues/6235)** — Hacker News · 213 points · 123 comments
+[Open discussion](https://news.ycombinator.com/item?id=49367350)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
