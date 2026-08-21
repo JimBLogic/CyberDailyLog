@@ -1,17 +1,17 @@
 {
-  "above_threshold": 548,
+  "above_threshold": 418,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 123,
-    "discussion_url": "https://news.ycombinator.com/item?id=49367350",
-    "published_at": "2026-08-19T21:19:50+00:00",
-    "score": 213,
+    "comments": 235,
+    "discussion_url": "https://news.ycombinator.com/item?id=49375996",
+    "published_at": "2026-08-20T15:26:02+00:00",
+    "score": 236,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/anthropics/claude-code/issues/6235",
-    "title": "Feature Request: Support AGENTS.md"
+    "source_url": "https://github.com/zachahn/vomit",
+    "title": "Vomit: Clean up Claude 5's token output with a separate LLM"
   },
-  "coverage_end": "2026-08-20T07:04:10+00:00",
-  "coverage_start": "2026-08-19T07:04:10+00:00",
+  "coverage_end": "2026-08-21T07:05:22+00:00",
+  "coverage_start": "2026-08-20T07:05:22+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-20T07:04:19+00:00",
+  "generated_at": "2026-08-21T07:05:33+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "In every MFA rollout, there will come a time where you think you are closing in on \"done\", and some automation to list what&#;x26;#;39;s\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-20T02:00:03+00:00",
+    "published_at": "2026-08-21T02:47:00+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33262",
-    "title": "ISC Stormcast For Thursday, August 20th, 2026 https://isc.sans.edu/podcastdetail/10060, (Thu, Aug 20th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33272",
+    "title": "Who Got Missed in the MFA Rollout? More Powershell + Graph + Entra scripting!, (Fri, Aug 21st)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 645,
+  "qualified_developments": 537,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,14 +60,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-75916"
+        "CVE-2026-69851"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-75916",
+      "id": "CVE-2026-69851",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -80,21 +80,21 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75916",
-      "title": "SiYuan through 3.7.3 contains a cross-site scripting vulnerability in the '((' block-reference autocomplete hint popup.",
-      "why_it_matters": "CVSS 9.3; priority technology: windows"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69851",
+      "title": "Server-side request forgery (ssrf) in Azure Active Directory allows an authorized attacker to elevate privileges over a",
+      "why_it_matters": "CVSS 9.9; priority technology: windows"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-66794"
+        "CVE-2026-69555"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-66794",
+      "id": "CVE-2026-69555",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -107,88 +107,90 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66794",
-      "title": "A flaw was found in the `cluster-proxy-addon` component of Multicluster Engine for Kubernetes. This vulnerability allows",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69555",
+      "title": "Incorrect authorization in Azure Arc allows an unauthorized attacker to elevate privileges over a network.",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-22306"
+        "CVE-2026-69400"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-22306",
+      "id": "CVE-2026-69400",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: windows +8",
+        "priority technology: cloud +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22306",
-      "title": "Download of code without integrity check, inclusion of functionality from untrusted control sphere, and cleartext trans",
-      "why_it_matters": "CVSS 10.0; priority technology: windows"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69400",
+      "title": "Improper limitation of a pathname to a restricted directory ('path traversal') in Azure Logic Apps allows an unauthorize",
+      "why_it_matters": "CVSS 9.6; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-75949"
+        "CVE-2026-68789"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-75949",
+      "id": "CVE-2026-68789",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75949",
-      "title": "Joomla Extension - cmsjunkie.com - Arbitrary file upload / deletion (path traversal) in J-BusinessDirectory < 6.2.3 - U",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68789",
+      "title": "Improper neutralization of special elements used in an sql command ('sql injection') in Azure SQL Database allows an aut",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-74803"
+        "CVE-2026-68782"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-74803",
+      "id": "CVE-2026-68782",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74803",
-      "title": "Joomla Extension - yootheme.com - Unauthenticated arbitrary file upload in Zoo < 4.1.64 - The image element accepts arbi",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68782",
+      "title": "Improper neutralization of special elements used in an sql command ('sql injection') in Azure SQL Database allows an aut",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     }
   ]
 }

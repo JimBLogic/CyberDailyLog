@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-20T07:04:19+00:00  
-**Coverage:** 2026-08-19T07:04:10+00:00 → 2026-08-20T07:04:10+00:00  
+**Updated:** 2026-08-21T07:05:33+00:00  
+**Coverage:** 2026-08-20T07:05:22+00:00 → 2026-08-21T07:05:22+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 645 source-backed developments
-- **Above threshold:** 548
+- **Assessed:** 537 source-backed developments
+- **Above threshold:** 418
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-75916](https://nvd.nist.gov/vuln/detail/CVE-2026-75916) · 10.0/10** — SiYuan through 3.7.3 contains a cross-site scripting vulnerability in the &#x27;((&#x27; block-reference autocomplete hint popup. — CVSS 9.3; priority technology: windows
-- **[CVE-2026-66794](https://nvd.nist.gov/vuln/detail/CVE-2026-66794) · 10.0/10** — A flaw was found in the `cluster-proxy-addon` component of Multicluster Engine for Kubernetes. This vulnerability allows — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-22306](https://nvd.nist.gov/vuln/detail/CVE-2026-22306) · 10.0/10** — Download of code without integrity check, inclusion of functionality from untrusted control sphere, and cleartext trans — CVSS 10.0; priority technology: windows
-- **[CVE-2026-75949](https://nvd.nist.gov/vuln/detail/CVE-2026-75949) · 10.0/10** — Joomla Extension - cmsjunkie.com - Arbitrary file upload / deletion (path traversal) in J-BusinessDirectory &lt; 6.2.3 - U — CVSS 10.0; detection opportunity
-- **[CVE-2026-74803](https://nvd.nist.gov/vuln/detail/CVE-2026-74803) · 10.0/10** — Joomla Extension - yootheme.com - Unauthenticated arbitrary file upload in Zoo &lt; 4.1.64 - The image element accepts arbi — CVSS 10.0; detection opportunity
+- **[CVE-2026-69851](https://nvd.nist.gov/vuln/detail/CVE-2026-69851) · 10.0/10** — Server-side request forgery (ssrf) in Azure Active Directory allows an authorized attacker to elevate privileges over a — CVSS 9.9; priority technology: windows
+- **[CVE-2026-69555](https://nvd.nist.gov/vuln/detail/CVE-2026-69555) · 10.0/10** — Incorrect authorization in Azure Arc allows an unauthorized attacker to elevate privileges over a network. — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-69400](https://nvd.nist.gov/vuln/detail/CVE-2026-69400) · 10.0/10** — Improper limitation of a pathname to a restricted directory (&#x27;path traversal&#x27;) in Azure Logic Apps allows an unauthorize — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-68789](https://nvd.nist.gov/vuln/detail/CVE-2026-68789) · 10.0/10** — Improper neutralization of special elements used in an sql command (&#x27;sql injection&#x27;) in Azure SQL Database allows an aut — CVSS 9.9; priority technology: cloud
+- **[CVE-2026-68782](https://nvd.nist.gov/vuln/detail/CVE-2026-68782) · 10.0/10** — Improper neutralization of special elements used in an sql command (&#x27;sql injection&#x27;) in Azure SQL Database allows an aut — CVSS 9.9; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Thursday, August 20th, 2026 https://isc.sans.edu/podcastdetail/10060, (Thu, Aug 20th)](https://isc.sans.edu/diary/rss/33262)**
+**[Who Got Missed in the MFA Rollout? More Powershell + Graph + Entra scripting!, (Fri, Aug 21st)](https://isc.sans.edu/diary/rss/33272)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> In every MFA rollout, there will come a time where you think you are closing in on &quot;done&quot;, and some automation to list what&amp;#;x26;#;39;s…
 
 ### Community pulse
 
-**[Feature Request: Support AGENTS.md](https://github.com/anthropics/claude-code/issues/6235)** — Hacker News · 213 points · 123 comments
-[Open discussion](https://news.ycombinator.com/item?id=49367350)
+**[Vomit: Clean up Claude 5&#x27;s token output with a separate LLM](https://github.com/zachahn/vomit)** — Hacker News · 236 points · 235 comments
+[Open discussion](https://news.ycombinator.com/item?id=49375996)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
