@@ -1,17 +1,17 @@
 {
-  "above_threshold": 418,
+  "above_threshold": 17,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 235,
-    "discussion_url": "https://news.ycombinator.com/item?id=49375996",
-    "published_at": "2026-08-20T15:26:02+00:00",
-    "score": 236,
+    "comments": 173,
+    "discussion_url": "https://news.ycombinator.com/item?id=49388752",
+    "published_at": "2026-08-21T14:31:52+00:00",
+    "score": 243,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/zachahn/vomit",
-    "title": "Vomit: Clean up Claude 5's token output with a separate LLM"
+    "source_url": "https://github.com/adnanakil/nobuzz/blob/main/README.md",
+    "title": "Claudette: Make Claude stop talking like a BuzzFeed article"
   },
-  "coverage_end": "2026-08-21T07:05:22+00:00",
-  "coverage_start": "2026-08-20T07:05:22+00:00",
+  "coverage_end": "2026-08-22T06:57:30+00:00",
+  "coverage_start": "2026-08-21T06:57:30+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,21 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-21T07:05:33+00:00",
-  "human_context": {
-    "author": null,
-    "excerpt": "In every MFA rollout, there will come a time where you think you are closing in on \"done\", and some automation to list what&#;x26;#;39;s\u2026",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-21T02:47:00+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33272",
-    "title": "Who Got Missed in the MFA Rollout? More Powershell + Graph + Entra scripting!, (Fri, Aug 21st)"
-  },
+  "generated_at": "2026-08-22T06:57:58+00:00",
+  "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 537,
+  "qualified_developments": 22,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -51,7 +43,8 @@
       "total": 5
     },
     "status_counts": {
-      "healthy": 8
+      "failed": 1,
+      "healthy": 7
     },
     "total": 8
   },
@@ -60,137 +53,159 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-69851"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-69851",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: windows +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69851",
-      "title": "Server-side request forgery (ssrf) in Azure Active Directory allows an authorized attacker to elevate privileges over a",
-      "why_it_matters": "CVSS 9.9; priority technology: windows"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-69555"
+        "CVE-2026-61539"
       ],
       "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-69555",
+      "ghsa_ids": [
+        "GHSA-x2rj-828p-hx9m"
+      ],
+      "id": "CVE-2026-61539",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
+      "priority_score": 9.2,
+      "products": [
+        "xinference"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69555",
-      "title": "Incorrect authorization in Azure Arc allows an unauthorized attacker to elevate privileges over a network.",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+      "selection_score": 20,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-x2rj-828p-hx9m",
+      "title": "Xinference vulnerable to remote code execution via unsafe `eval()` in Llama3 tool-call parsing",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-69400"
+        "CVE-2026-76904"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-69400",
+      "ghsa_ids": [
+        "GHSA-mqjf-5f49-2fjh"
+      ],
+      "id": "CVE-2026-76904",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
+      "priority_score": 9.1,
+      "products": [
+        "org.geotools.jdbc:gt-jdbc-postgis",
+        "org.geotools.jdbc:gt-jdbc-postgis",
+        "org.geotools.jdbc:gt-jdbc-postgis"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69400",
-      "title": "Improper limitation of a pathname to a restricted directory ('path traversal') in Azure Logic Apps allows an unauthorize",
-      "why_it_matters": "CVSS 9.6; priority technology: cloud"
+      "selection_score": 20,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-mqjf-5f49-2fjh",
+      "title": "GeoTools has unauthenticated SQL injection in the jsonArrayContains filter function against PostGIS layers",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-68789"
+        "CVE-2026-77415"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": null,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-68789",
+      "ghsa_ids": [
+        "GHSA-66mm-25pp-rfff"
+      ],
+      "id": "CVE-2026-77415",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
+      "priority_score": 8.8,
+      "products": [
+        "jsonata",
+        "jsonata"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68789",
-      "title": "Improper neutralization of special elements used in an sql command ('sql injection') in Azure SQL Database allows an aut",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-66mm-25pp-rfff",
+      "title": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
+      "why_it_matters": "critical severity fallback; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-68782"
+        "CVE-2026-77414"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": null,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-68782",
+      "ghsa_ids": [
+        "GHSA-2943-5xfg-gq5f"
+      ],
+      "id": "CVE-2026-77414",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
+      "priority_score": 8.8,
+      "products": [
+        "jsonata",
+        "jsonata"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68782",
-      "title": "Improper neutralization of special elements used in an sql command ('sql injection') in Azure SQL Database allows an aut",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-2943-5xfg-gq5f",
+      "title": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
+      "why_it_matters": "critical severity fallback; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-77413"
+      ],
+      "cvss_score": null,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-8gq3-vp5j-2grp"
+      ],
+      "id": "CVE-2026-77413",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.8,
+      "products": [
+        "jsonata",
+        "jsonata"
+      ],
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-8gq3-vp5j-2grp",
+      "title": "JSONata: Arbitrary Code Execution via crafted JSONata expressions",
+      "why_it_matters": "critical severity fallback; detection opportunity"
     }
   ]
 }
