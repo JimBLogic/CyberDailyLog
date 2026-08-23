@@ -1,17 +1,8 @@
 {
-  "above_threshold": 17,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 173,
-    "discussion_url": "https://news.ycombinator.com/item?id=49388752",
-    "published_at": "2026-08-21T14:31:52+00:00",
-    "score": 243,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/adnanakil/nobuzz/blob/main/README.md",
-    "title": "Claudette: Make Claude stop talking like a BuzzFeed article"
-  },
-  "coverage_end": "2026-08-22T06:57:30+00:00",
-  "coverage_start": "2026-08-21T06:57:30+00:00",
+  "above_threshold": 68,
+  "community_pulse": null,
+  "coverage_end": "2026-08-23T06:59:01+00:00",
+  "coverage_start": "2026-08-22T06:59:01+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,21 +11,21 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-22T06:57:58+00:00",
+  "generated_at": "2026-08-23T06:59:10+00:00",
   "human_context": null,
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 22,
+  "qualified_developments": 239,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -43,8 +34,7 @@
       "total": 5
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 7
+      "healthy": 8
     },
     "total": 8
   },
@@ -53,159 +43,133 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-61539"
+        "CVE-2026-12710"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-x2rj-828p-hx9m"
-      ],
-      "id": "CVE-2026-61539",
+      "epss_percentile": 0.2224,
+      "epss_score": 0.00295,
+      "ghsa_ids": [],
+      "id": "CVE-2026-12710",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.2,
-      "products": [
-        "xinference"
-      ],
+      "priority_score": 10.0,
+      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "priority technology: cloud +8",
+        "official source +5"
       ],
-      "selection_score": 20,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-x2rj-828p-hx9m",
-      "title": "Xinference vulnerable to remote code execution via unsafe `eval()` in Llama3 tool-call parsing",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12710",
+      "title": "A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76904"
+        "CVE-2026-78003"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-mqjf-5f49-2fjh"
-      ],
-      "id": "CVE-2026-76904",
+      "epss_percentile": 0.42699,
+      "epss_score": 0.0053,
+      "ghsa_ids": [],
+      "id": "CVE-2026-78003",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.1,
-      "products": [
-        "org.geotools.jdbc:gt-jdbc-postgis",
-        "org.geotools.jdbc:gt-jdbc-postgis",
-        "org.geotools.jdbc:gt-jdbc-postgis"
-      ],
+      "priority_score": 10.0,
+      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "official source +5"
       ],
-      "selection_score": 20,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-mqjf-5f49-2fjh",
-      "title": "GeoTools has unauthenticated SQL injection in the jsonArrayContains filter function against PostGIS layers",
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78003",
+      "title": "The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-77415"
+        "CVE-2026-76607"
       ],
-      "cvss_score": null,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-66mm-25pp-rfff"
-      ],
-      "id": "CVE-2026-77415",
+      "ghsa_ids": [],
+      "id": "CVE-2026-76607",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.8,
-      "products": [
-        "jsonata",
-        "jsonata"
-      ],
+      "priority_score": 10.0,
+      "products": [],
       "selection_reasons": [
-        "official source +5",
-        "modified metadata in window -5"
+        "critical CVSS +20",
+        "official source +5"
       ],
-      "selection_score": 0,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-66mm-25pp-rfff",
-      "title": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
-      "why_it_matters": "critical severity fallback; detection opportunity"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76607",
+      "title": "Joomla Extension - fabrikar.com - Missing ACL check in download element in Fabrik < 4.7.3 - ???.",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-77414"
+        "CVE-2026-76606"
       ],
-      "cvss_score": null,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-2943-5xfg-gq5f"
-      ],
-      "id": "CVE-2026-77414",
+      "ghsa_ids": [],
+      "id": "CVE-2026-76606",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.8,
-      "products": [
-        "jsonata",
-        "jsonata"
-      ],
+      "priority_score": 10.0,
+      "products": [],
       "selection_reasons": [
-        "official source +5",
-        "modified metadata in window -5"
+        "critical CVSS +20",
+        "official source +5"
       ],
-      "selection_score": 0,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-2943-5xfg-gq5f",
-      "title": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
-      "why_it_matters": "critical severity fallback; detection opportunity"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76606",
+      "title": "Joomla Extension - fabrikar.com - Path Traversal via image element in Fabrik < 4.7.3 - ???.",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-77413"
+        "CVE-2026-76605"
       ],
-      "cvss_score": null,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-8gq3-vp5j-2grp"
-      ],
-      "id": "CVE-2026-77413",
+      "ghsa_ids": [],
+      "id": "CVE-2026-76605",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.8,
-      "products": [
-        "jsonata",
-        "jsonata"
-      ],
+      "priority_score": 10.0,
+      "products": [],
       "selection_reasons": [
-        "official source +5",
-        "modified metadata in window -5"
+        "critical CVSS +20",
+        "official source +5"
       ],
-      "selection_score": 0,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-8gq3-vp5j-2grp",
-      "title": "JSONata: Arbitrary Code Execution via crafted JSONata expressions",
-      "why_it_matters": "critical severity fallback; detection opportunity"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76605",
+      "title": "Joomla Extension - fabrikar.com - Remote code execution via image element in Fabrik < 4.7.3 - ???.",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     }
   ]
 }

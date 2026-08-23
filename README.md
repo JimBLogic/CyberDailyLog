@@ -9,28 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-22T06:57:58+00:00  
-**Coverage:** 2026-08-21T06:57:30+00:00 → 2026-08-22T06:57:30+00:00  
+**Updated:** 2026-08-23T06:59:10+00:00  
+**Coverage:** 2026-08-22T06:59:01+00:00 → 2026-08-23T06:59:01+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 22 source-backed developments
-- **Above threshold:** 17
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 239 source-backed developments
+- **Above threshold:** 68
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-61539](https://github.com/advisories/GHSA-x2rj-828p-hx9m) · 9.2/10** — Xinference vulnerable to remote code execution via unsafe `eval()` in Llama3 tool-call parsing — CVSS 10.0; detection opportunity
-- **[CVE-2026-76904](https://github.com/advisories/GHSA-mqjf-5f49-2fjh) · 9.1/10** — GeoTools has unauthenticated SQL injection in the jsonArrayContains filter function against PostGIS layers — CVSS 9.8; detection opportunity
-- **[CVE-2026-77415](https://github.com/advisories/GHSA-66mm-25pp-rfff) · 8.8/10** — JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions — critical severity fallback; detection opportunity
-- **[CVE-2026-77414](https://github.com/advisories/GHSA-2943-5xfg-gq5f) · 8.8/10** — JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions — critical severity fallback; detection opportunity
-- **[CVE-2026-77413](https://github.com/advisories/GHSA-8gq3-vp5j-2grp) · 8.8/10** — JSONata: Arbitrary Code Execution via crafted JSONata expressions — critical severity fallback; detection opportunity
-
-### Community pulse
-
-**[Claudette: Make Claude stop talking like a BuzzFeed article](https://github.com/adnanakil/nobuzz/blob/main/README.md)** — Hacker News · 243 points · 173 comments
-[Open discussion](https://news.ycombinator.com/item?id=49388752)
+- **[CVE-2026-12710](https://nvd.nist.gov/vuln/detail/CVE-2026-12710) · 10.0/10** — A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025 — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-78003](https://nvd.nist.gov/vuln/detail/CVE-2026-78003) · 10.0/10** — The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in — CVSS 9.8; detection opportunity
+- **[CVE-2026-76607](https://nvd.nist.gov/vuln/detail/CVE-2026-76607) · 10.0/10** — Joomla Extension - fabrikar.com - Missing ACL check in download element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
+- **[CVE-2026-76606](https://nvd.nist.gov/vuln/detail/CVE-2026-76606) · 10.0/10** — Joomla Extension - fabrikar.com - Path Traversal via image element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
+- **[CVE-2026-76605](https://nvd.nist.gov/vuln/detail/CVE-2026-76605) · 10.0/10** — Joomla Extension - fabrikar.com - Remote code execution via image element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
