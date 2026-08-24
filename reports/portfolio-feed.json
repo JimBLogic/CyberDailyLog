@@ -1,8 +1,17 @@
 {
-  "above_threshold": 68,
-  "community_pulse": null,
-  "coverage_end": "2026-08-23T06:59:01+00:00",
-  "coverage_start": "2026-08-22T06:59:01+00:00",
+  "above_threshold": 49,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 121,
+    "discussion_url": "https://news.ycombinator.com/item?id=49408550",
+    "published_at": "2026-08-23T13:05:38+00:00",
+    "score": 233,
+    "source_name": "Hacker News",
+    "source_url": "https://securelist.com/android-head-unit-malware/121106/",
+    "title": "Malware infects Android-based automotive head unit firmware"
+  },
+  "coverage_end": "2026-08-24T07:18:23+00:00",
+  "coverage_start": "2026-08-23T07:18:23+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,14 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-23T06:59:10+00:00",
-  "human_context": null,
+  "generated_at": "2026-08-24T07:18:30+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-08-24T02:00:03+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33276",
+    "title": "ISC Stormcast For Monday, August 24th, 2026 https://isc.sans.edu/podcastdetail/10064, (Mon, Aug 24th)"
+  },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 239,
+  "qualified_developments": 71,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -43,41 +60,41 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-12710"
+        "CVE-2026-5388"
       ],
       "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.2224,
-      "epss_score": 0.00295,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-12710",
+      "id": "CVE-2026-5388",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
+        "priority technology: browsers +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12710",
-      "title": "A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5388",
+      "title": "justhtml before 1.15.0 contains multiple security issues in URL sanitization helpers (clean_url_value/clean_url_in_js_st",
+      "why_it_matters": "CVSS 9.3; priority technology: browsers"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78003"
+        "CVE-2026-78155"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.42699,
-      "epss_score": 0.0053,
+      "epss_percentile": 0.39513,
+      "epss_score": 0.00479,
       "ghsa_ids": [],
-      "id": "CVE-2026-78003",
+      "id": "CVE-2026-78155",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -89,50 +106,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78003",
-      "title": "The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78155",
+      "title": "privilege escalation in StackGres operator allows a low-privilege tenant who owns a database to gain administrator privi",
+      "why_it_matters": "CVSS 9.9; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76607"
+        "CVE-2026-8445"
       ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-76607",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76607",
-      "title": "Joomla Extension - fabrikar.com - Missing ACL check in download element in Fabrik < 4.7.3 - ???.",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-76606"
-      ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76606",
+      "id": "CVE-2026-8445",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -141,24 +132,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76606",
-      "title": "Joomla Extension - fabrikar.com - Path Traversal via image element in Fabrik < 4.7.3 - ???.",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8445",
+      "title": "justhtml versions <= 1.11.0 (fixed in 1.12.0) do not sufficiently escape HTML-significant characters (angle brackets) in",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76605"
+        "CVE-2026-78211"
       ],
-      "cvss_score": 10.0,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76605",
+      "id": "CVE-2026-78211",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -167,9 +158,35 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76605",
-      "title": "Joomla Extension - fabrikar.com - Remote code execution via image element in Fabrik < 4.7.3 - ???.",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78211",
+      "title": "4MOSAn GCB Doctor developed by 4MOSAn Security Technology has a OS Command Injection vulnerability. Unauthenticated remo",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-78207"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-78207",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78207",
+      "title": "exceljs-hardened before 5.0.0 contains a prototype pollution vulnerability in the deepMerge helper that fails to reject",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }

@@ -9,23 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-23T06:59:10+00:00  
-**Coverage:** 2026-08-22T06:59:01+00:00 → 2026-08-23T06:59:01+00:00  
+**Updated:** 2026-08-24T07:18:30+00:00  
+**Coverage:** 2026-08-23T07:18:23+00:00 → 2026-08-24T07:18:23+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 239 source-backed developments
-- **Above threshold:** 68
+- **Assessed:** 71 source-backed developments
+- **Above threshold:** 49
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-12710](https://nvd.nist.gov/vuln/detail/CVE-2026-12710) · 10.0/10** — A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025 — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-78003](https://nvd.nist.gov/vuln/detail/CVE-2026-78003) · 10.0/10** — The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in — CVSS 9.8; detection opportunity
-- **[CVE-2026-76607](https://nvd.nist.gov/vuln/detail/CVE-2026-76607) · 10.0/10** — Joomla Extension - fabrikar.com - Missing ACL check in download element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
-- **[CVE-2026-76606](https://nvd.nist.gov/vuln/detail/CVE-2026-76606) · 10.0/10** — Joomla Extension - fabrikar.com - Path Traversal via image element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
-- **[CVE-2026-76605](https://nvd.nist.gov/vuln/detail/CVE-2026-76605) · 10.0/10** — Joomla Extension - fabrikar.com - Remote code execution via image element in Fabrik &lt; 4.7.3 - ???. — CVSS 10.0; detection opportunity
+- **[CVE-2026-5388](https://nvd.nist.gov/vuln/detail/CVE-2026-5388) · 10.0/10** — justhtml before 1.15.0 contains multiple security issues in URL sanitization helpers (clean_url_value/clean_url_in_js_st — CVSS 9.3; priority technology: browsers
+- **[CVE-2026-78155](https://nvd.nist.gov/vuln/detail/CVE-2026-78155) · 10.0/10** — privilege escalation in StackGres operator allows a low-privilege tenant who owns a database to gain administrator privi — CVSS 9.9; detection opportunity
+- **[CVE-2026-8445](https://nvd.nist.gov/vuln/detail/CVE-2026-8445) · 9.6/10** — justhtml versions &lt;= 1.11.0 (fixed in 1.12.0) do not sufficiently escape HTML-significant characters (angle brackets) in — CVSS 9.3; detection opportunity
+- **[CVE-2026-78211](https://nvd.nist.gov/vuln/detail/CVE-2026-78211) · 9.6/10** — 4MOSAn GCB Doctor developed by 4MOSAn Security Technology has a OS Command Injection vulnerability. Unauthenticated remo — CVSS 9.3; detection opportunity
+- **[CVE-2026-78207](https://nvd.nist.gov/vuln/detail/CVE-2026-78207) · 9.6/10** — exceljs-hardened before 5.0.0 contains a prototype pollution vulnerability in the deepMerge helper that fails to reject — CVSS 9.3; detection opportunity
+
+### Human context
+
+**[ISC Stormcast For Monday, August 24th, 2026 https://isc.sans.edu/podcastdetail/10064, (Mon, Aug 24th)](https://isc.sans.edu/diary/rss/33276)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Malware infects Android-based automotive head unit firmware](https://securelist.com/android-head-unit-malware/121106/)** — Hacker News · 233 points · 121 comments
+[Open discussion](https://news.ycombinator.com/item?id=49408550)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
