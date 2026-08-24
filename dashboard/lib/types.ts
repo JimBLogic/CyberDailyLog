@@ -40,8 +40,10 @@ export type DeliveryAttempt = {
   id: "github-raw" | "jsdelivr-cdn" | "official-apis" | "bundled-snapshot";
   label: string;
   role: "primary" | "transport-backup" | "official-backup" | "offline-fallback";
-  status: "used" | "available" | "failed" | "skipped";
+  status: "used" | "available" | "failed" | "skipped" | "cooldown";
   url: string;
+  reason?: string | null;
+  retryAt?: string | null;
 };
 
 export type DistributionPoint = {
@@ -102,6 +104,8 @@ export type DashboardData = {
   dataMode: "live" | "official-backup" | "repository-snapshot";
   deliveryOrigin: DeliveryAttempt["id"];
   deliveryChain: DeliveryAttempt[];
+  coverageConfidence: "high" | "medium" | "low";
+  coverageState: "sufficient" | "limited" | "insufficient";
   minimumPriority: number;
   assessed: number;
   aboveThreshold: number;

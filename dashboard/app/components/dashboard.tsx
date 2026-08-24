@@ -5,6 +5,7 @@ import {
   SOURCE_PROFILES,
   SOURCE_SHORT_LABELS,
   SOURCE_URLS,
+  sourceExpectedIntervalMs,
 } from "@/lib/source-labels";
 import type {
   SourceProvenance,
@@ -113,8 +114,17 @@ const COPY = {
     coverageCaveat:
       "A healthy collector confirms access to that source, not complete coverage of the internet.",
     fresh: "Recent",
-    late: "Needs update",
+    aging: "Aging",
+    staleSource: "Stale",
+    criticalSource: "Critically stale",
     unavailableSource: "No reliable timestamp",
+    coverageConfidence: "Coverage confidence",
+    confidenceHigh: "High",
+    confidenceMedium: "Medium",
+    confidenceLow: "Low",
+    sufficientCoverage: "All core sources are current and live.",
+    limitedCoverage: "Useful evidence is available, but one or more core lanes are limited.",
+    insufficientCoverage: "Only an old or incomplete safety net is available.",
     sourceUse: "How we use it",
     provenanceGovernment: "Official public body",
     provenanceAdvisoryRegistry: "Coordinated advisory registry",
@@ -129,6 +139,7 @@ const COPY = {
     available: "Available",
     skipped: "On standby",
     unavailableRoute: "Unavailable",
+    cooldownRoute: "Cooling down",
     methodTitle: "Transparent by design",
     methodIntro:
       "A reproducible collection and curation pipeline, with claims, context and community interest kept in separate trust lanes.",
@@ -327,8 +338,17 @@ const COPY = {
     coverageCaveat:
       "Un recopilador operativo confirma acceso a esa fuente; no garantiza una visión completa de Internet.",
     fresh: "Reciente",
-    late: "Necesita actualizarse",
+    aging: "Envejeciendo",
+    staleSource: "Desactualizada",
+    criticalSource: "Desactualización crítica",
     unavailableSource: "Sin fecha fiable",
+    coverageConfidence: "Confianza de cobertura",
+    confidenceHigh: "Alta",
+    confidenceMedium: "Media",
+    confidenceLow: "Baja",
+    sufficientCoverage: "Todas las fuentes principales están al día y en vivo.",
+    limitedCoverage: "Hay evidencia útil, pero una o más fuentes principales están limitadas.",
+    insufficientCoverage: "Solo hay un respaldo antiguo o incompleto disponible.",
     sourceUse: "Cómo la usamos",
     provenanceGovernment: "Organismo público oficial",
     provenanceAdvisoryRegistry: "Registro coordinado de avisos",
@@ -343,6 +363,7 @@ const COPY = {
     available: "Disponible",
     skipped: "En espera",
     unavailableRoute: "No disponible",
+    cooldownRoute: "En pausa temporal",
     methodTitle: "Transparente por diseño",
     methodIntro:
       "Un proceso reproducible que mantiene las afirmaciones, el contexto y el interés comunitario en niveles de confianza separados.",
@@ -661,10 +682,22 @@ function provenanceLabel(provenance: SourceProvenance, language: Language) {
   }[provenance];
 }
 
-function hasRecentHealthyRun(source: SourceHealth, now: number | null) {
+type SourceFreshness = "fresh" | "aging" | "stale" | "critical" | "unknown";
+
+function sourceFreshness(source: SourceHealth, now: number | null): SourceFreshness {
   const finishedAt = parseTimestamp(source.finishedAt);
-  if (source.status !== "healthy" || finishedAt === null) return false;
-  return now === null || now - finishedAt <= 36 * 3_600_000;
+  if (finishedAt === null || now === null) return finishedAt === null ? "unknown" : "fresh";
+  const age = Math.max(0, now - finishedAt);
+  const cadence = sourceExpectedIntervalMs(source.source);
+  if (age <= cadence * 1.25) return "fresh";
+  if (age <= cadence * 2) return "aging";
+  if (age <= cadence * 4) return "stale";
+  return "critical";
+}
+
+function hasRecentHealthyRun(source: SourceHealth, now: number | null) {
+  const freshness = sourceFreshness(source, now);
+  return source.status === "healthy" && ["fresh", "aging"].includes(freshness);
 }
 
 function sourceFreshnessLabel(
@@ -672,12 +705,14 @@ function sourceFreshnessLabel(
   language: Language,
   now: number | null,
 ) {
-  if (parseTimestamp(source.finishedAt) === null) {
-    return COPY[language].unavailableSource;
-  }
-  return hasRecentHealthyRun(source, now)
-    ? COPY[language].fresh
-    : COPY[language].late;
+  const t = COPY[language];
+  return {
+    fresh: t.fresh,
+    aging: t.aging,
+    stale: t.staleSource,
+    critical: t.criticalSource,
+    unknown: t.unavailableSource,
+  }[sourceFreshness(source, now)];
 }
 
 function deliveryStatusLabel(
@@ -690,6 +725,7 @@ function deliveryStatusLabel(
     available: t.available,
     skipped: t.skipped,
     failed: t.unavailableRoute,
+    cooldown: t.cooldownRoute,
   }[status];
 }
 
@@ -1783,6 +1819,14 @@ function SourcesView({
               <a href={attempt.url} target="_blank" rel="noreferrer">
                 <strong>{deliveryLabel(attempt.id, language)}</strong>
                 <small>{deliveryStatusLabel(attempt.status, language)}</small>
+                {attempt.reason && attempt.status !== "skipped" ? (
+                  <em>
+                    {attempt.reason}
+                    {attempt.retryAt && parseTimestamp(attempt.retryAt) !== null
+                      ? ` · ${language === "es" ? "reintento" : "retry"} ${formatDate(attempt.retryAt, language, true)}`
+                      : ""}
+                  </em>
+                ) : null}
               </a>
             </li>
           ))}
@@ -1794,10 +1838,15 @@ function SourcesView({
           <p>{t.coverageLimitsText}</p>
         </div>
         <div className="coverage-audit-grid">
-          <article className="coverage-status available">
-            <span>{t.whatWeSee}</span>
-            <strong>{currentSources.length}</strong>
-            <p>{currentSources.length === 1 ? t.currentSource : t.currentSources}</p>
+          <article className={`coverage-status confidence-${data.coverageConfidence}`}>
+            <span>{t.coverageConfidence}</span>
+            <strong>
+              {{ high: t.confidenceHigh, medium: t.confidenceMedium, low: t.confidenceLow }[data.coverageConfidence]}
+            </strong>
+            <p>
+              {{ sufficient: t.sufficientCoverage, limited: t.limitedCoverage, insufficient: t.insufficientCoverage }[data.coverageState]}
+            </p>
+            <small>{currentSources.length} / {data.sourceHealth.length} {language === "es" ? "fuentes al día" : "sources current"}</small>
           </article>
           <article className={`coverage-status ${gapSources.length ? "gap" : "available"}`}>
             <span>{t.intelligenceGaps}</span>
@@ -1831,7 +1880,12 @@ function SourcesView({
         </div>
         {data.sourceHealth.map((source) => {
           const profile = SOURCE_PROFILES[source.source];
-          const isCurrent = hasRecentHealthyRun(source, now);
+          const freshness = sourceFreshness(source, now);
+          const freshnessClass = freshness === "fresh"
+            ? "healthy"
+            : freshness === "aging"
+              ? "degraded"
+              : "failed";
           return (
             <a
               className="source-table-row"
@@ -1855,7 +1909,7 @@ function SourcesView({
                   ) : null}
                 </span>
               </span>
-              <span className={`status-pill ${isCurrent ? "healthy" : source.status === "healthy" ? "degraded" : source.status}`}>
+              <span className={`status-pill ${source.status === "healthy" ? freshnessClass : source.status}`}>
                 <i /> {source.status === "healthy" ? sourceFreshnessLabel(source, language, now) : statusLabel(source.status, language)}
               </span>
               <strong>{source.itemsReceived.toLocaleString()}</strong>
@@ -1978,9 +2032,11 @@ function MethodologyView({
 function EngineeringView({
   data,
   language,
+  now,
 }: {
   data: DashboardData;
   language: Language;
+  now: number | null;
 }) {
   const copy =
     language === "es"
@@ -2031,6 +2087,7 @@ function EngineeringView({
             "archive/repository-history/ solo se crea si existe material útil que retirar; queda explícitamente fuera de runtime, CI y publicación.",
           currentSource: "Fuente autorizada",
           docs: "Abrir guía de integración",
+          reliability: ["Fiabilidad operativa", "Medición basada únicamente en el histórico publicado; las lagunas se declaran, no se maquillan.", "Ejecuciones esperadas", "Ejecuciones correctas", "Tasa de duplicados", "Frescura", "Recuperación", "Sin telemetría", "1 publicación por día observado", "días únicos con informe", "fechas repetidas ÷ informes", "desde el último informe", "Falta exponer intento primario, reintento y tiempo de recuperación.", "Ventana", "días", "Medido", "Objetivo <36 h", "Siguiente contrato: run_id · trigger · started_at · finished_at · outcome · recovered_from · publication_id."],
         }
       : {
           eyebrow: "Reproducibility & DevSecOps",
@@ -2079,7 +2136,18 @@ function EngineeringView({
             "archive/repository-history/ is created only when useful retired material exists; it stays outside runtime, CI and daily publication.",
           currentSource: "Authoritative source",
           docs: "Open integration guide",
+          reliability: ["Operational reliability", "Measurement uses published history only; gaps are declared, not disguised.", "Expected runs", "Successful runs", "Duplicate rate", "Freshness", "Recovery", "No telemetry", "1 publication per observed day", "unique days with a report", "repeated dates ÷ reports", "since the latest report", "Primary attempt, retry and recovery time are not exposed yet.", "Window", "days", "Measured", "Target <36 h", "Next contract: run_id · trigger · started_at · finished_at · outcome · recovered_from · publication_id."],
         };
+  const dates = data.history.map((point) => point.date.slice(0, 10)).filter((date) => Number.isFinite(Date.parse(`${date}T00:00:00Z`)));
+  const uniqueDates = new Set(dates);
+  const orderedDates = [...uniqueDates].sort();
+  const observedDays = orderedDates.length
+    ? Math.round((Date.parse(`${orderedDates.at(-1)}T00:00:00Z`) - Date.parse(`${orderedDates[0]}T00:00:00Z`)) / 86_400_000) + 1
+    : 0;
+  const duplicateRate = dates.length ? ((dates.length - uniqueDates.size) / dates.length) * 100 : 0;
+  const generatedAt = parseTimestamp(data.generatedAt);
+  const freshnessHours = generatedAt !== null && now !== null ? Math.max(0, (now - generatedAt) / 3_600_000) : null;
+  const r = copy.reliability;
   const commands = `git clone https://github.com/JimBLogic/CyberDailyLog.git
 cd CyberDailyLog
 python -m venv .venv
@@ -2119,6 +2187,23 @@ python -m cyberdailylog.portfolio_feed \\
           </article>
         ))}
       </div>
+
+      <section className="reliability-panel" aria-labelledby="reliability-title">
+        <div className="reliability-heading">
+          <div><span className="eyebrow">SLO · archive evidence</span><h2 id="reliability-title">{r[0]}</h2><p>{r[1]}</p></div>
+          <span className="evidence-window">{r[13]} · {observedDays} {r[14]}</span>
+        </div>
+        <div className="reliability-grid">
+          {[
+            [r[2], observedDays || "—", r[8]],
+            [r[3], `${uniqueDates.size}/${observedDays || "—"}`, r[9]],
+            [r[4], `${duplicateRate.toFixed(1)}%`, r[10]],
+            [r[5], freshnessHours === null ? "—" : `${freshnessHours.toFixed(1)}h`, r[11]],
+          ].map(([label, value, note], index) => <article key={label}><span>{label}</span><strong>{value}</strong><small>{note}</small><em className={index === 3 && (freshnessHours === null || freshnessHours >= 36) ? "warn" : ""}>{index === 3 ? r[16] : r[15]}</em></article>)}
+          <article className="instrumentation-gap"><span>{r[6]}</span><strong>{r[7]}</strong><small>{r[12]}</small><em>{language === "es" ? "Brecha declarada" : "Declared gap"}</em></article>
+        </div>
+        <code>{r[17]}</code>
+      </section>
 
       <div className="engineering-grid">
         <article className="paper-panel repository-map">
@@ -2591,7 +2676,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       ) : null}
       {view === "sources" ? <SourcesView data={data} language={language} now={clock} /> : null}
       {view === "methodology" ? <MethodologyView data={data} language={language} /> : null}
-      {view === "engineering" ? <EngineeringView data={data} language={language} /> : null}
+      {view === "engineering" ? <EngineeringView data={data} language={language} now={clock} /> : null}
 
       {selected ? (
         <DetailDialog

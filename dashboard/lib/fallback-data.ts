@@ -79,6 +79,8 @@ export const FALLBACK_DATA: DashboardData = {
       url: "https://github.com/JimBLogic/CyberDailyLog",
     },
   ],
+  coverageConfidence: "low",
+  coverageState: "insufficient",
   minimumPriority: 5,
   assessed: 298,
   aboveThreshold: 188,

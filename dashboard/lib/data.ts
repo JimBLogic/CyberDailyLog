@@ -1,6 +1,6 @@
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
-import { SOURCE_LABELS } from "./source-labels";
+import { SOURCE_LABELS, sourceExpectedIntervalMs } from "./source-labels";
 import type {
   AnalystItem,
   CommunityItem,
@@ -30,6 +30,14 @@ const MIN_VALID_TIMESTAMP = Date.UTC(2000, 0, 1);
 
 let cachedSnapshot: { data: DashboardData; expiresAt: number } | null = null;
 let refreshInFlight: Promise<DashboardData> | null = null;
+
+type CircuitState = {
+  failures: number;
+  cooldownUntil: number;
+  lastReason: string;
+};
+
+const endpointCircuits = new Map<string, CircuitState>();
 
 type RawRecord = Record<string, unknown>;
 
@@ -328,22 +336,73 @@ const REPOSITORY_TRANSPORTS = [
   },
 ];
 
+function retryAfterMs(value: string | null) {
+  if (!value) return null;
+  const seconds = Number(value);
+  if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1_000;
+  const date = Date.parse(value);
+  return Number.isFinite(date) ? Math.max(0, date - Date.now()) : null;
+}
+
+function recordEndpointFailure(
+  key: string,
+  reason: string,
+  requestedDelay: number | null = null,
+) {
+  const failures = (endpointCircuits.get(key)?.failures ?? 0) + 1;
+  const cooldownMs = Math.min(
+    15 * 60_000,
+    Math.max(requestedDelay ?? 0, 30_000 * 2 ** (failures - 1)),
+  );
+  const state = {
+    failures,
+    cooldownUntil: Date.now() + cooldownMs,
+    lastReason: reason,
+  };
+  endpointCircuits.set(key, state);
+  return state;
+}
+
+function endpointFailureReason(error: unknown) {
+  return error instanceof DOMException &&
+    ["AbortError", "TimeoutError"].includes(error.name)
+    ? "Request timed out"
+    : "Network request failed";
+}
+
 async function fetchJson<T>(path: string) {
   const attempts: DeliveryAttempt[] = [];
   for (const transport of REPOSITORY_TRANSPORTS) {
     const url = `${transport.base}/${path}`;
+    const circuitKey = `${transport.id}:${path}`;
+    const circuit = endpointCircuits.get(circuitKey);
+    if (circuit && circuit.cooldownUntil > Date.now()) {
+      attempts.push({
+        id: transport.id,
+        label: transport.label,
+        role: transport.role,
+        status: "cooldown",
+        url,
+        reason: circuit.lastReason,
+        retryAt: new Date(circuit.cooldownUntil).toISOString(),
+      });
+      continue;
+    }
     try {
       const response = await fetch(url, {
         headers: { Accept: "application/json" },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
       if (response.ok) {
+        endpointCircuits.delete(circuitKey);
         attempts.push({
           id: transport.id,
           label: transport.label,
           role: transport.role,
           status: "used",
           url,
+          reason: null,
+          retryAt: null,
         });
         for (const skipped of REPOSITORY_TRANSPORTS.slice(attempts.length)) {
           attempts.push({
@@ -352,6 +411,8 @@ async function fetchJson<T>(path: string) {
             role: skipped.role,
             status: "skipped",
             url: `${skipped.base}/${path}`,
+            reason: "An earlier repository route succeeded",
+            retryAt: null,
           });
         }
         return {
@@ -360,18 +421,61 @@ async function fetchJson<T>(path: string) {
           attempts,
         };
       }
-    } catch {
-      // The next transport is the recovery path.
+      const reason = `HTTP ${response.status}`;
+      const state = recordEndpointFailure(
+        circuitKey,
+        reason,
+        retryAfterMs(response.headers.get("retry-after")),
+      );
+      attempts.push({
+        id: transport.id,
+        label: transport.label,
+        role: transport.role,
+        status: "failed",
+        url,
+        reason,
+        retryAt: new Date(state.cooldownUntil).toISOString(),
+      });
+      continue;
+    } catch (error) {
+      const reason = endpointFailureReason(error);
+      const state = recordEndpointFailure(circuitKey, reason);
+      attempts.push({
+        id: transport.id,
+        label: transport.label,
+        role: transport.role,
+        status: "failed",
+        url,
+        reason,
+        retryAt: new Date(state.cooldownUntil).toISOString(),
+      });
     }
-    attempts.push({
-      id: transport.id,
-      label: transport.label,
-      role: transport.role,
-      status: "failed",
-      url,
-    });
   }
   return { data: null as T | null, transport: null, attempts };
+}
+
+function assessCoverage(
+  sourceHealth: SourceHealth[],
+  dataMode: DashboardData["dataMode"],
+) {
+  const now = Date.now();
+  const core = sourceHealth.filter((source) => source.required);
+  const currentCore = core.filter((source) => {
+    const finishedAt = Date.parse(source.finishedAt);
+    return (
+      source.status === "healthy" &&
+      Number.isFinite(finishedAt) &&
+      now - finishedAt <= sourceExpectedIntervalMs(source.source) * 2
+    );
+  }).length;
+
+  if (dataMode === "live" && core.length > 0 && currentCore === core.length) {
+    return { coverageConfidence: "high", coverageState: "sufficient" } as const;
+  }
+  if (dataMode !== "repository-snapshot" && currentCore > 0) {
+    return { coverageConfidence: "medium", coverageState: "limited" } as const;
+  }
+  return { coverageConfidence: "low", coverageState: "insufficient" } as const;
 }
 
 function completionChain(
@@ -414,6 +518,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
     if (official?.vulnerabilities.length) {
       const fetchedAt = Date.now();
       const items = official.vulnerabilities;
+      const coverage = assessCoverage(official.sourceHealth, "official-backup");
       const immediateItems = items.filter(
         (item) =>
           item.cisaKev || item.knownExploited || item.knownRansomwareUse,
@@ -435,6 +540,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
           "used",
           "skipped",
         ),
+        ...coverage,
         minimumPriority: 5,
         assessed: items.length,
         aboveThreshold: items.filter(
@@ -580,6 +686,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
       : [currentPoint];
 
   const fetchedAt = Date.now();
+  const coverage = assessCoverage(sourceHealth, "live");
 
   return {
     schemaVersion: 1,
@@ -600,6 +707,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
       reportIsStale ? "failed" : "skipped",
       "skipped",
     ),
+    ...coverage,
     minimumPriority,
     assessed: records.length,
     aboveThreshold:

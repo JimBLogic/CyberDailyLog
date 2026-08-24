@@ -2101,6 +2101,11 @@ a {
   border-top-color: var(--green);
 }
 
+.delivery-chain li.cooldown {
+  border-top-color: #8b6000;
+  background: rgba(139, 96, 0, 0.04);
+}
+
 .delivery-chain li.failed {
   border-top-color: var(--red);
   background: rgba(201, 52, 47, 0.035);
@@ -2113,7 +2118,8 @@ a {
 }
 
 .delivery-chain strong,
-.delivery-chain small {
+.delivery-chain small,
+.delivery-chain em {
   display: block;
 }
 
@@ -2136,6 +2142,19 @@ a {
 
 .delivery-chain .failed small {
   color: var(--red);
+}
+
+.delivery-chain .cooldown small {
+  color: #8b6000;
+}
+
+.delivery-chain em {
+  margin-top: 7px;
+  color: var(--muted);
+  font-family: "Source Serif 4 Variable", Georgia, serif;
+  font-size: 0.65rem;
+  font-style: normal;
+  line-height: 1.35;
 }
 
 .coverage-audit-grid {
@@ -2174,6 +2193,20 @@ a {
 
 .coverage-status.gap strong {
   color: var(--red);
+}
+
+.coverage-status.confidence-medium strong {
+  color: #8b6000;
+  font-size: 2rem;
+}
+
+.coverage-status.confidence-low strong {
+  color: var(--red);
+  font-size: 2rem;
+}
+
+.coverage-status.confidence-high strong {
+  font-size: 2rem;
 }
 
 .coverage-status p,
@@ -2595,6 +2628,23 @@ a {
   gap: 18px;
   margin-top: 18px;
 }
+
+.reliability-panel { margin-top: 18px; padding: 26px; border: 1px solid var(--ink); border-radius: 7px; background: var(--paper-light); box-shadow: var(--shadow); }
+.reliability-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; }
+.reliability-heading h2 { margin: 7px 0 8px; font-family: "Archivo Black", Impact, sans-serif; font-size: clamp(1.8rem, 3vw, 3.2rem); font-weight: 400; letter-spacing: -.055em; }
+.reliability-heading p { max-width: 760px; margin: 0; color: var(--muted); font-family: "Source Serif 4 Variable", Georgia, serif; font-size: .78rem; line-height: 1.55; }
+.evidence-window { flex: 0 0 auto; padding: 8px 10px; border: 1px solid var(--rule-dark); border-radius: 3px; color: var(--blue); font-size: .62rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.reliability-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 24px; border: 1px solid var(--rule); }
+.reliability-grid article { min-height: 188px; padding: 20px; border-right: 1px solid var(--rule); }
+.reliability-grid article:nth-child(4) { border-right: 0; }
+.reliability-grid .instrumentation-gap { grid-column: 1/-1; min-height: 0; border-top: 1px solid var(--rule); border-right: 0; background: rgba(242,118,34,.055); }
+.reliability-grid article>span,.reliability-grid article>small { display:block; color:var(--muted); font-size:.62rem; font-weight:700; line-height:1.45; }
+.reliability-grid article>span { letter-spacing:.07em; text-transform:uppercase; }
+.reliability-grid article>strong { display:block; margin:16px 0 9px; color:var(--blue); font-family:"Archivo Black",Impact,sans-serif; font-size:clamp(1.8rem,2.7vw,3rem); font-weight:400; letter-spacing:-.045em; line-height:1; }
+.reliability-grid .instrumentation-gap>strong { color:var(--orange); font-size:1.45rem; }
+.reliability-grid article>em { display:inline-flex; margin-top:15px; padding:5px 7px; border-radius:3px; background:rgba(46,125,91,.1); color:var(--green); font-size:.54rem; font-style:normal; font-weight:850; letter-spacing:.06em; text-transform:uppercase; }
+.reliability-grid article>em.warn,.reliability-grid .instrumentation-gap>em { background:rgba(242,118,34,.12); color:#a54d10; }
+.reliability-panel>code { display:block; margin-top:18px; padding:12px 14px; border-left:3px solid var(--blue); background:rgba(23,71,209,.045); color:#434850; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.64rem; line-height:1.55; }
 
 .repository-map,
 .invariant-panel {
@@ -3687,6 +3737,9 @@ a {
   .command-panel {
     grid-template-columns: 1fr;
   }
+  .reliability-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .reliability-grid article:nth-child(2) { border-right:0; }
+  .reliability-grid article:nth-child(-n+2) { border-bottom:1px solid var(--rule); }
 }
 
 @media (max-width: 680px) {
@@ -3726,6 +3779,10 @@ a {
   .engineering-baseline {
     grid-template-columns: 1fr;
   }
+  .reliability-heading { flex-direction:column; }
+  .reliability-grid { grid-template-columns:1fr; }
+  .reliability-grid article,.reliability-grid article:nth-child(2),.reliability-grid article:nth-child(4) { border-right:0; border-bottom:1px solid var(--rule); }
+  .reliability-grid .instrumentation-gap { grid-column:auto; border-top:0; border-bottom:0; }
 
   .engineering-baseline article,
   .engineering-baseline article:nth-child(2) {
