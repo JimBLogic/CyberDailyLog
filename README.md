@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-24T07:18:30+00:00  
-**Coverage:** 2026-08-23T07:18:23+00:00 → 2026-08-24T07:18:23+00:00  
+**Updated:** 2026-08-25T07:06:48+00:00  
+**Coverage:** 2026-08-24T07:06:33+00:00 → 2026-08-25T07:06:33+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 71 source-backed developments
-- **Above threshold:** 49
+- **Assessed:** 353 source-backed developments
+- **Above threshold:** 285
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-5388](https://nvd.nist.gov/vuln/detail/CVE-2026-5388) · 10.0/10** — justhtml before 1.15.0 contains multiple security issues in URL sanitization helpers (clean_url_value/clean_url_in_js_st — CVSS 9.3; priority technology: browsers
-- **[CVE-2026-78155](https://nvd.nist.gov/vuln/detail/CVE-2026-78155) · 10.0/10** — privilege escalation in StackGres operator allows a low-privilege tenant who owns a database to gain administrator privi — CVSS 9.9; detection opportunity
-- **[CVE-2026-8445](https://nvd.nist.gov/vuln/detail/CVE-2026-8445) · 9.6/10** — justhtml versions &lt;= 1.11.0 (fixed in 1.12.0) do not sufficiently escape HTML-significant characters (angle brackets) in — CVSS 9.3; detection opportunity
-- **[CVE-2026-78211](https://nvd.nist.gov/vuln/detail/CVE-2026-78211) · 9.6/10** — 4MOSAn GCB Doctor developed by 4MOSAn Security Technology has a OS Command Injection vulnerability. Unauthenticated remo — CVSS 9.3; detection opportunity
-- **[CVE-2026-78207](https://nvd.nist.gov/vuln/detail/CVE-2026-78207) · 9.6/10** — exceljs-hardened before 5.0.0 contains a prototype pollution vulnerability in the deepMerge helper that fails to reject — CVSS 9.3; detection opportunity
+- **[CVE-2026-78477](https://nvd.nist.gov/vuln/detail/CVE-2026-78477) · 10.0/10** — The Jawn theme for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.4.2. This mak — CVSS 9.8; detection opportunity
+- **[CVE-2026-78267](https://nvd.nist.gov/vuln/detail/CVE-2026-78267) · 10.0/10** — Unauthenticated Privilege Escalation in TranslatePress &lt;= 3.3.2 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-78265](https://nvd.nist.gov/vuln/detail/CVE-2026-78265) · 10.0/10** — Unauthenticated PHP Object Injection in The Events Calendar &lt;= 6.17.2 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-78262](https://nvd.nist.gov/vuln/detail/CVE-2026-78262) · 10.0/10** — Unauthenticated PHP Object Injection in WP Project Manager &lt;= 4.0.6 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-32563](https://nvd.nist.gov/vuln/detail/CVE-2026-32563) · 10.0/10** — Subscriber PHP Object Injection in ACPT (Pro) - Custom Post Types Plugin for WordPress &lt;= 2.0.63 versions. — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Monday, August 24th, 2026 https://isc.sans.edu/podcastdetail/10064, (Mon, Aug 24th)](https://isc.sans.edu/diary/rss/33276)**
+**[ISC Stormcast For Tuesday, August 25th, 2026 https://isc.sans.edu/podcastdetail/10066, (Tue, Aug 25th)](https://isc.sans.edu/diary/rss/33278)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Malware infects Android-based automotive head unit firmware](https://securelist.com/android-head-unit-malware/121106/)** — Hacker News · 233 points · 121 comments
-[Open discussion](https://news.ycombinator.com/item?id=49408550)
+**[SeL4 security proofs now complete on AArch64](https://proofcraft.systems/news-2026/#2026-08-21)** — Hacker News · 182 points · 42 comments
+[Open discussion](https://news.ycombinator.com/item?id=49418255)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
