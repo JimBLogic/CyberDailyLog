@@ -1,17 +1,17 @@
 {
-  "above_threshold": 285,
+  "above_threshold": 309,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 42,
-    "discussion_url": "https://news.ycombinator.com/item?id=49418255",
-    "published_at": "2026-08-24T11:32:51+00:00",
-    "score": 182,
+    "comments": 688,
+    "discussion_url": "https://news.ycombinator.com/item?id=49437283",
+    "published_at": "2026-08-25T17:08:21+00:00",
+    "score": 821,
     "source_name": "Hacker News",
-    "source_url": "https://proofcraft.systems/news-2026/#2026-08-21",
-    "title": "SeL4 security proofs now complete on AArch64"
+    "source_url": "https://github.com/zedeus/nitter/issues/1442",
+    "title": "Nitter and XCancel receive cease and desist notices"
   },
-  "coverage_end": "2026-08-25T07:06:33+00:00",
-  "coverage_start": "2026-08-24T07:06:33+00:00",
+  "coverage_end": "2026-08-26T07:06:42+00:00",
+  "coverage_start": "2026-08-25T07:06:42+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-25T07:06:48+00:00",
+  "generated_at": "2026-08-26T07:06:49+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-25T02:00:03+00:00",
+    "published_at": "2026-08-26T02:40:13+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33278",
-    "title": "ISC Stormcast For Tuesday, August 25th, 2026 https://isc.sans.edu/podcastdetail/10066, (Tue, Aug 25th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33282",
+    "title": "ISC Stormcast For Wednesday, August 26th, 2026 https://isc.sans.edu/podcastdetail/10068, (Wed, Aug 26th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 353,
+  "qualified_developments": 734,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,118 +60,122 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78477"
+        "CVE-2026-79787"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-78477",
+      "id": "CVE-2026-79787",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78477",
-      "title": "The Jawn theme for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.4.2. This mak",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79787",
+      "title": "Alluxio's S3 REST proxy fails to verify AWS Signature Version 4 signatures in its default configuration, allowing unauth",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78267"
+        "CVE-2026-79782"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-78267",
+      "id": "CVE-2026-79782",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78267",
-      "title": "Unauthenticated Privilege Escalation in TranslatePress <= 3.3.2 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79782",
+      "title": "rclone before 1.74.4 fails to strip the X-Amz-Security-Token header when an S3 redirect changes scheme from HTTPS to HTT",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78265"
+        "CVE-2026-65093"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-78265",
+      "id": "CVE-2026-65093",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: linux +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78265",
-      "title": "Unauthenticated PHP Object Injection in The Events Calendar <= 6.17.2 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65093",
+      "title": "NVIDIA OpenShell for Linux contains a vulnerability where an attacker could cause a sandbox escape. A successful exploit",
+      "why_it_matters": "CVSS 9.9; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78262"
+        "CVE-2026-65083"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-78262",
+      "id": "CVE-2026-65083",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: linux +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78262",
-      "title": "Unauthenticated PHP Object Injection in WP Project Manager <= 4.0.6 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65083",
+      "title": "NVIDIA OpenShell for Linux contains a vulnerability in its sandbox provisioning API, where an attacker could cause an in",
+      "why_it_matters": "CVSS 9.9; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-32563"
+        "CVE-2026-78570"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-32563",
+      "id": "CVE-2026-78570",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -183,8 +187,8 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32563",
-      "title": "Subscriber PHP Object Injection in ACPT (Pro) - Custom Post Types Plugin for WordPress <= 2.0.63 versions.",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78570",
+      "title": "The Total Donations plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.0",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]

@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-25T07:06:48+00:00  
-**Coverage:** 2026-08-24T07:06:33+00:00 → 2026-08-25T07:06:33+00:00  
+**Updated:** 2026-08-26T07:06:49+00:00  
+**Coverage:** 2026-08-25T07:06:42+00:00 → 2026-08-26T07:06:42+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 353 source-backed developments
-- **Above threshold:** 285
+- **Assessed:** 734 source-backed developments
+- **Above threshold:** 309
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-78477](https://nvd.nist.gov/vuln/detail/CVE-2026-78477) · 10.0/10** — The Jawn theme for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.4.2. This mak — CVSS 9.8; detection opportunity
-- **[CVE-2026-78267](https://nvd.nist.gov/vuln/detail/CVE-2026-78267) · 10.0/10** — Unauthenticated Privilege Escalation in TranslatePress &lt;= 3.3.2 versions. — CVSS 9.8; detection opportunity
-- **[CVE-2026-78265](https://nvd.nist.gov/vuln/detail/CVE-2026-78265) · 10.0/10** — Unauthenticated PHP Object Injection in The Events Calendar &lt;= 6.17.2 versions. — CVSS 9.8; detection opportunity
-- **[CVE-2026-78262](https://nvd.nist.gov/vuln/detail/CVE-2026-78262) · 10.0/10** — Unauthenticated PHP Object Injection in WP Project Manager &lt;= 4.0.6 versions. — CVSS 9.8; detection opportunity
-- **[CVE-2026-32563](https://nvd.nist.gov/vuln/detail/CVE-2026-32563) · 10.0/10** — Subscriber PHP Object Injection in ACPT (Pro) - Custom Post Types Plugin for WordPress &lt;= 2.0.63 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-79787](https://nvd.nist.gov/vuln/detail/CVE-2026-79787) · 10.0/10** — Alluxio&#x27;s S3 REST proxy fails to verify AWS Signature Version 4 signatures in its default configuration, allowing unauth — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-79782](https://nvd.nist.gov/vuln/detail/CVE-2026-79782) · 10.0/10** — rclone before 1.74.4 fails to strip the X-Amz-Security-Token header when an S3 redirect changes scheme from HTTPS to HTT — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-65093](https://nvd.nist.gov/vuln/detail/CVE-2026-65093) · 10.0/10** — NVIDIA OpenShell for Linux contains a vulnerability where an attacker could cause a sandbox escape. A successful exploit — CVSS 9.9; priority technology: linux
+- **[CVE-2026-65083](https://nvd.nist.gov/vuln/detail/CVE-2026-65083) · 10.0/10** — NVIDIA OpenShell for Linux contains a vulnerability in its sandbox provisioning API, where an attacker could cause an in — CVSS 9.9; priority technology: linux
+- **[CVE-2026-78570](https://nvd.nist.gov/vuln/detail/CVE-2026-78570) · 10.0/10** — The Total Donations plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.0 — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, August 25th, 2026 https://isc.sans.edu/podcastdetail/10066, (Tue, Aug 25th)](https://isc.sans.edu/diary/rss/33278)**
+**[ISC Stormcast For Wednesday, August 26th, 2026 https://isc.sans.edu/podcastdetail/10068, (Wed, Aug 26th)](https://isc.sans.edu/diary/rss/33282)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[SeL4 security proofs now complete on AArch64](https://proofcraft.systems/news-2026/#2026-08-21)** — Hacker News · 182 points · 42 comments
-[Open discussion](https://news.ycombinator.com/item?id=49418255)
+**[Nitter and XCancel receive cease and desist notices](https://github.com/zedeus/nitter/issues/1442)** — Hacker News · 821 points · 688 comments
+[Open discussion](https://news.ycombinator.com/item?id=49437283)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
