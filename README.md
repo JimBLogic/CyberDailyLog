@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-26T07:06:49+00:00  
-**Coverage:** 2026-08-25T07:06:42+00:00 → 2026-08-26T07:06:42+00:00  
+**Updated:** 2026-08-27T17:36:44+00:00  
+**Coverage:** 2026-08-26T17:36:34+00:00 → 2026-08-27T17:36:34+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 734 source-backed developments
-- **Above threshold:** 309
+- **Assessed:** 402 source-backed developments
+- **Above threshold:** 261
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-79787](https://nvd.nist.gov/vuln/detail/CVE-2026-79787) · 10.0/10** — Alluxio&#x27;s S3 REST proxy fails to verify AWS Signature Version 4 signatures in its default configuration, allowing unauth — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-79782](https://nvd.nist.gov/vuln/detail/CVE-2026-79782) · 10.0/10** — rclone before 1.74.4 fails to strip the X-Amz-Security-Token header when an S3 redirect changes scheme from HTTPS to HTT — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-65093](https://nvd.nist.gov/vuln/detail/CVE-2026-65093) · 10.0/10** — NVIDIA OpenShell for Linux contains a vulnerability where an attacker could cause a sandbox escape. A successful exploit — CVSS 9.9; priority technology: linux
-- **[CVE-2026-65083](https://nvd.nist.gov/vuln/detail/CVE-2026-65083) · 10.0/10** — NVIDIA OpenShell for Linux contains a vulnerability in its sandbox provisioning API, where an attacker could cause an in — CVSS 9.9; priority technology: linux
-- **[CVE-2026-78570](https://nvd.nist.gov/vuln/detail/CVE-2026-78570) · 10.0/10** — The Total Donations plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.0 — CVSS 9.8; detection opportunity
+- **[CVE-2023-49105](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2023-49105 exploited in CISA KEV: ownCloud ownCloud — no severity score; EPSS percentile &gt;= 95%
+- **[CVE-2026-66384](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-66384 exploited in CISA KEV: JFrog Artifactory — no severity score; priority technology: cloud
+- **[CVE-2026-53362](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-53362 exploited in CISA KEV: Linux Kernel — no severity score; priority technology: linux
+- **[CVE-2026-60004](https://nvd.nist.gov/vuln/detail/CVE-2026-60004) · 10.0/10** — Gitea before 1.27.1 allows remote code execution via the diffpatch API through Git hook installation. — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2026-81707](https://nvd.nist.gov/vuln/detail/CVE-2026-81707) · 10.0/10** — openssl_encrypt before 1.4.9 fails to sanitize the email field of imported identity documents, allowing attackers to inj — CVSS 9.3; priority technology: microsoft_365
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, August 26th, 2026 https://isc.sans.edu/podcastdetail/10068, (Wed, Aug 26th)](https://isc.sans.edu/diary/rss/33282)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
-
-### Community pulse
-
-**[Nitter and XCancel receive cease and desist notices](https://github.com/zedeus/nitter/issues/1442)** — Hacker News · 821 points · 688 comments
-[Open discussion](https://news.ycombinator.com/item?id=49437283)
+**[Two Alleged ‘TeamPCP’ Hackers Arrested in Australia](https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/)**
+Brian Krebs · Krebs on Security  
+> Authorities in Australia have arrested two men believed to be members of TeamPCP, a prolific cybercrime and data extortion group blamed for perpetrating the…
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
