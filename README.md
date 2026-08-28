@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-27T17:36:44+00:00  
-**Coverage:** 2026-08-26T17:36:34+00:00 → 2026-08-27T17:36:34+00:00  
+**Updated:** 2026-08-28T18:38:46+00:00  
+**Coverage:** 2026-08-27T18:38:31+00:00 → 2026-08-28T18:38:31+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 402 source-backed developments
-- **Above threshold:** 261
+- **Assessed:** 541 source-backed developments
+- **Above threshold:** 258
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2023-49105](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2023-49105 exploited in CISA KEV: ownCloud ownCloud — no severity score; EPSS percentile &gt;= 95%
-- **[CVE-2026-66384](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-66384 exploited in CISA KEV: JFrog Artifactory — no severity score; priority technology: cloud
-- **[CVE-2026-53362](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-53362 exploited in CISA KEV: Linux Kernel — no severity score; priority technology: linux
-- **[CVE-2026-60004](https://nvd.nist.gov/vuln/detail/CVE-2026-60004) · 10.0/10** — Gitea before 1.27.1 allows remote code execution via the diffpatch API through Git hook installation. — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2026-81707](https://nvd.nist.gov/vuln/detail/CVE-2026-81707) · 10.0/10** — openssl_encrypt before 1.4.9 fails to sanitize the email field of imported identity documents, allowing attackers to inj — CVSS 9.3; priority technology: microsoft_365
+- **[CVE-2026-68929](https://nvd.nist.gov/vuln/detail/CVE-2026-68929) · 10.0/10** — FastGPT is an open-source LLM platform for building AI applications on a knowledge base. In versions prior to 4.15.2, th — CVSS 9.3; priority technology: browsers
+- **[CVE-2026-74820](https://nvd.nist.gov/vuln/detail/CVE-2026-74820) · 10.0/10** — ServiceNow has remediated a SQL injection vulnerability that was identified in in the ServiceNow AI platform. This vulne — CVSS 10.0; detection opportunity
+- **[CVE-2026-18886](https://nvd.nist.gov/vuln/detail/CVE-2026-18886) · 10.0/10** — ServiceNow has remediated an improper access control vulnerability that was identified in the ServiceNow AI platform. Th — CVSS 10.0; detection opportunity
+- **[CVE-2026-61800](https://nvd.nist.gov/vuln/detail/CVE-2026-61800) · 9.8/10** — Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. I — CVSS 9.1; priority technology: security_products
+- **[CVE-2026-82244](https://nvd.nist.gov/vuln/detail/CVE-2026-82244) · 9.7/10** — Budibase versions before 3.41.3 contain a remote code execution vulnerability in plugin handling that allows authenticat — CVSS 9.4; detection opportunity
 
 ### Human context
 
-**[Two Alleged ‘TeamPCP’ Hackers Arrested in Australia](https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/)**
-Brian Krebs · Krebs on Security  
-> Authorities in Australia have arrested two men believed to be members of TeamPCP, a prolific cybercrime and data extortion group blamed for perpetrating the…
+**[Some Malicious PE Stats, (Thu, Aug 27th)](https://isc.sans.edu/diary/rss/33292)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> During my last FOR610 session, a student asked me if I had some statistics in mind about the compilers used to generate malicious PE…
+
+### Community pulse
+
+**[Migrating to HTTPX2](https://github.com/openai/openai-python/blob/main/httpx2.md)** — Hacker News · 164 points · 71 comments
+[Open discussion](https://news.ycombinator.com/item?id=49477212)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

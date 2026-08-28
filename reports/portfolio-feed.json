@@ -1,8 +1,17 @@
 {
-  "above_threshold": 261,
-  "community_pulse": null,
-  "coverage_end": "2026-08-27T17:36:34+00:00",
-  "coverage_start": "2026-08-26T17:36:34+00:00",
+  "above_threshold": 258,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 71,
+    "discussion_url": "https://news.ycombinator.com/item?id=49477212",
+    "published_at": "2026-08-28T11:51:20+00:00",
+    "score": 164,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/openai/openai-python/blob/main/httpx2.md",
+    "title": "Migrating to HTTPX2"
+  },
+  "coverage_end": "2026-08-28T18:38:31+00:00",
+  "coverage_start": "2026-08-27T18:38:31+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-27T17:36:44+00:00",
+  "generated_at": "2026-08-28T18:38:46+00:00",
   "human_context": {
-    "author": "Brian Krebs",
-    "excerpt": "Authorities in Australia have arrested two men believed to be members of TeamPCP, a prolific cybercrime and data extortion group blamed for perpetrating the\u2026",
+    "author": null,
+    "excerpt": "During my last FOR610 session, a student asked me if I had some statistics in mind about the compilers used to generate malicious PE\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-08-27T11:04:15+00:00",
-    "source_name": "Krebs on Security",
-    "source_url": "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/",
-    "title": "Two Alleged \u2018TeamPCP\u2019 Hackers Arrested in Australia"
+    "published_at": "2026-08-28T07:04:13+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33292",
+    "title": "Some Malicious PE Stats, (Thu, Aug 27th)"
   },
-  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 3,
+  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
+  "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 402,
+  "qualified_developments": 541,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -49,145 +58,136 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2023-49105"
-      ],
-      "cvss_score": null,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.95592,
-      "epss_score": 0.11074,
-      "ghsa_ids": [],
-      "id": "CVE-2023-49105",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [
-        "ownCloud"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "EPSS percentile >= 0.95 +10"
-      ],
-      "selection_score": 105,
-      "severity": "unknown",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2023-49105 exploited in CISA KEV: ownCloud ownCloud",
-      "why_it_matters": "no severity score; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-66384"
-      ],
-      "cvss_score": null,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.17918,
-      "epss_score": 0.00264,
-      "ghsa_ids": [],
-      "id": "CVE-2026-66384",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [
-        "Artifactory"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "priority technology: cloud +8"
-      ],
-      "selection_score": 103,
-      "severity": "unknown",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-66384 exploited in CISA KEV: JFrog Artifactory",
-      "why_it_matters": "no severity score; priority technology: cloud"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-53362"
-      ],
-      "cvss_score": null,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.18041,
-      "epss_score": 0.00265,
-      "ghsa_ids": [],
-      "id": "CVE-2026-53362",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [
-        "Kernel"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "priority technology: linux +8"
-      ],
-      "selection_score": 103,
-      "severity": "unknown",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-53362 exploited in CISA KEV: Linux Kernel",
-      "why_it_matters": "no severity score; priority technology: linux"
-    },
-    {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-60004"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.99637,
-      "epss_score": 0.824,
-      "ghsa_ids": [],
-      "id": "CVE-2026-60004",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "EPSS >= 0.70 +25",
-        "EPSS percentile >= 0.95 +10"
-      ],
-      "selection_score": 55,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60004",
-      "title": "Gitea before 1.27.1 allows remote code execution via the diffpatch API through Git hook installation.",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-81707"
+        "CVE-2026-68929"
       ],
       "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.17092,
+      "epss_score": 0.00257,
       "ghsa_ids": [],
-      "id": "CVE-2026-81707",
+      "id": "CVE-2026-68929",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
+        "priority technology: browsers +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81707",
-      "title": "openssl_encrypt before 1.4.9 fails to sanitize the email field of imported identity documents, allowing attackers to inj",
-      "why_it_matters": "CVSS 9.3; priority technology: microsoft_365"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68929",
+      "title": "FastGPT is an open-source LLM platform for building AI applications on a knowledge base. In versions prior to 4.15.2, th",
+      "why_it_matters": "CVSS 9.3; priority technology: browsers"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-74820"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.14642,
+      "epss_score": 0.00238,
+      "ghsa_ids": [],
+      "id": "CVE-2026-74820",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74820",
+      "title": "ServiceNow has remediated a SQL injection vulnerability that was identified in in the ServiceNow AI platform. This vulne",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-18886"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.17963,
+      "epss_score": 0.00264,
+      "ghsa_ids": [],
+      "id": "CVE-2026-18886",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18886",
+      "title": "ServiceNow has remediated an improper access control vulnerability that was identified in the ServiceNow AI platform. Th",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-61800"
+      ],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.45541,
+      "epss_score": 0.0059,
+      "ghsa_ids": [],
+      "id": "CVE-2026-61800",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.8,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: security_products +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61800",
+      "title": "Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. I",
+      "why_it_matters": "CVSS 9.1; priority technology: security_products"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-82244"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-82244",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.7,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82244",
+      "title": "Budibase versions before 3.41.3 contain a remote code execution vulnerability in plugin handling that allows authenticat",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
     }
   ]
 }
