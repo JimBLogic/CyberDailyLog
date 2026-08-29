@@ -9,34 +9,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-28T18:38:46+00:00  
-**Coverage:** 2026-08-27T18:38:31+00:00 → 2026-08-28T18:38:31+00:00  
+**Updated:** 2026-08-29T12:39:41+00:00  
+**Coverage:** 2026-08-28T12:39:36+00:00 → 2026-08-29T12:39:36+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 541 source-backed developments
-- **Above threshold:** 258
+- **Assessed:** 327 source-backed developments
+- **Above threshold:** 190
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-68929](https://nvd.nist.gov/vuln/detail/CVE-2026-68929) · 10.0/10** — FastGPT is an open-source LLM platform for building AI applications on a knowledge base. In versions prior to 4.15.2, th — CVSS 9.3; priority technology: browsers
-- **[CVE-2026-74820](https://nvd.nist.gov/vuln/detail/CVE-2026-74820) · 10.0/10** — ServiceNow has remediated a SQL injection vulnerability that was identified in in the ServiceNow AI platform. This vulne — CVSS 10.0; detection opportunity
-- **[CVE-2026-18886](https://nvd.nist.gov/vuln/detail/CVE-2026-18886) · 10.0/10** — ServiceNow has remediated an improper access control vulnerability that was identified in the ServiceNow AI platform. Th — CVSS 10.0; detection opportunity
-- **[CVE-2026-61800](https://nvd.nist.gov/vuln/detail/CVE-2026-61800) · 9.8/10** — Wazuh is an open-source security platform providing unified XDR and SIEM protection for endpoints and cloud workloads. I — CVSS 9.1; priority technology: security_products
-- **[CVE-2026-82244](https://nvd.nist.gov/vuln/detail/CVE-2026-82244) · 9.7/10** — Budibase versions before 3.41.3 contain a remote code execution vulnerability in plugin handling that allows authenticat — CVSS 9.4; detection opportunity
-
-### Human context
-
-**[Some Malicious PE Stats, (Thu, Aug 27th)](https://isc.sans.edu/diary/rss/33292)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> During my last FOR610 session, a student asked me if I had some statistics in mind about the compilers used to generate malicious PE…
+- **[CVE-2026-54745](https://nvd.nist.gov/vuln/detail/CVE-2026-54745) · 10.0/10** — Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-14494](https://nvd.nist.gov/vuln/detail/CVE-2026-14494) · 10.0/10** — The Sigma Forms Pro plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1. — CVSS 9.8; priority technology: security_products
+- **[CVE-2026-55565](https://nvd.nist.gov/vuln/detail/CVE-2026-55565) · 10.0/10** — Yamcs is a mission control framework. Prior to 5.12.8 and 5.13.2, Yamcs LikeExpression.fillCode_getValueReturn in yamcs- — CVSS 9.9; detection opportunity
+- **[CVE-2026-19295](https://nvd.nist.gov/vuln/detail/CVE-2026-19295) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.1 allows an authenticated attacker to execute arbitrary operating system commands in — CVSS 9.9; detection opportunity
+- **[CVE-2026-19286](https://nvd.nist.gov/vuln/detail/CVE-2026-19286) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary code due to improper enforcemen — CVSS 9.8; detection opportunity
 
 ### Community pulse
 
-**[Migrating to HTTPX2](https://github.com/openai/openai-python/blob/main/httpx2.md)** — Hacker News · 164 points · 71 comments
-[Open discussion](https://news.ycombinator.com/item?id=49477212)
+**[Boot a Virtual iPhone via Apple&#x27;s Virtualization.framework](https://github.com/Lakr233/vphone-cli)** — Hacker News · 306 points · 83 comments
+[Open discussion](https://news.ycombinator.com/item?id=49485267)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
