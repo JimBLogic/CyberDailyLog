@@ -1,17 +1,8 @@
 {
-  "above_threshold": 190,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 83,
-    "discussion_url": "https://news.ycombinator.com/item?id=49485267",
-    "published_at": "2026-08-28T23:02:21+00:00",
-    "score": 306,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/Lakr233/vphone-cli",
-    "title": "Boot a Virtual iPhone via Apple's Virtualization.framework"
-  },
-  "coverage_end": "2026-08-29T12:39:36+00:00",
-  "coverage_start": "2026-08-28T12:39:36+00:00",
+  "above_threshold": 42,
+  "community_pulse": null,
+  "coverage_end": "2026-08-30T11:51:52+00:00",
+  "coverage_start": "2026-08-29T11:51:52+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,14 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-08-29T12:39:41+00:00",
-  "human_context": null,
+  "generated_at": "2026-08-30T11:52:02+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "YARA-X&#;x26;#;39;s 1.20.0 release brings 14 improvements and 13 bugfixes.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-08-30T07:14:49+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33288",
+    "title": "YARA-X 1.20.0 Release, (Sun, Aug 30th)"
+  },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 327,
+  "qualified_developments": 63,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -49,33 +48,6 @@
   },
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-54745"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-54745",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54745",
-      "title": "Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
-    },
     {
       "cisa_kev": false,
       "cve_ids": [
@@ -106,44 +78,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-55565"
+        "CVE-2026-82456"
       ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-c64q-hj4j-375f"
-      ],
-      "id": "CVE-2026-55565",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [
-        "org.yamcs:yamcs-core"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55565",
-      "title": "Yamcs is a mission control framework. Prior to 5.12.8 and 5.13.2, Yamcs LikeExpression.fillCode_getValueReturn in yamcs-",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-19295"
-      ],
-      "cvss_score": 9.9,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19295",
+      "id": "CVE-2026-82456",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -155,21 +97,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19295",
-      "title": "IBM Langflow OSS 1.0.0 through 1.11.1 allows an authenticated attacker to execute arbitrary operating system commands in",
-      "why_it_matters": "CVSS 9.9; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82456",
+      "title": "argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller c",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-19286"
+        "CVE-2026-15980"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-19286",
+      "id": "CVE-2026-15980",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -181,9 +123,61 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19286",
-      "title": "IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary code due to improper enforcemen",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15980",
+      "title": "The MyHome Core plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 4.4.5.",
       "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-15369"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-15369",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15369",
+      "title": "The Custom User Registration Fields for WooCommerce plugin for WordPress is vulnerable to Privilege Escalation in versio",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-82466"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-82466",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.7,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82466",
+      "title": "Rodauth before 2.46.0 contains an authentication bypass vulnerability in the webauthn_login route that allows logged-in",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
     }
   ]
 }

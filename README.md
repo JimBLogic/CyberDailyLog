@@ -9,28 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-29T12:39:41+00:00  
-**Coverage:** 2026-08-28T12:39:36+00:00 → 2026-08-29T12:39:36+00:00  
+**Updated:** 2026-08-30T11:52:02+00:00  
+**Coverage:** 2026-08-29T11:51:52+00:00 → 2026-08-30T11:51:52+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 327 source-backed developments
-- **Above threshold:** 190
+- **Assessed:** 63 source-backed developments
+- **Above threshold:** 42
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-54745](https://nvd.nist.gov/vuln/detail/CVE-2026-54745) · 10.0/10** — Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the — CVSS 10.0; priority technology: cloud
 - **[CVE-2026-14494](https://nvd.nist.gov/vuln/detail/CVE-2026-14494) · 10.0/10** — The Sigma Forms Pro plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1. — CVSS 9.8; priority technology: security_products
-- **[CVE-2026-55565](https://nvd.nist.gov/vuln/detail/CVE-2026-55565) · 10.0/10** — Yamcs is a mission control framework. Prior to 5.12.8 and 5.13.2, Yamcs LikeExpression.fillCode_getValueReturn in yamcs- — CVSS 9.9; detection opportunity
-- **[CVE-2026-19295](https://nvd.nist.gov/vuln/detail/CVE-2026-19295) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.1 allows an authenticated attacker to execute arbitrary operating system commands in — CVSS 9.9; detection opportunity
-- **[CVE-2026-19286](https://nvd.nist.gov/vuln/detail/CVE-2026-19286) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary code due to improper enforcemen — CVSS 9.8; detection opportunity
+- **[CVE-2026-82456](https://nvd.nist.gov/vuln/detail/CVE-2026-82456) · 10.0/10** — argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller c — CVSS 10.0; detection opportunity
+- **[CVE-2026-15980](https://nvd.nist.gov/vuln/detail/CVE-2026-15980) · 10.0/10** — The MyHome Core plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 4.4.5. — CVSS 9.8; detection opportunity
+- **[CVE-2026-15369](https://nvd.nist.gov/vuln/detail/CVE-2026-15369) · 10.0/10** — The Custom User Registration Fields for WooCommerce plugin for WordPress is vulnerable to Privilege Escalation in versio — CVSS 9.8; detection opportunity
+- **[CVE-2026-82466](https://nvd.nist.gov/vuln/detail/CVE-2026-82466) · 9.7/10** — Rodauth before 2.46.0 contains an authentication bypass vulnerability in the webauthn_login route that allows logged-in — CVSS 9.4; detection opportunity
 
-### Community pulse
+### Human context
 
-**[Boot a Virtual iPhone via Apple&#x27;s Virtualization.framework](https://github.com/Lakr233/vphone-cli)** — Hacker News · 306 points · 83 comments
-[Open discussion](https://news.ycombinator.com/item?id=49485267)
+**[YARA-X 1.20.0 Release, (Sun, Aug 30th)](https://isc.sans.edu/diary/rss/33288)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> YARA-X&amp;#;x26;#;39;s 1.20.0 release brings 14 improvements and 13 bugfixes.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
