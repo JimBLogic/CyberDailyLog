@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-30T11:52:02+00:00  
-**Coverage:** 2026-08-29T11:51:52+00:00 → 2026-08-30T11:51:52+00:00  
+**Updated:** 2026-08-31T13:43:06+00:00  
+**Coverage:** 2026-08-30T13:42:58+00:00 → 2026-08-31T13:42:58+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 63 source-backed developments
-- **Above threshold:** 42
+- **Assessed:** 187 source-backed developments
+- **Above threshold:** 124
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-14494](https://nvd.nist.gov/vuln/detail/CVE-2026-14494) · 10.0/10** — The Sigma Forms Pro plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1. — CVSS 9.8; priority technology: security_products
-- **[CVE-2026-82456](https://nvd.nist.gov/vuln/detail/CVE-2026-82456) · 10.0/10** — argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller c — CVSS 10.0; detection opportunity
-- **[CVE-2026-15980](https://nvd.nist.gov/vuln/detail/CVE-2026-15980) · 10.0/10** — The MyHome Core plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 4.4.5. — CVSS 9.8; detection opportunity
-- **[CVE-2026-15369](https://nvd.nist.gov/vuln/detail/CVE-2026-15369) · 10.0/10** — The Custom User Registration Fields for WooCommerce plugin for WordPress is vulnerable to Privilege Escalation in versio — CVSS 9.8; detection opportunity
-- **[CVE-2026-82466](https://nvd.nist.gov/vuln/detail/CVE-2026-82466) · 9.7/10** — Rodauth before 2.46.0 contains an authentication bypass vulnerability in the webauthn_login route that allows logged-in — CVSS 9.4; detection opportunity
+- **[CVE-2026-82856](https://nvd.nist.gov/vuln/detail/CVE-2026-82856) · 10.0/10** — @hulumi/policies versions before 1.3.2 fail to properly validate set-qualified AWS IAM condition operators in GitHub OID — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-77956](https://nvd.nist.gov/vuln/detail/CVE-2026-77956) · 10.0/10** — Improper Control of Generation of Code (Code Injection) vulnerability in ash-project ash_ai allows a remote, unauthentic — CVSS 10.0; detection opportunity
+- **[CVE-2026-58574](https://nvd.nist.gov/vuln/detail/CVE-2026-58574) · 10.0/10** — Dell PowerStore contains a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with — CVSS 9.8; detection opportunity
+- **[CVE-2026-82876](https://nvd.nist.gov/vuln/detail/CVE-2026-82876) · 9.6/10** — Phison PS3111-S11 controller firmware verifies RSA signatures using a public modulus embedded within the firmware image — CVSS 9.3; detection opportunity
+- **[CVE-2026-82860](https://nvd.nist.gov/vuln/detail/CVE-2026-82860) · 9.6/10** — @hulumi/policies versions before 1.3.2 fail to fully inspect inline and attached IAM policy evidence for the administrat — CVSS 9.3; detection opportunity
 
 ### Human context
 
-**[YARA-X 1.20.0 Release, (Sun, Aug 30th)](https://isc.sans.edu/diary/rss/33288)**
+**[ISC Stormcast For Monday, August 31st, 2026 https://isc.sans.edu/podcastdetail/10074, (Mon, Aug 31st)](https://isc.sans.edu/diary/rss/33296)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> YARA-X&amp;#;x26;#;39;s 1.20.0 release brings 14 improvements and 13 bugfixes.
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Why open source rocks – a new SM750 (Silicon Motion GPU) HDMI Driver](https://github.com/KodeMunkie/sm750hdmifb)** — Hacker News · 118 points · 40 comments
+[Open discussion](https://news.ycombinator.com/item?id=49501611)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
