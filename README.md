@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-08-31T13:43:06+00:00  
-**Coverage:** 2026-08-30T13:42:58+00:00 → 2026-08-31T13:42:58+00:00  
+**Updated:** 2026-09-01T11:36:14+00:00  
+**Coverage:** 2026-08-31T11:36:01+00:00 → 2026-09-01T11:36:01+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 187 source-backed developments
-- **Above threshold:** 124
+- **Assessed:** 324 source-backed developments
+- **Above threshold:** 179
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-82856](https://nvd.nist.gov/vuln/detail/CVE-2026-82856) · 10.0/10** — @hulumi/policies versions before 1.3.2 fail to properly validate set-qualified AWS IAM condition operators in GitHub OID — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-77956](https://nvd.nist.gov/vuln/detail/CVE-2026-77956) · 10.0/10** — Improper Control of Generation of Code (Code Injection) vulnerability in ash-project ash_ai allows a remote, unauthentic — CVSS 10.0; detection opportunity
-- **[CVE-2026-58574](https://nvd.nist.gov/vuln/detail/CVE-2026-58574) · 10.0/10** — Dell PowerStore contains a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with — CVSS 9.8; detection opportunity
-- **[CVE-2026-82876](https://nvd.nist.gov/vuln/detail/CVE-2026-82876) · 9.6/10** — Phison PS3111-S11 controller firmware verifies RSA signatures using a public modulus embedded within the firmware image — CVSS 9.3; detection opportunity
-- **[CVE-2026-82860](https://nvd.nist.gov/vuln/detail/CVE-2026-82860) · 9.6/10** — @hulumi/policies versions before 1.3.2 fail to fully inspect inline and attached IAM policy evidence for the administrat — CVSS 9.3; detection opportunity
+- **[CVE-2026-82226](https://nvd.nist.gov/vuln/detail/CVE-2026-82226) · 10.0/10** — Unauthenticated PHP Object Injection in Tickera &lt;= 3.6.0.2 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-81780](https://nvd.nist.gov/vuln/detail/CVE-2026-81780) · 10.0/10** — Unauthenticated Arbitrary File Upload in Hash Form &lt;= 1.4.2 versions. — CVSS 10.0; detection opportunity
+- **[CVE-2026-81779](https://nvd.nist.gov/vuln/detail/CVE-2026-81779) · 10.0/10** — Improper Validation of Specified Quantity in Input vulnerability in Silk Themes Newspapers X allows Malicious Software I — CVSS 10.0; detection opportunity
+- **[CVE-2026-75865](https://nvd.nist.gov/vuln/detail/CVE-2026-75865) · 10.0/10** — The WPLP Cookie Consent – Cookie Banner &amp; Consent Management for GDPR, CCPA &amp; Google Consent Mode plugin for WordPress i — CVSS 9.8; detection opportunity
+- **[CVE-2026-67394](https://nvd.nist.gov/vuln/detail/CVE-2026-67394) · 9.8/10** — A critical local privilege escalation via OS command injection vulnerability has been discovered in Plesk for Linux, aff — CVSS 9.0; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Monday, August 31st, 2026 https://isc.sans.edu/podcastdetail/10074, (Mon, Aug 31st)](https://isc.sans.edu/diary/rss/33296)**
+**[ISC Stormcast For Tuesday, September 1st, 2026 https://isc.sans.edu/podcastdetail/10076, (Tue, Sep 1st)](https://isc.sans.edu/diary/rss/33302)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Why open source rocks – a new SM750 (Silicon Motion GPU) HDMI Driver](https://github.com/KodeMunkie/sm750hdmifb)** — Hacker News · 118 points · 40 comments
-[Open discussion](https://news.ycombinator.com/item?id=49501611)
+**[I turned my security cameras into an automatic bird identification system](https://jasontucker.blog/how-i-turned-my-security-cameras-into-an-automatic-bird-identification-system-with-birdnet-go/)** — Hacker News · 522 points · 127 comments
+[Open discussion](https://news.ycombinator.com/item?id=49511856)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
