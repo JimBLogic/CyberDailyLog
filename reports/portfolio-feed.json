@@ -1,17 +1,8 @@
 {
-  "above_threshold": 179,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 127,
-    "discussion_url": "https://news.ycombinator.com/item?id=49511856",
-    "published_at": "2026-08-31T16:47:11+00:00",
-    "score": 522,
-    "source_name": "Hacker News",
-    "source_url": "https://jasontucker.blog/how-i-turned-my-security-cameras-into-an-automatic-bird-identification-system-with-birdnet-go/",
-    "title": "I turned my security cameras into an automatic bird identification system"
-  },
-  "coverage_end": "2026-09-01T11:36:01+00:00",
-  "coverage_start": "2026-08-31T11:36:01+00:00",
+  "above_threshold": 335,
+  "community_pulse": null,
+  "coverage_end": "2026-09-02T14:00:15+00:00",
+  "coverage_start": "2026-09-01T14:00:15+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-01T11:36:14+00:00",
+  "generated_at": "2026-09-02T14:00:27+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-01T02:00:03+00:00",
+    "published_at": "2026-09-02T02:00:02+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33302",
-    "title": "ISC Stormcast For Tuesday, September 1st, 2026 https://isc.sans.edu/podcastdetail/10076, (Tue, Sep 1st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33304",
+    "title": "ISC Stormcast For Wednesday, September 2nd, 2026 https://isc.sans.edu/podcastdetail/10078, (Wed, Sep 2nd)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 324,
+  "qualified_developments": 518,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,14 +51,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-82226"
+        "CVE-2026-84372"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-82226",
+      "id": "CVE-2026-84372",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -79,73 +70,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82226",
-      "title": "Unauthenticated PHP Object Injection in Tickera <= 3.6.0.2 versions.",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84372",
+      "title": "Predis is a flexible and feature-complete Redis and Valkey client for PHP. From version 3.0.0-RC1 until version 3.3.0, p",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-81780"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-81780",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81780",
-      "title": "Unauthenticated Arbitrary File Upload in Hash Form <= 1.4.2 versions.",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-81779"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-81779",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81779",
-      "title": "Improper Validation of Specified Quantity in Input vulnerability in Silk Themes Newspapers X allows Malicious Software I",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-75865"
+        "CVE-2026-73749"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-75865",
+      "id": "CVE-2026-73749",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -157,36 +96,89 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75865",
-      "title": "The WPLP Cookie Consent \u2013 Cookie Banner & Consent Management for GDPR, CCPA & Google Consent Mode plugin for WordPress i",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73749",
+      "title": "Multiple vulnerabilities exist in a daemon of AOS-CX that may allow for improper processing of malformed input. An unaut",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-67394"
+        "CVE-2026-75604"
       ],
       "cvss_score": 9.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-67394",
+      "id": "CVE-2026-75604",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.8,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: windows +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67394",
-      "title": "A critical local privilege escalation via OS command injection vulnerability has been discovered in Plesk for Linux, aff",
-      "why_it_matters": "CVSS 9.0; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75604",
+      "title": "Next.js is a React framework for building full-stack web applications. From 13.4.0 until 15.5.24 and 16.3.3, Next.js app",
+      "why_it_matters": "CVSS 9.0; priority technology: windows"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-78657"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-78657",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: security_products +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78657",
+      "title": "The SigmaForms Pro \u2013 AI Generated Forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficien",
+      "why_it_matters": "CVSS 9.8; priority technology: security_products"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-84695"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-84695",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84695",
+      "title": "BookStack before 26.05.4 contains a stored cross-site scripting vulnerability in the drawing upload endpoint that accept",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }

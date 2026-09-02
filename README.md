@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-01T11:36:14+00:00  
-**Coverage:** 2026-08-31T11:36:01+00:00 → 2026-09-01T11:36:01+00:00  
+**Updated:** 2026-09-02T14:00:27+00:00  
+**Coverage:** 2026-09-01T14:00:15+00:00 → 2026-09-02T14:00:15+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 324 source-backed developments
-- **Above threshold:** 179
+- **Assessed:** 518 source-backed developments
+- **Above threshold:** 335
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-82226](https://nvd.nist.gov/vuln/detail/CVE-2026-82226) · 10.0/10** — Unauthenticated PHP Object Injection in Tickera &lt;= 3.6.0.2 versions. — CVSS 9.8; detection opportunity
-- **[CVE-2026-81780](https://nvd.nist.gov/vuln/detail/CVE-2026-81780) · 10.0/10** — Unauthenticated Arbitrary File Upload in Hash Form &lt;= 1.4.2 versions. — CVSS 10.0; detection opportunity
-- **[CVE-2026-81779](https://nvd.nist.gov/vuln/detail/CVE-2026-81779) · 10.0/10** — Improper Validation of Specified Quantity in Input vulnerability in Silk Themes Newspapers X allows Malicious Software I — CVSS 10.0; detection opportunity
-- **[CVE-2026-75865](https://nvd.nist.gov/vuln/detail/CVE-2026-75865) · 10.0/10** — The WPLP Cookie Consent – Cookie Banner &amp; Consent Management for GDPR, CCPA &amp; Google Consent Mode plugin for WordPress i — CVSS 9.8; detection opportunity
-- **[CVE-2026-67394](https://nvd.nist.gov/vuln/detail/CVE-2026-67394) · 9.8/10** — A critical local privilege escalation via OS command injection vulnerability has been discovered in Plesk for Linux, aff — CVSS 9.0; priority technology: linux
+- **[CVE-2026-84372](https://nvd.nist.gov/vuln/detail/CVE-2026-84372) · 10.0/10** — Predis is a flexible and feature-complete Redis and Valkey client for PHP. From version 3.0.0-RC1 until version 3.3.0, p — CVSS 9.8; detection opportunity
+- **[CVE-2026-73749](https://nvd.nist.gov/vuln/detail/CVE-2026-73749) · 10.0/10** — Multiple vulnerabilities exist in a daemon of AOS-CX that may allow for improper processing of malformed input. An unaut — CVSS 9.8; detection opportunity
+- **[CVE-2026-75604](https://nvd.nist.gov/vuln/detail/CVE-2026-75604) · 9.8/10** — Next.js is a React framework for building full-stack web applications. From 13.4.0 until 15.5.24 and 16.3.3, Next.js app — CVSS 9.0; priority technology: windows
+- **[CVE-2026-78657](https://nvd.nist.gov/vuln/detail/CVE-2026-78657) · 9.6/10** — The SigmaForms Pro – AI Generated Forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficien — CVSS 9.8; priority technology: security_products
+- **[CVE-2026-84695](https://nvd.nist.gov/vuln/detail/CVE-2026-84695) · 9.6/10** — BookStack before 26.05.4 contains a stored cross-site scripting vulnerability in the drawing upload endpoint that accept — CVSS 9.3; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, September 1st, 2026 https://isc.sans.edu/podcastdetail/10076, (Tue, Sep 1st)](https://isc.sans.edu/diary/rss/33302)**
+**[ISC Stormcast For Wednesday, September 2nd, 2026 https://isc.sans.edu/podcastdetail/10078, (Wed, Sep 2nd)](https://isc.sans.edu/diary/rss/33304)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
-
-### Community pulse
-
-**[I turned my security cameras into an automatic bird identification system](https://jasontucker.blog/how-i-turned-my-security-cameras-into-an-automatic-bird-identification-system-with-birdnet-go/)** — Hacker News · 522 points · 127 comments
-[Open discussion](https://news.ycombinator.com/item?id=49511856)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
