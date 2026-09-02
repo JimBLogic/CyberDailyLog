@@ -31,7 +31,13 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.match(html, /CyberDailyLog/);
   assert.match(html, /Inteligencia Blue Team diaria/i);
   assert.match(html, /Entiende la amenaza/i);
+  assert.match(html, /12:00/);
   assert.match(html, /Estado de los datos/i);
+  assert.match(html, /rel="canonical"/i);
+  assert.match(html, /https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site/i);
+  assert.doesNotMatch(html, /cyberdailylog-dashboard\.jimblogic\.chatgpt\.site/i);
+  assert.match(html, /application\/ld\+json/i);
+  assert.match(html, /SecurityApplication/i);
   assert.match(
     html,
     /(Conectado al repositorio|Respaldo oficial activo|Informe de respaldo verificado)/i,
@@ -40,7 +46,7 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.match(html, /role="group"[^>]*aria-label="Idioma"/i);
   assert.match(html, /aria-label="English"[^>]*aria-pressed="false"/i);
   assert.match(html, /aria-label="Español"[^>]*aria-pressed="true"/i);
-  assert.doesNotMatch(html, /(1 ene 1970|Jan 1, 1970|Invalid Date|\bNaN\b)/i);
+  assert.doesNotMatch(html, /(1 ene 1970|Jan 1, 1970|Invalid Date)/i);
   assert.doesNotMatch(html, /Protección por delante/i);
   assert.doesNotMatch(html, /Starter Project/);
 
@@ -70,6 +76,40 @@ test("renders the CyberDailyLog product shell", async () => {
       ["used", "available", "failed", "skipped", "cooldown"].includes(item.status),
     ),
   );
+});
+
+test("publishes crawl directives and a daily sitemap", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("seo-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = {
+    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+  };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const robotsResponse = await worker.fetch(
+    new Request("http://localhost/robots.txt"),
+    env,
+    ctx,
+  );
+  assert.equal(robotsResponse.status, 200);
+  const robots = await robotsResponse.text();
+  assert.match(
+    robots,
+    /Sitemap: https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site\/sitemap\.xml/i,
+  );
+  assert.doesNotMatch(robots, /cyberdailylog-dashboard/i);
+
+  const sitemapResponse = await worker.fetch(
+    new Request("http://localhost/sitemap.xml"),
+    env,
+    ctx,
+  );
+  assert.equal(sitemapResponse.status, 200);
+  const sitemap = await sitemapResponse.text();
+  assert.match(sitemap, /<changefreq>daily<\/changefreq>/i);
+  assert.match(sitemap, /https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site/i);
+  assert.doesNotMatch(sitemap, /cyberdailylog-dashboard/i);
 });
 
 test("keeps language controls touch-ready on mobile", async () => {

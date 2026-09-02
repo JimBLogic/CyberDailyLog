@@ -4,10 +4,49 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/source-serif-4";
 import "./globals.css";
 
+const siteUrl = "https://cyberdailylog.jimblogic.chatgpt.site";
+
 export const metadata: Metadata = {
-  title: "CyberDailyLog — Inteligencia Blue Team diaria",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "CyberDailyLog — Inteligencia Blue Team diaria",
+    template: "%s | CyberDailyLog",
+  },
   description:
-    "Un panel Blue Team transparente y respaldado por fuentes para saber qué revisar primero.",
+    "Panel diario de inteligencia Blue Team con vulnerabilidades priorizadas, CISA KEV, EPSS, salud de fuentes y contexto verificable para saber qué revisar primero.",
+  applicationName: "CyberDailyLog",
+  authors: [{ name: "JimBLogic", url: "https://github.com/JimBLogic" }],
+  creator: "JimBLogic",
+  publisher: "JimBLogic",
+  keywords: [
+    "inteligencia de amenazas",
+    "Blue Team",
+    "ciberseguridad",
+    "vulnerabilidades",
+    "CISA KEV",
+    "EPSS",
+    "SOC",
+    "threat intelligence",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: {
+      "es-ES": "/",
+      "en": "/",
+      "x-default": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   other: {
     "theme-color": "#f3f0e8",
     "color-scheme": "light",
@@ -19,8 +58,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CyberDailyLog — Inteligencia Blue Team diaria",
     description:
-      "Vulnerabilidades priorizadas, estado de fuentes y contexto de analistas desde un sistema abierto y reproducible.",
+      "Vulnerabilidades priorizadas, CISA KEV, EPSS, salud de fuentes y contexto verificable desde un sistema abierto y reproducible.",
+    url: siteUrl,
+    siteName: "CyberDailyLog",
+    locale: "es_ES",
+    alternateLocale: ["en_GB"],
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "CyberDailyLog — Inteligencia Blue Team diaria",
+    description:
+      "Prioridades defensivas diarias respaldadas por fuentes y una metodología reproducible.",
   },
 };
 

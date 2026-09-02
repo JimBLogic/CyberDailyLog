@@ -7,7 +7,7 @@ CyberDailyLog has two deliberately independent surfaces:
 
 The production dashboard is available at:
 
-<https://cyberdailylog-dashboard.jimblogic.chatgpt.site>
+<https://cyberdailylog.jimblogic.chatgpt.site>
 
 ## Why this architecture
 
