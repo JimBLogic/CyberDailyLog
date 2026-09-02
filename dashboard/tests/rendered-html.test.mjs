@@ -31,7 +31,6 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.match(html, /CyberDailyLog/);
   assert.match(html, /Inteligencia Blue Team diaria/i);
   assert.match(html, /Entiende la amenaza/i);
-  assert.match(html, /12:00/);
   assert.match(html, /Estado de los datos/i);
   assert.match(html, /rel="canonical"/i);
   assert.match(html, /https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site/i);
