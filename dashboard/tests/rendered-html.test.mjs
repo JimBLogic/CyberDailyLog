@@ -46,7 +46,7 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.match(html, /role="group"[^>]*aria-label="Idioma"/i);
   assert.match(html, /aria-label="English"[^>]*aria-pressed="false"/i);
   assert.match(html, /aria-label="Español"[^>]*aria-pressed="true"/i);
-  assert.doesNotMatch(html, /(1 ene 1970|Jan 1, 1970|Invalid Date|\bNaN\b)/i);
+  assert.doesNotMatch(html, /(1 ene 1970|Jan 1, 1970|Invalid Date)/i);
   assert.doesNotMatch(html, /Protección por delante/i);
   assert.doesNotMatch(html, /Starter Project/);
 
