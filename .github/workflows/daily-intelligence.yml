@@ -1,9 +1,9 @@
 name: Daily Blue Team Intelligence
 "on":
   schedule:
-    - cron: "17 8 * * *"
+    - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
-    - cron: "47 9 * * *"
+    - cron: "30 13 * * *"
       timezone: "Europe/Madrid"
   workflow_dispatch:
     inputs:

@@ -27,8 +27,8 @@ def test_readme_exposes_daily_outputs_and_integration():
 def test_daily_workflow_safe_mode_and_publication_contract():
     workflow = load_workflow(".github/workflows/daily-intelligence.yml")
     assert workflow["on"]["schedule"] == [
-        {"cron": "17 8 * * *", "timezone": "Europe/Madrid"},
-        {"cron": "47 9 * * *", "timezone": "Europe/Madrid"},
+        {"cron": "0 12 * * *", "timezone": "Europe/Madrid"},
+        {"cron": "30 13 * * *", "timezone": "Europe/Madrid"},
     ]
     dispatch = workflow["on"]["workflow_dispatch"]["inputs"]
     assert dispatch["dry_run"]["type"] == "boolean"
