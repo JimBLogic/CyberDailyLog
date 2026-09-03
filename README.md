@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-02T14:00:27+00:00  
-**Coverage:** 2026-09-01T14:00:15+00:00 → 2026-09-02T14:00:15+00:00  
+**Updated:** 2026-09-03T14:03:17+00:00  
+**Coverage:** 2026-09-02T14:03:04+00:00 → 2026-09-03T14:03:04+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 518 source-backed developments
-- **Above threshold:** 335
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 71 source-backed developments
+- **Above threshold:** 46
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-84372](https://nvd.nist.gov/vuln/detail/CVE-2026-84372) · 10.0/10** — Predis is a flexible and feature-complete Redis and Valkey client for PHP. From version 3.0.0-RC1 until version 3.3.0, p — CVSS 9.8; detection opportunity
-- **[CVE-2026-73749](https://nvd.nist.gov/vuln/detail/CVE-2026-73749) · 10.0/10** — Multiple vulnerabilities exist in a daemon of AOS-CX that may allow for improper processing of malformed input. An unaut — CVSS 9.8; detection opportunity
-- **[CVE-2026-75604](https://nvd.nist.gov/vuln/detail/CVE-2026-75604) · 9.8/10** — Next.js is a React framework for building full-stack web applications. From 13.4.0 until 15.5.24 and 16.3.3, Next.js app — CVSS 9.0; priority technology: windows
-- **[CVE-2026-78657](https://nvd.nist.gov/vuln/detail/CVE-2026-78657) · 9.6/10** — The SigmaForms Pro – AI Generated Forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficien — CVSS 9.8; priority technology: security_products
-- **[CVE-2026-84695](https://nvd.nist.gov/vuln/detail/CVE-2026-84695) · 9.6/10** — BookStack before 26.05.4 contains a stored cross-site scripting vulnerability in the drawing upload endpoint that accept — CVSS 9.3; detection opportunity
+- **[CVE-2026-73843](https://github.com/advisories/GHSA-qh9r-j7rp-4x2m) · 9.3/10** — OpenChoreo: Unauthenticated access to data-plane operations via OpenChoreo cluster-gateway management APIs — CVSS 9.6; priority technology: firewalls
+- **[CVE-2026-72920](https://github.com/advisories/GHSA-2v6v-25fm-p4fg) · 9.1/10** — SeaweedFS: Unauthenticated filer IAM gRPC service grants S3 administrative control — CVSS 9.8; detection opportunity
+- **[CVE-2026-72716](https://github.com/advisories/GHSA-p4cg-3328-rvfg) · 8.8/10** — Orval: Import-time RCE via query-parameter default -&gt; zod module-level template literal — critical severity fallback; detection opportunity
+- **[CVE-2026-71866](https://github.com/advisories/GHSA-6mr6-jvcr-2f25) · 8.8/10** — Orval: Import-time RCE via schema property name -&gt; computed-property-key injection in the zod client — critical severity fallback; detection opportunity
+- **[CVE-2026-73841](https://github.com/advisories/GHSA-52gf-6rpq-fgmx) · 8.6/10** — OpenChoreo: Cross-project command execution and wirelog view access via OpenChoreo openchoreo-api exec and wirelogs endpoints — CVSS 8.8; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, September 2nd, 2026 https://isc.sans.edu/podcastdetail/10078, (Wed, Sep 2nd)](https://isc.sans.edu/diary/rss/33304)**
+**[Honeypot-Omaha and batch.py \[Guest Diary\], (Wed, Sep 2nd)](https://isc.sans.edu/diary/rss/33306)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> \[This is a Guest Diary by Frank Igbokwe, an ISC intern as part of the SANS.edu BACS program\]
+
+### Community pulse
+
+**[Audacity 4.0](https://github.com/audacity/audacity/releases/tag/Audacity-4.0.0)** — Hacker News · 403 points · 97 comments
+[Open discussion](https://news.ycombinator.com/item?id=49548395)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

@@ -1,8 +1,17 @@
 {
-  "above_threshold": 335,
-  "community_pulse": null,
-  "coverage_end": "2026-09-02T14:00:15+00:00",
-  "coverage_start": "2026-09-01T14:00:15+00:00",
+  "above_threshold": 46,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 97,
+    "discussion_url": "https://news.ycombinator.com/item?id=49548395",
+    "published_at": "2026-09-03T10:53:08+00:00",
+    "score": 403,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/audacity/audacity/releases/tag/Audacity-4.0.0",
+    "title": "Audacity 4.0"
+  },
+  "coverage_end": "2026-09-03T14:03:04+00:00",
+  "coverage_start": "2026-09-02T14:03:04+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-02T14:00:27+00:00",
+  "generated_at": "2026-09-03T14:03:17+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "[This is a Guest Diary by Frank Igbokwe, an ISC intern as part of the SANS.edu BACS program]",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-02T02:00:02+00:00",
+    "published_at": "2026-09-03T02:02:56+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33304",
-    "title": "ISC Stormcast For Wednesday, September 2nd, 2026 https://isc.sans.edu/podcastdetail/10078, (Wed, Sep 2nd)"
+    "source_url": "https://isc.sans.edu/diary/rss/33306",
+    "title": "Honeypot-Omaha and batch.py [Guest Diary], (Wed, Sep 2nd)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 518,
+  "qualified_developments": 71,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -42,7 +51,8 @@
       "total": 5
     },
     "status_counts": {
-      "healthy": 8
+      "failed": 1,
+      "healthy": 7
     },
     "total": 8
   },
@@ -51,134 +61,157 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-84372"
+        "CVE-2026-73843"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-84372",
+      "epss_percentile": 0.21258,
+      "epss_score": 0.00291,
+      "ghsa_ids": [
+        "GHSA-qh9r-j7rp-4x2m"
+      ],
+      "id": "CVE-2026-73843",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
+      "priority_score": 9.3,
+      "products": [
+        "github.com/openchoreo/openchoreo",
+        "github.com/openchoreo/openchoreo"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84372",
-      "title": "Predis is a flexible and feature-complete Redis and Valkey client for PHP. From version 3.0.0-RC1 until version 3.3.0, p",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-73749"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-73749",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73749",
-      "title": "Multiple vulnerabilities exist in a daemon of AOS-CX that may allow for improper processing of malformed input. An unaut",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-75604"
-      ],
-      "cvss_score": 9.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-75604",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.8,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: windows +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75604",
-      "title": "Next.js is a React framework for building full-stack web applications. From 13.4.0 until 15.5.24 and 16.3.3, Next.js app",
-      "why_it_matters": "CVSS 9.0; priority technology: windows"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-78657"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-78657",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: security_products +8",
+        "priority technology: firewalls +8",
         "official source +5"
       ],
       "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78657",
-      "title": "The SigmaForms Pro \u2013 AI Generated Forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficien",
-      "why_it_matters": "CVSS 9.8; priority technology: security_products"
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-qh9r-j7rp-4x2m",
+      "title": "OpenChoreo: Unauthenticated access to data-plane operations via OpenChoreo cluster-gateway management APIs",
+      "why_it_matters": "CVSS 9.6; priority technology: firewalls"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-84695"
+        "CVE-2026-72920"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-84695",
+      "epss_percentile": 0.33988,
+      "epss_score": 0.00408,
+      "ghsa_ids": [
+        "GHSA-2v6v-25fm-p4fg"
+      ],
+      "id": "CVE-2026-72920",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [],
+      "priority_score": 9.1,
+      "products": [
+        "github.com/seaweedfs/seaweedfs"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 20,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-2v6v-25fm-p4fg",
+      "title": "SeaweedFS: Unauthenticated filer IAM gRPC service grants S3 administrative control",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-72716"
+      ],
+      "cvss_score": null,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.42342,
+      "epss_score": 0.00523,
+      "ghsa_ids": [
+        "GHSA-p4cg-3328-rvfg"
+      ],
+      "id": "CVE-2026-72716",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.8,
+      "products": [
+        "orval"
+      ],
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-p4cg-3328-rvfg",
+      "title": "Orval: Import-time RCE via query-parameter default -> zod module-level template literal",
+      "why_it_matters": "critical severity fallback; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-71866"
+      ],
+      "cvss_score": null,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.39501,
+      "epss_score": 0.00478,
+      "ghsa_ids": [
+        "GHSA-6mr6-jvcr-2f25"
+      ],
+      "id": "CVE-2026-71866",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.8,
+      "products": [
+        "orval"
+      ],
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-6mr6-jvcr-2f25",
+      "title": "Orval: Import-time RCE via schema property name -> computed-property-key injection in the zod client",
+      "why_it_matters": "critical severity fallback; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-73841"
+      ],
+      "cvss_score": 8.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.2824,
+      "epss_score": 0.00353,
+      "ghsa_ids": [
+        "GHSA-52gf-6rpq-fgmx"
+      ],
+      "id": "CVE-2026-73841",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.6,
+      "products": [
+        "github.com/openchoreo/openchoreo",
+        "github.com/openchoreo/openchoreo"
+      ],
+      "selection_reasons": [
+        "high CVSS +10",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84695",
-      "title": "BookStack before 26.05.4 contains a stored cross-site scripting vulnerability in the drawing upload endpoint that accept",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
+      "selection_score": 18,
+      "severity": "high",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-52gf-6rpq-fgmx",
+      "title": "OpenChoreo: Cross-project command execution and wirelog view access via OpenChoreo openchoreo-api exec and wirelogs endpoints",
+      "why_it_matters": "CVSS 8.8; priority technology: cloud"
     }
   ]
 }
