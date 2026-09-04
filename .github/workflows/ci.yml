@@ -110,3 +110,24 @@ jobs:
           bad1="AZFREE""2025"; bad2="Free"" Cloud"; ! rg -n "$bad1|$bad2" src README.md config docs && ! rg -n "git push" src
       - name: Dependency audit
         run: python -m pip_audit -r requirements.txt -r requirements-dev.txt
+  dashboard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - name: Checkout # actions/checkout@v7.0.0
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+      - name: Setup Node.js # actions/setup-node@v6.0.0
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
+        with:
+          node-version: '22.13.0'
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - name: Install dashboard dependencies
+        run: npm ci
+      - name: Dashboard lint
+        run: npm run lint
+      - name: Dashboard privacy and production tests
+        run: npm test
