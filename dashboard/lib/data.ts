@@ -1,5 +1,6 @@
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
+import { essentialServerUrl } from "./network-policy";
 import { SOURCE_LABELS, sourceExpectedIntervalMs } from "./source-labels";
 import type {
   AnalystItem,
@@ -389,7 +390,7 @@ async function fetchJson<T>(path: string) {
       continue;
     }
     try {
-      const response = await fetch(url, {
+      const response = await fetch(essentialServerUrl(url), {
         headers: { Accept: "application/json" },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });

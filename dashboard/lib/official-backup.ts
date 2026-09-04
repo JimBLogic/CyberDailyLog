@@ -1,4 +1,5 @@
 import type { Severity, SourceHealth, Vulnerability } from "./types";
+import { essentialServerUrl } from "./network-policy";
 
 const CISA_KEV_URL =
   "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json";
@@ -69,7 +70,7 @@ function safeSeverity(value: unknown): Severity {
 async function fetchJson<T>(url: string) {
   const startedAt = Date.now();
   try {
-    const response = await fetch(url, {
+    const response = await fetch(essentialServerUrl(url), {
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(OFFICIAL_TIMEOUT_MS),
     });

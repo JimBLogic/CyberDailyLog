@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import {
   SOURCE_PROFILES,
   SOURCE_SHORT_LABELS,
@@ -18,6 +19,13 @@ import type {
   SourceHealth,
   Vulnerability,
 } from "@/lib/types";
+import {
+  clearLocalPreferences,
+  readLanguagePreference,
+  readWatchlistPreference,
+  saveLanguagePreference,
+  saveWatchlistPreference,
+} from "@/lib/local-preferences";
 
 type View =
   | "overview"
@@ -26,6 +34,24 @@ type View =
   | "methodology"
   | "engineering";
 type Language = "en" | "es";
+
+const SALITY_RADAR = {
+  en: {
+    title: "Sality: its P2P resilience became the weakness",
+    excerpt:
+      "CrowdStrike and international authorities neutralized Sality’s command channel after 23 years by sinkholing and manipulating peer lists, alongside domain seizures. Existing malware remains on infected devices. Watch next: any attempt to rebuild or regain control.",
+  },
+  es: {
+    title: "Sality: su resiliencia P2P se convirtió en la debilidad",
+    excerpt:
+      "CrowdStrike y autoridades internacionales neutralizaron el canal de mando de Sality tras 23 años mediante sinkholing y manipulación de listas de pares, junto con incautaciones de dominios. El malware existente sigue en los equipos. A vigilar: intentos de reconstrucción o recuperación del control.",
+  },
+} as const;
+
+const SALITY_SOURCE =
+  "https://www.crowdstrike.com/en-us/blog/inside-sality-botnet-disruption-operation";
+const SALITY_DOJ_SOURCE =
+  "https://www.justice.gov/usao-cdca/pr/sality-malware-disrupted-international-cyber-takedown";
 
 const COPY = {
   en: {
@@ -223,6 +249,8 @@ const COPY = {
     originalSource: "Original source content",
     originalSourceNote:
       "Titles and excerpts remain in the publisher’s original language to preserve accuracy.",
+    verifiedSummary: "CyberDailyLog verified summary",
+    officialAction: "DOJ action",
     viewSignal: "Open signal",
     interviewEyebrow: "Interview-ready proof of work",
     interviewTitle: "I did not just follow the news. I built the workflow.",
@@ -241,6 +269,8 @@ const COPY = {
     primaryRun: "Primary run",
     recoveryRun: "Recovery run",
     madridTime: "Europe/Madrid",
+    scheduleWindow:
+      "Noon captures the previous afternoon and the current morning, so Europe does not receive a briefing that already feels one day late.",
     generatedOutputs: "Validated outputs",
     outputKinds: "MD · JSON · API · HEALTH · HISTORY",
     openWorkflow: "Inspect GitHub workflow",
@@ -251,6 +281,9 @@ const COPY = {
     calculating: "Checking…",
     unavailable: "Not scheduled",
     clearFilters: "Clear filters",
+    privacy: "Privacy and local storage",
+    clearPreferences: "Clear local preferences",
+    preferencesCleared: "Local preferences cleared.",
   },
   es: {
     overview: "Hoy",
@@ -447,6 +480,8 @@ const COPY = {
     originalSource: "Contenido original de la fuente",
     originalSourceNote:
       "Los títulos y extractos se mantienen en el idioma original del editor para preservar su precisión.",
+    verifiedSummary: "Resumen contrastado por CyberDailyLog",
+    officialAction: "Acción del DOJ",
     viewSignal: "Abrir señal",
     interviewEyebrow: "Un proyecto demostrable en entrevistas",
     interviewTitle: "No solo sigo las noticias. Construí el sistema.",
@@ -465,6 +500,8 @@ const COPY = {
     primaryRun: "Ejecución principal",
     recoveryRun: "Ejecución de recuperación",
     madridTime: "Europa/Madrid",
+    scheduleWindow:
+      "El mediodía recoge la tarde anterior y la mañana actual, evitando que el informe llegue a Europa con sensación de ser del día anterior.",
     generatedOutputs: "Salidas validadas",
     outputKinds: "MD · JSON · API · SALUD · HISTÓRICO",
     openWorkflow: "Ver automatización en GitHub",
@@ -475,6 +512,9 @@ const COPY = {
     calculating: "Comprobando…",
     unavailable: "Sin programar",
     clearFilters: "Limpiar filtros",
+    privacy: "Privacidad y almacenamiento local",
+    clearPreferences: "Borrar preferencias locales",
+    preferencesCleared: "Preferencias locales borradas.",
   },
 } as const;
 
@@ -494,29 +534,6 @@ const VIEW_KEYS: View[] = [
   "engineering",
 ];
 
-function readLocalPreference(key: string) {
-  try {
-    return window.localStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function writeLocalPreference(key: string, value: string) {
-  try {
-    window.localStorage.setItem(key, value);
-  } catch {
-    // The interface still works when private browsing blocks local storage.
-  }
-}
-
-function removeLocalPreference(key: string) {
-  try {
-    window.localStorage.removeItem(key);
-  } catch {
-    // Nothing to remove when browser storage is unavailable.
-  }
-}
 const MIN_VALID_TIMESTAMP = Date.UTC(2000, 0, 1);
 const MONTHS = {
   en: {
@@ -592,13 +609,13 @@ function nextMadridRunLabel(now: number | null, language: Language) {
   const value = (type: Intl.DateTimeFormatPartTypes) =>
     Number(parts.find((part) => part.type === type)?.value ?? 0);
   const currentMinutes = value("hour") * 60 + value("minute");
-  const primaryMinutes = 8 * 60 + 17;
-  const recoveryMinutes = 9 * 60 + 47;
+  const primaryMinutes = 12 * 60;
+  const recoveryMinutes = 13 * 60 + 30;
   const useRecovery =
     currentMinutes >= primaryMinutes && currentMinutes < recoveryMinutes;
   const useNextDay = currentMinutes >= recoveryMinutes;
-  const nextHour = useRecovery ? 9 : 8;
-  const nextMinute = useRecovery ? 47 : 17;
+  const nextHour = useRecovery ? 13 : 12;
+  const nextMinute = useRecovery ? 30 : 0;
   const wallDate = new Date(
     Date.UTC(
       value("year"),
@@ -1401,31 +1418,11 @@ function HistoryChart({
   );
 }
 
-function SourceArtwork({
-  url,
-  source,
-}: {
-  url: string;
-  source: string;
-}) {
-  const [failed, setFailed] = useState(false);
-  if (!url || failed) {
-    return (
-      <div className="source-artwork source-artwork-fallback" aria-hidden="true">
-        <span>{source.slice(0, 1)}</span>
-        <i />
-      </div>
-    );
-  }
+function SourceArtwork({ source }: { source: string }) {
   return (
-    <div className="source-artwork">
-      {/* The backend only permits and proxies images discovered on allowlisted sources. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/api/source-media?url=${encodeURIComponent(url)}`}
-        alt=""
-        onError={() => setFailed(true)}
-      />
+    <div className="source-artwork source-artwork-fallback" aria-hidden="true">
+      <span>{source.slice(0, 1)}</span>
+      <i />
     </div>
   );
 }
@@ -1438,12 +1435,23 @@ function SignalDesk({
   language: Language;
 }) {
   const t = COPY[language];
-  const analysts =
+  const collectedAnalysts =
     data.analystBriefs.length > 0
       ? data.analystBriefs
       : data.humanContext
         ? [data.humanContext]
         : [];
+  const analysts = [
+    {
+      title: SALITY_RADAR[language].title,
+      sourceName: "CrowdStrike · DOJ/FBI",
+      author: null,
+      excerpt: SALITY_RADAR[language].excerpt,
+      sourceUrl: SALITY_SOURCE,
+      publishedAt: "2026-09-01T00:00:00Z",
+    },
+    ...collectedAnalysts.filter((item) => item.sourceUrl !== SALITY_SOURCE),
+  ];
   const community =
     data.communitySignals.length > 0
       ? data.communitySignals
@@ -1475,9 +1483,13 @@ function SignalDesk({
                 className={`signal-card analyst-signal ${index === 0 ? "featured" : ""}`}
                 key={`${item.sourceUrl}-${item.publishedAt}`}
               >
-                <SourceArtwork url={item.sourceUrl} source={item.sourceName} />
+                <SourceArtwork source={item.sourceName} />
                 <div className="signal-card-copy">
-                  <span className="context-kicker">{t.humanContext}</span>
+                  <span className="context-kicker">
+                    {item.sourceUrl === SALITY_SOURCE
+                      ? t.verifiedSummary
+                      : t.humanContext}
+                  </span>
                   <h3>{item.title}</h3>
                   <p>{item.excerpt}</p>
                   <div className="signal-meta">
@@ -1485,9 +1497,16 @@ function SignalDesk({
                       {item.sourceName} ·{" "}
                       {formatDate(item.publishedAt, language, true)}
                     </span>
-                    <a href={item.sourceUrl} target="_blank" rel="noreferrer">
-                      {t.readSource} <Icon name="external" size={14} />
-                    </a>
+                    <div className="signal-links">
+                      <a href={item.sourceUrl} target="_blank" rel="noreferrer">
+                        {t.readSource} <Icon name="external" size={14} />
+                      </a>
+                      {item.sourceUrl === SALITY_SOURCE ? (
+                        <a href={SALITY_DOJ_SOURCE} target="_blank" rel="noreferrer">
+                          {t.officialAction} <Icon name="external" size={14} />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </article>
@@ -1505,7 +1524,7 @@ function SignalDesk({
                 className={`signal-card community-signal ${index === 0 ? "featured" : ""}`}
                 key={`${item.discussionUrl}-${item.publishedAt}`}
               >
-                <SourceArtwork url={item.sourceUrl} source={item.sourceName} />
+                <SourceArtwork source={item.sourceName} />
                 <div className="signal-card-copy">
                   <span className="context-kicker">{t.community}</span>
                   <h3>{item.title}</h3>
@@ -1571,12 +1590,12 @@ function InterviewProof({
         <span className="section-label">{t.dailyAutomation}</span>
         <div>
           <span>{t.primaryRun}</span>
-          <strong>08:17</strong>
+          <strong>12:00</strong>
           <small>{t.madridTime}</small>
         </div>
         <div>
           <span>{t.recoveryRun}</span>
-          <strong>09:47</strong>
+          <strong>13:30</strong>
           <small>{t.madridTime}</small>
         </div>
         <div>
@@ -1584,6 +1603,7 @@ function InterviewProof({
           <strong>5</strong>
           <small>{t.outputKinds}</small>
         </div>
+        <p className="automation-window-note">{t.scheduleWindow}</p>
         <a
           href={`${data.repositoryUrl}/actions/workflows/daily-intelligence.yml`}
           target="_blank"
@@ -2049,7 +2069,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Runtime fijado"],
             ["Cobertura", "≥85 %", "El umbral no se rebaja"],
-            ["Automatización", "2 ventanas", "08:17 + recuperación 09:47"],
+            ["Automatización", "2 ventanas", "12:00 + recuperación 13:30 · Europe/Madrid"],
             ["Modo local", "Offline", "Fixtures sin secretos ni publicación"],
           ],
           mapTitle: "Mapa autorizado del repositorio",
@@ -2098,7 +2118,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Pinned runtime"],
             ["Coverage", "≥85%", "The threshold is not lowered"],
-            ["Automation", "2 windows", "08:17 + 09:47 recovery"],
+            ["Automation", "2 windows", "12:00 + 13:30 recovery · Europe/Madrid"],
             ["Local mode", "Offline", "Fixtures, no secrets or publishing"],
           ],
           mapTitle: "Authoritative repository map",
@@ -2407,24 +2427,12 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      const storedLanguage = readLocalPreference(
-        "cyberdailylog-language",
-      );
-      const storedWatchlist = readLocalPreference(
-        "cyberdailylog-watchlist",
-      );
-      if (storedLanguage === "en" || storedLanguage === "es") {
-        setLanguage(storedLanguage);
-      }
+      const storedLanguage = readLanguagePreference();
+      const storedWatchlist = readWatchlistPreference();
+      if (storedLanguage) setLanguage(storedLanguage);
       const hashView = window.location.hash.slice(1) as View;
       if (VIEW_KEYS.includes(hashView)) setView(hashView);
-      if (storedWatchlist) {
-        try {
-          setWatchlist(new Set(JSON.parse(storedWatchlist) as string[]));
-        } catch {
-          removeLocalPreference("cyberdailylog-watchlist");
-        }
-      }
+      setWatchlist(new Set(storedWatchlist));
     });
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -2449,7 +2457,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
 
   function changeLanguage(next: Language) {
     setLanguage(next);
-    writeLocalPreference("cyberdailylog-language", next);
+    saveLanguagePreference(next);
   }
 
   function toggleWatchlist(id: string) {
@@ -2457,12 +2465,17 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       const next = new Set(current);
       if (next.has(id)) next.delete(id);
       else next.add(id);
-      writeLocalPreference(
-        "cyberdailylog-watchlist",
-        JSON.stringify([...next]),
-      );
+      saveWatchlistPreference(next);
       return next;
     });
+  }
+
+  function clearPreferences() {
+    clearLocalPreferences();
+    setLanguage("es");
+    setWatchlist(new Set());
+    setNotice(t.preferencesCleared);
+    window.setTimeout(() => setNotice(""), 4_000);
   }
 
   const refreshData = useCallback(async (showNotice = true) => {
@@ -2471,6 +2484,8 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
     try {
       const response = await fetch("/api/intelligence", {
         cache: "no-store",
+        credentials: "omit",
+        referrerPolicy: "no-referrer",
       });
       if (!response.ok) throw new Error("refresh failed");
       const next = (await response.json()) as DashboardData;
@@ -2651,17 +2666,6 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
           </div>
           <SignalDesk data={data} language={language} />
           <InterviewProof data={data} language={language} />
-          <footer className="dashboard-footer">
-            <span>
-              {t.published}: {formatDate(data.generatedAt, language)} UTC
-            </span>
-            <span>
-              {t.fetched}: {formatDate(data.lastFetchAt, language)} UTC
-            </span>
-            <a href={data.repositoryUrl} target="_blank" rel="noreferrer">
-              <Icon name="github" size={16} /> JimBLogic/CyberDailyLog
-            </a>
-          </footer>
         </div>
       ) : null}
 
@@ -2677,6 +2681,26 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       {view === "sources" ? <SourcesView data={data} language={language} now={clock} /> : null}
       {view === "methodology" ? <MethodologyView data={data} language={language} /> : null}
       {view === "engineering" ? <EngineeringView data={data} language={language} now={clock} /> : null}
+
+      <footer className="dashboard-footer">
+        <div className="dashboard-footer-metrics">
+          <span>
+            {t.published}: {formatDate(data.generatedAt, language)} UTC
+          </span>
+          <span>
+            {t.fetched}: {formatDate(data.lastFetchAt, language)} UTC
+          </span>
+        </div>
+        <nav className="dashboard-footer-actions" aria-label={t.privacy}>
+          <Link href="/privacidad">{t.privacy}</Link>
+          <button type="button" onClick={clearPreferences}>
+            {t.clearPreferences}
+          </button>
+          <a href={data.repositoryUrl} target="_blank" rel="noreferrer">
+            <Icon name="github" size={16} /> JimBLogic/CyberDailyLog
+          </a>
+        </nav>
+      </footer>
 
       {selected ? (
         <DetailDialog

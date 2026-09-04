@@ -27,6 +27,17 @@ test("renders the CyberDailyLog product shell", async () => {
     response.headers.get("content-type") ?? "",
     /^text\/html\b/i,
   );
+  assert.equal(response.headers.get("set-cookie"), null);
+  assert.match(
+    response.headers.get("content-security-policy") ?? "",
+    /connect-src 'self'/,
+  );
+  assert.match(
+    response.headers.get("content-security-policy") ?? "",
+    /frame-src 'none'/,
+  );
+  assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
   const html = await response.text();
   assert.match(html, /CyberDailyLog/);
   assert.match(html, /Inteligencia Blue Team diaria/i);
@@ -48,6 +59,20 @@ test("renders the CyberDailyLog product shell", async () => {
   assert.doesNotMatch(html, /(1 ene 1970|Jan 1, 1970|Invalid Date)/i);
   assert.doesNotMatch(html, /Protección por delante/i);
   assert.doesNotMatch(html, /Starter Project/);
+  assert.match(html, /href="\/privacidad"/i);
+  assert.match(html, /Privacidad y almacenamiento local/i);
+  assert.match(html, /Borrar preferencias locales/i);
+  assert.doesNotMatch(html, /<iframe\b|<embed\b|<object\b/i);
+  assert.doesNotMatch(
+    html,
+    /<(?:script|img)\b[^>]*\bsrc=["']https?:\/\//i,
+    "rendered HTML must not auto-load third-party scripts or images",
+  );
+  assert.doesNotMatch(
+    html,
+    /<link\b[^>]*\brel=["'](?:stylesheet|preload|modulepreload)["'][^>]*\bhref=["']https?:\/\//i,
+    "rendered HTML must not auto-load third-party styles, fonts or modules",
+  );
 
   const apiResponse = await worker.fetch(
     new Request("http://localhost/api/intelligence"),
@@ -57,6 +82,7 @@ test("renders the CyberDailyLog product shell", async () => {
     { waitUntil() {}, passThroughOnException() {} },
   );
   assert.equal(apiResponse.status, 200);
+  assert.equal(apiResponse.headers.get("set-cookie"), null);
   const data = await apiResponse.json();
   assert.ok(Array.isArray(data.deliveryChain));
   assert.deepEqual(
@@ -75,6 +101,38 @@ test("renders the CyberDailyLog product shell", async () => {
       ["used", "available", "failed", "skipped", "cooldown"].includes(item.status),
     ),
   );
+
+  const privacyResponse = await worker.fetch(
+    new Request("http://localhost/privacidad"),
+    {
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(privacyResponse.status, 200);
+  assert.equal(privacyResponse.headers.get("set-cookie"), null);
+  const privacyHtml = await privacyResponse.text();
+  assert.match(privacyHtml, /Privacidad y almacenamiento local/i);
+  assert.match(privacyHtml, /Information in English/i);
+  assert.match(privacyHtml, /Jaime Ramsden de Frutos/i);
+  assert.match(privacyHtml, /jrf91@pm\.me/i);
+  assert.match(privacyHtml, /visitantes únicos/i);
+  assert.match(privacyHtml, /unique-visitor and page-view/i);
+  assert.match(privacyHtml, /no existe[^<]+ajuste para desactivar/i);
+  assert.match(privacyHtml, /Borrar preferencias locales \/ Clear local preferences/i);
+  assert.doesNotMatch(
+    privacyHtml,
+    /<button[^>]*>\s*(?:Rechazar todo|Aceptar todo|Configurar)\s*<\/button>/i,
+  );
+
+  const removedMediaResponse = await worker.fetch(
+    new Request("http://localhost/api/source-media?url=https://example.com"),
+    {
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(removedMediaResponse.status, 404);
 });
 
 test("publishes crawl directives and a daily sitemap", async () => {
@@ -108,6 +166,10 @@ test("publishes crawl directives and a daily sitemap", async () => {
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /<changefreq>daily<\/changefreq>/i);
   assert.match(sitemap, /https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site/i);
+  assert.match(
+    sitemap,
+    /https:\/\/cyberdailylog\.jimblogic\.chatgpt\.site\/privacidad/i,
+  );
   assert.doesNotMatch(sitemap, /cyberdailylog-dashboard/i);
 });
 
