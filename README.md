@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-03T14:03:17+00:00  
-**Coverage:** 2026-09-02T14:03:04+00:00 → 2026-09-03T14:03:04+00:00  
+**Updated:** 2026-09-04T13:55:37+00:00  
+**Coverage:** 2026-09-03T13:55:31+00:00 → 2026-09-04T13:55:31+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 71 source-backed developments
-- **Above threshold:** 46
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 429 source-backed developments
+- **Above threshold:** 345
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-73843](https://github.com/advisories/GHSA-qh9r-j7rp-4x2m) · 9.3/10** — OpenChoreo: Unauthenticated access to data-plane operations via OpenChoreo cluster-gateway management APIs — CVSS 9.6; priority technology: firewalls
-- **[CVE-2026-72920](https://github.com/advisories/GHSA-2v6v-25fm-p4fg) · 9.1/10** — SeaweedFS: Unauthenticated filer IAM gRPC service grants S3 administrative control — CVSS 9.8; detection opportunity
-- **[CVE-2026-72716](https://github.com/advisories/GHSA-p4cg-3328-rvfg) · 8.8/10** — Orval: Import-time RCE via query-parameter default -&gt; zod module-level template literal — critical severity fallback; detection opportunity
-- **[CVE-2026-71866](https://github.com/advisories/GHSA-6mr6-jvcr-2f25) · 8.8/10** — Orval: Import-time RCE via schema property name -&gt; computed-property-key injection in the zod client — critical severity fallback; detection opportunity
-- **[CVE-2026-73841](https://github.com/advisories/GHSA-52gf-6rpq-fgmx) · 8.6/10** — OpenChoreo: Cross-project command execution and wirelog view access via OpenChoreo openchoreo-api exec and wirelogs endpoints — CVSS 8.8; priority technology: cloud
+- **[CVE-2026-83711](https://nvd.nist.gov/vuln/detail/CVE-2026-83711) · 10.0/10** — Authorization bypass through user-controlled key in Microsoft Azure Active Directory B2C allows an unauthorized attacker — CVSS 10.0; priority technology: windows
+- **[CVE-2026-72811](https://github.com/advisories/GHSA-q2vg-7qgx-x5fc) · 10.0/10** — SiYuan: SQL injection in backlink/mention search via unescaped stored and client input (publish mode): first-order (client keyword) and second-order (stored document title)… — CVSS 10.0; priority technology: linux
+- **[CVE-2026-70403](https://nvd.nist.gov/vuln/detail/CVE-2026-70403) · 10.0/10** — XING CPTrans-ME-X contains a Use of Hard-coded Password (CWE-259). Anyone with the knowledge of the credential may log i — CVSS 9.3; priority technology: browsers
+- **[CVE-2026-70352](https://nvd.nist.gov/vuln/detail/CVE-2026-70352) · 10.0/10** — Missing authentication for critical function in Azure AI Language allows an unauthorized attacker to elevate privileges — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-69657](https://nvd.nist.gov/vuln/detail/CVE-2026-69657) · 10.0/10** — XING CPTrans-ME-X contains a Use of Default Password (CWE-1393). Anyone with the knowledge of the credential may log in — CVSS 9.3; priority technology: browsers
 
 ### Human context
 
-**[Honeypot-Omaha and batch.py \[Guest Diary\], (Wed, Sep 2nd)](https://isc.sans.edu/diary/rss/33306)**
+**[ISC Stormcast For Friday, September 4th, 2026 https://isc.sans.edu/podcastdetail/10082, (Fri, Sep 4th)](https://isc.sans.edu/diary/rss/33310)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> \[This is a Guest Diary by Frank Igbokwe, an ISC intern as part of the SANS.edu BACS program\]
-
-### Community pulse
-
-**[Audacity 4.0](https://github.com/audacity/audacity/releases/tag/Audacity-4.0.0)** — Hacker News · 403 points · 97 comments
-[Open discussion](https://news.ycombinator.com/item?id=49548395)
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
