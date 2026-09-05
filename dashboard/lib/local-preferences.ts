@@ -16,15 +16,18 @@ function localStorageOrNull() {
 }
 
 export function readLanguagePreference(): LanguagePreference | null {
-  const value = localStorageOrNull()?.getItem(LANGUAGE_STORAGE_KEY);
-  return value === "en" || value === "es" ? value : null;
+  try {
+    const value = localStorageOrNull()?.getItem(LANGUAGE_STORAGE_KEY);
+    return value === "en" || value === "es" ? value : null;
+  } catch {
+    return null;
+  }
 }
 
 export function readWatchlistPreference(): string[] {
-  const value = localStorageOrNull()?.getItem(WATCHLIST_STORAGE_KEY);
-  if (!value) return [];
-
   try {
+    const value = localStorageOrNull()?.getItem(WATCHLIST_STORAGE_KEY);
+    if (!value) return [];
     const parsed: unknown = JSON.parse(value);
     if (!Array.isArray(parsed)) return [];
     return parsed

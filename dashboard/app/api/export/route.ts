@@ -3,7 +3,9 @@ import type { Vulnerability } from "@/lib/types";
 
 function csvCell(value: unknown) {
   const text = value === null || value === undefined ? "" : String(value);
-  return `"${text.replaceAll('"', '""')}"`;
+  // Quoting alone does not prevent spreadsheet formula execution.
+  const safe = /^[\s\u0000-\u001f]*[=+@-]|^[\t\r\n]/.test(text) ? `'${text}` : text;
+  return `"${safe.replaceAll('"', '""')}"`;
 }
 
 function toCsv(vulnerabilities: Vulnerability[]) {
@@ -37,7 +39,7 @@ function toCsv(vulnerabilities: Vulnerability[]) {
   ]);
   return [header, ...rows]
     .map((row) => row.map(csvCell).join(","))
-    .join("\n");
+    .join("\r\n");
 }
 
 export async function GET(request: Request) {

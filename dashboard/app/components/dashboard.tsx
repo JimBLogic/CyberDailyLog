@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   SOURCE_PROFILES,
@@ -206,7 +206,7 @@ const COPY = {
     refreshing: "Refreshing…",
     refresh: "Refresh data",
     refreshFailed: "Live refresh failed; the verified snapshot remains visible.",
-    refreshed: "Sources checked and refreshed.",
+    refreshed: "Published report checked.",
     fallbackRetained:
       "The primary report is unavailable. A labelled backup remains visible.",
     primaryNavigation: "Primary navigation",
@@ -437,7 +437,7 @@ const COPY = {
     refreshing: "Actualizando…",
     refresh: "Actualizar datos",
     refreshFailed: "Falló la actualización; se mantiene la copia verificada.",
-    refreshed: "Fuentes comprobadas y actualizadas.",
+    refreshed: "Informe publicado comprobado.",
     fallbackRetained:
       "El informe principal no está disponible. Se mantiene un respaldo claramente etiquetado.",
     primaryNavigation: "Navegación principal",
@@ -593,6 +593,16 @@ function formatCountdown(value: string, now: number | null, language: Language) 
   return [hours, minutes, seconds]
     .map((part) => String(part).padStart(2, "0"))
     .join(":");
+}
+
+function RefreshCountdown({ value, language }: { value: string; language: Language }) {
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    const tick = () => { if (!document.hidden) setNow(Date.now()); };
+    const timer = window.setInterval(tick, 1_000);
+    return () => window.clearInterval(timer);
+  }, []);
+  return <>{formatCountdown(value, now, language)}</>;
 }
 
 function nextMadridRunLabel(now: number | null, language: Language) {
@@ -960,7 +970,7 @@ function DataDelivery({
           official: "Respaldo oficial activo",
           fallback: "Informe de respaldo verificado",
           stale: "El informe necesita actualizarse",
-          note: "El panel comprueba la mejor ruta disponible automáticamente. También puedes actualizarlo desde la cabecera.",
+          note: "Recogida prevista a las 12:00; recuperación a las 13:30 si falta el informe. GitHub puede retrasar el inicio. Actualizar el panel comprueba lo publicado, sin lanzar una nueva recogida.",
         }
       : {
           label: "Data status",
@@ -971,7 +981,7 @@ function DataDelivery({
           official: "Official backup active",
           fallback: "Verified backup report",
           stale: "The report needs an update",
-          note: "The dashboard checks the best available route automatically. You can also refresh it from the header.",
+          note: "Collection is scheduled for 12:00; recovery at 13:30 if the report is missing. GitHub may delay the start. Refresh checks published data without starting a new collection.",
         };
 
   return (
@@ -997,7 +1007,7 @@ function DataDelivery({
         </div>
         <div>
           <span>{copy.recheck}</span>
-          <strong>{formatCountdown(data.nextRefreshAt, now, language)}</strong>
+          <strong><RefreshCountdown value={data.nextRefreshAt} language={language} /></strong>
           <small>{language === "es" ? `cada ${data.refreshIntervalMinutes} min` : `every ${data.refreshIntervalMinutes} min`}</small>
         </div>
         <div>
@@ -1679,8 +1689,11 @@ function VulnerabilityList({
       </div>
       <div className="filter-bar">
         <label className="search-field">
+          <span className="sr-only">{t.search}</span>
           <Icon name="search" size={18} />
           <input
+            type="search"
+            maxLength={200}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t.search}
@@ -1716,11 +1729,12 @@ function VulnerabilityList({
         >
           <Icon name="star" size={17} /> {t.watchlistOnly}
         </button>
-        <div className="sort-group" aria-label={t.sort}>
+        <div className="sort-group" role="group" aria-label={t.sort}>
           {(["priority", "newest", "cvss"] as const).map((value) => (
             <button
               className={sort === value ? "active" : ""}
               onClick={() => setSort(value)}
+              aria-pressed={sort === value}
               key={value}
             >
               {t[value]}
@@ -1728,8 +1742,14 @@ function VulnerabilityList({
           ))}
         </div>
       </div>
-      <div className="list-summary">
-        {t.showing} <strong>{items.length}</strong> {t.items}
+      <div className="list-summary" role="status" aria-live="polite">
+        <span>{t.showing} <strong>{items.length}</strong> / {data.vulnerabilities.length} {t.items}</span>
+        <span className="dataset-scope">{language === "es" ? "Selección priorizada; informe completo en GitHub." : "Prioritized selection; full report on GitHub."}</span>
+        {(query || severity !== "ALL" || attention || watchOnly) ? (
+          <button type="button" className="reset-filters" onClick={() => { setQuery(""); setSeverity("ALL"); setAttention(false); setWatchOnly(false); }}>
+            {language === "es" ? "Limpiar filtros" : "Clear filters"}
+          </button>
+        ) : null}
       </div>
       <div className="vulnerability-list">
         {items.map((item) => (
@@ -1738,6 +1758,7 @@ function VulnerabilityList({
               className={`watch-button ${watchlist.has(item.id) ? "active" : ""}`}
               onClick={() => onWatchlist(item.id)}
               aria-label={watchlist.has(item.id) ? t.unwatch : t.watch}
+              aria-pressed={watchlist.has(item.id)}
               title={watchlist.has(item.id) ? t.unwatch : t.watch}
             >
               <Icon name="star" size={18} />
@@ -2309,26 +2330,31 @@ function DetailDialog({
   onWatchlist: () => void;
 }) {
   const t = COPY[language];
+  const dialogRef = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const dialog = dialogRef.current;
+    if (dialog && !dialog.open) dialog.showModal();
     document.body.classList.add("modal-open");
     return () => {
-      document.removeEventListener("keydown", onKey);
+      dialog?.close();
       document.body.classList.remove("modal-open");
+      previousFocus?.focus({ preventScroll: true });
     };
-  }, [onClose]);
+  }, []);
 
   return (
-    <div className="dialog-backdrop" role="presentation" onMouseDown={onClose}>
-      <section
+      <dialog
+        ref={dialogRef}
         className="detail-dialog"
-        role="dialog"
         aria-modal="true"
         aria-labelledby="dialog-title"
-        onMouseDown={(event) => event.stopPropagation()}
+        onCancel={(event) => { event.preventDefault(); onClose(); }}
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) onClose();
+        }}
       >
         <div className="dialog-header">
           <div>
@@ -2409,8 +2435,7 @@ function DetailDialog({
             {t.primarySource} <Icon name="external" size={16} />
           </a>
         </div>
-      </section>
-    </div>
+      </dialog>
   );
 }
 
@@ -2422,7 +2447,10 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
   const [watchlist, setWatchlist] = useState<Set<string>>(new Set());
   const [refreshing, setRefreshing] = useState(false);
   const [notice, setNotice] = useState("");
-  const [clock, setClock] = useState<number | null>(null);
+  const [clock, setClock] = useState<number | null>(() => parseTimestamp(initialData.lastFetchAt));
+  const [refreshAttempt, setRefreshAttempt] = useState(0);
+  const requestInFlight = useRef(false);
+  const contentRef = useRef<HTMLElement>(null);
   const t = COPY[language];
 
   useEffect(() => {
@@ -2440,15 +2468,24 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
   useEffect(() => {
     const syncView = () => {
       const hashView = window.location.hash.slice(1) as View;
+      if (window.location.hash === "#main-content") return;
       setView(VIEW_KEYS.includes(hashView) ? hashView : "overview");
     };
     window.addEventListener("hashchange", syncView);
-    return () => window.removeEventListener("hashchange", syncView);
+    window.addEventListener("popstate", syncView);
+    return () => {
+      window.removeEventListener("hashchange", syncView);
+      window.removeEventListener("popstate", syncView);
+    };
   }, []);
 
   useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
+  useEffect(() => {
     const initialTick = window.setTimeout(() => setClock(Date.now()), 0);
-    const timer = window.setInterval(() => setClock(Date.now()), 1_000);
+    const timer = window.setInterval(() => { if (!document.hidden) setClock(Date.now()); }, 60_000);
     return () => {
       window.clearTimeout(initialTick);
       window.clearInterval(timer);
@@ -2479,6 +2516,8 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
   }
 
   const refreshData = useCallback(async (showNotice = true) => {
+    if (requestInFlight.current) return;
+    requestInFlight.current = true;
     setRefreshing(true);
     if (showNotice) setNotice("");
     try {
@@ -2486,9 +2525,17 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
         cache: "no-store",
         credentials: "omit",
         referrerPolicy: "no-referrer",
+        signal: AbortSignal.timeout(30_000),
       });
       if (!response.ok) throw new Error("refresh failed");
       const next = (await response.json()) as DashboardData;
+      if (next?.project !== "CyberDailyLog" || next.schemaVersion !== 1 ||
+          !Array.isArray(next.vulnerabilities) || !Array.isArray(next.sourceHealth) ||
+          !Array.isArray(next.deliveryChain) || !Array.isArray(next.history) ||
+          !Array.isArray(next.distribution) || !Array.isArray(next.scoreBands) ||
+          parseTimestamp(next.generatedAt) === null || parseTimestamp(next.nextRefreshAt) === null) {
+        throw new Error("Invalid dashboard response");
+      }
       setData(next);
       if (showNotice) {
         setNotice(
@@ -2498,7 +2545,9 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
     } catch {
       if (showNotice) setNotice(t.refreshFailed);
     } finally {
+      requestInFlight.current = false;
       setRefreshing(false);
+      setRefreshAttempt((attempt) => attempt + 1);
       if (showNotice) window.setTimeout(() => setNotice(""), 4_000);
     }
   }, [t.fallbackRetained, t.refreshFailed, t.refreshed]);
@@ -2506,19 +2555,37 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
   useEffect(() => {
     const target = parseTimestamp(data.nextRefreshAt);
     const delay = target !== null
-      ? Math.max(5_000, target - Date.now() + 1_000)
+      ? Math.max(60_000, target - Date.now() + 1_000)
       : 60_000;
     const timer = window.setTimeout(() => {
+      if (document.hidden || !navigator.onLine) {
+        setRefreshAttempt((attempt) => attempt + 1);
+        return;
+      }
       void refreshData(false);
     }, Math.min(delay, 2_147_000_000));
     return () => window.clearTimeout(timer);
+  }, [data.nextRefreshAt, refreshData, refreshAttempt]);
+
+  useEffect(() => {
+    const resume = () => {
+      const target = parseTimestamp(data.nextRefreshAt);
+      if (!document.hidden && navigator.onLine && (target === null || Date.now() >= target)) void refreshData(false);
+    };
+    window.addEventListener("online", resume);
+    document.addEventListener("visibilitychange", resume);
+    return () => {
+      window.removeEventListener("online", resume);
+      document.removeEventListener("visibilitychange", resume);
+    };
   }, [data.nextRefreshAt, refreshData]);
 
   function navigate(next: View) {
     setView(next);
     const nextHash = next === "overview" ? window.location.pathname : `#${next}`;
-    window.history.pushState(null, "", nextHash);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (view !== next) window.history.pushState(null, "", nextHash);
+    window.requestAnimationFrame(() => contentRef.current?.focus({ preventScroll: true }));
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }
 
   const topItem = data.vulnerabilities[0];
@@ -2535,7 +2602,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       <a className="skip-link" href="#main-content">
         {language === "es" ? "Saltar al contenido" : "Skip to content"}
       </a>
-      <main className="site-shell" id="main-content">
+      <div className="site-shell">
       <header className="masthead">
         <button type="button" className="wordmark" onClick={() => navigate("overview")}>
           CyberDailyLog
@@ -2595,6 +2662,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
         </div>
       </header>
 
+      <main id="main-content" ref={contentRef} tabIndex={-1}>
       {notice ? <div className="toast" role="status">{notice}</div> : null}
 
       <FreshnessBanner
@@ -2681,6 +2749,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
       {view === "sources" ? <SourcesView data={data} language={language} now={clock} /> : null}
       {view === "methodology" ? <MethodologyView data={data} language={language} /> : null}
       {view === "engineering" ? <EngineeringView data={data} language={language} now={clock} /> : null}
+      </main>
 
       <footer className="dashboard-footer">
         <div className="dashboard-footer-metrics">
@@ -2711,7 +2780,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
           onClose={() => setSelected(null)}
         />
       ) : null}
-      </main>
+      </div>
     </>
   );
 }
