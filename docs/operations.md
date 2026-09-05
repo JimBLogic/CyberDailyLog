@@ -2,7 +2,7 @@
 
 ## Automatic publication
 
-The primary run is scheduled for 08:17 Europe/Madrid. A recovery event runs at 09:47, but a freshness preflight skips collection when a report has already been published for the current UTC date. This also prevents a delayed primary event from creating a second daily report after recovery succeeds.
+The primary run is scheduled for 12:00 Europe/Madrid. A recovery event runs at 13:30, but a freshness preflight skips collection only when a coherent, non-degraded report and its two public feeds have already been published for the current Madrid date with healthy live core sources. This also prevents a delayed primary event from creating a second daily report after recovery succeeds. The schedule is a target, not a guaranteed publication time: [GitHub documents queue delays and dropped scheduled events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). The public panel checks the published feed every 15 minutes; its refresh button does not dispatch Actions.
 
 Scheduled runs always request publication and stop before writing when the required-source quorum is degraded. Manual runs publish by default; explicitly set `dry_run=true` when you only want a preview artifact.
 

@@ -1,5 +1,6 @@
 import type { Severity, SourceHealth, Vulnerability } from "./types";
 import { essentialServerUrl } from "./network-policy";
+import { safeWebUrl } from "./safe-url";
 
 const CISA_KEV_URL =
   "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json";
@@ -117,7 +118,7 @@ function metricFor(cve: JsonRecord) {
 
 function referencesFor(cve: JsonRecord) {
   return records(cve.references)
-    .map((item) => text(item.url))
+    .map((item) => safeWebUrl(item.url))
     .filter(Boolean)
     .slice(0, 6);
 }

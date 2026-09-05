@@ -131,3 +131,7 @@ jobs:
         run: npm run lint
       - name: Dashboard privacy and production tests
         run: npm test
+      - name: Dashboard TypeScript check with Worker runtime types
+        run: npm run typecheck
+      - name: Dashboard production dependency audit
+        run: npm audit --omit=dev --audit-level=high

@@ -43,9 +43,9 @@ jobs:
           reason="manual dispatch requested"
 
           if [ "$EVENT_NAME" = "schedule" ]; then
-            today="$(date -u +%F)"
+            today="$(TZ=Europe/Madrid date +%F)"
             published_date="$(
-              python -c 'import json; print(str(json.load(open("reports/latest.json", encoding="utf-8")).get("generated_at", ""))[:10])' \
+              python scripts/publication_date.py \
                 2>/dev/null || true
             )"
 
@@ -92,7 +92,7 @@ jobs:
           case "$lookback_hours" in
             ''|*[!0-9]*) echo "lookback_hours must be a positive integer" >&2; exit 2 ;;
           esac
-          if [ "$lookback_hours" -le 0 ]; then
+          if [ "$lookback_hours" -le 0 ] || [ "$lookback_hours" -gt 168 ]; then
             echo "lookback_hours must be a positive integer" >&2
             exit 2
           fi
@@ -189,6 +189,10 @@ jobs:
       - name: Commit and push generated outputs
         run: |
           set -euo pipefail
+          # Regenerate only the dynamic block against the current README.
+          # The collection artifact may predate an intervening documentation edit.
+          git restore --source=HEAD -- README.md
+          python src/cyberdailylog/readme_snapshot.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md reports

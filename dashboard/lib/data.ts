@@ -1,6 +1,7 @@
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
 import { essentialServerUrl } from "./network-policy";
+import { safeWebUrl } from "./safe-url";
 import { SOURCE_LABELS, sourceExpectedIntervalMs } from "./source-labels";
 import type {
   AnalystItem,
@@ -52,6 +53,7 @@ type RawReport = {
 };
 
 type RawCompactFeed = {
+  generated_at?: unknown;
   minimum_priority?: unknown;
   above_threshold?: unknown;
   immediate_attention_count?: unknown;
@@ -67,7 +69,7 @@ function stringValue(value: unknown, fallback = "") {
 function dateValue(value: unknown, fallback = "") {
   const candidate = stringValue(value);
   const parsed = Date.parse(candidate);
-  return Number.isFinite(parsed) && parsed >= MIN_VALID_TIMESTAMP
+  return Number.isFinite(parsed) && parsed >= MIN_VALID_TIMESTAMP && parsed <= Date.now() + 300_000
     ? new Date(parsed).toISOString()
     : fallback;
 }
@@ -155,14 +157,14 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
     knownExploited: booleanValue(item.known_exploited),
     knownRansomwareUse: booleanValue(item.known_ransomware_use),
     sourceName: stringValue(item.source_name, "Unknown source"),
-    sourceUrl: stringValue(item.source_url),
+    sourceUrl: safeWebUrl(item.source_url, REPORT_URL),
     publishedAt: dateValue(item.published_at),
     products: [
       ...stringArray(item.products),
       ...stringArray(item.ecosystems),
       ...stringArray(item.vendors),
     ].slice(0, 4),
-    references: stringArray(item.references).slice(0, 6),
+    references: [...new Set(stringArray(item.references).map((url) => safeWebUrl(url)).filter(Boolean))].slice(0, 6),
     reasons: (
       stringArray(item.priority_reasons).length
         ? stringArray(item.priority_reasons)
@@ -280,7 +282,7 @@ function normalizeHumanContext(value: unknown): ContextItem {
       stringValue(item.summary),
       520,
     ),
-    sourceUrl: stringValue(item.source_url),
+    sourceUrl: safeWebUrl(item.source_url, REPORT_URL),
     publishedAt: dateValue(item.published_at),
   };
 }
@@ -291,8 +293,8 @@ function normalizeCommunity(value: unknown): CommunityItem {
   return {
     title: stringValue(item.title, "Untitled community signal"),
     sourceName: stringValue(item.source_name, "Community"),
-    sourceUrl: stringValue(item.source_url),
-    discussionUrl: stringValue(item.discussion_url, stringValue(item.source_url)),
+    sourceUrl: safeWebUrl(item.source_url, REPORT_URL),
+    discussionUrl: safeWebUrl(item.discussion_url, safeWebUrl(item.source_url, REPORT_URL)),
     score: numberValue(item.score) ?? numberValue(item.community_score) ?? 0,
     comments:
       numberValue(item.comments) ?? numberValue(item.community_comments) ?? 0,
@@ -307,6 +309,7 @@ function normalizeCommunity(value: unknown): CommunityItem {
 function historyFromFeed(value: DashboardFeed | null): HistoryPoint[] {
   if (!value?.history || !Array.isArray(value.history)) return [];
   return value.history
+    .filter((point) => point && typeof point === "object" && !Array.isArray(point))
     .map((point) => ({
       date:
         stringValue(point.date) ||
@@ -371,7 +374,7 @@ function endpointFailureReason(error: unknown) {
     : "Network request failed";
 }
 
-async function fetchJson<T>(path: string) {
+async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean) {
   const attempts: DeliveryAttempt[] = [];
   for (const transport of REPOSITORY_TRANSPORTS) {
     const url = `${transport.base}/${path}`;
@@ -395,6 +398,8 @@ async function fetchJson<T>(path: string) {
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
       if (response.ok) {
+        const data: unknown = await response.json();
+        if (validate && !validate(data)) throw new Error("Invalid feed payload");
         endpointCircuits.delete(circuitKey);
         attempts.push({
           id: transport.id,
@@ -417,7 +422,7 @@ async function fetchJson<T>(path: string) {
           });
         }
         return {
-          data: (await response.json()) as T,
+          data: data as T,
           transport: transport.id,
           attempts,
         };
@@ -439,7 +444,9 @@ async function fetchJson<T>(path: string) {
       });
       continue;
     } catch (error) {
-      const reason = endpointFailureReason(error);
+      const reason = error instanceof SyntaxError || (error instanceof Error && error.message === "Invalid feed payload")
+        ? "Invalid JSON or feed schema"
+        : endpointFailureReason(error);
       const state = recordEndpointFailure(circuitKey, reason);
       attempts.push({
         id: transport.id,
@@ -508,7 +515,13 @@ function cloneFallback(): DashboardData {
 }
 
 async function fetchDashboardData(): Promise<DashboardData> {
-  const reportResult = await fetchJson<RawReport>("reports/latest.json");
+  const reportResult = await fetchJson<RawReport>("reports/latest.json", (value) => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+    const report = value as RawReport;
+    const start = dateValue(report.coverage_start);
+    const end = dateValue(report.coverage_end);
+    return Boolean(dateValue(report.generated_at) && start && end && start <= end && Array.isArray(report.items));
+  });
   const report = reportResult.data;
   const generatedAt = dateValue(report?.generated_at);
   const reportIsStale =
@@ -581,16 +594,20 @@ async function fetchDashboardData(): Promise<DashboardData> {
       "failed",
       "used",
     );
+    fallback.pipelineStatus = "degraded";
+    fallback.coverageConfidence = "low";
+    fallback.coverageState = "insufficient";
     return fallback;
   }
 
-  const [compactResult, healthResult, feedResult] = await Promise.all([
+  const [compactResult, feedResult] = await Promise.all([
     fetchJson<RawCompactFeed>("reports/portfolio-feed.json"),
-    fetchJson<unknown>("reports/source-health.json"),
     fetchJson<DashboardFeed>("reports/dashboard-feed.json"),
   ]);
-  const compact = compactResult.data;
-  const separateHealth = healthResult.data;
+  // Adjacent CDN files may belong to different publications. The report is
+  // authoritative; enrichment must belong to the same generation.
+  const compact = dateValue(compactResult.data?.generated_at) === generatedAt
+    ? compactResult.data : null;
   const dashboardFeed = feedResult.data;
 
   const records = report.items.filter(
@@ -642,9 +659,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
       booleanValue(item.known_exploited) ||
       booleanValue(item.known_ransomware_use),
   );
-  const healthValue = Array.isArray(separateHealth)
-    ? separateHealth
-    : report.source_health;
+  const healthValue = report.source_health;
   const sourceHealth = Array.isArray(healthValue)
     ? healthValue
         .filter(
@@ -654,8 +669,8 @@ async function fetchDashboardData(): Promise<DashboardData> {
             !Array.isArray(entry),
         )
         .map(normalizeSource)
-    : cloneFallback().sourceHealth;
-  const history = historyFromFeed(dashboardFeed);
+    : [];
+  const history = historyFromFeed(dashboardFeed).filter((point) => point.date <= generatedAt.slice(0, 10));
   const resolvedGeneratedAt = dateValue(
     report.generated_at,
     FALLBACK_DATA.generatedAt,
@@ -687,7 +702,9 @@ async function fetchDashboardData(): Promise<DashboardData> {
       : [currentPoint];
 
   const fetchedAt = Date.now();
-  const coverage = assessCoverage(sourceHealth, "live");
+  const coverage = reportIsStale
+    ? { coverageConfidence: "low" as const, coverageState: "insufficient" as const }
+    : assessCoverage(sourceHealth, "live");
 
   return {
     schemaVersion: 1,
@@ -698,7 +715,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
       FALLBACK_DATA.coverageStart,
     ),
     coverageEnd: dateValue(report.coverage_end, FALLBACK_DATA.coverageEnd),
-    pipelineStatus: booleanValue(report.degraded)
+    pipelineStatus: booleanValue(report.degraded) || reportIsStale || coverage.coverageState !== "sufficient"
       ? "degraded"
       : "operational",
     dataMode: "live",
@@ -711,10 +728,8 @@ async function fetchDashboardData(): Promise<DashboardData> {
     ...coverage,
     minimumPriority,
     assessed: records.length,
-    aboveThreshold:
-      numberValue(compact?.above_threshold) ?? currentPoint.aboveThreshold,
-    immediateAttentionCount:
-      numberValue(compact?.immediate_attention_count) ?? immediateItems.length,
+    aboveThreshold: currentPoint.aboveThreshold,
+    immediateAttentionCount: immediateItems.length,
     immediateAttention:
       stringValue(compact?.immediate_attention) ||
       (immediateItems.length
