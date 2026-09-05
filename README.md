@@ -9,29 +9,33 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-04T13:55:37+00:00  
-**Coverage:** 2026-09-03T13:55:31+00:00 → 2026-09-04T13:55:31+00:00  
+**Updated:** 2026-09-05T13:11:11+00:00  
+**Coverage:** 2026-09-04T13:11:05+00:00 → 2026-09-05T13:11:05+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 429 source-backed developments
-- **Above threshold:** 345
+- **Assessed:** 560 source-backed developments
+- **Above threshold:** 283
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-83711](https://nvd.nist.gov/vuln/detail/CVE-2026-83711) · 10.0/10** — Authorization bypass through user-controlled key in Microsoft Azure Active Directory B2C allows an unauthorized attacker — CVSS 10.0; priority technology: windows
-- **[CVE-2026-72811](https://github.com/advisories/GHSA-q2vg-7qgx-x5fc) · 10.0/10** — SiYuan: SQL injection in backlink/mention search via unescaped stored and client input (publish mode): first-order (client keyword) and second-order (stored document title)… — CVSS 10.0; priority technology: linux
-- **[CVE-2026-70403](https://nvd.nist.gov/vuln/detail/CVE-2026-70403) · 10.0/10** — XING CPTrans-ME-X contains a Use of Hard-coded Password (CWE-259). Anyone with the knowledge of the credential may log i — CVSS 9.3; priority technology: browsers
-- **[CVE-2026-70352](https://nvd.nist.gov/vuln/detail/CVE-2026-70352) · 10.0/10** — Missing authentication for critical function in Azure AI Language allows an unauthorized attacker to elevate privileges — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-69657](https://nvd.nist.gov/vuln/detail/CVE-2026-69657) · 10.0/10** — XING CPTrans-ME-X contains a Use of Default Password (CWE-1393). Anyone with the knowledge of the credential may log in — CVSS 9.3; priority technology: browsers
+- **[CVE-2026-75925](https://nvd.nist.gov/vuln/detail/CVE-2026-75925) · 10.0/10** — Improper neutralization of CRLF sequences in IXON VPN Client before version 1.4.7 allows an attacker to execute commands — CVSS 9.4; priority technology: vpn_remote_access
+- **[CVE-2026-83627](https://nvd.nist.gov/vuln/detail/CVE-2026-83627) · 10.0/10** — The Hummingbird – Speed Optimization, Caching, Minify, Compress &amp; CDN plugin for WordPress is vulnerable to Remote Code — CVSS 9.8; detection opportunity
+- **[CVE-2026-18658](https://nvd.nist.gov/vuln/detail/CVE-2026-18658) · 10.0/10** — IBM Operational Decision Manager 9.6.0.0, 9.5.0.0, 8.11.1.0, 8.11.0.1, 8.12.0.1, 9.5.0.1, and 9.0.0.1 is vulnerable to S — CVSS 9.8; detection opportunity
+- **[CVE-2026-13447](https://nvd.nist.gov/vuln/detail/CVE-2026-13447) · 10.0/10** — The Mstore Api plugin for WordPress is vulnerable to Authentication Bypass via JWT Forgery in versions up to, and includ — CVSS 9.8; detection opportunity
+- **[CVE-2026-10196](https://nvd.nist.gov/vuln/detail/CVE-2026-10196) · 10.0/10** — The Mail Mint – Email Marketing, Newsletter, Email Automation &amp; WooCommerce Emails plugin for WordPress is vulnerable to — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Friday, September 4th, 2026 https://isc.sans.edu/podcastdetail/10082, (Fri, Sep 4th)](https://isc.sans.edu/diary/rss/33310)**
+**[numbat - AI agent observability, (Fri, Sep 4th)](https://isc.sans.edu/diary/rss/33312)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Actively exploited sandbox RCE in all Chromium versions](https://nvd.nist.gov/vuln/detail/cve-2026-85046)** — Hacker News · 585 points · 312 comments
+[Open discussion](https://news.ycombinator.com/item?id=49570669)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
