@@ -9,33 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-05T13:11:11+00:00  
-**Coverage:** 2026-09-04T13:11:05+00:00 → 2026-09-05T13:11:05+00:00  
+**Updated:** 2026-09-06T13:20:48+00:00  
+**Coverage:** 2026-09-05T13:20:40+00:00 → 2026-09-06T13:20:40+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 560 source-backed developments
-- **Above threshold:** 283
+- **Assessed:** 84 source-backed developments
+- **Above threshold:** 66
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-75925](https://nvd.nist.gov/vuln/detail/CVE-2026-75925) · 10.0/10** — Improper neutralization of CRLF sequences in IXON VPN Client before version 1.4.7 allows an attacker to execute commands — CVSS 9.4; priority technology: vpn_remote_access
-- **[CVE-2026-83627](https://nvd.nist.gov/vuln/detail/CVE-2026-83627) · 10.0/10** — The Hummingbird – Speed Optimization, Caching, Minify, Compress &amp; CDN plugin for WordPress is vulnerable to Remote Code — CVSS 9.8; detection opportunity
-- **[CVE-2026-18658](https://nvd.nist.gov/vuln/detail/CVE-2026-18658) · 10.0/10** — IBM Operational Decision Manager 9.6.0.0, 9.5.0.0, 8.11.1.0, 8.11.0.1, 8.12.0.1, 9.5.0.1, and 9.0.0.1 is vulnerable to S — CVSS 9.8; detection opportunity
-- **[CVE-2026-13447](https://nvd.nist.gov/vuln/detail/CVE-2026-13447) · 10.0/10** — The Mstore Api plugin for WordPress is vulnerable to Authentication Bypass via JWT Forgery in versions up to, and includ — CVSS 9.8; detection opportunity
-- **[CVE-2026-10196](https://nvd.nist.gov/vuln/detail/CVE-2026-10196) · 10.0/10** — The Mail Mint – Email Marketing, Newsletter, Email Automation &amp; WooCommerce Emails plugin for WordPress is vulnerable to — CVSS 9.8; detection opportunity
-
-### Human context
-
-**[numbat - AI agent observability, (Fri, Sep 4th)](https://isc.sans.edu/diary/rss/33312)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-
-### Community pulse
-
-**[Actively exploited sandbox RCE in all Chromium versions](https://nvd.nist.gov/vuln/detail/cve-2026-85046)** — Hacker News · 585 points · 312 comments
-[Open discussion](https://news.ycombinator.com/item?id=49570669)
+- **[CVE-2026-86218](https://nvd.nist.gov/vuln/detail/CVE-2026-86218) · 10.0/10** — N-central is vulnerable to a pre-auth remote code execution This issue affects N-central: before 2026.3.1.14. — CVSS 10.0; detection opportunity
+- **[CVE-2026-86152](https://nvd.nist.gov/vuln/detail/CVE-2026-86152) · 10.0/10** — A flaw has been found in Tenda CP3 27.5.57.101. The impacted element is the function CAutoAddWifi::ThreadProc of the fil — CVSS 10.0; detection opportunity
+- **[CVE-2026-75816](https://nvd.nist.gov/vuln/detail/CVE-2026-75816) · 10.0/10** — The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Authentication Bypass to Account Takeover in all — CVSS 9.8; detection opportunity
+- **[CVE-2026-16310](https://nvd.nist.gov/vuln/detail/CVE-2026-16310) · 10.0/10** — The MemberDash plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and includi — CVSS 9.8; detection opportunity
+- **[CVE-2026-86153](https://nvd.nist.gov/vuln/detail/CVE-2026-86153) · 9.7/10** — A vulnerability has been found in Tenda CP3 27.5.57.101. This affects the function CRedirServer::SetRedirectEnable of th — CVSS 9.4; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
