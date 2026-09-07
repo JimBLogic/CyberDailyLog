@@ -9,23 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-06T13:20:48+00:00  
-**Coverage:** 2026-09-05T13:20:40+00:00 → 2026-09-06T13:20:40+00:00  
+**Updated:** 2026-09-07T15:26:59+00:00  
+**Coverage:** 2026-09-06T15:26:46+00:00 → 2026-09-07T15:26:46+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 84 source-backed developments
-- **Above threshold:** 66
+- **Assessed:** 218 source-backed developments
+- **Above threshold:** 152
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-86218](https://nvd.nist.gov/vuln/detail/CVE-2026-86218) · 10.0/10** — N-central is vulnerable to a pre-auth remote code execution This issue affects N-central: before 2026.3.1.14. — CVSS 10.0; detection opportunity
-- **[CVE-2026-86152](https://nvd.nist.gov/vuln/detail/CVE-2026-86152) · 10.0/10** — A flaw has been found in Tenda CP3 27.5.57.101. The impacted element is the function CAutoAddWifi::ThreadProc of the fil — CVSS 10.0; detection opportunity
-- **[CVE-2026-75816](https://nvd.nist.gov/vuln/detail/CVE-2026-75816) · 10.0/10** — The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Authentication Bypass to Account Takeover in all — CVSS 9.8; detection opportunity
-- **[CVE-2026-16310](https://nvd.nist.gov/vuln/detail/CVE-2026-16310) · 10.0/10** — The MemberDash plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and includi — CVSS 9.8; detection opportunity
-- **[CVE-2026-86153](https://nvd.nist.gov/vuln/detail/CVE-2026-86153) · 9.7/10** — A vulnerability has been found in Tenda CP3 27.5.57.101. This affects the function CRedirServer::SetRedirectEnable of th — CVSS 9.4; detection opportunity
+- **[CVE-2026-80238](https://nvd.nist.gov/vuln/detail/CVE-2026-80238) · 10.0/10** — Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-7861](https://nvd.nist.gov/vuln/detail/CVE-2026-7861) · 10.0/10** — Deserialization of untrusted data vulnerability in Next4Biz Information Technologies Inc. CSM (Customer Service Manageme — CVSS 9.8; detection opportunity
+- **[CVE-2026-76578](https://nvd.nist.gov/vuln/detail/CVE-2026-76578) · 10.0/10** — A flaw was found in FreeIPA. The self-managed OTP token ACI does not require authentication and does not restrict which — CVSS 9.8; detection opportunity
+- **[CVE-2026-18922](https://nvd.nist.gov/vuln/detail/CVE-2026-18922) · 10.0/10** — A flaw was found in 389 Directory Server. During SASL PLAIN authentication, a stale identity carried in a Cyrus SASL aux — CVSS 9.8; detection opportunity
+- **[CVE-2026-6223](https://nvd.nist.gov/vuln/detail/CVE-2026-6223) · 9.7/10** — Improper restriction of excessive authentication attempts vulnerability in Bahçelievler Muncipality BiHayat App allows A — CVSS 9.4; detection opportunity
+
+### Human context
+
+**[Critical MikroTik Vulnerability - Patch Now, (Sun, Sep 6th)](https://isc.sans.edu/diary/rss/33314)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> Mikrotik released a patch late last week for an already-exploited vulnerability. The vulnerability allows an SSH authentication bypass and is already being exploited. At…
+
+### Community pulse
+
+**[Nitter and XCancel resume service after legal advice](https://github.com/zedeus/nitter/commit/1428b4c2b4246f92a7e5b2673438e5fb39fcc4a3)** — Hacker News · 840 points · 357 comments
+[Open discussion](https://news.ycombinator.com/item?id=49588988)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
