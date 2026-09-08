@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-07T15:26:59+00:00  
-**Coverage:** 2026-09-06T15:26:46+00:00 → 2026-09-07T15:26:46+00:00  
+**Updated:** 2026-09-08T14:03:10+00:00  
+**Coverage:** 2026-09-07T14:03:02+00:00 → 2026-09-08T14:03:02+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 218 source-backed developments
-- **Above threshold:** 152
+- **Assessed:** 212 source-backed developments
+- **Above threshold:** 156
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-80238](https://nvd.nist.gov/vuln/detail/CVE-2026-80238) · 10.0/10** — Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-7861](https://nvd.nist.gov/vuln/detail/CVE-2026-7861) · 10.0/10** — Deserialization of untrusted data vulnerability in Next4Biz Information Technologies Inc. CSM (Customer Service Manageme — CVSS 9.8; detection opportunity
-- **[CVE-2026-76578](https://nvd.nist.gov/vuln/detail/CVE-2026-76578) · 10.0/10** — A flaw was found in FreeIPA. The self-managed OTP token ACI does not require authentication and does not restrict which — CVSS 9.8; detection opportunity
-- **[CVE-2026-18922](https://nvd.nist.gov/vuln/detail/CVE-2026-18922) · 10.0/10** — A flaw was found in 389 Directory Server. During SASL PLAIN authentication, a stale identity carried in a Cyrus SASL aux — CVSS 9.8; detection opportunity
-- **[CVE-2026-6223](https://nvd.nist.gov/vuln/detail/CVE-2026-6223) · 9.7/10** — Improper restriction of excessive authentication attempts vulnerability in Bahçelievler Muncipality BiHayat App allows A — CVSS 9.4; detection opportunity
+- **[CVE-2026-86543](https://nvd.nist.gov/vuln/detail/CVE-2026-86543) · 9.6/10** — knowns versions before 0.30.0 serve the management API without authentication on all network interfaces by default, with — CVSS 9.3; detection opportunity
+- **[CVE-2026-77089](https://nvd.nist.gov/vuln/detail/CVE-2026-77089) · 9.6/10** — Command Center API contained an authentication bypass issue affecting privilege management. Software customers upgrade t — CVSS 9.3; detection opportunity
+- **[CVE-2026-62647](https://nvd.nist.gov/vuln/detail/CVE-2026-62647) · 9.6/10** — A vulnerability has been identified in Reyrolle 7SR5 (All versions &lt; V2.70). A random number generator is used to genera — CVSS 9.3; detection opportunity
+- **[CVE-2026-67367](https://nvd.nist.gov/vuln/detail/CVE-2026-67367) · 9.4/10** — A vulnerability has been identified in SIMOVE Fleetmanager V3.1 (All versions &lt; V3.1.13), SIMOVE Fleetmanager V3.2 (All — CVSS 9.2; detection opportunity
+- **[CVE-2026-62646](https://nvd.nist.gov/vuln/detail/CVE-2026-62646) · 9.3/10** — A vulnerability has been identified in Reyrolle 7SR5 (All versions &lt; V2.70). A session identifier is generated using an — CVSS 9.1; detection opportunity
 
 ### Human context
 
-**[Critical MikroTik Vulnerability - Patch Now, (Sun, Sep 6th)](https://isc.sans.edu/diary/rss/33314)**
+**[ISC Stormcast For Tuesday, September 8th, 2026 https://isc.sans.edu/podcastdetail/10084, (Tue, Sep 8th)](https://isc.sans.edu/diary/rss/33316)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Mikrotik released a patch late last week for an already-exploited vulnerability. The vulnerability allows an SSH authentication bypass and is already being exploited. At…
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Nitter and XCancel resume service after legal advice](https://github.com/zedeus/nitter/commit/1428b4c2b4246f92a7e5b2673438e5fb39fcc4a3)** — Hacker News · 840 points · 357 comments
-[Open discussion](https://news.ycombinator.com/item?id=49588988)
+**[Multi-Agents LLM Financial Trading Framework](https://github.com/TauricResearch/TradingAgents)** — Hacker News · 90 points · 59 comments
+[Open discussion](https://news.ycombinator.com/item?id=49605822)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

@@ -1,17 +1,17 @@
 {
-  "above_threshold": 152,
+  "above_threshold": 156,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 357,
-    "discussion_url": "https://news.ycombinator.com/item?id=49588988",
-    "published_at": "2026-09-06T17:49:47+00:00",
-    "score": 840,
+    "comments": 59,
+    "discussion_url": "https://news.ycombinator.com/item?id=49605822",
+    "published_at": "2026-09-08T05:20:23+00:00",
+    "score": 90,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/zedeus/nitter/commit/1428b4c2b4246f92a7e5b2673438e5fb39fcc4a3",
-    "title": "Nitter and XCancel resume service after legal advice"
+    "source_url": "https://github.com/TauricResearch/TradingAgents",
+    "title": "Multi-Agents LLM Financial Trading Framework"
   },
-  "coverage_end": "2026-09-07T15:26:46+00:00",
-  "coverage_start": "2026-09-06T15:26:46+00:00",
+  "coverage_end": "2026-09-08T14:03:02+00:00",
+  "coverage_start": "2026-09-07T14:03:02+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-07T15:26:59+00:00",
+  "generated_at": "2026-09-08T14:03:10+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Mikrotik released a patch late last week for an already-exploited vulnerability. The vulnerability allows an SSH authentication bypass and is already being exploited. At\u2026",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-06T21:43:17+00:00",
+    "published_at": "2026-09-08T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33314",
-    "title": "Critical MikroTik Vulnerability - Patch Now, (Sun, Sep 6th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33316",
+    "title": "ISC Stormcast For Tuesday, September 8th, 2026 https://isc.sans.edu/podcastdetail/10084, (Tue, Sep 8th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 218,
+  "qualified_developments": 212,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,44 +60,17 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-80238"
+        "CVE-2026-86543"
       ],
       "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-80238",
+      "id": "CVE-2026-86543",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80238",
-      "title": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-7861"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-7861",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -106,24 +79,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7861",
-      "title": "Deserialization of untrusted data vulnerability in Next4Biz Information Technologies Inc. CSM (Customer Service Manageme",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86543",
+      "title": "knowns versions before 0.30.0 serve the management API without authentication on all network interfaces by default, with",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76578"
+        "CVE-2026-77089"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76578",
+      "id": "CVE-2026-77089",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -132,24 +105,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76578",
-      "title": "A flaw was found in FreeIPA. The self-managed OTP token ACI does not require authentication and does not restrict which",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77089",
+      "title": "Command Center API contained an authentication bypass issue affecting privilege management. Software customers upgrade t",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-18922"
+        "CVE-2026-62647"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-18922",
+      "id": "CVE-2026-62647",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
+      "priority_score": 9.6,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -158,24 +131,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18922",
-      "title": "A flaw was found in 389 Directory Server. During SASL PLAIN authentication, a stale identity carried in a Cyrus SASL aux",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62647",
+      "title": "A vulnerability has been identified in Reyrolle 7SR5 (All versions < V2.70). A random number generator is used to genera",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-6223"
+        "CVE-2026-67367"
       ],
-      "cvss_score": 9.4,
+      "cvss_score": 9.2,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-6223",
+      "id": "CVE-2026-67367",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.7,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -184,9 +157,35 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6223",
-      "title": "Improper restriction of excessive authentication attempts vulnerability in Bah\u00e7elievler Muncipality BiHayat App allows A",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67367",
+      "title": "A vulnerability has been identified in SIMOVE Fleetmanager V3.1 (All versions < V3.1.13), SIMOVE Fleetmanager V3.2 (All",
+      "why_it_matters": "CVSS 9.2; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-62646"
+      ],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-62646",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.3,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62646",
+      "title": "A vulnerability has been identified in Reyrolle 7SR5 (All versions < V2.70). A session identifier is generated using an",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
     }
   ]
 }
