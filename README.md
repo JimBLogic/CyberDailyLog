@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-08T14:03:10+00:00  
-**Coverage:** 2026-09-07T14:03:02+00:00 → 2026-09-08T14:03:02+00:00  
+**Updated:** 2026-09-09T14:06:10+00:00  
+**Coverage:** 2026-09-08T14:05:38+00:00 → 2026-09-09T14:05:38+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 212 source-backed developments
-- **Above threshold:** 156
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 152 source-backed developments
+- **Above threshold:** 54
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-86543](https://nvd.nist.gov/vuln/detail/CVE-2026-86543) · 9.6/10** — knowns versions before 0.30.0 serve the management API without authentication on all network interfaces by default, with — CVSS 9.3; detection opportunity
-- **[CVE-2026-77089](https://nvd.nist.gov/vuln/detail/CVE-2026-77089) · 9.6/10** — Command Center API contained an authentication bypass issue affecting privilege management. Software customers upgrade t — CVSS 9.3; detection opportunity
-- **[CVE-2026-62647](https://nvd.nist.gov/vuln/detail/CVE-2026-62647) · 9.6/10** — A vulnerability has been identified in Reyrolle 7SR5 (All versions &lt; V2.70). A random number generator is used to genera — CVSS 9.3; detection opportunity
-- **[CVE-2026-67367](https://nvd.nist.gov/vuln/detail/CVE-2026-67367) · 9.4/10** — A vulnerability has been identified in SIMOVE Fleetmanager V3.1 (All versions &lt; V3.1.13), SIMOVE Fleetmanager V3.2 (All — CVSS 9.2; detection opportunity
-- **[CVE-2026-62646](https://nvd.nist.gov/vuln/detail/CVE-2026-62646) · 9.3/10** — A vulnerability has been identified in Reyrolle 7SR5 (All versions &lt; V2.70). A session identifier is generated using an — CVSS 9.1; detection opportunity
+- **[CVE-2026-77635](https://github.com/advisories/GHSA-fxf7-vhh8-7vpq) · 9.4/10** — CakePHP: FunctionsBuilder::jsonValue() vulerable to SQL injection with PostgresDriver — CVSS 9.2; detection opportunity
+- **[CVE-2026-62815](https://github.com/advisories/GHSA-92f5-vc22-8j33) · 9.2/10** — Microsoft QUIC: Remote Code Execution Vulnerability — CVSS 10.0; detection opportunity
+- **[GHSA-2xp9-vwfh-vxw4](https://github.com/advisories/GHSA-2xp9-vwfh-vxw4) · 8.8/10** — Next.js: Unauthenticated Remote Code Execution in Image Optimization API when AVIF files are used — CVSS 9.5; detection opportunity
+- **[CVE-2026-78683](https://github.com/advisories/GHSA-rhp5-r9x4-f5g2) · 8.7/10** — NLTK: Unsafe Pickle Deserialization in TransitionParser Allows Remote Code Execution — CVSS 9.4; detection opportunity
+- **[GHSA-rgj7-g3m4-5g8c](https://github.com/advisories/GHSA-rgj7-g3m4-5g8c) · 8.7/10** — sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545 — CVSS 8.9; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, September 8th, 2026 https://isc.sans.edu/podcastdetail/10084, (Tue, Sep 8th)](https://isc.sans.edu/diary/rss/33316)**
+**[ISC Stormcast For Wednesday, September 9th, 2026 https://isc.sans.edu/podcastdetail/10086, (Wed, Sep 9th)](https://isc.sans.edu/diary/rss/33322)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Multi-Agents LLM Financial Trading Framework](https://github.com/TauricResearch/TradingAgents)** — Hacker News · 90 points · 59 comments
-[Open discussion](https://news.ycombinator.com/item?id=49605822)
+**[I-have-ADHD: A skill to stop coding agents from burying the answer](https://github.com/ayghri/i-have-adhd)** — Hacker News · 494 points · 337 comments
+[Open discussion](https://news.ycombinator.com/item?id=49610631)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
