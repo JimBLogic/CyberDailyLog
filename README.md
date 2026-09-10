@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-09T14:06:10+00:00  
-**Coverage:** 2026-09-08T14:05:38+00:00 → 2026-09-09T14:05:38+00:00  
+**Updated:** 2026-09-10T14:00:21+00:00  
+**Coverage:** 2026-09-09T13:59:55+00:00 → 2026-09-10T13:59:55+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 152 source-backed developments
-- **Above threshold:** 54
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 358 source-backed developments
+- **Above threshold:** 194
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-77635](https://github.com/advisories/GHSA-fxf7-vhh8-7vpq) · 9.4/10** — CakePHP: FunctionsBuilder::jsonValue() vulerable to SQL injection with PostgresDriver — CVSS 9.2; detection opportunity
-- **[CVE-2026-62815](https://github.com/advisories/GHSA-92f5-vc22-8j33) · 9.2/10** — Microsoft QUIC: Remote Code Execution Vulnerability — CVSS 10.0; detection opportunity
-- **[GHSA-2xp9-vwfh-vxw4](https://github.com/advisories/GHSA-2xp9-vwfh-vxw4) · 8.8/10** — Next.js: Unauthenticated Remote Code Execution in Image Optimization API when AVIF files are used — CVSS 9.5; detection opportunity
-- **[CVE-2026-78683](https://github.com/advisories/GHSA-rhp5-r9x4-f5g2) · 8.7/10** — NLTK: Unsafe Pickle Deserialization in TransitionParser Allows Remote Code Execution — CVSS 9.4; detection opportunity
-- **[GHSA-rgj7-g3m4-5g8c](https://github.com/advisories/GHSA-rgj7-g3m4-5g8c) · 8.7/10** — sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545 — CVSS 8.9; priority technology: linux
+- **[CVE-2026-54694](https://nvd.nist.gov/vuln/detail/CVE-2026-54694) · 10.0/10** — SkillTree is a micro-learning gamification platform. Prior to version 4.4.2, two independent code flaws combine into a s — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-19583](https://nvd.nist.gov/vuln/detail/CVE-2026-19583) · 10.0/10** — Velociraptor allows some sensitive artifacts to be gated by additional permissions. For example, the Linux.Sys.BashShell — CVSS 9.9; priority technology: linux
+- **[CVE-2026-9163](https://nvd.nist.gov/vuln/detail/CVE-2026-9163) · 10.0/10** — Improper neutralization of special elements used in an SQL command (&#x27;SQL injection&#x27;) vulnerability in GIS Informatics Gi — CVSS 9.8; detection opportunity
+- **[CVE-2026-88278](https://nvd.nist.gov/vuln/detail/CVE-2026-88278) · 10.0/10** — GeoVision GV-LPC2211 V1.13 fails to enforce WS-Security UsernameToken freshness or nonce reuse protection, allowing a ca — CVSS 9.8; detection opportunity
+- **[CVE-2026-87911](https://nvd.nist.gov/vuln/detail/CVE-2026-87911) · 9.8/10** — An OS command injection weakness in the read-only enforcement of the SQL validation component in Amazon awslabs postgres — CVSS 9.0; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, September 9th, 2026 https://isc.sans.edu/podcastdetail/10086, (Wed, Sep 9th)](https://isc.sans.edu/diary/rss/33322)**
+**[Redtail Payload Analysis \[Guest Diary\], (Wed, Sep 9th)](https://isc.sans.edu/diary/rss/33326)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> \[This is a Guest Diary by Aaron Ng, an ISC intern as part of the SANS.edu BACS program\]
 
 ### Community pulse
 
-**[I-have-ADHD: A skill to stop coding agents from burying the answer](https://github.com/ayghri/i-have-adhd)** — Hacker News · 494 points · 337 comments
-[Open discussion](https://news.ycombinator.com/item?id=49610631)
+**[Qwen 3.8 follows GPT-5.5 Pro reasoning prefills](https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3)** — Hacker News · 228 points · 89 comments
+[Open discussion](https://news.ycombinator.com/item?id=49630026)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
