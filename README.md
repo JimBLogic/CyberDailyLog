@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-10T14:00:21+00:00  
-**Coverage:** 2026-09-09T13:59:55+00:00 → 2026-09-10T13:59:55+00:00  
+**Updated:** 2026-09-11T13:59:41+00:00  
+**Coverage:** 2026-09-10T13:59:25+00:00 → 2026-09-11T13:59:25+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 358 source-backed developments
-- **Above threshold:** 194
+- **Assessed:** 440 source-backed developments
+- **Above threshold:** 337
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-54694](https://nvd.nist.gov/vuln/detail/CVE-2026-54694) · 10.0/10** — SkillTree is a micro-learning gamification platform. Prior to version 4.4.2, two independent code flaws combine into a s — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-19583](https://nvd.nist.gov/vuln/detail/CVE-2026-19583) · 10.0/10** — Velociraptor allows some sensitive artifacts to be gated by additional permissions. For example, the Linux.Sys.BashShell — CVSS 9.9; priority technology: linux
-- **[CVE-2026-9163](https://nvd.nist.gov/vuln/detail/CVE-2026-9163) · 10.0/10** — Improper neutralization of special elements used in an SQL command (&#x27;SQL injection&#x27;) vulnerability in GIS Informatics Gi — CVSS 9.8; detection opportunity
-- **[CVE-2026-88278](https://nvd.nist.gov/vuln/detail/CVE-2026-88278) · 10.0/10** — GeoVision GV-LPC2211 V1.13 fails to enforce WS-Security UsernameToken freshness or nonce reuse protection, allowing a ca — CVSS 9.8; detection opportunity
-- **[CVE-2026-87911](https://nvd.nist.gov/vuln/detail/CVE-2026-87911) · 9.8/10** — An OS command injection weakness in the read-only enforcement of the SQL validation component in Amazon awslabs postgres — CVSS 9.0; priority technology: cloud
+- **[CVE-2026-84390](https://nvd.nist.gov/vuln/detail/CVE-2026-84390) · 10.0/10** — A inclusion of sensitive information in source code vulnerability in Fortinet FortiMonitorOnSight 7.2.4 through 7.2.7, F — CVSS 9.8; priority technology: vpn_remote_access
+- **[CVE-2026-89094](https://nvd.nist.gov/vuln/detail/CVE-2026-89094) · 10.0/10** — Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files — CVSS 9.9; detection opportunity
+- **[CVE-2026-81204](https://nvd.nist.gov/vuln/detail/CVE-2026-81204) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary code due to code injection duri — CVSS 9.8; detection opportunity
+- **[CVE-2026-80462](https://nvd.nist.gov/vuln/detail/CVE-2026-80462) · 10.0/10** — A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain — CVSS 10.0; detection opportunity
+- **[CVE-2026-79724](https://nvd.nist.gov/vuln/detail/CVE-2026-79724) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neu — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[Redtail Payload Analysis \[Guest Diary\], (Wed, Sep 9th)](https://isc.sans.edu/diary/rss/33326)**
+**[ISC Stormcast For Friday, September 11th, 2026 https://isc.sans.edu/podcastdetail/10090, (Fri, Sep 11th)](https://isc.sans.edu/diary/rss/33330)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> \[This is a Guest Diary by Aaron Ng, an ISC intern as part of the SANS.edu BACS program\]
-
-### Community pulse
-
-**[Qwen 3.8 follows GPT-5.5 Pro reasoning prefills](https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3)** — Hacker News · 228 points · 89 comments
-[Open discussion](https://news.ycombinator.com/item?id=49630026)
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
