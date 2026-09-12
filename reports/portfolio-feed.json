@@ -1,8 +1,17 @@
 {
-  "above_threshold": 337,
-  "community_pulse": null,
-  "coverage_end": "2026-09-11T13:59:25+00:00",
-  "coverage_start": "2026-09-10T13:59:25+00:00",
+  "above_threshold": 179,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 210,
+    "discussion_url": "https://news.ycombinator.com/item?id=49663373",
+    "published_at": "2026-09-11T18:50:36+00:00",
+    "score": 285,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/GrapheneOS/Messaging/releases/tag/13",
+    "title": "GrapheneOS' rewritten Messages app is released"
+  },
+  "coverage_end": "2026-09-12T13:18:09+00:00",
+  "coverage_start": "2026-09-11T13:18:09+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-11T13:59:41+00:00",
+  "generated_at": "2026-09-12T13:18:22+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "I identified an attacker using a semi-autonomous coding agent to run an offensive operation: finding poorly secured LLM resale gateways, acquiring API access through\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-11T02:00:02+00:00",
+    "published_at": "2026-09-11T14:40:32+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33330",
-    "title": "ISC Stormcast For Friday, September 11th, 2026 https://isc.sans.edu/podcastdetail/10090, (Fri, Sep 11th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33332",
+    "title": "The Self-Expanding Stolen Inference Supply Chain: An AI Agent Harvesting and Re-Serving LLM Access, (Fri, Sep 11th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 440,
+  "qualified_developments": 712,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -51,41 +60,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-84390"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-84390",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: vpn_remote_access +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84390",
-      "title": "A inclusion of sensitive information in source code vulnerability in Fortinet FortiMonitorOnSight 7.2.4 through 7.2.7, F",
-      "why_it_matters": "CVSS 9.8; priority technology: vpn_remote_access"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-89094"
+        "CVE-2026-87719"
       ],
       "cvss_score": 9.9,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-89094",
+      "id": "CVE-2026-87719",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -97,35 +79,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89094",
-      "title": "Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87719",
+      "title": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3",
       "why_it_matters": "CVSS 9.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-81204"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-81204",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81204",
-      "title": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary code due to code injection duri",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
@@ -156,14 +112,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-79724"
+        "CVE-2026-78159"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-79724",
+      "id": "CVE-2026-78159",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
@@ -175,8 +131,60 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79724",
-      "title": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neu",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78159",
+      "title": "The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-78006"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-78006",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78006",
+      "title": "The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-53952"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-53952",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53952",
+      "title": "GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. A logic f",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]

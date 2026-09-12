@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-11T13:59:41+00:00  
-**Coverage:** 2026-09-10T13:59:25+00:00 → 2026-09-11T13:59:25+00:00  
+**Updated:** 2026-09-12T13:18:22+00:00  
+**Coverage:** 2026-09-11T13:18:09+00:00 → 2026-09-12T13:18:09+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 440 source-backed developments
-- **Above threshold:** 337
+- **Assessed:** 712 source-backed developments
+- **Above threshold:** 179
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-84390](https://nvd.nist.gov/vuln/detail/CVE-2026-84390) · 10.0/10** — A inclusion of sensitive information in source code vulnerability in Fortinet FortiMonitorOnSight 7.2.4 through 7.2.7, F — CVSS 9.8; priority technology: vpn_remote_access
-- **[CVE-2026-89094](https://nvd.nist.gov/vuln/detail/CVE-2026-89094) · 10.0/10** — Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files — CVSS 9.9; detection opportunity
-- **[CVE-2026-81204](https://nvd.nist.gov/vuln/detail/CVE-2026-81204) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary code due to code injection duri — CVSS 9.8; detection opportunity
+- **[CVE-2026-87719](https://nvd.nist.gov/vuln/detail/CVE-2026-87719) · 10.0/10** — GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3 — CVSS 9.9; detection opportunity
 - **[CVE-2026-80462](https://nvd.nist.gov/vuln/detail/CVE-2026-80462) · 10.0/10** — A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain — CVSS 10.0; detection opportunity
-- **[CVE-2026-79724](https://nvd.nist.gov/vuln/detail/CVE-2026-79724) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neu — CVSS 9.8; detection opportunity
+- **[CVE-2026-78159](https://nvd.nist.gov/vuln/detail/CVE-2026-78159) · 10.0/10** — The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including — CVSS 9.8; detection opportunity
+- **[CVE-2026-78006](https://nvd.nist.gov/vuln/detail/CVE-2026-78006) · 10.0/10** — The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including — CVSS 9.8; detection opportunity
+- **[CVE-2026-53952](https://nvd.nist.gov/vuln/detail/CVE-2026-53952) · 10.0/10** — GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. A logic f — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Friday, September 11th, 2026 https://isc.sans.edu/podcastdetail/10090, (Fri, Sep 11th)](https://isc.sans.edu/diary/rss/33330)**
+**[The Self-Expanding Stolen Inference Supply Chain: An AI Agent Harvesting and Re-Serving LLM Access, (Fri, Sep 11th)](https://isc.sans.edu/diary/rss/33332)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> I identified an attacker using a semi-autonomous coding agent to run an offensive operation: finding poorly secured LLM resale gateways, acquiring API access through…
+
+### Community pulse
+
+**[GrapheneOS&#x27; rewritten Messages app is released](https://github.com/GrapheneOS/Messaging/releases/tag/13)** — Hacker News · 285 points · 210 comments
+[Open discussion](https://news.ycombinator.com/item?id=49663373)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
