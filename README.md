@@ -9,34 +9,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-12T13:18:22+00:00  
-**Coverage:** 2026-09-11T13:18:09+00:00 → 2026-09-12T13:18:09+00:00  
+**Updated:** 2026-09-13T14:01:18+00:00  
+**Coverage:** 2026-09-12T14:01:04+00:00 → 2026-09-13T14:01:04+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 712 source-backed developments
-- **Above threshold:** 179
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 79 source-backed developments
+- **Above threshold:** 47
+- Core sources: **3/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-87719](https://nvd.nist.gov/vuln/detail/CVE-2026-87719) · 10.0/10** — GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3 — CVSS 9.9; detection opportunity
-- **[CVE-2026-80462](https://nvd.nist.gov/vuln/detail/CVE-2026-80462) · 10.0/10** — A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain — CVSS 10.0; detection opportunity
-- **[CVE-2026-78159](https://nvd.nist.gov/vuln/detail/CVE-2026-78159) · 10.0/10** — The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including — CVSS 9.8; detection opportunity
-- **[CVE-2026-78006](https://nvd.nist.gov/vuln/detail/CVE-2026-78006) · 10.0/10** — The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including — CVSS 9.8; detection opportunity
-- **[CVE-2026-53952](https://nvd.nist.gov/vuln/detail/CVE-2026-53952) · 10.0/10** — GetSimple CMS is a content management system (CMS), and GetSimple CMS CE is the community edition of that CMS. A logic f — CVSS 9.8; detection opportunity
-
-### Human context
-
-**[The Self-Expanding Stolen Inference Supply Chain: An AI Agent Harvesting and Re-Serving LLM Access, (Fri, Sep 11th)](https://isc.sans.edu/diary/rss/33332)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> I identified an attacker using a semi-autonomous coding agent to run an offensive operation: finding poorly secured LLM resale gateways, acquiring API access through…
+- **[CVE-2026-90647](https://nvd.nist.gov/vuln/detail/CVE-2026-90647) · 9.8/10** — ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation — CVSS 9.1; priority technology: windows
+- **[CVE-2026-90561](https://nvd.nist.gov/vuln/detail/CVE-2026-90561) · 9.6/10** — Strapi versions 4.x through 4.26.2 and 5.x before 5.48.1 contain a stored cross-site scripting vulnerability in the cont — CVSS 9.3; detection opportunity
+- **[CVE-2026-90558](https://nvd.nist.gov/vuln/detail/CVE-2026-90558) · 9.6/10** — sngrep through 1.8.4 contains stack buffer overflow vulnerabilities in SIP attribute formatting routines when header val — CVSS 9.3; detection opportunity
+- **[CVE-2026-90562](https://nvd.nist.gov/vuln/detail/CVE-2026-90562) · 9.4/10** — LangBot before 4.10.11 generates password recovery keys with only 24 bits of entropy and applies no rate limiting to the — CVSS 9.2; detection opportunity
+- **[CVE-2026-90493](https://nvd.nist.gov/vuln/detail/CVE-2026-90493) · 9.2/10** — A vulnerability was detected in Tonec Internet Download Manager up to 6.42 Build 63 on Windows. The impacted element is — CVSS 8.5; priority technology: windows
 
 ### Community pulse
 
-**[GrapheneOS&#x27; rewritten Messages app is released](https://github.com/GrapheneOS/Messaging/releases/tag/13)** — Hacker News · 285 points · 210 comments
-[Open discussion](https://news.ycombinator.com/item?id=49663373)
+**[Revolut confirms customer data breach through fake government requests](https://techcrunch.com/2026/09/12/revolut-confirms-customer-data-breach-through-fake-government-requests/)** — Hacker News · 86 points · 60 comments
+[Open discussion](https://news.ycombinator.com/item?id=49682087)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
