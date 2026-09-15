@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-14T16:06:22+00:00  
-**Coverage:** 2026-09-13T16:06:05+00:00 → 2026-09-14T16:06:05+00:00  
+**Updated:** 2026-09-15T14:35:47+00:00  
+**Coverage:** 2026-09-14T14:35:36+00:00 → 2026-09-15T14:35:36+00:00  
 **Pipeline:** **Operational**
 
 No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 340 source-backed developments
-- **Above threshold:** 167
+- **Assessed:** 772 source-backed developments
+- **Above threshold:** 357
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-82434](https://nvd.nist.gov/vuln/detail/CVE-2026-82434) · 10.0/10** — Description When ZooKeeper authentication is configured, Storm deliberately retains `storm.zookeeper.topology.auth.payl — CVSS 10.0; detection opportunity
-- **[CVE-2026-57125](https://nvd.nist.gov/vuln/detail/CVE-2026-57125) · 10.0/10** — PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.59 and praisonaiagents 1.6.59, the unauthenticated POST — CVSS 9.8; detection opportunity
-- **[CVE-2026-57123](https://nvd.nist.gov/vuln/detail/CVE-2026-57123) · 10.0/10** — PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, ToolsMCPServer.run_sse and launch_tools_mcp_se — CVSS 9.8; detection opportunity
-- **[CVE-2026-90937](https://nvd.nist.gov/vuln/detail/CVE-2026-90937) · 9.7/10** — froxlor versions before 2.2.5 fail to validate newline characters in subdomain redirect URLs, allowing authenticated cus — CVSS 9.4; detection opportunity
-- **[CVE-2026-90693](https://nvd.nist.gov/vuln/detail/CVE-2026-90693) · 9.7/10** — A flaw has been found in D-Link DIR-878 120B05. This impacts the function SetWan3Settings of the component WAN Settings. — CVSS 9.4; detection opportunity
+- **[CVE-2026-77179](https://nvd.nist.gov/vuln/detail/CVE-2026-77179) · 10.0/10** — On macOS, the virtio-fs host server used by Docker Sandboxes improperly follows symlinks when reopening an unlinked file — CVSS 9.4; priority technology: cloud
+- **[CVE-2026-12944](https://nvd.nist.gov/vuln/detail/CVE-2026-12944) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.10.0 can allow attackers to execute arbitrary Python code with root privileges (UID=0) — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-62379](https://nvd.nist.gov/vuln/detail/CVE-2026-62379) · 10.0/10** — Open Access Management (OpenAM) is an access management solution. Prior to 16.1.2, the pre-authentication /authservice P — CVSS 9.8; detection opportunity
+- **[CVE-2026-59178](https://nvd.nist.gov/vuln/detail/CVE-2026-59178) · 10.0/10** — ESPHome Device Builder Dashboard is a dashboard for the ESPHome home management software. Prior to version 1.0.12, the d — CVSS 9.8; detection opportunity
+- **[CVE-2026-57148](https://nvd.nist.gov/vuln/detail/CVE-2026-57148) · 10.0/10** — PraisonAI is a multi-agent teams system. Prior to 0.1.6, praisonai_platform/services/auth_service.py falls back to the p — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Monday, September 14th, 2026 https://isc.sans.edu/podcastdetail/10092, (Mon, Sep 14th)](https://isc.sans.edu/diary/rss/33334)**
+**[ISC Stormcast For Tuesday, September 15th, 2026 https://isc.sans.edu/podcastdetail/10094, (Tue, Sep 15th)](https://isc.sans.edu/diary/rss/33338)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[A 386 PC for Your RP2350](https://github.com/rh1tech/frank-386)** — Hacker News · 162 points · 45 comments
-[Open discussion](https://news.ycombinator.com/item?id=49693613)
+**[Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations](https://github.com/arnegiacomo/fugleramme)** — Hacker News · 252 points · 57 comments
+[Open discussion](https://news.ycombinator.com/item?id=49711544)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

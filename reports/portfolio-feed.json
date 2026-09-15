@@ -1,17 +1,17 @@
 {
-  "above_threshold": 167,
+  "above_threshold": 357,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 45,
-    "discussion_url": "https://news.ycombinator.com/item?id=49693613",
-    "published_at": "2026-09-14T08:25:57+00:00",
-    "score": 162,
+    "comments": 57,
+    "discussion_url": "https://news.ycombinator.com/item?id=49711544",
+    "published_at": "2026-09-15T12:31:10+00:00",
+    "score": 252,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/rh1tech/frank-386",
-    "title": "A 386 PC for Your RP2350"
+    "source_url": "https://github.com/arnegiacomo/fugleramme",
+    "title": "Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations"
   },
-  "coverage_end": "2026-09-14T16:06:05+00:00",
-  "coverage_start": "2026-09-13T16:06:05+00:00",
+  "coverage_end": "2026-09-15T14:35:36+00:00",
+  "coverage_start": "2026-09-14T14:35:36+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-14T16:06:22+00:00",
+  "generated_at": "2026-09-15T14:35:47+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-14T02:00:03+00:00",
+    "published_at": "2026-09-15T02:25:12+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33334",
-    "title": "ISC Stormcast For Monday, September 14th, 2026 https://isc.sans.edu/podcastdetail/10092, (Mon, Sep 14th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33338",
+    "title": "ISC Stormcast For Tuesday, September 15th, 2026 https://isc.sans.edu/podcastdetail/10094, (Tue, Sep 15th)"
   },
   "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
   "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 340,
+  "qualified_developments": 772,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,121 +60,71 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-82434"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-82434",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82434",
-      "title": "Description When ZooKeeper authentication is configured, Storm deliberately retains `storm.zookeeper.topology.auth.payl",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-57125"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-57125",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57125",
-      "title": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.59 and praisonaiagents 1.6.59, the unauthenticated POST",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-57123"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-57123",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57123",
-      "title": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.59, ToolsMCPServer.run_sse and launch_tools_mcp_se",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-90937"
+        "CVE-2026-77179"
       ],
       "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-90937",
+      "id": "CVE-2026-77179",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.7,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90937",
-      "title": "froxlor versions before 2.2.5 fail to validate newline characters in subdomain redirect URLs, allowing authenticated cus",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77179",
+      "title": "On macOS, the virtio-fs host server used by Docker Sandboxes improperly follows symlinks when reopening an unlinked file",
+      "why_it_matters": "CVSS 9.4; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-90693"
+        "CVE-2026-12944"
       ],
-      "cvss_score": 9.4,
+      "cvss_score": 9.6,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.39592,
-      "epss_score": 0.00473,
+      "epss_percentile": 0.162,
+      "epss_score": 0.00248,
       "ghsa_ids": [],
-      "id": "CVE-2026-90693",
+      "id": "CVE-2026-12944",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.7,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12944",
+      "title": "IBM Langflow OSS 1.0.0 through 1.10.0 can allow attackers to execute arbitrary Python code with root privileges (UID=0)",
+      "why_it_matters": "CVSS 9.6; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-62379"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.63528,
+      "epss_score": 0.01089,
+      "ghsa_ids": [],
+      "id": "CVE-2026-62379",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -183,9 +133,65 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90693",
-      "title": "A flaw has been found in D-Link DIR-878 120B05. This impacts the function SetWan3Settings of the component WAN Settings.",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62379",
+      "title": "Open Access Management (OpenAM) is an access management solution. Prior to 16.1.2, the pre-authentication /authservice P",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-59178"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.35261,
+      "epss_score": 0.00417,
+      "ghsa_ids": [
+        "GHSA-rrxg-g2pf-6hh4"
+      ],
+      "id": "CVE-2026-59178",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [
+        "esphome-device-builder"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59178",
+      "title": "ESPHome Device Builder Dashboard is a dashboard for the ESPHome home management software. Prior to version 1.0.12, the d",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-57148"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.43216,
+      "epss_score": 0.00528,
+      "ghsa_ids": [],
+      "id": "CVE-2026-57148",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 10.0,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57148",
+      "title": "PraisonAI is a multi-agent teams system. Prior to 0.1.6, praisonai_platform/services/auth_service.py falls back to the p",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]
 }
