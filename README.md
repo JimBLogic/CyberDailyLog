@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-15T14:35:47+00:00  
-**Coverage:** 2026-09-14T14:35:36+00:00 → 2026-09-15T14:35:36+00:00  
+**Updated:** 2026-09-16T14:31:48+00:00  
+**Coverage:** 2026-09-15T14:31:26+00:00 → 2026-09-16T14:31:26+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+1 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 772 source-backed developments
-- **Above threshold:** 357
+- **Assessed:** 1737 source-backed developments
+- **Above threshold:** 1217
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-77179](https://nvd.nist.gov/vuln/detail/CVE-2026-77179) · 10.0/10** — On macOS, the virtio-fs host server used by Docker Sandboxes improperly follows symlinks when reopening an unlinked file — CVSS 9.4; priority technology: cloud
-- **[CVE-2026-12944](https://nvd.nist.gov/vuln/detail/CVE-2026-12944) · 10.0/10** — IBM Langflow OSS 1.0.0 through 1.10.0 can allow attackers to execute arbitrary Python code with root privileges (UID=0) — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-62379](https://nvd.nist.gov/vuln/detail/CVE-2026-62379) · 10.0/10** — Open Access Management (OpenAM) is an access management solution. Prior to 16.1.2, the pre-authentication /authservice P — CVSS 9.8; detection opportunity
-- **[CVE-2026-59178](https://nvd.nist.gov/vuln/detail/CVE-2026-59178) · 10.0/10** — ESPHome Device Builder Dashboard is a dashboard for the ESPHome home management software. Prior to version 1.0.12, the d — CVSS 9.8; detection opportunity
-- **[CVE-2026-57148](https://nvd.nist.gov/vuln/detail/CVE-2026-57148) · 10.0/10** — PraisonAI is a multi-agent teams system. Prior to 0.1.6, praisonai_platform/services/auth_service.py falls back to the p — CVSS 9.8; detection opportunity
+- **[CVE-2026-58704](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-58704 exploited in CISA KEV: Google Pixel — CVSS 8.0; detection opportunity
+- **[CVE-2026-76674](https://nvd.nist.gov/vuln/detail/CVE-2026-76674) · 10.0/10** — Buffer overflow vulnerabilities exist in the underlying operating system of HPE Networking EdgeConnect SD-WAN Gateways t — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-76673](https://nvd.nist.gov/vuln/detail/CVE-2026-76673) · 10.0/10** — Vulnerabilities have been identified in the API of EdgeConnect SD-WAN Orchestrator that could potentially allow an unaut — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-76670](https://nvd.nist.gov/vuln/detail/CVE-2026-76670) · 10.0/10** — Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl — CVSS 9.9; priority technology: browsers
+- **[CVE-2026-76669](https://nvd.nist.gov/vuln/detail/CVE-2026-76669) · 10.0/10** — Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl — CVSS 9.9; priority technology: browsers
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, September 15th, 2026 https://isc.sans.edu/podcastdetail/10094, (Tue, Sep 15th)](https://isc.sans.edu/diary/rss/33338)**
+**[ISC Stormcast For Wednesday, September 16th, 2026 https://isc.sans.edu/podcastdetail/10096, (Wed, Sep 16th)](https://isc.sans.edu/diary/rss/33342)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations](https://github.com/arnegiacomo/fugleramme)** — Hacker News · 252 points · 57 comments
-[Open discussion](https://news.ycombinator.com/item?id=49711544)
+**[Original Sony PlayStation 2 security chip &#x27;broken wide open&#x27; after 26 years](https://www.tomshardware.com/video-games/playstation/26-year-old-sony-ps2-security-chip-broken-wide-open-after-four-years-of-effort-reverse-engineering-enthusiast-successfully-unlocks-cxp102064-mechacon-chip)** — Hacker News · 105 points · 29 comments
+[Open discussion](https://news.ycombinator.com/item?id=49725356)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
