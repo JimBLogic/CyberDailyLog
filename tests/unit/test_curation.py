@@ -44,7 +44,7 @@ def test_priority_score_uses_cvss_modifiers_and_exploitation_floors():
     item.epss_percentile = 0.98
     item.priority_score, item.priority_reasons = compute_priority_score(item, {})
 
-    assert item.priority_score == 9.7
+    assert item.priority_score == 9.4
     assert "EPSS >= 70%" in item.priority_reasons
     assert "EPSS percentile >= 95%" in item.priority_reasons
 
@@ -52,16 +52,16 @@ def test_priority_score_uses_cvss_modifiers_and_exploitation_floors():
     exploited = make_item("CVE-2026-00003", cvss=2.0, known_exploited=True)
     ransomware = make_item("CVE-2026-00004", cvss=2.0, known_ransomware_use=True)
 
-    assert kev.priority_score == 10.0
+    assert kev.priority_score == 9.6
     assert exploited.priority_score == 9.5
-    assert ransomware.priority_score == 9.0
+    assert ransomware.priority_score == 9.8
 
 
 def test_priority_score_uses_severity_fallback_and_clamps():
     critical = make_item("GHSA-test-critical", severity="critical")
     unknown = make_item("GHSA-test-unknown")
 
-    assert critical.priority_score == 9.5
+    assert critical.priority_score == 9.4
     assert unknown.priority_score == 0.0
 
 

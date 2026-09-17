@@ -1,5 +1,5 @@
 from pathlib import Path
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 import os
 from urllib.parse import urlparse
 
@@ -13,8 +13,8 @@ from .collectors.github_advisories import GitHubAdvisoryCollector
 from .collectors.rss import RssCollector
 from .collectors.github_releases import GitHubReleaseCollector
 from .collectors.hacker_news import HackerNewsCollector
-from .correlation import merge_items
-from .scoring import score_items
+from .state import StateLedger, coverage_start
+from .operational_evidence import load_operational_evidence
 from .source_health import quorum_ok
 from .renderers.markdown import write_markdown
 from .renderers.json import write_json
@@ -54,9 +54,10 @@ class Pipeline:
         self.http = SafeHttpClient(hosts)
 
     def run(self, since=None, until=None, lookback_hours=24, dry_run=False, fail_on_degraded=False):
-        del dry_run
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
-        since = since or until - timedelta(hours=lookback_hours)
+        ledger = StateLedger(self.output_dir / "cti-state.json")
+        ledger.seed_archives(self.output_dir)
+        since = since or coverage_start(ledger, until, lookback_hours)
         rss_collectors = [
             RssCollector(self.http, offline=self.offline, sources=[source])
             for source in self.sources.get("rss_sources", [])
@@ -78,7 +79,7 @@ class Pipeline:
         if hacker_news.get("enabled", False):
             collectors.append(HackerNewsCollector(self.http, offline=self.offline, config=hacker_news))
 
-        items = []
+        items = load_operational_evidence(self.config_dir / "operational-evidence.yml")
         health = []
         for collector in collectors:
             got, source_health = collector.collect(since, until)
@@ -93,8 +94,14 @@ class Pipeline:
                     item.epss_score = float(epss[cve]["epss_score"])
                     item.epss_percentile = float(epss[cve]["epss_percentile"])
                     item.add_provenance("epss_score", "FIRST EPSS", item.epss_score)
-        merged = merge_items(items)
-        selected = score_items(merged, self.scoring, self.tech, since, until)
+        if fail_on_degraded and not quorum_ok(health):
+            raise SystemExit(2)
+        for item in items:
+            if any(cve in self.tech.get("confirmed_critical_asset_cves", []) for cve in item.cve_ids):
+                item.critical_asset_exposure = True
+        selected = ledger.observe(
+            items, datetime.now(timezone.utc).replace(microsecond=0), since, until, self.tech, self.scoring
+        )
         report = Report(
             generated_at=datetime.now(timezone.utc).replace(microsecond=0),
             coverage_start=since,
@@ -102,9 +109,18 @@ class Pipeline:
             degraded=not quorum_ok(health),
             items=selected,
             source_health=health,
+            cti_summary={
+                "new_vulnerabilities": sum(i.discovery_type == "new_vulnerability" for i in selected),
+                "state_changes": sum(bool(i.transition_type) for i in selected),
+                "kev_transitions": sum("entered_cisa_kev" in i.transition_type for i in selected),
+                "ransomware_transitions": sum("ransomware_linked" in i.transition_type for i in selected),
+                "tracked_vulnerabilities": len(ledger.records),
+            },
         )
         if report.degraded and fail_on_degraded:
             raise SystemExit(2)
         write_markdown(report, self.output_dir, self.report_config)
         write_json(report, self.output_dir)
+        if not dry_run and not report.degraded:
+            ledger.save()
         return report

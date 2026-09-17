@@ -3,6 +3,9 @@ name: Daily Blue Team Intelligence
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
+    # Off-peak recovery inside the 60-minute objective; preflight prevents duplicate publication.
+    - cron: "17 12 * * *"
+      timezone: "Europe/Madrid"
     - cron: "30 13 * * *"
       timezone: "Europe/Madrid"
   workflow_dispatch:
@@ -33,16 +36,19 @@ jobs:
     steps:
       - name: Checkout # actions/checkout@v7.0.0
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: main
       - name: Check daily publication freshness
         id: freshness
         env:
           EVENT_NAME: ${{ github.event_name }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
           should_run="true"
           reason="manual dispatch requested"
 
-          if [ "$EVENT_NAME" = "schedule" ]; then
+          if [ "$INPUT_DRY_RUN" != "true" ]; then
             today="$(TZ=Europe/Madrid date +%F)"
             published_date="$(
               python scripts/publication_date.py \
@@ -76,6 +82,8 @@ jobs:
     steps:
       - name: Checkout # actions/checkout@v7.0.0
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: main
       - name: Setup Python # actions/setup-python@v7.0.0
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
@@ -121,7 +129,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$DRY_RUN" = "true" ]; then
-            python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS"
+            python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS" --dry-run
           else
             python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS" --fail-on-degraded
           fi
@@ -160,13 +168,29 @@ jobs:
           PY
       - name: Show source health
         run: cat reports/source-health.json
+      - name: Stage bounded publication artifact
+        run: |
+          python - <<'PY'
+          import json, shutil
+          from pathlib import Path
+          root = Path("publication-output")
+          (root / "reports").mkdir(parents=True, exist_ok=True)
+          shutil.copy2("README.md", root / "README.md")
+          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json", "cti-state.json"):
+              source = Path("reports") / name
+              if source.exists():
+                  shutil.copy2(source, root / source)
+          date = json.loads(Path("reports/latest.json").read_text())["coverage_end"][:10]
+          folder = Path("reports/archive") / date[:4] / date[5:7]
+          (root / folder).mkdir(parents=True, exist_ok=True)
+          for source in folder.glob(date + "*"):
+              shutil.copy2(source, root / source)
+          PY
       - name: Upload generated outputs # actions/upload-artifact@v7.0.1
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: reports-${{ github.run_id }}
-          path: |
-            README.md
-            reports/
+          path: publication-output/
           if-no-files-found: error
           retention-days: 7
   publish:
@@ -216,7 +240,7 @@ jobs:
   timing:
     name: Publication timing evidence
     needs: [preflight, collect, publish]
-    if: ${{ always() }}
+    if: ${{ always() && needs.preflight.outputs.should_run != 'false' && inputs.dry_run != true && github.ref == 'refs/heads/main' }}
     permissions:
       actions: read
       contents: read
@@ -246,99 +270,29 @@ jobs:
           COMMIT_CREATED: ${{ needs.publish.outputs.commit_created }}
           PUSH_COMPLETED: ${{ needs.publish.outputs.push_completed }}
         run: |
-          python - <<'PY'
-          import json
-          import os
-          from datetime import datetime, timedelta, timezone
-          from pathlib import Path
-          from zoneinfo import ZoneInfo
-
-          def read_json(path, default):
-              try:
-                  return json.loads(Path(path).read_text())
-              except (OSError, ValueError):
-                  return default
-
-          def parse(value):
-              return datetime.fromisoformat(value.replace("Z", "+00:00")) if value else None
-
-          def iso(value):
-              return value.astimezone(timezone.utc).isoformat() if value else None
-
-          def delta(end, start):
-              return round((end - start).total_seconds(), 3) if end and start else None
-
-          run = read_json("workflow-run.json", {})
-          created = parse(run.get("created_at"))
-          started = parse(run.get("run_started_at"))
-          cron = os.environ.get("TRIGGER_CRON", "")
-          scheduled = None
-          trigger_scheduled = None
-          # GitHub exposes the cron expression, not an exact nominal occurrence timestamp.
-          # Infer the most recent occurrence using ORIGINAL run creation, never rerun time.
-          slots = {"0 12 * * *": (12, 0), "30 13 * * *": (13, 30)}
-          if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and created and cron in slots:
-              local = created.astimezone(ZoneInfo("Europe/Madrid"))
-              hour, minute = slots[cron]
-              trigger_scheduled = local.replace(hour=hour, minute=minute, second=0, microsecond=0)
-              if trigger_scheduled > local:
-                  trigger_scheduled -= timedelta(days=1)
-              scheduled = trigger_scheduled.replace(hour=12, minute=0)
-
-          # Read only an artifact from THIS run, never the repository's previous report.
-          health = read_json("timing-input/reports/source-health.json", [])
-          feed = read_json("timing-input/reports/portfolio-feed.json", {})
-          starts = [parse(s["started_at"]) for s in health if s.get("started_at")]
-          ends = [parse(s["finished_at"]) for s in health if s.get("finished_at")]
-          fetch_start = min(starts) if starts else None
-          fetch_end = max(ends) if ends else None
-          generated = parse(feed.get("generated_at"))
-          commit = parse(os.environ.get("COMMIT_CREATED"))
-          pushed = parse(os.environ.get("PUSH_COMPLETED"))
-          evidence = {
-              "schema_version": 1,
-              "run_id": os.environ["GITHUB_RUN_ID"],
-              "run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
-              "run_url": f'https://github.com/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}',
-              "event": os.environ["GITHUB_EVENT_NAME"],
-              "trigger_cron": cron or None,
-              "schedule_timezone": "Europe/Madrid",
-              "scheduled_for": iso(scheduled),
-              "trigger_scheduled_for": iso(trigger_scheduled),
-              "schedule_basis": "inferred most recent cron occurrence; daily target 12:00 Europe/Madrid" if scheduled else "unknown or non-scheduled run",
-              "schedule_limitation": "A delay exceeding one day cannot be disambiguated without an external occurrence ID.",
-              "workflow_created": iso(created),
-              "workflow_actual_start": iso(started),
-              "fetch_start": iso(fetch_start),
-              "fetch_end": iso(fetch_end),
-              "report_generated": iso(generated),
-              "commit_created": iso(commit),
-              "commit_sha": os.environ.get("COMMIT_SHA") or None,
-              "push_completed": iso(pushed),
-              "publication_lag_seconds": delta(commit, scheduled),
-              "trigger_start_lag_seconds": delta(started, trigger_scheduled),
-              "workflow_queue_seconds": delta(started, created),
-              "fetch_duration_seconds": delta(fetch_end, fetch_start),
-              "run_to_commit_seconds": delta(commit, started),
-              "push_lag_seconds": delta(pushed, scheduled),
-              "preflight_result": os.environ.get("PREFLIGHT_RESULT"),
-              "collect_result": os.environ.get("COLLECT_RESULT"),
-              "publish_result": os.environ.get("PUBLISH_RESULT"),
-              "dry_run": os.environ.get("DRY_RUN") == "true",
-              "measurement_note": "Commit/push timings measure repository publication, not dashboard visibility. Missing milestones remain null.",
-          }
-          Path("publication-timing.json").write_text(json.dumps(evidence, indent=2) + "\n")
-          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
-              summary.write("### Publication timing evidence\n\n")
-              summary.write("| Metric | Value |\n| --- | --- |\n")
-              for key, value in evidence.items():
-                  summary.write(f"| {key} | {value if value is not None else 'not measured'} |\n")
-          PY
+          PYTHONPATH=src python scripts/publication_timing.py \
+            --run workflow-run.json \
+            --health timing-input/reports/source-health.json \
+            --feed timing-input/reports/portfolio-feed.json \
+            --output reports/publication-timing.json \
+            --history reports/publication-timing-history.json
+      - name: Publish timing evidence
+        if: ${{ success() }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/publication-timing.json reports/publication-timing-history.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "ops: persist publication SLO evidence [skip ci]"
+          git push
       - name: Preserve publication timing
         if: ${{ always() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: publication-timing-${{ github.run_id }}-${{ github.run_attempt }}
-          path: publication-timing.json
+          path: reports/publication-timing.json
           if-no-files-found: error
           retention-days: 30

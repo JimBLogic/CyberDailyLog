@@ -28,6 +28,7 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     workflow = load_workflow(".github/workflows/daily-intelligence.yml")
     assert workflow["on"]["schedule"] == [
         {"cron": "0 12 * * *", "timezone": "Europe/Madrid"},
+        {"cron": "17 12 * * *", "timezone": "Europe/Madrid"},
         {"cron": "30 13 * * *", "timezone": "Europe/Madrid"},
     ]
     dispatch = workflow["on"]["workflow_dispatch"]["inputs"]
@@ -41,7 +42,7 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert preflight["outputs"]["should_run"] == "${{ steps.freshness.outputs.should_run }}"
     preflight_steps = {step.get("name"): step for step in preflight["steps"]}
     freshness_script = preflight_steps["Check daily publication freshness"]["run"]
-    assert 'EVENT_NAME" = "schedule"' in freshness_script
+    assert 'INPUT_DRY_RUN" != "true"' in freshness_script
     assert 'published_date" = "$today"' in freshness_script
     assert 'should_run="false"' in freshness_script
     assert collect["needs"] == "preflight"
@@ -60,17 +61,17 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     install_script = steps["Install application"]["run"]
     run_script = steps["Run collection"]["run"]
     assert "python -m pip install ." in install_script
-    assert 'python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS"\n' in run_script
+    assert 'python -m cyberdailylog run --lookback-hours "$LOOKBACK_HOURS" --dry-run' in run_script
     assert "--fail-on-degraded" in run_script
-    assert "--dry-run" not in run_script
+    assert "--dry-run" in run_script
     assert steps["Generate compact portfolio feed"]["run"] == "python -m cyberdailylog.portfolio_feed"
     assert steps["Generate dashboard history feed"]["run"] == "python -m cyberdailylog.dashboard_feed"
     assert steps["Update repository landing snapshot"]["run"] == "python -m cyberdailylog.readme_snapshot"
 
     upload = steps["Upload generated outputs"]
     assert upload["with"]["name"] == "reports-${{ github.run_id }}"
-    assert "README.md" in upload["with"]["path"]
-    assert "reports/" in upload["with"]["path"]
+    assert upload["with"]["path"] == "publication-output/"
+    assert "cti-state.json" in steps["Stage bounded publication artifact"]["run"]
     assert upload["with"]["if-no-files-found"] == "error"
     assert upload["with"]["retention-days"] == 7
     assert "cat reports/source-health.json" in steps["Show source health"]["run"]

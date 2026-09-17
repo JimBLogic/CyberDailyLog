@@ -1,0 +1,4 @@
+# Add only analyst-verified, linked vendor statements; no keyword inference.
+# Each observation: cve, source_url (HTTPS vendor advisory), confirmed_at (ISO 8601),
+# vendor_confirmed_exploitation: true, evidence (exact rationale), required_action (optional).
+observations: []

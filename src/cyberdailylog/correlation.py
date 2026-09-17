@@ -1,5 +1,6 @@
 from urllib.parse import urlsplit, urlunsplit
 import hashlib
+from copy import deepcopy
 from .models import IntelligenceItem
 
 
@@ -20,7 +21,23 @@ def key(item: IntelligenceItem) -> str:
 
 def merge_items(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
     out = {}
-    for item in items:
+    rank = {
+        "government_kev": 0,
+        "vendor_evidence": 1,
+        "vulnerability_database": 2,
+        "reviewed_advisory": 3,
+        "archive": 9,
+    }
+    for original in sorted(
+        items,
+        key=lambda i: (
+            rank.get(i.source_type, 5),
+            i.source_name,
+            -(i.modified_at.timestamp() if i.modified_at else 0),
+            i.canonical_id,
+        ),
+    ):
+        item = deepcopy(original)
         k = key(item)
         if k not in out:
             out[k] = item
@@ -41,7 +58,14 @@ def merge_items(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
             "selection_reasons",
         ]:
             setattr(cur, f, sorted({x for x in getattr(cur, f) + getattr(item, f) if x}))
-        for f in ["cisa_kev", "known_exploited", "known_ransomware_use"]:
+        for f in [
+            "cisa_kev",
+            "known_exploited",
+            "known_ransomware_use",
+            "vendor_confirmed_exploitation",
+            "public_exploit",
+            "critical_asset_exposure",
+        ]:
             if getattr(item, f) is True:
                 setattr(cur, f, True)
                 cur.add_provenance(f, item.source_name, True)
@@ -53,12 +77,21 @@ def merge_items(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
             "cvss_version",
             "cvss_vector",
             "severity",
+            "cisa_due_date",
+            "cisa_required_action",
+            "exploitation_status",
         ]:
             v = getattr(item, f)
             if getattr(cur, f) is None and v is not None:
                 setattr(cur, f, v)
-                cur.add_provenance(f, item.source_name, v)
+                cur.add_provenance(f, item.source_name, v.isoformat() if hasattr(v, "isoformat") else v)
             elif v is not None and v != getattr(cur, f):
-                cur.add_provenance(f, item.source_name, v)
-        cur.provenance.update({**cur.provenance, **item.provenance})
+                cur.add_provenance(f, item.source_name, v.isoformat() if hasattr(v, "isoformat") else v)
+        for field, observations in item.provenance.items():
+            cur.provenance.setdefault(field, []).extend(observations)
+        if item.published_at and (not cur.published_at or item.published_at < cur.published_at):
+            cur.published_at = item.published_at
+        if item.modified_at and (not cur.modified_at or item.modified_at > cur.modified_at):
+            cur.modified_at = item.modified_at
+        cur.withdrawn = cur.withdrawn or item.withdrawn
     return sorted(out.values(), key=lambda i: i.canonical_id)

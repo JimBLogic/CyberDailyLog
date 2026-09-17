@@ -1,3 +1,5 @@
+# Explicit inventory evidence only. Keywords below do not imply real asset exposure.
+confirmed_critical_asset_cves: []
 priority_terms:
   windows: [Windows, WinSock, Active Directory]
   microsoft_365: [Microsoft 365, Exchange, SharePoint]

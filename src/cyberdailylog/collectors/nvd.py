@@ -34,7 +34,8 @@ class NvdCollector(BaseCollector):
     endpoint = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
     def _parse_dt(self, v):
-        return datetime.fromisoformat(v.replace("Z", "+00:00")).astimezone(timezone.utc)
+        parsed = datetime.fromisoformat(v.replace("Z", "+00:00"))
+        return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed.astimezone(timezone.utc)
 
     def _item(self, obj):
         cve = obj["cve"]
@@ -72,6 +73,9 @@ class NvdCollector(BaseCollector):
             cvss_vector=vec,
             severity=sev,
             references=refs,
+            public_exploit=True
+            if any(isinstance(ref, dict) and "Exploit" in ref.get("tags", []) for ref in (cve.get("references") or []))
+            else None,
             confidence="medium",
         )
         item.add_provenance("cvss_score", "NVD", cvss)
@@ -86,8 +90,8 @@ class NvdCollector(BaseCollector):
             else:
                 headers = {"apiKey": self.token} if self.token else {}
                 params = {
-                    "pubStartDate": since.strftime("%Y-%m-%dT%H:%M:%S.000"),
-                    "pubEndDate": until.strftime("%Y-%m-%dT%H:%M:%S.000"),
+                    "lastModStartDate": since.strftime("%Y-%m-%dT%H:%M:%S.000"),
+                    "lastModEndDate": until.strftime("%Y-%m-%dT%H:%M:%S.000"),
                     "resultsPerPage": 2000,
                     "startIndex": 0,
                 }
@@ -97,6 +101,8 @@ class NvdCollector(BaseCollector):
                     pages.append(data)
                     if params["startIndex"] + data.get("resultsPerPage", 0) >= data.get("totalResults", 0):
                         break
+                    if data.get("resultsPerPage", 0) <= 0:
+                        raise ValueError("NVD pagination made no progress")
                     params["startIndex"] += data.get("resultsPerPage", 0)
             items = []
             received = 0

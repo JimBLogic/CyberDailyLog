@@ -72,6 +72,23 @@ class IntelligenceItem:
     known_exploited: bool | None = None
     known_ransomware_use: bool | None = None
     exploitation_status: str | None = None
+    vendor_confirmed_exploitation: bool | None = None
+    public_exploit: bool | None = None
+    critical_asset_exposure: bool | None = None
+    cisa_due_date: datetime | None = None
+    cisa_required_action: str | None = None
+    first_seen: datetime | None = None
+    last_seen: datetime | None = None
+    state_changed_at: datetime | None = None
+    discovery_type: str | None = None
+    transition_type: list[str] = dataclass_field(default_factory=list)
+    previous_state: dict[str, Any] | None = None
+    current_state: dict[str, Any] | None = None
+    state_transitions: list[dict[str, Any]] = dataclass_field(default_factory=list)
+    priority_before: float | None = None
+    priority_after: float | None = None
+    priority_level: str = "NORMAL"
+    priority_level_before: str | None = None
     weaknesses: list[str] = dataclass_field(default_factory=list)
     ecosystems: list[str] = dataclass_field(default_factory=list)
     references: list[str] = dataclass_field(default_factory=list)
@@ -87,7 +104,16 @@ class IntelligenceItem:
     withdrawn: bool = False
 
     def __post_init__(self):
-        for k in ["published_at", "modified_at", "collected_at", "kev_date_added"]:
+        for k in [
+            "published_at",
+            "modified_at",
+            "collected_at",
+            "kev_date_added",
+            "cisa_due_date",
+            "first_seen",
+            "last_seen",
+            "state_changed_at",
+        ]:
             setattr(self, k, ensure_utc(getattr(self, k)))
 
     def add_provenance(self, field_name, source, value):
@@ -95,7 +121,16 @@ class IntelligenceItem:
 
     def to_dict(self):
         d = asdict(self)
-        for k in ["published_at", "modified_at", "collected_at", "kev_date_added"]:
+        for k in [
+            "published_at",
+            "modified_at",
+            "collected_at",
+            "kev_date_added",
+            "cisa_due_date",
+            "first_seen",
+            "last_seen",
+            "state_changed_at",
+        ]:
             d[k] = ensure_utc(getattr(self, k)).isoformat() if getattr(self, k) else None
         d["provenance"] = {k: [p.to_dict() for p in v] for k, v in self.provenance.items()}
         return d
@@ -132,6 +167,7 @@ class Report:
     items: list[IntelligenceItem]
     source_health: list[SourceHealth]
     degraded: bool = False
+    cti_summary: dict[str, int] = dataclass_field(default_factory=dict)
 
     def to_dict(self):
         return {
@@ -139,6 +175,7 @@ class Report:
             "coverage_start": ensure_utc(self.coverage_start).isoformat(),
             "coverage_end": ensure_utc(self.coverage_end).isoformat(),
             "degraded": self.degraded,
+            "cti_summary": self.cti_summary,
             "items": [i.to_dict() for i in self.items],
             "source_health": [h.to_dict() for h in self.source_health],
         }
