@@ -1,17 +1,17 @@
 {
-  "above_threshold": 1217,
+  "above_threshold": 445,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 29,
-    "discussion_url": "https://news.ycombinator.com/item?id=49725356",
-    "published_at": "2026-09-16T11:49:40+00:00",
-    "score": 105,
+    "comments": 23,
+    "discussion_url": "https://news.ycombinator.com/item?id=49736466",
+    "published_at": "2026-09-17T04:36:55+00:00",
+    "score": 136,
     "source_name": "Hacker News",
-    "source_url": "https://www.tomshardware.com/video-games/playstation/26-year-old-sony-ps2-security-chip-broken-wide-open-after-four-years-of-effort-reverse-engineering-enthusiast-successfully-unlocks-cxp102064-mechacon-chip",
-    "title": "Original Sony PlayStation 2 security chip 'broken wide open' after 26 years"
+    "source_url": "https://github.com/cloudflare/security-audit-skill",
+    "title": "Cloudflare/Security-Audit-Skill"
   },
-  "coverage_end": "2026-09-16T14:31:26+00:00",
-  "coverage_start": "2026-09-15T14:31:26+00:00",
+  "coverage_end": "2026-09-17T14:35:33+00:00",
+  "coverage_start": "2026-09-16T14:35:33+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-16T14:31:48+00:00",
+  "generated_at": "2026-09-17T14:35:46+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-16T02:00:02+00:00",
+    "published_at": "2026-09-17T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33342",
-    "title": "ISC Stormcast For Wednesday, September 16th, 2026 https://isc.sans.edu/podcastdetail/10096, (Wed, Sep 16th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33346",
+    "title": "ISC Stormcast For Thursday, September 17th, 2026 https://isc.sans.edu/podcastdetail/10098, (Thu, Sep 17th)"
   },
-  "immediate_attention": "1 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 1,
+  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
+  "immediate_attention_count": 0,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1737,
+  "qualified_developments": 556,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -58,141 +58,134 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": true,
+      "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-58704"
+        "CVE-2026-92808"
       ],
-      "cvss_score": 8.0,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.01564,
-      "epss_score": 0.00112,
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-58704",
-      "known_exploited": true,
+      "id": "CVE-2026-92808",
+      "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
-      "products": [
-        "Pixel"
-      ],
+      "products": [],
       "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "high CVSS +10"
+        "critical CVSS +20",
+        "official source +5"
       ],
-      "selection_score": 105,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-58704 exploited in CISA KEV: Google Pixel",
-      "why_it_matters": "CVSS 8.0; detection opportunity"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92808",
+      "title": "A server-side request forgery (SSRF) vulnerability exists in the UnifiedLogin service of Altium Enterprise Server. An un",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76674"
+        "CVE-2026-87796"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.62747,
-      "epss_score": 0.01056,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76674",
+      "id": "CVE-2026-87796",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76674",
-      "title": "Buffer overflow vulnerabilities exist in the underlying operating system of HPE Networking EdgeConnect SD-WAN Gateways t",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87796",
+      "title": "The Multi Uploader for Gravity Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to,",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76673"
+        "CVE-2026-62108"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.38427,
-      "epss_score": 0.00453,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76673",
+      "id": "CVE-2026-62108",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76673",
-      "title": "Vulnerabilities have been identified in the API of EdgeConnect SD-WAN Orchestrator that could potentially allow an unaut",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62108",
+      "title": "Unauthenticated Broken Authentication in Headless Single Sign On <= 1.7.0 versions.",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76670"
+        "CVE-2026-62104"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.38125,
-      "epss_score": 0.00448,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76670",
+      "id": "CVE-2026-62104",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76670",
-      "title": "Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl",
-      "why_it_matters": "CVSS 9.9; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62104",
+      "title": "Unauthenticated Remote Code Execution (RCE) in Migratico Lite <= 2.6.8 versions.",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76669"
+        "CVE-2026-62101"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.38125,
-      "epss_score": 0.00448,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-76669",
+      "id": "CVE-2026-62101",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 10.0,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76669",
-      "title": "Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl",
-      "why_it_matters": "CVSS 9.9; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62101",
+      "title": "Unauthenticated Broken Authentication in EduAdmin Booking <= 5.4.2 versions.",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]
 }

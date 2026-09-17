@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-16T14:31:48+00:00  
-**Coverage:** 2026-09-15T14:31:26+00:00 → 2026-09-16T14:31:26+00:00  
+**Updated:** 2026-09-17T14:35:46+00:00  
+**Coverage:** 2026-09-16T14:35:33+00:00 → 2026-09-17T14:35:33+00:00  
 **Pipeline:** **Operational**
 
-1 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 1737 source-backed developments
-- **Above threshold:** 1217
+- **Assessed:** 556 source-backed developments
+- **Above threshold:** 445
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-58704](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-58704 exploited in CISA KEV: Google Pixel — CVSS 8.0; detection opportunity
-- **[CVE-2026-76674](https://nvd.nist.gov/vuln/detail/CVE-2026-76674) · 10.0/10** — Buffer overflow vulnerabilities exist in the underlying operating system of HPE Networking EdgeConnect SD-WAN Gateways t — CVSS 9.8; priority technology: browsers
-- **[CVE-2026-76673](https://nvd.nist.gov/vuln/detail/CVE-2026-76673) · 10.0/10** — Vulnerabilities have been identified in the API of EdgeConnect SD-WAN Orchestrator that could potentially allow an unaut — CVSS 9.8; priority technology: browsers
-- **[CVE-2026-76670](https://nvd.nist.gov/vuln/detail/CVE-2026-76670) · 10.0/10** — Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl — CVSS 9.9; priority technology: browsers
-- **[CVE-2026-76669](https://nvd.nist.gov/vuln/detail/CVE-2026-76669) · 10.0/10** — Privilege escalation vulnerabilities exist in the API of HPE Networking EdgeConnect SD-WAN Orchestrator. Successful expl — CVSS 9.9; priority technology: browsers
+- **[CVE-2026-92808](https://nvd.nist.gov/vuln/detail/CVE-2026-92808) · 10.0/10** — A server-side request forgery (SSRF) vulnerability exists in the UnifiedLogin service of Altium Enterprise Server. An un — CVSS 10.0; detection opportunity
+- **[CVE-2026-87796](https://nvd.nist.gov/vuln/detail/CVE-2026-87796) · 10.0/10** — The Multi Uploader for Gravity Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, — CVSS 9.8; detection opportunity
+- **[CVE-2026-62108](https://nvd.nist.gov/vuln/detail/CVE-2026-62108) · 10.0/10** — Unauthenticated Broken Authentication in Headless Single Sign On &lt;= 1.7.0 versions. — CVSS 9.8; detection opportunity
+- **[CVE-2026-62104](https://nvd.nist.gov/vuln/detail/CVE-2026-62104) · 10.0/10** — Unauthenticated Remote Code Execution (RCE) in Migratico Lite &lt;= 2.6.8 versions. — CVSS 10.0; detection opportunity
+- **[CVE-2026-62101](https://nvd.nist.gov/vuln/detail/CVE-2026-62101) · 10.0/10** — Unauthenticated Broken Authentication in EduAdmin Booking &lt;= 5.4.2 versions. — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, September 16th, 2026 https://isc.sans.edu/podcastdetail/10096, (Wed, Sep 16th)](https://isc.sans.edu/diary/rss/33342)**
+**[ISC Stormcast For Thursday, September 17th, 2026 https://isc.sans.edu/podcastdetail/10098, (Thu, Sep 17th)](https://isc.sans.edu/diary/rss/33346)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Original Sony PlayStation 2 security chip &#x27;broken wide open&#x27; after 26 years](https://www.tomshardware.com/video-games/playstation/26-year-old-sony-ps2-security-chip-broken-wide-open-after-four-years-of-effort-reverse-engineering-enthusiast-successfully-unlocks-cxp102064-mechacon-chip)** — Hacker News · 105 points · 29 comments
-[Open discussion](https://news.ycombinator.com/item?id=49725356)
+**[Cloudflare/Security-Audit-Skill](https://github.com/cloudflare/security-audit-skill)** — Hacker News · 136 points · 23 comments
+[Open discussion](https://news.ycombinator.com/item?id=49736466)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
