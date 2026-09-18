@@ -2,9 +2,11 @@
 
 ## Automatic publication
 
-The primary run is scheduled for 12:00 Europe/Madrid. A recovery event runs at 13:30, but a freshness preflight skips collection only when a coherent, non-degraded report and its two public feeds have already been published for the current Madrid date with healthy live core sources. This also prevents a delayed primary event from creating a second daily report after recovery succeeds. The schedule is a target, not a guaranteed publication time: [GitHub documents queue delays and dropped scheduled events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). The public panel checks the published feed every 15 minutes; its refresh button does not dispatch Actions.
+The primary run is scheduled for 12:00 Europe/Madrid. Recovery events run at 12:17 and 13:30. The first avoids the busiest start of the hour and leaves time inside the 60-minute objective. A freshness preflight skips collection only when a coherent, non-degraded report and its two public feeds have already been published for the current Madrid date with healthy live core sources and a durable CTI ledger. This also prevents a delayed primary event from creating a second daily report after recovery succeeds. The schedule is a target, not a guaranteed publication time: [GitHub documents queue delays and dropped scheduled events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). The public panel checks the published feed every 15 minutes; its refresh button does not dispatch Actions.
 
-Scheduled runs always request publication and stop before writing when the required-source quorum is degraded. Manual runs publish by default; explicitly set `dry_run=true` when you only want a preview artifact.
+Scheduled runs and pushes to pipeline/configuration/workflow paths on main request publication and stop before writing when the required-source quorum is degraded. Manual runs publish by default; explicitly set `dry_run=true` when you only want a preview artifact. The same freshness guard applies to all publication events. A dry run does not advance the CTI ledger or enter the publication SLO.
+
+`reports/publication-timing.json` records the target, original workflow creation/start, fetch window, generation, commit, successful push and root-cause stage. Its rolling daily SLO includes failed and missing days after monitoring began; retries cannot add extra successful days. The initial measured failure and limits are documented in [CTI reliability](cti-reliability.md). Review the 30-day observation before claiming that the 95% objective is met.
 
 ## First live dry run
 
@@ -25,6 +27,9 @@ Download the workflow artifact named `reports-<RUN_ID>` from the completed Actio
 - `latest.json`;
 - `source-health.json`;
 - the dated archive files under `archive/<YEAR>/<MONTH>/`.
+- `reports/cti-state.json`, including persisted before/after transitions.
+
+The publication artifact contains only the current report, feeds, health, ledger and current dated archive; it expires after seven days. Timing artifacts expire after 30 days. The repository retains the durable ledger and timing history. Job timeouts bound runner use; already-published daily recovery checks skip the collection jobs.
 
 Before publication, check:
 

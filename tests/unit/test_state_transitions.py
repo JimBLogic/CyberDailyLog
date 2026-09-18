@@ -43,6 +43,28 @@ def test_new_and_unchanged_are_distinct(tmp_path):
     assert observe(tmp_path, [item()], NOW + timedelta(hours=1)) == []
 
 
+def test_first_legacy_catalog_enrichment_is_not_a_fabricated_transition(tmp_path):
+    ledger = StateLedger(tmp_path / "state.json")
+    ledger.observe([item(cisa_kev=True, known_exploited=True)], NOW, NOW, NOW, baseline=True)
+    ledger.save()
+    assert (
+        observe(
+            tmp_path,
+            [
+                item(
+                    source_name="CISA",
+                    source_type="government_kev",
+                    cisa_kev=True,
+                    known_exploited=True,
+                    cisa_due_date=NOW - timedelta(days=100),
+                    cisa_required_action="Apply vendor updates",
+                )
+            ],
+        )
+        == []
+    )
+
+
 def test_real_kev_ransomware_scoring_and_multiple_transition_history(tmp_path):
     observe(tmp_path, [item(cvss_score=10)])
     kev = observe(tmp_path, [item(cisa_kev=True, known_exploited=True, cvss_score=10)])[0]

@@ -50,6 +50,8 @@ SANS Internet Storm Center Handler&#x27;s Diary
 - **Dashboard-feed contract:** [`schemas/dashboard-feed.schema.json`](schemas/dashboard-feed.schema.json)
 - **Complete evidence JSON:** [`reports/latest.json`](reports/latest.json)
 - **Collector health:** [`reports/source-health.json`](reports/source-health.json)
+- **Publication timing and SLO:** [`reports/publication-timing.json`](reports/publication-timing.json)
+- **CTI state and reliability design:** [`docs/cti-reliability.md`](docs/cti-reliability.md)
 - **Daily archive:** [`reports/archive/`](reports/archive/)
 - **Integration examples:** [`docs/INTEGRATION.md`](docs/INTEGRATION.md)
 - **Full-stack dashboard:** [`dashboard/`](dashboard/)
@@ -115,6 +117,8 @@ Canonical records retain field-level provenance where collectors provide importa
 
 ## Automation and safety
 
-`.github/workflows/daily-intelligence.yml` publishes at 12:00 Europe/Madrid, with an idempotent 13:30 recovery schedule if the first event is delayed or dropped. The timezone-aware schedule follows Madrid daylight-saving changes automatically. Manual runs publish by default; set `dry_run=true` for a preview. Every publication requires the source quorum and writes only generated README/report outputs with the built-in `GITHUB_TOKEN`.
+`.github/workflows/daily-intelligence.yml` targets 12:00 Europe/Madrid, with idempotent recovery at 12:17 and 13:30. The timezone-aware schedule follows Madrid daylight-saving changes automatically. Publication is measured against a rolling 30-day objective of at least 95% within 60 minutes; this is a monitored objective, not a scheduler guarantee. Manual runs publish by default; set `dry_run=true` for a preview. Changes to the pipeline, configuration or workflow also trigger a freshness check and collection when needed. Every publication requires the source quorum and writes generated README/report outputs with the built-in `GITHUB_TOKEN`.
+
+The durable per-CVE ledger preserves observations and material transitions, including KEV entry, confirmed exploitation, ransomware, vendor evidence, public exploit references, severity and remediation changes. Unchanged CVEs are not presented as daily discoveries. Unknown evidence stays unknown, and an optional-source outage does not erase previously confirmed intelligence. See [CTI state and reliability](docs/cti-reliability.md) for migration, timing evidence and operating limits.
 
 CyberDailyLog stores defensive metadata, short attributed feed excerpts and official links. It does not execute exploit code, download malware, bypass access controls or print credentials.

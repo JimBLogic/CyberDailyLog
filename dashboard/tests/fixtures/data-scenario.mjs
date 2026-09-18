@@ -19,6 +19,18 @@ const report = {
 };
 if (scenario === 'future') report.generated_at = iso(86_400_000);
 if (scenario === 'missing-health') delete report.source_health;
+if (scenario === 'cti') {
+  report.cti_summary = {new_vulnerabilities:0, state_changes:1};
+  report.source_health.push({source:'epss', required:false, status:'failed', finished_at:iso()});
+  Object.assign(report.items[0], {
+    discovery_type:'state_transition', transition_type:['ransomware_linked','untrusted_transition'],
+    first_seen:iso(-86_400_000), last_seen:iso(), state_changed_at:iso(),
+    priority_before:9.6, priority_after:10, priority_level_before:'HIGH', priority_level:'EMERGENCY',
+    current_state:{known_ransomware_use:true,cisa_kev:true,exploitation_status:'confirmed_exploitation'},
+    state_transitions:[{changed_at:iso(),transition_type:['ransomware_linked'],priority_before:9.6,priority_after:10,
+      sources:[{name:'Unsafe',url:'javascript:alert(1)'},{name:'CISA',url:'https://www.cisa.gov/'}]}],
+  });
+}
 let reportFetches = 0;
 globalThis.fetch = async (input) => {
   const url = new URL(input instanceof Request ? input.url : String(input));
@@ -37,6 +49,14 @@ globalThis.fetch = async (input) => {
     human_context: {title: 'Wrong generation', source_url:'javascript:alert(1)'},
   });
   if (url.pathname.endsWith('/dashboard-feed.json')) return Response.json({history:[]});
+  if (url.pathname.endsWith('/publication-timing.json')) return Response.json(scenario === 'invalid-timing' ? {
+    schema_version:2, status:'made_up', publication_lag_seconds:-3, actual_publication_time:'invalid',
+    run_url:'javascript:alert(1)', slo:{attainment_percentage:999,measured_publications:999},
+  } : {schema_version:2,status:'on_time',scheduled_for:iso(-120_000),actual_publication_time:iso(-60_000),
+    publication_lag_seconds:60,report_generated:report.generated_at,root_cause_stage:'within_threshold',
+    run_url:'https://github.com/JimBLogic/CyberDailyLog/actions/runs/123',
+    slo:{attainment_percentage:100,measured_publications:1,full_window_observed:false,evaluated_at:iso()},
+  });
   return new Response('Unavailable', {status:503});
 };
 const {default:worker} = await import('../../dist/server/index.js');
@@ -69,6 +89,23 @@ if (['future','offline'].includes(scenario)) {
     assert.equal(data.coverageState,'insufficient');
   }
   if (scenario === 'mixed') assert.equal(data.humanContext,null);
+  if (scenario === 'cti') {
+    assert.equal(data.ctiSummary.stateChanges,1);
+    assert.equal(data.ctiSummary.ransomware,1);
+    assert.equal(data.ctiSummary.newVulnerabilities,0);
+    assert.equal(data.coverageConfidence,'medium');
+    assert.deepEqual(data.vulnerabilities[0].cti.changes,['ransomware_linked']);
+    assert.equal(data.vulnerabilities[0].cti.priorityBefore,9.6);
+    assert.equal(data.vulnerabilities[0].cti.levelAfter,'EMERGENCY');
+    assert.equal(data.vulnerabilities[0].cti.history[0].sources.length,1);
+  }
+  if (scenario === 'invalid-timing') {
+    assert.equal(data.publicationReliability.status,'unknown');
+    assert.equal(data.publicationReliability.lagSeconds,null);
+    assert.equal(data.publicationReliability.actual,null);
+    assert.equal(data.publicationReliability.sloPercentage,null);
+    assert.equal(data.publicationReliability.runUrl,'');
+  }
   const csv = await worker.fetch(new Request('http://localhost/api/export?format=csv'),env,ctx);
   const text = await csv.text();
   assert.ok(text.includes('"\'=HYPERLINK(""danger"")"'), 'CSV formulas must be neutralized');

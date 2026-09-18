@@ -32,6 +32,11 @@ FLAGS = {
     "critical_asset_exposure": "critical_asset_exposure",
 }
 EXCLUDED = {
+    "summary",
+    "priority_score",
+    "priority_reasons",
+    "selection_score",
+    "selection_reasons",
     "provenance",
     "state_transitions",
     "previous_state",
@@ -130,6 +135,8 @@ class StateLedger:
                 if not raw.get("cve_ids") or raw.get("category") not in {"vulnerability", "advisory"}:
                     continue
                 item = from_dict(raw)
+                if item.cisa_kev and not item.cisa_required_action and item.recommended_actions:
+                    item.cisa_required_action = item.recommended_actions[0]
                 item.source_name, item.source_type = "Retained report", "archive"
                 self.observe([item], observed, observed, observed, baseline=True)
             self.data["coverage_end"] = report.get("coverage_end")
@@ -159,7 +166,11 @@ class StateLedger:
                 }
             )
             for item in incoming:
-                snapshot = {k: v for k, v in item.to_dict().items() if k not in EXCLUDED}
+                snapshot = {
+                    k: v
+                    for k, v in item.to_dict().items()
+                    if k not in EXCLUDED and v is not None and v != [] and v != {} and v != ""
+                }
                 previous_source = record["observations"].get(item.source_name)
                 if previous_source:
                     old_date = parse_date(previous_source.get("modified_at"))
@@ -176,6 +187,7 @@ class StateLedger:
                             snapshot[key] = value
                 record["observations"][item.source_name] = snapshot
             merged = merge_items([from_dict(s) for s in record["observations"].values()])[0]
+            merged.summary = next((i.summary for i in incoming if i.summary), "")
             previous = record.get("current_state", {})
             for flag in FLAGS:
                 if previous.get(flag) is True:
@@ -184,6 +196,13 @@ class StateLedger:
                 merged.exploitation_status = "confirmed_exploitation"
             current = operational_state(merged)
             changes = [] if is_new else material_changes(previous, current)
+            # Legacy reports did not retain CISA deadlines/actions. Their first
+            # full-catalog enrichment is a baseline, not evidence of a new change.
+            if not self.data["catalog_baselined"] and previous.get("cisa_kev") is True:
+                if not previous.get("cisa_due_date"):
+                    changes = [change for change in changes if change != "cisa_due_date_changed"]
+                if not previous.get("cisa_required_action"):
+                    changes = [change for change in changes if change != "required_action_changed"]
             merged.transition_type = changes
             if score_item(merged, scoring, technologies, since, until) is None:
                 merged.priority_score, merged.priority_reasons = compute_priority_score(merged, technologies)
@@ -249,7 +268,8 @@ class StateLedger:
     def save(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         temporary = self.path.with_suffix(".tmp")
-        temporary.write_text(json.dumps(self.data, sort_keys=True, indent=2) + "\n")
+        # Compact JSON avoids repeating empty optional fields across the retained CVE catalog.
+        temporary.write_text(json.dumps(self.data, sort_keys=True, separators=(",", ":")) + "\n")
         temporary.replace(self.path)
 
 

@@ -1,5 +1,8 @@
 name: Daily Blue Team Intelligence
 "on":
+  push:
+    branches: [main]
+    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml"]
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
@@ -55,7 +58,7 @@ jobs:
                 2>/dev/null || true
             )"
 
-            if [ "$published_date" = "$today" ]; then
+            if [ "$published_date" = "$today" ] && [ -f reports/cti-state.json ]; then
               should_run="false"
               reason="a report is already published for $today"
             else
@@ -104,7 +107,7 @@ jobs:
             echo "lookback_hours must be a positive integer" >&2
             exit 2
           fi
-          if [ "$EVENT_NAME" = "schedule" ]; then
+          if [ "$EVENT_NAME" = "schedule" ] || [ "$EVENT_NAME" = "push" ]; then
             dry_run="false"
           elif [ "$INPUT_DRY_RUN" = "true" ]; then
             dry_run="true"
@@ -243,10 +246,14 @@ jobs:
     if: ${{ always() && needs.preflight.outputs.should_run != 'false' && inputs.dry_run != true && github.ref == 'refs/heads/main' }}
     permissions:
       actions: read
-      contents: read
+      contents: write
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
+      - name: Checkout published main
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: main
       - name: Download this run's reports
         if: ${{ needs.collect.result == 'success' }}
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c

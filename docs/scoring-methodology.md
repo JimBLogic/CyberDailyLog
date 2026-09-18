@@ -1,3 +1,7 @@
 # Scoring methodology
 
 `config/scoring.yml` defines deterministic weights: CISA KEV +50, confirmed exploitation +40, known ransomware use +25, critical CVSS +20, high CVSS +10, EPSS >= 0.70 +25, EPSS >= 0.30 +15, EPSS percentile >= 0.95 +10, priority technology +8, official source +5, detection opportunity +5, and metadata-only modification -5. These are initial engineering values, not scientific truth.
+
+Those weights produce `selection_score`. The human-facing `priority_score` starts with CVSS (or a severity fallback), then adds EPSS, technology and detection context. Scores without confirmed operational evidence are capped at 9.4. KEV has a 9.6 floor, confirmed exploitation or vendor confirmation 9.5, ransomware 9.8, and ransomware with KEV or confirmed exploitation 10.0. Public exploit references add 0.3, and explicitly configured critical-asset exposure adds 0.5. A public exploit reference is not proof of active exploitation.
+
+`priority_level` is `HIGH` at 7.0 or above. It becomes `EMERGENCY` for ransomware plus KEV/confirmed exploitation, or explicit critical-asset exposure plus confirmed exploitation. Withdrawn advisories remain visible with zero priority and `NORMAL` level. Changes preserve their before/after score and level, so a HIGH-to-EMERGENCY transition remains auditable. Operational transitions do not receive the priority-score metadata-only penalty. These are transparent triage rules, not quantified breach probabilities.

@@ -1,3 +1,5 @@
+import type { CtiState, PublicationReliability } from "./cti";
+
 export type Severity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "UNKNOWN";
 
 export type Vulnerability = {
@@ -21,6 +23,7 @@ export type Vulnerability = {
   references: string[];
   reasons: string[];
   actions: string[];
+  cti?: CtiState;
 };
 
 export type SourceHealth = {
@@ -125,6 +128,8 @@ export type DashboardData = {
   lastFetchAt: string;
   nextRefreshAt: string;
   refreshIntervalMinutes: number;
+  ctiSummary?: { newVulnerabilities: number; stateChanges: number; kev: number; ransomware: number } | null;
+  publicationReliability?: PublicationReliability | null;
 };
 
 export type DashboardFeed = {
