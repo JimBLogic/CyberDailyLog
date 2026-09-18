@@ -1,17 +1,17 @@
 {
-  "above_threshold": 72,
+  "above_threshold": 639,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
     "comments": 142,
     "discussion_url": "https://news.ycombinator.com/item?id=49743097",
     "published_at": "2026-09-17T16:25:37+00:00",
-    "score": 539,
+    "score": 541,
     "source_name": "Hacker News",
     "source_url": "https://github.com/asciimoo/hister",
     "title": "Hister: A private search engine for the pages you visit and the files you keep"
   },
-  "coverage_end": "2026-09-18T05:33:00+00:00",
-  "coverage_start": "2026-09-17T05:33:00+00:00",
+  "coverage_end": "2026-09-18T05:43:49+00:00",
+  "coverage_start": "2026-09-17T03:33:00+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-18T05:34:07+00:00",
+  "generated_at": "2026-09-18T05:46:37+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -30,19 +30,19 @@
     "source_url": "https://isc.sans.edu/diary/rss/33350",
     "title": "ISC Stormcast For Friday, September 18th, 2026 https://isc.sans.edu/podcastdetail/10100, (Fri, Sep 18th)"
   },
-  "immediate_attention": "37 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 37,
+  "immediate_attention": "1 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 1,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 150,
+  "qualified_developments": 1385,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -51,8 +51,7 @@
       "total": 5
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 7
+      "healthy": 8
     },
     "total": 8
   },
@@ -61,147 +60,139 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-20316"
+        "CVE-2026-87886"
       ],
-      "cvss_score": 5.3,
+      "cvss_score": 7.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.95714,
-      "epss_score": 0.11153,
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-20316",
+      "id": "CVE-2026-87886",
       "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
       "products": [
-        "Secure Firewall Management Center (FMC)"
+        "Backup"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "known ransomware use +25"
+        "high CVSS +10"
       ],
-      "selection_score": 143,
-      "severity": "MEDIUM",
+      "selection_score": 105,
+      "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-20316 exploited in CISA KEV: Cisco Secure Firewall Management Center (FMC)",
-      "why_it_matters": "CVSS 5.3; EPSS percentile >= 95%"
+      "title": "CVE-2026-87886 exploited in CISA KEV: Acronis Backup",
+      "why_it_matters": "CVSS 7.8; detection opportunity"
     },
     {
-      "cisa_kev": true,
+      "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-72898"
+        "CVE-2026-93393"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-93393",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93393",
+      "title": "A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when built with the Windows platf",
+      "why_it_matters": "CVSS 9.2; priority technology: windows"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-92943"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-92943",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92943",
+      "title": "Improper validation of certificate with host mismatch in the MQTT client TLS connection layer in AWS IoT Device SDK for",
+      "why_it_matters": "CVSS 9.2; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-87701"
+      ],
+      "cvss_score": 9.6,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-87701",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87701",
+      "title": "Improper neutralization of special elements in output used by a downstream component ('injection') in Azure Cosmos DB al",
+      "why_it_matters": "CVSS 9.6; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-85889"
       ],
       "cvss_score": 10.0,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99844,
-      "epss_score": 0.94217,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-72898",
-      "known_exploited": true,
+      "id": "CVE-2026-85889",
+      "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Metabase"
-      ],
+      "priority_score": 9.4,
+      "products": [],
       "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
       ],
-      "selection_score": 155,
+      "selection_score": 33,
       "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-72898 exploited in CISA KEV: Metabase Metabase",
-      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-63077"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99727,
-      "epss_score": 0.86518,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63077",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "TeamCity"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 155,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-63030"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99892,
-      "epss_score": 0.97271,
-      "ghsa_ids": [],
-      "id": "CVE-2026-63030",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Core"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 155,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-63030 exploited in CISA KEV: WordPress Core",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-16232"
-      ],
-      "cvss_score": 9.1,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99399,
-      "epss_score": 0.72051,
-      "ghsa_ids": [],
-      "id": "CVE-2026-16232",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "SmartConsole"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 155,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-16232 exploited in CISA KEV: Check Point SmartConsole",
-      "why_it_matters": "CVSS 9.1; EPSS >= 70%"
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85889",
+      "title": "Missing authentication for critical function in Azure AI Foundry allows an unauthorized attacker to elevate privileges o",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
     }
   ]
 }

@@ -2,39 +2,37 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-09-18T05:34:07+00:00  
-**Coverage:** 2026-09-17T05:33:00+00:00 → 2026-09-18T05:33:00+00:00  
+**Updated:** 2026-09-18T05:46:37+00:00  
+**Coverage:** 2026-09-17T03:33:00+00:00 → 2026-09-18T05:43:49+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **150** source-backed developments assessed.
-- **72** met the editorial threshold of **5.0/10** or an exploitation override.
-- **15** unique items are displayed after curation.
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **1385** source-backed developments assessed.
+- **639** met the editorial threshold of **5.0/10** or an exploitation override.
+- **13** unique items are displayed after curation.
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-- **[CVE-2026-20316](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-20316 exploited in CISA KEV: Cisco Secure Firewall Management Center (FMC). **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2026-72898](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-72898 exploited in CISA KEV: Metabase Metabase. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2026-63077](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2026-63030](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63030 exploited in CISA KEV: WordPress Core. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2026-16232](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-16232 exploited in CISA KEV: Check Point SmartConsole. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-87886](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-87886 exploited in CISA KEV: Acronis Backup. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-9198 — CVE-2026-9198 exploited in CISA KEV: IBM Langflow](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 9.8 | 60.6% | KEV | CVSS 9.8; EPSS &gt;= 30% |
-| [CVE-2026-73570 — CVE-2026-73570 exploited in CISA KEV: Synacor Zimbra Collaboration Suite (ZCS)](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.9 | 32.4% | KEV | CVSS 8.9; EPSS &gt;= 30% |
-| [CVE-2026-60137 — CVE-2026-60137 exploited in CISA KEV: WordPress Core](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 5.9 | 78.3% | KEV | CVSS 5.9; EPSS &gt;= 70% |
-| [CVE-2026-60004, GHSA-rcr6-4jqh-j84m — CVE-2026-60004 exploited in CISA KEV: Gitea Gitea](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 0.0 | 86.8% | KEV | CVSS 0.0; EPSS &gt;= 70% |
-| [CVE-2026-18577 — CVE-2026-18577 exploited in CISA KEV: N-able N-central](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.2 | 54.1% | KEV | CVSS 8.2; EPSS &gt;= 30% |
-| [CVE-2026-18556 — CVE-2026-18556 exploited in CISA KEV: N-able N-central](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.2 | 40.2% | KEV | CVSS 8.2; EPSS &gt;= 30% |
-| [CVE-2026-9586 — CVE-2026-9586 exploited in CISA KEV: Sangoma Switchvox](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 9.3 | 11.8% | KEV | CVSS 9.3; EPSS percentile &gt;= 95% |
-| [CVE-2026-85706 — CVE-2026-85706 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 10.0 | 12.0% | KEV | CVSS 10.0; EPSS percentile &gt;= 95% |
+| [CVE-2026-93393 — CVE-2026-93393: A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when…](https://nvd.nist.gov/vuln/detail/CVE-2026-93393) | 9.4 | 9.2 | n/a | — | CVSS 9.2; priority technology: windows |
+| [CVE-2026-92943 — CVE-2026-92943: Improper validation of certificate with host mismatch in the MQTT client TLS connection…](https://nvd.nist.gov/vuln/detail/CVE-2026-92943) | 9.4 | 9.2 | n/a | — | CVSS 9.2; priority technology: cloud |
+| [CVE-2026-87701 — CVE-2026-87701: Improper neutralization of special elements in output used by a downstream component…](https://nvd.nist.gov/vuln/detail/CVE-2026-87701) | 9.4 | 9.6 | n/a | — | CVSS 9.6; priority technology: cloud |
+| [CVE-2026-85889 — CVE-2026-85889: Missing authentication for critical function in Azure AI Foundry allows an unauthorized…](https://nvd.nist.gov/vuln/detail/CVE-2026-85889) | 9.4 | 10.0 | n/a | — | CVSS 10.0; priority technology: cloud |
+| [CVE-2026-85878 — CVE-2026-85878: Improper authorization in Azure Database for PostgreSQL allows an authorized attacker to…](https://nvd.nist.gov/vuln/detail/CVE-2026-85878) | 9.4 | 9.9 | n/a | — | CVSS 9.9; priority technology: cloud |
+| [CVE-2026-83944 — CVE-2026-83944: Improper access control in Azure Logic Apps allows an unauthorized attacker to elevate…](https://nvd.nist.gov/vuln/detail/CVE-2026-83944) | 9.4 | 10.0 | n/a | — | CVSS 10.0; priority technology: cloud |
+| [CVE-2026-70200 — CVE-2026-70200: Improper limitation of a pathname to a restricted directory (&#x27;path traversal&#x27;) in Azure…](https://nvd.nist.gov/vuln/detail/CVE-2026-70200) | 9.4 | 10.0 | n/a | — | CVSS 10.0; priority technology: cloud |
+| [CVE-2026-70009 — CVE-2026-70009: Improper limitation of a pathname to a restricted directory (&#x27;path traversal&#x27;) in Azure Arc…](https://nvd.nist.gov/vuln/detail/CVE-2026-70009) | 9.4 | 9.3 | n/a | — | CVSS 9.3; priority technology: cloud |
+| [CVE-2026-69399 — CVE-2026-69399: Azure Arc Elevation of Privilege Vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2026-69399) | 9.4 | 10.0 | n/a | — | CVSS 10.0; priority technology: cloud |
+| [CVE-2026-62874 — CVE-2026-62874: Insufficient verification of data authenticity in Azure Billing allows an unauthorized…](https://nvd.nist.gov/vuln/detail/CVE-2026-62874) | 9.4 | 10.0 | n/a | — | CVSS 10.0; priority technology: cloud |
 
 ## Human context
 
@@ -49,7 +47,7 @@ _Publisher-provided RSS excerpt; open the original article for full context._
 ## Community pulse
 
 - **[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)**
-  Hacker News · 539 points · 142 comments · [Open discussion](https://news.ycombinator.com/item?id=49743097)
+  Hacker News · 541 points · 142 comments · [Open discussion](https://news.ycombinator.com/item?id=49743097)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -62,29 +60,29 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2026-20316:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-72898:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-63077:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-63030:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-16232:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-87886:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-93393:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-92943:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-87701:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-85889:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
-Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 <details>
 <summary>Collector details</summary>
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1713 | 139 ms |  |
-| nvd | yes | failed | 0 | 42863 ms | Response too large |
-| github_advisories | yes | healthy | 111 | 3877 ms |  |
-| rss_krebs | no | healthy | 0 | 140 ms |  |
-| rss_sans_isc | no | healthy | 2 | 288 ms |  |
-| github_releases | no | healthy | 0 | 1603 ms |  |
-| hacker_news | no | healthy | 1 | 5847 ms |  |
-| epss | no | healthy | 1615 | 5149 ms |  |
+| cisa_kev | yes | healthy | 1713 | 555 ms |  |
+| nvd | yes | healthy | 2303 | 149345 ms |  |
+| github_advisories | yes | healthy | 111 | 2963 ms |  |
+| rss_krebs | no | healthy | 0 | 341 ms |  |
+| rss_sans_isc | no | healthy | 2 | 254 ms |  |
+| github_releases | no | healthy | 0 | 1656 ms |  |
+| hacker_news | no | healthy | 1 | 5248 ms |  |
+| epss | no | healthy | 2595 | 6712 ms |  |
 
 </details>
 

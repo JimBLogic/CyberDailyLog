@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-18T05:34:07+00:00  
-**Coverage:** 2026-09-17T05:33:00+00:00 → 2026-09-18T05:33:00+00:00  
+**Updated:** 2026-09-18T05:46:37+00:00  
+**Coverage:** 2026-09-17T03:33:00+00:00 → 2026-09-18T05:43:49+00:00  
 **Pipeline:** **Operational**
 
-37 item(s) include exploitation, KEV or ransomware signals.
+1 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 150 source-backed developments
-- **Above threshold:** 72
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 1385 source-backed developments
+- **Above threshold:** 639
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-20316](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-20316 exploited in CISA KEV: Cisco Secure Firewall Management Center (FMC) — CVSS 5.3; EPSS percentile &gt;= 95%
-- **[CVE-2026-72898](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-72898 exploited in CISA KEV: Metabase Metabase — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2026-63077](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2026-63030](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63030 exploited in CISA KEV: WordPress Core — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2026-16232](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-16232 exploited in CISA KEV: Check Point SmartConsole — CVSS 9.1; EPSS &gt;= 70%
+- **[CVE-2026-87886](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-87886 exploited in CISA KEV: Acronis Backup — CVSS 7.8; detection opportunity
+- **[CVE-2026-93393](https://nvd.nist.gov/vuln/detail/CVE-2026-93393) · 9.4/10** — A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when built with the Windows platf — CVSS 9.2; priority technology: windows
+- **[CVE-2026-92943](https://nvd.nist.gov/vuln/detail/CVE-2026-92943) · 9.4/10** — Improper validation of certificate with host mismatch in the MQTT client TLS connection layer in AWS IoT Device SDK for — CVSS 9.2; priority technology: cloud
+- **[CVE-2026-87701](https://nvd.nist.gov/vuln/detail/CVE-2026-87701) · 9.4/10** — Improper neutralization of special elements in output used by a downstream component (&#x27;injection&#x27;) in Azure Cosmos DB al — CVSS 9.6; priority technology: cloud
+- **[CVE-2026-85889](https://nvd.nist.gov/vuln/detail/CVE-2026-85889) · 9.4/10** — Missing authentication for critical function in Azure AI Foundry allows an unauthorized attacker to elevate privileges o — CVSS 10.0; priority technology: cloud
 
 ### Human context
 
@@ -35,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)** — Hacker News · 539 points · 142 comments
+**[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)** — Hacker News · 541 points · 142 comments
 [Open discussion](https://news.ycombinator.com/item?id=49743097)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)

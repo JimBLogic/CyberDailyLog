@@ -6,7 +6,7 @@
     "repository": "https://github.com/JimBLogic/CyberDailyLog",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-18T05:34:07+00:00",
+  "generated_at": "2026-09-18T05:46:37+00:00",
   "history": [
     {
       "above_threshold": 548,
@@ -502,21 +502,21 @@
       "unknown": 12
     },
     {
-      "above_threshold": 72,
-      "assessed": 150,
-      "critical": 35,
+      "above_threshold": 639,
+      "assessed": 1385,
+      "critical": 75,
       "date": "2026-09-18",
       "degraded": false,
-      "generated_at": "2026-09-18T05:34:07+00:00",
-      "high": 71,
-      "immediate_attention": 37,
-      "low": 6,
-      "medium": 34,
+      "generated_at": "2026-09-18T05:46:37+00:00",
+      "high": 346,
+      "immediate_attention": 1,
+      "low": 39,
+      "medium": 297,
       "minimum_priority": 5.0,
-      "security_items": 147,
-      "sources_healthy": 7,
+      "security_items": 1382,
+      "sources_healthy": 8,
       "sources_total": 8,
-      "unknown": 1
+      "unknown": 625
     }
   ],
   "minimum_priority": 5.0,
