@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime, timezone
+import json
 import os
 from urllib.parse import urlparse
 
@@ -13,7 +14,7 @@ from .collectors.github_advisories import GitHubAdvisoryCollector
 from .collectors.rss import RssCollector
 from .collectors.github_releases import GitHubReleaseCollector
 from .collectors.hacker_news import HackerNewsCollector
-from .state import StateLedger, coverage_start
+from .state import StateLedger, coverage_start, parse_date
 from .operational_evidence import load_operational_evidence
 from .source_health import quorum_ok
 from .renderers.markdown import write_markdown
@@ -57,7 +58,21 @@ class Pipeline:
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
         ledger = StateLedger(self.output_dir / "cti-state.json")
         ledger.seed_archives(self.output_dir)
+        previous_report_path = self.output_dir / "latest.json"
+        if previous_report_path.exists():
+            previous_report = json.loads(previous_report_path.read_text())
+            previous_end = parse_date(previous_report.get("coverage_end"))
+            ledger_end = parse_date(ledger.data.get("coverage_end"))
+            incomplete = any(
+                source.get("required") and source.get("status") not in {"healthy", "fixture_only"}
+                for source in previous_report.get("source_health", [])
+            )
+            # Repair a watermark written by the first migration before partial
+            # core failures were distinguished from complete coverage.
+            if incomplete and previous_end and ledger_end and ledger_end >= previous_end:
+                ledger.data["coverage_end"] = previous_report["coverage_start"]
         since = since or coverage_start(ledger, until, lookback_hours)
+        previous_coverage = ledger.data.get("coverage_end") or since.isoformat()
         rss_collectors = [
             RssCollector(self.http, offline=self.offline, sources=[source])
             for source in self.sources.get("rss_sources", [])
@@ -102,6 +117,11 @@ class Pipeline:
         selected = ledger.observe(
             items, datetime.now(timezone.utc).replace(microsecond=0), since, until, self.tech, self.scoring
         )
+        # A quorum can publish useful partial coverage. Keep the catch-up
+        # watermark until every core collector succeeds, so an NVD/GHSA
+        # outage cannot permanently skip that source's modification window.
+        if any(source.required and source.status not in {"healthy", "fixture_only"} for source in health):
+            ledger.data["coverage_end"] = previous_coverage
         report = Report(
             generated_at=datetime.now(timezone.utc).replace(microsecond=0),
             coverage_start=since,

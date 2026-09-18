@@ -1,8 +1,10 @@
 from datetime import datetime, timezone
 from typing import Any
+import time
 
 from .base import BaseCollector
 from cyberdailylog.models import IntelligenceItem
+from cyberdailylog.exceptions import SourceError
 
 
 def extract_reference_urls(references: Any) -> list[str]:
@@ -92,12 +94,24 @@ class NvdCollector(BaseCollector):
                 params = {
                     "lastModStartDate": since.strftime("%Y-%m-%dT%H:%M:%S.000"),
                     "lastModEndDate": until.strftime("%Y-%m-%dT%H:%M:%S.000"),
-                    "resultsPerPage": 2000,
+                    # Modified CVEs can contain large CPE trees. Stay within
+                    # the HTTP client's byte bound without discarding a page.
+                    "resultsPerPage": 500,
                     "startIndex": 0,
                 }
                 pages = []
+                requested = False
                 while True:
-                    data = self.http.get(self.endpoint, headers=headers, params=params, expect_json=True).json()
+                    if requested:
+                        time.sleep(0.6 if self.token else 6.0)
+                    requested = True
+                    try:
+                        data = self.http.get(self.endpoint, headers=headers, params=params, expect_json=True).json()
+                    except SourceError as error:
+                        if str(error) != "Response too large" or params["resultsPerPage"] == 1:
+                            raise
+                        params["resultsPerPage"] = max(1, params["resultsPerPage"] // 2)
+                        continue
                     pages.append(data)
                     if params["startIndex"] + data.get("resultsPerPage", 0) >= data.get("totalResults", 0):
                         break

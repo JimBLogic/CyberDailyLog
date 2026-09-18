@@ -234,6 +234,55 @@ def test_cisa_unknown_and_invalid_catalog():
     assert health.status == "healthy" and found[0].known_ransomware_use is None
 
 
+def test_nvd_reduces_oversized_pages_without_skipping_offsets(monkeypatch):
+    from cyberdailylog.exceptions import SourceError
+
+    calls, pauses = [], []
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", pauses.append)
+
+    def get(url, **kw):
+        params = kw["params"].copy()
+        calls.append(params)
+        if params["resultsPerPage"] > 250:
+            raise SourceError("Response too large")
+        return SimpleNamespace(json=lambda: {"resultsPerPage": 250, "totalResults": 500, "vulnerabilities": []})
+
+    collector = NvdCollector()
+    collector.http = SimpleNamespace(get=get)
+    _, health = collector.collect(NOW - timedelta(days=1), NOW)
+    assert health.status == "healthy"
+    assert [(c["startIndex"], c["resultsPerPage"]) for c in calls] == [(0, 500), (0, 250), (250, 250)]
+    assert pauses == [6.0, 6.0]
+
+
+def test_partial_core_failure_preserves_catchup_window(tmp_path, monkeypatch):
+    from cyberdailylog.models import SourceHealth
+
+    since, until = datetime(2026, 7, 14, tzinfo=timezone.utc), datetime(2026, 7, 16, tzinfo=timezone.utc)
+    monkeypatch.setattr("cyberdailylog.pipeline.quorum_ok", lambda health: True)
+    monkeypatch.setattr(
+        NvdCollector,
+        "collect",
+        lambda self, start, end: (
+            [],
+            SourceHealth(
+                source="nvd", status="failed", required=True, started_at=start, finished_at=end, duration_ms=0
+            ),
+        ),
+    )
+    Pipeline(output_dir=tmp_path, offline=True).run(since, until)
+    ledger = StateLedger(tmp_path / "cti-state.json")
+    assert ledger.data["coverage_end"] == since.isoformat()
+    assert coverage_start(ledger, until + timedelta(days=2), 24) == since - timedelta(hours=2)
+
+    # A prior version advanced its watermark despite the incomplete source.
+    ledger.data["coverage_end"] = until.isoformat()
+    ledger.save()
+    recovered = Pipeline(output_dir=tmp_path, offline=True).run(until=until + timedelta(days=2))
+    assert recovered.coverage_start == since - timedelta(hours=2)
+    assert StateLedger(ledger.path).data["coverage_end"] == since.isoformat()
+
+
 def test_verified_vendor_evidence_requires_explicit_positive_statement(tmp_path):
     path = tmp_path / "evidence.yml"
     assert load_operational_evidence(path) == []
