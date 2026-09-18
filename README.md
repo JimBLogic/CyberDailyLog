@@ -9,33 +9,33 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-18T05:46:37+00:00  
-**Coverage:** 2026-09-17T03:33:00+00:00 → 2026-09-18T05:43:49+00:00  
+**Updated:** 2026-09-18T14:06:58+00:00  
+**Coverage:** 2026-09-17T14:02:08+00:00 → 2026-09-18T14:02:08+00:00  
 **Pipeline:** **Operational**
 
-1 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 1385 source-backed developments
-- **Above threshold:** 639
+- **Assessed:** 221 source-backed developments
+- **Above threshold:** 143
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-87886](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-87886 exploited in CISA KEV: Acronis Backup — CVSS 7.8; detection opportunity
-- **[CVE-2026-93393](https://nvd.nist.gov/vuln/detail/CVE-2026-93393) · 9.4/10** — A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when built with the Windows platf — CVSS 9.2; priority technology: windows
-- **[CVE-2026-92943](https://nvd.nist.gov/vuln/detail/CVE-2026-92943) · 9.4/10** — Improper validation of certificate with host mismatch in the MQTT client TLS connection layer in AWS IoT Device SDK for — CVSS 9.2; priority technology: cloud
-- **[CVE-2026-87701](https://nvd.nist.gov/vuln/detail/CVE-2026-87701) · 9.4/10** — Improper neutralization of special elements in output used by a downstream component (&#x27;injection&#x27;) in Azure Cosmos DB al — CVSS 9.6; priority technology: cloud
-- **[CVE-2026-85889](https://nvd.nist.gov/vuln/detail/CVE-2026-85889) · 9.4/10** — Missing authentication for critical function in Azure AI Foundry allows an unauthorized attacker to elevate privileges o — CVSS 10.0; priority technology: cloud
+- **[CVE-2026-84609](https://nvd.nist.gov/vuln/detail/CVE-2026-84609) · 9.4/10** — A permissions issue was addressed with improved path validation. This issue is fixed in iOS 27 and iPadOS 27, macOS Gold — CVSS 9.8; detection opportunity
+- **[CVE-2026-28198](https://nvd.nist.gov/vuln/detail/CVE-2026-28198) · 9.4/10** — An authenticated, low-privileged user with access to the NetBackup Flex OS management shell could bypass the cryptograp — CVSS 9.4; detection opportunity
+- **[CVE-2026-28197](https://nvd.nist.gov/vuln/detail/CVE-2026-28197) · 9.4/10** — An authenticated, low-privileged user with access to the NetBackup Flex OS management shell could supply a specially cr — CVSS 9.4; detection opportunity
+- **[CVE-2026-13684](https://nvd.nist.gov/vuln/detail/CVE-2026-13684) · 9.4/10** — An improper encoding or escaping of output vulnerability in SCGI in Synology DiskStation Manager (DSM) before 7.2.1-6905 — CVSS 9.8; detection opportunity
+- **[CVE-2026-13639](https://nvd.nist.gov/vuln/detail/CVE-2026-13639) · 9.4/10** — An insufficient entropy vulnerability in login logic in Synology DiskStation Manager (DSM) before 7.2.1-69057-12, 7.2.2- — CVSS 9.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Friday, September 18th, 2026 https://isc.sans.edu/podcastdetail/10100, (Fri, Sep 18th)](https://isc.sans.edu/diary/rss/33350)**
+**[HTTP QUERY Method: The Grey Zone Between GET And POST., (Fri, Sep 18th)](https://isc.sans.edu/diary/rss/33352)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> In June 2026 the IETF published RFC 10008\[ 1 \], defining a new HTTP method: &quot;QUERY&quot;. The HTTP protocol faced already by changes (HTTP/2,…
 
 ### Community pulse
 
-**[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)** — Hacker News · 541 points · 142 comments
+**[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)** — Hacker News · 663 points · 175 comments
 [Open discussion](https://news.ycombinator.com/item?id=49743097)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
