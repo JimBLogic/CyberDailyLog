@@ -14,11 +14,13 @@ class CisaKevCollector(BaseCollector):
             data = (
                 self.fixture_json("cisa_kev.json") if self.offline else self.http.get(self.url, expect_json=True).json()
             )
+            if not isinstance(data.get("vulnerabilities"), list) or not data["vulnerabilities"]:
+                raise ValueError("CISA full catalog is empty or malformed")
+            if data.get("count") is not None and data["count"] != len(data["vulnerabilities"]):
+                raise ValueError("CISA catalog count mismatch")
             items = []
             for v in data.get("vulnerabilities", []):
                 date = datetime.fromisoformat(v.get("dateAdded", "1970-01-01")).replace(tzinfo=timezone.utc)
-                if not (since <= date <= until):
-                    continue
                 cve = v["cveID"]
                 title = f"{cve} exploited in CISA KEV: {v.get('vendorProject', '')} {v.get('product', '')}".strip()
                 item = IntelligenceItem(
@@ -38,7 +40,11 @@ class CisaKevCollector(BaseCollector):
                     cisa_kev=True,
                     kev_date_added=date,
                     known_exploited=True,
-                    known_ransomware_use=(v.get("knownRansomwareCampaignUse") == "Known"),
+                    known_ransomware_use=True if v.get("knownRansomwareCampaignUse") == "Known" else None,
+                    cisa_required_action=v.get("requiredAction") or None,
+                    cisa_due_date=datetime.fromisoformat(v["dueDate"]).replace(tzinfo=timezone.utc)
+                    if v.get("dueDate")
+                    else None,
                     exploitation_status="confirmed_exploitation",
                     recommended_actions=[v.get("requiredAction", "")],
                     references=[v.get("notes", "") or self.url],

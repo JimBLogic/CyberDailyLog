@@ -53,23 +53,54 @@ def compute_priority_score(item: IntelligenceItem, technologies: dict) -> tuple[
         score += 0.25
         reasons.append("detection opportunity")
 
-    if item.modified_at and item.published_at and item.modified_at != item.published_at and not item.cisa_kev:
+    if (
+        item.modified_at
+        and item.published_at
+        and item.modified_at != item.published_at
+        and not (
+            item.cisa_kev
+            or item.known_exploited
+            or item.known_ransomware_use
+            or item.vendor_confirmed_exploitation
+            or item.public_exploit
+            or item.transition_type
+        )
+    ):
         score -= 1.0
         reasons.append("metadata-only update")
 
     floor = 0.0
     if item.cisa_kev:
-        floor = 10.0
+        floor = 9.6
         reasons.append("CISA KEV")
     elif item.known_exploited:
         floor = 9.5
         reasons.append("confirmed exploitation")
-    elif item.known_ransomware_use:
-        floor = 9.0
+    if item.known_ransomware_use:
+        floor = 10.0 if item.cisa_kev or item.known_exploited else 9.8
         reasons.append("known ransomware use")
 
-    score = max(score, floor)
+    if item.vendor_confirmed_exploitation:
+        floor = max(floor, 9.5)
+        reasons.append("vendor-confirmed exploitation")
+    if item.public_exploit:
+        score += 0.3
+        reasons.append("source-tagged public exploit; not proof of active exploitation")
+    if item.critical_asset_exposure:
+        score += 0.5
+        reasons.append("explicit critical asset exposure")
+    score = max(min(score, 9.4), floor)
     return round(max(0.0, min(10.0, score)), 1), reasons
+
+
+def priority_level(item: IntelligenceItem) -> str:
+    if item.withdrawn:
+        return "NORMAL"
+    if item.known_ransomware_use and (item.known_exploited or item.cisa_kev or item.vendor_confirmed_exploitation):
+        return "EMERGENCY"
+    if item.critical_asset_exposure and (item.known_exploited or item.vendor_confirmed_exploitation):
+        return "EMERGENCY"
+    return "HIGH" if item.priority_score >= 7 else "NORMAL"
 
 
 def score_item(

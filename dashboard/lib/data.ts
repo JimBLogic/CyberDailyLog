@@ -1,3 +1,4 @@
+import { normalizeCti, normalizePublication } from "./cti";
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
 import { essentialServerUrl } from "./network-policy";
@@ -50,6 +51,7 @@ type RawReport = {
   degraded?: unknown;
   items?: unknown;
   source_health?: unknown;
+  cti_summary?: unknown;
 };
 
 type RawCompactFeed = {
@@ -170,7 +172,8 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
         ? stringArray(item.priority_reasons)
         : stringArray(item.selection_reasons)
     ).slice(0, 5),
-    actions: (recommended.length ? recommended : detection).slice(0, 4),
+    actions: (stringValue(item.cisa_required_action) ? [stringValue(item.cisa_required_action)] : recommended.length ? recommended : detection).slice(0, 4),
+    cti: normalizeCti(item),
   };
 }
 
@@ -478,7 +481,9 @@ function assessCoverage(
   }).length;
 
   if (dataMode === "live" && core.length > 0 && currentCore === core.length) {
-    return { coverageConfidence: "high", coverageState: "sufficient" } as const;
+    const optionalGaps = sourceHealth.some(source => !source.required && (source.status !== "healthy" ||
+      !source.finishedAt || now - Date.parse(source.finishedAt) > sourceExpectedIntervalMs(source.source) * 2));
+    return { coverageConfidence: optionalGaps ? "medium" as const : "high" as const, coverageState: "sufficient" as const };
   }
   if (dataMode !== "repository-snapshot" && currentCore > 0) {
     return { coverageConfidence: "medium", coverageState: "limited" } as const;
@@ -515,6 +520,7 @@ function cloneFallback(): DashboardData {
 }
 
 async function fetchDashboardData(): Promise<DashboardData> {
+  const timingPromise = fetchJson<RawRecord>("reports/publication-timing.json");
   const reportResult = await fetchJson<RawReport>("reports/latest.json", (value) => {
     if (!value || typeof value !== "object" || Array.isArray(value)) return false;
     const report = value as RawReport;
@@ -522,6 +528,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
     const end = dateValue(report.coverage_end);
     return Boolean(dateValue(report.generated_at) && start && end && start <= end && Array.isArray(report.items));
   });
+  const publicationReliability = normalizePublication((await timingPromise).data);
   const report = reportResult.data;
   const generatedAt = dateValue(report?.generated_at);
   const reportIsStale =
@@ -538,6 +545,8 @@ async function fetchDashboardData(): Promise<DashboardData> {
           item.cisaKev || item.knownExploited || item.knownRansomwareUse,
       );
       return {
+        publicationReliability,
+        ctiSummary: null,
         schemaVersion: 1,
         project: "CyberDailyLog",
         generatedAt: official.generatedAt,
@@ -597,6 +606,8 @@ async function fetchDashboardData(): Promise<DashboardData> {
     fallback.pipelineStatus = "degraded";
     fallback.coverageConfidence = "low";
     fallback.coverageState = "insufficient";
+    fallback.publicationReliability = publicationReliability;
+    fallback.ctiSummary = null;
     return fallback;
   }
 
@@ -706,7 +717,15 @@ async function fetchDashboardData(): Promise<DashboardData> {
     ? { coverageConfidence: "low" as const, coverageState: "insufficient" as const }
     : assessCoverage(sourceHealth, "live");
 
+  const measuredCti = report.cti_summary && typeof report.cti_summary === "object" ? report.cti_summary as RawRecord : null;
   return {
+    publicationReliability,
+    ctiSummary: measuredCti ? {
+      newVulnerabilities: securityItems.filter(item => item.discovery_type === "new_vulnerability").length,
+      stateChanges: securityItems.filter(item => item.discovery_type === "state_transition").length,
+      kev: securityItems.filter(item => stringArray(item.transition_type).includes("entered_cisa_kev")).length,
+      ransomware: securityItems.filter(item => stringArray(item.transition_type).includes("ransomware_linked")).length,
+    } : null,
     schemaVersion: 1,
     project: "CyberDailyLog",
     generatedAt: resolvedGeneratedAt,

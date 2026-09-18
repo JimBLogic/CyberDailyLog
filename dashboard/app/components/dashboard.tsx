@@ -1,5 +1,7 @@
 "use client";
 
+import { OperationalStatus, CtiHistory } from "./operational-status";
+
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
@@ -970,7 +972,7 @@ function DataDelivery({
           official: "Respaldo oficial activo",
           fallback: "Informe de respaldo verificado",
           stale: "El informe necesita actualizarse",
-          note: "Recogida prevista a las 12:00; recuperación a las 13:30 si falta el informe. GitHub puede retrasar el inicio. Actualizar el panel comprueba lo publicado, sin lanzar una nueva recogida.",
+          note: "Recogida prevista a las 12:00; recuperación a las 12:17 y 13:30 si falta el informe. GitHub puede retrasar el inicio. Actualizar el panel comprueba lo publicado, sin lanzar una nueva recogida.",
         }
       : {
           label: "Data status",
@@ -981,7 +983,7 @@ function DataDelivery({
           official: "Official backup active",
           fallback: "Verified backup report",
           stale: "The report needs an update",
-          note: "Collection is scheduled for 12:00; recovery at 13:30 if the report is missing. GitHub may delay the start. Refresh checks published data without starting a new collection.",
+          note: "Collection is scheduled for 12:00; recovery at 12:17 and 13:30 if the report is missing. GitHub may delay the start. Refresh checks published data without starting a new collection.",
         };
 
   return (
@@ -1199,18 +1201,20 @@ function PriorityCard({
 function MetricStrip({
   data,
   language,
+  now,
 }: {
   data: DashboardData;
   language: Language;
+  now: number | null;
 }) {
   const t = COPY[language];
   const core = data.sourceHealth.filter((source) => source.required);
   const optional = data.sourceHealth.filter((source) => !source.required);
   const coreHealthy = core.filter((source) =>
-    ["healthy", "fixture_only"].includes(source.status),
+    hasRecentHealthyRun(source, now),
   ).length;
   const optionalHealthy = optional.filter((source) =>
-    ["healthy", "fixture_only"].includes(source.status),
+    hasRecentHealthyRun(source, now),
   ).length;
   return (
     <section className="metric-strip" aria-label={t.runSummary}>
@@ -1241,7 +1245,7 @@ function MetricStrip({
         <span className="metric-icon green">
           <Icon name="pulse" />
         </span>
-        <strong>{optionalHealthy}</strong>
+        <strong>{optionalHealthy}/{optional.length}</strong>
         <span>{t.optional} · {t.healthy}</span>
       </div>
     </section>
@@ -1605,7 +1609,7 @@ function InterviewProof({
         </div>
         <div>
           <span>{t.recoveryRun}</span>
-          <strong>13:30</strong>
+          <strong>12:17 · 13:30</strong>
           <small>{t.madridTime}</small>
         </div>
         <div>
@@ -2090,7 +2094,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Runtime fijado"],
             ["Cobertura", "≥85 %", "El umbral no se rebaja"],
-            ["Automatización", "2 ventanas", "12:00 + recuperación 13:30 · Europe/Madrid"],
+            ["Automatización", "3 ventanas", "12:00 + recuperación 12:17 y 13:30 · Europe/Madrid"],
             ["Modo local", "Offline", "Fixtures sin secretos ni publicación"],
           ],
           mapTitle: "Mapa autorizado del repositorio",
@@ -2139,7 +2143,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Pinned runtime"],
             ["Coverage", "≥85%", "The threshold is not lowered"],
-            ["Automation", "2 windows", "12:00 + 13:30 recovery · Europe/Madrid"],
+            ["Automation", "3 windows", "12:00 + 12:17 and 13:30 recovery · Europe/Madrid"],
             ["Local mode", "Offline", "Fixtures, no secrets or publishing"],
           ],
           mapTitle: "Authoritative repository map",
@@ -2391,12 +2395,13 @@ function DetailDialog({
           </div>
           <div>
             <span>CISA KEV</span>
-            <strong>{item.cisaKev ? t.yes : t.no}</strong>
+            <strong>{item.cisaKev ? t.yes : "—"}</strong>
           </div>
         </div>
         <div className="dialog-body">
           <h3>{item.title}</h3>
           <p className="dialog-summary">{item.summary}</p>
+          <CtiHistory item={item} language={language} />
           <div className="dialog-section">
             <span>{t.reasons}</span>
             <ul>
@@ -2710,7 +2715,8 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
               <PriorityCard item={topItem} language={language} onOpen={() => setSelected(topItem)} />
             ) : null}
           </section>
-          <MetricStrip data={data} language={language} />
+          <MetricStrip data={data} language={language} now={clock} />
+          <OperationalStatus data={data} language={language} now={clock} />
           <SourceRail sources={data.sourceHealth} language={language} now={clock} />
           <div className="below-fold-grid">
             <HistoryChart
