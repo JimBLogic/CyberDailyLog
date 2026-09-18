@@ -1,17 +1,17 @@
 {
-  "above_threshold": 445,
+  "above_threshold": 72,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 23,
-    "discussion_url": "https://news.ycombinator.com/item?id=49736466",
-    "published_at": "2026-09-17T04:36:55+00:00",
-    "score": 136,
+    "comments": 142,
+    "discussion_url": "https://news.ycombinator.com/item?id=49743097",
+    "published_at": "2026-09-17T16:25:37+00:00",
+    "score": 539,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/cloudflare/security-audit-skill",
-    "title": "Cloudflare/Security-Audit-Skill"
+    "source_url": "https://github.com/asciimoo/hister",
+    "title": "Hister: A private search engine for the pages you visit and the files you keep"
   },
-  "coverage_end": "2026-09-17T14:35:33+00:00",
-  "coverage_start": "2026-09-16T14:35:33+00:00",
+  "coverage_end": "2026-09-18T05:33:00+00:00",
+  "coverage_start": "2026-09-17T05:33:00+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-17T14:35:46+00:00",
+  "generated_at": "2026-09-18T05:34:07+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-17T02:00:03+00:00",
+    "published_at": "2026-09-18T02:00:02+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33346",
-    "title": "ISC Stormcast For Thursday, September 17th, 2026 https://isc.sans.edu/podcastdetail/10098, (Thu, Sep 17th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33350",
+    "title": "ISC Stormcast For Friday, September 18th, 2026 https://isc.sans.edu/podcastdetail/10100, (Fri, Sep 18th)"
   },
-  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
-  "immediate_attention_count": 0,
+  "immediate_attention": "37 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 37,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 556,
+  "qualified_developments": 150,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -51,141 +51,157 @@
       "total": 5
     },
     "status_counts": {
-      "healthy": 8
+      "failed": 1,
+      "healthy": 7
     },
     "total": 8
   },
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-92808"
+        "CVE-2026-20316"
+      ],
+      "cvss_score": 5.3,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.95714,
+      "epss_score": 0.11153,
+      "ghsa_ids": [],
+      "id": "CVE-2026-20316",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "Secure Firewall Management Center (FMC)"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 143,
+      "severity": "MEDIUM",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-20316 exploited in CISA KEV: Cisco Secure Firewall Management Center (FMC)",
+      "why_it_matters": "CVSS 5.3; EPSS percentile >= 95%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-72898"
       ],
       "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99844,
+      "epss_score": 0.94217,
       "ghsa_ids": [],
-      "id": "CVE-2026-92808",
-      "known_exploited": false,
+      "id": "CVE-2026-72898",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Metabase"
       ],
-      "selection_score": 25,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 155,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92808",
-      "title": "A server-side request forgery (SSRF) vulnerability exists in the UnifiedLogin service of Altium Enterprise Server. An un",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-72898 exploited in CISA KEV: Metabase Metabase",
+      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-87796"
+        "CVE-2026-63077"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99727,
+      "epss_score": 0.86518,
       "ghsa_ids": [],
-      "id": "CVE-2026-87796",
-      "known_exploited": false,
+      "id": "CVE-2026-63077",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "TeamCity"
       ],
-      "selection_score": 25,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 155,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87796",
-      "title": "The Multi Uploader for Gravity Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to,",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-62108"
+        "CVE-2026-63030"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99892,
+      "epss_score": 0.97271,
       "ghsa_ids": [],
-      "id": "CVE-2026-62108",
-      "known_exploited": false,
+      "id": "CVE-2026-63030",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Core"
       ],
-      "selection_score": 25,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 155,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62108",
-      "title": "Unauthenticated Broken Authentication in Headless Single Sign On <= 1.7.0 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-63030 exploited in CISA KEV: WordPress Core",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-62104"
+        "CVE-2026-16232"
       ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "cvss_score": 9.1,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99399,
+      "epss_score": 0.72051,
       "ghsa_ids": [],
-      "id": "CVE-2026-62104",
-      "known_exploited": false,
+      "id": "CVE-2026-16232",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
+      "priority_score": 9.6,
+      "products": [
+        "SmartConsole"
+      ],
       "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
       ],
-      "selection_score": 25,
+      "selection_score": 155,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62104",
-      "title": "Unauthenticated Remote Code Execution (RCE) in Migratico Lite <= 2.6.8 versions.",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-62101"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-62101",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 10.0,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62101",
-      "title": "Unauthenticated Broken Authentication in EduAdmin Booking <= 5.4.2 versions.",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-16232 exploited in CISA KEV: Check Point SmartConsole",
+      "why_it_matters": "CVSS 9.1; EPSS >= 70%"
     }
   ]
 }

@@ -1,42 +1,44 @@
-# CyberDailyLog — Daily Blue Team Brief · 2026-09-17
+# CyberDailyLog — Daily Blue Team Brief · 2026-09-18
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-09-17T14:35:46+00:00  
-**Coverage:** 2026-09-16T14:35:33+00:00 → 2026-09-17T14:35:33+00:00  
+**Updated:** 2026-09-18T05:34:07+00:00  
+**Coverage:** 2026-09-17T05:33:00+00:00 → 2026-09-18T05:33:00+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **556** source-backed developments assessed.
-- **445** met the editorial threshold of **5.0/10** or an exploitation override.
-- **12** unique items are displayed after curation.
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **150** source-backed developments assessed.
+- **72** met the editorial threshold of **5.0/10** or an exploitation override.
+- **15** unique items are displayed after curation.
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified in this run.
+- **[CVE-2026-20316](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-20316 exploited in CISA KEV: Cisco Secure Firewall Management Center (FMC). **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-72898](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-72898 exploited in CISA KEV: Metabase Metabase. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-63077](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-63030](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-63030 exploited in CISA KEV: WordPress Core. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-16232](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-16232 exploited in CISA KEV: Check Point SmartConsole. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-92808 — CVE-2026-92808: A server-side request forgery (SSRF) vulnerability exists in the UnifiedLogin service of…](https://nvd.nist.gov/vuln/detail/CVE-2026-92808) | 10.0 | 10.0 | n/a | — | CVSS 10.0; detection opportunity |
-| [CVE-2026-87796 — CVE-2026-87796: The Multi Uploader for Gravity Forms plugin for WordPress is vulnerable to Arbitrary File…](https://nvd.nist.gov/vuln/detail/CVE-2026-87796) | 10.0 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-62108 — CVE-2026-62108: Unauthenticated Broken Authentication in Headless Single Sign On &lt;= 1.7.0 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-62108) | 10.0 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-62104 — CVE-2026-62104: Unauthenticated Remote Code Execution (RCE) in Migratico Lite &lt;= 2.6.8 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-62104) | 10.0 | 10.0 | n/a | — | CVSS 10.0; detection opportunity |
-| [CVE-2026-62101 — CVE-2026-62101: Unauthenticated Broken Authentication in EduAdmin Booking &lt;= 5.4.2 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-62101) | 10.0 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2025-59953, GHSA-5h8j-6crg-7rmw — CVE-2025-59953: LMDeploy is a toolkit for compressing, deploying, and serving large language models.…](https://nvd.nist.gov/vuln/detail/CVE-2025-59953) | 10.0 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-20332 — CVE-2026-20332: As part of Cisco&#x27;s ongoing commitment to proactive security and product quality, the Cisco…](https://nvd.nist.gov/vuln/detail/CVE-2026-20332) | 9.7 | 9.9 | n/a | — | CVSS 9.9; priority technology: firewalls |
-| [CVE-2026-20330 — CVE-2026-20330: As part of Cisco&#x27;s ongoing commitment to proactive security and product quality, the Cisco…](https://nvd.nist.gov/vuln/detail/CVE-2026-20330) | 9.7 | 9.9 | n/a | — | CVSS 9.9; priority technology: firewalls |
-| [CVE-2026-20329 — CVE-2026-20329: As part of Cisco&#x27;s ongoing commitment to proactive security and product quality, the Cisco…](https://nvd.nist.gov/vuln/detail/CVE-2026-20329) | 9.7 | 9.9 | n/a | — | CVSS 9.9; priority technology: firewalls |
-| [CVE-2026-20324 — CVE-2026-20324: A vulnerability in the sftunnel inter-device communication protocol of Cisco Secure Firewall…](https://nvd.nist.gov/vuln/detail/CVE-2026-20324) | 9.7 | 9.9 | n/a | — | CVSS 9.9; priority technology: firewalls |
+| [CVE-2026-9198 — CVE-2026-9198 exploited in CISA KEV: IBM Langflow](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 9.8 | 60.6% | KEV | CVSS 9.8; EPSS &gt;= 30% |
+| [CVE-2026-73570 — CVE-2026-73570 exploited in CISA KEV: Synacor Zimbra Collaboration Suite (ZCS)](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.9 | 32.4% | KEV | CVSS 8.9; EPSS &gt;= 30% |
+| [CVE-2026-60137 — CVE-2026-60137 exploited in CISA KEV: WordPress Core](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 5.9 | 78.3% | KEV | CVSS 5.9; EPSS &gt;= 70% |
+| [CVE-2026-60004, GHSA-rcr6-4jqh-j84m — CVE-2026-60004 exploited in CISA KEV: Gitea Gitea](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 0.0 | 86.8% | KEV | CVSS 0.0; EPSS &gt;= 70% |
+| [CVE-2026-18577 — CVE-2026-18577 exploited in CISA KEV: N-able N-central](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.2 | 54.1% | KEV | CVSS 8.2; EPSS &gt;= 30% |
+| [CVE-2026-18556 — CVE-2026-18556 exploited in CISA KEV: N-able N-central](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 8.2 | 40.2% | KEV | CVSS 8.2; EPSS &gt;= 30% |
+| [CVE-2026-9586 — CVE-2026-9586 exploited in CISA KEV: Sangoma Switchvox](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 9.3 | 11.8% | KEV | CVSS 9.3; EPSS percentile &gt;= 95% |
+| [CVE-2026-85706 — CVE-2026-85706 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 10.0 | 12.0% | KEV | CVSS 10.0; EPSS percentile &gt;= 95% |
 
 ## Human context
 
-### [ISC Stormcast For Thursday, September 17th, 2026 https://isc.sans.edu/podcastdetail/10098, (Thu, Sep 17th)](https://isc.sans.edu/diary/rss/33346)
+### [ISC Stormcast For Friday, September 18th, 2026 https://isc.sans.edu/podcastdetail/10100, (Fri, Sep 18th)](https://isc.sans.edu/diary/rss/33350)
 
 **SANS Internet Storm Center Handler&#x27;s Diary**
 
@@ -46,8 +48,8 @@ _Publisher-provided RSS excerpt; open the original article for full context._
 
 ## Community pulse
 
-- **[Cloudflare/Security-Audit-Skill](https://github.com/cloudflare/security-audit-skill)**
-  Hacker News · 136 points · 23 comments · [Open discussion](https://news.ycombinator.com/item?id=49736466)
+- **[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)**
+  Hacker News · 539 points · 142 comments · [Open discussion](https://news.ycombinator.com/item?id=49743097)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -60,29 +62,29 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2026-92808:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-87796:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-62108:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-62104:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-62101:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-20316:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-72898:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-63077:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-63030:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-16232:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Source health
 
-Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 <details>
 <summary>Collector details</summary>
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 0 | 289 ms |  |
-| nvd | yes | healthy | 543 | 3507 ms |  |
-| github_advisories | yes | healthy | 30 | 2048 ms |  |
-| rss_krebs | no | healthy | 1 | 745 ms |  |
-| rss_sans_isc | no | healthy | 2 | 293 ms |  |
-| github_releases | no | healthy | 0 | 2701 ms |  |
-| hacker_news | no | healthy | 1 | 3457 ms |  |
-| epss | no | healthy | 9 | 787 ms |  |
+| cisa_kev | yes | healthy | 1713 | 139 ms |  |
+| nvd | yes | failed | 0 | 42863 ms | Response too large |
+| github_advisories | yes | healthy | 111 | 3877 ms |  |
+| rss_krebs | no | healthy | 0 | 140 ms |  |
+| rss_sans_isc | no | healthy | 2 | 288 ms |  |
+| github_releases | no | healthy | 0 | 1603 ms |  |
+| hacker_news | no | healthy | 1 | 5847 ms |  |
+| epss | no | healthy | 1615 | 5149 ms |  |
 
 </details>
 
