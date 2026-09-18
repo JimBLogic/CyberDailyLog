@@ -6,7 +6,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
-def publication_date(root=Path("reports"), now=None):
+def publication_date(root=Path("reports"), now=None, require_after_noon=False):
     now = now or datetime.now(timezone.utc)
     try:
         report, compact, history = [
@@ -26,10 +26,13 @@ def publication_date(root=Path("reports"), now=None):
         healthy = {source["source"] for source in report["source_health"] if source.get("status") == "healthy"}
         if "cisa_kev" not in healthy or not healthy.intersection({"nvd", "github_advisories"}):
             return ""
-        return generated.astimezone(ZoneInfo("Europe/Madrid")).date().isoformat()
+        local = generated.astimezone(ZoneInfo("Europe/Madrid"))
+        if require_after_noon and local.hour < 12:
+            return ""
+        return local.date().isoformat()
     except (OSError, ValueError, KeyError, TypeError, AttributeError):
         return ""
 
 
 if __name__ == "__main__":
-    print(publication_date())
+    print(publication_date(require_after_noon=True))

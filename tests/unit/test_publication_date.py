@@ -37,3 +37,15 @@ def test_missing_or_future_report_must_not_suppress_recovery(tmp_path):
     assert publication_date(tmp_path) == ""
     publish(tmp_path, stamp="2099-01-01T00:00:00+00:00")
     assert publication_date(tmp_path) == ""
+
+
+def test_morning_publication_does_not_suppress_noon_target_in_summer_or_winter(tmp_path):
+    for morning, noon in [
+        ("2026-09-05T09:59:59Z", "2026-09-05T10:00:00Z"),
+        ("2026-01-05T10:59:59Z", "2026-01-05T11:00:00Z"),
+    ]:
+        now = datetime.fromisoformat(noon.replace("Z", "+00:00"))
+        publish(tmp_path, stamp=morning)
+        assert publication_date(tmp_path, now, require_after_noon=True) == ""
+        publish(tmp_path, stamp=noon)
+        assert publication_date(tmp_path, now, require_after_noon=True) == noon[:10]
