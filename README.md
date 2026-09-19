@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-18T14:06:58+00:00  
-**Coverage:** 2026-09-17T14:02:08+00:00 → 2026-09-18T14:02:08+00:00  
+**Updated:** 2026-09-19T13:42:15+00:00  
+**Coverage:** 2026-09-18T12:02:08+00:00 → 2026-09-19T13:38:07+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 221 source-backed developments
-- **Above threshold:** 143
+- **Assessed:** 791 source-backed developments
+- **Above threshold:** 655
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-84609](https://nvd.nist.gov/vuln/detail/CVE-2026-84609) · 9.4/10** — A permissions issue was addressed with improved path validation. This issue is fixed in iOS 27 and iPadOS 27, macOS Gold — CVSS 9.8; detection opportunity
-- **[CVE-2026-28198](https://nvd.nist.gov/vuln/detail/CVE-2026-28198) · 9.4/10** — An authenticated, low-privileged user with access to the NetBackup Flex OS management shell could bypass the cryptograp — CVSS 9.4; detection opportunity
-- **[CVE-2026-28197](https://nvd.nist.gov/vuln/detail/CVE-2026-28197) · 9.4/10** — An authenticated, low-privileged user with access to the NetBackup Flex OS management shell could supply a specially cr — CVSS 9.4; detection opportunity
-- **[CVE-2026-13684](https://nvd.nist.gov/vuln/detail/CVE-2026-13684) · 9.4/10** — An improper encoding or escaping of output vulnerability in SCGI in Synology DiskStation Manager (DSM) before 7.2.1-6905 — CVSS 9.8; detection opportunity
-- **[CVE-2026-13639](https://nvd.nist.gov/vuln/detail/CVE-2026-13639) · 9.4/10** — An insufficient entropy vulnerability in login logic in Synology DiskStation Manager (DSM) before 7.2.1-69057-12, 7.2.2- — CVSS 9.8; detection opportunity
+- **[CVE-2025-39682](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-39682 exploited in CISA KEV: Linux Kernel — CVSS 9.8; priority technology: linux
+- **[CVE-2026-53266](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-53266 exploited in CISA KEV: Linux Kernel — CVSS 8.8; priority technology: linux
+- **[CVE-2025-39964](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-39964 exploited in CISA KEV: Linux Kernel — CVSS 7.8; priority technology: linux
+- **[CVE-2026-77240](https://nvd.nist.gov/vuln/detail/CVE-2026-77240) · 9.4/10** — WACRM is a self-hostable CRM template for WhatsApp. In version 0.7.0 and earlier, the profiles_update row-level security — CVSS 9.9; priority technology: browsers
+- **[CVE-2026-93374](https://nvd.nist.gov/vuln/detail/CVE-2026-93374) · 9.4/10** — Use after free in Dawn in Google Chrome on on Android prior to 153.0.8010.52 allowed a remote attacker to potentially ex — CVSS 9.6; priority technology: browsers
 
 ### Human context
 
@@ -35,8 +35,8 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Hister: A private search engine for the pages you visit and the files you keep](https://github.com/asciimoo/hister)** — Hacker News · 663 points · 175 comments
-[Open discussion](https://news.ycombinator.com/item?id=49743097)
+**[We made Playwright 2x faster and 80% more token efficient](https://github.com/browserbase/stagehand)** — Hacker News · 104 points · 26 comments
+[Open discussion](https://news.ycombinator.com/item?id=49756671)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
