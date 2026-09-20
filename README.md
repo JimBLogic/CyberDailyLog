@@ -9,34 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-19T13:42:15+00:00  
-**Coverage:** 2026-09-18T12:02:08+00:00 → 2026-09-19T13:38:07+00:00  
+**Updated:** 2026-09-20T13:52:45+00:00  
+**Coverage:** 2026-09-19T11:38:07+00:00 → 2026-09-20T13:52:37+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 791 source-backed developments
-- **Above threshold:** 655
+- **Assessed:** 156 source-backed developments
+- **Above threshold:** 109
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-39682](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-39682 exploited in CISA KEV: Linux Kernel — CVSS 9.8; priority technology: linux
-- **[CVE-2026-53266](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-53266 exploited in CISA KEV: Linux Kernel — CVSS 8.8; priority technology: linux
-- **[CVE-2025-39964](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-39964 exploited in CISA KEV: Linux Kernel — CVSS 7.8; priority technology: linux
-- **[CVE-2026-77240](https://nvd.nist.gov/vuln/detail/CVE-2026-77240) · 9.4/10** — WACRM is a self-hostable CRM template for WhatsApp. In version 0.7.0 and earlier, the profiles_update row-level security — CVSS 9.9; priority technology: browsers
-- **[CVE-2026-93374](https://nvd.nist.gov/vuln/detail/CVE-2026-93374) · 9.4/10** — Use after free in Dawn in Google Chrome on on Android prior to 153.0.8010.52 allowed a remote attacker to potentially ex — CVSS 9.6; priority technology: browsers
-
-### Human context
-
-**[HTTP QUERY Method: The Grey Zone Between GET And POST., (Fri, Sep 18th)](https://isc.sans.edu/diary/rss/33352)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> In June 2026 the IETF published RFC 10008\[ 1 \], defining a new HTTP method: &quot;QUERY&quot;. The HTTP protocol faced already by changes (HTTP/2,…
-
-### Community pulse
-
-**[We made Playwright 2x faster and 80% more token efficient](https://github.com/browserbase/stagehand)** — Hacker News · 104 points · 26 comments
-[Open discussion](https://news.ycombinator.com/item?id=49756671)
+- **[CVE-2026-94084](https://nvd.nist.gov/vuln/detail/CVE-2026-94084) · 9.4/10** — Suricata before 8.0.7 has an Http2ThreadMultiBuf use-after-free when a transaction is inspected by rules that use http.r — CVSS 9.4; priority technology: security_products
+- **[CVE-2026-94083](https://nvd.nist.gov/vuln/detail/CVE-2026-94083) · 9.4/10** — Suricata before 8.0.7 has a DoH2 type confusion that can cause an invalid free, because cleanup code for the HTTP2 state — CVSS 9.4; priority technology: security_products
+- **[CVE-2026-92018](https://nvd.nist.gov/vuln/detail/CVE-2026-92018) · 9.4/10** — Sandbox escape in the DOM: Core &amp; HTML component. This vulnerability was fixed in Firefox 156, Firefox ESR 115.41, Firef — CVSS 9.6; priority technology: browsers
+- **[CVE-2026-90817](https://nvd.nist.gov/vuln/detail/CVE-2026-90817) · 9.4/10** — An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import proce — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-94107](https://nvd.nist.gov/vuln/detail/CVE-2026-94107) · 9.4/10** — NivoCart through 2.4.0 contains a predictable password reset token vulnerability in the forgotten.php endpoint that gene — CVSS 9.2; detection opportunity
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
