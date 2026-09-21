@@ -9,23 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-20T13:52:45+00:00  
-**Coverage:** 2026-09-19T11:38:07+00:00 → 2026-09-20T13:52:37+00:00  
+**Updated:** 2026-09-21T16:09:13+00:00  
+**Coverage:** 2026-09-20T11:52:37+00:00 → 2026-09-21T16:08:47+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 156 source-backed developments
-- **Above threshold:** 109
+- **Assessed:** 275 source-backed developments
+- **Above threshold:** 186
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-94084](https://nvd.nist.gov/vuln/detail/CVE-2026-94084) · 9.4/10** — Suricata before 8.0.7 has an Http2ThreadMultiBuf use-after-free when a transaction is inspected by rules that use http.r — CVSS 9.4; priority technology: security_products
-- **[CVE-2026-94083](https://nvd.nist.gov/vuln/detail/CVE-2026-94083) · 9.4/10** — Suricata before 8.0.7 has a DoH2 type confusion that can cause an invalid free, because cleanup code for the HTTP2 state — CVSS 9.4; priority technology: security_products
-- **[CVE-2026-92018](https://nvd.nist.gov/vuln/detail/CVE-2026-92018) · 9.4/10** — Sandbox escape in the DOM: Core &amp; HTML component. This vulnerability was fixed in Firefox 156, Firefox ESR 115.41, Firef — CVSS 9.6; priority technology: browsers
-- **[CVE-2026-90817](https://nvd.nist.gov/vuln/detail/CVE-2026-90817) · 9.4/10** — An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import proce — CVSS 9.8; priority technology: browsers
-- **[CVE-2026-94107](https://nvd.nist.gov/vuln/detail/CVE-2026-94107) · 9.4/10** — NivoCart through 2.4.0 contains a predictable password reset token vulnerability in the forgotten.php endpoint that gene — CVSS 9.2; detection opportunity
+- **[CVE-2026-85046](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-85046 exploited in CISA KEV: Google Chromium V8 — CVSS 8.8; priority technology: browsers
+- **[CVE-2026-87491](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-87491 exploited in CISA KEV: Google Chromium V8 — CVSS 8.8; priority technology: browsers
+- **[CVE-2026-90042](https://nvd.nist.gov/vuln/detail/CVE-2026-90042) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: ceph: properly decrypt filenames in vmalloc() buffe — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90037](https://nvd.nist.gov/vuln/detail/CVE-2026-90037) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during close_lr — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90036](https://nvd.nist.gov/vuln/detail/CVE-2026-90036) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during blocked- — CVSS 9.8; priority technology: linux
+
+### Human context
+
+**[TerminalFix: PNG Steganography, (Mon, Sep 21st)](https://isc.sans.edu/diary/rss/33318)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> Microsoft Security Research published an interesting blog post &quot; TerminalFix campaign deploys a reverse tunnel through multistage intrusion &quot; about a malware campaign. The…
+
+### Community pulse
+
+**[Kev: Tiny Jev-like family of decision models built on top of Qwen3.5](https://github.com/jaredpalmer/kev/tree/main)** — Hacker News · 278 points · 126 comments
+[Open discussion](https://news.ycombinator.com/item?id=49783999)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

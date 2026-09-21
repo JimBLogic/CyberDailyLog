@@ -1,8 +1,17 @@
 {
-  "above_threshold": 109,
-  "community_pulse": null,
-  "coverage_end": "2026-09-20T13:52:37+00:00",
-  "coverage_start": "2026-09-19T11:38:07+00:00",
+  "above_threshold": 186,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 126,
+    "discussion_url": "https://news.ycombinator.com/item?id=49783999",
+    "published_at": "2026-09-21T07:11:55+00:00",
+    "score": 278,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/jaredpalmer/kev/tree/main",
+    "title": "Kev: Tiny Jev-like family of decision models built on top of Qwen3.5"
+  },
+  "coverage_end": "2026-09-21T16:08:47+00:00",
+  "coverage_start": "2026-09-20T11:52:37+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,14 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-20T13:52:45+00:00",
-  "human_context": null,
-  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
-  "immediate_attention_count": 0,
+  "generated_at": "2026-09-21T16:09:13+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "Microsoft Security Research published an interesting blog post \" TerminalFix campaign deploys a reverse tunnel through multistage intrusion \" about a malware campaign. The\u2026",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-09-21T10:33:53+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33318",
+    "title": "TerminalFix: PNG Steganography, (Mon, Sep 21st)"
+  },
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 156,
+  "qualified_developments": 275,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -41,138 +58,143 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-94084"
+        "CVE-2026-85046"
       ],
-      "cvss_score": 9.4,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.72027,
+      "epss_score": 0.01462,
       "ghsa_ids": [],
-      "id": "CVE-2026-94084",
-      "known_exploited": false,
+      "id": "CVE-2026-85046",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: security_products +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Chromium V8"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94084",
-      "title": "Suricata before 8.0.7 has an Http2ThreadMultiBuf use-after-free when a transaction is inspected by rules that use http.r",
-      "why_it_matters": "CVSS 9.4; priority technology: security_products"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 118,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-85046 exploited in CISA KEV: Google Chromium V8",
+      "why_it_matters": "CVSS 8.8; priority technology: browsers"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-87491"
+      ],
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.60708,
+      "epss_score": 0.00997,
+      "ghsa_ids": [],
+      "id": "CVE-2026-87491",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Chromium V8"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 113,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-87491 exploited in CISA KEV: Google Chromium V8",
+      "why_it_matters": "CVSS 8.8; priority technology: browsers"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-94083"
-      ],
-      "cvss_score": 9.4,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-94083",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: security_products +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94083",
-      "title": "Suricata before 8.0.7 has a DoH2 type confusion that can cause an invalid free, because cleanup code for the HTTP2 state",
-      "why_it_matters": "CVSS 9.4; priority technology: security_products"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-92018"
-      ],
-      "cvss_score": 9.6,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.0561,
-      "epss_score": 0.0016,
-      "ghsa_ids": [],
-      "id": "CVE-2026-92018",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: browsers +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92018",
-      "title": "Sandbox escape in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 156, Firefox ESR 115.41, Firef",
-      "why_it_matters": "CVSS 9.6; priority technology: browsers"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-90817"
+        "CVE-2026-90042"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.41211,
+      "epss_score": 0.00492,
       "ghsa_ids": [],
-      "id": "CVE-2026-90817",
+      "id": "CVE-2026-90042",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
+        "priority technology: linux +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817",
-      "title": "An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import proce",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90042",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: ceph: properly decrypt filenames in vmalloc() buffe",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-94107"
+        "CVE-2026-90037"
       ],
-      "cvss_score": 9.2,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.38774,
+      "epss_score": 0.00456,
       "ghsa_ids": [],
-      "id": "CVE-2026-94107",
+      "id": "CVE-2026-90037",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: linux +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94107",
-      "title": "NivoCart through 2.4.0 contains a predictable password reset token vulnerability in the forgotten.php endpoint that gene",
-      "why_it_matters": "CVSS 9.2; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90037",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during close_lr",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-90036"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.39171,
+      "epss_score": 0.00462,
+      "ghsa_ids": [],
+      "id": "CVE-2026-90036",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90036",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during blocked-",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
     }
   ]
 }
