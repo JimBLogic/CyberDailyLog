@@ -1,17 +1,8 @@
 {
-  "above_threshold": 186,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 126,
-    "discussion_url": "https://news.ycombinator.com/item?id=49783999",
-    "published_at": "2026-09-21T07:11:55+00:00",
-    "score": 278,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/jaredpalmer/kev/tree/main",
-    "title": "Kev: Tiny Jev-like family of decision models built on top of Qwen3.5"
-  },
-  "coverage_end": "2026-09-21T16:08:47+00:00",
-  "coverage_start": "2026-09-20T11:52:37+00:00",
+  "above_threshold": 256,
+  "community_pulse": null,
+  "coverage_end": "2026-09-22T06:03:02+00:00",
+  "coverage_start": "2026-09-21T06:03:02+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-21T16:09:13+00:00",
+  "generated_at": "2026-09-22T06:04:11+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Microsoft Security Research published an interesting blog post \" TerminalFix campaign deploys a reverse tunnel through multistage intrusion \" about a malware campaign. The\u2026",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-21T10:33:53+00:00",
+    "published_at": "2026-09-22T03:50:10+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33318",
-    "title": "TerminalFix: PNG Steganography, (Mon, Sep 21st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33356",
+    "title": "ISC Stormcast For Tuesday, September 22nd, 2026 https://isc.sans.edu/podcastdetail/10104, (Tue, Sep 22nd)"
   },
-  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 2,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 275,
+  "qualified_developments": 328,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,141 +51,147 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-85046"
+        "CVE-2024-40766"
       ],
-      "cvss_score": 8.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.72027,
-      "epss_score": 0.01462,
+      "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.97144,
+      "epss_score": 0.18177,
       "ghsa_ids": [],
-      "id": "CVE-2026-85046",
+      "id": "CVE-2024-40766",
       "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
       "products": [
-        "Chromium V8"
+        "SonicOS"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "high CVSS +10"
+        "known ransomware use +25"
       ],
-      "selection_score": 118,
-      "severity": "HIGH",
+      "selection_score": 158,
+      "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-85046 exploited in CISA KEV: Google Chromium V8",
-      "why_it_matters": "CVSS 8.8; priority technology: browsers"
+      "title": "CVE-2024-40766 exploited in CISA KEV: SonicWall SonicOS",
+      "why_it_matters": "CVSS 9.8; EPSS percentile >= 95%"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-87491"
+        "CVE-2026-34486"
       ],
-      "cvss_score": 8.8,
+      "cvss_score": 7.5,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.60708,
-      "epss_score": 0.00997,
+      "epss_percentile": 0.99923,
+      "epss_score": 0.98616,
       "ghsa_ids": [],
-      "id": "CVE-2026-87491",
+      "id": "CVE-2026-34486",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Chromium V8"
+        "Tomcat"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "high CVSS +10"
       ],
-      "selection_score": 113,
+      "selection_score": 140,
       "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-87491 exploited in CISA KEV: Google Chromium V8",
-      "why_it_matters": "CVSS 8.8; priority technology: browsers"
+      "title": "CVE-2026-34486 exploited in CISA KEV: Apache Tomcat",
+      "why_it_matters": "CVSS 7.5; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90042"
+        "CVE-2026-7273"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.41211,
-      "epss_score": 0.00492,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.24603,
+      "epss_score": 0.00315,
       "ghsa_ids": [],
-      "id": "CVE-2026-90042",
-      "known_exploited": false,
+      "id": "CVE-2026-7273",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "GS1900 Series Switches"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90042",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: ceph: properly decrypt filenames in vmalloc() buffe",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 105,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90037"
+        "CVE-2025-31277"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.38774,
-      "epss_score": 0.00456,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.73278,
+      "epss_score": 0.01534,
       "ghsa_ids": [],
-      "id": "CVE-2026-90037",
-      "known_exploited": false,
+      "id": "CVE-2025-31277",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90037",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during close_lr",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 105,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-31277 exploited in CISA KEV: Apple Multiple Products",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90036"
+        "CVE-2023-43000"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.39171,
-      "epss_score": 0.00462,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.89829,
+      "epss_score": 0.03898,
       "ghsa_ids": [],
-      "id": "CVE-2026-90036",
-      "known_exploited": false,
+      "id": "CVE-2023-43000",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90036",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during blocked-",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 105,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2023-43000 exploited in CISA KEV: Apple Multiple Products",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
     }
   ]
 }
