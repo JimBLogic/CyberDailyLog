@@ -8,7 +8,7 @@ const timestamp = (value: string | null | undefined, language: Language) => valu
 const preciseTimestamp = (value: string | null | undefined, language: Language) => value
   ? new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", { timeZone: "Europe/Madrid", dateStyle: "short", timeStyle: "medium" }).format(new Date(value))
   : "—";
-const seconds = (value: number | null | undefined) => value == null ? "—" : value.toLocaleString(undefined, {maximumFractionDigits: 1}) + " s";
+const seconds = (value: number | null | undefined, language: Language) => value == null ? "—" : value.toLocaleString(language === "es" ? "es-ES" : "en-GB", {maximumFractionDigits: 1}) + " s";
 const madridParts = (value: number) => {
   const parts = new Intl.DateTimeFormat("en-CA", {timeZone:"Europe/Madrid",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",hourCycle:"h23"}).formatToParts(new Date(value));
   const get = (type: string) => parts.find(part => part.type === type)?.value ?? "";
@@ -62,10 +62,10 @@ export function OperationalStatus({data, language, now}: {data: DashboardData; l
           [es ? "Workflow creado" : "Workflow created", preciseTimestamp(p.workflowCreated, language)],
           [es ? "Workflow iniciado" : "Workflow started", preciseTimestamp(p.workflowStarted, language)],
           [es ? "Publicación completada" : "Publication completed", preciseTimestamp(p.actual, language)],
-          [es ? "Objetivo → solicitud" : "Target → request", seconds(p.requestLagSeconds)],
-          [es ? "Solicitud → creación" : "Request → creation", seconds(p.dispatchSeconds)],
-          [es ? "Cola del workflow" : "Workflow queue", seconds(p.queueSeconds)],
-          [es ? "Recogida de fuentes" : "Source collection", seconds(p.fetchSeconds)],
+          [es ? "Objetivo → solicitud" : "Target → request", seconds(p.requestLagSeconds, language)],
+          [es ? "Solicitud → creación" : "Request → creation", seconds(p.dispatchSeconds, language)],
+          [es ? "Cola del workflow" : "Workflow queue", seconds(p.queueSeconds, language)],
+          [es ? "Recogida de fuentes" : "Source collection", seconds(p.fetchSeconds, language)],
         ].map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}
       </tbody></table>
       {attempt ? <p><strong>{es ? "Último intento: " : "Latest attempt: "}{labels[attempt.status]}</strong><br />
