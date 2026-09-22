@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-22T06:04:11+00:00  
-**Coverage:** 2026-09-21T06:03:02+00:00 → 2026-09-22T06:03:02+00:00  
+**Updated:** 2026-09-22T11:06:16+00:00  
+**Coverage:** 2026-09-21T11:04:58+00:00 → 2026-09-22T11:04:58+00:00  
 **Pipeline:** **Operational**
 
-5 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 328 source-backed developments
-- **Above threshold:** 256
+- **Assessed:** 63 source-backed developments
+- **Above threshold:** 41
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2024-40766](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2024-40766 exploited in CISA KEV: SonicWall SonicOS — CVSS 9.8; EPSS percentile &gt;= 95%
-- **[CVE-2026-34486](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-34486 exploited in CISA KEV: Apache Tomcat — CVSS 7.5; EPSS &gt;= 70%
-- **[CVE-2026-7273](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches — CVSS 8.8; detection opportunity
-- **[CVE-2025-31277](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-31277 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
-- **[CVE-2023-43000](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2023-43000 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
+- **[CVE-2026-89422](https://nvd.nist.gov/vuln/detail/CVE-2026-89422) · 9.4/10** — Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client c — CVSS 9.3; priority technology: microsoft_365
+- **[CVE-2026-93952](https://nvd.nist.gov/vuln/detail/CVE-2026-93952) · 9.4/10** — VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile — CVSS 9.5; detection opportunity
+- **[CVE-2026-93556](https://nvd.nist.gov/vuln/detail/CVE-2026-93556) · 9.4/10** — The ‘/password/guardarClau/recover’ endpoint accepts the ‘usuariId’ parameter, which specifies the account whose passwor — CVSS 9.3; detection opportunity
+- **[CVE-2026-25254](https://nvd.nist.gov/vuln/detail/CVE-2026-25254) · 9.4/10** — Improper authorization leads to Remote Code Execution via SocketIO interface. — CVSS 9.8; detection opportunity
+- **[CVE-2026-90882](https://nvd.nist.gov/vuln/detail/CVE-2026-90882) · 9.4/10** — The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting origin together with Access-C — CVSS 8.7; priority technology: browsers
 
 ### Human context
 

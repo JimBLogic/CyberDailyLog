@@ -2,40 +2,37 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-09-22T06:04:11+00:00  
-**Coverage:** 2026-09-21T06:03:02+00:00 → 2026-09-22T06:03:02+00:00  
+**Updated:** 2026-09-22T11:06:16+00:00  
+**Coverage:** 2026-09-21T11:04:58+00:00 → 2026-09-22T11:04:58+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **328** source-backed developments assessed.
-- **256** met the editorial threshold of **5.0/10** or an exploitation override.
-- **15** unique items are displayed after curation.
+- **63** source-backed developments assessed.
+- **41** met the editorial threshold of **5.0/10** or an exploitation override.
+- **11** unique items are displayed after curation.
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-- **[CVE-2024-40766](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2024-40766 exploited in CISA KEV: SonicWall SonicOS. **Action:** Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.
-- **[CVE-2026-34486](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-34486 exploited in CISA KEV: Apache Tomcat. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2026-7273](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **[CVE-2025-31277](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-31277 exploited in CISA KEV: Apple Multiple Products. **Action:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
-- **[CVE-2023-43000](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2023-43000 exploited in CISA KEV: Apple Multiple Products. **Action:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified in this run.
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-92066 — CVE-2026-92066: Sandbox escape in the Profile Backup component. This vulnerability was fixed in Firefox 156…](https://nvd.nist.gov/vuln/detail/CVE-2026-92066) | 9.4 | 9.8 | 0.1% | — | CVSS 9.8; priority technology: browsers |
-| [CVE-2026-92061 — CVE-2026-92061: Incorrect boundary conditions in the Security: Process Sandboxing component. This…](https://nvd.nist.gov/vuln/detail/CVE-2026-92061) | 9.4 | 9.8 | 0.1% | — | CVSS 9.8; priority technology: browsers |
-| [CVE-2026-92059 — CVE-2026-92059: Incorrect boundary conditions in the DOM: Editor component. This vulnerability was fixed in…](https://nvd.nist.gov/vuln/detail/CVE-2026-92059) | 9.4 | 9.3 | 0.1% | — | CVSS 9.3; priority technology: browsers |
-| [CVE-2026-92057 — CVE-2026-92057: Mitigation bypass in the Enterprise Policies component. This vulnerability was fixed in…](https://nvd.nist.gov/vuln/detail/CVE-2026-92057) | 9.4 | 9.1 | 0.2% | — | CVSS 9.1; priority technology: browsers |
-| [CVE-2026-92051 — CVE-2026-92051: Spoofing issue due to invalid pointer in the Graphics component. This vulnerability was…](https://nvd.nist.gov/vuln/detail/CVE-2026-92051) | 9.4 | 9.1 | 0.1% | — | CVSS 9.1; priority technology: browsers |
-| [CVE-2026-92050 — CVE-2026-92050: Sandbox escape due to race condition in the XPConnect component. This vulnerability was…](https://nvd.nist.gov/vuln/detail/CVE-2026-92050) | 9.4 | 9.1 | 0.1% | — | CVSS 9.1; priority technology: browsers |
-| [CVE-2026-92048 — CVE-2026-92048: Sandbox escape due to incorrect boundary conditions in the Widget: Win32 component. This…](https://nvd.nist.gov/vuln/detail/CVE-2026-92048) | 9.4 | 9.0 | 0.2% | — | CVSS 9.0; priority technology: browsers |
-| [CVE-2026-92045 — CVE-2026-92045: Sandbox escape due to incorrect boundary conditions in the WebRTC component. This…](https://nvd.nist.gov/vuln/detail/CVE-2026-92045) | 9.4 | 9.6 | 0.2% | — | CVSS 9.6; priority technology: browsers |
-| [CVE-2026-92041 — CVE-2026-92041: Mitigation bypass in the DOM: Networking component. This vulnerability was fixed in Firefox…](https://nvd.nist.gov/vuln/detail/CVE-2026-92041) | 9.4 | 9.1 | 0.2% | — | CVSS 9.1; priority technology: browsers |
+| [CVE-2026-89422 — CVE-2026-89422: Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer…](https://nvd.nist.gov/vuln/detail/CVE-2026-89422) | 9.4 | 9.3 | n/a | — | CVSS 9.3; priority technology: microsoft_365 |
+| [CVE-2026-93952 — CVE-2026-93952: VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a…](https://nvd.nist.gov/vuln/detail/CVE-2026-93952) | 9.4 | 9.5 | n/a | — | CVSS 9.5; detection opportunity |
+| [CVE-2026-93556 — CVE-2026-93556: The ‘/password/guardarClau/recover’ endpoint accepts the ‘usuariId’ parameter, which…](https://nvd.nist.gov/vuln/detail/CVE-2026-93556) | 9.4 | 9.3 | n/a | — | CVSS 9.3; detection opportunity |
+| [CVE-2026-25254 — CVE-2026-25254: Improper authorization leads to Remote Code Execution via SocketIO interface.](https://nvd.nist.gov/vuln/detail/CVE-2026-25254) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-90882 — CVE-2026-90882: The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting…](https://nvd.nist.gov/vuln/detail/CVE-2026-90882) | 9.4 | 8.7 | n/a | — | CVSS 8.7; priority technology: browsers |
+| [CVE-2026-92438 — CVE-2026-92438: The Ninja Forms WordPress plugin 3.15.3 does not escape submitted form field values before…](https://nvd.nist.gov/vuln/detail/CVE-2026-92438) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-25265 — CVE-2026-25265: Privilege escalation due to weak configuration while temporary file handling.](https://nvd.nist.gov/vuln/detail/CVE-2026-25265) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-25264 — CVE-2026-25264: Privilege escalation due to weak configuration during package extraction process.](https://nvd.nist.gov/vuln/detail/CVE-2026-25264) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-25255 — CVE-2026-25255: Exposed dangerous function lead to privilege escalation via gRPC server.](https://nvd.nist.gov/vuln/detail/CVE-2026-25255) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2025-1281 — CVE-2025-1281: The BM Content Builder plugin for WordPress is vulnerable to arbitrary file deletion due to…](https://nvd.nist.gov/vuln/detail/CVE-2025-1281) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
 
 ## Human context
 
@@ -61,11 +58,11 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2024-40766:** Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.
-- **CVE-2026-34486:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-7273:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2025-31277:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
-- **CVE-2023-43000:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
+- **CVE-2026-89422:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-93952:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-93556:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-25254:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-90882:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
@@ -76,14 +73,14 @@ Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1717 | 377 ms |  |
-| nvd | yes | healthy | 1321 | 32440 ms |  |
-| github_advisories | yes | healthy | 15 | 681 ms |  |
-| rss_krebs | no | healthy | 0 | 226 ms |  |
-| rss_sans_isc | no | healthy | 2 | 1151 ms |  |
-| github_releases | no | healthy | 0 | 2836 ms |  |
-| hacker_news | no | healthy | 0 | 14468 ms |  |
-| epss | no | healthy | 2652 | 14918 ms |  |
+| cisa_kev | yes | healthy | 1717 | 318 ms |  |
+| nvd | yes | healthy | 1364 | 51545 ms |  |
+| github_advisories | yes | healthy | 15 | 414 ms |  |
+| rss_krebs | no | healthy | 0 | 271 ms |  |
+| rss_sans_isc | no | healthy | 1 | 245 ms |  |
+| github_releases | no | healthy | 0 | 1072 ms |  |
+| hacker_news | no | healthy | 0 | 5009 ms |  |
+| epss | no | healthy | 2653 | 17495 ms |  |
 
 </details>
 
