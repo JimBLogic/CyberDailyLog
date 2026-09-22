@@ -65,15 +65,32 @@ export function normalizePublication(value: unknown) {
   const raw = record(value);
   if (raw.schema_version !== 2) return null;
   const statuses = ["on_time", "delayed", "stale", "failed", "unknown"];
-  const stages = ["scheduler", "workflow_queue", "pipeline", "publication", "within_threshold", "unknown"];
+  const stages = ["scheduler", "dispatch", "workflow_queue", "pipeline", "publication", "within_threshold", "unknown"];
   const slo = record(raw.slo);
-  const runUrl = safeWebUrl(raw.run_url);
+  const evidenceUrl = (value: unknown) => {
+    const url = safeWebUrl(value);
+    return /^https:\/\/github\.com\/JimBLogic\/CyberDailyLog\/actions\/runs\/\d+(?:\?[^#]*)?$/.test(url) ? url : "";
+  };
+  const origin = (value: unknown) => ["external_push", "external", "schedule", "manual", "push", "workflow_dispatch"].includes(String(value)) ? String(value) : "unknown";
+  const attempt = record(raw.last_attempt);
   return {
     status: statuses.includes(String(raw.status)) ? String(raw.status) : "unknown",
     scheduledFor: date(raw.scheduled_for), actual: date(raw.actual_publication_time),
     reportGenerated: date(raw.report_generated), lagSeconds: number(raw.publication_lag_seconds, 31_536_000),
     rootCause: stages.includes(String(raw.root_cause_stage)) ? String(raw.root_cause_stage) : "unknown",
-    runUrl: runUrl.startsWith("https://github.com/JimBLogic/CyberDailyLog/actions/runs/") ? runUrl : "",
+    runUrl: evidenceUrl(raw.run_url), origin: origin(raw.trigger_origin),
+    requestedAt: date(raw.dispatch_requested_at), workflowCreated: date(raw.workflow_created),
+    workflowStarted: date(raw.workflow_actual_start), fetchSeconds: number(raw.fetch_duration_seconds, 86_400),
+    requestLagSeconds: number(raw.scheduler_request_lag_seconds, 31_536_000),
+    dispatchSeconds: number(raw.dispatch_creation_lag_seconds, 31_536_000),
+    queueSeconds: number(raw.workflow_queue_seconds, 31_536_000),
+    lastAttempt: Object.keys(attempt).length ? {
+      status: [...statuses, "skipped"].includes(String(attempt.status)) ? String(attempt.status) : "unknown",
+      origin: origin(attempt.trigger_origin), created: date(attempt.workflow_created),
+      scheduledFor: date(attempt.trigger_scheduled_for),
+      creationLagSeconds: number(attempt.trigger_creation_lag_seconds, 31_536_000),
+      runUrl: evidenceUrl(attempt.run_url),
+    } : null,
     sloPercentage: number(slo.attainment_percentage, 100), measuredDays: number(slo.measured_publications, 30),
     fullWindow: slo.full_window_observed === true, evaluatedAt: date(slo.evaluated_at),
   };

@@ -972,7 +972,7 @@ function DataDelivery({
           official: "Respaldo oficial activo",
           fallback: "Informe de respaldo verificado",
           stale: "El informe necesita actualizarse",
-          note: "Recogida prevista a las 12:00; recuperación a las 12:17 y 13:30 si falta el informe. GitHub puede retrasar el inicio. Actualizar el panel comprueba lo publicado, sin lanzar una nueva recogida.",
+          note: "Solicitud externa a las 12:00 y recuperación a las 13:00 si falta el informe. Los cron de GitHub quedan como respaldo a las 12:00, 12:17 y 13:30. El horario es Europe/Madrid; la puntualidad se comprueba con la publicación real. Actualizar el panel no lanza una recogida.",
         }
       : {
           label: "Data status",
@@ -983,7 +983,7 @@ function DataDelivery({
           official: "Official backup active",
           fallback: "Verified backup report",
           stale: "The report needs an update",
-          note: "Collection is scheduled for 12:00; recovery at 12:17 and 13:30 if the report is missing. GitHub may delay the start. Refresh checks published data without starting a new collection.",
+          note: "External request at 12:00, with recovery at 13:00 if the report is missing. GitHub cron remains a backup at 12:00, 12:17 and 13:30. All times use Europe/Madrid; timeliness is measured from actual publication. Refresh does not start collection.",
         };
 
   return (
@@ -1609,7 +1609,7 @@ function InterviewProof({
         </div>
         <div>
           <span>{t.recoveryRun}</span>
-          <strong>12:17 · 13:30</strong>
+          <strong>12:17 · 13:00 · 13:30</strong>
           <small>{t.madridTime}</small>
         </div>
         <div>
@@ -2094,7 +2094,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Runtime fijado"],
             ["Cobertura", "≥85 %", "El umbral no se rebaja"],
-            ["Automatización", "3 ventanas", "12:00 + recuperación 12:17 y 13:30 · Europe/Madrid"],
+            ["Automatización", "2 vías", "Solicitud externa 12:00 y 13:00 · cron de respaldo · Europe/Madrid"],
             ["Modo local", "Offline", "Fixtures sin secretos ni publicación"],
           ],
           mapTitle: "Mapa autorizado del repositorio",
@@ -2143,7 +2143,7 @@ function EngineeringView({
           baseline: [
             ["Python", "3.12", "Pinned runtime"],
             ["Coverage", "≥85%", "The threshold is not lowered"],
-            ["Automation", "3 windows", "12:00 + 12:17 and 13:30 recovery · Europe/Madrid"],
+            ["Automation", "2 routes", "External request at 12:00 and 13:00 · cron backup · Europe/Madrid"],
             ["Local mode", "Offline", "Fixtures, no secrets or publishing"],
           ],
           mapTitle: "Authoritative repository map",

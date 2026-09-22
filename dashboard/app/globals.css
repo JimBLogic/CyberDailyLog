@@ -4140,6 +4140,13 @@ a {
 .operational-caption a, .cti-history a { color: #1747d1; text-decoration: underline; text-underline-offset: 3px; }
 .operational-good { color: #267243; }
 .operational-note { color: #9b4919; }
+.publication-evidence { margin-top: 18px; border-top: 1px solid #ddd; padding-top: 14px; font-size: 14px; line-height: 1.6; }
+.publication-evidence summary { cursor: pointer; font-weight: 600; }
+.publication-evidence table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.publication-evidence caption { text-align: left; font-weight: 600; padding: 10px 0; }
+.publication-evidence th, .publication-evidence td { padding: 8px 4px; text-align: left; border-bottom: 1px solid #e5e5e5; overflow-wrap: anywhere; vertical-align: top; }
+.publication-evidence th { font-weight: 500; }
+.publication-evidence a { color: #1747d1; text-decoration: underline; text-underline-offset: 3px; }
 .cti-totals { border-top: 1px solid #ddd; margin-top: 20px; padding-top: 18px; }
 .cti-history { border: 1px solid #ddd; padding: 18px; margin: 20px 0; border-radius: 8px; }
 .cti-history p, .cti-history li { font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
