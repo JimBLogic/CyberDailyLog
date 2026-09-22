@@ -8,6 +8,8 @@ Scheduled runs and pushes to pipeline/configuration/workflow paths on main reque
 
 `reports/publication-timing.json` records the target, original workflow creation/start, fetch window, generation, commit, successful push and root-cause stage. Its rolling daily SLO includes failed and missing days after monitoring began; retries cannot add extra successful days. The initial measured failure and limits are documented in [CTI reliability](cti-reliability.md). Review the 30-day observation before claiming that the 95% objective is met.
 
+Scheduled recovery attempts also retain timing when preflight skips collection. The latest publication remains in `publication-timing.json`, alongside `last_attempt`; the history retains each attempt without counting skipped jobs as successful days. See the [21 September incident](scheduler-incident-2026-09-21.md) and [external wake-up activation record](../ops/scheduler/README.md). The connected scheduler writes a single request file to start the workflow through push events, independently of GitHub cron. The optional systemd adapter and timer examples remain uninstalled templates.
+
 ## First live dry run
 
 1. Open **Actions** in GitHub.

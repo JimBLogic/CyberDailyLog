@@ -8,6 +8,7 @@ from cyberdailylog.reliability import (
     slo_summary,
     record_attempt,
     parse_timestamp,
+    publication_view,
 )
 
 NOW = datetime(2026, 9, 17, 13, tzinfo=timezone.utc)
@@ -123,3 +124,105 @@ def test_history_replaces_same_attempt_keeps_anchor_and_excludes_preview():
     history = record_attempt([first], later, parse_timestamp("2026-11-01T15:00:00Z"))
     assert len(history) == 1
     assert slo_summary(history, parse_timestamp("2026-11-01T15:00:00Z"))["measured_publications"] == 30
+
+
+def test_skipped_recovery_keeps_publication_and_records_its_late_trigger():
+    published = evidence()
+    recovery = evidence(
+        GITHUB_RUN_ID="recovery",
+        TRIGGER_CRON="17 12 * * *",
+        PREFLIGHT_SHOULD_RUN="false",
+        PREFLIGHT_REASON="a report is already published",
+        COLLECT_RESULT="skipped",
+        PUBLISH_RESULT="skipped",
+        COMMIT_CREATED="",
+        PUSH_COMPLETED="",
+    )
+    assert recovery["status"] == "skipped"
+    assert recovery["actual_publication_time"] is None
+    assert recovery["trigger_creation_lag_seconds"] == 15248
+    history = record_attempt([published], recovery, NOW)
+    view = publication_view(published, recovery, history, NOW)
+    assert view["actual_publication_time"] == published["actual_publication_time"]
+    assert view["run_id"] == published["run_id"]
+    assert view["last_attempt"]["run_id"] == "recovery"
+    assert view["slo"]["measured_publications"] == 2
+    assert view["slo"]["on_time_publications"] == 0
+    assert publication_view({}, recovery, [recovery], NOW)["status"] == "unknown"
+
+
+def test_external_request_measures_dispatch_delay_without_moving_daily_target():
+    row = evidence(
+        GITHUB_EVENT_NAME="workflow_dispatch",
+        TRIGGER_CRON="",
+        TRIGGER_ORIGIN="external",
+        DISPATCH_REQUESTED_AT="2026-09-16T10:00:05Z",
+    )
+    assert row["scheduled_for"] == "2026-09-16T10:00:00+00:00"
+    assert row["root_cause_stage"] == "dispatch"
+    assert row["dispatch_creation_lag_seconds"] == 16263
+    assert row["publication_lag_seconds"] == 16323
+    invalid = evidence(GITHUB_EVENT_NAME="workflow_dispatch", DISPATCH_REQUESTED_AT="2099-01-01T12:00:00Z")
+    assert invalid["scheduled_for"] is None and invalid["status"] == "unknown"
+    assert invalid["dispatch_timestamp_error"]
+    assert evidence(GITHUB_EVENT_NAME="workflow_dispatch", DISPATCH_REQUESTED_AT="bad")["status"] == "unknown"
+
+
+def test_monitoring_anchor_survives_when_only_skipped_attempts_remain():
+    row = {
+        **evidence(),
+        "status": "skipped",
+        "scheduled_for": "2026-11-01T11:00:00Z",
+        "monitoring_started_at": "2026-09-16T10:00:00Z",
+    }
+    result = slo_summary([row], parse_timestamp("2026-11-01T15:00:00Z"))
+    assert result["measured_publications"] == 30
+    assert all(day["status"] == "missing" for day in result["days"])
+
+
+def test_external_push_records_immutable_request_time_and_daily_target():
+    row = build_evidence(
+        {"created_at": "2026-09-22T10:00:12Z", "run_started_at": "2026-09-22T10:00:15Z"},
+        [],
+        {},
+        {
+            "GITHUB_EVENT_NAME": "push",
+            "TRIGGER_ORIGIN": "external_push",
+            "DISPATCH_REQUESTED_AT": "2026-09-22T10:00:10Z",
+            "PUBLISH_RESULT": "success",
+            "PUSH_COMPLETED": "2026-09-22T10:01:10Z",
+        },
+    )
+    assert row["scheduled_for"] == "2026-09-22T10:00:00+00:00"
+    assert row["schedule_basis"] == "external request commit timestamp"
+    assert row["scheduler_request_lag_seconds"] == 10
+    assert row["dispatch_creation_lag_seconds"] == 2
+    assert row["workflow_queue_seconds"] == 3
+    assert row["publication_lag_seconds"] == 70 and row["status"] == "on_time"
+
+
+def test_late_external_scheduler_and_early_verification_are_not_on_time():
+    row = evidence(
+        GITHUB_EVENT_NAME="push",
+        TRIGGER_CRON="",
+        TRIGGER_ORIGIN="external_push",
+        DISPATCH_REQUESTED_AT="2026-09-16T14:31:05Z",
+    )
+    assert row["root_cause_stage"] == "scheduler"
+    assert row["scheduler_request_lag_seconds"] == 16265
+    assert row["dispatch_creation_lag_seconds"] == 3
+    assert row["status"] == "stale"
+    early = build_evidence(
+        {"created_at": "2026-09-22T06:00:05Z"},
+        [],
+        {},
+        {
+            "GITHUB_EVENT_NAME": "push",
+            "TRIGGER_ORIGIN": "external_push",
+            "DISPATCH_REQUESTED_AT": "2026-09-22T06:00:00Z",
+            "PUBLISH_RESULT": "success",
+            "PUSH_COMPLETED": "2026-09-22T06:01:00Z",
+        },
+    )
+    assert early["scheduled_for"] is None and early["status"] == "unknown"
+    assert slo_summary([early], NOW)["measured_publications"] == 0

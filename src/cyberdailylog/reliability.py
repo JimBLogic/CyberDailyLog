@@ -62,15 +62,35 @@ def build_evidence(run, health, feed, env):
     ends = [parse_timestamp(s["finished_at"]) for s in health if s.get("finished_at")]
     fetch_start, fetch_end = min(starts, default=None), max(ends, default=None)
     target, trigger = schedule_targets(created, env.get("GITHUB_EVENT_NAME"), env.get("TRIGGER_CRON"))
+    requested = None
+    request_error = None
+    external_push = env.get("GITHUB_EVENT_NAME") == "push" and env.get("TRIGGER_ORIGIN") == "external_push"
+    if (env.get("GITHUB_EVENT_NAME") == "workflow_dispatch" or external_push) and env.get("DISPATCH_REQUESTED_AT"):
+        try:
+            requested = parse_timestamp(env["DISPATCH_REQUESTED_AT"])
+            if not created or not requested or requested > created or created - requested > timedelta(days=2):
+                raise ValueError("External request timestamp is outside the allowed two-day window")
+            target = daily_target(requested) if requested.astimezone(MADRID).hour >= 12 else None
+        except ValueError as error:
+            target, requested, request_error = None, None, str(error)
     results = [env.get(k) for k in ("PREFLIGHT_RESULT", "COLLECT_RESULT", "PUBLISH_RESULT")]
     result = "failure" if any(s in {"failure", "cancelled", "timed_out"} for s in results) else results[-1]
+    skipped = env.get("PREFLIGHT_SHOULD_RUN") == "false" and results[0] == "success"
+    if skipped:
+        result = "skipped"
     actual = pushed if result == "success" else None
     status, lag = publication_status(target, actual, result)
+    if skipped:
+        status = "skipped"
     stage = "unknown"
     if lag is not None and 0 <= lag <= 3600:
         stage = "within_threshold"
     elif trigger and created and delta(created, trigger) > 3600:
         stage = "scheduler"
+    elif requested and target and delta(requested, target) > 3600:
+        stage = "scheduler"
+    elif requested and created and delta(created, requested) > 3600:
+        stage = "dispatch"
     elif started and created and delta(started, created) > 3600:
         stage = "workflow_queue"
     elif generated and started and delta(generated, started) > 3600:
@@ -83,6 +103,7 @@ def build_evidence(run, health, feed, env):
         "run_attempt": env.get("GITHUB_RUN_ATTEMPT"),
         "run_url": f"https://github.com/{env.get('GITHUB_REPOSITORY')}/actions/runs/{env.get('GITHUB_RUN_ID')}",
         "event": env.get("GITHUB_EVENT_NAME"),
+        "trigger_origin": env.get("TRIGGER_ORIGIN") or env.get("GITHUB_EVENT_NAME"),
         "trigger_cron": env.get("TRIGGER_CRON") or None,
         "dry_run": env.get("DRY_RUN") == "true",
         "schedule_timezone": "Europe/Madrid",
@@ -91,12 +112,18 @@ def build_evidence(run, health, feed, env):
         "trigger_scheduled_for": iso(trigger),
         "schedule_basis": "inferred from original run creation and IANA cron slot"
         if trigger
+        else "external request commit timestamp"
+        if requested and external_push
+        else "external request timestamp"
+        if requested
         else "manual recovery"
         if target
         else "unknown",
         "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
         "workflow_created": iso(created),
         "workflow_actual_start": iso(started),
+        "dispatch_requested_at": iso(requested),
+        "dispatch_timestamp_error": request_error,
         "fetch_start": iso(fetch_start),
         "fetch_end": iso(fetch_end),
         "report_generated": iso(generated),
@@ -107,10 +134,15 @@ def build_evidence(run, health, feed, env):
         "status": status,
         "publication_lag_seconds": lag,
         "trigger_start_lag_seconds": delta(started, trigger),
+        "trigger_creation_lag_seconds": delta(created, trigger),
+        "dispatch_creation_lag_seconds": delta(created, requested),
+        "scheduler_request_lag_seconds": delta(requested, target),
         "workflow_queue_seconds": delta(started, created),
         "fetch_duration_seconds": delta(fetch_end, fetch_start),
         "run_to_commit_seconds": delta(commit, started),
         "preflight_result": results[0],
+        "preflight_should_run": env.get("PREFLIGHT_SHOULD_RUN"),
+        "preflight_reason": env.get("PREFLIGHT_REASON"),
         "collect_result": results[1],
         "publish_result": results[2],
         "root_cause_stage": stage,
@@ -125,10 +157,12 @@ def slo_summary(history, now):
     beginning = None
     for row in history:
         target = parse_timestamp(row.get("scheduled_for"))
-        if not target or row.get("dry_run") or row.get("status") == "skipped":
+        if not target or row.get("dry_run"):
             continue
         start = parse_timestamp(row.get("monitoring_started_at")) or target
         beginning = min(beginning, start.date()) if beginning else start.date()
+        if row.get("status") == "skipped":
+            continue
         day = target.astimezone(MADRID).date()
         if cutoff <= day <= today:
             days.setdefault(day, []).append(row)
@@ -185,3 +219,17 @@ def record_attempt(history, evidence, now):
             rows.append(row)
     rows.append(evidence)
     return rows
+
+
+def publication_view(previous, evidence, history, now):
+    """Keep publication evidence visible when a later recovery skips collection."""
+    view = (
+        dict(previous)
+        if evidence.get("status") == "skipped" and previous.get("schema_version") == 2
+        else dict(evidence)
+    )
+    if view.get("status") == "skipped":
+        view["status"] = "unknown"
+    view["last_attempt"] = dict(evidence)
+    view["slo"] = slo_summary(history, now)
+    return view

@@ -5,7 +5,7 @@ import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
-from cyberdailylog.reliability import build_evidence, record_attempt, slo_summary
+from cyberdailylog.reliability import build_evidence, record_attempt, publication_view
 
 
 def read_json(path, default):
@@ -23,8 +23,8 @@ def main():
     )
     history = record_attempt(read_json(args.history, []), evidence, now)
     args.history.write_text(json.dumps(history, indent=2, sort_keys=True) + "\n")
-    evidence["slo"] = slo_summary(history, now)
-    args.output.write_text(json.dumps(evidence, indent=2, sort_keys=True) + "\n")
+    view = publication_view(read_json(args.output, {}), evidence, history, now)
+    args.output.write_text(json.dumps(view, indent=2, sort_keys=True) + "\n")
     return 0
 
 
