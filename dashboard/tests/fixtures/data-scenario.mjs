@@ -56,6 +56,13 @@ globalThis.fetch = async (input) => {
     publication_lag_seconds:60,report_generated:report.generated_at,root_cause_stage:'within_threshold',
     run_url:'https://github.com/JimBLogic/CyberDailyLog/actions/runs/123',
     slo:{attainment_percentage:100,measured_publications:1,full_window_observed:false,evaluated_at:iso()},
+    ...(scenario === 'skipped-recovery' ? {
+      status:'delayed',publication_lag_seconds:3999,root_cause_stage:'dispatch',trigger_origin:'external_push',
+      dispatch_requested_at:iso(-4_100_000),workflow_created:iso(-4_097_000),workflow_actual_start:iso(-4_097_000),
+      dispatch_creation_lag_seconds:3,workflow_queue_seconds:0,fetch_duration_seconds:76.384,
+      last_attempt:{status:'skipped',trigger_origin:'schedule',workflow_created:iso(),trigger_creation_lag_seconds:14790,
+        run_url:'https://github.com/JimBLogic/CyberDailyLog/actions/runs/456'},
+    } : {}),
   });
   return new Response('Unavailable', {status:503});
 };
@@ -105,6 +112,18 @@ if (['future','offline'].includes(scenario)) {
     assert.equal(data.publicationReliability.actual,null);
     assert.equal(data.publicationReliability.sloPercentage,null);
     assert.equal(data.publicationReliability.runUrl,'');
+  }
+  if (scenario === 'skipped-recovery') {
+    const p = data.publicationReliability;
+    assert.equal(p.status,'delayed');
+    assert.equal(p.lagSeconds,3999);
+    assert.equal(p.origin,'external_push');
+    assert.equal(p.rootCause,'dispatch');
+    assert.equal(p.dispatchSeconds,3);
+    assert.equal(p.queueSeconds,0);
+    assert.equal(p.lastAttempt.status,'skipped');
+    assert.equal(p.lastAttempt.creationLagSeconds,14790);
+    assert.notEqual(p.runUrl,p.lastAttempt.runUrl);
   }
   const csv = await worker.fetch(new Request('http://localhost/api/export?format=csv'),env,ctx);
   const text = await csv.text();

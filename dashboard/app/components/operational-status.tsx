@@ -5,6 +5,10 @@ type Language = "es" | "en";
 const timestamp = (value: string | null | undefined, language: Language) => value
   ? new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", { timeZone: "Europe/Madrid", dateStyle: "short", timeStyle: "short" }).format(new Date(value))
   : "—";
+const preciseTimestamp = (value: string | null | undefined, language: Language) => value
+  ? new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", { timeZone: "Europe/Madrid", dateStyle: "short", timeStyle: "medium" }).format(new Date(value))
+  : "—";
+const seconds = (value: number | null | undefined, language: Language) => value == null ? "—" : value.toLocaleString(language === "es" ? "es-ES" : "en-GB", {maximumFractionDigits: 1}) + " s";
 const madridParts = (value: number) => {
   const parts = new Intl.DateTimeFormat("en-CA", {timeZone:"Europe/Madrid",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",hourCycle:"h23"}).formatToParts(new Date(value));
   const get = (type: string) => parts.find(part => part.type === type)?.value ?? "";
@@ -19,11 +23,15 @@ export function OperationalStatus({data, language, now}: {data: DashboardData; l
   const missingToday = Boolean(current && measured && current.day > measured.day && current.hour >= 13);
   const status = missingToday ? "stale" : p?.status ?? "unknown";
   const labels: Record<string, string> = es
-    ? {on_time:"En plazo",delayed:"Con retraso",stale:"Fuera de plazo",failed:"Fallida",unknown:"Sin medición"}
-    : {on_time:"On time",delayed:"Delayed",stale:"Overdue",failed:"Failed",unknown:"Not measured"};
+    ? {on_time:"En plazo",delayed:"Con retraso",stale:"Fuera de plazo",failed:"Fallida",unknown:"Sin medición",skipped:"Omitido: informe ya publicado"}
+    : {on_time:"On time",delayed:"Delayed",stale:"Overdue",failed:"Failed",unknown:"Not measured",skipped:"Skipped: report already published"};
   const causes: Record<string, string> = es
-    ? {scheduler:"Antes de crear la ejecución",workflow_queue:"Cola de ejecución",pipeline:"Recogida y generación",publication:"Publicación",within_threshold:"Dentro del objetivo",unknown:"Origen sin determinar"}
-    : {scheduler:"Before workflow creation",workflow_queue:"Workflow queue",pipeline:"Collection and generation",publication:"Publication",within_threshold:"Within objective",unknown:"Cause undetermined"};
+    ? {scheduler:"Antes de crear la ejecución",dispatch:"Entre solicitud y creación",workflow_queue:"Cola de ejecución",pipeline:"Recogida y generación",publication:"Publicación",within_threshold:"Dentro del objetivo",unknown:"Origen sin determinar"}
+    : {scheduler:"Before workflow creation",dispatch:"Between request and creation",workflow_queue:"Workflow queue",pipeline:"Collection and generation",publication:"Publication",within_threshold:"Within objective",unknown:"Cause undetermined"};
+  const origins: Record<string, string> = es
+    ? {external_push:"Solicitud externa",external:"Solicitud externa",schedule:"Cron de GitHub",manual:"Manual",workflow_dispatch:"Manual",push:"Cambio en el repositorio",unknown:"Sin identificar"}
+    : {external_push:"External request",external:"External request",schedule:"GitHub cron",manual:"Manual",workflow_dispatch:"Manual",push:"Repository change",unknown:"Unidentified"};
+  const attempt = p?.lastAttempt;
   const optional = data.sourceHealth.filter(source => !source.required);
   const gaps = optional.filter(source => source.status !== "healthy" || !source.finishedAt || (now && now - Date.parse(source.finishedAt) > 36 * 3_600_000));
   const cti = data.ctiSummary;
@@ -44,6 +52,29 @@ export function OperationalStatus({data, language, now}: {data: DashboardData; l
       {" "}{es ? "Mide publicación en GitHub; el panel comprueba novedades cada 15 min." : "Measures GitHub publication; the dashboard checks updates every 15 minutes."}
       {p?.runUrl ? <> <a href={p.runUrl} target="_blank" rel="noreferrer">{es ? "Ver evidencia" : "View evidence"} ↗</a></> : null}
     </p>
+    {p ? <details className="publication-evidence">
+      <summary>{es ? "Cronología y último intento" : "Timeline and latest attempt"}</summary>
+      <p>{es ? "Origen de la publicación: " : "Publication trigger: "}{origins[p.origin]} · Europe/Madrid</p>
+      <table><caption>{es ? "Hitos de la publicación medida" : "Measured publication milestones"}</caption><tbody>
+        {[
+          [es ? "Objetivo" : "Target", preciseTimestamp(p.scheduledFor, language)],
+          [es ? "Solicitud externa" : "External request", preciseTimestamp(p.requestedAt, language)],
+          [es ? "Workflow creado" : "Workflow created", preciseTimestamp(p.workflowCreated, language)],
+          [es ? "Workflow iniciado" : "Workflow started", preciseTimestamp(p.workflowStarted, language)],
+          [es ? "Publicación completada" : "Publication completed", preciseTimestamp(p.actual, language)],
+          [es ? "Objetivo → solicitud" : "Target → request", seconds(p.requestLagSeconds, language)],
+          [es ? "Solicitud → creación" : "Request → creation", seconds(p.dispatchSeconds, language)],
+          [es ? "Cola del workflow" : "Workflow queue", seconds(p.queueSeconds, language)],
+          [es ? "Recogida de fuentes" : "Source collection", seconds(p.fetchSeconds, language)],
+        ].map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}
+      </tbody></table>
+      {attempt ? <p><strong>{es ? "Último intento: " : "Latest attempt: "}{labels[attempt.status]}</strong><br />
+        {origins[attempt.origin]} · {preciseTimestamp(attempt.created, language)}.
+        {attempt.creationLagSeconds != null ? <> {es ? "Retraso hasta su creación: " : "Delay before creation: "}{(attempt.creationLagSeconds / 60).toFixed(1)} min.</> : null}
+        {attempt.status === "skipped" ? <> {es ? "Este intento no cuenta como otra publicación ni mejora el SLO." : "This attempt is not another publication and does not improve the SLO."}</> : null}
+        {attempt.runUrl ? <> <a href={attempt.runUrl} target="_blank" rel="noreferrer">{es ? "Ver intento" : "View attempt"} ↗</a></> : null}
+      </p> : null}
+    </details> : null}
     <div className="operational-grid cti-totals">
       <div><span>{es ? "CVE nuevas observadas" : "Newly observed CVEs"}</span><strong>{cti?.newVulnerabilities ?? "—"}</strong></div>
       <div><span>{es ? "CVE con cambios de estado" : "CVEs with state changes"}</span><strong>{cti?.stateChanges ?? "—"}</strong></div>

@@ -10,6 +10,8 @@ Scheduled runs and pushes to pipeline/configuration/workflow paths on main reque
 
 Scheduled recovery attempts also retain timing when preflight skips collection. The latest publication remains in `publication-timing.json`, alongside `last_attempt`; the history retains each attempt without counting skipped jobs as successful days. See the [21 September incident](scheduler-incident-2026-09-21.md) and [external wake-up activation record](../ops/scheduler/README.md). The connected scheduler writes a single request file to start the workflow through push events, independently of GitHub cron. The optional systemd adapter and timer examples remain uninstalled templates.
 
+The connected scheduler has separate daily tasks for 12:00 publication and 13:00 recovery in Europe/Madrid. An early start of up to ten minutes waits for noon instead of abandoning the day's request. The task definitions are versioned in `ops/scheduler/automations.json`; their existence is not a guarantee of punctual delivery. The dashboard separates the successful publication timeline from the most recent recovery attempt, including skipped runs.
+
 ## First live dry run
 
 1. Open **Actions** in GitHub.
