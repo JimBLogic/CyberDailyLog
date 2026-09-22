@@ -1,0 +1,14 @@
+[Unit]
+Description=Trigger CyberDailyLog at noon Madrid with bounded recovery
+
+[Timer]
+OnCalendar=*-*-* 12:00:00 Europe/Madrid
+OnCalendar=*-*-* 12:20:00 Europe/Madrid
+OnCalendar=*-*-* 12:40:00 Europe/Madrid
+AccuracySec=1s
+RandomizedDelaySec=0
+Persistent=false
+Unit=cyberdailylog-dispatch.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=CyberDailyLog independent publication trigger
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=cyberdailylog
+Group=cyberdailylog
+EnvironmentFile=/etc/cyberdailylog/scheduler.env
+ExecStart=/usr/bin/python3 /opt/cyberdailylog/scripts/dispatch_due.py --apply
+TimeoutStartSec=60
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true

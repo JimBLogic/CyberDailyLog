@@ -22,6 +22,16 @@ name: Daily Blue Team Intelligence
         required: true
         type: boolean
         default: false
+      dispatch_requested_at:
+        description: Optional UTC timestamp supplied by an independent scheduler
+        required: false
+        type: string
+      trigger_origin:
+        description: Trigger origin for timing evidence
+        required: false
+        type: choice
+        options: [manual, external]
+        default: manual
 permissions:
   contents: read
 concurrency:
@@ -243,7 +253,8 @@ jobs:
   timing:
     name: Publication timing evidence
     needs: [preflight, collect, publish]
-    if: ${{ always() && needs.preflight.outputs.should_run != 'false' && inputs.dry_run != true && github.ref == 'refs/heads/main' }}
+    # Keep evidence for late/skipped recoveries without rerunning collection.
+    if: ${{ always() && inputs.dry_run != true && github.ref == 'refs/heads/main' }}
     permissions:
       actions: read
       contents: write
@@ -269,6 +280,10 @@ jobs:
         if: ${{ always() }}
         env:
           TRIGGER_CRON: ${{ github.event.schedule }}
+          TRIGGER_ORIGIN: ${{ inputs.trigger_origin }}
+          DISPATCH_REQUESTED_AT: ${{ inputs.dispatch_requested_at }}
+          PREFLIGHT_SHOULD_RUN: ${{ needs.preflight.outputs.should_run }}
+          PREFLIGHT_REASON: ${{ needs.preflight.outputs.reason }}
           PREFLIGHT_RESULT: ${{ needs.preflight.result }}
           COLLECT_RESULT: ${{ needs.collect.result }}
           PUBLISH_RESULT: ${{ needs.publish.result }}
