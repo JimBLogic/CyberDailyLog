@@ -64,7 +64,8 @@ def build_evidence(run, health, feed, env):
     target, trigger = schedule_targets(created, env.get("GITHUB_EVENT_NAME"), env.get("TRIGGER_CRON"))
     requested = None
     request_error = None
-    if env.get("GITHUB_EVENT_NAME") == "workflow_dispatch" and env.get("DISPATCH_REQUESTED_AT"):
+    external_push = env.get("GITHUB_EVENT_NAME") == "push" and env.get("TRIGGER_ORIGIN") == "external_push"
+    if (env.get("GITHUB_EVENT_NAME") == "workflow_dispatch" or external_push) and env.get("DISPATCH_REQUESTED_AT"):
         try:
             requested = parse_timestamp(env["DISPATCH_REQUESTED_AT"])
             if not created or not requested or requested > created or created - requested > timedelta(days=2):
@@ -85,6 +86,8 @@ def build_evidence(run, health, feed, env):
     if lag is not None and 0 <= lag <= 3600:
         stage = "within_threshold"
     elif trigger and created and delta(created, trigger) > 3600:
+        stage = "scheduler"
+    elif requested and target and delta(requested, target) > 3600:
         stage = "scheduler"
     elif requested and created and delta(created, requested) > 3600:
         stage = "dispatch"
@@ -109,6 +112,8 @@ def build_evidence(run, health, feed, env):
         "trigger_scheduled_for": iso(trigger),
         "schedule_basis": "inferred from original run creation and IANA cron slot"
         if trigger
+        else "external request commit timestamp"
+        if requested and external_push
         else "external request timestamp"
         if requested
         else "manual recovery"
@@ -131,6 +136,7 @@ def build_evidence(run, health, feed, env):
         "trigger_start_lag_seconds": delta(started, trigger),
         "trigger_creation_lag_seconds": delta(created, trigger),
         "dispatch_creation_lag_seconds": delta(created, requested),
+        "scheduler_request_lag_seconds": delta(requested, target),
         "workflow_queue_seconds": delta(started, created),
         "fetch_duration_seconds": delta(fetch_end, fetch_start),
         "run_to_commit_seconds": delta(commit, started),

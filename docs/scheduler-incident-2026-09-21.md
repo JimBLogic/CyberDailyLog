@@ -35,7 +35,15 @@ All three cron triggers depend on the same GitHub scheduling service. Their nomi
 
 There was also an observability defect: the timing job was disabled when freshness preflight skipped collection. The correction retains every scheduled attempt, its cron expression, creation/start timestamps, explicit creation lag, and preflight decision. `publication-timing-history.json` includes skipped attempts without counting them as publications. `publication-timing.json` preserves the last publication and adds `last_attempt`, so a late recovery cannot erase real publication evidence. The daily SLO still counts failed/missing days and never gains a success from a skipped job.
 
-## Independent trigger, prepared but not activated
+## Independent wake-up through the connected scheduler
+
+The noon automation uses the existing GitHub connection to update only `ops/scheduler/request.json` on `main`, with the commit prefix `ops: request daily publication`. This push starts the daily workflow without GitHub's cron scheduler. It first checks the measured publication for the Madrid calendar day and does not send another request if a successful publication after noon already exists. The workflow's serialized freshness preflight is the final duplicate-publication guard. The request must not use `[skip ci]`, which would also suppress the publication workflow. The unrelated CI workflow ignores a push containing only this request file.
+
+Timing records `trigger_origin: external_push` and GitHub's immutable triggering commit timestamp. It measures noon-to-request, request-to-workflow-creation, workflow queue and publication separately. A late external automation remains a late publication. An activation check before noon does not count as an on-time publication and does not suppress the noon collection. A successful test verifies the push route; daily delivery and the 30-day SLO still require observation.
+
+The activation record and exact automation schedule are maintained in `ops/scheduler/README.md`. The three GitHub cron slots remain additional recovery opportunities. The external scheduler and GitHub's push events/runners can also fail; this arrangement removes the observed common cron dependency without claiming a timing guarantee.
+
+## Optional independent host adapter, not installed
 
 `scripts/dispatch_due.py` is a provider-neutral adapter for an independently scheduled `workflow_dispatch`. The systemd examples in `ops/scheduler/` invoke it at 12:00, 12:20 and 12:40 Madrid time, including DST. It exits if a measured publication already exists and uses GitHub's authenticated workflow preflight as the final duplicate-publication guard. There are at most three external dispatch opportunities daily. It does not keep an Actions runner waiting for noon.
 
@@ -43,4 +51,4 @@ The script previews by default. It sends a request only with `--apply` and `GH_A
 
 The request timestamp travels with the dispatch. Timing separates external request-to-run-creation delay from run queue and publication delay, while retaining the original Madrid noon target. Invalid/future request timestamps cannot create an on-time result. HTTP 204 means accepted, not published; verify the resulting workflow, report and timing evidence.
 
-Activation remains an operational prerequisite. An independent timer removes reliance on GitHub's cron wake-up, but workflow dispatch and runners still need observation. The latest measured SLO is 0 of 6 days on time, a partial 30-day sample. Do not label the SLO fixed until the independent trigger is active and measured publications demonstrate improvement.
+The latest incident-time measured SLO is 0 of 6 days on time, a partial 30-day sample. Neither an enabled trigger nor a successful activation test establishes 95% attainment; measured daily publications must demonstrate improvement.

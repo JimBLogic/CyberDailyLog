@@ -2,7 +2,7 @@ name: Daily Blue Team Intelligence
 "on":
   push:
     branches: [main]
-    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml"]
+    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "ops/scheduler/request.json"]
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
@@ -280,8 +280,12 @@ jobs:
         if: ${{ always() }}
         env:
           TRIGGER_CRON: ${{ github.event.schedule }}
-          TRIGGER_ORIGIN: ${{ inputs.trigger_origin }}
-          DISPATCH_REQUESTED_AT: ${{ inputs.dispatch_requested_at }}
+          # The connected external scheduler can publish one request file without a PAT.
+          # Use GitHub's immutable push commit timestamp, not a moving file on main.
+          TRIGGER_ORIGIN: >-
+            ${{ github.event_name == 'push' && startsWith(github.event.head_commit.message, 'ops: request daily publication') && 'external_push' || inputs.trigger_origin }}
+          DISPATCH_REQUESTED_AT: >-
+            ${{ github.event_name == 'push' && startsWith(github.event.head_commit.message, 'ops: request daily publication') && github.event.head_commit.timestamp || inputs.dispatch_requested_at }}
           PREFLIGHT_SHOULD_RUN: ${{ needs.preflight.outputs.should_run }}
           PREFLIGHT_REASON: ${{ needs.preflight.outputs.reason }}
           PREFLIGHT_RESULT: ${{ needs.preflight.result }}

@@ -3,6 +3,7 @@ name: CI
   pull_request:
   push:
     branches: [main]
+    paths-ignore: ["ops/scheduler/request.json"]
 permissions:
   contents: read
 jobs:

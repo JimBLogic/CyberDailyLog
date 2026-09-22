@@ -178,3 +178,51 @@ def test_monitoring_anchor_survives_when_only_skipped_attempts_remain():
     result = slo_summary([row], parse_timestamp("2026-11-01T15:00:00Z"))
     assert result["measured_publications"] == 30
     assert all(day["status"] == "missing" for day in result["days"])
+
+
+def test_external_push_records_immutable_request_time_and_daily_target():
+    row = build_evidence(
+        {"created_at": "2026-09-22T10:00:12Z", "run_started_at": "2026-09-22T10:00:15Z"},
+        [],
+        {},
+        {
+            "GITHUB_EVENT_NAME": "push",
+            "TRIGGER_ORIGIN": "external_push",
+            "DISPATCH_REQUESTED_AT": "2026-09-22T10:00:10Z",
+            "PUBLISH_RESULT": "success",
+            "PUSH_COMPLETED": "2026-09-22T10:01:10Z",
+        },
+    )
+    assert row["scheduled_for"] == "2026-09-22T10:00:00+00:00"
+    assert row["schedule_basis"] == "external request commit timestamp"
+    assert row["scheduler_request_lag_seconds"] == 10
+    assert row["dispatch_creation_lag_seconds"] == 2
+    assert row["workflow_queue_seconds"] == 3
+    assert row["publication_lag_seconds"] == 70 and row["status"] == "on_time"
+
+
+def test_late_external_scheduler_and_early_verification_are_not_on_time():
+    row = evidence(
+        GITHUB_EVENT_NAME="push",
+        TRIGGER_CRON="",
+        TRIGGER_ORIGIN="external_push",
+        DISPATCH_REQUESTED_AT="2026-09-16T14:31:05Z",
+    )
+    assert row["root_cause_stage"] == "scheduler"
+    assert row["scheduler_request_lag_seconds"] == 16265
+    assert row["dispatch_creation_lag_seconds"] == 3
+    assert row["status"] == "stale"
+    early = build_evidence(
+        {"created_at": "2026-09-22T06:00:05Z"},
+        [],
+        {},
+        {
+            "GITHUB_EVENT_NAME": "push",
+            "TRIGGER_ORIGIN": "external_push",
+            "DISPATCH_REQUESTED_AT": "2026-09-22T06:00:00Z",
+            "PUBLISH_RESULT": "success",
+            "PUSH_COMPLETED": "2026-09-22T06:01:00Z",
+        },
+    )
+    assert early["scheduled_for"] is None and early["status"] == "unknown"
+    assert slo_summary([early], NOW)["measured_publications"] == 0
