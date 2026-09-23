@@ -1,8 +1,17 @@
 {
-  "above_threshold": 41,
-  "community_pulse": null,
-  "coverage_end": "2026-09-22T11:04:58+00:00",
-  "coverage_start": "2026-09-21T11:04:58+00:00",
+  "above_threshold": 586,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 98,
+    "discussion_url": "https://news.ycombinator.com/item?id=49803959",
+    "published_at": "2026-09-22T16:33:45+00:00",
+    "score": 193,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp",
+    "title": "WordPress: Unauthenticated path traversal leading to conditional RCE"
+  },
+  "coverage_end": "2026-09-23T10:01:23+00:00",
+  "coverage_start": "2026-09-22T09:04:58+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-22T11:06:16+00:00",
+  "generated_at": "2026-09-23T10:02:03+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-22T03:50:10+00:00",
+    "published_at": "2026-09-23T02:40:13+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33356",
-    "title": "ISC Stormcast For Tuesday, September 22nd, 2026 https://isc.sans.edu/podcastdetail/10104, (Tue, Sep 22nd)"
+    "source_url": "https://isc.sans.edu/diary/rss/33362",
+    "title": "ISC Stormcast For Wednesday, September 23rd, 2026 https://isc.sans.edu/podcastdetail/10106, (Wed, Sep 23rd)"
   },
-  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
-  "immediate_attention_count": 0,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 63,
+  "qualified_developments": 834,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -49,136 +58,149 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-89422"
+        "CVE-2026-85102"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.26293,
+      "epss_score": 0.00329,
+      "ghsa_ids": [],
+      "id": "CVE-2026-85102",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 123,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-85102 exploited in CISA KEV: Check Point Multiple Products",
+      "why_it_matters": "CVSS 9.8; priority technology: vpn_remote_access"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-94127"
       ],
       "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-89422",
-      "known_exploited": false,
+      "id": "CVE-2026-94127",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "BIG-IP APM"
       ],
-      "selection_score": 33,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89422",
-      "title": "Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client c",
-      "why_it_matters": "CVSS 9.3; priority technology: microsoft_365"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-94127 exploited in CISA KEV: F5 BIG-IP APM",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
         "CVE-2026-93952"
       ],
       "cvss_score": 9.5,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.36318,
+      "epss_score": 0.00424,
       "ghsa_ids": [],
       "id": "CVE-2026-93952",
-      "known_exploited": false,
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "VeloCloud Orchestrator"
       ],
-      "selection_score": 25,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93952",
-      "title": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-93952 exploited in CISA KEV: Arista VeloCloud Orchestrator",
       "why_it_matters": "CVSS 9.5; detection opportunity"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-93556"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-93556",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93556",
-      "title": "The \u2018/password/guardarClau/recover\u2019 endpoint accepts the \u2018usuariId\u2019 parameter, which specifies the account whose passwor",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-25254"
+        "CVE-2026-93616"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-25254",
-      "known_exploited": false,
+      "id": "CVE-2026-93616",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
       ],
-      "selection_score": 25,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25254",
-      "title": "Improper authorization leads to Remote Code Execution via SocketIO interface.",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-93616 exploited in CISA KEV: Check Point Multiple Products",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90882"
+        "CVE-2026-7273"
       ],
-      "cvss_score": 8.7,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.7972,
+      "epss_score": 0.01987,
       "ghsa_ids": [],
-      "id": "CVE-2026-90882",
-      "known_exploited": false,
+      "id": "CVE-2026-7273",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "high CVSS +10",
-        "priority technology: browsers +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "GS1900 Series Switches"
       ],
-      "selection_score": 23,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 105,
       "severity": "HIGH",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90882",
-      "title": "The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting origin together with Access-C",
-      "why_it_matters": "CVSS 8.7; priority technology: browsers"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
     }
   ]
 }

@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-22T11:06:16+00:00  
-**Coverage:** 2026-09-21T11:04:58+00:00 → 2026-09-22T11:04:58+00:00  
+**Updated:** 2026-09-23T10:02:03+00:00  
+**Coverage:** 2026-09-22T09:04:58+00:00 → 2026-09-23T10:01:23+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+5 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 63 source-backed developments
-- **Above threshold:** 41
+- **Assessed:** 834 source-backed developments
+- **Above threshold:** 586
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-89422](https://nvd.nist.gov/vuln/detail/CVE-2026-89422) · 9.4/10** — Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client c — CVSS 9.3; priority technology: microsoft_365
-- **[CVE-2026-93952](https://nvd.nist.gov/vuln/detail/CVE-2026-93952) · 9.4/10** — VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privile — CVSS 9.5; detection opportunity
-- **[CVE-2026-93556](https://nvd.nist.gov/vuln/detail/CVE-2026-93556) · 9.4/10** — The ‘/password/guardarClau/recover’ endpoint accepts the ‘usuariId’ parameter, which specifies the account whose passwor — CVSS 9.3; detection opportunity
-- **[CVE-2026-25254](https://nvd.nist.gov/vuln/detail/CVE-2026-25254) · 9.4/10** — Improper authorization leads to Remote Code Execution via SocketIO interface. — CVSS 9.8; detection opportunity
-- **[CVE-2026-90882](https://nvd.nist.gov/vuln/detail/CVE-2026-90882) · 9.4/10** — The open-vsx.org deployment returned Access-Control-Allow-Origin reflecting the requesting origin together with Access-C — CVSS 8.7; priority technology: browsers
+- **[CVE-2026-85102](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-85102 exploited in CISA KEV: Check Point Multiple Products — CVSS 9.8; priority technology: vpn_remote_access
+- **[CVE-2026-94127](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-94127 exploited in CISA KEV: F5 BIG-IP APM — CVSS 9.3; detection opportunity
+- **[CVE-2026-93952](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-93952 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.5; detection opportunity
+- **[CVE-2026-93616](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-93616 exploited in CISA KEV: Check Point Multiple Products — CVSS 9.8; detection opportunity
+- **[CVE-2026-7273](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches — CVSS 8.8; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, September 22nd, 2026 https://isc.sans.edu/podcastdetail/10104, (Tue, Sep 22nd)](https://isc.sans.edu/diary/rss/33356)**
+**[ISC Stormcast For Wednesday, September 23rd, 2026 https://isc.sans.edu/podcastdetail/10106, (Wed, Sep 23rd)](https://isc.sans.edu/diary/rss/33362)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[WordPress: Unauthenticated path traversal leading to conditional RCE](https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp)** — Hacker News · 193 points · 98 comments
+[Open discussion](https://news.ycombinator.com/item?id=49803959)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
