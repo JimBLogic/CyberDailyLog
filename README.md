@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-23T10:02:03+00:00  
-**Coverage:** 2026-09-22T09:04:58+00:00 → 2026-09-23T10:01:23+00:00  
+**Updated:** 2026-09-24T11:05:29+00:00  
+**Coverage:** 2026-09-23T08:01:23+00:00 → 2026-09-24T11:04:11+00:00  
 **Pipeline:** **Operational**
 
-5 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 834 source-backed developments
-- **Above threshold:** 586
+- **Assessed:** 814 source-backed developments
+- **Above threshold:** 477
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-85102](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-85102 exploited in CISA KEV: Check Point Multiple Products — CVSS 9.8; priority technology: vpn_remote_access
-- **[CVE-2026-94127](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-94127 exploited in CISA KEV: F5 BIG-IP APM — CVSS 9.3; detection opportunity
-- **[CVE-2026-93952](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-93952 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.5; detection opportunity
-- **[CVE-2026-93616](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-93616 exploited in CISA KEV: Check Point Multiple Products — CVSS 9.8; detection opportunity
-- **[CVE-2026-7273](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-7273 exploited in CISA KEV: Zyxel GS1900 Series Switches — CVSS 8.8; detection opportunity
+- **[CVE-2026-63077](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2008-4128](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2008-4128 exploited in CISA KEV: Cisco IOS — CVSS 8.1; EPSS &gt;= 30%
+- **[CVE-2026-97055](https://nvd.nist.gov/vuln/detail/CVE-2026-97055) · 9.4/10** — SigNoz from v0.8.0 before v0.143.0 defaults the JWT tokenizer signing secret (tokenizer::jwt::secret, set via SIGNOZ_TOK — CVSS 9.2; priority technology: microsoft_365
+- **[CVE-2026-93352](https://nvd.nist.gov/vuln/detail/CVE-2026-93352) · 9.4/10** — Laravel-Mediable 7.0.0 before 7.0.2 contains an incomplete patch for CVE-2026-49972 in which the .pht extension is absen — CVSS 9.3; priority technology: linux
+- **[CVE-2000-0944](https://nvd.nist.gov/vuln/detail/CVE-2000-0944) · 9.4/10** — CGI Script Center News Update 1.1 does not properly validate the original news administration password during a password — CVSS 9.8; EPSS percentile &gt;= 95%
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, September 23rd, 2026 https://isc.sans.edu/podcastdetail/10106, (Wed, Sep 23rd)](https://isc.sans.edu/diary/rss/33362)**
+**[One URL, Three Different Tricks, (Thu, Sep 24th)](https://isc.sans.edu/diary/rss/33366)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Yesterday, we received a phishing email with an interesting link. At first sight, it looks like garbage, but every piece of it has been…
 
 ### Community pulse
 
-**[WordPress: Unauthenticated path traversal leading to conditional RCE](https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp)** — Hacker News · 193 points · 98 comments
-[Open discussion](https://news.ycombinator.com/item?id=49803959)
+**[A brief history of Windows scroll bar shortcuts](https://devblogs.microsoft.com/oldnewthing/20260922-00/?p=112719/)** — Hacker News · 146 points · 85 comments
+[Open discussion](https://news.ycombinator.com/item?id=49820065)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
