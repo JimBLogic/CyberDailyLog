@@ -1,17 +1,17 @@
 {
-  "above_threshold": 477,
+  "above_threshold": 26,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 85,
-    "discussion_url": "https://news.ycombinator.com/item?id=49820065",
-    "published_at": "2026-09-23T18:02:08+00:00",
-    "score": 146,
+    "comments": 117,
+    "discussion_url": "https://news.ycombinator.com/item?id=49833867",
+    "published_at": "2026-09-24T17:21:36+00:00",
+    "score": 313,
     "source_name": "Hacker News",
-    "source_url": "https://devblogs.microsoft.com/oldnewthing/20260922-00/?p=112719/",
-    "title": "A brief history of Windows scroll bar shortcuts"
+    "source_url": "https://github.com/devdotfast/whiteboard",
+    "title": "Show HN: Whiteboard (YC W26) \u2013 An open-source IDE for thoughtful software design"
   },
-  "coverage_end": "2026-09-24T11:04:11+00:00",
-  "coverage_start": "2026-09-23T08:01:23+00:00",
+  "coverage_end": "2026-09-25T10:01:05+00:00",
+  "coverage_start": "2026-09-24T09:04:11+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-24T11:05:29+00:00",
+  "generated_at": "2026-09-25T10:01:29+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Yesterday, we received a phishing email with an interesting link. At first sight, it looks like garbage, but every piece of it has been\u2026",
+    "excerpt": "Introduction",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-24T06:25:06+00:00",
+    "published_at": "2026-09-25T06:45:47+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33366",
-    "title": "One URL, Three Different Tricks, (Thu, Sep 24th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33368",
+    "title": "A Closer Look at Malware From the Macfinger ClickFix Campaign, (Fri, Sep 25th)"
   },
   "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 814,
+  "qualified_developments": 83,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -51,7 +51,8 @@
       "total": 5
     },
     "status_counts": {
-      "healthy": 8
+      "failed": 1,
+      "healthy": 7
     },
     "total": 8
   },
@@ -60,141 +61,157 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-63077"
+        "CVE-2026-71362"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.1,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99729,
-      "epss_score": 0.86518,
+      "epss_percentile": 0.82839,
+      "epss_score": 0.02335,
       "ghsa_ids": [],
-      "id": "CVE-2026-63077",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "TeamCity"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 180,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-63077 exploited in CISA KEV: JetBrains TeamCity",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2008-4128"
-      ],
-      "cvss_score": 8.1,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.98326,
-      "epss_score": 0.33917,
-      "ghsa_ids": [],
-      "id": "CVE-2008-4128",
+      "id": "CVE-2026-71362",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "IOS"
+        "Commerce and Magento"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "high CVSS +10"
+        "critical CVSS +20"
       ],
-      "selection_score": 130,
-      "severity": "HIGH",
+      "selection_score": 120,
+      "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2008-4128 exploited in CISA KEV: Cisco IOS",
-      "why_it_matters": "CVSS 8.1; EPSS >= 30%"
+      "title": "CVE-2026-71362 exploited in CISA KEV: Adobe Commerce and Magento",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-5430"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.28583,
+      "epss_score": 0.00374,
+      "ghsa_ids": [],
+      "id": "CVE-2026-5430",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 120,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-5430 exploited in CISA KEV: WSO2 Multiple Products",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-97055"
+        "CVE-2026-59167"
       ],
-      "cvss_score": 9.2,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-97055",
+      "epss_percentile": 0.30657,
+      "epss_score": 0.00393,
+      "ghsa_ids": [
+        "GHSA-6rf4-v2fh-m6p4"
+      ],
+      "id": "CVE-2026-59167",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [],
+      "products": [
+        "suneditor"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 33,
+      "selection_score": 20,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97055",
-      "title": "SigNoz from v0.8.0 before v0.143.0 defaults the JWT tokenizer signing secret (tokenizer::jwt::secret, set via SIGNOZ_TOK",
-      "why_it_matters": "CVSS 9.2; priority technology: microsoft_365"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59167",
+      "title": "SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-93352"
+        "CVE-2025-14813"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.24411,
+      "epss_score": 0.00313,
+      "ghsa_ids": [
+        "GHSA-574f-3g2m-x479"
+      ],
+      "id": "CVE-2025-14813",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [
+        "org.bouncycastle:bcprov-debug-jdk14",
+        "org.bouncycastle:bcprov-debug-jdk15on",
+        "org.bouncycastle:bcprov-debug-jdk15to18"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 20,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14813",
+      "title": ": Use of a Broken or Risky Cryptographic Algorithm vulnerability in Legion of the Bouncy Castle Inc. BC-JAVA bcprov on a",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-61604"
       ],
       "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-93352",
+      "ghsa_ids": [
+        "GHSA-w3rp-4cm2-4wgc"
+      ],
+      "id": "CVE-2026-61604",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
+      "priority_score": 9.1,
+      "products": [
+        "github.com/ixofoundation/ixo-blockchain/v8",
+        "github.com/ixofoundation/ixo-blockchain/v7",
+        "github.com/ixofoundation/ixo-blockchain/v6"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93352",
-      "title": "Laravel-Mediable 7.0.0 before 7.0.2 contains an incomplete patch for CVE-2026-49972 in which the .pht extension is absen",
-      "why_it_matters": "CVSS 9.3; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2000-0944"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.95778,
-      "epss_score": 0.11265,
-      "ghsa_ids": [],
-      "id": "CVE-2000-0944",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "EPSS percentile >= 0.95 +10",
-        "official source +5"
-      ],
-      "selection_score": 30,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2000-0944",
-      "title": "CGI Script Center News Update 1.1 does not properly validate the original news administration password during a password",
-      "why_it_matters": "CVSS 9.8; EPSS percentile >= 95%"
+      "selection_score": 28,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-w3rp-4cm2-4wgc",
+      "title": "ixo Blockchain x/bonds DID-resolved payer drain + x/entity ICA authorization bypass",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     }
   ]
 }
