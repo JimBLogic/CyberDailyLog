@@ -1,16 +1,16 @@
 {
-  "above_threshold": 26,
+  "above_threshold": 1536,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 117,
-    "discussion_url": "https://news.ycombinator.com/item?id=49833867",
-    "published_at": "2026-09-24T17:21:36+00:00",
-    "score": 313,
+    "comments": 771,
+    "discussion_url": "https://news.ycombinator.com/item?id=49845977",
+    "published_at": "2026-09-25T15:29:25+00:00",
+    "score": 445,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/devdotfast/whiteboard",
-    "title": "Show HN: Whiteboard (YC W26) \u2013 An open-source IDE for thoughtful software design"
+    "source_url": "https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html",
+    "title": "U.S. appeals court upholds designation of Anthropic as supply chain risk"
   },
-  "coverage_end": "2026-09-25T10:01:05+00:00",
+  "coverage_end": "2026-09-26T10:03:38+00:00",
   "coverage_start": "2026-09-24T09:04:11+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-25T10:01:29+00:00",
+  "generated_at": "2026-09-26T10:04:47+00:00",
   "human_context": {
-    "author": null,
-    "excerpt": "Introduction",
+    "author": "Brian Krebs",
+    "excerpt": "A U.S. Army soldier who pleaded guilty to hacking into multiple telecommunications companies and stealing mobile call and text metadata for more than 100\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-25T06:45:47+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33368",
-    "title": "A Closer Look at Malware From the Macfinger ClickFix Campaign, (Fri, Sep 25th)"
+    "published_at": "2026-09-25T21:44:40+00:00",
+    "source_name": "Krebs on Security",
+    "source_url": "https://krebsonsecurity.com/2026/09/u-s-soldier-gets-70-months-in-prison-for-att-verizon-extortions/",
+    "title": "U.S. Soldier Gets 70 Months in Prison for AT&T, Verizon Extortions"
   },
-  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 2,
+  "immediate_attention": "23 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 23,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 83,
+  "qualified_developments": 2553,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -51,8 +51,7 @@
       "total": 5
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 7
+      "healthy": 8
     },
     "total": 8
   },
@@ -61,157 +60,147 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-71362"
+        "CVE-2025-26633"
       ],
-      "cvss_score": 9.1,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.82839,
-      "epss_score": 0.02335,
+      "cvss_score": 7.0,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.98172,
+      "epss_score": 0.30391,
       "ghsa_ids": [],
-      "id": "CVE-2026-71362",
+      "id": "CVE-2025-26633",
       "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
       "products": [
-        "Commerce and Magento"
+        "Windows"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "critical CVSS +20"
+        "known ransomware use +25"
       ],
-      "selection_score": 120,
-      "severity": "CRITICAL",
+      "selection_score": 163,
+      "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-71362 exploited in CISA KEV: Adobe Commerce and Magento",
-      "why_it_matters": "CVSS 9.1; detection opportunity"
+      "title": "CVE-2025-26633 exploited in CISA KEV: Microsoft Windows",
+      "why_it_matters": "CVSS 7.0; EPSS >= 30%"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-5430"
+        "CVE-2025-23006"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.97715,
+      "epss_score": 0.23432,
+      "ghsa_ids": [],
+      "id": "CVE-2025-23006",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "SMA1000 Appliances"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 150,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-23006 exploited in CISA KEV: SonicWall SMA1000 Appliances",
+      "why_it_matters": "CVSS 9.8; EPSS percentile >= 95%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2025-57819"
       ],
       "cvss_score": 10.0,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.28583,
-      "epss_score": 0.00374,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99716,
+      "epss_score": 0.85463,
       "ghsa_ids": [],
-      "id": "CVE-2026-5430",
+      "id": "CVE-2025-57819",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Multiple Products"
+        "FreePBX"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 120,
+      "selection_score": 150,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-5430 exploited in CISA KEV: WSO2 Multiple Products",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "title": "CVE-2025-57819 exploited in CISA KEV: Sangoma FreePBX",
+      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-59167"
+        "CVE-2025-32432"
       ],
       "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.30657,
-      "epss_score": 0.00393,
-      "ghsa_ids": [
-        "GHSA-6rf4-v2fh-m6p4"
-      ],
-      "id": "CVE-2026-59167",
-      "known_exploited": false,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99955,
+      "epss_score": 0.99785,
+      "ghsa_ids": [],
+      "id": "CVE-2025-32432",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
+      "priority_score": 9.6,
       "products": [
-        "suneditor"
+        "Craft CMS"
       ],
       "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
       ],
-      "selection_score": 20,
+      "selection_score": 150,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59167",
-      "title": "SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the",
-      "why_it_matters": "CVSS 10.0; detection opportunity"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-32432 exploited in CISA KEV: Craft CMS Craft CMS",
+      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-14813"
+        "CVE-2025-30066"
       ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.24411,
-      "epss_score": 0.00313,
-      "ghsa_ids": [
-        "GHSA-574f-3g2m-x479"
-      ],
-      "id": "CVE-2025-14813",
-      "known_exploited": false,
+      "cvss_score": 8.6,
+      "defensive_action": "Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or\u2026",
+      "epss_percentile": 0.99413,
+      "epss_score": 0.72092,
+      "ghsa_ids": [],
+      "id": "CVE-2025-30066",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
+      "priority_score": 9.6,
       "products": [
-        "org.bouncycastle:bcprov-debug-jdk14",
-        "org.bouncycastle:bcprov-debug-jdk15on",
-        "org.bouncycastle:bcprov-debug-jdk15to18"
+        "changed-files GitHub Action"
       ],
       "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
       ],
-      "selection_score": 20,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14813",
-      "title": ": Use of a Broken or Risky Cryptographic Algorithm vulnerability in Legion of the Bouncy Castle Inc. BC-JAVA bcprov on a",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-61604"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-w3rp-4cm2-4wgc"
-      ],
-      "id": "CVE-2026-61604",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.1,
-      "products": [
-        "github.com/ixofoundation/ixo-blockchain/v8",
-        "github.com/ixofoundation/ixo-blockchain/v7",
-        "github.com/ixofoundation/ixo-blockchain/v6"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-w3rp-4cm2-4wgc",
-      "title": "ixo Blockchain x/bonds DID-resolved payer drain + x/entity ICA authorization bypass",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "selection_score": 148,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-30066 exploited in CISA KEV: tj-actions changed-files GitHub Action",
+      "why_it_matters": "CVSS 8.6; EPSS >= 70%"
     }
   ]
 }

@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-25T10:01:29+00:00  
-**Coverage:** 2026-09-24T09:04:11+00:00 → 2026-09-25T10:01:05+00:00  
+**Updated:** 2026-09-26T10:04:47+00:00  
+**Coverage:** 2026-09-24T09:04:11+00:00 → 2026-09-26T10:03:38+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+23 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 83 source-backed developments
-- **Above threshold:** 26
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 2553 source-backed developments
+- **Above threshold:** 1536
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-71362](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-71362 exploited in CISA KEV: Adobe Commerce and Magento — CVSS 9.1; detection opportunity
-- **[CVE-2026-5430](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-5430 exploited in CISA KEV: WSO2 Multiple Products — CVSS 10.0; detection opportunity
-- **[CVE-2026-59167](https://nvd.nist.gov/vuln/detail/CVE-2026-59167) · 9.4/10** — SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the — CVSS 10.0; detection opportunity
-- **[CVE-2025-14813](https://nvd.nist.gov/vuln/detail/CVE-2025-14813) · 9.4/10** — : Use of a Broken or Risky Cryptographic Algorithm vulnerability in Legion of the Bouncy Castle Inc. BC-JAVA bcprov on a — CVSS 9.3; detection opportunity
-- **[CVE-2026-61604](https://github.com/advisories/GHSA-w3rp-4cm2-4wgc) · 9.1/10** — ixo Blockchain x/bonds DID-resolved payer drain + x/entity ICA authorization bypass — CVSS 9.3; priority technology: cloud
+- **[CVE-2025-26633](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-26633 exploited in CISA KEV: Microsoft Windows — CVSS 7.0; EPSS &gt;= 30%
+- **[CVE-2025-23006](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-23006 exploited in CISA KEV: SonicWall SMA1000 Appliances — CVSS 9.8; EPSS percentile &gt;= 95%
+- **[CVE-2025-57819](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-57819 exploited in CISA KEV: Sangoma FreePBX — CVSS 10.0; EPSS &gt;= 70%
+- **[CVE-2025-32432](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-32432 exploited in CISA KEV: Craft CMS Craft CMS — CVSS 10.0; EPSS &gt;= 70%
+- **[CVE-2025-30066](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-30066 exploited in CISA KEV: tj-actions changed-files GitHub Action — CVSS 8.6; EPSS &gt;= 70%
 
 ### Human context
 
-**[A Closer Look at Malware From the Macfinger ClickFix Campaign, (Fri, Sep 25th)](https://isc.sans.edu/diary/rss/33368)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> Introduction
+**[U.S. Soldier Gets 70 Months in Prison for AT&amp;T, Verizon Extortions](https://krebsonsecurity.com/2026/09/u-s-soldier-gets-70-months-in-prison-for-att-verizon-extortions/)**
+Brian Krebs · Krebs on Security  
+> A U.S. Army soldier who pleaded guilty to hacking into multiple telecommunications companies and stealing mobile call and text metadata for more than 100…
 
 ### Community pulse
 
-**[Show HN: Whiteboard (YC W26) – An open-source IDE for thoughtful software design](https://github.com/devdotfast/whiteboard)** — Hacker News · 313 points · 117 comments
-[Open discussion](https://news.ycombinator.com/item?id=49833867)
+**[U.S. appeals court upholds designation of Anthropic as supply chain risk](https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html)** — Hacker News · 445 points · 771 comments
+[Open discussion](https://news.ycombinator.com/item?id=49845977)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
