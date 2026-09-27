@@ -9,34 +9,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-26T10:04:47+00:00  
-**Coverage:** 2026-09-24T09:04:11+00:00 → 2026-09-26T10:03:38+00:00  
+**Updated:** 2026-09-27T10:04:12+00:00  
+**Coverage:** 2026-09-26T08:03:38+00:00 → 2026-09-27T10:03:59+00:00  
 **Pipeline:** **Operational**
 
-23 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 2553 source-backed developments
-- **Above threshold:** 1536
+- **Assessed:** 303 source-backed developments
+- **Above threshold:** 259
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-26633](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-26633 exploited in CISA KEV: Microsoft Windows — CVSS 7.0; EPSS &gt;= 30%
-- **[CVE-2025-23006](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-23006 exploited in CISA KEV: SonicWall SMA1000 Appliances — CVSS 9.8; EPSS percentile &gt;= 95%
-- **[CVE-2025-57819](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-57819 exploited in CISA KEV: Sangoma FreePBX — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2025-32432](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-32432 exploited in CISA KEV: Craft CMS Craft CMS — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2025-30066](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-30066 exploited in CISA KEV: tj-actions changed-files GitHub Action — CVSS 8.6; EPSS &gt;= 70%
-
-### Human context
-
-**[U.S. Soldier Gets 70 Months in Prison for AT&amp;T, Verizon Extortions](https://krebsonsecurity.com/2026/09/u-s-soldier-gets-70-months-in-prison-for-att-verizon-extortions/)**
-Brian Krebs · Krebs on Security  
-> A U.S. Army soldier who pleaded guilty to hacking into multiple telecommunications companies and stealing mobile call and text metadata for more than 100…
+- **[CVE-2026-100741](https://nvd.nist.gov/vuln/detail/CVE-2026-100741) · 9.4/10** — Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd&#x27;s hMailServer, versions 6.0.0 through 6.3 — CVSS 9.8; priority technology: windows
+- **[CVE-2024-32641](https://nvd.nist.gov/vuln/detail/CVE-2024-32641) · 9.4/10** — Masa CMS is an open source Enterprise Content Management platform. Masa CMS versions prior to 7.2.8, 7.3.13, and 7.4.6 a — CVSS 9.8; EPSS percentile &gt;= 95%
+- **[CVE-2024-13985](https://nvd.nist.gov/vuln/detail/CVE-2024-13985) · 9.4/10** — A command injection vulnerability in Dahua EIMS versions prior to 2240008 allows unauthenticated remote attackers to exe — CVSS 10.0; EPSS percentile &gt;= 95%
+- **[CVE-2026-92289](https://nvd.nist.gov/vuln/detail/CVE-2026-92289) · 9.4/10** — Lemonldap::NG::Portal versions from 2.23.0 before 2.23.4 for Perl allow a PKCE bypass for public Relying Parties in &quot;PKC — CVSS 9.1; priority technology: microsoft_365
+- **[CVE-2026-100684](https://nvd.nist.gov/vuln/detail/CVE-2026-100684) · 9.4/10** — Budibase versions 3.41.0 before 3.45.0 contain an authentication bypass in the OIDC/SSO login path of @budibase/server. — CVSS 9.2; detection opportunity
 
 ### Community pulse
 
-**[U.S. appeals court upholds designation of Anthropic as supply chain risk](https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html)** — Hacker News · 445 points · 771 comments
-[Open discussion](https://news.ycombinator.com/item?id=49845977)
+**[Show HN: Reladraw – A diagram language where you decide where to place things](https://github.com/reladraw/reladraw)** — Hacker News · 306 points · 83 comments
+[Open discussion](https://news.ycombinator.com/item?id=49858513)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
