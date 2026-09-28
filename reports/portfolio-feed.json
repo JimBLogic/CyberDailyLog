@@ -1,17 +1,8 @@
 {
-  "above_threshold": 259,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 83,
-    "discussion_url": "https://news.ycombinator.com/item?id=49858513",
-    "published_at": "2026-09-26T17:10:40+00:00",
-    "score": 306,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/reladraw/reladraw",
-    "title": "Show HN: Reladraw \u2013 A diagram language where you decide where to place things"
-  },
-  "coverage_end": "2026-09-27T10:03:59+00:00",
-  "coverage_start": "2026-09-26T08:03:38+00:00",
+  "above_threshold": 152,
+  "community_pulse": null,
+  "coverage_end": "2026-09-28T10:01:41+00:00",
+  "coverage_start": "2026-09-27T08:03:59+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,14 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-27T10:04:12+00:00",
-  "human_context": null,
-  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
-  "immediate_attention_count": 0,
+  "generated_at": "2026-09-28T10:02:01+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-09-28T02:00:02+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33374",
+    "title": "ISC Stormcast For Monday, September 28th, 2026 https://isc.sans.edu/podcastdetail/10112, (Mon, Sep 28th)"
+  },
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 303,
+  "qualified_developments": 191,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -50,124 +49,101 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-88772"
+      ],
+      "cvss_score": 9.5,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-88772",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "NetScaler"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-88772 exploited in CISA KEV: Citrix NetScaler",
+      "why_it_matters": "CVSS 9.5; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-88771"
+      ],
+      "cvss_score": 9.5,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-88771",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "NetScaler"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-88771 exploited in CISA KEV: Citrix NetScaler",
+      "why_it_matters": "CVSS 9.5; detection opportunity"
+    },
+    {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-100741"
+        "CVE-2026-101065"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-100741",
+      "id": "CVE-2026-101065",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: windows +8",
+        "priority technology: cloud +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100741",
-      "title": "Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd's hMailServer, versions 6.0.0 through 6.3",
-      "why_it_matters": "CVSS 9.8; priority technology: windows"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101065",
+      "title": "Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart",
+      "why_it_matters": "CVSS 9.3; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2024-32641"
+        "CVE-2026-101090"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.96052,
-      "epss_score": 0.12297,
-      "ghsa_ids": [],
-      "id": "CVE-2024-32641",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "EPSS percentile >= 0.95 +10",
-        "official source +5"
-      ],
-      "selection_score": 30,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32641",
-      "title": "Masa CMS is an open source Enterprise Content Management platform. Masa CMS versions prior to 7.2.8, 7.3.13, and 7.4.6 a",
-      "why_it_matters": "CVSS 9.8; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2024-13985"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.96622,
-      "epss_score": 0.15095,
-      "ghsa_ids": [],
-      "id": "CVE-2024-13985",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "EPSS percentile >= 0.95 +10",
-        "official source +5"
-      ],
-      "selection_score": 30,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13985",
-      "title": "A command injection vulnerability in Dahua EIMS versions prior to 2240008 allows unauthenticated remote attackers to exe",
-      "why_it_matters": "CVSS 10.0; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-92289"
-      ],
-      "cvss_score": 9.1,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.11524,
-      "epss_score": 0.00222,
-      "ghsa_ids": [],
-      "id": "CVE-2026-92289",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92289",
-      "title": "Lemonldap::NG::Portal versions from 2.23.0 before 2.23.4 for Perl allow a PKCE bypass for public Relying Parties in \"PKC",
-      "why_it_matters": "CVSS 9.1; priority technology: microsoft_365"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-100684"
-      ],
-      "cvss_score": 9.2,
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-100684",
+      "id": "CVE-2026-101090",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -179,9 +155,35 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100684",
-      "title": "Budibase versions 3.41.0 before 3.45.0 contain an authentication bypass in the OIDC/SSO login path of @budibase/server.",
-      "why_it_matters": "CVSS 9.2; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101090",
+      "title": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-101084"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-101084",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101084",
+      "title": "obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticat",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     }
   ]
 }

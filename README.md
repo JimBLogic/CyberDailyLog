@@ -9,28 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-27T10:04:12+00:00  
-**Coverage:** 2026-09-26T08:03:38+00:00 → 2026-09-27T10:03:59+00:00  
+**Updated:** 2026-09-28T10:02:01+00:00  
+**Coverage:** 2026-09-27T08:03:59+00:00 → 2026-09-28T10:01:41+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 303 source-backed developments
-- **Above threshold:** 259
+- **Assessed:** 191 source-backed developments
+- **Above threshold:** 152
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-100741](https://nvd.nist.gov/vuln/detail/CVE-2026-100741) · 9.4/10** — Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd&#x27;s hMailServer, versions 6.0.0 through 6.3 — CVSS 9.8; priority technology: windows
-- **[CVE-2024-32641](https://nvd.nist.gov/vuln/detail/CVE-2024-32641) · 9.4/10** — Masa CMS is an open source Enterprise Content Management platform. Masa CMS versions prior to 7.2.8, 7.3.13, and 7.4.6 a — CVSS 9.8; EPSS percentile &gt;= 95%
-- **[CVE-2024-13985](https://nvd.nist.gov/vuln/detail/CVE-2024-13985) · 9.4/10** — A command injection vulnerability in Dahua EIMS versions prior to 2240008 allows unauthenticated remote attackers to exe — CVSS 10.0; EPSS percentile &gt;= 95%
-- **[CVE-2026-92289](https://nvd.nist.gov/vuln/detail/CVE-2026-92289) · 9.4/10** — Lemonldap::NG::Portal versions from 2.23.0 before 2.23.4 for Perl allow a PKCE bypass for public Relying Parties in &quot;PKC — CVSS 9.1; priority technology: microsoft_365
-- **[CVE-2026-100684](https://nvd.nist.gov/vuln/detail/CVE-2026-100684) · 9.4/10** — Budibase versions 3.41.0 before 3.45.0 contain an authentication bypass in the OIDC/SSO login path of @budibase/server. — CVSS 9.2; detection opportunity
+- **[CVE-2026-88772](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88772 exploited in CISA KEV: Citrix NetScaler — CVSS 9.5; detection opportunity
+- **[CVE-2026-88771](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88771 exploited in CISA KEV: Citrix NetScaler — CVSS 9.5; detection opportunity
+- **[CVE-2026-101065](https://nvd.nist.gov/vuln/detail/CVE-2026-101065) · 9.4/10** — Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-101090](https://nvd.nist.gov/vuln/detail/CVE-2026-101090) · 9.4/10** — Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard — CVSS 9.3; detection opportunity
+- **[CVE-2026-101084](https://nvd.nist.gov/vuln/detail/CVE-2026-101084) · 9.4/10** — obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticat — CVSS 9.3; detection opportunity
 
-### Community pulse
+### Human context
 
-**[Show HN: Reladraw – A diagram language where you decide where to place things](https://github.com/reladraw/reladraw)** — Hacker News · 306 points · 83 comments
-[Open discussion](https://news.ycombinator.com/item?id=49858513)
+**[ISC Stormcast For Monday, September 28th, 2026 https://isc.sans.edu/podcastdetail/10112, (Mon, Sep 28th)](https://isc.sans.edu/diary/rss/33374)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
