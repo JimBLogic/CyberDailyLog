@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-28T10:02:01+00:00  
-**Coverage:** 2026-09-27T08:03:59+00:00 → 2026-09-28T10:01:41+00:00  
+**Updated:** 2026-09-29T10:04:41+00:00  
+**Coverage:** 2026-09-28T08:01:41+00:00 → 2026-09-29T10:03:23+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
 
-- **Assessed:** 191 source-backed developments
-- **Above threshold:** 152
+- **Assessed:** 433 source-backed developments
+- **Above threshold:** 305
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-88772](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88772 exploited in CISA KEV: Citrix NetScaler — CVSS 9.5; detection opportunity
-- **[CVE-2026-88771](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88771 exploited in CISA KEV: Citrix NetScaler — CVSS 9.5; detection opportunity
-- **[CVE-2026-101065](https://nvd.nist.gov/vuln/detail/CVE-2026-101065) · 9.4/10** — Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart — CVSS 9.3; priority technology: cloud
-- **[CVE-2026-101090](https://nvd.nist.gov/vuln/detail/CVE-2026-101090) · 9.4/10** — Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard — CVSS 9.3; detection opportunity
-- **[CVE-2026-101084](https://nvd.nist.gov/vuln/detail/CVE-2026-101084) · 9.4/10** — obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticat — CVSS 9.3; detection opportunity
+- **[CVE-2026-90049](https://nvd.nist.gov/vuln/detail/CVE-2026-90049) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: net: skbuff: don&#x27;t skb_tx_error() the source skb in — CVSS 9.3; priority technology: linux
+- **[CVE-2026-90048](https://nvd.nist.gov/vuln/detail/CVE-2026-90048) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: fs/ntfs3: fix slab-out-of-bounds write in ni_create — CVSS 9.8; priority technology: linux
+- **[CVE-2026-81867](https://nvd.nist.gov/vuln/detail/CVE-2026-81867) · 9.4/10** — A Deserialization of Untrusted Data vulnerability in the JavaScript Task in Google Cloud Application Integration version — CVSS 9.4; priority technology: cloud
+- **[CVE-2026-87799](https://nvd.nist.gov/vuln/detail/CVE-2026-87799) · 9.4/10** — Improper link resolution in the migration receive path in Canonical LXD versions 4.0 and later (fixed in 4.0.14, 5.0.10, — CVSS 9.9; priority technology: linux
+- **[CVE-2026-85526](https://nvd.nist.gov/vuln/detail/CVE-2026-85526) · 9.4/10** — Path traversal in the Btrfs storage driver (unpackVolume) in Canonical LXD on Linux allows an authenticated user with in — CVSS 9.9; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Monday, September 28th, 2026 https://isc.sans.edu/podcastdetail/10112, (Mon, Sep 28th)](https://isc.sans.edu/diary/rss/33374)**
+**[ISC Stormcast For Tuesday, September 29th, 2026 https://isc.sans.edu/podcastdetail/10114, (Tue, Sep 29th)](https://isc.sans.edu/diary/rss/33378)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms](https://github.com/firelex/jeff)** — Hacker News · 498 points · 188 comments
+[Open discussion](https://news.ycombinator.com/item?id=49883844)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
