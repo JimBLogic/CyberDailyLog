@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-29T10:04:41+00:00  
-**Coverage:** 2026-09-28T08:01:41+00:00 → 2026-09-29T10:03:23+00:00  
+**Updated:** 2026-09-30T10:03:34+00:00  
+**Coverage:** 2026-09-29T08:03:23+00:00 → 2026-09-30T10:01:37+00:00  
 **Pipeline:** **Operational**
 
-No confirmed exploitation, CISA KEV or ransomware-linked item qualified.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 433 source-backed developments
-- **Above threshold:** 305
+- **Assessed:** 965 source-backed developments
+- **Above threshold:** 625
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-90049](https://nvd.nist.gov/vuln/detail/CVE-2026-90049) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: net: skbuff: don&#x27;t skb_tx_error() the source skb in — CVSS 9.3; priority technology: linux
-- **[CVE-2026-90048](https://nvd.nist.gov/vuln/detail/CVE-2026-90048) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: fs/ntfs3: fix slab-out-of-bounds write in ni_create — CVSS 9.8; priority technology: linux
-- **[CVE-2026-81867](https://nvd.nist.gov/vuln/detail/CVE-2026-81867) · 9.4/10** — A Deserialization of Untrusted Data vulnerability in the JavaScript Task in Google Cloud Application Integration version — CVSS 9.4; priority technology: cloud
-- **[CVE-2026-87799](https://nvd.nist.gov/vuln/detail/CVE-2026-87799) · 9.4/10** — Improper link resolution in the migration receive path in Canonical LXD versions 4.0 and later (fixed in 4.0.14, 5.0.10, — CVSS 9.9; priority technology: linux
-- **[CVE-2026-85526](https://nvd.nist.gov/vuln/detail/CVE-2026-85526) · 9.4/10** — Path traversal in the Btrfs storage driver (unpackVolume) in Canonical LXD on Linux allows an authenticated user with in — CVSS 9.9; priority technology: linux
+- **[CVE-2026-24061](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-24061 exploited in CISA KEV: GNU InetUtils — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
+- **[CVE-2026-86131](https://nvd.nist.gov/vuln/detail/CVE-2026-86131) · 9.4/10** — A code injection vulnerability in WatchGuard Fireware OS&#x27;s BOVPN Over TLS client configuration handling allows an attack — CVSS 9.2; priority technology: vpn_remote_access
+- **[CVE-2026-53988](https://nvd.nist.gov/vuln/detail/CVE-2026-53988) · 9.4/10** — Dockhand before 1.0.40 contains an authentication bypass vulnerability in its git webhook endpoints that allows unauthen — CVSS 9.2; priority technology: cloud
+- **[CVE-2026-13019](https://nvd.nist.gov/vuln/detail/CVE-2026-13019) · 9.4/10** — Esri Portal for ArcGIS versions 12.1 and earlier on Windows, Linux and Kubernetes have a missing authentication for crit — CVSS 9.8; priority technology: windows
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, September 29th, 2026 https://isc.sans.edu/podcastdetail/10114, (Tue, Sep 29th)](https://isc.sans.edu/diary/rss/33378)**
+**[ISC Stormcast For Wednesday, September 30th, 2026 https://isc.sans.edu/podcastdetail/10116, (Wed, Sep 30th)](https://isc.sans.edu/diary/rss/33384)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms](https://github.com/firelex/jeff)** — Hacker News · 498 points · 188 comments
-[Open discussion](https://news.ycombinator.com/item?id=49883844)
+**[Livenerf: Has Opus 5.5 been nerfed yet?](https://github.com/ninjahawk/livenerf)** — Hacker News · 622 points · 251 comments
+[Open discussion](https://news.ycombinator.com/item?id=49901736)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

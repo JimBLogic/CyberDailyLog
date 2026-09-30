@@ -1,17 +1,17 @@
 {
-  "above_threshold": 305,
+  "above_threshold": 625,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 188,
-    "discussion_url": "https://news.ycombinator.com/item?id=49883844",
-    "published_at": "2026-09-28T20:23:36+00:00",
-    "score": 498,
+    "comments": 251,
+    "discussion_url": "https://news.ycombinator.com/item?id=49901736",
+    "published_at": "2026-09-29T22:36:14+00:00",
+    "score": 622,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/firelex/jeff",
-    "title": "Jeff \u2013 Jev-compatible 0.8B decision models, trained at home, ~30 ms"
+    "source_url": "https://github.com/ninjahawk/livenerf",
+    "title": "Livenerf: Has Opus 5.5 been nerfed yet?"
   },
-  "coverage_end": "2026-09-29T10:03:23+00:00",
-  "coverage_start": "2026-09-28T08:01:41+00:00",
+  "coverage_end": "2026-09-30T10:01:37+00:00",
+  "coverage_start": "2026-09-29T08:03:23+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-09-29T10:04:41+00:00",
+  "generated_at": "2026-09-30T10:03:34+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-09-29T02:00:02+00:00",
+    "published_at": "2026-09-30T02:00:03+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33378",
-    "title": "ISC Stormcast For Tuesday, September 29th, 2026 https://isc.sans.edu/podcastdetail/10114, (Tue, Sep 29th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33384",
+    "title": "ISC Stormcast For Wednesday, September 30th, 2026 https://isc.sans.edu/podcastdetail/10116, (Wed, Sep 30th)"
   },
-  "immediate_attention": "No confirmed exploitation, CISA KEV or ransomware-linked item qualified.",
-  "immediate_attention_count": 0,
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 433,
+  "qualified_developments": 965,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -58,70 +58,101 @@
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90049"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-90049",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90049",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: net: skbuff: don't skb_tx_error() the source skb in",
-      "why_it_matters": "CVSS 9.3; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-90048"
+        "CVE-2026-24061"
       ],
       "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99929,
+      "epss_score": 0.98984,
+      "ghsa_ids": [],
+      "id": "CVE-2026-24061",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "InetUtils"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 150,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-24061 exploited in CISA KEV: GNU InetUtils",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-86950"
+      ],
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.55295,
+      "epss_score": 0.00812,
+      "ghsa_ids": [],
+      "id": "CVE-2026-86950",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Multiple Products"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 105,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-86131"
+      ],
+      "cvss_score": 9.2,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-90048",
+      "id": "CVE-2026-86131",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: vpn_remote_access +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90048",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: fs/ntfs3: fix slab-out-of-bounds write in ni_create",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86131",
+      "title": "A code injection vulnerability in WatchGuard Fireware OS's BOVPN Over TLS client configuration handling allows an attack",
+      "why_it_matters": "CVSS 9.2; priority technology: vpn_remote_access"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-81867"
+        "CVE-2026-53988"
       ],
-      "cvss_score": 9.4,
+      "cvss_score": 9.2,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-81867",
+      "id": "CVE-2026-53988",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -134,63 +165,36 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81867",
-      "title": "A Deserialization of Untrusted Data vulnerability in the JavaScript Task in Google Cloud Application Integration version",
-      "why_it_matters": "CVSS 9.4; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53988",
+      "title": "Dockhand before 1.0.40 contains an authentication bypass vulnerability in its git webhook endpoints that allows unauthen",
+      "why_it_matters": "CVSS 9.2; priority technology: cloud"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-87799"
+        "CVE-2026-13019"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.56423,
+      "epss_score": 0.00847,
       "ghsa_ids": [],
-      "id": "CVE-2026-87799",
+      "id": "CVE-2026-13019",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: windows +8",
         "official source +5"
       ],
       "selection_score": 28,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87799",
-      "title": "Improper link resolution in the migration receive path in Canonical LXD versions 4.0 and later (fixed in 4.0.14, 5.0.10,",
-      "why_it_matters": "CVSS 9.9; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-85526"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-85526",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85526",
-      "title": "Path traversal in the Btrfs storage driver (unpackVolume) in Canonical LXD on Linux allows an authenticated user with in",
-      "why_it_matters": "CVSS 9.9; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13019",
+      "title": "Esri Portal for ArcGIS versions 12.1 and earlier on Windows, Linux and Kubernetes have a missing authentication for crit",
+      "why_it_matters": "CVSS 9.8; priority technology: windows"
     }
   ]
 }
