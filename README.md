@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-09-30T10:03:34+00:00  
-**Coverage:** 2026-09-29T08:03:23+00:00 → 2026-09-30T10:01:37+00:00  
+**Updated:** 2026-10-01T10:04:51+00:00  
+**Coverage:** 2026-09-30T08:01:37+00:00 → 2026-10-01T10:02:44+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+10 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 965 source-backed developments
-- **Above threshold:** 625
+- **Assessed:** 2554 source-backed developments
+- **Above threshold:** 1910
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-24061](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-24061 exploited in CISA KEV: GNU InetUtils — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
-- **[CVE-2026-86131](https://nvd.nist.gov/vuln/detail/CVE-2026-86131) · 9.4/10** — A code injection vulnerability in WatchGuard Fireware OS&#x27;s BOVPN Over TLS client configuration handling allows an attack — CVSS 9.2; priority technology: vpn_remote_access
-- **[CVE-2026-53988](https://nvd.nist.gov/vuln/detail/CVE-2026-53988) · 9.4/10** — Dockhand before 1.0.40 contains an authentication bypass vulnerability in its git webhook endpoints that allows unauthen — CVSS 9.2; priority technology: cloud
-- **[CVE-2026-13019](https://nvd.nist.gov/vuln/detail/CVE-2026-13019) · 9.4/10** — Esri Portal for ArcGIS versions 12.1 and earlier on Windows, Linux and Kubernetes have a missing authentication for crit — CVSS 9.8; priority technology: windows
+- **[CVE-2026-41940](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-41940 exploited in CISA KEV: WebPros cPanel &amp; WHM and WP2 (WordPress Squared) — CVSS 9.3; EPSS &gt;= 70%
+- **[CVE-2025-21042](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-21042 exploited in CISA KEV: Samsung Mobile Devices — CVSS 8.8; EPSS &gt;= 30%
+- **[CVE-2025-14174](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-14174 exploited in CISA KEV: Google Chromium — CVSS 8.8; EPSS percentile &gt;= 95%
+- **[CVE-2026-76504](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager — CVSS 9.8; detection opportunity
+- **[CVE-2025-66376](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-66376 exploited in CISA KEV: Synacor Zimbra Collaboration Suite (ZCS) — CVSS 7.2; EPSS percentile &gt;= 95%
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, September 30th, 2026 https://isc.sans.edu/podcastdetail/10116, (Wed, Sep 30th)](https://isc.sans.edu/diary/rss/33384)**
+**[ScreenConnect Client (Ab)used by Attackers, (Thu, Oct 1st)](https://isc.sans.edu/diary/rss/33388)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Threat Actors do not always use top-notch techniques or very complex malware to perform their attacks. Sometimes, they just abuse of existing applications...
 
 ### Community pulse
 
-**[Livenerf: Has Opus 5.5 been nerfed yet?](https://github.com/ninjahawk/livenerf)** — Hacker News · 622 points · 251 comments
-[Open discussion](https://news.ycombinator.com/item?id=49901736)
+**[Launch HN: Magnitude (YC S25) – Self-optimizing inference engine for agents](https://github.com/magnitudedev/magnitude)** — Hacker News · 163 points · 81 comments
+[Open discussion](https://news.ycombinator.com/item?id=49911995)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
