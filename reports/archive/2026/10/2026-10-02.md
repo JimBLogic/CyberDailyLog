@@ -2,39 +2,39 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-02T05:47:47+00:00  
-**Coverage:** 2026-10-01T05:47:21+00:00 → 2026-10-02T05:47:21+00:00  
+**Updated:** 2026-10-02T11:03:58+00:00  
+**Coverage:** 2026-10-01T11:02:40+00:00 → 2026-10-02T11:02:40+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **736** source-backed developments assessed.
-- **541** met the editorial threshold of **5.0/10** or an exploitation override.
+- **149** source-backed developments assessed.
+- **100** met the editorial threshold of **5.0/10** or an exploitation override.
 - **15** unique items are displayed after curation.
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-- **[CVE-2025-0282](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-0282 exploited in CISA KEV: Ivanti Connect Secure, Policy Secure, and ZTA Gateways. **Action:** Apply mitigations as set forth in the CISA instructions linked below to include conducting hunt activities, taking remediation actions if applicable, and…
-- **[CVE-2020-0796](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2020-0796 exploited in CISA KEV: Microsoft SMBv3. **Action:** Apply updates per vendor instructions.
-- **[CVE-2019-2725](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2019-2725 exploited in CISA KEV: Oracle WebLogic Server. **Action:** Apply updates per vendor instructions.
-- **[CVE-2018-7602](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2018-7602 exploited in CISA KEV: Drupal Core. **Action:** Apply updates per vendor instructions.
-- **[CVE-2010-2861](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2010-2861 exploited in CISA KEV: Adobe ColdFusion. **Action:** Apply updates per vendor instructions.
+- **[CVE-2026-104286](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104286 exploited in CISA KEV: Fortinet FortiMail. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-76504](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2023-46805 — CVE-2023-46805 exploited in CISA KEV: Ivanti Connect Secure and Policy Secure](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 8.2 | 100.0% | KEV | CVSS 8.2; EPSS &gt;= 70% |
-| [CVE-2022-30333 — CVE-2022-30333 exploited in CISA KEV: RARLAB UnRAR](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.5 | 99.1% | KEV | CVSS 7.5; EPSS &gt;= 70% |
-| [CVE-2021-27065 — CVE-2021-27065 exploited in CISA KEV: Microsoft Exchange Server](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.8 | 99.9% | KEV | CVSS 7.8; EPSS &gt;= 70% |
-| [CVE-2021-26858 — CVE-2021-26858 exploited in CISA KEV: Microsoft Exchange Server](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.8 | 93.7% | KEV | CVSS 7.8; EPSS &gt;= 70% |
-| [CVE-2020-12812 — CVE-2020-12812 exploited in CISA KEV: Fortinet FortiOS](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 9.8 | 49.3% | KEV | CVSS 9.8; EPSS &gt;= 30% |
-| [CVE-2023-27351 — CVE-2023-27351 exploited in CISA KEV: PaperCut NG/MF](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.5 | 78.1% | KEV | CVSS 7.5; EPSS &gt;= 70% |
-| [CVE-2022-27925 — CVE-2022-27925 exploited in CISA KEV: Synacor Zimbra Collaboration Suite (ZCS)](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.2 | 98.7% | KEV | CVSS 7.2; EPSS &gt;= 70% |
-| [CVE-2022-27924 — CVE-2022-27924 exploited in CISA KEV: Synacor Zimbra Collaboration Suite (ZCS)](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 10.0 | 7.5 | 85.4% | KEV | CVSS 7.5; EPSS &gt;= 70% |
+| [CVE-2026-15896 — CVE-2026-15896: The Super Forms – Drag &amp; Drop Form Builder plugin for WordPress is vulnerable to Directory…](https://nvd.nist.gov/vuln/detail/CVE-2026-15896) | 9.4 | 9.1 | n/a | — | CVSS 9.1; priority technology: windows |
+| [CVE-2026-97637 — CVE-2026-97637: The JSON API Auth plugin for WordPress is vulnerable to Authentication Bypass via Cached…](https://nvd.nist.gov/vuln/detail/CVE-2026-97637) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-94541 — CVE-2026-94541: The WPMobile.App – Android and iOS App Builder plugin for WordPress is vulnerable to…](https://nvd.nist.gov/vuln/detail/CVE-2026-94541) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-93698 — CVE-2026-93698: Insufficient validation allows arbitrary commands to be executed via the Multilang adminbin.](https://nvd.nist.gov/vuln/detail/CVE-2026-93698) | 9.4 | 9.9 | n/a | — | CVSS 9.9; detection opportunity |
+| [CVE-2026-103600 — CVE-2026-103600: Uncontrolled recursion in the ASN.1 parser (Asn1InputStream, Asn1StreamParser) in Legion of…](https://nvd.nist.gov/vuln/detail/CVE-2026-103600) | 9.4 | 8.7 | n/a | — | CVSS 8.7; priority technology: windows |
+| [CVE-2026-63569 — CVE-2026-63569: Improper input validation in DHAgreement.CalculateAgreement (MTI/A0 two-pass Diffie-Hellman)…](https://nvd.nist.gov/vuln/detail/CVE-2026-63569) | 9.3 | 9.1 | n/a | — | CVSS 9.1; detection opportunity |
+| [CVE-2026-93697 — CVE-2026-93697: There is a stored XSS vulnerability allowing arbitrary code execution in the WHM Mass Modify…](https://nvd.nist.gov/vuln/detail/CVE-2026-93697) | 9.2 | 9.0 | n/a | — | CVSS 9.0; detection opportunity |
+| [CVE-2026-93029 — CVE-2026-93029: There is a stored XSS vulnerability allowing arbitrary code execution in the WHM Manage SSL…](https://nvd.nist.gov/vuln/detail/CVE-2026-93029) | 9.2 | 9.0 | n/a | — | CVSS 9.0; detection opportunity |
+| [CVE-2026-80298 — CVE-2026-80298: Improper neutralization of special elements used in an SQL command (&#x27;SQL injection&#x27;)…](https://nvd.nist.gov/vuln/detail/CVE-2026-80298) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-15897 — CVE-2026-15897: The Super Forms – Drag &amp; Drop Form Builder plugin for WordPress is vulnerable to Privilege…](https://nvd.nist.gov/vuln/detail/CVE-2026-15897) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
 
 ## Human context
 
@@ -48,8 +48,8 @@ _Publisher-provided RSS excerpt; open the original article for full context._
 
 ## Community pulse
 
-- **[StreetComplete on iOS is now in public beta](https://github.com/streetcomplete/StreetComplete/issues/5421)**
-  Hacker News · 544 points · 144 comments · [Open discussion](https://news.ycombinator.com/item?id=49920160)
+- **[Automatic Transmission – a data-privacy study of connected vehicles](https://automatictransmission.khoury.northeastern.edu/index.html)**
+  Hacker News · 195 points · 169 comments · [Open discussion](https://news.ycombinator.com/item?id=49926628)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -62,11 +62,11 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2025-0282:** Apply mitigations as set forth in the CISA instructions linked below to include conducting hunt activities, taking remediation actions if applicable, and…
-- **CVE-2020-0796:** Apply updates per vendor instructions.
-- **CVE-2019-2725:** Apply updates per vendor instructions.
-- **CVE-2018-7602:** Apply updates per vendor instructions.
-- **CVE-2010-2861:** Apply updates per vendor instructions.
+- **CVE-2026-104286:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-76504:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-86950:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-15896:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-97637:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
@@ -77,14 +77,14 @@ Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1731 | 305 ms |  |
-| nvd | yes | healthy | 1166 | 15856 ms |  |
-| github_advisories | yes | healthy | 77 | 623 ms |  |
-| rss_krebs | no | healthy | 0 | 129 ms |  |
-| rss_sans_isc | no | healthy | 1 | 202 ms |  |
-| github_releases | no | healthy | 1 | 1337 ms |  |
-| hacker_news | no | healthy | 2 | 3560 ms |  |
-| epss | no | healthy | 2358 | 2010 ms |  |
+| cisa_kev | yes | healthy | 1731 | 261 ms |  |
+| nvd | yes | healthy | 1209 | 38606 ms |  |
+| github_advisories | yes | healthy | 77 | 965 ms |  |
+| rss_krebs | no | healthy | 0 | 116 ms |  |
+| rss_sans_isc | no | healthy | 1 | 238 ms |  |
+| github_releases | no | healthy | 0 | 2399 ms |  |
+| hacker_news | no | healthy | 1 | 4971 ms |  |
+| epss | no | healthy | 2292 | 28938 ms |  |
 
 </details>
 

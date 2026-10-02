@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-02T05:47:47+00:00  
-**Coverage:** 2026-10-01T05:47:21+00:00 → 2026-10-02T05:47:21+00:00  
+**Updated:** 2026-10-02T11:03:58+00:00  
+**Coverage:** 2026-10-01T11:02:40+00:00 → 2026-10-02T11:02:40+00:00  
 **Pipeline:** **Operational**
 
-43 item(s) include exploitation, KEV or ransomware signals.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 736 source-backed developments
-- **Above threshold:** 541
+- **Assessed:** 149 source-backed developments
+- **Above threshold:** 100
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-0282](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-0282 exploited in CISA KEV: Ivanti Connect Secure, Policy Secure, and ZTA Gateways — CVSS 9.0; EPSS &gt;= 70%
-- **[CVE-2020-0796](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2020-0796 exploited in CISA KEV: Microsoft SMBv3 — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2019-2725](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2019-2725 exploited in CISA KEV: Oracle WebLogic Server — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2018-7602](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2018-7602 exploited in CISA KEV: Drupal Core — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2010-2861](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2010-2861 exploited in CISA KEV: Adobe ColdFusion — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2026-104286](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104286 exploited in CISA KEV: Fortinet FortiMail — CVSS 9.8; priority technology: vpn_remote_access
+- **[CVE-2026-76504](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager — CVSS 9.8; detection opportunity
+- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
+- **[CVE-2026-15896](https://nvd.nist.gov/vuln/detail/CVE-2026-15896) · 9.4/10** — The Super Forms – Drag &amp; Drop Form Builder plugin for WordPress is vulnerable to Directory Traversal in all versions up — CVSS 9.1; priority technology: windows
+- **[CVE-2026-97637](https://nvd.nist.gov/vuln/detail/CVE-2026-97637) · 9.4/10** — The JSON API Auth plugin for WordPress is vulnerable to Authentication Bypass via Cached Session Cookie Disclosure in al — CVSS 9.8; detection opportunity
 
 ### Human context
 
@@ -35,8 +35,8 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[StreetComplete on iOS is now in public beta](https://github.com/streetcomplete/StreetComplete/issues/5421)** — Hacker News · 544 points · 144 comments
-[Open discussion](https://news.ycombinator.com/item?id=49920160)
+**[Automatic Transmission – a data-privacy study of connected vehicles](https://automatictransmission.khoury.northeastern.edu/index.html)** — Hacker News · 195 points · 169 comments
+[Open discussion](https://news.ycombinator.com/item?id=49926628)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

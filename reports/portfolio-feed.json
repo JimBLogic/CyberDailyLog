@@ -1,17 +1,17 @@
 {
-  "above_threshold": 541,
+  "above_threshold": 100,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 144,
-    "discussion_url": "https://news.ycombinator.com/item?id=49920160",
-    "published_at": "2026-10-01T10:59:57+00:00",
-    "score": 544,
+    "comments": 169,
+    "discussion_url": "https://news.ycombinator.com/item?id=49926628",
+    "published_at": "2026-10-01T20:23:27+00:00",
+    "score": 195,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/streetcomplete/StreetComplete/issues/5421",
-    "title": "StreetComplete on iOS is now in public beta"
+    "source_url": "https://automatictransmission.khoury.northeastern.edu/index.html",
+    "title": "Automatic Transmission \u2013 a data-privacy study of connected vehicles"
   },
-  "coverage_end": "2026-10-02T05:47:21+00:00",
-  "coverage_start": "2026-10-01T05:47:21+00:00",
+  "coverage_end": "2026-10-02T11:02:40+00:00",
+  "coverage_start": "2026-10-01T11:02:40+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-02T05:47:47+00:00",
+  "generated_at": "2026-10-02T11:03:58+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -30,12 +30,12 @@
     "source_url": "https://isc.sans.edu/diary/rss/33390",
     "title": "ISC Stormcast For Friday, October 2nd, 2026 https://isc.sans.edu/podcastdetail/10120, (Fri, Oct 2nd)"
   },
-  "immediate_attention": "43 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 43,
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 736,
+  "qualified_developments": 149,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,147 +60,142 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-0282"
-      ],
-      "cvss_score": 9.0,
-      "defensive_action": "Apply mitigations as set forth in the CISA instructions linked below to include conducting hunt activities, taking remediation actions if applicable, and applying updates prior\u2026",
-      "epss_percentile": 0.9998,
-      "epss_score": 0.99979,
-      "ghsa_ids": [],
-      "id": "CVE-2025-0282",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "Connect Secure, Policy Secure, and ZTA Gateways"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 183,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-0282 exploited in CISA KEV: Ivanti Connect Secure, Policy Secure, and ZTA Gateways",
-      "why_it_matters": "CVSS 9.0; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2020-0796"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Apply updates per vendor instructions.",
-      "epss_percentile": 0.99958,
-      "epss_score": 0.9981,
-      "ghsa_ids": [],
-      "id": "CVE-2020-0796",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "SMBv3"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 175,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2020-0796 exploited in CISA KEV: Microsoft SMBv3",
-      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2019-2725"
+        "CVE-2026-104286"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Apply updates per vendor instructions.",
-      "epss_percentile": 0.99976,
-      "epss_score": 0.99964,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": null,
+      "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2019-2725",
+      "id": "CVE-2026-104286",
       "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
       "products": [
-        "WebLogic Server"
+        "FortiMail"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "known ransomware use +25"
+        "critical CVSS +20"
       ],
-      "selection_score": 175,
+      "selection_score": 123,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2019-2725 exploited in CISA KEV: Oracle WebLogic Server",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "title": "CVE-2026-104286 exploited in CISA KEV: Fortinet FortiMail",
+      "why_it_matters": "CVSS 9.8; priority technology: vpn_remote_access"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2018-7602"
+        "CVE-2026-76504"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Apply updates per vendor instructions.",
-      "epss_percentile": 0.99934,
-      "epss_score": 0.99205,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.64334,
+      "epss_score": 0.01096,
       "ghsa_ids": [],
-      "id": "CVE-2018-7602",
+      "id": "CVE-2026-76504",
       "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
       "products": [
-        "Core"
+        "Catalyst SD-WAN Manager"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "known ransomware use +25"
+        "critical CVSS +20"
       ],
-      "selection_score": 175,
+      "selection_score": 115,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2018-7602 exploited in CISA KEV: Drupal Core",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "title": "CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2010-2861"
+        "CVE-2026-86950"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply updates per vendor instructions.",
-      "epss_percentile": 0.99952,
-      "epss_score": 0.99721,
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.68097,
+      "epss_score": 0.01242,
       "ghsa_ids": [],
-      "id": "CVE-2010-2861",
+      "id": "CVE-2026-86950",
       "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
       "products": [
-        "ColdFusion"
+        "Multiple Products"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "known ransomware use +25"
+        "high CVSS +10"
       ],
-      "selection_score": 175,
-      "severity": "CRITICAL",
+      "selection_score": 105,
+      "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2010-2861 exploited in CISA KEV: Adobe ColdFusion",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "title": "CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-15896"
+      ],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-15896",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15896",
+      "title": "The Super Forms \u2013 Drag & Drop Form Builder plugin for WordPress is vulnerable to Directory Traversal in all versions up",
+      "why_it_matters": "CVSS 9.1; priority technology: windows"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-97637"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-97637",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97637",
+      "title": "The JSON API Auth plugin for WordPress is vulnerable to Authentication Bypass via Cached Session Cookie Disclosure in al",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     }
   ]
 }
