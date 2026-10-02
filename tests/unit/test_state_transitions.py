@@ -300,3 +300,52 @@ def test_verified_vendor_evidence_requires_explicit_positive_statement(tmp_path)
     path.write_text(json.dumps({"observations": [row]}))
     with pytest.raises(ValueError):
         load_operational_evidence(path)
+
+
+def test_due_today_and_tomorrow_survive_without_duplicate_transitions(tmp_path):
+    when = datetime(2026, 10, 2, 10, tzinfo=timezone.utc)
+    old = when - timedelta(days=4)
+    apple = item(
+        canonical_id="CVE-2026-86950",
+        cve_ids=["CVE-2026-86950"],
+        source_name="CISA",
+        source_type="government_kev",
+        cisa_kev=True,
+        known_exploited=True,
+        published_at=old,
+        modified_at=old,
+        cisa_due_date=when.replace(hour=0),
+    )
+    cisco = item(
+        canonical_id="CVE-2026-76504",
+        cve_ids=["CVE-2026-76504"],
+        source_name="CISA",
+        source_type="government_kev",
+        cisa_kev=True,
+        known_exploited=True,
+        published_at=old,
+        modified_at=old,
+        cisa_due_date=(when + timedelta(days=1)).replace(hour=0),
+        cisa_required_action="Forensics Triage Requirements",
+    )
+    observe(tmp_path, [apple, cisco], when - timedelta(days=1))
+    vendor = item(
+        canonical_id=cisco.canonical_id,
+        cve_ids=cisco.cve_ids,
+        source_name="Verified Cisco",
+        vendor_confirmed_exploitation=True,
+        known_exploited=True,
+        published_at=old,
+        modified_at=old,
+    )
+    first = observe(tmp_path, [apple, cisco, vendor], when)
+    assert len(first) == 2
+    by_id = {i.canonical_id: i for i in first}
+    assert by_id[apple.canonical_id].discovery_type == "ongoing_monitoring"
+    changed = by_id[cisco.canonical_id]
+    assert changed.transition_type == ["vendor_exploitation_confirmed"]
+    assert changed.known_ransomware_use is not True
+    replay = observe(tmp_path, [apple, cisco, vendor], when + timedelta(hours=1))
+    assert len(replay) == 2
+    assert all(not i.transition_type for i in replay)
+    assert len(next(i for i in replay if i.canonical_id == cisco.canonical_id).state_transitions) == 1

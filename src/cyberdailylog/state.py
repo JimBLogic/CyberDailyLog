@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import hashlib
 import json
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from .correlation import merge_items
 from .models import IntelligenceItem, ensure_utc
@@ -250,7 +251,14 @@ class StateLedger:
             first_catalog = not self.data["catalog_baselined"] and all(
                 i.source_type == "government_kev" for i in incoming
             )
-            if not baseline and (changes or (is_new and (recent or not first_catalog))):
+            # A deadline is an operational reminder, not a fresh CTI transition.
+            # Compare calendar dates: a date-only CISA deadline lasts all day.
+            today = until.astimezone(ZoneInfo("Europe/Madrid")).date()
+            due = merged.cisa_due_date.date() if merged.cisa_due_date else None
+            deadline_watch = merged.cisa_kev is True and due is not None and 0 <= (due - today).days <= 2
+            if deadline_watch and merged.discovery_type is None:
+                merged.discovery_type = "ongoing_monitoring"
+            if not baseline and (changes or deadline_watch or (is_new and (recent or not first_catalog))):
                 emitted.append(merged)
         if not baseline:
             self.data.update(

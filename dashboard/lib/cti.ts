@@ -36,10 +36,10 @@ const snapshot = (value: unknown) => {
 };
 
 export function normalizeCti(value: RecordValue) {
-  if (!["new_vulnerability", "state_transition"].includes(String(value.discovery_type))) return undefined;
+  if (!["new_vulnerability", "state_transition", "ongoing_monitoring"].includes(String(value.discovery_type))) return undefined;
   const history = Array.isArray(value.state_transitions) ? value.state_transitions : [];
   return {
-    kind: value.discovery_type === "state_transition" ? "transition" as const : "new" as const,
+    kind: value.discovery_type === "state_transition" ? "transition" as const : value.discovery_type === "ongoing_monitoring" ? "monitoring" as const : "new" as const,
     firstSeen: date(value.first_seen), lastSeen: date(value.last_seen), changedAt: date(value.state_changed_at),
     changes: changes(value.transition_type), previous: snapshot(value.previous_state), current: snapshot(value.current_state),
     priorityBefore: number(value.priority_before), priorityAfter: number(value.priority_after),

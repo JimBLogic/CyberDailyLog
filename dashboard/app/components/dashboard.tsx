@@ -1,5 +1,6 @@
 "use client";
 
+import { deadlineLabel } from "@/lib/deadlines";
 import { OperationalStatus, CtiHistory } from "./operational-status";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -1185,6 +1186,7 @@ function PriorityCard({
           {formatDate(item.publishedAt, language, true)}
         </span>
       </div>
+      <p>{deadlineLabel(item.cisaDueDate, language)}{item.triageRequired ? (language === "es" ? " · Triaje forense requerido" : " · Forensics triage required") : ""}</p>
       <p className="priority-summary">{item.summary}</p>
       <div className="priority-footer">
         <button className="text-action" onClick={onOpen}>
@@ -1786,7 +1788,9 @@ function VulnerabilityList({
               </span>
             </button>
             <div className="vulnerability-flags">
-              {item.cisaKev ? <span className="flag critical">KEV</span> : null}
+              {item.cisaDueDate ? <span className="flag critical">{deadlineLabel(item.cisaDueDate, language)}</span> : null}
+              {item.triageRequired ? <span className="flag critical">{language === "es" ? "Triaje requerido" : "Triage required"}</span> : null}
+              {item.cisaKev ? <span className="flag critical">KEV{item.kevDateAdded ? ` · ${item.kevDateAdded}` : ""}</span> : null}
               {item.knownExploited ? <span className="flag critical">{t.exploited}</span> : null}
               {item.knownRansomwareUse ? <span className="flag critical">{t.ransomware}</span> : null}
               {!attentionItem(item) ? <span className="flag neutral">{t.noConfirmed}</span> : null}

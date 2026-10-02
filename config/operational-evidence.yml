@@ -1,4 +1,8 @@
-# Add only analyst-verified, linked vendor statements; no keyword inference.
-# Each observation: cve, source_url (HTTPS vendor advisory), confirmed_at (ISO 8601),
-# vendor_confirmed_exploitation: true, evidence (exact rationale), required_action (optional).
-observations: []
+# Verified vendor evidence, independent of KEV membership. Unknown ransomware remains unknown.
+observations:
+  - cve: CVE-2026-76504
+    source_url: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU
+    confirmed_at: '2026-09-30T13:00:00Z'
+    vendor_confirmed_exploitation: true
+    evidence: 'Cisco PSIRT explicitly confirms active exploitation in September 2026 in the Exploitation and Public Announcements section.'
+    required_action: 'Perform forensics triage under the CISA KEV required action, review serviceproxy-access.log and vmanage-server.log for unexpected j_security_check requests (including encoded variants) and viptela-reserved users, preserve evidence, and install the appropriate Cisco fixed release.'

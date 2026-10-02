@@ -1,3 +1,4 @@
+import { deadlineRank, calendarDate } from "./deadlines";
 import { normalizeCti, normalizePublication } from "./cti";
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
@@ -173,6 +174,9 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
         : stringArray(item.selection_reasons)
     ).slice(0, 5),
     actions: (stringValue(item.cisa_required_action) ? [stringValue(item.cisa_required_action)] : recommended.length ? recommended : detection).slice(0, 4),
+    cisaDueDate: calendarDate(item.cisa_due_date),
+    kevDateAdded: calendarDate(item.kev_date_added),
+    triageRequired: /forensics? triage/i.test(stringValue(item.cisa_required_action)),
     cti: normalizeCti(item),
   };
 }
@@ -646,7 +650,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
     .filter((item): item is CommunitySignal => item !== null)
     .sort((a, b) => b.score - a.score || b.comments - a.comments)
     .slice(0, 4);
-  const ranked = [...securityItems].sort((a, b) => {
+  const ranked = [...new Map(securityItems.map(item => [stringArray(item.cve_ids)[0] || stringValue(item.canonical_id), item])).values()].sort((a, b) => {
     const attentionA =
       Number(booleanValue(a.cisa_kev)) +
       Number(booleanValue(a.known_exploited)) +
@@ -656,6 +660,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
       Number(booleanValue(b.known_exploited)) +
       Number(booleanValue(b.known_ransomware_use));
     return (
+      deadlineRank(a.cisa_due_date) - deadlineRank(b.cisa_due_date) ||
       attentionB - attentionA ||
       priorityScore(b) - priorityScore(a) ||
       (numberValue(b.selection_score) ?? 0) -

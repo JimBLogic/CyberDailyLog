@@ -24,6 +24,9 @@ export type Vulnerability = {
   reasons: string[];
   actions: string[];
   cti?: CtiState;
+  cisaDueDate?: string | null;
+  kevDateAdded?: string | null;
+  triageRequired?: boolean;
 };
 
 export type SourceHealth = {

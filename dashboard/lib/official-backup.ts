@@ -1,3 +1,4 @@
+import { calendarDate } from "./deadlines";
 import type { Severity, SourceHealth, Vulnerability } from "./types";
 import { essentialServerUrl } from "./network-policy";
 import { safeWebUrl } from "./safe-url";
@@ -186,6 +187,9 @@ function nvdVulnerabilities(value: unknown, cisaMap: Map<string, JsonRecord>) {
         cisaKev: Boolean(cisa),
         knownExploited: Boolean(cisa),
         knownRansomwareUse: ransomware,
+        cisaDueDate: calendarDate(cisa?.dueDate),
+        kevDateAdded: calendarDate(cisa?.dateAdded),
+        triageRequired: /forensics? triage/i.test(text(cisa?.requiredAction)),
         sourceName: "NVD API 2.0",
         sourceUrl: `https://nvd.nist.gov/vuln/detail/${id}`,
         publishedAt: safeDate(cve.published, new Date().toISOString()),
@@ -239,6 +243,9 @@ function latestCisaOnly(
         cisaKev: true,
         knownExploited: true,
         knownRansomwareUse: ransomware,
+        cisaDueDate: calendarDate(cisa?.dueDate),
+        kevDateAdded: calendarDate(cisa?.dateAdded),
+        triageRequired: /forensics? triage/i.test(text(cisa?.requiredAction)),
         sourceName: "CISA KEV JSON",
         sourceUrl: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
         publishedAt: safeDate(cisa.dateAdded, new Date().toISOString()),

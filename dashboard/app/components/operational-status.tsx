@@ -108,7 +108,7 @@ export function CtiHistory({item, language}: {item: Vulnerability; language: Lan
   if (!cti) return null;
   const labels = (keys: string[]) => keys.map(key => CHANGE_LABELS[key]?.[es ? 0 : 1]).filter(Boolean).join(" · ");
   return <section className="cti-history" aria-label={es ? "Historial de inteligencia" : "Intelligence history"}>
-    <h3>{cti.kind === "transition" ? (es ? "Cambio de estado" : "State transition") : (es ? "Primera observación" : "First observation")}</h3>
+    <h3>{cti.kind === "transition" ? (es ? "Cambio de estado" : "State transition") : cti.kind === "monitoring" ? (es ? "Seguimiento de plazo" : "Deadline monitoring") : (es ? "Primera observación" : "First observation")}</h3>
     <p>{es ? "Primera observación conservada: " : "First retained observation: "}{timestamp(cti.firstSeen, language)}.
       {" "}{es ? "Última observación: " : "Last observed: "}{timestamp(cti.lastSeen, language)}.</p>
     {cti.kind === "transition" ? <><strong>{labels(cti.changes)}</strong>
