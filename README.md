@@ -9,34 +9,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-02T11:03:58+00:00  
-**Coverage:** 2026-10-01T11:02:40+00:00 → 2026-10-02T11:02:40+00:00  
+**Updated:** 2026-10-03T10:01:43+00:00  
+**Coverage:** 2026-10-02T09:02:40+00:00 → 2026-10-03T10:01:20+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 149 source-backed developments
-- **Above threshold:** 100
+- **Assessed:** 518 source-backed developments
+- **Above threshold:** 361
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
+- **[CVE-2021-45046](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2021-45046 exploited in CISA KEV: Apache Log4j2 — CVSS 0.0; EPSS &gt;= 70%
+- **[CVE-2026-64849](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-64849 exploited in CISA KEV: MLflow MLflow — CVSS 9.3; EPSS percentile &gt;= 95%
 - **[CVE-2026-104286](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104286 exploited in CISA KEV: Fortinet FortiMail — CVSS 9.8; priority technology: vpn_remote_access
 - **[CVE-2026-76504](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager — CVSS 9.8; detection opportunity
-- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
-- **[CVE-2026-15896](https://nvd.nist.gov/vuln/detail/CVE-2026-15896) · 9.4/10** — The Super Forms – Drag &amp; Drop Form Builder plugin for WordPress is vulnerable to Directory Traversal in all versions up — CVSS 9.1; priority technology: windows
-- **[CVE-2026-97637](https://nvd.nist.gov/vuln/detail/CVE-2026-97637) · 9.4/10** — The JSON API Auth plugin for WordPress is vulnerable to Authentication Bypass via Cached Session Cookie Disclosure in al — CVSS 9.8; detection opportunity
-
-### Human context
-
-**[ISC Stormcast For Friday, October 2nd, 2026 https://isc.sans.edu/podcastdetail/10120, (Fri, Oct 2nd)](https://isc.sans.edu/diary/rss/33390)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+- **[CVE-2026-102490](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102490 exploited in CISA KEV: Zammad GmbH Zammad — CVSS 9.4; detection opportunity
 
 ### Community pulse
 
-**[Automatic Transmission – a data-privacy study of connected vehicles](https://automatictransmission.khoury.northeastern.edu/index.html)** — Hacker News · 195 points · 169 comments
-[Open discussion](https://news.ycombinator.com/item?id=49926628)
+**[Show HN: Made an open-source Lego AI generator](https://github.com/anteloc/ldraw-nova)** — Hacker News · 114 points · 44 comments
+[Open discussion](https://news.ycombinator.com/item?id=49937916)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
