@@ -9,28 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-03T10:01:43+00:00  
-**Coverage:** 2026-10-02T09:02:40+00:00 → 2026-10-03T10:01:20+00:00  
+**Updated:** 2026-10-04T10:06:22+00:00  
+**Coverage:** 2026-10-03T08:01:20+00:00 → 2026-10-04T10:06:07+00:00  
 **Pipeline:** **Operational**
 
-6 item(s) include exploitation, KEV or ransomware signals.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 518 source-backed developments
-- **Above threshold:** 361
+- **Assessed:** 152 source-backed developments
+- **Above threshold:** 127
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2021-45046](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2021-45046 exploited in CISA KEV: Apache Log4j2 — CVSS 0.0; EPSS &gt;= 70%
-- **[CVE-2026-64849](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-64849 exploited in CISA KEV: MLflow MLflow — CVSS 9.3; EPSS percentile &gt;= 95%
 - **[CVE-2026-104286](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104286 exploited in CISA KEV: Fortinet FortiMail — CVSS 9.8; priority technology: vpn_remote_access
-- **[CVE-2026-76504](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager — CVSS 9.8; detection opportunity
 - **[CVE-2026-102490](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102490 exploited in CISA KEV: Zammad GmbH Zammad — CVSS 9.4; detection opportunity
+- **[CVE-2026-102489](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102489 exploited in CISA KEV: Zammad GmbH Zammad — CVSS 9.4; detection opportunity
+- **[CVE-2026-89972](https://nvd.nist.gov/vuln/detail/CVE-2026-89972) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: nvme: add missing SRCU grace period in error path — CVSS 9.8; priority technology: linux
+- **[CVE-2026-80980](https://nvd.nist.gov/vuln/detail/CVE-2026-80980) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: net/smc: stop killed, freed and out_of_sync sharing — CVSS 9.8; priority technology: linux
 
-### Community pulse
+### Human context
 
-**[Show HN: Made an open-source Lego AI generator](https://github.com/anteloc/ldraw-nova)** — Hacker News · 114 points · 44 comments
-[Open discussion](https://news.ycombinator.com/item?id=49937916)
+**[User Agent Strings Curiosities, (Sun, Oct 4th)](https://isc.sans.edu/diary/rss/33394)**
+SANS Internet Storm Center Handler&#x27;s Diary  
+> Sometimes I have to smile, or my interest is triggered, when I review new User Agent Strings in the honeypot logs.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

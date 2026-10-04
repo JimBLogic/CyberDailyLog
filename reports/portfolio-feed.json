@@ -1,17 +1,8 @@
 {
-  "above_threshold": 361,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 44,
-    "discussion_url": "https://news.ycombinator.com/item?id=49937916",
-    "published_at": "2026-10-02T20:00:15+00:00",
-    "score": 114,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/anteloc/ldraw-nova",
-    "title": "Show HN: Made an open-source Lego AI generator"
-  },
-  "coverage_end": "2026-10-03T10:01:20+00:00",
-  "coverage_start": "2026-10-02T09:02:40+00:00",
+  "above_threshold": 127,
+  "community_pulse": null,
+  "coverage_end": "2026-10-04T10:06:07+00:00",
+  "coverage_start": "2026-10-03T08:01:20+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,14 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-03T10:01:43+00:00",
-  "human_context": null,
-  "immediate_attention": "6 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 6,
+  "generated_at": "2026-10-04T10:06:22+00:00",
+  "human_context": {
+    "author": null,
+    "excerpt": "Sometimes I have to smile, or my interest is triggered, when I review new User Agent Strings in the honeypot logs.",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-10-04T07:58:51+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33394",
+    "title": "User Agent Strings Curiosities, (Sun, Oct 4th)"
+  },
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 518,
+  "qualified_developments": 152,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -52,77 +51,12 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2021-45046"
-      ],
-      "cvss_score": 0.0,
-      "defensive_action": "Apply updates per vendor instructions.",
-      "epss_percentile": 0.9998,
-      "epss_score": 0.99977,
-      "ghsa_ids": [
-        "GHSA-7rjr-3q55-vv33"
-      ],
-      "id": "CVE-2021-45046",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "Log4j2",
-        "org.apache.logging.log4j:log4j-core",
-        "org.ops4j.pax.logging:pax-logging-log4j2"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 155,
-      "severity": "critical",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2021-45046 exploited in CISA KEV: Apache Log4j2",
-      "why_it_matters": "CVSS 0.0; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-64849"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.95424,
-      "epss_score": 0.09839,
-      "ghsa_ids": [
-        "GHSA-7gwp-5pfp-969j"
-      ],
-      "id": "CVE-2026-64849",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "MLflow",
-        "mlflow"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 130,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-64849 exploited in CISA KEV: MLflow MLflow",
-      "why_it_matters": "CVSS 9.3; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-104286"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.77459,
-      "epss_score": 0.01779,
+      "epss_percentile": 0.81912,
+      "epss_score": 0.02201,
       "ghsa_ids": [],
       "id": "CVE-2026-104286",
       "known_exploited": true,
@@ -146,41 +80,12 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-76504"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.74572,
-      "epss_score": 0.01575,
-      "ghsa_ids": [],
-      "id": "CVE-2026-76504",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Catalyst SD-WAN Manager"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 115,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-76504 exploited in CISA KEV: Cisco Catalyst SD-WAN Manager",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-102490"
       ],
       "cvss_score": 9.4,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.16336,
-      "epss_score": 0.00262,
+      "epss_percentile": 0.48335,
+      "epss_score": 0.00629,
       "ghsa_ids": [],
       "id": "CVE-2026-102490",
       "known_exploited": true,
@@ -200,6 +105,89 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-102490 exploited in CISA KEV: Zammad GmbH Zammad",
       "why_it_matters": "CVSS 9.4; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-102489"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.71464,
+      "epss_score": 0.01396,
+      "ghsa_ids": [],
+      "id": "CVE-2026-102489",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Zammad"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-102489 exploited in CISA KEV: Zammad GmbH Zammad",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-89972"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.49334,
+      "epss_score": 0.00649,
+      "ghsa_ids": [],
+      "id": "CVE-2026-89972",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89972",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: nvme: add missing SRCU grace period in error path",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-80980"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.4934,
+      "epss_score": 0.00649,
+      "ghsa_ids": [],
+      "id": "CVE-2026-80980",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80980",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: net/smc: stop killed, freed and out_of_sync sharing",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
     }
   ]
 }
