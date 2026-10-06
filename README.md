@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-05T10:04:00+00:00  
-**Coverage:** 2026-10-04T08:06:07+00:00 → 2026-10-05T10:03:45+00:00  
+**Updated:** 2026-10-06T10:02:15+00:00  
+**Coverage:** 2026-10-05T08:03:45+00:00 → 2026-10-06T10:01:08+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 181 source-backed developments
-- **Above threshold:** 99
+- **Assessed:** 1111 source-backed developments
+- **Above threshold:** 652
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-102490](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102490 exploited in CISA KEV: Zammad GmbH Zammad — CVSS 9.4; detection opportunity
-- **[CVE-2026-102489](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102489 exploited in CISA KEV: Zammad GmbH Zammad — CVSS 9.4; detection opportunity
+- **[CVE-2026-42208](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-42208 exploited in CISA KEV: BerriAI LiteLLM — CVSS 9.3; detection opportunity
 - **[CVE-2026-88779](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88779 exploited in CISA KEV: Citrix NetScaler — CVSS 8.7; detection opportunity
-- **[CVE-2026-105223](https://nvd.nist.gov/vuln/detail/CVE-2026-105223) · 9.4/10** — maclof kubernetes-client 0.17.0 before 0.32.0 disables TLS certificate verification in parseKubeconfig() and parseKubeco — CVSS 9.1; priority technology: cloud
-- **[CVE-2026-105293](https://nvd.nist.gov/vuln/detail/CVE-2026-105293) · 9.4/10** — Legcord 1.1.0 through 1.3.0 contains a path traversal vulnerability in theme IPC handlers that allows script in the Disc — CVSS 9.2; detection opportunity
+- **[CVE-2026-92934](https://nvd.nist.gov/vuln/detail/CVE-2026-92934) · 9.4/10** — vm2 before 3.11.8 contains an incomplete fix for Error.cause sanitization that allows sandbox escape when revisited host — CVSS 9.5; priority technology: linux
+- **[CVE-2026-21589](https://nvd.nist.gov/vuln/detail/CVE-2026-21589) · 9.4/10** — h3. Summary This is a vulnerability in Bitbucket Data Center, Confluence Data Center, Jira Service Management Data Cent — CVSS 9.3; priority technology: browsers
+- **[CVE-2025-66390](https://nvd.nist.gov/vuln/detail/CVE-2025-66390) · 9.4/10** — In Microsoft Azure API Management through 2025-10-17, when self-service signup (username/password Basic Authentication) — CVSS 9.8; priority technology: cloud
 
 ### Human context
 
-**[ISC Stormcast For Monday, October 5th, 2026 https://isc.sans.edu/podcastdetail/10122, (Mon, Oct 5th)](https://isc.sans.edu/diary/rss/33398)**
+**[More RMM Tools In the Wild, (Tue, Oct 6th)](https://isc.sans.edu/diary/rss/33400)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
-
-### Community pulse
-
-**[Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s](https://github.com/Niko1221/Strata)** — Hacker News · 806 points · 356 comments
-[Open discussion](https://news.ycombinator.com/item?id=49953495)
+> It seems that a trend startedâ€¦ I continue my journey discovering more RMM (&quot;Remote Management &amp; Monitoring&quot;) tools abused by threat actors! A few…
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

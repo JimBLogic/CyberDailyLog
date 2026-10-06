@@ -1,17 +1,8 @@
 {
-  "above_threshold": 99,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 356,
-    "discussion_url": "https://news.ycombinator.com/item?id=49953495",
-    "published_at": "2026-10-04T12:51:53+00:00",
-    "score": 806,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/Niko1221/Strata",
-    "title": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s"
-  },
-  "coverage_end": "2026-10-05T10:03:45+00:00",
-  "coverage_start": "2026-10-04T08:06:07+00:00",
+  "above_threshold": 652,
+  "community_pulse": null,
+  "coverage_end": "2026-10-06T10:01:08+00:00",
+  "coverage_start": "2026-10-05T08:03:45+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-05T10:04:00+00:00",
+  "generated_at": "2026-10-06T10:02:15+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "It seems that a trend started\u00e2\u20ac\u00a6 I continue my journey discovering more RMM (\"Remote Management & Monitoring\") tools abused by threat actors! A few\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-05T02:00:02+00:00",
+    "published_at": "2026-10-06T09:34:56+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33398",
-    "title": "ISC Stormcast For Monday, October 5th, 2026 https://isc.sans.edu/podcastdetail/10122, (Mon, Oct 5th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33400",
+    "title": "More RMM Tools In the Wild, (Tue, Oct 6th)"
   },
-  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 3,
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 181,
+  "qualified_developments": 1111,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,19 +51,22 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-102490"
+        "CVE-2026-42208"
       ],
-      "cvss_score": 9.4,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.48333,
-      "epss_score": 0.00629,
-      "ghsa_ids": [],
-      "id": "CVE-2026-102490",
+      "cvss_score": 9.3,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.92868,
+      "epss_score": 0.05772,
+      "ghsa_ids": [
+        "GHSA-r75f-5x8p-qvmc"
+      ],
+      "id": "CVE-2026-42208",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Zammad"
+        "LiteLLM",
+        "litellm"
       ],
       "selection_reasons": [
         "CISA KEV +50",
@@ -80,40 +74,11 @@
         "critical CVSS +20"
       ],
       "selection_score": 115,
-      "severity": "CRITICAL",
+      "severity": "critical",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-102490 exploited in CISA KEV: Zammad GmbH Zammad",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-102489"
-      ],
-      "cvss_score": 9.4,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.71465,
-      "epss_score": 0.01396,
-      "ghsa_ids": [],
-      "id": "CVE-2026-102489",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Zammad"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 115,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-102489 exploited in CISA KEV: Zammad GmbH Zammad",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "title": "CVE-2026-42208 exploited in CISA KEV: BerriAI LiteLLM",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": true,
@@ -122,8 +87,8 @@
       ],
       "cvss_score": 8.7,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.18203,
-      "epss_score": 0.00276,
+      "epss_percentile": 0.43126,
+      "epss_score": 0.00534,
       "ghsa_ids": [],
       "id": "CVE-2026-88779",
       "known_exploited": true,
@@ -147,14 +112,72 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-105223"
+        "CVE-2026-92934"
       ],
-      "cvss_score": 9.1,
+      "cvss_score": 9.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.53777,
+      "epss_score": 0.00762,
+      "ghsa_ids": [
+        "GHSA-x965-fc75-jpqh"
+      ],
+      "id": "CVE-2026-92934",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [
+        "vm2"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92934",
+      "title": "vm2 before 3.11.8 contains an incomplete fix for Error.cause sanitization that allows sandbox escape when revisited host",
+      "why_it_matters": "CVSS 9.5; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-21589"
+      ],
+      "cvss_score": 9.3,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-105223",
+      "id": "CVE-2026-21589",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21589",
+      "title": "h3. Summary This is a vulnerability in Bitbucket Data Center, Confluence Data Center, Jira Service Management Data Cent",
+      "why_it_matters": "CVSS 9.3; priority technology: browsers"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2025-66390"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.48996,
+      "epss_score": 0.00642,
+      "ghsa_ids": [],
+      "id": "CVE-2025-66390",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -167,35 +190,9 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105223",
-      "title": "maclof kubernetes-client 0.17.0 before 0.32.0 disables TLS certificate verification in parseKubeconfig() and parseKubeco",
-      "why_it_matters": "CVSS 9.1; priority technology: cloud"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-105293"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-105293",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105293",
-      "title": "Legcord 1.1.0 through 1.3.0 contains a path traversal vulnerability in theme IPC handlers that allows script in the Disc",
-      "why_it_matters": "CVSS 9.2; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66390",
+      "title": "In Microsoft Azure API Management through 2025-10-17, when self-service signup (username/password Basic Authentication)",
+      "why_it_matters": "CVSS 9.8; priority technology: cloud"
     }
   ]
 }
