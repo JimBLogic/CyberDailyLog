@@ -1,8 +1,17 @@
 {
-  "above_threshold": 652,
-  "community_pulse": null,
-  "coverage_end": "2026-10-06T10:01:08+00:00",
-  "coverage_start": "2026-10-05T08:03:45+00:00",
+  "above_threshold": 718,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 345,
+    "discussion_url": "https://news.ycombinator.com/item?id=49980715",
+    "published_at": "2026-10-06T16:23:25+00:00",
+    "score": 292,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/FeSens/openTPU",
+    "title": "OpenTPU \u2013 An open-source AI accelerator, developed by AI"
+  },
+  "coverage_end": "2026-10-07T11:01:20+00:00",
+  "coverage_start": "2026-10-06T08:01:08+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-06T10:02:15+00:00",
+  "generated_at": "2026-10-07T11:04:52+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "It seems that a trend started\u00e2\u20ac\u00a6 I continue my journey discovering more RMM (\"Remote Management & Monitoring\") tools abused by threat actors! A few\u2026",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-06T09:34:56+00:00",
+    "published_at": "2026-10-07T02:00:02+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33400",
-    "title": "More RMM Tools In the Wild, (Tue, Oct 6th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33404",
+    "title": "ISC Stormcast For Wednesday, October 7th, 2026 https://isc.sans.edu/podcastdetail/10126, (Wed, Oct 7th)"
   },
-  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 2,
+  "immediate_attention": "1 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 1,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1111,
+  "qualified_developments": 1016,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -51,44 +60,12 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-42208"
-      ],
-      "cvss_score": 9.3,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.92868,
-      "epss_score": 0.05772,
-      "ghsa_ids": [
-        "GHSA-r75f-5x8p-qvmc"
-      ],
-      "id": "CVE-2026-42208",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "LiteLLM",
-        "litellm"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 115,
-      "severity": "critical",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-42208 exploited in CISA KEV: BerriAI LiteLLM",
-      "why_it_matters": "CVSS 9.3; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-88779"
       ],
       "cvss_score": 8.7,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.43126,
-      "epss_score": 0.00534,
+      "epss_percentile": 0.4651,
+      "epss_score": 0.00592,
       "ghsa_ids": [],
       "id": "CVE-2026-88779",
       "known_exploited": true,
@@ -112,72 +89,95 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-92934"
+        "CVE-2026-16516"
       ],
-      "cvss_score": 9.5,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.53777,
-      "epss_score": 0.00762,
-      "ghsa_ids": [
-        "GHSA-x965-fc75-jpqh"
-      ],
-      "id": "CVE-2026-92934",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [
-        "vm2"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92934",
-      "title": "vm2 before 3.11.8 contains an incomplete fix for Error.cause sanitization that allows sandbox escape when revisited host",
-      "why_it_matters": "CVSS 9.5; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-21589"
-      ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-21589",
+      "id": "CVE-2026-16516",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
+        "priority technology: microsoft_365 +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21589",
-      "title": "h3. Summary This is a vulnerability in Bitbucket Data Center, Confluence Data Center, Jira Service Management Data Cent",
-      "why_it_matters": "CVSS 9.3; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16516",
+      "title": "wolfSSH does not validate that the ECDSA curve identifier in a KEXDH_REPLY host key blob matches the algorithm negotiate",
+      "why_it_matters": "CVSS 9.0; priority technology: microsoft_365"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2025-66390"
+        "CVE-2026-98365"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.48996,
-      "epss_score": 0.00642,
+      "epss_percentile": 0.05126,
+      "epss_score": 0.00165,
       "ghsa_ids": [],
-      "id": "CVE-2025-66390",
+      "id": "CVE-2026-98365",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98365",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: RDMA/rxe: Fix integer overflow in mr_check_range()",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-98323"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.07298,
+      "epss_score": 0.00184,
+      "ghsa_ids": [],
+      "id": "CVE-2026-98323",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98323",
+      "title": "In the Linux kernel, the following vulnerability has been resolved: RDMA/siw: Bound fragmented header copies by the rem",
+      "why_it_matters": "CVSS 9.8; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-45663"
+      ],
+      "cvss_score": 9.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.74438,
+      "epss_score": 0.01561,
+      "ghsa_ids": [],
+      "id": "CVE-2026-45663",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -187,12 +187,12 @@
         "priority technology: cloud +8",
         "official source +5"
       ],
-      "selection_score": 33,
+      "selection_score": 28,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66390",
-      "title": "In Microsoft Azure API Management through 2025-10-17, when self-service signup (username/password Basic Authentication)",
-      "why_it_matters": "CVSS 9.8; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45663",
+      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.1 and earlier, a command injection vulnerability",
+      "why_it_matters": "CVSS 9.9; priority technology: cloud"
     }
   ]
 }

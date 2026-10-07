@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-06T10:02:15+00:00  
-**Coverage:** 2026-10-05T08:03:45+00:00 → 2026-10-06T10:01:08+00:00  
+**Updated:** 2026-10-07T11:04:52+00:00  
+**Coverage:** 2026-10-06T08:01:08+00:00 → 2026-10-07T11:01:20+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+1 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 1111 source-backed developments
-- **Above threshold:** 652
+- **Assessed:** 1016 source-backed developments
+- **Above threshold:** 718
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-42208](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-42208 exploited in CISA KEV: BerriAI LiteLLM — CVSS 9.3; detection opportunity
 - **[CVE-2026-88779](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88779 exploited in CISA KEV: Citrix NetScaler — CVSS 8.7; detection opportunity
-- **[CVE-2026-92934](https://nvd.nist.gov/vuln/detail/CVE-2026-92934) · 9.4/10** — vm2 before 3.11.8 contains an incomplete fix for Error.cause sanitization that allows sandbox escape when revisited host — CVSS 9.5; priority technology: linux
-- **[CVE-2026-21589](https://nvd.nist.gov/vuln/detail/CVE-2026-21589) · 9.4/10** — h3. Summary This is a vulnerability in Bitbucket Data Center, Confluence Data Center, Jira Service Management Data Cent — CVSS 9.3; priority technology: browsers
-- **[CVE-2025-66390](https://nvd.nist.gov/vuln/detail/CVE-2025-66390) · 9.4/10** — In Microsoft Azure API Management through 2025-10-17, when self-service signup (username/password Basic Authentication) — CVSS 9.8; priority technology: cloud
+- **[CVE-2026-16516](https://nvd.nist.gov/vuln/detail/CVE-2026-16516) · 9.4/10** — wolfSSH does not validate that the ECDSA curve identifier in a KEXDH_REPLY host key blob matches the algorithm negotiate — CVSS 9.0; priority technology: microsoft_365
+- **[CVE-2026-98365](https://nvd.nist.gov/vuln/detail/CVE-2026-98365) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: RDMA/rxe: Fix integer overflow in mr_check_range() — CVSS 9.8; priority technology: linux
+- **[CVE-2026-98323](https://nvd.nist.gov/vuln/detail/CVE-2026-98323) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: RDMA/siw: Bound fragmented header copies by the rem — CVSS 9.8; priority technology: linux
+- **[CVE-2026-45663](https://nvd.nist.gov/vuln/detail/CVE-2026-45663) · 9.4/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.1 and earlier, a command injection vulnerability — CVSS 9.9; priority technology: cloud
 
 ### Human context
 
-**[More RMM Tools In the Wild, (Tue, Oct 6th)](https://isc.sans.edu/diary/rss/33400)**
+**[ISC Stormcast For Wednesday, October 7th, 2026 https://isc.sans.edu/podcastdetail/10126, (Wed, Oct 7th)](https://isc.sans.edu/diary/rss/33404)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> It seems that a trend startedâ€¦ I continue my journey discovering more RMM (&quot;Remote Management &amp; Monitoring&quot;) tools abused by threat actors! A few…
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+
+### Community pulse
+
+**[OpenTPU – An open-source AI accelerator, developed by AI](https://github.com/FeSens/openTPU)** — Hacker News · 292 points · 345 comments
+[Open discussion](https://news.ycombinator.com/item?id=49980715)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
