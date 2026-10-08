@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-07T11:04:52+00:00  
-**Coverage:** 2026-10-06T08:01:08+00:00 → 2026-10-07T11:01:20+00:00  
+**Updated:** 2026-10-08T10:02:48+00:00  
+**Coverage:** 2026-10-07T09:01:20+00:00 → 2026-10-08T10:01:21+00:00  
 **Pipeline:** **Operational**
 
-1 item(s) include exploitation, KEV or ransomware signals.
+26 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 1016 source-backed developments
-- **Above threshold:** 718
+- **Assessed:** 2193 source-backed developments
+- **Above threshold:** 1473
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-88779](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-88779 exploited in CISA KEV: Citrix NetScaler — CVSS 8.7; detection opportunity
-- **[CVE-2026-16516](https://nvd.nist.gov/vuln/detail/CVE-2026-16516) · 9.4/10** — wolfSSH does not validate that the ECDSA curve identifier in a KEXDH_REPLY host key blob matches the algorithm negotiate — CVSS 9.0; priority technology: microsoft_365
-- **[CVE-2026-98365](https://nvd.nist.gov/vuln/detail/CVE-2026-98365) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: RDMA/rxe: Fix integer overflow in mr_check_range() — CVSS 9.8; priority technology: linux
-- **[CVE-2026-98323](https://nvd.nist.gov/vuln/detail/CVE-2026-98323) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: RDMA/siw: Bound fragmented header copies by the rem — CVSS 9.8; priority technology: linux
-- **[CVE-2026-45663](https://nvd.nist.gov/vuln/detail/CVE-2026-45663) · 9.4/10** — Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.1 and earlier, a command injection vulnerability — CVSS 9.9; priority technology: cloud
+- **[CVE-2025-5777](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-5777 exploited in CISA KEV: Citrix NetScaler ADC and Gateway — CVSS 9.3; EPSS &gt;= 70%
+- **[CVE-2017-12149](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2017-12149 exploited in CISA KEV: Red Hat JBoss Application Server — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2025-55182](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-55182 exploited in CISA KEV: Meta React Server Components — CVSS 10.0; EPSS &gt;= 70%
+- **[CVE-2025-52691](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-52691 exploited in CISA KEV: SmarterTools SmarterMail — CVSS 10.0; EPSS &gt;= 70%
+- **[CVE-2024-50623](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2024-50623 exploited in CISA KEV: Cleo Multiple Products — CVSS 9.8; EPSS &gt;= 70%
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, October 7th, 2026 https://isc.sans.edu/podcastdetail/10126, (Wed, Oct 7th)](https://isc.sans.edu/diary/rss/33404)**
+**[ISC Stormcast For Thursday, October 8th, 2026 https://isc.sans.edu/podcastdetail/10128, (Thu, Oct 8th)](https://isc.sans.edu/diary/rss/33408)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[OpenTPU – An open-source AI accelerator, developed by AI](https://github.com/FeSens/openTPU)** — Hacker News · 292 points · 345 comments
-[Open discussion](https://news.ycombinator.com/item?id=49980715)
+**[Docker Agent](https://github.com/docker/docker-agent)** — Hacker News · 238 points · 110 comments
+[Open discussion](https://news.ycombinator.com/item?id=49996259)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

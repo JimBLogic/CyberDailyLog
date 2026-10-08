@@ -1,17 +1,17 @@
 {
-  "above_threshold": 718,
+  "above_threshold": 1473,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 345,
-    "discussion_url": "https://news.ycombinator.com/item?id=49980715",
-    "published_at": "2026-10-06T16:23:25+00:00",
-    "score": 292,
+    "comments": 110,
+    "discussion_url": "https://news.ycombinator.com/item?id=49996259",
+    "published_at": "2026-10-07T17:48:38+00:00",
+    "score": 238,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/FeSens/openTPU",
-    "title": "OpenTPU \u2013 An open-source AI accelerator, developed by AI"
+    "source_url": "https://github.com/docker/docker-agent",
+    "title": "Docker Agent"
   },
-  "coverage_end": "2026-10-07T11:01:20+00:00",
-  "coverage_start": "2026-10-06T08:01:08+00:00",
+  "coverage_end": "2026-10-08T10:01:21+00:00",
+  "coverage_start": "2026-10-07T09:01:20+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-07T11:04:52+00:00",
+  "generated_at": "2026-10-08T10:02:48+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-07T02:00:02+00:00",
+    "published_at": "2026-10-08T02:00:02+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33404",
-    "title": "ISC Stormcast For Wednesday, October 7th, 2026 https://isc.sans.edu/podcastdetail/10126, (Wed, Oct 7th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33408",
+    "title": "ISC Stormcast For Thursday, October 8th, 2026 https://isc.sans.edu/podcastdetail/10128, (Thu, Oct 8th)"
   },
-  "immediate_attention": "1 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 1,
+  "immediate_attention": "26 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 26,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1016,
+  "qualified_developments": 2193,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,139 +60,147 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-88779"
+        "CVE-2025-5777"
       ],
-      "cvss_score": 8.7,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.4651,
-      "epss_score": 0.00592,
+      "cvss_score": 9.3,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99978,
+      "epss_score": 0.99972,
       "ghsa_ids": [],
-      "id": "CVE-2026-88779",
+      "id": "CVE-2025-5777",
       "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
       "products": [
-        "NetScaler"
+        "NetScaler ADC and Gateway"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "high CVSS +10"
+        "known ransomware use +25"
       ],
-      "selection_score": 105,
-      "severity": "HIGH",
+      "selection_score": 183,
+      "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-88779 exploited in CISA KEV: Citrix NetScaler",
-      "why_it_matters": "CVSS 8.7; detection opportunity"
+      "title": "CVE-2025-5777 exploited in CISA KEV: Citrix NetScaler ADC and Gateway",
+      "why_it_matters": "CVSS 9.3; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-16516"
-      ],
-      "cvss_score": 9.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-16516",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16516",
-      "title": "wolfSSH does not validate that the ECDSA curve identifier in a KEXDH_REPLY host key blob matches the algorithm negotiate",
-      "why_it_matters": "CVSS 9.0; priority technology: microsoft_365"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-98365"
+        "CVE-2017-12149"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.05126,
-      "epss_score": 0.00165,
+      "defensive_action": "Apply updates per vendor instructions.",
+      "epss_percentile": 0.99803,
+      "epss_score": 0.90713,
       "ghsa_ids": [],
-      "id": "CVE-2026-98365",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
+      "id": "CVE-2017-12149",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "JBoss Application Server"
       ],
-      "selection_score": 28,
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 183,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98365",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: RDMA/rxe: Fix integer overflow in mr_check_range()",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2017-12149 exploited in CISA KEV: Red Hat JBoss Application Server",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-98323"
+        "CVE-2025-55182"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99957,
+      "epss_score": 0.99802,
+      "ghsa_ids": [],
+      "id": "CVE-2025-55182",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "React Server Components"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 175,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-55182 exploited in CISA KEV: Meta React Server Components",
+      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2025-52691"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99721,
+      "epss_score": 0.85655,
+      "ghsa_ids": [],
+      "id": "CVE-2025-52691",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "SmarterMail"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 175,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2025-52691 exploited in CISA KEV: SmarterTools SmarterMail",
+      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2024-50623"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.07298,
-      "epss_score": 0.00184,
+      "defensive_action": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99922,
+      "epss_score": 0.98607,
       "ghsa_ids": [],
-      "id": "CVE-2026-98323",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
+      "id": "CVE-2024-50623",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "Multiple Products"
+      ],
       "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
       ],
-      "selection_score": 28,
+      "selection_score": 175,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98323",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: RDMA/siw: Bound fragmented header copies by the rem",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-45663"
-      ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.74438,
-      "epss_score": 0.01561,
-      "ghsa_ids": [],
-      "id": "CVE-2026-45663",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45663",
-      "title": "Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.1 and earlier, a command injection vulnerability",
-      "why_it_matters": "CVSS 9.9; priority technology: cloud"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2024-50623 exploited in CISA KEV: Cleo Multiple Products",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
     }
   ]
 }
