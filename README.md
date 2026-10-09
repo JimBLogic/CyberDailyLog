@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-08T10:02:48+00:00  
-**Coverage:** 2026-10-07T09:01:20+00:00 → 2026-10-08T10:01:21+00:00  
+**Updated:** 2026-10-09T10:03:50+00:00  
+**Coverage:** 2026-10-08T08:01:21+00:00 → 2026-10-09T10:01:01+00:00  
 **Pipeline:** **Operational**
 
-26 item(s) include exploitation, KEV or ransomware signals.
+15 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 2193 source-backed developments
-- **Above threshold:** 1473
+- **Assessed:** 3180 source-backed developments
+- **Above threshold:** 2178
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-5777](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-5777 exploited in CISA KEV: Citrix NetScaler ADC and Gateway — CVSS 9.3; EPSS &gt;= 70%
-- **[CVE-2017-12149](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2017-12149 exploited in CISA KEV: Red Hat JBoss Application Server — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2025-55182](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-55182 exploited in CISA KEV: Meta React Server Components — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2025-52691](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-52691 exploited in CISA KEV: SmarterTools SmarterMail — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2024-50623](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2024-50623 exploited in CISA KEV: Cleo Multiple Products — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2025-3248](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-3248 exploited in CISA KEV: Langflow Langflow — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2025-61884](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-61884 exploited in CISA KEV: Oracle E-Business Suite — CVSS 7.5; EPSS &gt;= 70%
+- **[CVE-2025-61757](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61757 exploited in CISA KEV: Oracle Fusion Middleware — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2025-34291](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-34291 exploited in CISA KEV: Langflow Langflow — CVSS 9.4; EPSS &gt;= 70%
+- **[CVE-2015-3306](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD — CVSS 10.0; EPSS &gt;= 70%
 
 ### Human context
 
-**[ISC Stormcast For Thursday, October 8th, 2026 https://isc.sans.edu/podcastdetail/10128, (Thu, Oct 8th)](https://isc.sans.edu/diary/rss/33408)**
+**[ISC Stormcast For Friday, October 9th, 2026 https://isc.sans.edu/podcastdetail/10130, (Fri, Oct 9th)](https://isc.sans.edu/diary/rss/33412)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
-
-### Community pulse
-
-**[Docker Agent](https://github.com/docker/docker-agent)** — Hacker News · 238 points · 110 comments
-[Open discussion](https://news.ycombinator.com/item?id=49996259)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
