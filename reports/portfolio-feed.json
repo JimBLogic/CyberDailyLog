@@ -1,8 +1,17 @@
 {
-  "above_threshold": 2178,
-  "community_pulse": null,
-  "coverage_end": "2026-10-09T10:01:01+00:00",
-  "coverage_start": "2026-10-08T08:01:21+00:00",
+  "above_threshold": 568,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 175,
+    "discussion_url": "https://news.ycombinator.com/item?id=50018817",
+    "published_at": "2026-10-09T11:03:48+00:00",
+    "score": 398,
+    "source_name": "Hacker News",
+    "source_url": "https://github.com/franzenzenhofer/big-arrow-on-the-screen",
+    "title": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen"
+  },
+  "coverage_end": "2026-10-10T10:00:57+00:00",
+  "coverage_start": "2026-10-09T08:01:01+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-09T10:03:50+00:00",
+  "generated_at": "2026-10-10T10:01:34+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "The Traffic Light Protocol (TLP)[ 1 ], which is now in its second incarnation, is a wonderful standard that enables one to easily communicate\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-09T07:52:03+00:00",
+    "published_at": "2026-10-10T09:11:34+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33412",
-    "title": "ISC Stormcast For Friday, October 9th, 2026 https://isc.sans.edu/podcastdetail/10130, (Fri, Oct 9th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33414",
+    "title": "Why TLP should not replace your internal information classification, (Sat, Oct 10th)"
   },
-  "immediate_attention": "15 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 15,
+  "immediate_attention": "6 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 6,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 3180,
+  "qualified_developments": 857,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -51,43 +60,14 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-3248"
+        "CVE-2025-61882"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99987,
-      "epss_score": 0.99993,
+      "epss_percentile": 0.99953,
+      "epss_score": 0.99732,
       "ghsa_ids": [],
-      "id": "CVE-2025-3248",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "Langflow"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 175,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-3248 exploited in CISA KEV: Langflow Langflow",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-61884"
-      ],
-      "cvss_score": 7.5,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99874,
-      "epss_score": 0.95891,
-      "ghsa_ids": [],
-      "id": "CVE-2025-61884",
+      "id": "CVE-2025-61882",
       "known_exploited": true,
       "known_ransomware_use": true,
       "priority_score": 10.0,
@@ -99,70 +79,12 @@
         "confirmed exploitation +40",
         "known ransomware use +25"
       ],
-      "selection_score": 165,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-61884 exploited in CISA KEV: Oracle E-Business Suite",
-      "why_it_matters": "CVSS 7.5; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-61757"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99773,
-      "epss_score": 0.88647,
-      "ghsa_ids": [],
-      "id": "CVE-2025-61757",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Fusion Middleware"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 150,
+      "selection_score": 175,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-61757 exploited in CISA KEV: Oracle Fusion Middleware",
+      "title": "CVE-2025-61882 exploited in CISA KEV: Oracle E-Business Suite",
       "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-34291"
-      ],
-      "cvss_score": 9.4,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99829,
-      "epss_score": 0.92808,
-      "ghsa_ids": [],
-      "id": "CVE-2025-34291",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Langflow"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 150,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-34291 exploited in CISA KEV: Langflow Langflow",
-      "why_it_matters": "CVSS 9.4; EPSS >= 70%"
     },
     {
       "cisa_kev": true,
@@ -171,8 +93,8 @@
       ],
       "cvss_score": 10.0,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99887,
-      "epss_score": 0.96752,
+      "epss_percentile": 0.9991,
+      "epss_score": 0.98033,
       "ghsa_ids": [],
       "id": "CVE-2015-3306",
       "known_exploited": true,
@@ -192,6 +114,93 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD",
       "why_it_matters": "CVSS 10.0; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2016-3081"
+      ],
+      "cvss_score": 8.1,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99853,
+      "epss_score": 0.94506,
+      "ghsa_ids": [],
+      "id": "CVE-2016-3081",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Struts"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 140,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2016-3081 exploited in CISA KEV: Apache Struts",
+      "why_it_matters": "CVSS 8.1; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2015-5477"
+      ],
+      "cvss_score": 7.5,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99816,
+      "epss_score": 0.91807,
+      "ghsa_ids": [],
+      "id": "CVE-2015-5477",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "BIND"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 140,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2015-5477 exploited in CISA KEV: ISC BIND",
+      "why_it_matters": "CVSS 7.5; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2021-3199"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.96569,
+      "epss_score": 0.14548,
+      "ghsa_ids": [],
+      "id": "CVE-2021-3199",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Docs"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 125,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2021-3199 exploited in CISA KEV: ONLYOFFICE Docs",
+      "why_it_matters": "CVSS 9.8; EPSS percentile >= 95%"
     }
   ]
 }

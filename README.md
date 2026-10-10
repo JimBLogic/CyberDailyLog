@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-09T10:03:50+00:00  
-**Coverage:** 2026-10-08T08:01:21+00:00 → 2026-10-09T10:01:01+00:00  
+**Updated:** 2026-10-10T10:01:34+00:00  
+**Coverage:** 2026-10-09T08:01:01+00:00 → 2026-10-10T10:00:57+00:00  
 **Pipeline:** **Operational**
 
-15 item(s) include exploitation, KEV or ransomware signals.
+6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 3180 source-backed developments
-- **Above threshold:** 2178
+- **Assessed:** 857 source-backed developments
+- **Above threshold:** 568
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-3248](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-3248 exploited in CISA KEV: Langflow Langflow — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2025-61884](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-61884 exploited in CISA KEV: Oracle E-Business Suite — CVSS 7.5; EPSS &gt;= 70%
-- **[CVE-2025-61757](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61757 exploited in CISA KEV: Oracle Fusion Middleware — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2025-34291](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-34291 exploited in CISA KEV: Langflow Langflow — CVSS 9.4; EPSS &gt;= 70%
+- **[CVE-2025-61882](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-61882 exploited in CISA KEV: Oracle E-Business Suite — CVSS 9.8; EPSS &gt;= 70%
 - **[CVE-2015-3306](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD — CVSS 10.0; EPSS &gt;= 70%
+- **[CVE-2016-3081](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2016-3081 exploited in CISA KEV: Apache Struts — CVSS 8.1; EPSS &gt;= 70%
+- **[CVE-2015-5477](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-5477 exploited in CISA KEV: ISC BIND — CVSS 7.5; EPSS &gt;= 70%
+- **[CVE-2021-3199](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-3199 exploited in CISA KEV: ONLYOFFICE Docs — CVSS 9.8; EPSS percentile &gt;= 95%
 
 ### Human context
 
-**[ISC Stormcast For Friday, October 9th, 2026 https://isc.sans.edu/podcastdetail/10130, (Fri, Oct 9th)](https://isc.sans.edu/diary/rss/33412)**
+**[Why TLP should not replace your internal information classification, (Sat, Oct 10th)](https://isc.sans.edu/diary/rss/33414)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> The Traffic Light Protocol (TLP)\[ 1 \], which is now in its second incarnation, is a wonderful standard that enables one to easily communicate…
+
+### Community pulse
+
+**[Show HN: Let your AI agents paint big arrows, boxes and text on your screen](https://github.com/franzenzenhofer/big-arrow-on-the-screen)** — Hacker News · 398 points · 175 comments
+[Open discussion](https://news.ycombinator.com/item?id=50018817)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
