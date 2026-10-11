@@ -1,40 +1,40 @@
-# CyberDailyLog — Daily Blue Team Brief · 2026-10-10
+# CyberDailyLog — Daily Blue Team Brief · 2026-10-11
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-10T10:01:34+00:00  
-**Coverage:** 2026-10-09T08:01:01+00:00 → 2026-10-10T10:00:57+00:00  
+**Updated:** 2026-10-11T10:11:23+00:00  
+**Coverage:** 2026-10-10T08:00:57+00:00 → 2026-10-11T10:11:15+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **857** source-backed developments assessed.
-- **568** met the editorial threshold of **5.0/10** or an exploitation override.
+- **379** source-backed developments assessed.
+- **280** met the editorial threshold of **5.0/10** or an exploitation override.
 - **15** unique items are displayed after curation.
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-- **[CVE-2025-61882](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-61882 exploited in CISA KEV: Oracle E-Business Suite. **Action:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
 - **[CVE-2015-3306](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **[CVE-2016-3081](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2016-3081 exploited in CISA KEV: Apache Struts. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **[CVE-2015-5477](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-5477 exploited in CISA KEV: ISC BIND. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **[CVE-2021-3199](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-3199 exploited in CISA KEV: ONLYOFFICE Docs. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2023-22894 — CVE-2023-22894 exploited in CISA KEV: Strapi Strapi](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 4.9 | 3.4% | KEV | CVSS 4.9; detection opportunity |
-| [CVE-2026-56857 — CVE-2026-56857: On Windows, when the target of Root.Mkdir or Root.MkdirAll is a junction pointing to an…](https://nvd.nist.gov/vuln/detail/CVE-2026-56857) | 9.4 | 9.8 | 0.2% | — | CVSS 9.8; priority technology: windows |
-| [CVE-2026-106294 — CVE-2026-106294: Incomplete cleanup in Chromoting in Google Chrome on on Mac prior to 155.0.8059.39 allowed…](https://nvd.nist.gov/vuln/detail/CVE-2026-106294) | 9.4 | 9.1 | 0.2% | — | CVSS 9.1; priority technology: browsers |
-| [CVE-2026-94589 — CVE-2026-94589: The Extensions For CF7 (Contact form 7 Database, Conditional Fields and Redirection) plugin…](https://nvd.nist.gov/vuln/detail/CVE-2026-94589) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-93945 — CVE-2026-93945: Deserialization of Untrusted Data vulnerability in Axiomthemes Balance balance allows Object…](https://nvd.nist.gov/vuln/detail/CVE-2026-93945) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-93944 — CVE-2026-93944: Deserialization of Untrusted Data vulnerability in ThemeREX Group Camelia camelia allows…](https://nvd.nist.gov/vuln/detail/CVE-2026-93944) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-93943 — CVE-2026-93943: Deserialization of Untrusted Data vulnerability in ThemeREX Group Convex convex allows…](https://nvd.nist.gov/vuln/detail/CVE-2026-93943) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
-| [CVE-2026-93942 — CVE-2026-93942: Deserialization of Untrusted Data vulnerability in ThemeREX Group Dwell dwell allows Object…](https://nvd.nist.gov/vuln/detail/CVE-2026-93942) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2023-22894 — CVE-2023-22894 exploited in CISA KEV: Strapi Strapi](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 9.6 | 4.9 | 3.6% | KEV | CVSS 4.9; detection opportunity |
+| [CVE-2026-81797 — CVE-2026-81797: Unauthenticated PHP Object Injection in Buzz Stone \| Magazine &amp; Viral Blog WordPress Theme…](https://nvd.nist.gov/vuln/detail/CVE-2026-81797) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-78535 — CVE-2026-78535: Unauthenticated PHP Object Injection in Photolia &lt;= 1.0.3 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-78535) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-78533 — CVE-2026-78533: Unauthenticated PHP Object Injection in Qwery &lt;= 3.6.1 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-78533) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-78531 — CVE-2026-78531: Unauthenticated PHP Object Injection in Jacqueline &lt;= 2.22 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-78531) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-78529 — CVE-2026-78529: Unauthenticated PHP Object Injection in Alliance &lt;= 3.11 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-78529) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-66569 — CVE-2026-66569: Unauthenticated PHP Object Injection in Kicker &lt;= 2.2.1 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-66569) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-66568 — CVE-2026-66568: Unauthenticated PHP Object Injection in Original &lt;= 1.9.0 versions.](https://nvd.nist.gov/vuln/detail/CVE-2026-66568) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
 
 ## Human context
 
@@ -48,8 +48,8 @@ _Publisher-provided RSS excerpt; open the original article for full context._
 
 ## Community pulse
 
-- **[Show HN: Let your AI agents paint big arrows, boxes and text on your screen](https://github.com/franzenzenhofer/big-arrow-on-the-screen)**
-  Hacker News · 398 points · 175 comments · [Open discussion](https://news.ycombinator.com/item?id=50018817)
+- **[Talorys – A self-hosted personal AI agent on Cloudflare&#x27;s free tier](https://github.com/rociiu/talorys)**
+  Hacker News · 295 points · 134 comments · [Open discussion](https://news.ycombinator.com/item?id=50031614)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -62,11 +62,11 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2025-61882:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
 - **CVE-2015-3306:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **CVE-2016-3081:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **CVE-2015-5477:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **CVE-2021-3199:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-86950:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Source health
 
@@ -77,14 +77,14 @@ Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1739 | 381 ms |  |
-| nvd | yes | healthy | 1288 | 14735 ms |  |
-| github_advisories | yes | healthy | 87 | 1282 ms |  |
-| rss_krebs | no | healthy | 1 | 199 ms |  |
-| rss_sans_isc | no | healthy | 1 | 276 ms |  |
-| github_releases | no | healthy | 0 | 2473 ms |  |
-| hacker_news | no | healthy | 2 | 8255 ms |  |
-| epss | no | healthy | 2497 | 7586 ms |  |
+| cisa_kev | yes | healthy | 1739 | 258 ms |  |
+| nvd | yes | healthy | 433 | 284 ms |  |
+| github_advisories | yes | healthy | 0 | 149 ms |  |
+| rss_krebs | no | healthy | 0 | 115 ms |  |
+| rss_sans_isc | no | healthy | 1 | 301 ms |  |
+| github_releases | no | healthy | 0 | 1138 ms |  |
+| hacker_news | no | healthy | 1 | 2790 ms |  |
+| epss | no | healthy | 1709 | 1201 ms |  |
 
 </details>
 

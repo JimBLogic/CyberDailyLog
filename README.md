@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-10T10:01:34+00:00  
-**Coverage:** 2026-10-09T08:01:01+00:00 → 2026-10-10T10:00:57+00:00  
+**Updated:** 2026-10-11T10:11:23+00:00  
+**Coverage:** 2026-10-10T08:00:57+00:00 → 2026-10-11T10:11:15+00:00  
 **Pipeline:** **Operational**
 
 6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 857 source-backed developments
-- **Above threshold:** 568
+- **Assessed:** 379 source-backed developments
+- **Above threshold:** 280
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-61882](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-61882 exploited in CISA KEV: Oracle E-Business Suite — CVSS 9.8; EPSS &gt;= 70%
 - **[CVE-2015-3306](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD — CVSS 10.0; EPSS &gt;= 70%
 - **[CVE-2016-3081](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2016-3081 exploited in CISA KEV: Apache Struts — CVSS 8.1; EPSS &gt;= 70%
 - **[CVE-2015-5477](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-5477 exploited in CISA KEV: ISC BIND — CVSS 7.5; EPSS &gt;= 70%
 - **[CVE-2021-3199](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-3199 exploited in CISA KEV: ONLYOFFICE Docs — CVSS 9.8; EPSS percentile &gt;= 95%
+- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
 
 ### Human context
 
@@ -35,8 +35,8 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Show HN: Let your AI agents paint big arrows, boxes and text on your screen](https://github.com/franzenzenhofer/big-arrow-on-the-screen)** — Hacker News · 398 points · 175 comments
-[Open discussion](https://news.ycombinator.com/item?id=50018817)
+**[Talorys – A self-hosted personal AI agent on Cloudflare&#x27;s free tier](https://github.com/rociiu/talorys)** — Hacker News · 295 points · 134 comments
+[Open discussion](https://news.ycombinator.com/item?id=50031614)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
