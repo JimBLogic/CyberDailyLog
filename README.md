@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-11T10:11:23+00:00  
-**Coverage:** 2026-10-10T08:00:57+00:00 → 2026-10-11T10:11:15+00:00  
+**Updated:** 2026-10-12T10:08:38+00:00  
+**Coverage:** 2026-10-11T08:11:15+00:00 → 2026-10-12T10:07:47+00:00  
 **Pipeline:** **Operational**
 
-6 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 379 source-backed developments
-- **Above threshold:** 280
+- **Assessed:** 670 source-backed developments
+- **Above threshold:** 457
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2015-3306](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-3306 exploited in CISA KEV: ProFTPD ProFTPD — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2016-3081](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2016-3081 exploited in CISA KEV: Apache Struts — CVSS 8.1; EPSS &gt;= 70%
-- **[CVE-2015-5477](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2015-5477 exploited in CISA KEV: ISC BIND — CVSS 7.5; EPSS &gt;= 70%
-- **[CVE-2021-3199](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-3199 exploited in CISA KEV: ONLYOFFICE Docs — CVSS 9.8; EPSS percentile &gt;= 95%
+- **[CVE-2025-26399](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-26399 exploited in CISA KEV: SolarWinds Web Help Desk — CVSS 9.8; EPSS &gt;= 70%
 - **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
+- **[CVE-2026-89630](https://nvd.nist.gov/vuln/detail/CVE-2026-89630) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: smb: client: restore the data_offset bound in is_va — CVSS 9.1; priority technology: linux
+- **[CVE-2026-72064](https://nvd.nist.gov/vuln/detail/CVE-2026-72064) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: net: mana: Sync page pool RX frags for CPU MANA al — CVSS 9.8; priority technology: linux
+- **[CVE-2026-108753](https://nvd.nist.gov/vuln/detail/CVE-2026-108753) · 9.4/10** — Agnaistic agnai through 1.0.555 contains a hard-coded credentials vulnerability in self-host.docker-compose.yml, which s — CVSS 9.3; priority technology: cloud
 
 ### Human context
 
-**[Why TLP should not replace your internal information classification, (Sat, Oct 10th)](https://isc.sans.edu/diary/rss/33414)**
+**[ISC Stormcast For Monday, October 12th, 2026 https://isc.sans.edu/podcastdetail/10132, (Mon, Oct 12th)](https://isc.sans.edu/diary/rss/33416)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> The Traffic Light Protocol (TLP)\[ 1 \], which is now in its second incarnation, is a wonderful standard that enables one to easily communicate…
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Talorys – A self-hosted personal AI agent on Cloudflare&#x27;s free tier](https://github.com/rociiu/talorys)** — Hacker News · 295 points · 134 comments
-[Open discussion](https://news.ycombinator.com/item?id=50031614)
+**[Valen&#x27;s Memory Safety: A New Kind of Borrow Checking](https://verdagon.dev/blog/valen-group-borrowing)** — Hacker News · 160 points · 89 comments
+[Open discussion](https://news.ycombinator.com/item?id=50042362)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
