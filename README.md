@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-12T10:08:38+00:00  
-**Coverage:** 2026-10-11T08:11:15+00:00 → 2026-10-12T10:07:47+00:00  
+**Updated:** 2026-10-13T11:18:24+00:00  
+**Coverage:** 2026-10-12T08:07:47+00:00 → 2026-10-13T11:16:43+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 670 source-backed developments
-- **Above threshold:** 457
+- **Assessed:** 1228 source-backed developments
+- **Above threshold:** 889
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-26399](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-26399 exploited in CISA KEV: SolarWinds Web Help Desk — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2025-68613](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-68613 exploited in CISA KEV: n8n n8n — CVSS 9.9; EPSS &gt;= 70%
 - **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products — CVSS 8.8; detection opportunity
-- **[CVE-2026-89630](https://nvd.nist.gov/vuln/detail/CVE-2026-89630) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: smb: client: restore the data_offset bound in is_va — CVSS 9.1; priority technology: linux
-- **[CVE-2026-72064](https://nvd.nist.gov/vuln/detail/CVE-2026-72064) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: net: mana: Sync page pool RX frags for CPU MANA al — CVSS 9.8; priority technology: linux
-- **[CVE-2026-108753](https://nvd.nist.gov/vuln/detail/CVE-2026-108753) · 9.4/10** — Agnaistic agnai through 1.0.555 contains a hard-coded credentials vulnerability in self-host.docker-compose.yml, which s — CVSS 9.3; priority technology: cloud
+- **[CVE-2026-78329](https://nvd.nist.gov/vuln/detail/CVE-2026-78329) · 9.4/10** — Improper input validation vulnerability in Apache Camel Undertow component. This issue affects Apache Camel: from 4.1 — CVSS 9.8; priority technology: microsoft_365
+- **[CVE-2026-71300](https://nvd.nist.gov/vuln/detail/CVE-2026-71300) · 9.4/10** — Improper input validation vulnerability in Apache Camel Atmosphere Websocket component. This issue affects Apache Cam — CVSS 9.8; priority technology: microsoft_365
+- **[CVE-2026-66906](https://nvd.nist.gov/vuln/detail/CVE-2026-66906) · 9.4/10** — Relative path traversal vulnerability in Apache Camel Azure Storage Blob component. This issue affects Apache Camel: — CVSS 9.1; priority technology: microsoft_365
 
 ### Human context
 
-**[ISC Stormcast For Monday, October 12th, 2026 https://isc.sans.edu/podcastdetail/10132, (Mon, Oct 12th)](https://isc.sans.edu/diary/rss/33416)**
+**[ISC Stormcast For Tuesday, October 13th, 2026 https://isc.sans.edu/podcastdetail/10134, (Tue, Oct 13th)](https://isc.sans.edu/diary/rss/33418)**
 SANS Internet Storm Center Handler&#x27;s Diary  
 > (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Valen&#x27;s Memory Safety: A New Kind of Borrow Checking](https://verdagon.dev/blog/valen-group-borrowing)** — Hacker News · 160 points · 89 comments
-[Open discussion](https://news.ycombinator.com/item?id=50042362)
+**[Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver](https://github.com/h0m3us3r/w1700k-sdr)** — Hacker News · 356 points · 97 comments
+[Open discussion](https://news.ycombinator.com/item?id=50055593)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

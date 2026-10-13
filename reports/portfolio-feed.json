@@ -1,17 +1,17 @@
 {
-  "above_threshold": 457,
+  "above_threshold": 889,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 89,
-    "discussion_url": "https://news.ycombinator.com/item?id=50042362",
-    "published_at": "2026-10-11T12:06:22+00:00",
-    "score": 160,
+    "comments": 97,
+    "discussion_url": "https://news.ycombinator.com/item?id=50055593",
+    "published_at": "2026-10-12T12:41:58+00:00",
+    "score": 356,
     "source_name": "Hacker News",
-    "source_url": "https://verdagon.dev/blog/valen-group-borrowing",
-    "title": "Valen's Memory Safety: A New Kind of Borrow Checking"
+    "source_url": "https://github.com/h0m3us3r/w1700k-sdr",
+    "title": "Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver"
   },
-  "coverage_end": "2026-10-12T10:07:47+00:00",
-  "coverage_start": "2026-10-11T08:11:15+00:00",
+  "coverage_end": "2026-10-13T11:16:43+00:00",
+  "coverage_start": "2026-10-12T08:07:47+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-12T10:08:38+00:00",
+  "generated_at": "2026-10-13T11:18:24+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-12T02:00:03+00:00",
+    "published_at": "2026-10-13T02:00:02+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33416",
-    "title": "ISC Stormcast For Monday, October 12th, 2026 https://isc.sans.edu/podcastdetail/10132, (Mon, Oct 12th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33418",
+    "title": "ISC Stormcast For Tuesday, October 13th, 2026 https://isc.sans.edu/podcastdetail/10134, (Tue, Oct 13th)"
   },
   "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 670,
+  "qualified_developments": 1228,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,31 +60,31 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-26399"
+        "CVE-2025-68613"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 9.9,
       "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99785,
-      "epss_score": 0.895,
+      "epss_percentile": 0.9993,
+      "epss_score": 0.98994,
       "ghsa_ids": [],
-      "id": "CVE-2025-26399",
+      "id": "CVE-2025-68613",
       "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
       "products": [
-        "Web Help Desk"
+        "n8n"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "known ransomware use +25"
+        "critical CVSS +20"
       ],
-      "selection_score": 175,
+      "selection_score": 150,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-26399 exploited in CISA KEV: SolarWinds Web Help Desk",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "title": "CVE-2025-68613 exploited in CISA KEV: n8n n8n",
+      "why_it_matters": "CVSS 9.9; EPSS >= 70%"
     },
     {
       "cisa_kev": true,
@@ -93,7 +93,7 @@
       ],
       "cvss_score": 8.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.68364,
+      "epss_percentile": 0.68378,
       "epss_score": 0.01242,
       "ghsa_ids": [],
       "id": "CVE-2026-86950",
@@ -118,83 +118,83 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-89630"
-      ],
-      "cvss_score": 9.1,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.43682,
-      "epss_score": 0.00539,
-      "ghsa_ids": [],
-      "id": "CVE-2026-89630",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89630",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: smb: client: restore the data_offset bound in is_va",
-      "why_it_matters": "CVSS 9.1; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-72064"
+        "CVE-2026-78329"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.44597,
-      "epss_score": 0.00553,
+      "epss_percentile": 0.53276,
+      "epss_score": 0.00738,
       "ghsa_ids": [],
-      "id": "CVE-2026-72064",
+      "id": "CVE-2026-78329",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: linux +8",
+        "priority technology: microsoft_365 +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72064",
-      "title": "In the Linux kernel, the following vulnerability has been resolved: net: mana: Sync page pool RX frags for CPU MANA al",
-      "why_it_matters": "CVSS 9.8; priority technology: linux"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78329",
+      "title": "Improper input validation vulnerability in Apache Camel Undertow component. This issue affects Apache Camel: from 4.1",
+      "why_it_matters": "CVSS 9.8; priority technology: microsoft_365"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-108753"
+        "CVE-2026-71300"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.53276,
+      "epss_score": 0.00738,
       "ghsa_ids": [],
-      "id": "CVE-2026-108753",
+      "id": "CVE-2026-71300",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
+        "priority technology: microsoft_365 +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108753",
-      "title": "Agnaistic agnai through 1.0.555 contains a hard-coded credentials vulnerability in self-host.docker-compose.yml, which s",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71300",
+      "title": "Improper input validation vulnerability in Apache Camel Atmosphere Websocket component. This issue affects Apache Cam",
+      "why_it_matters": "CVSS 9.8; priority technology: microsoft_365"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-66906"
+      ],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.54552,
+      "epss_score": 0.00776,
+      "ghsa_ids": [],
+      "id": "CVE-2026-66906",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: microsoft_365 +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66906",
+      "title": "Relative path traversal vulnerability in Apache Camel Azure Storage Blob component. This issue affects Apache Camel:",
+      "why_it_matters": "CVSS 9.1; priority technology: microsoft_365"
     }
   ]
 }
