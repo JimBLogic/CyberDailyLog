@@ -1,54 +1,55 @@
-# CyberDailyLog — Daily Blue Team Brief · 2026-10-13
+# CyberDailyLog — Daily Blue Team Brief · 2026-10-14
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-13T11:18:24+00:00  
-**Coverage:** 2026-10-12T08:07:47+00:00 → 2026-10-13T11:16:43+00:00  
+**Updated:** 2026-10-14T11:25:39+00:00  
+**Coverage:** 2026-10-13T09:16:43+00:00 → 2026-10-14T11:20:55+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **1228** source-backed developments assessed.
-- **889** met the editorial threshold of **5.0/10** or an exploitation override.
-- **14** unique items are displayed after curation.
+- **2637** source-backed developments assessed.
+- **2246** met the editorial threshold of **5.0/10** or an exploitation override.
+- **15** unique items are displayed after curation.
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
-- **[CVE-2025-68613](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-68613 exploited in CISA KEV: n8n n8n. **Action:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
-- **[CVE-2026-86950](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2021-22555](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-22555 exploited in CISA KEV: Linux Kernel. **Action:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
+- **[CVE-2026-96951](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96951 exploited in CISA KEV: Microsoft Windows. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **[CVE-2026-104935](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure. **Action:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 
 ## Priority vulnerabilities — 5.0/10 or higher
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-78329 — CVE-2026-78329: Improper input validation vulnerability in Apache Camel Undertow component. This issue…](https://nvd.nist.gov/vuln/detail/CVE-2026-78329) | 9.4 | 9.8 | 0.7% | — | CVSS 9.8; priority technology: microsoft_365 |
-| [CVE-2026-71300 — CVE-2026-71300: Improper input validation vulnerability in Apache Camel Atmosphere Websocket component. This…](https://nvd.nist.gov/vuln/detail/CVE-2026-71300) | 9.4 | 9.8 | 0.7% | — | CVSS 9.8; priority technology: microsoft_365 |
-| [CVE-2026-66906 — CVE-2026-66906: Relative path traversal vulnerability in Apache Camel Azure Storage Blob component. This…](https://nvd.nist.gov/vuln/detail/CVE-2026-66906) | 9.4 | 9.1 | 0.8% | — | CVSS 9.1; priority technology: microsoft_365 |
-| [CVE-2026-109423 — CVE-2026-109423: NetEase Cloud Music client for Windows (cloudmusic.exe) versions 3.1.38 and 3.1.39.205426…](https://nvd.nist.gov/vuln/detail/CVE-2026-109423) | 9.4 | 9.1 | n/a | — | CVSS 9.1; priority technology: windows |
-| [CVE-2026-109422 — CVE-2026-109422: NetEase Cloud Music client for Windows (cloudmusic.exe) versions 3.1.38 and 3.1.39.205426…](https://nvd.nist.gov/vuln/detail/CVE-2026-109422) | 9.4 | 9.2 | n/a | — | CVSS 9.2; priority technology: windows |
-| [CVE-2025-68668 — CVE-2025-68668: n8n is an open source workflow automation platform. From version 1.0.0 to before 2.0.0, a…](https://nvd.nist.gov/vuln/detail/CVE-2025-68668) | 9.4 | 9.9 | 13.2% | — | CVSS 9.9; EPSS percentile &gt;= 95% |
-| [CVE-2026-109390 — CVE-2026-109390: AnyDesk before 8.0.3 allows unauthenticated remote attackers to execute arbitrary code via…](https://nvd.nist.gov/vuln/detail/CVE-2026-109390) | 9.4 | 9.8 | n/a | — | CVSS 9.8; priority technology: linux |
-| [CVE-2025-68745 — CVE-2025-68745: In the Linux kernel, the following vulnerability has been resolved: scsi: qla2xxx: Clear…](https://nvd.nist.gov/vuln/detail/CVE-2025-68745) | 9.4 | 9.8 | 0.4% | — | CVSS 9.8; priority technology: linux |
-| [CVE-2025-68741 — CVE-2025-68741: In the Linux kernel, the following vulnerability has been resolved: scsi: qla2xxx: Fix…](https://nvd.nist.gov/vuln/detail/CVE-2025-68741) | 9.4 | 9.8 | n/a | — | CVSS 9.8; priority technology: linux |
-| [CVE-2025-68726 — CVE-2025-68726: In the Linux kernel, the following vulnerability has been resolved: crypto: aead - Fix…](https://nvd.nist.gov/vuln/detail/CVE-2025-68726) | 9.4 | 9.8 | 0.4% | — | CVSS 9.8; priority technology: linux |
+| [CVE-2019-8457 — CVE-2019-8457: SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the…](https://nvd.nist.gov/vuln/detail/CVE-2019-8457) | 9.4 | 9.8 | 45.4% | — | CVSS 9.8; EPSS &gt;= 30% |
+| [CVE-2019-5436 — CVE-2019-5436: A heap buffer overflow in the TFTP receiving code allows for DoS or arbitrary code execution…](https://nvd.nist.gov/vuln/detail/CVE-2019-5436) | 9.4 | 7.8 | 49.7% | — | CVSS 7.8; EPSS &gt;= 30% |
+| [CVE-2026-97381 — CVE-2026-97381: Legacy Update is a tool for activating and installing updates on legacy Windows PCs. Legacy…](https://nvd.nist.gov/vuln/detail/CVE-2026-97381) | 9.4 | 9.9 | n/a | — | CVSS 9.9; priority technology: windows |
+| [CVE-2026-77459 — CVE-2026-77459: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. From 2.10.0 until…](https://nvd.nist.gov/vuln/detail/CVE-2026-77459) | 9.4 | 9.9 | n/a | — | CVSS 9.9; priority technology: cloud |
+| [CVE-2026-74041 — CVE-2026-74041: Wazuh 4.14.3 before 4.14.8 contains a case-sensitivity mismatch between the ossec.conf…](https://nvd.nist.gov/vuln/detail/CVE-2026-74041) | 9.4 | 9.4 | n/a | — | CVSS 9.4; priority technology: security_products |
+| [CVE-2026-74040 — CVE-2026-74040: Wazuh versions from 3.9.0 before 4.14.8 contain an arbitrary file overwrite vulnerability in…](https://nvd.nist.gov/vuln/detail/CVE-2026-74040) | 9.4 | 9.4 | n/a | — | CVSS 9.4; priority technology: security_products |
+| [CVE-2026-64037 — CVE-2026-64037: In the Linux kernel, the following vulnerability has been resolved: wifi: iwlwifi: mld: fix…](https://nvd.nist.gov/vuln/detail/CVE-2026-64037) | 9.4 | 9.8 | 0.4% | — | CVSS 9.8; priority technology: linux |
+| [CVE-2026-64035 — CVE-2026-64035: In the Linux kernel, the following vulnerability has been resolved: igc: set tx buffer type…](https://nvd.nist.gov/vuln/detail/CVE-2026-64035) | 9.4 | 9.8 | 0.4% | — | CVSS 9.8; priority technology: linux |
+| [CVE-2026-64034 — CVE-2026-64034: In the Linux kernel, the following vulnerability has been resolved: net: mana: Fix TOCTOU…](https://nvd.nist.gov/vuln/detail/CVE-2026-64034) | 9.4 | 9.3 | 0.1% | — | CVSS 9.3; priority technology: linux |
+| [CVE-2026-64033 — CVE-2026-64033: In the Linux kernel, the following vulnerability has been resolved: RDMA/rtrs: Fix…](https://nvd.nist.gov/vuln/detail/CVE-2026-64033) | 9.4 | 9.8 | 0.5% | — | CVSS 9.8; priority technology: linux |
 
 ## Human context
 
-### [ISC Stormcast For Tuesday, October 13th, 2026 https://isc.sans.edu/podcastdetail/10134, (Tue, Oct 13th)](https://isc.sans.edu/diary/rss/33418)
+### [Orphaned VBA Projects Inside DWG Files, (Wed, Oct 14th)](https://isc.sans.edu/diary/rss/33420)
 
 **SANS Internet Storm Center Handler&#x27;s Diary**
 
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Years ago I wrote diary entries about VBA code stored inside AutoCAD drawing files (.dwg).
 
 _Publisher-provided RSS excerpt; open the original article for full context._
 
 ## Community pulse
 
-- **[Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver](https://github.com/h0m3us3r/w1700k-sdr)**
-  Hacker News · 356 points · 97 comments · [Open discussion](https://news.ycombinator.com/item?id=50055593)
+- **[11 year old unsoundness bugs found in Rust borrow checker](https://github.com/rust-lang/rust/issues/164250)**
+  Hacker News · 723 points · 408 comments · [Open discussion](https://news.ycombinator.com/item?id=50069499)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -61,11 +62,11 @@ No allowlisted defensive release qualified in this coverage window.
 
 ## Analyst next actions
 
-- **CVE-2025-68613:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
-- **CVE-2026-86950:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-78329:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-71300:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-66906:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2021-22555:** Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are…
+- **CVE-2026-96951:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2026-104935:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
+- **CVE-2019-8457:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2019-5436:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
@@ -76,14 +77,14 @@ Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1739 | 285 ms |  |
-| nvd | yes | healthy | 1933 | 84614 ms |  |
-| github_advisories | yes | healthy | 5 | 538 ms |  |
-| rss_krebs | no | healthy | 0 | 138 ms |  |
-| rss_sans_isc | no | healthy | 1 | 274 ms |  |
-| github_releases | no | healthy | 0 | 2546 ms |  |
-| hacker_news | no | healthy | 3 | 2025 ms |  |
-| epss | no | healthy | 2808 | 8305 ms |  |
+| cisa_kev | yes | healthy | 1741 | 338 ms |  |
+| nvd | yes | healthy | 4420 | 260166 ms |  |
+| github_advisories | yes | healthy | 48 | 2964 ms |  |
+| rss_krebs | no | healthy | 1 | 75 ms |  |
+| rss_sans_isc | no | healthy | 3 | 408 ms |  |
+| github_releases | no | healthy | 0 | 2562 ms |  |
+| hacker_news | no | healthy | 2 | 3849 ms |  |
+| epss | no | healthy | 3690 | 11288 ms |  |
 
 </details>
 

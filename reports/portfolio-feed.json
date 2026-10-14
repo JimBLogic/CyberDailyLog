@@ -1,17 +1,17 @@
 {
-  "above_threshold": 889,
+  "above_threshold": 2246,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 97,
-    "discussion_url": "https://news.ycombinator.com/item?id=50055593",
-    "published_at": "2026-10-12T12:41:58+00:00",
-    "score": 356,
+    "comments": 408,
+    "discussion_url": "https://news.ycombinator.com/item?id=50069499",
+    "published_at": "2026-10-13T10:27:00+00:00",
+    "score": 723,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/h0m3us3r/w1700k-sdr",
-    "title": "Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver"
+    "source_url": "https://github.com/rust-lang/rust/issues/164250",
+    "title": "11 year old unsoundness bugs found in Rust borrow checker"
   },
-  "coverage_end": "2026-10-13T11:16:43+00:00",
-  "coverage_start": "2026-10-12T08:07:47+00:00",
+  "coverage_end": "2026-10-14T11:20:55+00:00",
+  "coverage_start": "2026-10-13T09:16:43+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-13T11:18:24+00:00",
+  "generated_at": "2026-10-14T11:25:39+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "Years ago I wrote diary entries about VBA code stored inside AutoCAD drawing files (.dwg).",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-13T02:00:02+00:00",
+    "published_at": "2026-10-14T06:49:46+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33418",
-    "title": "ISC Stormcast For Tuesday, October 13th, 2026 https://isc.sans.edu/podcastdetail/10134, (Tue, Oct 13th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33420",
+    "title": "Orphaned VBA Projects Inside DWG Files, (Wed, Oct 14th)"
   },
-  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 2,
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1228,
+  "qualified_developments": 2637,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,141 +60,143 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-68613"
+        "CVE-2021-22555"
       ],
-      "cvss_score": 9.9,
+      "cvss_score": 8.3,
       "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.9993,
-      "epss_score": 0.98994,
+      "epss_percentile": 0.99583,
+      "epss_score": 0.78684,
       "ghsa_ids": [],
-      "id": "CVE-2025-68613",
+      "id": "CVE-2021-22555",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "n8n"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 150,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-68613 exploited in CISA KEV: n8n n8n",
-      "why_it_matters": "CVSS 9.9; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-86950"
-      ],
-      "cvss_score": 8.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.68378,
-      "epss_score": 0.01242,
-      "ghsa_ids": [],
-      "id": "CVE-2026-86950",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Multiple Products"
+        "Kernel"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "high CVSS +10"
       ],
-      "selection_score": 105,
+      "selection_score": 148,
       "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-86950 exploited in CISA KEV: Apple Multiple Products",
-      "why_it_matters": "CVSS 8.8; detection opportunity"
+      "title": "CVE-2021-22555 exploited in CISA KEV: Linux Kernel",
+      "why_it_matters": "CVSS 8.3; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-96951"
+      ],
+      "cvss_score": 8.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-96951",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Windows"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 113,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-96951 exploited in CISA KEV: Microsoft Windows",
+      "why_it_matters": "CVSS 8.8; priority technology: windows"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-104935"
+      ],
+      "cvss_score": 8.6,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-104935",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Connect Secure"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 113,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure",
+      "why_it_matters": "CVSS 8.6; priority technology: vpn_remote_access"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-78329"
+        "CVE-2019-8457"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.53276,
-      "epss_score": 0.00738,
+      "epss_percentile": 0.98765,
+      "epss_score": 0.45426,
       "ghsa_ids": [],
-      "id": "CVE-2026-78329",
+      "id": "CVE-2019-8457",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
+        "EPSS >= 0.30 +15",
+        "EPSS percentile >= 0.95 +10"
       ],
-      "selection_score": 33,
+      "selection_score": 45,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78329",
-      "title": "Improper input validation vulnerability in Apache Camel Undertow component. This issue affects Apache Camel: from 4.1",
-      "why_it_matters": "CVSS 9.8; priority technology: microsoft_365"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2019-8457",
+      "title": "SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when hand",
+      "why_it_matters": "CVSS 9.8; EPSS >= 30%"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-71300"
+        "CVE-2019-5436"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 7.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.53276,
-      "epss_score": 0.00738,
+      "epss_percentile": 0.98874,
+      "epss_score": 0.49739,
       "ghsa_ids": [],
-      "id": "CVE-2026-71300",
+      "id": "CVE-2019-5436",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
+        "high CVSS +10",
+        "EPSS >= 0.30 +15",
+        "EPSS percentile >= 0.95 +10"
       ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
+      "selection_score": 35,
+      "severity": "HIGH",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71300",
-      "title": "Improper input validation vulnerability in Apache Camel Atmosphere Websocket component. This issue affects Apache Cam",
-      "why_it_matters": "CVSS 9.8; priority technology: microsoft_365"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-66906"
-      ],
-      "cvss_score": 9.1,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.54552,
-      "epss_score": 0.00776,
-      "ghsa_ids": [],
-      "id": "CVE-2026-66906",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: microsoft_365 +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66906",
-      "title": "Relative path traversal vulnerability in Apache Camel Azure Storage Blob component. This issue affects Apache Camel:",
-      "why_it_matters": "CVSS 9.1; priority technology: microsoft_365"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5436",
+      "title": "A heap buffer overflow in the TFTP receiving code allows for DoS or arbitrary code execution in libcurl versions 7.19.4",
+      "why_it_matters": "CVSS 7.8; EPSS >= 30%"
     }
   ]
 }
