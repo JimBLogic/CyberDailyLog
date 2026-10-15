@@ -1,1 +1,0 @@
-One-shot authorized Ruff format correction of src/cyberdailylog/http.py and tests/unit/test_safe_http.py on audit/security-patches-20261015. No deployment or main update.
