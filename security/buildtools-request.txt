@@ -1,1 +1,0 @@
-One-shot audit-branch-only regeneration of package-lock for @cloudflare/vite-plugin 1.64.0 and wrangler 4.151.0 with zero-waiver production audit. No main, Sites, cron or D1 mutation.
