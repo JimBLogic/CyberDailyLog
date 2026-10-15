@@ -1,0 +1,64 @@
+name: Isolated CyberDailyLog full dependency advisory inventory
+
+"on":
+  push:
+    branches: [audit/security-patches-20261015]
+    paths:
+      - security/**
+      - .github/workflows/cyber-dependency-review.yml
+
+permissions:
+  contents: read
+
+jobs:
+  read-only-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.13.0'
+          package-manager-cache: false
+      - name: Read-only full and production npm advisory reports
+        run: |
+          mkdir -p ../security-evidence
+          npm audit --json --package-lock-only --audit-level=low > ../security-evidence/full-npm-audit.json || true
+          npm audit --json --package-lock-only --omit=dev --audit-level=low > ../security-evidence/production-npm-audit.json || true
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const outputs=[];
+          for(const type of ['full','production']){
+            const filename=type==='full'?'full-npm-audit.json':'production-npm-audit.json';
+            const report=JSON.parse(fs.readFileSync('../security-evidence/'+filename,'utf8'));
+            if(report.error||!report.metadata?.vulnerabilities||!report.vulnerabilities){
+              throw new Error('AUDIT_FAILED_OR_EMPTY_'+type);
+            }
+            const finding=Object.entries(report.vulnerabilities).map(([name,v])=>({
+              name,severity:v.severity,isDirect:v.isDirect,
+              via:v.via?.map(a=>typeof a==='string'?a:a.url).filter(Boolean),
+              fixAvailable:v.fixAvailable
+            }));
+            const record={type,counts:report.metadata.vulnerabilities,findings:finding};
+            outputs.push(record);
+            console.log(JSON.stringify(record,null,2));
+          }
+          fs.writeFileSync('../security-evidence/summary.json',JSON.stringify(outputs,null,2)+'\n');
+          // No exemption whatsoever for runtime package advisories.
+          if(outputs[1].counts.total!==0){
+            throw new Error('PRODUCTION_DEPENDENCY_ADVISORIES_DETECTED');
+          }
+          NODE
+      - name: Archive diagnostic reports (not a deployment)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cyberdailylog-full-dependency-audit-20261015
+          path: security-evidence/
+          retention-days: 14
+          if-no-files-found: warn
