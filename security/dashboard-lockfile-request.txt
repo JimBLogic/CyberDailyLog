@@ -1,0 +1,1 @@
+One-shot security lockfile repair for October 15 2026. GitHub audit branch only; requires exact Next.js 16.4.1, eslint-config-next 16.4.1, sharp 0.35.5, source-map-js 1.2.2. No Site/D1/main deployment, no scheduled workflow changes.
