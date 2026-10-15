@@ -9,34 +9,29 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-14T11:25:39+00:00  
-**Coverage:** 2026-10-13T09:16:43+00:00 → 2026-10-14T11:20:55+00:00  
+**Updated:** 2026-10-15T14:41:14+00:00  
+**Coverage:** 2026-10-14T09:20:55+00:00 → 2026-10-15T14:36:31+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 2637 source-backed developments
-- **Above threshold:** 2246
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 15 source-backed developments
+- **Above threshold:** 8
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2021-22555](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2021-22555 exploited in CISA KEV: Linux Kernel — CVSS 8.3; EPSS &gt;= 70%
+- **[CVE-2026-104935](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure — CVSS 8.6; EPSS percentile &gt;= 95%
+- **[CVE-2026-105134](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-105134 exploited in CISA KEV: Ahsay AhsayCBS — CVSS 9.3; detection opportunity
 - **[CVE-2026-96951](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96951 exploited in CISA KEV: Microsoft Windows — CVSS 8.8; priority technology: windows
-- **[CVE-2026-104935](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure — CVSS 8.6; priority technology: vpn_remote_access
-- **[CVE-2019-8457](https://nvd.nist.gov/vuln/detail/CVE-2019-8457) · 9.4/10** — SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when hand — CVSS 9.8; EPSS &gt;= 30%
-- **[CVE-2019-5436](https://nvd.nist.gov/vuln/detail/CVE-2019-5436) · 9.4/10** — A heap buffer overflow in the TFTP receiving code allows for DoS or arbitrary code execution in libcurl versions 7.19.4 — CVSS 7.8; EPSS &gt;= 30%
+- **[CVE-2026-0322](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-0322 exploited in CISA KEV: Palo Alto Networks PAN-OS — no severity score; priority technology: firewalls
+- **[CVE-2026-76519](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76519 exploited in CISA KEV: Cisco Secure Email Gateway — no severity score; detection opportunity
 
 ### Human context
 
-**[Orphaned VBA Projects Inside DWG Files, (Wed, Oct 14th)](https://isc.sans.edu/diary/rss/33420)**
+**[ISC Stormcast For Thursday, October 15th, 2026 https://isc.sans.edu/podcastdetail/10138, (Thu, Oct 15th)](https://isc.sans.edu/diary/rss/33428)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Years ago I wrote diary entries about VBA code stored inside AutoCAD drawing files (.dwg).
-
-### Community pulse
-
-**[11 year old unsoundness bugs found in Rust borrow checker](https://github.com/rust-lang/rust/issues/164250)** — Hacker News · 723 points · 408 comments
-[Open discussion](https://news.ycombinator.com/item?id=50069499)
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

