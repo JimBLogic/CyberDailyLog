@@ -51,13 +51,16 @@ def test_initial_url_must_be_explicit_allowlisted_https(url):
         _source_origin(url, {"api.github.com"})
 
 
-@pytest.mark.parametrize("target", [
-    "https://evil.example/steal",
-    "https://api.first.org/steal",  # also allowlisted, but credentials MUST stay on origin
-    "http://api.github.com/advisories",
-    "https://api.github.com:444/steal",
-    "https://user@api.github.com/steal",
-])
+@pytest.mark.parametrize(
+    "target",
+    [
+        "https://evil.example/steal",
+        "https://api.first.org/steal",  # also allowlisted, but credentials MUST stay on origin
+        "http://api.github.com/advisories",
+        "https://api.github.com:444/steal",
+        "https://user@api.github.com/steal",
+    ],
+)
 def test_redirects_cannot_leak_api_key_to_other_origin_or_plaintext(target):
     handler = _SameOriginRedirects({"api.github.com", "api.first.org"})
     original = Request("https://api.github.com/advisories", headers={"Authorization": "Bearer SECRET"})

@@ -4,6 +4,7 @@ All network traffic is GET-only over HTTPS. Unlike urllib.request.urlopen(),
 redirects are independently checked before the next request, protecting CTI
 API keys from a compromised upstream redirect to an attacker-controlled host.
 """
+
 from urllib.parse import urlsplit, urlencode
 from urllib.request import Request, HTTPRedirectHandler, build_opener
 from urllib.error import HTTPError, URLError
