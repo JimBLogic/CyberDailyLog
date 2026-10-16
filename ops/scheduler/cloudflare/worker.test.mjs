@@ -93,3 +93,22 @@ test('cron runtime always measures the actual execution timestamp, not nominal d
   assert.ok(code.includes('const now = new Date();'));
   assert.ok(!code.includes('new Date(controller.scheduledTime)'));
 });
+
+test('GitHub Contents base64 envelope is read without blind dispatch', async () => {
+  const original=globalThis.fetch, calls=[];
+  globalThis.fetch=async(url,init)=>{
+    calls.push(String(url));
+    if(String(url).includes('/contents/')) return Response.json({
+      encoding:'base64',
+      content:btoa(JSON.stringify({...base,status:'on_time',
+        actual_publication_time:'2026-10-16T10:03:00Z'}))+'\n',
+    });
+    if(String(url).includes('/actions/runs?')) return Response.json({workflow_runs:[]});
+    throw Error('Should not create a duplicate workflow');
+  };
+  try {
+    const result=await performWakeup({GITHUB_ACTIONS_TOKEN:'fake-test-value'},t('2026-10-16T10:20:00Z'));
+    assert.equal(result.action,'skip');
+    assert.equal(calls.length,2);
+  }finally{globalThis.fetch=original;}
+});
