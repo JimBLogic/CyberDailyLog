@@ -80,21 +80,18 @@ def test_vendor_correction_creates_two_material_remediation_events_once(tmp_path
     ledger.save()
 
     remediation = [
-        i for i in load_operational_evidence(Path("config/operational-evidence.yml"))
+        i
+        for i in load_operational_evidence(Path("config/operational-evidence.yml"))
         if i.source_name.startswith("Vendor remediation:")
     ]
-    assert {i.canonical_id for i in remediation} == {
-        "CVE-2026-105133", "CVE-2026-105134"
-    }
+    assert {i.canonical_id for i in remediation} == {"CVE-2026-105133", "CVE-2026-105134"}
     assert all(i.source_url == ADVISORY and i.known_exploited is None for i in remediation)
     assert all(i.published_at is None for i in remediation)
 
     next_at = OBSERVED_AT + timedelta(hours=1)
     updated = StateLedger(tmp_path / "state.json")
     events = updated.observe(remediation, next_at, OBSERVED_AT, next_at)
-    assert {event.canonical_id for event in events} == {
-        "CVE-2026-105133", "CVE-2026-105134"
-    }
+    assert {event.canonical_id for event in events} == {"CVE-2026-105133", "CVE-2026-105134"}
     for event in events:
         assert "vendor_remediation_updated" in event.transition_type
         assert event.cisa_kev is True and event.known_exploited is True
@@ -109,8 +106,7 @@ def test_vendor_correction_creates_two_material_remediation_events_once(tmp_path
     assert replay.observe([*kev_items(), *remediation], replay_at, next_at, replay_at) == []
     assert len(replay.records) == 4
     assert all(
-        len(replay.records[cve]["transitions"]) == 1
-        for cve in ("CVE-2026-105133", "CVE-2026-105134")
+        len(replay.records[cve]["transitions"]) == 1 for cve in ("CVE-2026-105133", "CVE-2026-105134")
     )
 
 
