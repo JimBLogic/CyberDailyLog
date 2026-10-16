@@ -90,7 +90,9 @@ export default {
   // Workers without HTTP endpoints cannot be directly used as public writers.
   async fetch() { return new Response('Not found', {status:404}); },
   async scheduled(controller, env, context) {
-    const now = new Date(controller.scheduledTime);
+    // The nominal scheduledTime can precede delayed actual execution by minutes.
+    // Only the real wall clock is valid for SLO provenance and noon gating.
+    const now = new Date();
     const job = performWakeup(env, now).then(result => {
       console.log(JSON.stringify({service:'cyberdailylog-wakeup', ...result}));
     }).catch(error => {
