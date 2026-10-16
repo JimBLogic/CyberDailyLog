@@ -103,7 +103,10 @@ def test_vendor_correction_creates_two_material_remediation_events_once(tmp_path
 
     replay_at = next_at + timedelta(hours=1)
     replay = StateLedger(tmp_path / "state.json")
-    assert replay.observe([*kev_items(), *remediation], replay_at, next_at, replay_at) == []
+    # Near-term CISA deadlines legitimately emit ongoing-monitoring reminders.
+    # They are not new discoveries or repeated material transitions.
+    replayed = replay.observe([*kev_items(), *remediation], replay_at, next_at, replay_at)
+    assert not [event for event in replayed if event.transition_type or event.discovery_type == "new_vulnerability"]
     assert len(replay.records) == 4
     assert all(len(replay.records[cve]["transitions"]) == 1 for cve in ("CVE-2026-105133", "CVE-2026-105134"))
 
