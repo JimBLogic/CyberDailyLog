@@ -27,9 +27,7 @@ jobs:
       - name: Ruff lint
         run: ruff check .
       - name: Ruff format check
-        run: |
-          ruff format --diff tests/integration/test_readonly_checkout.py
-          ruff format --check .
+        run: ruff format --check .
       - name: Mypy
         run: mypy src
       - name: Pytest with coverage

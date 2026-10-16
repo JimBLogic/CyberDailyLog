@@ -65,4 +65,4 @@ def test_publication_schedule_and_manual_preview_are_unchanged() -> None:
     mode = next(step["run"] for step in collect["steps"] if step.get("id") == "mode")
     assert 'dry_run="true"' in mode
     assert 'dry_run="false"' in mode
-    assert 'lookback_hours must be a positive integer' in mode
+    assert "lookback_hours must be a positive integer" in mode
