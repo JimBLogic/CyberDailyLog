@@ -32,8 +32,10 @@ class CisaKevCollector(BaseCollector):
                     source_type="government_kev",
                     source_tier=1,
                     source_url=self.url,
-                    published_at=date,
-                    modified_at=date,
+                    # CISA dateAdded is a KEV-listing event, not the original CVE
+                    # disclosure/publication time or a per-entry modification time.
+                    published_at=None,
+                    modified_at=None,
                     cve_ids=[cve],
                     vendors=[v.get("vendorProject", "")],
                     products=[v.get("product", "")],

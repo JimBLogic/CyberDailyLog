@@ -1,5 +1,26 @@
 # External publication wake-up
 
+## Current scheduler status — 16 October 2026
+
+The two personal automations described below **are historical** and were later
+consolidated into the active ChatGPT task `Seguimiento unificado` (12:00
+publication and 13:00 recovery blocks). The old two-task definitions in
+`automations.json` are retained for audit and are **not** currently active
+independently. On 15 October no request reached `ops/scheduler/request.json`,
+so the multiple delayed GitHub schedules produced a stale 16:41:40 CEST
+publication. On 16 October a manually authorized GitHub request at 12:27:31
+CEST caused a real on-time publication at 12:32:46, but it did not establish
+autonomous scheduler reliability. The 30-day SLO became 60%, still below 95%.
+
+An **undeployed, credential-free in source** Cloudflare Cron alternative and
+standalone DST/replay unit tests now live under
+[`cloudflare/`](cloudflare/README.md). This is a proposal, not a working
+production timer; don't claim issue #41 fixed before a separately authorized
+deployment and real multiple-day observation. Never disable other personal
+automation blocks. The GitHub workflow, reports, historic timing and SLO
+remain unchanged by this scheduler PR.
+
+
 Two independent task definitions were confirmed enabled on **22 September 2026**, starting on 23 September: **CyberDailyLog publicación 12:00** and **CyberDailyLog recuperación 13:00**, both daily in **Europe/Madrid**, including daylight-saving changes. Each has a single explicit hour. The publication objective remains noon; the 13:00 recovery does not extend the 60-minute SLO. The independent scheduler uses the connected GitHub app; no new PAT or server is required for this route. Reproducible task definitions are in [automations.json](automations.json); task identifiers and credentials are not stored in the repository.
 
 The original combined 12:00/13:00 task produced no retained noon request on 22 September. Its prompt also aborted when started more than one minute early. Both issues are removed: the definitions now separate the two clock times, and a task starting up to ten minutes before noon waits, checking the actual clock at most every 30 seconds. It never writes before noon. Available records do not establish whether an early start caused the missed noon request; this is a corrected failure path, not a proven scheduler-internal diagnosis.
