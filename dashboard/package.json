@@ -22,12 +22,12 @@
     "@fontsource-variable/source-serif-4": "^5.2.8",
     "@fontsource/archivo-black": "^5.2.8",
     "drizzle-orm": "0.45.2",
-    "next": "16.3.4",
+    "next": "16.4.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.54.11",
+    "@cloudflare/vite-plugin": "1.64.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
@@ -36,19 +36,21 @@
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.4.1",
     "react-server-dom-webpack": "19.2.8",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vinext": "0.0.50",
     "vite": "8.0.16",
-    "wrangler": "4.133.0"
+    "wrangler": "4.151.0"
   },
   "overrides": {
     "image-size": "2.0.4",
     "@esbuild-kit/core-utils": {
       "esbuild": "0.25.12"
-    }
+    },
+    "sharp": "0.35.5",
+    "source-map-js": "1.2.2"
   },
   "type": "module",
   "displayName": "CyberDailyLog Intelligence Dashboard"
