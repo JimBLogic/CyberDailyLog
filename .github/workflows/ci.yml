@@ -136,3 +136,20 @@ jobs:
         run: npm run typecheck
       - name: Dashboard production dependency audit
         run: npm audit --omit=dev --audit-level=high
+
+  scheduler:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout scheduler source (read-only)
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+      - name: Setup Node for isolated cron policy tests
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
+        with:
+          node-version: '22.13.0'
+      - name: Verify DST, publication guard and least-privilege dispatch
+        run: node --test ops/scheduler/cloudflare/worker.test.mjs
