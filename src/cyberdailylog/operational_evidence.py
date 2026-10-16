@@ -47,9 +47,15 @@ def load_operational_evidence(path):
         if not re.fullmatch(r"CVE-\d{4}-\d{4,}", cve) or parsed.scheme != "https" or not parsed.hostname:
             raise ValueError("Vendor remediation requires a CVE and HTTPS primary-source advisory")
         versions = row.get("fixed_versions")
-        if not isinstance(versions, list) or not versions or any(
-            not isinstance(version, str) or not 1 <= len(version) <= 100 or
-            any(char in version for char in "\\r\\n") for version in versions
+        if (
+            not isinstance(versions, list)
+            or not versions
+            or any(
+                not isinstance(version, str)
+                or not 1 <= len(version) <= 100
+                or any(ord(char) < 32 for char in version)
+                for version in versions
+            )
         ):
             raise ValueError("Vendor remediation requires explicitly confirmed fixed versions")
         action = row.get("required_action")
