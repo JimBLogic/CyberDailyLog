@@ -6,3 +6,20 @@ observations:
     vendor_confirmed_exploitation: true
     evidence: 'Cisco PSIRT explicitly confirms active exploitation in September 2026 in the Exploitation and Public Announcements section.'
     required_action: 'Perform forensics triage under the CISA KEV required action, review serviceproxy-access.log and vmanage-server.log for unexpected j_security_check requests (including encoded variants) and viptela-reserved users, preserve evidence, and install the appropriate Cisco fixed release.'
+
+# Ahsay's 12 October 2026 correction explicitly retracts the sufficiency of
+# 10.3.4.0 and 9.15.2.59. KEV exploitation is independently established by CISA.
+# Retaining this evidence emits a one-time vendor_remediation_updated event.
+remediation_updates:
+  - cve: CVE-2026-105133
+    source_url: https://www.ahsay.com/en/company/announcements/patch-cve-105133-105134-update
+    confirmed_at: '2026-10-12T00:00:00Z'
+    fixed_versions: ['AhsayCBS v10.3.4.45', 'AhsayCBS v9.15.2.70']
+    evidence: 'Ahsay corrected its prior notice: v10.3.4.0 and v9.15.2.59 did not fully address CVE-2026-105133 and CVE-2026-105134.'
+    required_action: 'Previous patches v10.3.4.0 and v9.15.2.59 are INSUFFICIENT. Install AhsayCBS v10.3.4.45 for v10, or v9.15.2.70 for v7/v8/v9; reboot and investigate prior compromise.'
+  - cve: CVE-2026-105134
+    source_url: https://www.ahsay.com/en/company/announcements/patch-cve-105133-105134-update
+    confirmed_at: '2026-10-12T00:00:00Z'
+    fixed_versions: ['AhsayCBS v10.3.4.45', 'AhsayCBS v9.15.2.70']
+    evidence: 'Ahsay corrected its prior notice: v10.3.4.0 and v9.15.2.59 did not fully address CVE-2026-105133 and CVE-2026-105134.'
+    required_action: 'Previous patches v10.3.4.0 and v9.15.2.59 are INSUFFICIENT. Install AhsayCBS v10.3.4.45 for v10, or v9.15.2.70 for v7/v8/v9; reboot and investigate prior compromise.'
