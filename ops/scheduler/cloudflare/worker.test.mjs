@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import worker, { planWakeup, performWakeup } from './worker.mjs';
 
 const base = {
@@ -85,4 +86,10 @@ test('failure to reconcile running workflows cannot send a blind duplicate', asy
     await assert.rejects(performWakeup({GITHUB_ACTIONS_TOKEN:'fake'},t('2026-10-16T10:40:00Z')),/inventory unavailable/);
     assert.equal(calls,2);
   }finally{globalThis.fetch=original;}
+});
+
+test('cron runtime always measures the actual execution timestamp, not nominal delayed scheduledTime', () => {
+  const code = readFileSync(new URL('./worker.mjs', import.meta.url), 'utf8');
+  assert.ok(code.includes('const now = new Date();'));
+  assert.ok(!code.includes('new Date(controller.scheduledTime)'));
 });
