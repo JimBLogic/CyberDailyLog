@@ -184,6 +184,10 @@ class StateLedger:
                     ):
                         continue
                     for key, value in previous_source.items():
+                        # Old CISA snapshots mislabeled the KEV date as disclosure.
+                        # Never reintroduce those two synthetic timestamps.
+                        if item.source_type == "government_kev" and key in {"published_at", "modified_at"}:
+                            continue
                         if snapshot.get(key) is None:
                             snapshot[key] = value
                 record["observations"][item.source_name] = snapshot
