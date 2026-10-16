@@ -88,13 +88,35 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert "git add ." not in publish_script
 
 
-def test_workflow_runtime_actions_use_current_node24_pins():
-    text = "\n".join(path.read_text(encoding="utf-8") for path in Path(".github/workflows").glob("*.yml"))
-    assert "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" in text
-    assert "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97" in text
-    assert "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a" in text
-    assert "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c" in text
-    assert "ubuntu-latest" not in text
+def test_workflow_runtime_actions_use_immutable_commit_pins():
+    # Hash rotation by Dependabot must not fail this check just because the old
+    # commit is absent. Validate the SECURITY PROPERTY (SHA pin), not stale SHAs.
+    files = sorted(Path(".github/workflows").glob("*.yml"))
+    seen = set()
+    for file in files:
+        content = file.read_text(encoding="utf-8")
+        workflow = load_workflow(str(file))
+        assert "ubuntu-latest" not in content
+        for job in workflow.get("jobs", {}).values():
+            for step in job.get("steps", []):
+                action = step.get("uses")
+                if not action:
+                    continue
+                assert "@" in action, (file, action)
+                name, revision = action.rsplit("@", 1)
+                assert len(revision) == 40 and all(char in "0123456789abcdef" for char in revision), (
+                    file,
+                    "External action must be pinned to an immutable SHA",
+                    name,
+                )
+                seen.add(name)
+    assert {
+        "actions/checkout",
+        "actions/setup-python",
+        "actions/setup-node",
+        "actions/upload-artifact",
+        "actions/download-artifact",
+    } <= seen
 
 
 def test_ci_installs_runtime_and_dev_dependencies_and_strict_audit():
