@@ -67,7 +67,14 @@ export async function performWakeup(env, now = new Date()) {
   if (madridClock(now).hour !== 12) return { action: 'skip', reason: 'outside Madrid noon recovery hour' };
   const timingReply = await github('/contents/reports/publication-timing.json?ref=main', env, {raw:true});
   if (!timingReply.ok) throw new Error(`GitHub publication evidence read HTTP ${timingReply.status}`);
-  const timing = await timingReply.json();
+  const timingPayload = await timingReply.json();
+  // GitHub can serve the Contents endpoint as raw JSON or the standard
+  // base64 content envelope depending on media negotiation/proxy behavior.
+  const timing = timingPayload?.encoding === 'base64' && typeof timingPayload.content === 'string'
+    ? JSON.parse(new TextDecoder().decode(Uint8Array.from(
+        atob(timingPayload.content.replace(/\\s+/g, '')), char => char.charCodeAt(0),
+      )))
+    : timingPayload;
   if (timing?.schema_version !== 2) throw new Error('Invalid/missing publication timing evidence');
   const runsReply = await github('/actions/runs?branch=main&per_page=30', env);
   if (!runsReply.ok) throw new Error(`GitHub runs read HTTP ${runsReply.status}`);
