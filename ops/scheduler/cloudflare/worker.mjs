@@ -72,7 +72,7 @@ export async function performWakeup(env, now = new Date()) {
   // base64 content envelope depending on media negotiation/proxy behavior.
   const timing = timingPayload?.encoding === 'base64' && typeof timingPayload.content === 'string'
     ? JSON.parse(new TextDecoder().decode(Uint8Array.from(
-        atob(timingPayload.content.replace(/\\s+/g, '')), char => char.charCodeAt(0),
+        atob(timingPayload.content.replace(/\s+/g, '')), char => char.charCodeAt(0),
       )))
     : timingPayload;
   if (timing?.schema_version !== 2) throw new Error('Invalid/missing publication timing evidence');
