@@ -51,9 +51,7 @@ def load_operational_evidence(path):
             not isinstance(versions, list)
             or not versions
             or any(
-                not isinstance(version, str)
-                or not 1 <= len(version) <= 100
-                or any(ord(char) < 32 for char in version)
+                not isinstance(version, str) or not 1 <= len(version) <= 100 or any(ord(char) < 32 for char in version)
                 for version in versions
             )
         ):

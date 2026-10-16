@@ -105,9 +105,7 @@ def test_vendor_correction_creates_two_material_remediation_events_once(tmp_path
     replay = StateLedger(tmp_path / "state.json")
     assert replay.observe([*kev_items(), *remediation], replay_at, next_at, replay_at) == []
     assert len(replay.records) == 4
-    assert all(
-        len(replay.records[cve]["transitions"]) == 1 for cve in ("CVE-2026-105133", "CVE-2026-105134")
-    )
+    assert all(len(replay.records[cve]["transitions"]) == 1 for cve in ("CVE-2026-105133", "CVE-2026-105134"))
 
 
 def test_legacy_kev_timestamp_does_not_survive_2026_correction(tmp_path):
