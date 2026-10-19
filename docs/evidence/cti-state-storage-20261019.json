@@ -22,6 +22,9 @@
     "mypy": "passed",
     "pip_audit": "no known vulnerabilities in requirements.txt and requirements-dev.txt",
     "production_publication": "pending merge and a new main workflow run",
-    "browser_qa": "not run; no user-facing code changed"
+    "browser_qa": "not run; no user-facing code changed",
+    "package_build": "sdist and wheel passed",
+    "actual_artifact_staging": "passed; legacy baseline unchanged",
+    "publication_rehearsal": "passed; staged legacy deletion and compressed replacement; no network push"
   }
 }
