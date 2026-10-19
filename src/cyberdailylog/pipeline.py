@@ -56,7 +56,7 @@ class Pipeline:
 
     def run(self, since=None, until=None, lookback_hours=24, dry_run=False, fail_on_degraded=False):
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
-        ledger = StateLedger(self.output_dir / "cti-state.json")
+        ledger = StateLedger(self.output_dir / "cti-state.json.gz")
         ledger.seed_archives(self.output_dir)
         previous_report_path = self.output_dir / "latest.json"
         if previous_report_path.exists():

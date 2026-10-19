@@ -182,10 +182,12 @@ def test_dry_run_does_not_advance_ledger_and_rejected_run_does_not_write(tmp_pat
     since, until = datetime(2026, 7, 14, tzinfo=timezone.utc), datetime(2026, 7, 16, tzinfo=timezone.utc)
     Pipeline(output_dir=tmp_path, offline=True).run(since, until, dry_run=True)
     assert not (tmp_path / "cti-state.json").exists()
+    assert not (tmp_path / "cti-state.json.gz").exists()
     monkeypatch.setattr("cyberdailylog.pipeline.quorum_ok", lambda health: False)
     with pytest.raises(SystemExit):
         Pipeline(output_dir=tmp_path, offline=True).run(since, until, fail_on_degraded=True)
     assert not (tmp_path / "cti-state.json").exists()
+    assert not (tmp_path / "cti-state.json.gz").exists()
 
 
 def test_nvd_queries_modified_window_and_exploit_tags_without_claiming_active():
