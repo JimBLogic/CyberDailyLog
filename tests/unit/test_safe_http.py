@@ -221,7 +221,7 @@ def test_initial_and_redirect_urls_reject_controls_and_oversized_inputs(suffix):
         handler.redirect_request(Request("https://api.github.com/advisories"), None, 302, "Found", {}, url)
 
 
-@pytest.mark.parametrize("retry_after", ["-10", "nan", "inf", "9999999999999", "garbage", "0"])
+@pytest.mark.parametrize("retry_after", ["-10", "nan", "inf", "garbage", "0"])
 def test_retry_budget_stays_bounded_and_exhaustion_fails_without_secrets(monkeypatch, retry_after):
     client = SafeHttpClient({"api.github.com"})
     calls, delays = [], []
@@ -239,3 +239,96 @@ def test_retry_budget_stays_bounded_and_exhaustion_fails_without_secrets(monkeyp
     assert len(calls) == 3 and len(delays) == 2
     assert all(0 < delay <= 5 for delay in delays)
     assert "SECRET" not in str(info.value)
+
+
+def test_transient_transport_retries_same_origin_with_provider_interval(monkeypatch):
+    client = SafeHttpClient({"api.github.com"})
+    calls, delays = [], []
+
+    def temporary(request, timeout):
+        calls.append(request.full_url)
+        if len(calls) < 3:
+            raise TimeoutError("SECRET")
+        return FakeResponse()
+
+    monkeypatch.setattr(client._opener, "open", temporary)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", delays.append)
+    assert client.get("https://api.github.com/advisories", retry_interval=6).json() == {}
+    assert len(calls) == 3 and delays == [6, 6]
+
+
+def test_certificate_failure_is_not_retried_and_never_relaxes_tls(monkeypatch):
+    import ssl
+
+    client = SafeHttpClient({"api.github.com"})
+    calls, delays = [], []
+
+    def invalid(request, timeout):
+        calls.append(request.full_url)
+        raise URLError(ssl.SSLCertVerificationError("certificate invalid"))
+
+    monkeypatch.setattr(client._opener, "open", invalid)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", delays.append)
+    with pytest.raises(SourceError):
+        client.get("https://api.github.com/advisories")
+    assert len(calls) == 1 and delays == []
+
+
+@pytest.mark.parametrize("retry_after", ["30", "120"])
+def test_retry_after_is_honoured_or_fails_without_early_retry(monkeypatch, retry_after):
+    client = SafeHttpClient({"api.github.com"})
+    headers = Message()
+    headers["Retry-After"] = retry_after
+    calls, delays = [], []
+
+    def busy(request, timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url, 429, "busy", headers, None)
+
+    monkeypatch.setattr(client._opener, "open", busy)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", delays.append)
+    with pytest.raises(SourceError):
+        client.get("https://api.github.com/advisories", retry_interval=6)
+    assert delays == ([30, 30] if retry_after == "30" else [])
+    assert len(calls) == (3 if retry_after == "30" else 1)
+
+
+def test_http_date_retry_after_uses_provider_time_without_early_request(monkeypatch):
+    from datetime import datetime, timezone
+
+    client = SafeHttpClient({"api.github.com"})
+    calls = []
+    delays = []
+    headers = Message()
+    headers["Retry-After"] = "Mon, 19 Oct 2026 12:00:30 GMT"
+    monkeypatch.setattr(
+        "cyberdailylog.http.time.time", lambda: datetime(2026, 10, 19, 12, tzinfo=timezone.utc).timestamp()
+    )
+
+    def busy(request, timeout):
+        calls.append(1)
+        if len(calls) == 1:
+            raise HTTPError(request.full_url, 429, "busy", headers, None)
+        return FakeResponse()
+
+    monkeypatch.setattr(client._opener, "open", busy)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", delays.append)
+    assert client.get("https://api.github.com/advisories").json() == {}
+    assert delays == [30]
+
+
+def test_interrupted_response_retries_without_returning_partial_body(monkeypatch):
+    from http.client import IncompleteRead
+
+    client = SafeHttpClient({"api.github.com"})
+    calls = []
+
+    def interrupted(request, timeout):
+        calls.append(1)
+        if len(calls) == 1:
+            raise IncompleteRead(b"partial", 10)
+        return FakeResponse()
+
+    monkeypatch.setattr(client._opener, "open", interrupted)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", lambda _: None)
+    assert client.get("https://api.github.com/advisories").json() == {} and len(calls) == 2

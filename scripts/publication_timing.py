@@ -5,7 +5,13 @@ import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
-from cyberdailylog.reliability import build_evidence, record_attempt, publication_view
+from cyberdailylog.reliability import (
+    build_evidence,
+    record_attempt,
+    publication_view,
+    prospective_summary,
+    parse_timestamp,
+)
 
 
 def read_json(path, default):
@@ -16,14 +22,22 @@ def main():
     parser = argparse.ArgumentParser()
     for name in ("run", "health", "feed", "output", "history"):
         parser.add_argument(f"--{name}", type=Path, required=True)
+    parser.add_argument("--jobs", type=Path)
+    parser.add_argument("--metrics", type=Path)
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
     evidence = build_evidence(
-        read_json(args.run, {}), read_json(args.health, []), read_json(args.feed, {}), dict(os.environ)
+        read_json(args.run, {}),
+        read_json(args.health, []),
+        read_json(args.feed, {}),
+        dict(os.environ),
+        read_json(args.jobs, {}) if args.jobs else {},
+        read_json(args.metrics, {}) if args.metrics else {},
     )
     history = record_attempt(read_json(args.history, []), evidence, now)
     args.history.write_text(json.dumps(history, indent=2, sort_keys=True) + "\n")
     view = publication_view(read_json(args.output, {}), evidence, history, now)
+    view["prospective_slo"] = prospective_summary(history, now, parse_timestamp("2026-10-20T10:00:00Z"))
     args.output.write_text(json.dumps(view, indent=2, sort_keys=True) + "\n")
     return 0
 

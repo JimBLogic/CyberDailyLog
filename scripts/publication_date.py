@@ -24,7 +24,9 @@ def publication_date(root=Path("reports"), now=None, require_after_noon=False):
         ):
             return ""
         healthy = {source["source"] for source in report["source_health"] if source.get("status") == "healthy"}
-        if "cisa_kev" not in healthy or not healthy.intersection({"nvd", "github_advisories"}):
+        # A useful quorum report is not a complete daily close. Keep recovery
+        # eligible until all core collectors succeeded and their watermark advanced.
+        if not {"cisa_kev", "nvd", "github_advisories"} <= healthy:
             return ""
         local = generated.astimezone(ZoneInfo("Europe/Madrid"))
         if require_after_noon and local.hour < 12:

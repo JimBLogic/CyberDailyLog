@@ -83,13 +83,19 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     publish_steps = {step.get("name"): step for step in publish["steps"]}
     download = publish_steps["Download generated outputs"]
     assert download["with"]["name"] == upload["with"]["name"]
-    assert download["with"]["path"] == "."
+    assert download["with"]["path"] == "incoming-publication"
+    integrity = publish_steps["Verify bundle and historical integrity against current main"]["run"]
+    assert "--baseline-ref HEAD" in integrity
+    assert "verify_publication.py" in integrity
     publish_script = publish_steps["Commit and push generated outputs"]["run"]
     assert "git add README.md reports" in publish_script
     assert "git diff --cached --quiet" in publish_script
     assert "exit 0" in publish_script
     assert "git push" in publish_script
     assert "git add ." not in publish_script
+    assert publish_script.index("publication-check.json") < publish_script.index(
+        "cp -a incoming-publication/reports/. reports/"
+    )
     assert publish_script.index("rm -f reports/cti-state.json") < publish_script.index("git add README.md reports")
     assert publish_script.index("validate_publication.py --staged") < publish_script.index("git commit")
 
