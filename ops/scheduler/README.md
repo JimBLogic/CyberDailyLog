@@ -1,5 +1,20 @@
 # External publication wake-up
 
+## Operational status — 19 October 2026
+
+The independent Cloudflare adapter from PR43 is reconciled against main after
+PR47/48 in [cloudflare/](cloudflare/README.md). Source/tests are prepared;
+deployment and a real provider-scheduled dispatch are **not verified** because
+owned Cloudflare access and a managed Actions dispatch credential are absent.
+The adapter now requires complete core coverage before suppressing recovery.
+Existing GitHub cron remains backup; no personal automation was changed.
+
+The two-task description below records the September setup, not a fresh claim
+about current personal task state. PR43 recorded their later consolidation;
+retain these definitions for audit and do not overwrite unrelated tasks.
+See [complete-close quality](../../docs/ops/complete-close-quality.md) for the
+separate prospective measure; historical publication SLO is unchanged.
+
 Two independent task definitions were confirmed enabled on **22 September 2026**, starting on 23 September: **CyberDailyLog publicación 12:00** and **CyberDailyLog recuperación 13:00**, both daily in **Europe/Madrid**, including daylight-saving changes. Each has a single explicit hour. The publication objective remains noon; the 13:00 recovery does not extend the 60-minute SLO. The independent scheduler uses the connected GitHub app; no new PAT or server is required for this route. Reproducible task definitions are in [automations.json](automations.json); task identifiers and credentials are not stored in the repository.
 
 The original combined 12:00/13:00 task produced no retained noon request on 22 September. Its prompt also aborted when started more than one minute early. Both issues are removed: the definitions now separate the two clock times, and a task starting up to ten minutes before noon waits, checking the actual clock at most every 30 seconds. It never writes before noon. Available records do not establish whether an early start caused the missed noon request; this is a corrected failure path, not a proven scheduler-internal diagnosis.

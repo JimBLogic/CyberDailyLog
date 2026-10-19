@@ -10,6 +10,7 @@ from cyberdailylog.reliability import (
     record_attempt,
     publication_view,
     prospective_summary,
+    complete_close_summary,
     parse_timestamp,
 )
 
@@ -37,7 +38,9 @@ def main():
     history = record_attempt(read_json(args.history, []), evidence, now)
     args.history.write_text(json.dumps(history, indent=2, sort_keys=True) + "\n")
     view = publication_view(read_json(args.output, {}), evidence, history, now)
-    view["prospective_slo"] = prospective_summary(history, now, parse_timestamp("2026-10-20T10:00:00Z"))
+    start = parse_timestamp("2026-10-20T10:00:00Z")
+    view["prospective_slo"] = prospective_summary(history, now, start)
+    view["complete_close_slo"] = complete_close_summary(history, now, start)
     args.output.write_text(json.dumps(view, indent=2, sort_keys=True) + "\n")
     return 0
 

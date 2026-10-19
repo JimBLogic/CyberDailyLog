@@ -54,6 +54,76 @@ def publication_status(scheduled, published, result):
     return ("unknown" if lag < 0 else "on_time" if lag <= 3600 else "delayed" if lag <= 10800 else "stale"), lag
 
 
+def complete_close_status(row):
+    """Complementary quality signal; never rewrite the original publication SLO."""
+    if row.get("dry_run"):
+        return "fixture_only"
+    if row.get("status") == "skipped":
+        return "skipped"
+    if row.get("status") == "failed":
+        return "not_published"
+    if row.get("status") not in {"on_time", "delayed", "stale"}:
+        return "unknown"
+    try:
+        target = parse_timestamp(row.get("scheduled_for"))
+        actual = parse_timestamp(row.get("actual_publication_time"))
+        generated = parse_timestamp(row.get("report_generated"))
+    except (ValueError, TypeError, AttributeError):
+        return "unknown"
+    if not target or not actual or not generated or generated < target or actual < generated:
+        return "unknown"
+    if row.get("core_complete") is False:
+        return "partial"
+    if row.get("core_complete") is not True:
+        return "unknown"
+    return "on_time" if actual <= target + timedelta(hours=1) else "late"
+
+
+def complete_close_summary(history, now, start):
+    """All elapsed Madrid deadlines count, including days with no workflow."""
+    first = start.astimezone(MADRID).date()
+    today = now.astimezone(MADRID).date()
+    day = max(first, today - timedelta(days=29))
+    samples = []
+    while day <= today:
+        target = datetime(day.year, day.month, day.day, 12, tzinfo=MADRID).astimezone(timezone.utc)
+        if now < target + timedelta(hours=1):
+            break
+        rows = []
+        for row in history:
+            try:
+                scheduled = parse_timestamp(row.get("scheduled_for"))
+            except (ValueError, TypeError, AttributeError):
+                continue
+            if scheduled and scheduled.astimezone(MADRID).date() == day and not row.get("dry_run"):
+                if row.get("status") != "skipped":
+                    rows.append(row)
+        statuses = {complete_close_status(row) for row in rows}
+        status = next((value for value in ["on_time", "late", "partial", "unknown"] if value in statuses), None)
+        if status is None:
+            status = "failed" if rows else "missing"
+        samples.append({"date": day.isoformat(), "status": status})
+        day += timedelta(days=1)
+    count = len(samples)
+    on_time = sum(row["status"] == "on_time" for row in samples)
+    percentage = round(on_time * 100 / count, 1) if count else None
+    return {
+        "objective": ">=95% complete CISA KEV/NVD/GHSA closes pushed within 60 minutes of 12:00 Europe/Madrid",
+        "started_at": iso(start),
+        "earliest_full_window_date": (first + timedelta(days=29)).isoformat(),
+        "window_days": 30,
+        "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
+        "measured_days": count,
+        "on_time_complete_closes": on_time,
+        "attainment_percentage": percentage,
+        "full_window_observed": count == 30,
+        "met": count == 30 and percentage is not None and percentage >= 95,
+        "evaluated_at": iso(now),
+        "site_visibility": "Measured separately; a GitHub push does not prove Site availability",
+        "days": samples,
+    }
+
+
 def build_evidence(run, health, feed, env, jobs=None, metrics=None):
     created, started = parse_timestamp(run.get("created_at")), parse_timestamp(run.get("run_started_at"))
     generated = parse_timestamp(feed.get("generated_at"))
@@ -99,7 +169,7 @@ def build_evidence(run, health, feed, env, jobs=None, metrics=None):
         stage = "pipeline"
     elif actual and generated and delta(actual, generated) > 3600:
         stage = "publication"
-    return {
+    evidence = {
         "schema_version": 2,
         "run_id": env.get("GITHUB_RUN_ID"),
         "run_attempt": env.get("GITHUB_RUN_ATTEMPT"),
@@ -166,6 +236,13 @@ def build_evidence(run, health, feed, env, jobs=None, metrics=None):
         "pipeline_metrics": metrics or None,
         "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
     }
+    evidence["complete_close_status"] = complete_close_status(evidence)
+    evidence["complete_close_on_time"] = (
+        evidence["complete_close_status"] == "on_time"
+        if evidence["complete_close_status"] in {"on_time", "late", "partial", "not_published"}
+        else None
+    )
+    return evidence
 
 
 def slo_summary(history, now, observation_start=None):
@@ -250,6 +327,14 @@ def publication_view(previous, evidence, history, now):
         view["status"] = "unknown"
     view["last_attempt"] = dict(evidence)
     view["slo"] = slo_summary(history, now)
+    # Older winning rows may predate this additive signal; retain their actual
+    # source completeness/timestamps and leave unknown evidence unknown.
+    view["complete_close_status"] = complete_close_status(view)
+    view["complete_close_on_time"] = (
+        view["complete_close_status"] == "on_time"
+        if view["complete_close_status"] in {"on_time", "late", "partial", "not_published"}
+        else None
+    )
     return view
 
 
