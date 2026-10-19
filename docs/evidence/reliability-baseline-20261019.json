@@ -1,0 +1,820 @@
+{
+  "period": {
+    "from": "2026-08-20",
+    "to": "2026-10-19"
+  },
+  "run_count": 184,
+  "unavailable_runs": [],
+  "events": {
+    "push": 33,
+    "schedule": 151
+  },
+  "conclusions": {
+    "success": 175,
+    "failure": 9
+  },
+  "queue": {
+    "samples": 184,
+    "median": 0,
+    "p95": 0,
+    "max": 0
+  },
+  "phase_statistics": {
+    "install": {
+      "samples": 73,
+      "median": 4,
+      "p95": 7,
+      "max": 11
+    },
+    "collection": {
+      "samples": 73,
+      "median": 27,
+      "p95": 286,
+      "max": 428
+    },
+    "artifact_upload": {
+      "samples": 73,
+      "median": 2,
+      "p95": 3,
+      "max": 4
+    },
+    "publish": {
+      "samples": 73,
+      "median": 5,
+      "p95": 10,
+      "max": 11
+    }
+  },
+  "timing_history_30days": {
+    "attempts": 109,
+    "cron_creation_delay": {
+      "samples": 82,
+      "median": 18798,
+      "p95": 32010,
+      "max": 34399
+    },
+    "external_request_delay": {
+      "samples": 27,
+      "median": 213,
+      "p95": 4575,
+      "max": 4827
+    },
+    "fetch_duration": {
+      "samples": 36,
+      "median": 83.708,
+      "p95": 281.691,
+      "max": 403.938
+    }
+  },
+  "latest": {
+    "timing": {
+      "actual_publication_time": "2026-10-19T10:29:02+00:00",
+      "collect_result": "success",
+      "commit_created": "2026-10-19T10:29:00+00:00",
+      "commit_sha": "df89deafeebc5db38f0976a643fb0343709fa6ef",
+      "dispatch_creation_lag_seconds": 2,
+      "dispatch_requested_at": "2026-10-19T10:21:31+00:00",
+      "dispatch_timestamp_error": null,
+      "dry_run": false,
+      "event": "push",
+      "fetch_duration_seconds": 403.938,
+      "fetch_end": "2026-10-19T10:28:40.897912+00:00",
+      "fetch_start": "2026-10-19T10:21:56.959970+00:00",
+      "last_attempt": {
+        "actual_publication_time": "2026-10-19T10:29:02+00:00",
+        "collect_result": "success",
+        "commit_created": "2026-10-19T10:29:00+00:00",
+        "commit_sha": "df89deafeebc5db38f0976a643fb0343709fa6ef",
+        "dispatch_creation_lag_seconds": 2,
+        "dispatch_requested_at": "2026-10-19T10:21:31+00:00",
+        "dispatch_timestamp_error": null,
+        "dry_run": false,
+        "event": "push",
+        "fetch_duration_seconds": 403.938,
+        "fetch_end": "2026-10-19T10:28:40.897912+00:00",
+        "fetch_start": "2026-10-19T10:21:56.959970+00:00",
+        "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
+        "monitoring_started_at": "2026-09-16T10:00:00+00:00",
+        "preflight_reason": "latest report date is missing; collection is required for 2026-10-19",
+        "preflight_result": "success",
+        "preflight_should_run": "true",
+        "publication_lag_seconds": 1742,
+        "publish_result": "success",
+        "push_completed": "2026-10-19T10:29:02+00:00",
+        "report_generated": "2026-10-19T10:28:41+00:00",
+        "root_cause_stage": "within_threshold",
+        "run_attempt": "1",
+        "run_id": "39236885511",
+        "run_to_commit_seconds": 447,
+        "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/39236885511",
+        "schedule_basis": "external request commit timestamp",
+        "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
+        "schedule_timezone": "Europe/Madrid",
+        "scheduled_for": "2026-10-19T10:00:00+00:00",
+        "scheduler_request_lag_seconds": 1291,
+        "schema_version": 2,
+        "status": "on_time",
+        "target_time": "12:00 Europe/Madrid",
+        "trigger_creation_lag_seconds": null,
+        "trigger_cron": null,
+        "trigger_origin": "external_push",
+        "trigger_scheduled_for": null,
+        "trigger_start_lag_seconds": null,
+        "workflow_actual_start": "2026-10-19T10:21:33+00:00",
+        "workflow_created": "2026-10-19T10:21:33+00:00",
+        "workflow_queue_seconds": 0
+      },
+      "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
+      "monitoring_started_at": "2026-09-16T10:00:00+00:00",
+      "preflight_reason": "latest report date is missing; collection is required for 2026-10-19",
+      "preflight_result": "success",
+      "preflight_should_run": "true",
+      "publication_lag_seconds": 1742,
+      "publish_result": "success",
+      "push_completed": "2026-10-19T10:29:02+00:00",
+      "report_generated": "2026-10-19T10:28:41+00:00",
+      "root_cause_stage": "within_threshold",
+      "run_attempt": "1",
+      "run_id": "39236885511",
+      "run_to_commit_seconds": 447,
+      "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/39236885511",
+      "schedule_basis": "external request commit timestamp",
+      "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
+      "schedule_timezone": "Europe/Madrid",
+      "scheduled_for": "2026-10-19T10:00:00+00:00",
+      "scheduler_request_lag_seconds": 1291,
+      "schema_version": 2,
+      "slo": {
+        "attainment_percentage": 63.3,
+        "days": [
+          {
+            "date": "2026-09-20",
+            "status": "stale"
+          },
+          {
+            "date": "2026-09-21",
+            "status": "stale"
+          },
+          {
+            "date": "2026-09-22",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-09-23",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-24",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-09-25",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-26",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-27",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-28",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-29",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-09-30",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-01",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-02",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-10-03",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-04",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-05",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-06",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-07",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-10-08",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-09",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-10",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-11",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-12",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-13",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-10-14",
+            "status": "delayed"
+          },
+          {
+            "date": "2026-10-15",
+            "status": "stale"
+          },
+          {
+            "date": "2026-10-16",
+            "status": "on_time"
+          },
+          {
+            "date": "2026-10-17",
+            "status": "failed"
+          },
+          {
+            "date": "2026-10-18",
+            "status": "failed"
+          },
+          {
+            "date": "2026-10-19",
+            "status": "on_time"
+          }
+        ],
+        "evaluated_at": "2026-10-19T10:29:12.209917+00:00",
+        "full_window_observed": true,
+        "measured_publications": 30,
+        "met": false,
+        "objective": ">=95% within 60 minutes of 12:00 Europe/Madrid",
+        "on_time_publications": 19,
+        "target_percentage": 95,
+        "window_days": 30
+      },
+      "status": "on_time",
+      "target_time": "12:00 Europe/Madrid",
+      "trigger_creation_lag_seconds": null,
+      "trigger_cron": null,
+      "trigger_origin": "external_push",
+      "trigger_scheduled_for": null,
+      "trigger_start_lag_seconds": null,
+      "workflow_actual_start": "2026-10-19T10:21:33+00:00",
+      "workflow_created": "2026-10-19T10:21:33+00:00",
+      "workflow_queue_seconds": 0
+    },
+    "sources": [
+      {
+        "cache_status": null,
+        "duration_ms": 440,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:21:57.400607+00:00",
+        "http_status": null,
+        "items_accepted": 1748,
+        "items_received": 1748,
+        "items_rejected": 0,
+        "required": true,
+        "sanitized_error_message": null,
+        "source": "cisa_kev",
+        "started_at": "2026-10-19T10:21:56.959970+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 393848,
+        "error_type": "SourceError",
+        "finished_at": "2026-10-19T10:28:31.249559+00:00",
+        "http_status": null,
+        "items_accepted": 0,
+        "items_received": 0,
+        "items_rejected": 0,
+        "required": true,
+        "sanitized_error_message": "Source transport failed for services.nvd.nist.gov",
+        "source": "nvd",
+        "started_at": "2026-10-19T10:21:57.401050+00:00",
+        "status": "failed"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 465,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:31.743605+00:00",
+        "http_status": null,
+        "items_accepted": 5,
+        "items_received": 5,
+        "items_rejected": 0,
+        "required": true,
+        "sanitized_error_message": null,
+        "source": "github_advisories",
+        "started_at": "2026-10-19T10:28:31.278197+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 95,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:31.839554+00:00",
+        "http_status": null,
+        "items_accepted": 0,
+        "items_received": 10,
+        "items_rejected": 0,
+        "required": false,
+        "sanitized_error_message": null,
+        "source": "rss_krebs",
+        "started_at": "2026-10-19T10:28:31.743627+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 384,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:32.224254+00:00",
+        "http_status": null,
+        "items_accepted": 1,
+        "items_received": 10,
+        "items_rejected": 0,
+        "required": false,
+        "sanitized_error_message": null,
+        "source": "rss_sans_isc",
+        "started_at": "2026-10-19T10:28:31.839598+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 2538,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:34.763172+00:00",
+        "http_status": null,
+        "items_accepted": 0,
+        "items_received": 90,
+        "items_rejected": 0,
+        "required": false,
+        "sanitized_error_message": null,
+        "source": "github_releases",
+        "started_at": "2026-10-19T10:28:32.224374+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 2248,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:37.011899+00:00",
+        "http_status": null,
+        "items_accepted": 3,
+        "items_received": 22,
+        "items_rejected": 19,
+        "required": false,
+        "sanitized_error_message": null,
+        "source": "hacker_news",
+        "started_at": "2026-10-19T10:28:34.763521+00:00",
+        "status": "healthy"
+      },
+      {
+        "cache_status": null,
+        "duration_ms": 3885,
+        "error_type": null,
+        "finished_at": "2026-10-19T10:28:40.897912+00:00",
+        "http_status": null,
+        "items_accepted": 1626,
+        "items_received": 1753,
+        "items_rejected": 127,
+        "required": false,
+        "sanitized_error_message": null,
+        "source": "epss",
+        "started_at": "2026-10-19T10:28:37.012484+00:00",
+        "status": "healthy"
+      }
+    ],
+    "jobs": [
+      {
+        "name": "preflight",
+        "started": "2026-10-19T10:21:36Z",
+        "completed": "2026-10-19T10:21:44Z",
+        "steps": [
+          {
+            "name": "Set up job",
+            "started": "2026-10-19T10:21:37Z",
+            "completed": "2026-10-19T10:21:37Z"
+          },
+          {
+            "name": "Checkout",
+            "started": "2026-10-19T10:21:37Z",
+            "completed": "2026-10-19T10:21:41Z"
+          },
+          {
+            "name": "Check daily publication freshness",
+            "started": "2026-10-19T10:21:41Z",
+            "completed": "2026-10-19T10:21:41Z"
+          },
+          {
+            "name": "Post Checkout",
+            "started": "2026-10-19T10:21:41Z",
+            "completed": "2026-10-19T10:21:42Z"
+          },
+          {
+            "name": "Complete job",
+            "started": "2026-10-19T10:21:42Z",
+            "completed": "2026-10-19T10:21:42Z"
+          }
+        ]
+      },
+      {
+        "name": "collect",
+        "started": "2026-10-19T10:21:46Z",
+        "completed": "2026-10-19T10:28:53Z",
+        "steps": [
+          {
+            "name": "Set up job",
+            "started": "2026-10-19T10:21:47Z",
+            "completed": "2026-10-19T10:21:48Z"
+          },
+          {
+            "name": "Checkout",
+            "started": "2026-10-19T10:21:48Z",
+            "completed": "2026-10-19T10:21:52Z"
+          },
+          {
+            "name": "Setup Python",
+            "started": "2026-10-19T10:21:52Z",
+            "completed": "2026-10-19T10:21:52Z"
+          },
+          {
+            "name": "Resolve execution mode",
+            "started": "2026-10-19T10:21:52Z",
+            "completed": "2026-10-19T10:21:52Z"
+          },
+          {
+            "name": "Install application",
+            "started": "2026-10-19T10:21:52Z",
+            "completed": "2026-10-19T10:21:56Z"
+          },
+          {
+            "name": "Run collection",
+            "started": "2026-10-19T10:21:56Z",
+            "completed": "2026-10-19T10:28:45Z"
+          },
+          {
+            "name": "Generate compact portfolio feed",
+            "started": "2026-10-19T10:28:45Z",
+            "completed": "2026-10-19T10:28:45Z"
+          },
+          {
+            "name": "Generate dashboard history feed",
+            "started": "2026-10-19T10:28:45Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Update repository landing snapshot",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Validate reports",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Validate public outputs",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Show source health",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Stage bounded publication artifact",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Check artifact file sizes",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:46Z"
+          },
+          {
+            "name": "Upload generated outputs",
+            "started": "2026-10-19T10:28:46Z",
+            "completed": "2026-10-19T10:28:48Z"
+          },
+          {
+            "name": "Post Setup Python",
+            "started": "2026-10-19T10:28:48Z",
+            "completed": "2026-10-19T10:28:48Z"
+          },
+          {
+            "name": "Post Checkout",
+            "started": "2026-10-19T10:28:48Z",
+            "completed": "2026-10-19T10:28:48Z"
+          },
+          {
+            "name": "Complete job",
+            "started": "2026-10-19T10:28:48Z",
+            "completed": "2026-10-19T10:28:48Z"
+          }
+        ]
+      },
+      {
+        "name": "publish",
+        "started": "2026-10-19T10:28:55Z",
+        "completed": "2026-10-19T10:29:04Z",
+        "steps": [
+          {
+            "name": "Set up job",
+            "started": "2026-10-19T10:28:55Z",
+            "completed": "2026-10-19T10:28:56Z"
+          },
+          {
+            "name": "Checkout main",
+            "started": "2026-10-19T10:28:56Z",
+            "completed": "2026-10-19T10:28:59Z"
+          },
+          {
+            "name": "Download generated outputs",
+            "started": "2026-10-19T10:28:59Z",
+            "completed": "2026-10-19T10:28:59Z"
+          },
+          {
+            "name": "Commit and push generated outputs",
+            "started": "2026-10-19T10:28:59Z",
+            "completed": "2026-10-19T10:29:02Z"
+          },
+          {
+            "name": "Post Checkout main",
+            "started": "2026-10-19T10:29:02Z",
+            "completed": "2026-10-19T10:29:03Z"
+          },
+          {
+            "name": "Complete job",
+            "started": "2026-10-19T10:29:03Z",
+            "completed": "2026-10-19T10:29:03Z"
+          }
+        ]
+      },
+      {
+        "name": "Publication timing evidence",
+        "started": "2026-10-19T10:29:06Z",
+        "completed": "2026-10-19T10:29:16Z",
+        "steps": [
+          {
+            "name": "Set up job",
+            "started": "2026-10-19T10:29:06Z",
+            "completed": "2026-10-19T10:29:07Z"
+          },
+          {
+            "name": "Checkout published main",
+            "started": "2026-10-19T10:29:07Z",
+            "completed": "2026-10-19T10:29:10Z"
+          },
+          {
+            "name": "Download this run's reports",
+            "started": "2026-10-19T10:29:10Z",
+            "completed": "2026-10-19T10:29:11Z"
+          },
+          {
+            "name": "Read workflow timing from GitHub",
+            "started": "2026-10-19T10:29:11Z",
+            "completed": "2026-10-19T10:29:12Z"
+          },
+          {
+            "name": "Calculate publication lag",
+            "started": "2026-10-19T10:29:12Z",
+            "completed": "2026-10-19T10:29:12Z"
+          },
+          {
+            "name": "Publish timing evidence",
+            "started": "2026-10-19T10:29:12Z",
+            "completed": "2026-10-19T10:29:14Z"
+          },
+          {
+            "name": "Preserve publication timing",
+            "started": "2026-10-19T10:29:14Z",
+            "completed": "2026-10-19T10:29:14Z"
+          },
+          {
+            "name": "Post Checkout published main",
+            "started": "2026-10-19T10:29:14Z",
+            "completed": "2026-10-19T10:29:15Z"
+          },
+          {
+            "name": "Complete job",
+            "started": "2026-10-19T10:29:15Z",
+            "completed": "2026-10-19T10:29:15Z"
+          }
+        ]
+      }
+    ]
+  },
+  "analysed_run_ids": [
+    39236885511,
+    39214347053,
+    39208828843,
+    39137376250,
+    39134174226,
+    39132753417,
+    39120060516,
+    39040305420,
+    39037790121,
+    39036421974,
+    39028029140,
+    38924030841,
+    38919237763,
+    38915877569,
+    38887364774,
+    38762562219,
+    38756828373,
+    38752842523,
+    38593584540,
+    38587008072,
+    38583942558,
+    38555879737,
+    38446813883,
+    38439993331,
+    38437462993,
+    38389059762,
+    38303904259,
+    38300097194,
+    38298421067,
+    38234305765,
+    38156633116,
+    38154993508,
+    38154015781,
+    38131018614,
+    38067179029,
+    38065383671,
+    38064487817,
+    38043398461,
+    37966822255,
+    37963126862,
+    37961361052,
+    37914927332,
+    37820556153,
+    37816335015,
+    37814021428,
+    37760632799,
+    37662853815,
+    37658998601,
+    37656844824,
+    37611207541,
+    37502889519,
+    37498725948,
+    37495655961,
+    37446886929,
+    37365051439,
+    37362385513,
+    37360183400,
+    37294062421,
+    37214837666,
+    37212772829,
+    37211650134,
+    37194250103,
+    37132373902,
+    37130649148,
+    37129810184,
+    37114975799,
+    37036165859,
+    37032851368,
+    37031245470,
+    36998780902,
+    36970479714,
+    36899523130,
+    36896422549,
+    36894869979,
+    36846591532,
+    36747717795,
+    36744050673,
+    36742504195,
+    36699797779,
+    36601541207,
+    36598346613,
+    36596599731,
+    36553104904,
+    36466933072,
+    36463300319,
+    36461515683,
+    36407076765,
+    36330755772,
+    36328548858,
+    36327713006,
+    36311318956,
+    36250647214,
+    36248745562,
+    36246980481,
+    36234586021,
+    36157249079,
+    36153143497,
+    36150649278,
+    36121610549,
+    36023406521,
+    36017888944,
+    36013721680,
+    35990822296,
+    35882207569,
+    35878570892,
+    35875382894,
+    35846310293,
+    35748544759,
+    35743772188,
+    35739271078,
+    35719431824,
+    35693094121,
+    35630143552,
+    35625845577,
+    35623652203,
+    35517558101,
+    35515852356,
+    35514765362,
+    35449495420,
+    35447188462,
+    35446332502,
+    35360264127,
+    35356809219,
+    35353701334,
+    35311923360,
+    35311171990,
+    35241385410,
+    35234548848,
+    35115716215,
+    35109073506,
+    34989846449,
+    34982639262,
+    34872128239,
+    34866428532,
+    34764246174,
+    34761423282,
+    34698877508,
+    34696034144,
+    34614375491,
+    34607442296,
+    34493410793,
+    34486134886,
+    34368930910,
+    34361293482,
+    34243507140,
+    34235752998,
+    34144056190,
+    34138317229,
+    34038872429,
+    34035793460,
+    33970416592,
+    33968144446,
+    33887276695,
+    33880737897,
+    33770860030,
+    33764540828,
+    33647120750,
+    33639197956,
+    33509322360,
+    33503254912,
+    33408566677,
+    33398442509,
+    33313772975,
+    33309967874,
+    33254840811,
+    33253039855,
+    33204518744,
+    33200175496,
+    33103305025,
+    33099233674,
+    32947502459,
+    32941146000,
+    32826238100,
+    32819962982,
+    32706234412,
+    32700890613,
+    32627099764,
+    32624324770,
+    32561094513,
+    32558292371,
+    32462654274,
+    32457075784,
+    32348063301,
+    32342267591
+  ]
+}

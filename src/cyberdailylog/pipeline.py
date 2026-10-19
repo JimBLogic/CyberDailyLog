@@ -18,7 +18,8 @@ from .state import StateLedger, coverage_start, parse_date
 from .operational_evidence import load_operational_evidence
 from .source_health import quorum_ok
 from .renderers.markdown import write_markdown
-from .renderers.json import write_json
+from .renderers.json import write_json, _atomic_write
+from .telemetry import PipelineTiming
 
 
 class Pipeline:
@@ -55,8 +56,28 @@ class Pipeline:
         self.http = SafeHttpClient(hosts)
 
     def run(self, since=None, until=None, lookback_hours=24, dry_run=False, fail_on_degraded=False):
+        self.timing = PipelineTiming()
+        outcome = "failed"
+        try:
+            report = self._run(since, until, lookback_hours, dry_run, fail_on_degraded)
+            outcome = (
+                "fixture_only"
+                if self.offline
+                else "complete"
+                if all(source.status == "healthy" for source in report.source_health)
+                else "partial"
+            )
+            return report
+        finally:
+            self.timing.data["dry_run"] = dry_run
+            _atomic_write(
+                self.output_dir / "pipeline-metrics.json", json.dumps(self.timing.finish(outcome), indent=2) + "\n"
+            )
+
+    def _run(self, since, until, lookback_hours, dry_run, fail_on_degraded):
         until = until or datetime.now(timezone.utc).replace(microsecond=0)
         ledger = StateLedger(self.output_dir / "cti-state.json.gz")
+        self.timing.mark("ledger_load")
         ledger.seed_archives(self.output_dir)
         previous_report_path = self.output_dir / "latest.json"
         if previous_report_path.exists():
@@ -73,6 +94,8 @@ class Pipeline:
                 ledger.data["coverage_end"] = previous_report["coverage_start"]
         since = since or coverage_start(ledger, until, lookback_hours)
         previous_coverage = ledger.data.get("coverage_end") or since.isoformat()
+        self.timing.data["baseline_records"] = len(ledger.records)
+        self.timing.mark("prepare")
         rss_collectors = [
             RssCollector(self.http, offline=self.offline, sources=[source])
             for source in self.sources.get("rss_sources", [])
@@ -96,19 +119,35 @@ class Pipeline:
 
         items = load_operational_evidence(self.config_dir / "operational-evidence.yml")
         health = []
+        self.timing.data["sources"] = {}
         for collector in collectors:
+            before_http = dict(self.http.metrics)
             got, source_health = collector.collect(since, until)
             items += got
             health.append(source_health)
+            self.timing.data["sources"][source_health.source] = {
+                "status": source_health.status,
+                "http_attempts": self.http.metrics["attempts"] - before_http["attempts"],
+                "http_retries": self.http.metrics["retries"] - before_http["retries"],
+                **getattr(collector, "metrics", {}),
+            }
+        self.timing.mark("collection")
         cves = sorted({cve for item in items for cve in item.cve_ids})
+        before_http = dict(self.http.metrics)
         epss, epss_health = EpssCollector(self.http, offline=self.offline).collect_scores(cves)
         health.append(epss_health)
+        self.timing.data["sources"][epss_health.source] = {
+            "status": epss_health.status,
+            "http_attempts": self.http.metrics["attempts"] - before_http["attempts"],
+            "http_retries": self.http.metrics["retries"] - before_http["retries"],
+        }
         for item in items:
             for cve in item.cve_ids:
                 if cve in epss:
                     item.epss_score = float(epss[cve]["epss_score"])
                     item.epss_percentile = float(epss[cve]["epss_percentile"])
                     item.add_provenance("epss_score", "FIRST EPSS", item.epss_score)
+        self.timing.mark("epss")
         if fail_on_degraded and not quorum_ok(health):
             raise SystemExit(2)
         for item in items:
@@ -117,6 +156,7 @@ class Pipeline:
         selected = ledger.observe(
             items, datetime.now(timezone.utc).replace(microsecond=0), since, until, self.tech, self.scoring
         )
+        self.timing.mark("matching")
         # A quorum can publish useful partial coverage. Keep the catch-up
         # watermark until every core collector succeeds, so an NVD/GHSA
         # outage cannot permanently skip that source's modification window.
@@ -141,6 +181,13 @@ class Pipeline:
             raise SystemExit(2)
         write_markdown(report, self.output_dir, self.report_config)
         write_json(report, self.output_dir)
+        self.timing.mark("render")
         if not dry_run and not report.degraded:
             ledger.save()
+        self.timing.mark("ledger_write")
+        self.timing.data.update(
+            tracked_records=len(ledger.records),
+            report_generated=report.generated_at.isoformat(),
+            ledger_bytes=ledger.path.stat().st_size if ledger.path.exists() else None,
+        )
         return report

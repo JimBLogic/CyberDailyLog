@@ -14,6 +14,7 @@ def publish(root, stamp="2026-09-04T22:15:00+00:00", degraded=False, mixed=False
         "source_health": [
             {"source": "cisa_kev", "status": "healthy"},
             {"source": "nvd", "status": "healthy"},
+            {"source": "github_advisories", "status": "healthy"},
         ],
     }
     (root / "latest.json").write_text(json.dumps(report))
@@ -49,3 +50,25 @@ def test_morning_publication_does_not_suppress_noon_target_in_summer_or_winter(t
         assert publication_date(tmp_path, now, require_after_noon=True) == ""
         publish(tmp_path, stamp=noon)
         assert publication_date(tmp_path, now, require_after_noon=True) == noon[:10]
+
+
+def test_quorum_success_with_failed_core_keeps_recovery_eligible(tmp_path):
+    publish(tmp_path)
+    path = tmp_path / "latest.json"
+    report = json.loads(path.read_text())
+    for source in report["source_health"]:
+        if source["source"] == "nvd":
+            source["status"] = "failed"
+    path.write_text(json.dumps(report))
+    assert publication_date(tmp_path) == ""
+
+
+def test_duplicate_scheduler_attempts_keep_same_complete_close(tmp_path):
+    publish(tmp_path, stamp="2026-10-19T10:29:02Z")
+    before = {p.name: p.read_bytes() for p in tmp_path.iterdir()}
+    for _ in range(3):
+        assert (
+            publication_date(tmp_path, datetime(2026, 10, 19, 11, tzinfo=timezone.utc), require_after_noon=True)
+            == "2026-10-19"
+        )
+    assert before == {p.name: p.read_bytes() for p in tmp_path.iterdir()}

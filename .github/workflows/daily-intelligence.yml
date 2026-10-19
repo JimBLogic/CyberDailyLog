@@ -2,7 +2,7 @@ name: Daily Blue Team Intelligence
 "on":
   push:
     branches: [main]
-    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "scripts/validate_publication.py", "ops/scheduler/request.json"]
+    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "scripts/validate_publication.py", "scripts/verify_publication.py", "scripts/publication_date.py", "ops/scheduler/request.json"]
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
@@ -192,7 +192,7 @@ jobs:
           root = Path("publication-output")
           (root / "reports").mkdir(parents=True, exist_ok=True)
           shutil.copy2("README.md", root / "README.md")
-          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json"):
+          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json", "pipeline-metrics.json"):
               source = Path("reports") / name
               if source.exists():
                   shutil.copy2(source, root / source)
@@ -211,6 +211,8 @@ jobs:
           PY
       - name: Check artifact file sizes
         run: python scripts/validate_publication.py --root publication-output
+      - name: Bind the complete report bundle
+        run: python scripts/verify_publication.py --root publication-output --write-manifest
       - name: Upload generated outputs # actions/upload-artifact@v7.0.1
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -223,6 +225,7 @@ jobs:
       commit_sha: ${{ steps.publication.outputs.commit_sha }}
       commit_created: ${{ steps.publication.outputs.commit_created }}
       push_completed: ${{ steps.publication.outputs.push_completed }}
+      duplicate_close: ${{ steps.publication.outputs.duplicate_close }}
     needs: collect
     if: ${{ needs.collect.outputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
     permissions:
@@ -238,11 +241,22 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: reports-${{ github.run_id }}
-          path: .
+          path: incoming-publication
+      - name: Verify bundle and historical integrity against current main
+        run: |
+          set -euo pipefail
+          python scripts/verify_publication.py --root incoming-publication --baseline-ref HEAD --evidence publication-check.json
       - name: Commit and push generated outputs
         id: publication
         run: |
           set -euo pipefail
+          if python -c 'import json,sys; sys.exit(0 if json.load(open("publication-check.json"))["duplicate_close"] else 1)'; then
+            echo "Complete daily close already exists; this recovery cannot replace it"
+            echo "duplicate_close=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          cp incoming-publication/README.md README.md
+          cp -a incoming-publication/reports/. reports/
           # Regenerate only the dynamic block against the current README.
           # The collection artifact may predate an intervening documentation edit.
           git restore --source=HEAD -- README.md
@@ -296,6 +310,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > workflow-run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > workflow-jobs.json
       - name: Calculate publication lag
         if: ${{ always() }}
         env:
@@ -311,6 +326,7 @@ jobs:
           PREFLIGHT_RESULT: ${{ needs.preflight.result }}
           COLLECT_RESULT: ${{ needs.collect.result }}
           PUBLISH_RESULT: ${{ needs.publish.result }}
+          PUBLISH_DUPLICATE_CLOSE: ${{ needs.publish.outputs.duplicate_close }}
           DRY_RUN: ${{ needs.collect.outputs.dry_run }}
           COMMIT_SHA: ${{ needs.publish.outputs.commit_sha }}
           COMMIT_CREATED: ${{ needs.publish.outputs.commit_created }}
@@ -321,7 +337,9 @@ jobs:
             --health timing-input/reports/source-health.json \
             --feed timing-input/reports/portfolio-feed.json \
             --output reports/publication-timing.json \
-            --history reports/publication-timing-history.json
+            --history reports/publication-timing-history.json \
+            --jobs workflow-jobs.json \
+            --metrics timing-input/reports/pipeline-metrics.json
       - name: Publish timing evidence
         if: ${{ success() }}
         run: |
