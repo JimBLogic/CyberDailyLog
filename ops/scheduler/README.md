@@ -1,25 +1,19 @@
 # External publication wake-up
 
-## Current scheduler status — 16 October 2026
+## Operational status — 19 October 2026
 
-The two personal automations described below **are historical** and were later
-consolidated into the active ChatGPT task `Seguimiento unificado` (12:00
-publication and 13:00 recovery blocks). The old two-task definitions in
-`automations.json` are retained for audit and are **not** currently active
-independently. On 15 October no request reached `ops/scheduler/request.json`,
-so the multiple delayed GitHub schedules produced a stale 16:41:40 CEST
-publication. On 16 October a manually authorized GitHub request at 12:27:31
-CEST caused a real on-time publication at 12:32:46, but it did not establish
-autonomous scheduler reliability. The 30-day SLO became 60%, still below 95%.
+The independent Cloudflare adapter from PR43 is reconciled against main after
+PR47/48 in [cloudflare/](cloudflare/README.md). Source/tests are prepared;
+deployment and a real provider-scheduled dispatch are **not verified** because
+owned Cloudflare access and a managed Actions dispatch credential are absent.
+The adapter now requires complete core coverage before suppressing recovery.
+Existing GitHub cron remains backup; no personal automation was changed.
 
-An **undeployed, credential-free in source** Cloudflare Cron alternative and
-standalone DST/replay unit tests now live under
-[`cloudflare/`](cloudflare/README.md). This is a proposal, not a working
-production timer; don't claim issue #41 fixed before a separately authorized
-deployment and real multiple-day observation. Never disable other personal
-automation blocks. The GitHub workflow, reports, historic timing and SLO
-remain unchanged by this scheduler PR.
-
+The two-task description below records the September setup, not a fresh claim
+about current personal task state. PR43 recorded their later consolidation;
+retain these definitions for audit and do not overwrite unrelated tasks.
+See [complete-close quality](../../docs/ops/complete-close-quality.md) for the
+separate prospective measure; historical publication SLO is unchanged.
 
 Two independent task definitions were confirmed enabled on **22 September 2026**, starting on 23 September: **CyberDailyLog publicación 12:00** and **CyberDailyLog recuperación 13:00**, both daily in **Europe/Madrid**, including daylight-saving changes. Each has a single explicit hour. The publication objective remains noon; the 13:00 recovery does not extend the 60-minute SLO. The independent scheduler uses the connected GitHub app; no new PAT or server is required for this route. Reproducible task definitions are in [automations.json](automations.json); task identifiers and credentials are not stored in the repository.
 

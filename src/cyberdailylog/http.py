@@ -1,10 +1,57 @@
-from urllib.parse import urlparse, urlencode
-from urllib.request import Request, urlopen
-from urllib.error import HTTPError
+"""Bounded and origin-restricted client for official CTI sources.
+
+All network traffic is GET-only over HTTPS. Unlike urllib.request.urlopen(),
+redirects are independently checked before the next request, protecting CTI
+API keys from a compromised upstream redirect to an attacker-controlled host.
+"""
+
+from urllib.parse import urlsplit, urlencode
+from urllib.request import Request, HTTPRedirectHandler, build_opener
+from urllib.error import HTTPError, URLError
+from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 import json
 import time
 import random
+import ssl
 from .exceptions import SourceError
+
+
+def _source_origin(url, allowed_hosts):
+    if not isinstance(url, str) or len(url) > 8192 or any(ord(char) <= 32 or ord(char) == 127 for char in url):
+        raise SourceError("Invalid or oversized source URL")
+    try:
+        parsed = urlsplit(url)
+        port = parsed.port
+    except ValueError as exc:
+        raise SourceError("Invalid source URL") from exc
+    if (
+        parsed.scheme != "https"
+        or not parsed.hostname
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.fragment
+        or port not in (None, 443)
+        or parsed.hostname not in allowed_hosts
+    ):
+        raise SourceError("Source URL is not an approved HTTPS origin")
+    return parsed.hostname
+
+
+class _SameOriginRedirects(HTTPRedirectHandler):
+    """Only follow same-origin HTTPS redirects (never forward tokens off host)."""
+
+    def __init__(self, allowed_hosts):
+        super().__init__()
+        self.allowed_hosts = allowed_hosts
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        original = _source_origin(req.full_url, self.allowed_hosts)
+        destination = _source_origin(newurl, self.allowed_hosts)
+        if destination != original:
+            raise SourceError("Cross-origin CTI redirect rejected")
+        # Delegate urllib's bounded redirect handling and RFC method behavior.
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 class Response:
@@ -20,28 +67,67 @@ class Response:
 
 class SafeHttpClient:
     def __init__(self, allowed_hosts, user_agent="CyberDailyLog/2.0 (+https://github.com/JimBLogic/CyberDailyLog)"):
-        self.allowed_hosts = allowed_hosts
+        self.allowed_hosts = frozenset(str(host).lower() for host in allowed_hosts)
         self.headers = {"User-Agent": user_agent}
+        self._opener = build_opener(_SameOriginRedirects(self.allowed_hosts))
+        self.metrics = {"attempts": 0, "retries": 0}
 
-    def get(self, url, headers=None, params=None, expect_json=False, max_bytes=5_000_000):
+    def get(self, url, headers=None, params=None, expect_json=False, max_bytes=5_000_000, retry_interval=0):
+        if not isinstance(url, str):
+            raise SourceError("Source URL must be a string")
         if params:
             url += ("&" if "?" in url else "?") + urlencode(params)
-        host = urlparse(url).hostname or ""
-        if host not in self.allowed_hosts:
-            raise SourceError(f"Host not allowlisted: {host}")
-        req = Request(url, headers={**self.headers, **(headers or {})})
+        host = _source_origin(url, self.allowed_hosts)
+        if not isinstance(max_bytes, int) or isinstance(max_bytes, bool) or not 0 < max_bytes <= 10_000_000:
+            raise SourceError("Invalid source response byte limit")
+        if (
+            not isinstance(retry_interval, (int, float))
+            or isinstance(retry_interval, bool)
+            or not 0 <= retry_interval <= 60
+        ):
+            raise SourceError("Invalid source retry interval")
+        request_headers = {**self.headers, **(headers or {})}
+        # Header overrides must not redirect routing or bypass the origin check.
+        if any(str(key).lower() in {"host", "proxy-authorization"} for key in request_headers):
+            raise SourceError("Routing or proxy override header not permitted")
+        req = Request(url, headers=request_headers)
         for attempt in range(3):
+            self.metrics["attempts"] += 1
+            self.metrics["retries"] += int(attempt > 0)
             try:
-                with urlopen(req, timeout=20) as r:
-                    data = r.read(max_bytes + 1)
-                    ct = r.headers.get("content-type", "")
+                with self._opener.open(req, timeout=20) as response:
+                    # Revalidate the final URL even if urllib internals change.
+                    if _source_origin(response.geturl(), self.allowed_hosts) != host:
+                        raise SourceError("Cross-origin CTI response rejected")
+                    data = response.read(max_bytes + 1)
+                    ct = response.headers.get("content-type", "")
                     if len(data) > max_bytes:
                         raise SourceError("Response too large")
                     if expect_json and "json" not in ct.lower():
                         raise SourceError("Unexpected content type")
-                    return Response(data, r.status, r.headers)
-            except HTTPError as e:
-                if e.code in (429, 500, 502, 503, 504) and attempt < 2:
-                    time.sleep(min(float(e.headers.get("Retry-After") or 0) or 2**attempt + random.random(), 5))
+                    return Response(data, response.status, response.headers)
+            except HTTPError as error:
+                error.close()
+                if error.code in (429, 500, 502, 503, 504) and attempt < 2:
+                    try:
+                        delay = float(error.headers.get("Retry-After") or 0)
+                    except (TypeError, ValueError, OverflowError):
+                        try:
+                            delay = parsedate_to_datetime(error.headers.get("Retry-After")).timestamp() - time.time()
+                        except (TypeError, ValueError, OverflowError):
+                            delay = 0
+                    if not 0 < delay < float("inf"):
+                        delay = 2**attempt + random.random()
+                    if delay > 60:
+                        raise SourceError(f"HTTP {error.code} retry delay exceeds source budget for {host}") from None
+                    time.sleep(max(retry_interval, delay))
                     continue
-                raise SourceError(f"HTTP {e.code} from {host}")
+                raise SourceError(f"HTTP {error.code} from {host}") from None
+            except (URLError, TimeoutError, OSError, HTTPException) as error:
+                reason = error.reason if isinstance(error, URLError) else error
+                # Retrying certificate failures cannot repair trust. Never relax TLS.
+                if attempt < 2 and not isinstance(reason, ssl.SSLError):
+                    time.sleep(max(retry_interval, min(2**attempt + random.random(), 5)))
+                    continue
+                raise SourceError(f"Source transport failed for {host}") from None
+        raise SourceError(f"Source fetch retry budget exceeded for {host}")

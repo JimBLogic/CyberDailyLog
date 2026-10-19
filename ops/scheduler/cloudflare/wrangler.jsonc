@@ -4,10 +4,8 @@
   "main": "./worker.mjs",
   "compatibility_date": "2026-10-16",
   "workers_dev": false,
-  "triggers": {
-    "crons": ["0,20,40 10,11 * * *"]
-  },
-  "observability": {
-    "enabled": true
-  }
+  "preview_urls": false,
+  "routes": [],
+  "triggers": { "crons": ["0,20,40 10,11 * * *"] },
+  "observability": { "enabled": true }
 }

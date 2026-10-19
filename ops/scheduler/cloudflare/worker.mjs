@@ -1,112 +1,149 @@
-// Independent wake-up for the existing GitHub publishing workflow.
-// No public write API, no report generation and no secrets in source.
+// Reconciled from PR43 against PR47. This Worker only wakes the existing workflow.
 const REPO = 'JimBLogic/CyberDailyLog';
 const API = `https://api.github.com/repos/${REPO}`;
-const ACTIVE = new Set(['queued', 'waiting', 'pending', 'requested', 'in_progress']);
-const VALID_PUBLICATIONS = new Set(['on_time', 'delayed', 'stale']);
+const TIMING = `https://raw.githubusercontent.com/${REPO}/main/reports/publication-timing.json`;
+const WORKFLOW = 'daily-intelligence.yml';
+const ACTIVE = ['in_progress', 'queued', 'waiting', 'pending', 'requested'];
+const PUBLISHED = new Set(['on_time', 'delayed', 'stale']);
+const MAX_JSON = 512 * 1024;
 
-function madridClock(now) {
+class WakeupError extends Error {
+  constructor(code) { super(code); this.code = code; }
+}
+
+function clock(now) {
+  if (!(now instanceof Date) || !Number.isFinite(now.getTime())) throw new WakeupError('invalid_clock');
   const fields = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit',
-    day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit',
-    hourCycle: 'h23',
+    timeZone:'Europe/Madrid', year:'numeric', month:'2-digit', day:'2-digit',
+    hour:'2-digit', minute:'2-digit', second:'2-digit', hourCycle:'h23',
   }).formatToParts(now);
   return Object.fromEntries(fields.filter(p => p.type !== 'literal').map(p => [p.type, Number(p.value)]));
 }
 
-export function planWakeup(now, timing, runs) {
-  const local = madridClock(now);
-  if (local.hour !== 12) return { action: 'skip', reason: 'outside Madrid noon recovery hour' };
-  const today = `${local.year}-${String(local.month).padStart(2, '0')}-${String(local.day).padStart(2, '0')}`;
-  // Noon is exactly this many local minutes/seconds before a time in hour 12.
-  // Calculating from the local clock avoids hardcoded +01/+02 UTC offsets.
-  const noon = new Date(now.getTime() - (local.minute * 60 + local.second) * 1000 - now.getUTCMilliseconds());
-  const published = Date.parse(timing?.actual_publication_time);
-  if (
-    timing?.schema_version === 2 &&
-    VALID_PUBLICATIONS.has(timing.status) &&
-    Number.isFinite(published) &&
-    published >= noon.getTime() &&
-    published <= now.getTime() + 30_000
-  ) return { action: 'skip', reason: 'measured daily publication already completed', today };
-
-  if (!Array.isArray(runs)) throw new Error('Workflow run inventory unavailable');
-  if (runs.some(run =>
-    run.name === 'Daily Blue Team Intelligence' &&
-    run.head_branch === 'main' &&
-    ACTIVE.has(run.status) &&
-    Date.parse(run.created_at) >= noon.getTime() &&
-    Date.parse(run.created_at) <= now.getTime() + 30_000
-  )) return { action: 'skip', reason: 'today\'s workflow already running', today };
-  return { action: 'dispatch', reason: 'today\'s publication not confirmed', today, target: noon.toISOString() };
+function stamp(value) {
+  if (value === null || value === undefined) return null;
+  if (typeof value !== 'string' || !/(Z|[+-]\d{2}:\d{2})$/.test(value) || !Number.isFinite(Date.parse(value))) {
+    throw new WakeupError('invalid_evidence_timestamp');
+  }
+  return Date.parse(value);
 }
 
-async function github(path, env, options = {}) {
-  const token = env?.GITHUB_ACTIONS_TOKEN;
-  if (typeof token !== 'string' || !token.trim()) throw new Error('Missing scoped GITHUB_ACTIONS_TOKEN secret');
-  const response = await fetch(`${API}${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: options.raw ? 'application/vnd.github.raw+json' : 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent': 'cyberdailylog-independent-wakeup',
-      ...(options.body ? {'Content-Type': 'application/json'} : {}),
-    },
-    redirect: 'manual',
-    signal: AbortSignal.timeout(15000),
-  });
+export function planWakeup(now, timing, runs = []) {
+  const local = clock(now);
+  if (local.hour !== 12) return {action:'skip', reason:'outside_madrid_recovery_hour'};
+  if (timing?.schema_version !== 2 || !['on_time','delayed','stale','failed','unknown','skipped'].includes(timing.status)
+      || ![true, false, null, undefined].includes(timing.core_complete)) throw new WakeupError('invalid_timing_evidence');
+  const noon = now.getTime() - (local.minute * 60 + local.second) * 1000 - now.getUTCMilliseconds();
+  const today = `${local.year}-${String(local.month).padStart(2,'0')}-${String(local.day).padStart(2,'0')}`;
+  const published = stamp(timing.actual_publication_time), generated = stamp(timing.report_generated);
+  if (timing.core_complete === true && PUBLISHED.has(timing.status) && published !== null && generated !== null
+      && generated >= noon && generated <= published && published <= now.getTime() + 30_000) {
+    return {action:'skip', reason:'complete_daily_close_confirmed', today};
+  }
+  if (!Array.isArray(runs)) throw new WakeupError('invalid_run_inventory');
+  if (runs.some(run => ACTIVE.includes(run.status) && run.head_branch === 'main')) {
+    return {action:'skip', reason:'workflow_already_active', today};
+  }
+  return {action:'dispatch', reason:'complete_daily_close_not_confirmed', today, target:new Date(noon).toISOString()};
+}
+
+async function jsonBody(response) {
+  if (Number(response.headers.get('Content-Length')) > MAX_JSON) {
+    await response.body?.cancel(); throw new WakeupError('response_too_large');
+  }
+  const reader = response.body?.getReader();
+  if (!reader) throw new WakeupError('empty_json_response');
+  const chunks = []; let size = 0;
+  try {
+    for (;;) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      size += value.length;
+      if (size > MAX_JSON) throw new WakeupError('response_too_large');
+      chunks.push(value);
+    }
+    const joined = new Uint8Array(size); let offset = 0;
+    for (const chunk of chunks) { joined.set(chunk, offset); offset += chunk.length; }
+    try { return JSON.parse(new TextDecoder().decode(joined)); }
+    catch { throw new WakeupError('invalid_json_response'); }
+  } finally { await reader.cancel().catch(() => {}); }
+}
+
+async function request(url, env, body) {
+  const headers = {'Accept':'application/vnd.github+json', 'User-Agent':'cyberdailylog-independent-wakeup'};
+  if (url.startsWith(API + '/')) {
+    const token = env?.GITHUB_ACTIONS_TOKEN;
+    if (typeof token !== 'string' || !token || token !== token.trim() || /[\s\u0000-\u001f\u007f]/.test(token)
+        || token.length > 4096) throw new WakeupError('missing_or_invalid_dispatch_secret');
+    headers.Authorization = `Bearer ${token}`;
+    headers['X-GitHub-Api-Version'] = '2026-03-10';
+  } else if (url !== TIMING) throw new WakeupError('unapproved_origin');
+  if (body) headers['Content-Type'] = 'application/json';
+  let response;
+  try {
+    response = await fetch(url, {method:body ? 'POST':'GET', headers, body:body ? JSON.stringify(body):undefined,
+      redirect:'manual', signal:AbortSignal.timeout(15000)});
+  } catch { throw new WakeupError('transport_unavailable'); }
   if (response.status >= 300 && response.status < 400) {
-    await response.body?.cancel();
-    throw new Error('GitHub unexpectedly redirected the authenticated request');
+    await response.body?.cancel(); throw new WakeupError('authenticated_redirect_rejected');
+  }
+  if (!response.ok) {
+    await response.body?.cancel(); throw new WakeupError(`upstream_http_${response.status}`);
   }
   return response;
 }
 
+async function activeRuns(env) {
+  const inventories = await Promise.all(ACTIVE.map(async status => {
+    const reply = await request(`${API}/actions/workflows/${WORKFLOW}/runs?branch=main&status=${status}&per_page=1`, env);
+    const data = await jsonBody(reply), runs = data?.workflow_runs;
+    if (!Number.isSafeInteger(data?.total_count) || data.total_count < 0 || !Array.isArray(runs) || runs.length > 1
+        || (data.total_count > 0) !== (runs.length > 0)) throw new WakeupError('invalid_run_inventory');
+    for (const run of runs) {
+      if (!Number.isSafeInteger(run.id) || run.id < 1 || run.head_branch !== 'main' || run.status !== status
+          || run.path !== '.github/workflows/daily-intelligence.yml') throw new WakeupError('invalid_run_inventory');
+    }
+    return runs;
+  }));
+  return inventories.flat();
+}
+
 export async function performWakeup(env, now = new Date()) {
-  if (madridClock(now).hour !== 12) return { action: 'skip', reason: 'outside Madrid noon recovery hour' };
-  const timingReply = await github('/contents/reports/publication-timing.json?ref=main', env, {raw:true});
-  if (!timingReply.ok) throw new Error(`GitHub publication evidence read HTTP ${timingReply.status}`);
-  const timingPayload = await timingReply.json();
-  // GitHub can serve the Contents endpoint as raw JSON or the standard
-  // base64 content envelope depending on media negotiation/proxy behavior.
-  const timing = timingPayload?.encoding === 'base64' && typeof timingPayload.content === 'string'
-    ? JSON.parse(new TextDecoder().decode(Uint8Array.from(
-        atob(timingPayload.content.replace(/\s+/g, '')), char => char.charCodeAt(0),
-      )))
-    : timingPayload;
-  if (timing?.schema_version !== 2) throw new Error('Invalid/missing publication timing evidence');
-  const runsReply = await github('/actions/runs?branch=main&per_page=30', env);
-  if (!runsReply.ok) throw new Error(`GitHub runs read HTTP ${runsReply.status}`);
-  const inventory = await runsReply.json();
-  const plan = planWakeup(now, timing, inventory.workflow_runs);
+  if (clock(now).hour !== 12) return {action:'skip', reason:'outside_madrid_recovery_hour'};
+  // This public read sends NO token and needs NO Contents permission.
+  const timing = await jsonBody(await request(TIMING, env));
+  let plan = planWakeup(now, timing);
   if (plan.action !== 'dispatch') return plan;
-  // Only workflow_dispatch: this token needs Actions:write and cannot modify source.
+  plan = planWakeup(now, timing, await activeRuns(env));
+  if (plan.action !== 'dispatch') return plan;
+  // Do not retry an ambiguous POST: next cron reconciles runs before dispatch.
   const requestedAt = now.toISOString();
-  const response = await github('/actions/workflows/daily-intelligence.yml/dispatches', env, {
-    method:'POST',
-    body:JSON.stringify({ref:'main',inputs:{
-      dry_run:false, lookback_hours:'24',trigger_origin:'external',dispatch_requested_at:requestedAt,
-    }}),
+  const reply = await request(`${API}/actions/workflows/${WORKFLOW}/dispatches`, env, {
+    ref:'main', inputs:{dry_run:false,lookback_hours:'24',trigger_origin:'external',dispatch_requested_at:requestedAt},
   });
-  if (response.status !== 204) throw new Error(`GitHub dispatch HTTP ${response.status}`);
-  return { action:'accepted', today:plan.today, scheduled_for:plan.target, requested_at:requestedAt };
+  if (reply.status !== 200) { await reply.body?.cancel(); throw new WakeupError('unexpected_dispatch_response'); }
+  const accepted = await jsonBody(reply), id = accepted?.workflow_run_id;
+  if (!Number.isSafeInteger(id) || id < 1 || accepted.run_url !== `${API}/actions/runs/${id}`
+      || accepted.html_url !== `https://github.com/${REPO}/actions/runs/${id}`) {
+    throw new WakeupError('invalid_dispatch_receipt');
+  }
+  return {action:'accepted',today:plan.today,scheduled_for:plan.target,requested_at:requestedAt,
+    run_id:id,run_url:accepted.html_url};
 }
 
 export default {
-  // Workers without HTTP endpoints cannot be directly used as public writers.
-  async fetch() { return new Response('Not found', {status:404}); },
+  async fetch() { return new Response('Not found',{status:404}); },
   async scheduled(controller, env, context) {
-    // The nominal scheduledTime can precede delayed actual execution by minutes.
-    // Only the real wall clock is valid for SLO provenance and noon gating.
     const now = new Date();
-    const job = performWakeup(env, now).then(result => {
-      console.log(JSON.stringify({service:'cyberdailylog-wakeup', ...result}));
-    }).catch(error => {
-      console.error(JSON.stringify({service:'cyberdailylog-wakeup',status:'failed',
-        reason: error instanceof Error ? error.message : 'unknown scheduler error'}));
-      throw error;
-    });
+    const nominal = new Date(controller.scheduledTime);
+    const provenance = {service:'cyberdailylog-wakeup', invocation:'scheduled',
+      observed_at:now.toISOString(), nominal_scheduled_at:Number.isFinite(nominal.getTime()) ? nominal.toISOString():null};
+    const job = performWakeup(env, now).then(result => console.log(JSON.stringify({...provenance,...result})))
+      .catch(error => {
+        console.error(JSON.stringify({...provenance,status:'failed',
+          reason:error instanceof WakeupError ? error.code:'scheduler_failure'}));
+        throw new WakeupError(error instanceof WakeupError ? error.code:'scheduler_failure');
+      });
     context.waitUntil(job);
   },
 };

@@ -2,7 +2,7 @@ name: Daily Blue Team Intelligence
 "on":
   push:
     branches: [main]
-    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "ops/scheduler/request.json"]
+    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "scripts/validate_publication.py", "scripts/verify_publication.py", "scripts/publication_date.py", "ops/scheduler/request.json"]
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
@@ -51,6 +51,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           ref: main
+          persist-credentials: false
       - name: Check daily publication freshness
         id: freshness
         env:
@@ -68,7 +69,7 @@ jobs:
                 2>/dev/null || true
             )"
 
-            if [ "$published_date" = "$today" ] && [ -f reports/cti-state.json ]; then
+            if [ "$published_date" = "$today" ] && { [ -f reports/cti-state.json.gz ] || [ -f reports/cti-state.json ]; }; then
               should_run="false"
               reason="a report is already published for $today"
             else
@@ -97,6 +98,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           ref: main
+          persist-credentials: false
       - name: Setup Python # actions/setup-python@v7.0.0
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
@@ -186,21 +188,33 @@ jobs:
           python - <<'PY'
           import json, shutil
           from pathlib import Path
+          from cyberdailylog.state import StateLedger, write_state
           root = Path("publication-output")
           (root / "reports").mkdir(parents=True, exist_ok=True)
           shutil.copy2("README.md", root / "README.md")
-          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json", "cti-state.json"):
+          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json", "pipeline-metrics.json"):
               source = Path("reports") / name
               if source.exists():
                   shutil.copy2(source, root / source)
+          # Dry runs can still start from a legacy JSON baseline. Compress only
+          # the artifact copy, without advancing or rewriting that baseline.
+          state_path = Path("reports/cti-state.json.gz")
+          if state_path.exists():
+              shutil.copy2(state_path, root / state_path)
+          elif state_path.with_suffix("").exists():
+              write_state(root / state_path, StateLedger(state_path).data)
           date = json.loads(Path("reports/latest.json").read_text())["coverage_end"][:10]
           folder = Path("reports/archive") / date[:4] / date[5:7]
           (root / folder).mkdir(parents=True, exist_ok=True)
           for source in folder.glob(date + "*"):
               shutil.copy2(source, root / source)
           PY
-      - name: Upload generated outputs # actions/upload-artifact@v7.0.1
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - name: Check artifact file sizes
+        run: python scripts/validate_publication.py --root publication-output
+      - name: Bind the complete report bundle
+        run: python scripts/verify_publication.py --root publication-output --write-manifest
+      - name: Upload generated outputs # actions/upload-artifact@v7.0.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: reports-${{ github.run_id }}
           path: publication-output/
@@ -211,6 +225,7 @@ jobs:
       commit_sha: ${{ steps.publication.outputs.commit_sha }}
       commit_created: ${{ steps.publication.outputs.commit_created }}
       push_completed: ${{ steps.publication.outputs.push_completed }}
+      duplicate_close: ${{ steps.publication.outputs.duplicate_close }}
     needs: collect
     if: ${{ needs.collect.outputs.dry_run == 'false' && github.ref == 'refs/heads/main' }}
     permissions:
@@ -222,22 +237,41 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           ref: main
-      - name: Download generated outputs # actions/download-artifact@v8.0.1
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - name: Download generated outputs # actions/download-artifact@v8.0.2
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: reports-${{ github.run_id }}
-          path: .
+          path: incoming-publication
+      - name: Verify bundle and historical integrity against current main
+        run: |
+          set -euo pipefail
+          python scripts/verify_publication.py --root incoming-publication --baseline-ref HEAD --evidence publication-check.json
       - name: Commit and push generated outputs
         id: publication
         run: |
           set -euo pipefail
+          if python -c 'import json,sys; sys.exit(0 if json.load(open("publication-check.json"))["duplicate_close"] else 1)'; then
+            echo "Complete daily close already exists; this recovery cannot replace it"
+            echo "duplicate_close=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          cp incoming-publication/README.md README.md
+          cp -a incoming-publication/reports/. reports/
           # Regenerate only the dynamic block against the current README.
           # The collection artifact may predate an intervening documentation edit.
           git restore --source=HEAD -- README.md
           python src/cyberdailylog/readme_snapshot.py
+          # Artifact downloads cannot represent deletion of the old baseline.
+          # Collection has already validated its complete gzip replacement.
+          if [ ! -f reports/cti-state.json.gz ]; then
+            echo "Missing compressed CTI baseline; refusing to publish" >&2
+            exit 1
+          fi
+          rm -f reports/cti-state.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md reports
+          python scripts/validate_publication.py --staged
 
           if git diff --cached --quiet; then
             echo "No generated changes"
@@ -267,7 +301,7 @@ jobs:
           ref: main
       - name: Download this run's reports
         if: ${{ needs.collect.result == 'success' }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: reports-${{ github.run_id }}
           path: timing-input
@@ -276,6 +310,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > workflow-run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > workflow-jobs.json
       - name: Calculate publication lag
         if: ${{ always() }}
         env:
@@ -291,6 +326,7 @@ jobs:
           PREFLIGHT_RESULT: ${{ needs.preflight.result }}
           COLLECT_RESULT: ${{ needs.collect.result }}
           PUBLISH_RESULT: ${{ needs.publish.result }}
+          PUBLISH_DUPLICATE_CLOSE: ${{ needs.publish.outputs.duplicate_close }}
           DRY_RUN: ${{ needs.collect.outputs.dry_run }}
           COMMIT_SHA: ${{ needs.publish.outputs.commit_sha }}
           COMMIT_CREATED: ${{ needs.publish.outputs.commit_created }}
@@ -301,7 +337,9 @@ jobs:
             --health timing-input/reports/source-health.json \
             --feed timing-input/reports/portfolio-feed.json \
             --output reports/publication-timing.json \
-            --history reports/publication-timing-history.json
+            --history reports/publication-timing-history.json \
+            --jobs workflow-jobs.json \
+            --metrics timing-input/reports/pipeline-metrics.json
       - name: Publish timing evidence
         if: ${{ success() }}
         run: |
@@ -316,7 +354,7 @@ jobs:
           git push
       - name: Preserve publication timing
         if: ${{ always() }}
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: publication-timing-${{ github.run_id }}-${{ github.run_attempt }}
           path: reports/publication-timing.json

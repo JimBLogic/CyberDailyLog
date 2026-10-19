@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-16T10:32:17+00:00  
-**Coverage:** 2026-10-14T09:20:55+00:00 → 2026-10-16T10:28:03+00:00  
+**Updated:** 2026-10-19T11:11:36+00:00  
+**Coverage:** 2026-10-18T11:06:01+00:00 → 2026-10-19T11:06:01+00:00  
 **Pipeline:** **Operational**
 
-13 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 5175 source-backed developments
-- **Above threshold:** 4204
+- **Assessed:** 358 source-backed developments
+- **Above threshold:** 300
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-48027](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-48027 exploited in CISA KEV: Nx Nx Console — CVSS 9.3; detection opportunity
-- **[CVE-2025-8110](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-8110 exploited in CISA KEV: Gogs Gogs — CVSS 8.7; EPSS &gt;= 70%
-- **[CVE-2023-4911](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2023-4911 exploited in CISA KEV: GNU GNU C Library — CVSS 7.8; EPSS &gt;= 30%
-- **[CVE-2026-104935](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-104935 exploited in CISA KEV: Ivanti Connect Secure — CVSS 8.6; EPSS percentile &gt;= 95%
-- **[CVE-2026-53362](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-53362 exploited in CISA KEV: Linux Kernel — CVSS 7.8; priority technology: linux
+- **[CVE-2026-102764](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102764 exploited in CISA KEV: BeyondTrust Remote Support — CVSS 9.3; detection opportunity
+- **[CVE-2025-61624](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61624 exploited in CISA KEV: Fortinet Multiple Products — CVSS 6.0; priority technology: vpn_remote_access
+- **[CVE-2026-90038](https://nvd.nist.gov/vuln/detail/CVE-2026-90038) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during export s — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90012](https://nvd.nist.gov/vuln/detail/CVE-2026-90012) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: spi: Fix DMA mapping ownership on partial map failu — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90011](https://nvd.nist.gov/vuln/detail/CVE-2026-90011) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: scsi: target: iscsi: Reserve a terminator byte for — CVSS 9.1; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Friday, October 16th, 2026 https://isc.sans.edu/podcastdetail/10140, (Fri, Oct 16th)](https://isc.sans.edu/diary/rss/33432)**
+**[Orphaned VBA Projects Inside DWG Files: YARA Rule, (Sun, Oct 18th)](https://isc.sans.edu/diary/rss/33434)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Here is the YARA rule I used to detect &quot; Orphaned VBA Projects Inside DWG Files &quot;.
 
 ### Community pulse
 
-**[Wayland desktop for Linux with skeuomorphic design](https://github.com/fyzugx/DEsk)** — Hacker News · 616 points · 241 comments
-[Open discussion](https://news.ycombinator.com/item?id=50103338)
+**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 398 points · 64 comments
+[Open discussion](https://news.ycombinator.com/item?id=50141076)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

@@ -1,1 +1,7 @@
-{"schema_version":1,"origin":"chatgpt_automation","request_id":"2026-10-16-noon-recovery-manual","scheduled_for":"2026-10-16T10:00:00Z","requested_at":"2026-10-16T10:27:31Z"}
+{
+  "schema_version": 1,
+  "origin": "chatgpt_automation",
+  "request_id": "2026-10-19-noon",
+  "scheduled_for": "2026-10-19T10:00:00Z",
+  "requested_at": "2026-10-19T10:21:31Z"
+}

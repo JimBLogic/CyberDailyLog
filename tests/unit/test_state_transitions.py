@@ -182,10 +182,12 @@ def test_dry_run_does_not_advance_ledger_and_rejected_run_does_not_write(tmp_pat
     since, until = datetime(2026, 7, 14, tzinfo=timezone.utc), datetime(2026, 7, 16, tzinfo=timezone.utc)
     Pipeline(output_dir=tmp_path, offline=True).run(since, until, dry_run=True)
     assert not (tmp_path / "cti-state.json").exists()
+    assert not (tmp_path / "cti-state.json.gz").exists()
     monkeypatch.setattr("cyberdailylog.pipeline.quorum_ok", lambda health: False)
     with pytest.raises(SystemExit):
         Pipeline(output_dir=tmp_path, offline=True).run(since, until, fail_on_degraded=True)
     assert not (tmp_path / "cti-state.json").exists()
+    assert not (tmp_path / "cti-state.json.gz").exists()
 
 
 def test_nvd_queries_modified_window_and_exploit_tags_without_claiming_active():
@@ -194,7 +196,9 @@ def test_nvd_queries_modified_window_and_exploit_tags_without_claiming_active():
 
     def get(url, **kw):
         calls.append(kw["params"].copy())
-        return SimpleNamespace(json=lambda: {"resultsPerPage": 2000, "totalResults": 0, "vulnerabilities": []})
+        return SimpleNamespace(
+            content=b"{}", json=lambda: {"startIndex": 0, "resultsPerPage": 0, "totalResults": 0, "vulnerabilities": []}
+        )
 
     collector.http = SimpleNamespace(get=get)
     items, health = collector.collect(NOW - timedelta(days=1), NOW)
@@ -245,7 +249,19 @@ def test_nvd_reduces_oversized_pages_without_skipping_offsets(monkeypatch):
         calls.append(params)
         if params["resultsPerPage"] > 250:
             raise SourceError("Response too large")
-        return SimpleNamespace(json=lambda: {"resultsPerPage": 250, "totalResults": 500, "vulnerabilities": []})
+        records = [
+            {"cve": {"id": f"CVE-2026-{10000 + index}", "vulnStatus": "Rejected"}}
+            for index in range(params["startIndex"], params["startIndex"] + 250)
+        ]
+        return SimpleNamespace(
+            content=b"{}",
+            json=lambda: {
+                "startIndex": params["startIndex"],
+                "resultsPerPage": 250,
+                "totalResults": 500,
+                "vulnerabilities": records,
+            },
+        )
 
     collector = NvdCollector()
     collector.http = SimpleNamespace(get=get)

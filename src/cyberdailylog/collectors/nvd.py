@@ -85,51 +85,85 @@ class NvdCollector(BaseCollector):
 
     def collect(self, since, until):
         started = datetime.now(timezone.utc)
+        self.metrics = {"requests": 0, "pages": 0, "page_size_reductions": 0, "response_bytes": 0, "wait_seconds": 0.0}
         try:
             if self.offline:
-                data = self.fixture_json("nvd_page1.json")
-                pages = [data, self.fixture_json("nvd_page2.json")]
+                pages = (self.fixture_json(name) for name in ("nvd_page1.json", "nvd_page2.json"))
             else:
-                headers = {"apiKey": self.token} if self.token else {}
-                params = {
-                    "lastModStartDate": since.strftime("%Y-%m-%dT%H:%M:%S.000"),
-                    "lastModEndDate": until.strftime("%Y-%m-%dT%H:%M:%S.000"),
-                    # Modified CVEs can contain large CPE trees. Stay within
-                    # the HTTP client's byte bound without discarding a page.
-                    "resultsPerPage": 500,
-                    "startIndex": 0,
-                }
-                pages = []
-                requested = False
-                while True:
-                    if requested:
-                        time.sleep(0.6 if self.token else 6.0)
-                    requested = True
-                    try:
-                        data = self.http.get(self.endpoint, headers=headers, params=params, expect_json=True).json()
-                    except SourceError as error:
-                        if str(error) != "Response too large" or params["resultsPerPage"] == 1:
-                            raise
-                        params["resultsPerPage"] = max(1, params["resultsPerPage"] // 2)
-                        continue
-                    pages.append(data)
-                    if params["startIndex"] + data.get("resultsPerPage", 0) >= data.get("totalResults", 0):
-                        break
-                    if data.get("resultsPerPage", 0) <= 0:
-                        raise ValueError("NVD pagination made no progress")
-                    params["startIndex"] += data.get("resultsPerPage", 0)
+                pages = self._pages(since, until)
             items = []
             received = 0
             rejected = 0
+            seen = set()
             for data in pages:
-                for obj in data.get("vulnerabilities", []):
+                self.metrics["pages"] += 1
+                for obj in data["vulnerabilities"]:
                     received += 1
+                    cid = obj["cve"]["id"]
+                    if cid in seen:
+                        raise SourceError("NVD pagination returned a duplicate CVE; refusing incomplete coverage")
+                    seen.add(cid)
                     if obj["cve"].get("vulnStatus") == "Rejected":
                         rejected += 1
                         continue
                     items.append(self._item(obj))
+                # Do not retain unused CPE trees from every raw page in memory.
             return items, self.timed_health(
                 "fixture_only" if self.offline else "healthy", started, received, len(items), rejected
             )
         except Exception as e:
             return [], self.timed_health("failed", started, err=e)
+
+    def _pages(self, since, until):
+        headers = {"apiKey": self.token} if self.token else {}
+        interval = 0.6 if self.token else 6.0
+        params = {
+            "lastModStartDate": since.strftime("%Y-%m-%dT%H:%M:%S.000"),
+            "lastModEndDate": until.strftime("%Y-%m-%dT%H:%M:%S.000"),
+            # Modified CVEs can contain large CPE trees. Stay within
+            # the HTTP client's byte bound without discarding a page.
+            "resultsPerPage": 500,
+            "startIndex": 0,
+        }
+        total = None
+        while True:
+            if self.metrics["requests"]:
+                time.sleep(interval)
+                self.metrics["wait_seconds"] += interval
+            self.metrics["requests"] += 1
+            try:
+                response = self.http.get(
+                    self.endpoint, headers=headers, params=params, expect_json=True, retry_interval=interval
+                )
+                data = response.json()
+                self.metrics["response_bytes"] += len(response.content)
+            except SourceError as error:
+                if str(error) != "Response too large" or params["resultsPerPage"] == 1:
+                    raise
+                params["resultsPerPage"] = max(1, params["resultsPerPage"] // 2)
+                self.metrics["page_size_reductions"] += 1
+                continue
+            current_total = data.get("totalResults")
+            count = data.get("resultsPerPage")
+            records = data.get("vulnerabilities")
+            if (
+                not isinstance(current_total, int)
+                or isinstance(current_total, bool)
+                or current_total < 0
+                or not isinstance(count, int)
+                or isinstance(count, bool)
+                or not 0 <= count <= params["resultsPerPage"]
+                or not isinstance(records, list)
+                or len(records) != count
+                or data.get("startIndex") != params["startIndex"]
+            ):
+                raise SourceError("Invalid NVD pagination metadata")
+            if total is not None and total != current_total:
+                raise SourceError("NVD result set changed during pagination; retry the complete window")
+            total = current_total
+            if params["startIndex"] + count > total or (count == 0 and params["startIndex"] < total):
+                raise SourceError("NVD pagination made no progress")
+            yield data
+            params["startIndex"] += count
+            if params["startIndex"] == total:
+                return

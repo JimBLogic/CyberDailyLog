@@ -5,9 +5,13 @@ from __future__ import annotations
 from copy import deepcopy
 from dataclasses import fields
 from datetime import datetime, timedelta
+import gzip
 import hashlib
+import io
 import json
+import os
 from pathlib import Path
+import tempfile
 from zoneinfo import ZoneInfo
 
 from .correlation import merge_items
@@ -51,6 +55,52 @@ EXCLUDED = {
     "priority_after",
     "priority_level_before",
 }
+
+# Leave headroom below both GitHub's warning and rejection thresholds. Never
+# prune evidence to fit a budget: fail while the previous ledger is recoverable.
+MAX_STATE_BYTES = 48 * 1024 * 1024
+MAX_DECODED_STATE_BYTES = 512 * 1024 * 1024
+
+
+def read_state(path):
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rb") as source:
+        payload = source.read(MAX_DECODED_STATE_BYTES + 1)
+    if len(payload) > MAX_DECODED_STATE_BYTES:
+        raise ValueError("CTI state exceeds the decoded size budget; migrate storage without discarding history")
+    return json.loads(payload)
+
+
+def write_state(path, data):
+    """Atomically persist the complete ledger, with reproducible gzip headers."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp", delete=False) as raw:
+        temporary = Path(raw.name)
+    try:
+        with temporary.open("wb") as raw:
+            if path.suffix == ".gz":
+                with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0, compresslevel=6) as compressed:
+                    with io.TextIOWrapper(compressed, encoding="utf-8") as text:
+                        remaining = MAX_DECODED_STATE_BYTES - 1
+                        for chunk in json.JSONEncoder(sort_keys=True, separators=(",", ":")).iterencode(data):
+                            # ensure_ascii is true, so character and UTF-8 byte counts agree.
+                            remaining -= len(chunk)
+                            if remaining < 0:
+                                raise ValueError("CTI state exceeds the decoded size budget; migrate storage")
+                            text.write(chunk)
+                        text.write("\n")
+            else:
+                payload = (json.dumps(data, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
+                if len(payload) > MAX_DECODED_STATE_BYTES:
+                    raise ValueError("CTI state exceeds the decoded size budget; migrate storage")
+                raw.write(payload)
+            raw.flush()
+            os.fsync(raw.fileno())
+        if temporary.stat().st_size > MAX_STATE_BYTES:
+            raise ValueError("CTI state exceeds the 48 MiB storage budget; migrate storage without discarding history")
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def iso(value):
@@ -114,10 +164,15 @@ def material_changes(previous, current):
 
 class StateLedger:
     def __init__(self, path: Path):
-        self.path = path
+        compressed = path.with_suffix(path.suffix + ".gz")
+        self.path = compressed if path.suffix != ".gz" and compressed.exists() else path
+        source = self.path
+        if source.suffix == ".gz" and not source.exists():
+            source = source.with_suffix("")
+        self.loaded = source.exists()
         self.data = (
-            json.loads(path.read_text())
-            if path.exists()
+            read_state(source)
+            if self.loaded
             else {"schema_version": 2, "vulnerabilities": {}, "catalog_baselined": False}
         )
         if self.data.get("schema_version") != 2 or not isinstance(self.data.get("vulnerabilities"), dict):
@@ -125,7 +180,7 @@ class StateLedger:
         self.records = self.data["vulnerabilities"]
 
     def seed_archives(self, root: Path):
-        if self.records or self.path.exists():
+        if self.records or self.loaded:
             return
         for path in [*sorted((root / "archive").glob("**/*.json")), root / "latest.json"]:
             if path.name.endswith("-source-health.json") or not path.exists():
@@ -274,11 +329,12 @@ class StateLedger:
         )
 
     def save(self):
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = self.path.with_suffix(".tmp")
-        # Compact JSON avoids repeating empty optional fields across the retained CVE catalog.
-        temporary.write_text(json.dumps(self.data, sort_keys=True, separators=(",", ":")) + "\n")
-        temporary.replace(self.path)
+        write_state(self.path, self.data)
+        # Only remove the legacy working copy after the complete replacement is
+        # durable. Its previous committed version remains available in Git.
+        if self.path.suffix == ".gz":
+            self.path.with_suffix("").unlink(missing_ok=True)
+        self.loaded = True
 
 
 def coverage_start(ledger, until, hours):

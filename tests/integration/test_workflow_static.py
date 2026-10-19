@@ -1,5 +1,8 @@
 from pathlib import Path
+import json
+import re
 
+import pytest
 import yaml
 
 
@@ -72,6 +75,10 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert upload["with"]["name"] == "reports-${{ github.run_id }}"
     assert upload["with"]["path"] == "publication-output/"
     assert "cti-state.json" in steps["Stage bounded publication artifact"]["run"]
+    assert "cti-state.json.gz" in freshness_script
+    assert (
+        steps["Check artifact file sizes"]["run"] == "python scripts/validate_publication.py --root publication-output"
+    )
     assert upload["with"]["if-no-files-found"] == "error"
     assert upload["with"]["retention-days"] == 7
     assert "cat reports/source-health.json" in steps["Show source health"]["run"]
@@ -79,22 +86,84 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     publish_steps = {step.get("name"): step for step in publish["steps"]}
     download = publish_steps["Download generated outputs"]
     assert download["with"]["name"] == upload["with"]["name"]
-    assert download["with"]["path"] == "."
+    assert download["with"]["path"] == "incoming-publication"
+    integrity = publish_steps["Verify bundle and historical integrity against current main"]["run"]
+    assert "--baseline-ref HEAD" in integrity
+    assert "verify_publication.py" in integrity
     publish_script = publish_steps["Commit and push generated outputs"]["run"]
     assert "git add README.md reports" in publish_script
     assert "git diff --cached --quiet" in publish_script
     assert "exit 0" in publish_script
     assert "git push" in publish_script
     assert "git add ." not in publish_script
+    assert publish_script.index("publication-check.json") < publish_script.index(
+        "cp -a incoming-publication/reports/. reports/"
+    )
+    assert publish_script.index("rm -f reports/cti-state.json") < publish_script.index("git add README.md reports")
+    assert publish_script.index("validate_publication.py --staged") < publish_script.index("git commit")
+
+
+def approved_action_pins():
+    registry = json.loads(Path("ops/supply-chain/actions.json").read_text())
+    assert registry["schema_version"] == 1
+    approved = set()
+    for action, versions in registry["actions"].items():
+        assert action.startswith("actions/") and versions
+        for version in versions:
+            assert re.fullmatch(r"[0-9a-f]{40}", version["sha"])
+            assert version["runtime"] == "node24"
+            assert re.fullmatch(r"v\d+\.\d+\.\d+", version["version"])
+            assert version.get("review") or (
+                version.get("release_commit_verified") is True
+                and version.get("action_yml_blob")
+                and version.get("tag_url")
+                and version.get("compare_url")
+            )
+            approved.add(f"{action}@{version['sha']}")
+    return approved
+
+
+def assert_reviewed_action_pin(uses):
+    assert isinstance(uses, str) and re.fullmatch(r"actions/[a-z-]+@[0-9a-f]{40}", uses)
+    assert uses in approved_action_pins(), f"Unreviewed Action commit: {uses}"
 
 
 def test_workflow_runtime_actions_use_current_node24_pins():
-    text = "\n".join(path.read_text(encoding="utf-8") for path in Path(".github/workflows").glob("*.yml"))
-    assert "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" in text
-    assert "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97" in text
-    assert "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a" in text
-    assert "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c" in text
-    assert "ubuntu-latest" not in text
+    seen = set()
+    for path in Path(".github/workflows").glob("*.yml"):
+        workflow = load_workflow(str(path))
+        assert "ubuntu-latest" not in path.read_text()
+        for job in workflow["jobs"].values():
+            if "uses" in job:
+                assert_reviewed_action_pin(job["uses"])
+            for step in job.get("steps", []):
+                if "uses" in step:
+                    assert_reviewed_action_pin(step["uses"])
+                    seen.add(step["uses"].split("@")[0])
+    assert seen == set(json.loads(Path("ops/supply-chain/actions.json").read_text())["actions"])
+
+
+@pytest.mark.parametrize(
+    "uses",
+    [
+        "actions/upload-artifact@v7",
+        "actions/download-artifact@9000827",
+        "actions/upload-artifact@" + "a" * 40,
+        "attacker/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "${{ inputs.action }}",
+    ],
+)
+def test_mutable_unknown_short_or_foreign_actions_are_rejected(uses):
+    with pytest.raises(AssertionError):
+        assert_reviewed_action_pin(uses)
+
+
+def test_both_explicitly_reviewed_artifact_patch_versions_are_accepted():
+    for action in ["actions/upload-artifact", "actions/download-artifact"]:
+        versions = json.loads(Path("ops/supply-chain/actions.json").read_text())["actions"][action]
+        assert len(versions) == 2
+        for entry in versions:
+            assert_reviewed_action_pin(f"{action}@{entry['sha']}")
 
 
 def test_ci_installs_runtime_and_dev_dependencies_and_strict_audit():
