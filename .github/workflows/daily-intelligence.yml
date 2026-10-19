@@ -51,6 +51,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           ref: main
+          persist-credentials: false
       - name: Check daily publication freshness
         id: freshness
         env:
@@ -97,6 +98,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           ref: main
+          persist-credentials: false
       - name: Setup Python # actions/setup-python@v7.0.0
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
