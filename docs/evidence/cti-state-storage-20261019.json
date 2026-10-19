@@ -1,0 +1,68 @@
+{
+  "artifact_id": 12133229035,
+  "artifact_sha256": "1de7785ae79ab9fccc8535e12fa175c8b6c7e789e0e352a6fbc461ca86b50378",
+  "original_bytes": 107179990,
+  "gzip_bytes": 9847413,
+  "original_sha256": "432712aa7fc11ed19f98ee4d87dd8ebd124261b26f5b452e401c7ed39a74a782",
+  "decoded_sha256": "432712aa7fc11ed19f98ee4d87dd8ebd124261b26f5b452e401c7ed39a74a782",
+  "gzip_sha256": "093db8f3a22e3b03aa5e23463829601b6f94408d1ff0b990322cb7bd009a6c4b",
+  "tracked_cves": 55665,
+  "observations": 62933,
+  "transitions": 4414,
+  "identical_decoded_bytes": true,
+  "repository": "JimBLogic/CyberDailyLog",
+  "base_commit": "986250fd1d6b4be6948f86a71bfa1e819664cfd0",
+  "run_id": 39120060516,
+  "job_id": 117654220891,
+  "validation": {
+    "pytest_passed": 140,
+    "coverage_percent": 92.68,
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "mypy": "passed",
+    "pip_audit": "no known vulnerabilities in requirements.txt and requirements-dev.txt",
+    "production_publication": "pending merge and a new main workflow run",
+    "browser_qa": "not run; no user-facing code changed",
+    "package_build": "sdist and wheel passed",
+    "actual_artifact_staging": "passed; legacy baseline unchanged",
+    "publication_rehearsal": "passed; staged legacy deletion and compressed replacement; no network push",
+    "initial_ci": {
+      "run_id": 39207772874,
+      "python": "passed",
+      "dashboard_build_tests_types": "passed",
+      "production_audit": "blocked on next/sharp/source-map-js; remediating before merge"
+    },
+    "dashboard_local": {
+      "tests_passed": 21,
+      "lint": "passed",
+      "typecheck": "passed",
+      "build": "passed; ESM Worker artifact validated",
+      "production_audit": "0 known vulnerabilities",
+      "full_development_audit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 8,
+        "critical": 0,
+        "total": 8
+      }
+    }
+  },
+  "dependency_corrections": {
+    "next": "16.4.2",
+    "eslint-config-next": "16.4.2",
+    "sharp_override": "0.35.5",
+    "source-map-js_override": "1.2.2",
+    "@cloudflare/vite-plugin": "1.64.0",
+    "wrangler": "4.151.0"
+  },
+  "remaining_development_advisory": {
+    "package": "braces",
+    "version": "3.0.3",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "patched_version": null,
+    "scope": "development dependency tree; absent from npm production dependency tree and no package-name traces found in the generated Worker",
+    "handling": "build/lint patterns are repository-controlled; do not accept untrusted glob input; monitor upstream patch; do not downgrade Vinext/Next to the unsafe audit-force suggestions"
+  },
+  "dependency_lock_sha256": "a8d82c5a782ff885b12af94ec20f1256c49849d6b98afa388cae297f9a5b51ce"
+}

@@ -31,9 +31,13 @@ Download the workflow artifact named `reports-<RUN_ID>` from the completed Actio
 - `latest.json`;
 - `source-health.json`;
 - the dated archive files under `archive/<YEAR>/<MONTH>/`.
-- `reports/cti-state.json`, including persisted before/after transitions.
+- `reports/cti-state.json.gz`, including all persisted before/after transitions (`gzip -cd reports/cti-state.json.gz` for inspection).
 
 The publication artifact contains only the current report, feeds, health, ledger and current dated archive; it expires after seven days. Timing artifacts expire after 30 days. The repository retains the durable ledger and timing history. Job timeouts bound runner use; already-published daily recovery checks skip the collection jobs.
+
+The first successful collection after the storage fix reads the previous `cti-state.json`, saves a complete gzip replacement and removes the legacy working copy. Publication stages both the new file and the deletion. A dry run compresses only its artifact copy and cannot advance the baseline. Keep the prior Git commit for recovery. Do not rerun the old failed publication job expecting it to use new code: it retains the old run's workflow/artifact. Merging this pipeline change into `main` automatically requests a new normal collection through the existing push trigger; merging is an activation step, not save-only work. Inspect that new run and its artifact before claiming recovery. Additional manual previews must use a new `main` dispatch with `dry_run=true`; if publication still needs recovery, start a new `dry_run=false` dispatch.
+
+Every publication artifact and staged Git blob must fit the 50 MiB budget. The ledger itself stops before 48 MiB compressed or 512 MiB decoded. A budget error preserves the previous state and requires a complete storage migration; never delete CVEs, transitions or source evidence to make the check pass. See the [18 October incident and storage contract](cti-reliability.md#oversized-state-incident-18-october-2026). Restoring code to an older release also requires recovering that commit's JSON baseline, or explicitly decoding the current gzip state before collection; older releases cannot read gzip.
 
 Before publication, check:
 

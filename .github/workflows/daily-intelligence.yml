@@ -2,7 +2,7 @@ name: Daily Blue Team Intelligence
 "on":
   push:
     branches: [main]
-    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "ops/scheduler/request.json"]
+    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "scripts/validate_publication.py", "ops/scheduler/request.json"]
   schedule:
     - cron: "0 12 * * *"
       timezone: "Europe/Madrid"
@@ -68,7 +68,7 @@ jobs:
                 2>/dev/null || true
             )"
 
-            if [ "$published_date" = "$today" ] && [ -f reports/cti-state.json ]; then
+            if [ "$published_date" = "$today" ] && { [ -f reports/cti-state.json.gz ] || [ -f reports/cti-state.json ]; }; then
               should_run="false"
               reason="a report is already published for $today"
             else
@@ -186,19 +186,29 @@ jobs:
           python - <<'PY'
           import json, shutil
           from pathlib import Path
+          from cyberdailylog.state import StateLedger, write_state
           root = Path("publication-output")
           (root / "reports").mkdir(parents=True, exist_ok=True)
           shutil.copy2("README.md", root / "README.md")
-          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json", "cti-state.json"):
+          for name in ("latest.md", "latest.json", "source-health.json", "portfolio-feed.json", "dashboard-feed.json"):
               source = Path("reports") / name
               if source.exists():
                   shutil.copy2(source, root / source)
+          # Dry runs can still start from a legacy JSON baseline. Compress only
+          # the artifact copy, without advancing or rewriting that baseline.
+          state_path = Path("reports/cti-state.json.gz")
+          if state_path.exists():
+              shutil.copy2(state_path, root / state_path)
+          elif state_path.with_suffix("").exists():
+              write_state(root / state_path, StateLedger(state_path).data)
           date = json.loads(Path("reports/latest.json").read_text())["coverage_end"][:10]
           folder = Path("reports/archive") / date[:4] / date[5:7]
           (root / folder).mkdir(parents=True, exist_ok=True)
           for source in folder.glob(date + "*"):
               shutil.copy2(source, root / source)
           PY
+      - name: Check artifact file sizes
+        run: python scripts/validate_publication.py --root publication-output
       - name: Upload generated outputs # actions/upload-artifact@v7.0.1
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -235,9 +245,17 @@ jobs:
           # The collection artifact may predate an intervening documentation edit.
           git restore --source=HEAD -- README.md
           python src/cyberdailylog/readme_snapshot.py
+          # Artifact downloads cannot represent deletion of the old baseline.
+          # Collection has already validated its complete gzip replacement.
+          if [ ! -f reports/cti-state.json.gz ]; then
+            echo "Missing compressed CTI baseline; refusing to publish" >&2
+            exit 1
+          fi
+          rm -f reports/cti-state.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md reports
+          python scripts/validate_publication.py --staged
 
           if git diff --cached --quiet; then
             echo "No generated changes"

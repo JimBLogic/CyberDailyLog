@@ -72,6 +72,10 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert upload["with"]["name"] == "reports-${{ github.run_id }}"
     assert upload["with"]["path"] == "publication-output/"
     assert "cti-state.json" in steps["Stage bounded publication artifact"]["run"]
+    assert "cti-state.json.gz" in freshness_script
+    assert (
+        steps["Check artifact file sizes"]["run"] == "python scripts/validate_publication.py --root publication-output"
+    )
     assert upload["with"]["if-no-files-found"] == "error"
     assert upload["with"]["retention-days"] == 7
     assert "cat reports/source-health.json" in steps["Show source health"]["run"]
@@ -86,6 +90,8 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert "exit 0" in publish_script
     assert "git push" in publish_script
     assert "git add ." not in publish_script
+    assert publish_script.index("rm -f reports/cti-state.json") < publish_script.index("git add README.md reports")
+    assert publish_script.index("validate_publication.py --staged") < publish_script.index("git commit")
 
 
 def test_workflow_runtime_actions_use_current_node24_pins():
