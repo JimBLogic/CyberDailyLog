@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-10-19T11:06:01.765079+00:00",
+  "phases_ms": {
+    "ledger_load": 1007.814,
+    "prepare": 0.434,
+    "collection": 273047.662,
+    "epss": 57089.612,
+    "matching": 4003.319,
+    "render": 113.412,
+    "ledger_write": 6720.726
+  },
+  "baseline_records": 58714,
+  "sources": {
+    "cisa_kev": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "nvd": {
+      "status": "healthy",
+      "http_attempts": 12,
+      "http_retries": 0,
+      "requests": 12,
+      "pages": 12,
+      "page_size_reductions": 0,
+      "response_bytes": 24309340,
+      "wait_seconds": 66.0
+    },
+    "github_advisories": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "rss_krebs": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "rss_sans_isc": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "github_releases": {
+      "status": "healthy",
+      "http_attempts": 3,
+      "http_retries": 0
+    },
+    "hacker_news": {
+      "status": "healthy",
+      "http_attempts": 23,
+      "http_retries": 0
+    },
+    "epss": {
+      "status": "healthy",
+      "http_attempts": 71,
+      "http_retries": 0
+    }
+  },
+  "tracked_records": 58786,
+  "report_generated": "2026-10-19T11:11:36+00:00",
+  "ledger_bytes": 10380900,
+  "dry_run": false,
+  "outcome": "complete",
+  "finished_at": "2026-10-19T11:11:43.833965+00:00",
+  "total_ms": 342068.905
+}

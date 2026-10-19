@@ -9,20 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-19T10:28:41+00:00  
-**Coverage:** 2026-10-18T10:21:56+00:00 → 2026-10-19T10:21:56+00:00  
+**Updated:** 2026-10-19T11:11:36+00:00  
+**Coverage:** 2026-10-18T11:06:01+00:00 → 2026-10-19T11:06:01+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 6 source-backed developments
-- **Above threshold:** 2
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 358 source-backed developments
+- **Above threshold:** 300
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-102764](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102764 exploited in CISA KEV: BeyondTrust Remote Support — CVSS 9.3; detection opportunity
 - **[CVE-2025-61624](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61624 exploited in CISA KEV: Fortinet Multiple Products — CVSS 6.0; priority technology: vpn_remote_access
+- **[CVE-2026-90038](https://nvd.nist.gov/vuln/detail/CVE-2026-90038) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during export s — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90012](https://nvd.nist.gov/vuln/detail/CVE-2026-90012) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: spi: Fix DMA mapping ownership on partial map failu — CVSS 9.8; priority technology: linux
+- **[CVE-2026-90011](https://nvd.nist.gov/vuln/detail/CVE-2026-90011) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: scsi: target: iscsi: Reserve a terminator byte for — CVSS 9.1; priority technology: linux
 
 ### Human context
 
@@ -32,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 396 points · 64 comments
+**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 398 points · 64 comments
 [Open discussion](https://news.ycombinator.com/item?id=50141076)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
