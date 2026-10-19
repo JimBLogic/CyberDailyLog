@@ -1,17 +1,17 @@
 {
-  "above_threshold": 3264,
+  "above_threshold": 6,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 56,
+    "comments": 58,
     "discussion_url": "https://news.ycombinator.com/item?id=50141076",
     "published_at": "2026-10-18T13:48:48+00:00",
-    "score": 366,
+    "score": 376,
     "source_name": "Hacker News",
     "source_url": "https://github.com/VikOlliver/RepRapMicron/wiki",
     "title": "RepRapMicron"
   },
-  "coverage_end": "2026-10-19T06:15:31+00:00",
-  "coverage_start": "2026-10-16T08:28:03+00:00",
+  "coverage_end": "2026-10-19T07:11:24+00:00",
+  "coverage_start": "2026-10-18T07:11:24+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-19T06:22:31+00:00",
+  "generated_at": "2026-10-19T07:14:54+00:00",
   "human_context": {
     "author": null,
     "excerpt": "Here is the YARA rule I used to detect \" Orphaned VBA Projects Inside DWG Files \".",
@@ -30,12 +30,12 @@
     "source_url": "https://isc.sans.edu/diary/rss/33434",
     "title": "Orphaned VBA Projects Inside DWG Files: YARA Rule, (Sun, Oct 18th)"
   },
-  "immediate_attention": "12 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 12,
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 4837,
+  "qualified_developments": 21,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,130 +60,43 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-10035"
+        "CVE-2026-102764"
       ],
-      "cvss_score": 10.0,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99957,
-      "epss_score": 0.99799,
+      "cvss_score": 9.3,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.6718,
+      "epss_score": 0.0118,
       "ghsa_ids": [],
-      "id": "CVE-2025-10035",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "GoAnywhere MFT"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 175,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-10035 exploited in CISA KEV: Fortra GoAnywhere MFT",
-      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-60710"
-      ],
-      "cvss_score": 7.8,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.91572,
-      "epss_score": 0.04614,
-      "ghsa_ids": [],
-      "id": "CVE-2025-60710",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "Windows"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 138,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-60710 exploited in CISA KEV: Microsoft Windows",
-      "why_it_matters": "CVSS 7.8; priority technology: windows"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-64446"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.9982,
-      "epss_score": 0.91965,
-      "ghsa_ids": [],
-      "id": "CVE-2025-64446",
+      "id": "CVE-2026-102764",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "FortiWeb"
+        "Remote Support"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 158,
+      "selection_score": 115,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-64446 exploited in CISA KEV: Fortinet FortiWeb",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "title": "CVE-2026-102764 exploited in CISA KEV: BeyondTrust Remote Support",
+      "why_it_matters": "CVSS 9.3; detection opportunity"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2025-20333"
+        "CVE-2025-61624"
       ],
-      "cvss_score": 9.9,
-      "defensive_action": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed\u2026",
-      "epss_percentile": 0.99405,
-      "epss_score": 0.71207,
+      "cvss_score": 6.0,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.64559,
+      "epss_score": 0.01081,
       "ghsa_ids": [],
-      "id": "CVE-2025-20333",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 158,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-20333 exploited in CISA KEV: Cisco Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense",
-      "why_it_matters": "CVSS 9.9; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-53690"
-      ],
-      "cvss_score": 9.0,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99136,
-      "epss_score": 0.60601,
-      "ghsa_ids": [],
-      "id": "CVE-2025-53690",
+      "id": "CVE-2025-61624",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
@@ -193,14 +106,91 @@
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "critical CVSS +20"
+        "priority technology: vpn_remote_access +8"
       ],
-      "selection_score": 140,
-      "severity": "CRITICAL",
+      "selection_score": 103,
+      "severity": "MEDIUM",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-53690 exploited in CISA KEV: Sitecore Multiple Products",
-      "why_it_matters": "CVSS 9.0; EPSS >= 30%"
+      "title": "CVE-2025-61624 exploited in CISA KEV: Fortinet Multiple Products",
+      "why_it_matters": "CVSS 6.0; priority technology: vpn_remote_access"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-16487"
+      ],
+      "cvss_score": 8.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-16487",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.3,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16487",
+      "title": "A flaw was found in bootc when operating with the default containers signature policy. Automatic or manual upgrades of a",
+      "why_it_matters": "CVSS 8.1; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-108120"
+      ],
+      "cvss_score": 7.7,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-108120",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.0,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108120",
+      "title": "Brian Mariani from DigitalCanion SA has discovered a path traversal vulnerability in the View Logs functionality of koo",
+      "why_it_matters": "CVSS 7.7; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-108121"
+      ],
+      "cvss_score": 6.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-108121",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 7.2,
+      "products": [],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": "MEDIUM",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108121",
+      "title": "Brian Mariani from DigitalCanion SA has discovered a vulnerability in the domain creation functionality of koozali's S",
+      "why_it_matters": "CVSS 6.9; detection opportunity"
     }
   ]
 }

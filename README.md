@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-19T06:22:31+00:00  
-**Coverage:** 2026-10-16T08:28:03+00:00 → 2026-10-19T06:15:31+00:00  
+**Updated:** 2026-10-19T07:14:54+00:00  
+**Coverage:** 2026-10-18T07:11:24+00:00 → 2026-10-19T07:11:24+00:00  
 **Pipeline:** **Operational**
 
-12 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 4837 source-backed developments
-- **Above threshold:** 3264
+- **Assessed:** 21 source-backed developments
+- **Above threshold:** 6
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-10035](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-10035 exploited in CISA KEV: Fortra GoAnywhere MFT — CVSS 10.0; EPSS &gt;= 70%
-- **[CVE-2025-60710](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2025-60710 exploited in CISA KEV: Microsoft Windows — CVSS 7.8; priority technology: windows
-- **[CVE-2025-64446](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-64446 exploited in CISA KEV: Fortinet FortiWeb — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2025-20333](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-20333 exploited in CISA KEV: Cisco Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense — CVSS 9.9; EPSS &gt;= 70%
-- **[CVE-2025-53690](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-53690 exploited in CISA KEV: Sitecore Multiple Products — CVSS 9.0; EPSS &gt;= 30%
+- **[CVE-2026-102764](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102764 exploited in CISA KEV: BeyondTrust Remote Support — CVSS 9.3; detection opportunity
+- **[CVE-2025-61624](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61624 exploited in CISA KEV: Fortinet Multiple Products — CVSS 6.0; priority technology: vpn_remote_access
+- **[CVE-2026-16487](https://nvd.nist.gov/vuln/detail/CVE-2026-16487) · 8.3/10** — A flaw was found in bootc when operating with the default containers signature policy. Automatic or manual upgrades of a — CVSS 8.1; detection opportunity
+- **[CVE-2026-108120](https://nvd.nist.gov/vuln/detail/CVE-2026-108120) · 8.0/10** — Brian Mariani from DigitalCanion SA has discovered a path traversal vulnerability in the View Logs functionality of koo — CVSS 7.7; detection opportunity
+- **[CVE-2026-108121](https://nvd.nist.gov/vuln/detail/CVE-2026-108121) · 7.2/10** — Brian Mariani from DigitalCanion SA has discovered a vulnerability in the domain creation functionality of koozali&#x27;s S — CVSS 6.9; detection opportunity
 
 ### Human context
 
@@ -35,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 366 points · 56 comments
+**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 376 points · 58 comments
 [Open discussion](https://news.ycombinator.com/item?id=50141076)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
