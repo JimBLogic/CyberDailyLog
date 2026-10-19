@@ -140,3 +140,48 @@ jobs:
         run: npm run typecheck
       - name: Dashboard production dependency audit
         run: npm audit --omit=dev --audit-level=high
+
+  artifact-transport:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Generate secret-free transport fixture
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('artifact-source')
+          root.mkdir()
+          (root / 'sample.json').write_text('{"purpose":"artifact integrity regression"}\n')
+          (root / 'sample.bin').write_bytes(bytes(range(256)) * 16)
+          manifest = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.iterdir()}
+          (root / 'SHA256SUMS.json').write_text(json.dumps(manifest, sort_keys=True))
+          PY
+      - name: Upload transport fixture # actions/upload-artifact@v7.0.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: action-pin-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifact-source/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Download into a separate directory # actions/download-artifact@v8.0.2
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: action-pin-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifact-received
+          digest-mismatch: error
+      - name: Verify complete transferred bytes
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          source, received = Path('artifact-source'), Path('artifact-received')
+          assert {p.name for p in received.iterdir()} == {'sample.json', 'sample.bin', 'SHA256SUMS.json'}
+          assert (source / 'SHA256SUMS.json').read_bytes() == (received / 'SHA256SUMS.json').read_bytes()
+          for name, expected in json.loads((received / 'SHA256SUMS.json').read_text()).items():
+              assert hashlib.sha256((received / name).read_bytes()).hexdigest() == expected
+              assert (received / name).read_bytes() == (source / name).read_bytes()
+          print('Artifact upload/download preserved the complete byte fixture.')
+          PY
