@@ -8,6 +8,8 @@ API keys from a compromised upstream redirect to an attacker-controlled host.
 from urllib.parse import urlsplit, urlencode
 from urllib.request import Request, HTTPRedirectHandler, build_opener
 from urllib.error import HTTPError, URLError
+from email.utils import parsedate_to_datetime
+from http.client import HTTPException
 import json
 import time
 import random
@@ -110,7 +112,10 @@ class SafeHttpClient:
                     try:
                         delay = float(error.headers.get("Retry-After") or 0)
                     except (TypeError, ValueError, OverflowError):
-                        delay = 0
+                        try:
+                            delay = parsedate_to_datetime(error.headers.get("Retry-After")).timestamp() - time.time()
+                        except (TypeError, ValueError, OverflowError):
+                            delay = 0
                     if not 0 < delay < float("inf"):
                         delay = 2**attempt + random.random()
                     if delay > 60:
@@ -118,7 +123,7 @@ class SafeHttpClient:
                     time.sleep(max(retry_interval, delay))
                     continue
                 raise SourceError(f"HTTP {error.code} from {host}") from None
-            except (URLError, TimeoutError, OSError) as error:
+            except (URLError, TimeoutError, OSError, HTTPException) as error:
                 reason = error.reason if isinstance(error, URLError) else error
                 # Retrying certificate failures cannot repair trust. Never relax TLS.
                 if attempt < 2 and not isinstance(reason, ssl.SSLError):

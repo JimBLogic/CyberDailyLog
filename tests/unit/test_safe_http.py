@@ -291,3 +291,44 @@ def test_retry_after_is_honoured_or_fails_without_early_retry(monkeypatch, retry
         client.get("https://api.github.com/advisories", retry_interval=6)
     assert delays == ([30, 30] if retry_after == "30" else [])
     assert len(calls) == (3 if retry_after == "30" else 1)
+
+
+def test_http_date_retry_after_uses_provider_time_without_early_request(monkeypatch):
+    from datetime import datetime, timezone
+
+    client = SafeHttpClient({"api.github.com"})
+    calls = []
+    delays = []
+    headers = Message()
+    headers["Retry-After"] = "Mon, 19 Oct 2026 12:00:30 GMT"
+    monkeypatch.setattr(
+        "cyberdailylog.http.time.time", lambda: datetime(2026, 10, 19, 12, tzinfo=timezone.utc).timestamp()
+    )
+
+    def busy(request, timeout):
+        calls.append(1)
+        if len(calls) == 1:
+            raise HTTPError(request.full_url, 429, "busy", headers, None)
+        return FakeResponse()
+
+    monkeypatch.setattr(client._opener, "open", busy)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", delays.append)
+    assert client.get("https://api.github.com/advisories").json() == {}
+    assert delays == [30]
+
+
+def test_interrupted_response_retries_without_returning_partial_body(monkeypatch):
+    from http.client import IncompleteRead
+
+    client = SafeHttpClient({"api.github.com"})
+    calls = []
+
+    def interrupted(request, timeout):
+        calls.append(1)
+        if len(calls) == 1:
+            raise IncompleteRead(b"partial", 10)
+        return FakeResponse()
+
+    monkeypatch.setattr(client._opener, "open", interrupted)
+    monkeypatch.setattr("cyberdailylog.http.time.sleep", lambda _: None)
+    assert client.get("https://api.github.com/advisories").json() == {} and len(calls) == 2

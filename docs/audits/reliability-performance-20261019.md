@@ -140,3 +140,12 @@ Development risk: braces GHSA-vfj7-8cjw-p6xm remains unpatched in the audited
 build/lint graph (eight inherited high package entries, one advisory). Production
 audit is zero. Keep the finding visible; do not force old Next/Vinext downgrades.
 https://github.com/advisories/GHSA-vfj7-8cjw-p6xm
+
+Exact audited routes: eslint-config-next 16.4.2 -> @next/eslint-plugin-next
+16.4.2 -> fast-glob 3.3.1 -> micromatch 4.0.8 -> braces 3.0.3; and the lockfile
+route vinext 0.0.50 -> vite-plugin-commonjs 0.10.4 -> vite-plugin-dynamic-import
+1.6.0 -> fast-glob/micromatch/braces. Registry checks also found vinext 1.2.1,
+still depending on vite-plugin-commonjs ^0.10.4, and eslint-config-next 16.4.2
+as latest. fast-glob 3.3.3 is available, but no published braces fix exists.
+An unrelated major Vinext migration would not resolve the root advisory and
+would require its own runtime/Sites validation; it is not forced into this P0 fix.
