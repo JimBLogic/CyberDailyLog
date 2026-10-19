@@ -128,9 +128,9 @@ def assert_reviewed_action_pin(uses):
     assert uses in approved_action_pins(), f"Unreviewed Action commit: {uses}"
 
 
-def test_workflow_runtime_actions_use_current_node24_pins():
+def assert_workflow_actions_reviewed(directory):
     seen = set()
-    for path in Path(".github/workflows").glob("*.yml"):
+    for path in sorted([*directory.glob("*.yml"), *directory.glob("*.yaml")]):
         workflow = load_workflow(str(path))
         assert "ubuntu-latest" not in path.read_text()
         for job in workflow["jobs"].values():
@@ -140,7 +140,22 @@ def test_workflow_runtime_actions_use_current_node24_pins():
                 if "uses" in step:
                     assert_reviewed_action_pin(step["uses"])
                     seen.add(step["uses"].split("@")[0])
+    return seen
+
+
+def test_workflow_runtime_actions_use_current_node24_pins():
+    seen = assert_workflow_actions_reviewed(Path(".github/workflows"))
     assert seen == set(json.loads(Path("ops/supply-chain/actions.json").read_text())["actions"])
+
+
+@pytest.mark.parametrize("suffix", [".yml", ".yaml"])
+def test_unknown_action_is_rejected_in_both_supported_workflow_extensions(tmp_path, suffix):
+    (tmp_path / f"unreviewed{suffix}").write_text(
+        "name: isolated-adversarial-fixture\njobs:\n  test:\n    runs-on: ubuntu-24.04\n    steps:\n"
+        "      - uses: actions/checkout@" + "a" * 40 + "\n"
+    )
+    with pytest.raises(AssertionError, match="Unreviewed Action commit"):
+        assert_workflow_actions_reviewed(tmp_path)
 
 
 @pytest.mark.parametrize(
