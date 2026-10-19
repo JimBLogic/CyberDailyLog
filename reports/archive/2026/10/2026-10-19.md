@@ -2,18 +2,18 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-19T07:14:54+00:00  
-**Coverage:** 2026-10-18T07:11:24+00:00 → 2026-10-19T07:11:24+00:00  
+**Updated:** 2026-10-19T10:28:41+00:00  
+**Coverage:** 2026-10-18T10:21:56+00:00 → 2026-10-19T10:21:56+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **21** source-backed developments assessed.
-- **6** met the editorial threshold of **5.0/10** or an exploitation override.
-- **8** unique items are displayed after curation.
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **6** source-backed developments assessed.
+- **2** met the editorial threshold of **5.0/10** or an exploitation override.
+- **4** unique items are displayed after curation.
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
@@ -24,10 +24,7 @@
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-16487 — CVE-2026-16487: A flaw was found in bootc when operating with the default containers signature policy.…](https://nvd.nist.gov/vuln/detail/CVE-2026-16487) | 8.3 | 8.1 | n/a | — | CVSS 8.1; detection opportunity |
-| [CVE-2026-108120 — CVE-2026-108120: Brian Mariani from DigitalCanion SA has discovered a path traversal vulnerability in the…](https://nvd.nist.gov/vuln/detail/CVE-2026-108120) | 8.0 | 7.7 | n/a | — | CVSS 7.7; detection opportunity |
-| [CVE-2026-108121 — CVE-2026-108121: Brian Mariani from DigitalCanion SA has discovered a vulnerability in the domain creation…](https://nvd.nist.gov/vuln/detail/CVE-2026-108121) | 7.2 | 6.9 | n/a | — | CVSS 6.9; detection opportunity |
-| [CVE-2026-112082 — CVE-2026-112082: A vulnerability was identified in sgl-project SGLang up to 0.5.19. This impacts the…](https://nvd.nist.gov/vuln/detail/CVE-2026-112082) | 7.0 | 7.7 | n/a | — | CVSS 7.7; detection opportunity |
+| No qualifying vulnerability items. | — | — | — | — | — |
 
 ## Human context
 
@@ -42,7 +39,7 @@ _Publisher-provided RSS excerpt; open the original article for full context._
 ## Community pulse
 
 - **[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)**
-  Hacker News · 376 points · 58 comments · [Open discussion](https://news.ycombinator.com/item?id=50141076)
+  Hacker News · 396 points · 64 comments · [Open discussion](https://news.ycombinator.com/item?id=50141076)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -57,27 +54,24 @@ No allowlisted defensive release qualified in this coverage window.
 
 - **CVE-2026-102764:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **CVE-2025-61624:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-16487:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-108120:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **CVE-2026-108121:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
-Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 <details>
 <summary>Collector details</summary>
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1748 | 741 ms |  |
-| nvd | yes | healthy | 3470 | 190254 ms |  |
-| github_advisories | yes | healthy | 5 | 458 ms |  |
-| rss_krebs | no | healthy | 0 | 165 ms |  |
-| rss_sans_isc | no | healthy | 1 | 294 ms |  |
-| github_releases | no | healthy | 0 | 2321 ms |  |
-| hacker_news | no | healthy | 3 | 1913 ms |  |
-| epss | no | healthy | 4368 | 9699 ms |  |
+| cisa_kev | yes | healthy | 1748 | 440 ms |  |
+| nvd | yes | failed | 0 | 393848 ms | Source transport failed for services.nvd.nist.gov |
+| github_advisories | yes | healthy | 5 | 465 ms |  |
+| rss_krebs | no | healthy | 0 | 95 ms |  |
+| rss_sans_isc | no | healthy | 1 | 384 ms |  |
+| github_releases | no | healthy | 0 | 2538 ms |  |
+| hacker_news | no | healthy | 3 | 2248 ms |  |
+| epss | no | healthy | 1626 | 3885 ms |  |
 
 </details>
 
