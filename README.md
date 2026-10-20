@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-19T11:11:36+00:00  
-**Coverage:** 2026-10-18T11:06:01+00:00 → 2026-10-19T11:06:01+00:00  
+**Updated:** 2026-10-20T10:46:04+00:00  
+**Coverage:** 2026-10-19T09:06:01+00:00 → 2026-10-20T10:42:24+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+1 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 358 source-backed developments
-- **Above threshold:** 300
+- **Assessed:** 2179 source-backed developments
+- **Above threshold:** 1422
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-102764](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-102764 exploited in CISA KEV: BeyondTrust Remote Support — CVSS 9.3; detection opportunity
-- **[CVE-2025-61624](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-61624 exploited in CISA KEV: Fortinet Multiple Products — CVSS 6.0; priority technology: vpn_remote_access
-- **[CVE-2026-90038](https://nvd.nist.gov/vuln/detail/CVE-2026-90038) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: NFSD: Prevent client use-after-free during export s — CVSS 9.8; priority technology: linux
-- **[CVE-2026-90012](https://nvd.nist.gov/vuln/detail/CVE-2026-90012) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: spi: Fix DMA mapping ownership on partial map failu — CVSS 9.8; priority technology: linux
-- **[CVE-2026-90011](https://nvd.nist.gov/vuln/detail/CVE-2026-90011) · 9.4/10** — In the Linux kernel, the following vulnerability has been resolved: scsi: target: iscsi: Reserve a terminator byte for — CVSS 9.1; priority technology: linux
+- **[CVE-2025-12480](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-12480 exploited in CISA KEV: Gladinet Triofox — CVSS 9.1; EPSS &gt;= 70%
+- **[CVE-2025-49844](https://nvd.nist.gov/vuln/detail/CVE-2025-49844) · 9.4/10** — Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user — CVSS 9.9; EPSS &gt;= 70%
+- **[CVE-2025-68664](https://nvd.nist.gov/vuln/detail/CVE-2025-68664) · 9.4/10** — LangChain is a framework for building agents and LLM-powered applications. Prior to versions 0.3.81 and 1.2.5, a seriali — CVSS 9.3; EPSS &gt;= 30%
+- **[CVE-2025-68615](https://nvd.nist.gov/vuln/detail/CVE-2025-68615) · 9.4/10** — net-snmp is a SNMP application library, tools and daemon. Prior to versions 5.9.5 and 5.10.pre2, a specially crafted pac — CVSS 9.8; EPSS &gt;= 30%
+- **[CVE-2025-62168](https://nvd.nist.gov/vuln/detail/CVE-2025-62168) · 9.4/10** — Squid is a caching proxy for the Web. In Squid versions prior to 7.2, a failure to redact HTTP authentication credential — CVSS 10.0; EPSS &gt;= 30%
 
 ### Human context
 
-**[Orphaned VBA Projects Inside DWG Files: YARA Rule, (Sun, Oct 18th)](https://isc.sans.edu/diary/rss/33434)**
+**[ISC Stormcast For Tuesday, October 20th, 2026 https://isc.sans.edu/podcastdetail/10142, (Tue, Oct 20th)](https://isc.sans.edu/diary/rss/33436)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Here is the YARA rule I used to detect &quot; Orphaned VBA Projects Inside DWG Files &quot;.
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[RepRapMicron](https://github.com/VikOlliver/RepRapMicron/wiki)** — Hacker News · 398 points · 64 comments
-[Open discussion](https://news.ycombinator.com/item?id=50141076)
+**[DeepSeek just open-sourced its inference engine](https://github.com/deepseek-ai/DeepInfer)** — Hacker News · 234 points · 79 comments
+[Open discussion](https://news.ycombinator.com/item?id=50163277)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
