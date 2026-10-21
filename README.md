@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-20T10:46:04+00:00  
-**Coverage:** 2026-10-19T09:06:01+00:00 → 2026-10-20T10:42:24+00:00  
+**Updated:** 2026-10-21T14:54:49+00:00  
+**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T14:48:14+00:00  
 **Pipeline:** **Operational**
 
-1 item(s) include exploitation, KEV or ransomware signals.
+6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 2179 source-backed developments
-- **Above threshold:** 1422
-- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 76 source-backed developments
+- **Above threshold:** 38
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2025-12480](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2025-12480 exploited in CISA KEV: Gladinet Triofox — CVSS 9.1; EPSS &gt;= 70%
-- **[CVE-2025-49844](https://nvd.nist.gov/vuln/detail/CVE-2025-49844) · 9.4/10** — Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user — CVSS 9.9; EPSS &gt;= 70%
-- **[CVE-2025-68664](https://nvd.nist.gov/vuln/detail/CVE-2025-68664) · 9.4/10** — LangChain is a framework for building agents and LLM-powered applications. Prior to versions 0.3.81 and 1.2.5, a seriali — CVSS 9.3; EPSS &gt;= 30%
-- **[CVE-2025-68615](https://nvd.nist.gov/vuln/detail/CVE-2025-68615) · 9.4/10** — net-snmp is a SNMP application library, tools and daemon. Prior to versions 5.9.5 and 5.10.pre2, a specially crafted pac — CVSS 9.8; EPSS &gt;= 30%
-- **[CVE-2025-62168](https://nvd.nist.gov/vuln/detail/CVE-2025-62168) · 9.4/10** — Squid is a caching proxy for the Web. In Squid versions prior to 7.2, a failure to redact HTTP authentication credential — CVSS 10.0; EPSS &gt;= 30%
+- **[CVE-2026-96656](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96656 exploited in CISA KEV: Plex Media Server — CVSS 8.6; detection opportunity
+- **[CVE-2026-110936](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110936 exploited in CISA KEV: Siemens Software Center — CVSS 8.4; detection opportunity
+- **[CVE-2026-106931](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-106931 exploited in CISA KEV: EG Secure Solutions SiteGuard Server Edition — CVSS 8.5; detection opportunity
+- **[CVE-2026-96655](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96655 exploited in CISA KEV: Plex Media Server — CVSS 5.3; detection opportunity
+- **[CVE-2026-96654](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96654 exploited in CISA KEV: Plex Media Server — CVSS 6.9; detection opportunity
 
 ### Human context
 
-**[ISC Stormcast For Tuesday, October 20th, 2026 https://isc.sans.edu/podcastdetail/10142, (Tue, Oct 20th)](https://isc.sans.edu/diary/rss/33436)**
+**[Critical PHP Vulnerability (CVE-2026-109618, CVE-2026-109619) \[infocon yellow\], (Wed, Oct 21st)](https://isc.sans.edu/diary/rss/33440)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> PHP.net announced that it will release a critical update today. We decided to change the infoCon to YELLOW due to the widespread use of…
 
 ### Community pulse
 
-**[DeepSeek just open-sourced its inference engine](https://github.com/deepseek-ai/DeepInfer)** — Hacker News · 234 points · 79 comments
-[Open discussion](https://news.ycombinator.com/item?id=50163277)
+**[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)** — Hacker News · 1393 points · 590 comments
+[Open discussion](https://news.ycombinator.com/item?id=50172041)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
