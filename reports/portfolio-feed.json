@@ -2,15 +2,15 @@
   "above_threshold": 5,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 596,
+    "comments": 612,
     "discussion_url": "https://news.ycombinator.com/item?id=50172041",
     "published_at": "2026-10-20T20:15:50+00:00",
-    "score": 1405,
+    "score": 1445,
     "source_name": "Hacker News",
     "source_url": "https://news-web.php.net/php.announce/509",
     "title": "Upcoming critical PHP security release (CVE-2026-109618 / -109619)"
   },
-  "coverage_end": "2026-10-21T15:17:06+00:00",
+  "coverage_end": "2026-10-21T16:03:49+00:00",
   "coverage_start": "2026-10-20T08:42:24+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,14 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-21T15:20:50+00:00",
-  "human_context": null,
+  "generated_at": "2026-10-21T16:08:22+00:00",
+  "human_context": {
+    "author": "Brian Krebs",
+    "excerpt": "Expect to see quite a few websites serving \"404\" or \"Page Not Found\" errors today: Nearly 70 percent of websites need to update their\u2026",
+    "excerpt_origin": "publisher_feed",
+    "published_at": "2026-10-21T15:26:07+00:00",
+    "source_name": "Krebs on Security",
+    "source_url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+    "title": "Widespread PHP Flaw May Cause Many Site Outages Today"
+  },
   "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 9,
+  "qualified_developments": 12,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -38,14 +46,13 @@
       "total": 3
     },
     "optional": {
-      "degraded": 1,
-      "healthy": 4,
+      "degraded": 0,
+      "healthy": 5,
       "total": 5
     },
     "status_counts": {
-      "degraded": 1,
       "failed": 1,
-      "healthy": 6
+      "healthy": 7
     },
     "total": 8
   },
@@ -58,8 +65,8 @@
       ],
       "cvss_score": 8.6,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.32349,
-      "epss_score": 0.00396,
+      "epss_percentile": 0.54661,
+      "epss_score": 0.00758,
       "ghsa_ids": [],
       "id": "CVE-2026-96656",
       "known_exploited": true,
@@ -87,8 +94,8 @@
       ],
       "cvss_score": 8.5,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.50774,
-      "epss_score": 0.00662,
+      "epss_percentile": 0.71599,
+      "epss_score": 0.01367,
       "ghsa_ids": [],
       "id": "CVE-2026-106931",
       "known_exploited": true,
@@ -116,8 +123,8 @@
       ],
       "cvss_score": 6.9,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.12576,
-      "epss_score": 0.00227,
+      "epss_percentile": 0.36449,
+      "epss_score": 0.00432,
       "ghsa_ids": [],
       "id": "CVE-2026-96654",
       "known_exploited": true,

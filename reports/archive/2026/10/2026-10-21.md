@@ -2,18 +2,18 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-21T15:20:50+00:00  
-**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T15:17:06+00:00  
+**Updated:** 2026-10-21T16:08:22+00:00  
+**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T16:03:49+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **9** source-backed developments assessed.
+- **12** source-backed developments assessed.
 - **5** met the editorial threshold of **5.0/10** or an exploitation override.
-- **7** unique items are displayed after curation.
-- Core sources: **2/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
+- **8** unique items are displayed after curation.
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ## Immediate attention
 
@@ -30,12 +30,18 @@
 
 ## Human context
 
-No recent expert or analyst commentary qualified in this coverage window.
+### [Widespread PHP Flaw May Cause Many Site Outages Today](https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/)
+
+**Brian Krebs · Krebs on Security**
+
+> Expect to see quite a few websites serving &quot;404&quot; or &quot;Page Not Found&quot; errors today: Nearly 70 percent of websites need to update their…
+
+_Publisher-provided RSS excerpt; open the original article for full context._
 
 ## Community pulse
 
 - **[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)**
-  Hacker News · 1405 points · 596 comments · [Open discussion](https://news.ycombinator.com/item?id=50172041)
+  Hacker News · 1445 points · 612 comments · [Open discussion](https://news.ycombinator.com/item?id=50172041)
   _Community interest signal only; validate claims against primary sources._
 
 ## Notable official advisories
@@ -56,21 +62,21 @@ No additional official advisory qualified after de-duplication.
 
 ## Source health
 
-Core sources: **2/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
+Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 <details>
 <summary>Collector details</summary>
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1754 | 302 ms |  |
-| nvd | yes | failed | 0 | 182001 ms | NVD result set changed during pagination; retry the complete window |
-| github_advisories | yes | healthy | 65 | 2903 ms |  |
-| rss_krebs | no | healthy | 0 | 111 ms |  |
-| rss_sans_isc | no | degraded | 0 | 5162 ms | SANS Internet Storm Center Handler&#x27;s Diary: HTTP 503 from isc.sans.edu |
-| github_releases | no | healthy | 1 | 2350 ms |  |
-| hacker_news | no | healthy | 3 | 26951 ms |  |
-| epss | no | healthy | 1658 | 1953 ms |  |
+| cisa_kev | yes | healthy | 1754 | 481 ms |  |
+| nvd | yes | failed | 0 | 264352 ms | NVD result set changed during pagination; retry the complete window |
+| github_advisories | yes | healthy | 65 | 2151 ms |  |
+| rss_krebs | no | healthy | 1 | 110 ms |  |
+| rss_sans_isc | no | healthy | 2 | 278 ms |  |
+| github_releases | no | healthy | 1 | 1385 ms |  |
+| hacker_news | no | healthy | 3 | 2012 ms |  |
+| epss | no | healthy | 1689 | 1409 ms |  |
 
 </details>
 

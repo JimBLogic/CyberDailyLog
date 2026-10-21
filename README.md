@@ -9,15 +9,15 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-21T15:20:50+00:00  
-**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T15:17:06+00:00  
+**Updated:** 2026-10-21T16:08:22+00:00  
+**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T16:03:49+00:00  
 **Pipeline:** **Operational**
 
 3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 9 source-backed developments
+- **Assessed:** 12 source-backed developments
 - **Above threshold:** 5
-- Core sources: **2/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
+- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
@@ -27,9 +27,15 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 - **[GHSA-hq85-5cpj-mr62](https://github.com/advisories/GHSA-hq85-5cpj-mr62) · 8.3/10** — uv&#x27;s bundled CA store trusts an emSign root whose intermediate CA keys are compromised — CVSS 9.1; detection opportunity
 - **[GHSA-6q48-6c7w-9gw2](https://github.com/advisories/GHSA-6q48-6c7w-9gw2) · 8.3/10** — certifi bundles emSign root CAs with compromised intermediate CA keys — CVSS 9.1; detection opportunity
 
+### Human context
+
+**[Widespread PHP Flaw May Cause Many Site Outages Today](https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/)**
+Brian Krebs · Krebs on Security  
+> Expect to see quite a few websites serving &quot;404&quot; or &quot;Page Not Found&quot; errors today: Nearly 70 percent of websites need to update their…
+
 ### Community pulse
 
-**[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)** — Hacker News · 1405 points · 596 comments
+**[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)** — Hacker News · 1445 points · 612 comments
 [Open discussion](https://news.ycombinator.com/item?id=50172041)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
