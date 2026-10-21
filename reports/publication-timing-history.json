@@ -1,41 +1,5 @@
 [
   {
-    "actual_publication_time": "2026-09-21T16:09:37+00:00",
-    "collect_result": "success",
-    "commit_created": "2026-09-21T16:09:32+00:00",
-    "commit_sha": "be43bcdafecf10f2691739dd43549c7349a3c609",
-    "dry_run": false,
-    "event": "schedule",
-    "fetch_duration_seconds": 24.339,
-    "fetch_end": "2026-09-21T16:09:12.695248+00:00",
-    "fetch_start": "2026-09-21T16:08:48.355972+00:00",
-    "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
-    "monitoring_started_at": "2026-09-16T10:00:00+00:00",
-    "preflight_result": "success",
-    "publication_lag_seconds": 22177.0,
-    "publish_result": "success",
-    "push_completed": "2026-09-21T16:09:37+00:00",
-    "report_generated": "2026-09-21T16:09:13+00:00",
-    "root_cause_stage": "scheduler",
-    "run_attempt": "1",
-    "run_id": "35623652203",
-    "run_to_commit_seconds": 75.0,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/35623652203",
-    "schedule_basis": "inferred from original run creation and IANA cron slot",
-    "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
-    "schedule_timezone": "Europe/Madrid",
-    "scheduled_for": "2026-09-21T10:00:00+00:00",
-    "schema_version": 2,
-    "status": "stale",
-    "target_time": "12:00 Europe/Madrid",
-    "trigger_cron": "0 12 * * *",
-    "trigger_scheduled_for": "2026-09-21T10:00:00+00:00",
-    "trigger_start_lag_seconds": 22097.0,
-    "workflow_actual_start": "2026-09-21T16:08:17+00:00",
-    "workflow_created": "2026-09-21T16:08:17+00:00",
-    "workflow_queue_seconds": 0.0
-  },
-  {
     "actual_publication_time": "2026-09-22T11:06:39+00:00",
     "collect_result": "success",
     "commit_created": "2026-09-22T11:06:34+00:00",
@@ -5668,6 +5632,176 @@
     "trigger_start_lag_seconds": 15431.0,
     "workflow_actual_start": "2026-10-20T15:47:11+00:00",
     "workflow_created": "2026-10-20T15:47:11+00:00",
+    "workflow_queue_seconds": 0.0
+  },
+  {
+    "actual_publication_time": "2026-10-21T14:55:21+00:00",
+    "collect_result": "success",
+    "commit_created": "2026-10-21T14:55:18+00:00",
+    "commit_sha": "2cc3d56f2683033efb6eff88be7c4ac9ba688220",
+    "complete_close_on_time": false,
+    "complete_close_status": "partial",
+    "core_complete": false,
+    "dispatch_creation_lag_seconds": null,
+    "dispatch_requested_at": null,
+    "dispatch_timestamp_error": null,
+    "dry_run": false,
+    "event": "schedule",
+    "fetch_duration_seconds": 393.321,
+    "fetch_end": "2026-10-21T14:54:48.932761+00:00",
+    "fetch_start": "2026-10-21T14:48:15.611493+00:00",
+    "job_durations_seconds": {
+      "Publication timing evidence": null,
+      "collect": 420.0,
+      "preflight": 9.0,
+      "publish": 15.0
+    },
+    "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
+    "monitoring_started_at": "2026-09-16T10:00:00+00:00",
+    "pipeline_metrics": {
+      "baseline_records": 60885,
+      "dry_run": false,
+      "finished_at": "2026-10-21T14:54:55.057473+00:00",
+      "ledger_bytes": 10784381,
+      "outcome": "partial",
+      "phases_ms": {
+        "collection": 389335.752,
+        "epss": 3990.807,
+        "ledger_load": 964.4,
+        "ledger_write": 5278.961,
+        "matching": 677.343,
+        "prepare": 41.577,
+        "render": 76.202
+      },
+      "report_generated": "2026-10-21T14:54:49+00:00",
+      "schema_version": 1,
+      "sources": {
+        "cisa_kev": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "epss": {
+          "http_attempts": 17,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "github_advisories": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "github_releases": {
+          "http_attempts": 3,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "hacker_news": {
+          "http_attempts": 19,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "nvd": {
+          "http_attempts": 6,
+          "http_retries": 2,
+          "page_size_reductions": 0,
+          "pages": 3,
+          "requests": 4,
+          "response_bytes": 8525935,
+          "status": "failed",
+          "wait_seconds": 18.0
+        },
+        "rss_krebs": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "rss_sans_isc": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        }
+      },
+      "started_at": "2026-10-21T14:48:14.604358+00:00",
+      "total_ms": 400453.139,
+      "tracked_records": 60929
+    },
+    "preflight_reason": "latest report date is 2026-10-20; collection is required for 2026-10-21",
+    "preflight_result": "success",
+    "preflight_should_run": "true",
+    "publication_lag_seconds": 17721.0,
+    "publish_result": "success",
+    "push_completed": "2026-10-21T14:55:21+00:00",
+    "report_generated": "2026-10-21T14:54:49+00:00",
+    "root_cause_stage": "scheduler",
+    "run_attempt": "1",
+    "run_id": "39620000517",
+    "run_to_commit_seconds": 449.0,
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/39620000517",
+    "schedule_basis": "inferred from original run creation and IANA cron slot",
+    "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
+    "schedule_timezone": "Europe/Madrid",
+    "scheduled_for": "2026-10-21T10:00:00+00:00",
+    "scheduler_request_lag_seconds": null,
+    "schema_version": 2,
+    "status": "stale",
+    "step_durations_seconds": {
+      "Publication timing evidence": {
+        "Calculate publication lag": null,
+        "Checkout published main": 5.0,
+        "Download this run's reports": 0.0,
+        "Post Checkout published main": null,
+        "Preserve publication timing": null,
+        "Publish timing evidence": null,
+        "Read workflow timing from GitHub": null,
+        "Set up job": 1.0
+      },
+      "collect": {
+        "Bind the complete report bundle": 0.0,
+        "Check artifact file sizes": 0.0,
+        "Checkout": 4.0,
+        "Complete job": 0.0,
+        "Generate compact portfolio feed": 0.0,
+        "Generate dashboard history feed": 1.0,
+        "Install application": 5.0,
+        "Post Checkout": 1.0,
+        "Post Setup Python": 0.0,
+        "Resolve execution mode": 0.0,
+        "Run collection": 401.0,
+        "Set up job": 1.0,
+        "Setup Python": 0.0,
+        "Show source health": 0.0,
+        "Stage bounded publication artifact": 0.0,
+        "Update repository landing snapshot": 0.0,
+        "Upload generated outputs": 2.0,
+        "Validate public outputs": 0.0,
+        "Validate reports": 0.0
+      },
+      "preflight": {
+        "Check daily publication freshness": 0.0,
+        "Checkout": 5.0,
+        "Complete job": 0.0,
+        "Post Checkout": 0.0,
+        "Set up job": 0.0
+      },
+      "publish": {
+        "Checkout main": 4.0,
+        "Commit and push generated outputs": 5.0,
+        "Complete job": 0.0,
+        "Download generated outputs": 1.0,
+        "Post Checkout main": 0.0,
+        "Set up job": 0.0,
+        "Verify bundle and historical integrity against current main": 2.0
+      }
+    },
+    "target_time": "12:00 Europe/Madrid",
+    "trigger_creation_lag_seconds": 17269.0,
+    "trigger_cron": "0 12 * * *",
+    "trigger_origin": "schedule",
+    "trigger_scheduled_for": "2026-10-21T10:00:00+00:00",
+    "trigger_start_lag_seconds": 17269.0,
+    "workflow_actual_start": "2026-10-21T14:47:49+00:00",
+    "workflow_created": "2026-10-21T14:47:49+00:00",
     "workflow_queue_seconds": 0.0
   }
 ]
