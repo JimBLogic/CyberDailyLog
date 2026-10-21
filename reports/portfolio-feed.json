@@ -1,16 +1,16 @@
 {
-  "above_threshold": 38,
+  "above_threshold": 5,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 590,
+    "comments": 596,
     "discussion_url": "https://news.ycombinator.com/item?id=50172041",
     "published_at": "2026-10-20T20:15:50+00:00",
-    "score": 1393,
+    "score": 1405,
     "source_name": "Hacker News",
     "source_url": "https://news-web.php.net/php.announce/509",
     "title": "Upcoming critical PHP security release (CVE-2026-109618 / -109619)"
   },
-  "coverage_end": "2026-10-21T14:48:14+00:00",
+  "coverage_end": "2026-10-21T15:17:06+00:00",
   "coverage_start": "2026-10-20T08:42:24+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,22 +20,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-21T14:54:49+00:00",
-  "human_context": {
-    "author": null,
-    "excerpt": "PHP.net announced that it will release a critical update today. We decided to change the infoCon to YELLOW due to the widespread use of\u2026",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-21T14:47:24+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33440",
-    "title": "Critical PHP Vulnerability (CVE-2026-109618, CVE-2026-109619) [infocon yellow], (Wed, Oct 21st)"
-  },
-  "immediate_attention": "6 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 6,
+  "generated_at": "2026-10-21T15:20:50+00:00",
+  "human_context": null,
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 76,
+  "qualified_developments": 9,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -46,13 +38,14 @@
       "total": 3
     },
     "optional": {
-      "degraded": 0,
-      "healthy": 5,
+      "degraded": 1,
+      "healthy": 4,
       "total": 5
     },
     "status_counts": {
+      "degraded": 1,
       "failed": 1,
-      "healthy": 7
+      "healthy": 6
     },
     "total": 8
   },
@@ -90,35 +83,6 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-110936"
-      ],
-      "cvss_score": 8.4,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.02673,
-      "epss_score": 0.00135,
-      "ghsa_ids": [],
-      "id": "CVE-2026-110936",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Software Center"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "high CVSS +10"
-      ],
-      "selection_score": 105,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-110936 exploited in CISA KEV: Siemens Software Center",
-      "why_it_matters": "CVSS 8.4; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-106931"
       ],
       "cvss_score": 8.5,
@@ -148,35 +112,6 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-96655"
-      ],
-      "cvss_score": 5.3,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.11974,
-      "epss_score": 0.00222,
-      "ghsa_ids": [],
-      "id": "CVE-2026-96655",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Media Server"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "official source +5"
-      ],
-      "selection_score": 95,
-      "severity": "MEDIUM",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-96655 exploited in CISA KEV: Plex Media Server",
-      "why_it_matters": "CVSS 5.3; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-96654"
       ],
       "cvss_score": 6.9,
@@ -202,6 +137,64 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-96654 exploited in CISA KEV: Plex Media Server",
       "why_it_matters": "CVSS 6.9; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-hq85-5cpj-mr62"
+      ],
+      "id": "GHSA-hq85-5cpj-mr62",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.3,
+      "products": [
+        "uv"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 20,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-hq85-5cpj-mr62",
+      "title": "uv's bundled CA store trusts an emSign root whose intermediate CA keys are compromised",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 9.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-6q48-6c7w-9gw2"
+      ],
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 8.3,
+      "products": [
+        "certifi"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 20,
+      "severity": "critical",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2",
+      "title": "certifi bundles emSign root CAs with compromised intermediate CA keys",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
     }
   ]
 }

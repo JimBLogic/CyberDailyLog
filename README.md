@@ -9,33 +9,27 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-21T14:54:49+00:00  
-**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T14:48:14+00:00  
+**Updated:** 2026-10-21T15:20:50+00:00  
+**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-21T15:17:06+00:00  
 **Pipeline:** **Operational**
 
-6 item(s) include exploitation, KEV or ransomware signals.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 76 source-backed developments
-- **Above threshold:** 38
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 9 source-backed developments
+- **Above threshold:** 5
+- Core sources: **2/3 healthy**. Optional sources: **4 healthy**, **1 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-96656](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96656 exploited in CISA KEV: Plex Media Server — CVSS 8.6; detection opportunity
-- **[CVE-2026-110936](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110936 exploited in CISA KEV: Siemens Software Center — CVSS 8.4; detection opportunity
 - **[CVE-2026-106931](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-106931 exploited in CISA KEV: EG Secure Solutions SiteGuard Server Edition — CVSS 8.5; detection opportunity
-- **[CVE-2026-96655](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96655 exploited in CISA KEV: Plex Media Server — CVSS 5.3; detection opportunity
 - **[CVE-2026-96654](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96654 exploited in CISA KEV: Plex Media Server — CVSS 6.9; detection opportunity
-
-### Human context
-
-**[Critical PHP Vulnerability (CVE-2026-109618, CVE-2026-109619) \[infocon yellow\], (Wed, Oct 21st)](https://isc.sans.edu/diary/rss/33440)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> PHP.net announced that it will release a critical update today. We decided to change the infoCon to YELLOW due to the widespread use of…
+- **[GHSA-hq85-5cpj-mr62](https://github.com/advisories/GHSA-hq85-5cpj-mr62) · 8.3/10** — uv&#x27;s bundled CA store trusts an emSign root whose intermediate CA keys are compromised — CVSS 9.1; detection opportunity
+- **[GHSA-6q48-6c7w-9gw2](https://github.com/advisories/GHSA-6q48-6c7w-9gw2) · 8.3/10** — certifi bundles emSign root CAs with compromised intermediate CA keys — CVSS 9.1; detection opportunity
 
 ### Community pulse
 
-**[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)** — Hacker News · 1393 points · 590 comments
+**[Upcoming critical PHP security release (CVE-2026-109618 / -109619)](https://news-web.php.net/php.announce/509)** — Hacker News · 1405 points · 596 comments
 [Open discussion](https://news.ycombinator.com/item?id=50172041)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
