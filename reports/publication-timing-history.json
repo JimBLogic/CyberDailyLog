@@ -5973,5 +5973,175 @@
     "workflow_actual_start": "2026-10-21T15:16:40+00:00",
     "workflow_created": "2026-10-21T15:16:40+00:00",
     "workflow_queue_seconds": 0.0
+  },
+  {
+    "actual_publication_time": "2026-10-21T16:08:49+00:00",
+    "collect_result": "success",
+    "commit_created": "2026-10-21T16:08:46+00:00",
+    "commit_sha": "b5ddd713a2078ba4ede804686036c50fc976285e",
+    "complete_close_on_time": false,
+    "complete_close_status": "partial",
+    "core_complete": false,
+    "dispatch_creation_lag_seconds": null,
+    "dispatch_requested_at": null,
+    "dispatch_timestamp_error": null,
+    "dry_run": false,
+    "event": "schedule",
+    "fetch_duration_seconds": 272.193,
+    "fetch_end": "2026-10-21T16:08:22.235524+00:00",
+    "fetch_start": "2026-10-21T16:03:50.042685+00:00",
+    "job_durations_seconds": {
+      "Publication timing evidence": null,
+      "collect": 297.0,
+      "preflight": 8.0,
+      "publish": 15.0
+    },
+    "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
+    "monitoring_started_at": "2026-09-16T10:00:00+00:00",
+    "pipeline_metrics": {
+      "baseline_records": 60929,
+      "dry_run": false,
+      "finished_at": "2026-10-21T16:08:28.326510+00:00",
+      "ledger_bytes": 10784260,
+      "outcome": "partial",
+      "phases_ms": {
+        "collection": 270783.087,
+        "epss": 1414.582,
+        "ledger_load": 983.694,
+        "ledger_write": 5318.309,
+        "matching": 680.539,
+        "prepare": 0.493,
+        "render": 5.955
+      },
+      "report_generated": "2026-10-21T16:08:22+00:00",
+      "schema_version": 1,
+      "sources": {
+        "cisa_kev": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "epss": {
+          "http_attempts": 17,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "github_advisories": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "github_releases": {
+          "http_attempts": 3,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "hacker_news": {
+          "http_attempts": 29,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "nvd": {
+          "http_attempts": 7,
+          "http_retries": 2,
+          "page_size_reductions": 0,
+          "pages": 4,
+          "requests": 5,
+          "response_bytes": 11537290,
+          "status": "failed",
+          "wait_seconds": 24.0
+        },
+        "rss_krebs": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        },
+        "rss_sans_isc": {
+          "http_attempts": 1,
+          "http_retries": 0,
+          "status": "healthy"
+        }
+      },
+      "started_at": "2026-10-21T16:03:49.057417+00:00",
+      "total_ms": 279269.122,
+      "tracked_records": 60929
+    },
+    "preflight_reason": "latest report date is missing; collection is required for 2026-10-21",
+    "preflight_result": "success",
+    "preflight_should_run": "true",
+    "publication_lag_seconds": 22129.0,
+    "publish_result": "success",
+    "push_completed": "2026-10-21T16:08:49+00:00",
+    "report_generated": "2026-10-21T16:08:22+00:00",
+    "root_cause_stage": "scheduler",
+    "run_attempt": "1",
+    "run_id": "39631280415",
+    "run_to_commit_seconds": 322.0,
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/39631280415",
+    "schedule_basis": "inferred from original run creation and IANA cron slot",
+    "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
+    "schedule_timezone": "Europe/Madrid",
+    "scheduled_for": "2026-10-21T10:00:00+00:00",
+    "scheduler_request_lag_seconds": null,
+    "schema_version": 2,
+    "status": "stale",
+    "step_durations_seconds": {
+      "Publication timing evidence": {
+        "Calculate publication lag": null,
+        "Checkout published main": 4.0,
+        "Download this run's reports": 2.0,
+        "Post Checkout published main": null,
+        "Preserve publication timing": null,
+        "Publish timing evidence": null,
+        "Read workflow timing from GitHub": null,
+        "Set up job": 2.0
+      },
+      "collect": {
+        "Bind the complete report bundle": 0.0,
+        "Check artifact file sizes": 0.0,
+        "Checkout": 4.0,
+        "Complete job": 0.0,
+        "Generate compact portfolio feed": 0.0,
+        "Generate dashboard history feed": 1.0,
+        "Install application": 6.0,
+        "Post Checkout": 0.0,
+        "Post Setup Python": 0.0,
+        "Resolve execution mode": 0.0,
+        "Run collection": 280.0,
+        "Set up job": 0.0,
+        "Setup Python": 0.0,
+        "Show source health": 0.0,
+        "Stage bounded publication artifact": 0.0,
+        "Update repository landing snapshot": 0.0,
+        "Upload generated outputs": 2.0,
+        "Validate public outputs": 0.0,
+        "Validate reports": 0.0
+      },
+      "preflight": {
+        "Check daily publication freshness": 0.0,
+        "Checkout": 4.0,
+        "Complete job": 0.0,
+        "Post Checkout": 0.0,
+        "Set up job": 1.0
+      },
+      "publish": {
+        "Checkout main": 4.0,
+        "Commit and push generated outputs": 4.0,
+        "Complete job": 0.0,
+        "Download generated outputs": 1.0,
+        "Post Checkout main": 0.0,
+        "Set up job": 1.0,
+        "Verify bundle and historical integrity against current main": 2.0
+      }
+    },
+    "target_time": "12:00 Europe/Madrid",
+    "trigger_creation_lag_seconds": 16404.0,
+    "trigger_cron": "30 13 * * *",
+    "trigger_origin": "schedule",
+    "trigger_scheduled_for": "2026-10-21T11:30:00+00:00",
+    "trigger_start_lag_seconds": 16404.0,
+    "workflow_actual_start": "2026-10-21T16:03:24+00:00",
+    "workflow_created": "2026-10-21T16:03:24+00:00",
+    "workflow_queue_seconds": 0.0
   }
 ]
