@@ -27,11 +27,13 @@ def advisory(ghsa, cve):
         "published_at": "2026-10-21T13:40:00Z",
         "updated_at": "2026-10-21T13:40:00Z",
         "cvss_severities": {"cvss_v4": {"score": 9.2, "vector_string": "CVSS:4.0/AV:N"}},
-        "vulnerabilities": [{
-            "package": {"name": "php-src", "ecosystem": "other"},
-            "vulnerable_version_range": "< 8.4.27",
-            "first_patched_version": "8.4.27",
-        }],
+        "vulnerabilities": [
+            {
+                "package": {"name": "php-src", "ecosystem": "other"},
+                "vulnerable_version_range": "< 8.4.27",
+                "first_patched_version": "8.4.27",
+            }
+        ],
     }
 
 
@@ -68,13 +70,17 @@ def test_php_vendor_advisories_are_independent_ranked_cve_items():
         SourceHealth("cisa_kev", "healthy", SINCE, UNTIL, 1, required=True),
         SourceHealth("github_advisories", "healthy", SINCE, UNTIL, 1, required=True),
     ]
-    report = Report(generated_at=UNTIL, coverage_start=SINCE, coverage_end=UNTIL,
-                    items=scored, source_health=health_rows, degraded=True)
+    report = Report(
+        generated_at=UNTIL,
+        coverage_start=SINCE,
+        coverage_end=UNTIL,
+        items=scored,
+        source_health=health_rows,
+        degraded=True,
+    )
     feed = build_portfolio_feed(report.to_dict())
     assert feed["pipeline_status"] == "degraded"
-    assert {item["id"] for item in feed["top_vulnerabilities"]} == {
-        "CVE-2026-109618", "CVE-2026-109619"
-    }
+    assert {item["id"] for item in feed["top_vulnerabilities"]} == {"CVE-2026-109618", "CVE-2026-109619"}
 
 
 def test_vendor_advisory_identity_mismatch_fails_atomically():
@@ -88,8 +94,7 @@ def test_vendor_advisory_identity_mismatch_fails_atomically():
 
 def test_vendor_watch_rejects_unreviewed_external_host_before_network_access():
     http = FakeHttp([])
-    watch = [{"owner": "php", "repo": "../attacker", "ghsa_id": "GHSA-w8hw-w9fx-j79w",
-              "cve_id": "CVE-2026-109618"}]
+    watch = [{"owner": "php", "repo": "../attacker", "ghsa_id": "GHSA-w8hw-w9fx-j79w", "cve_id": "CVE-2026-109618"}]
     items, health = VendorAdvisoryCollector(http, advisories=watch).collect(SINCE, UNTIL)
     assert items == [] and health.status == "failed"
     assert http.calls == []
