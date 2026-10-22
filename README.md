@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-22T10:23:47+00:00  
-**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-22T10:15:21+00:00  
+**Updated:** 2026-10-22T14:59:19+00:00  
+**Coverage:** 2026-10-20T08:42:24+00:00 → 2026-10-22T14:48:56+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+5 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 74 source-backed developments
-- **Above threshold:** 34
-- Core sources: **2/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
+- **Assessed:** 3119 source-backed developments
+- **Above threshold:** 2254
+- Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
+- **[CVE-2024-21762](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2024-21762 exploited in CISA KEV: Fortinet FortiOS — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2026-28318](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-28318 exploited in CISA KEV: SolarWinds Serv-U — CVSS 7.5; EPSS &gt;= 30%
 - **[CVE-2026-96656](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96656 exploited in CISA KEV: Plex Media Server — CVSS 8.6; detection opportunity
 - **[CVE-2026-106931](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-106931 exploited in CISA KEV: EG Secure Solutions SiteGuard Server Edition — CVSS 8.5; detection opportunity
 - **[CVE-2026-96654](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96654 exploited in CISA KEV: Plex Media Server — CVSS 6.9; detection opportunity
-- **[CVE-2026-112900](https://nvd.nist.gov/vuln/detail/CVE-2026-112900) · 9.4/10** — Pillow is a Python imaging library. From 2.6.0 until 13.0.0, Pillow is vulnerable to argument injection when invoking Gh — CVSS 9.2; priority technology: windows
-- **[CVE-2026-112393](https://nvd.nist.gov/vuln/detail/CVE-2026-112393) · 9.4/10** — Pillow is a Python imaging library. From 2.0.0 until 13.0.0, Pillow has a heap buffer overflow and stale-heap disclosure — CVSS 9.2; priority technology: linux
 
 ### Human context
 
@@ -35,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor](https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/)** — Hacker News · 522 points · 172 comments
+**[Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor](https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/)** — Hacker News · 568 points · 185 comments
 [Open discussion](https://news.ycombinator.com/item?id=50181114)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)

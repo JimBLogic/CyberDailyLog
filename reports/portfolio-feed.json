@@ -1,16 +1,16 @@
 {
-  "above_threshold": 34,
+  "above_threshold": 2254,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 172,
+    "comments": 185,
     "discussion_url": "https://news.ycombinator.com/item?id=50181114",
     "published_at": "2026-10-21T14:00:26+00:00",
-    "score": 522,
+    "score": 568,
     "source_name": "Hacker News",
     "source_url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/",
     "title": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor"
   },
-  "coverage_end": "2026-10-22T10:15:21+00:00",
+  "coverage_end": "2026-10-22T14:48:56+00:00",
   "coverage_start": "2026-10-20T08:42:24+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-22T10:23:47+00:00",
+  "generated_at": "2026-10-22T14:59:19+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -30,19 +30,19 @@
     "source_url": "https://isc.sans.edu/diary/rss/33446",
     "title": "ISC Stormcast For Thursday, October 22nd, 2026 https://isc.sans.edu/podcastdetail/10146, (Thu, Oct 22nd)"
   },
-  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 3,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 74,
+  "qualified_developments": 3119,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -51,13 +51,70 @@
       "total": 5
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 7
+      "healthy": 8
     },
     "total": 8
   },
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2024-21762"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99684,
+      "epss_score": 0.83428,
+      "ghsa_ids": [],
+      "id": "CVE-2024-21762",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "FortiOS"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 183,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2024-21762 exploited in CISA KEV: Fortinet FortiOS",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-28318"
+      ],
+      "cvss_score": 7.5,
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.9874,
+      "epss_score": 0.43651,
+      "ghsa_ids": [],
+      "id": "CVE-2026-28318",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Serv-U"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 130,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-28318 exploited in CISA KEV: SolarWinds Serv-U",
+      "why_it_matters": "CVSS 7.5; EPSS >= 30%"
+    },
     {
       "cisa_kev": true,
       "cve_ids": [
@@ -94,8 +151,8 @@
       ],
       "cvss_score": 8.5,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.71599,
-      "epss_score": 0.01367,
+      "epss_percentile": 0.67149,
+      "epss_score": 0.0117,
       "ghsa_ids": [],
       "id": "CVE-2026-106931",
       "known_exploited": true,
@@ -144,68 +201,6 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-96654 exploited in CISA KEV: Plex Media Server",
       "why_it_matters": "CVSS 6.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-112900"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.36293,
-      "epss_score": 0.00431,
-      "ghsa_ids": [
-        "GHSA-w889-685w-c8fh"
-      ],
-      "id": "CVE-2026-112900",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [
-        "Pillow"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: windows +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112900",
-      "title": "Pillow is a Python imaging library. From 2.6.0 until 13.0.0, Pillow is vulnerable to argument injection when invoking Gh",
-      "why_it_matters": "CVSS 9.2; priority technology: windows"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-112393"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.43818,
-      "epss_score": 0.00528,
-      "ghsa_ids": [
-        "GHSA-332p-7hrc-92wf"
-      ],
-      "id": "CVE-2026-112393",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [
-        "Pillow"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112393",
-      "title": "Pillow is a Python imaging library. From 2.0.0 until 13.0.0, Pillow has a heap buffer overflow and stale-heap disclosure",
-      "why_it_matters": "CVSS 9.2; priority technology: linux"
     }
   ]
 }
