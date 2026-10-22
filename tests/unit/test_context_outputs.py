@@ -136,3 +136,34 @@ def test_required_nvd_failure_cannot_appear_operational_in_public_feeds():
     assert feed["degraded"] is True
     assert point["degraded"] is True
     assert feed["source_health"]["core"] == {"total": 2, "healthy": 1}
+
+
+def test_quorum_report_explicitly_marks_nvd_failure_in_markdown_without_changing_publishability():
+    report = _report()
+    report.degraded = False  # Publication quorum still satisfied by other required collectors.
+    report.source_health[0].status = "failed"
+    report.source_health.append(
+        SourceHealth(
+            source="cisa_kev",
+            status="healthy",
+            started_at=NOW,
+            finished_at=NOW,
+            duration_ms=1,
+            required=True,
+        )
+    )
+    report.source_health.append(
+        SourceHealth(
+            source="github_advisories",
+            status="healthy",
+            started_at=NOW,
+            finished_at=NOW,
+            duration_ms=1,
+            required=True,
+        )
+    )
+    text = render_markdown(report, load_yaml(Path("config/report.yml")))
+    assert "Partial core coverage — nvd" in text
+    assert "Core sources: **2/3 healthy**" in text
+    assert report.degraded is False
+    assert build_portfolio_feed(report.to_dict())["pipeline_status"] == "degraded"
