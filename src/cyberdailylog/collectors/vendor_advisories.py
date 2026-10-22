@@ -15,6 +15,9 @@ from .github_advisories import GitHubAdvisoryCollector
 class VendorAdvisoryCollector(GitHubAdvisoryCollector):
     name = "vendor_advisories"
     required = False
+    # This emergency corroboration path is intentionally scoped to PHP's
+    # reviewed upstream repo, not an arbitrary configurable API repository.
+    APPROVED_REPOSITORIES = {("php", "php-src")}
 
     def __init__(self, http=None, *, token=None, advisories=None, offline=False):
         super().__init__(http, token=token, offline=offline)
@@ -33,6 +36,8 @@ class VendorAdvisoryCollector(GitHubAdvisoryCollector):
             or not re.fullmatch(r"CVE-20[0-9]{2}-[0-9]{4,}", cve)
         ):
             raise SourceError("Invalid configured vendor advisory identifier")
+        if (owner, repo) not in VendorAdvisoryCollector.APPROVED_REPOSITORIES:
+            raise SourceError("Unreviewed vendor advisory repository")
         return owner, repo, ghsa, cve
 
     def collect(self, since, until):
@@ -56,7 +61,7 @@ class VendorAdvisoryCollector(GitHubAdvisoryCollector):
                     not isinstance(payload, dict)
                     or payload.get("ghsa_id") != ghsa
                     or payload.get("cve_id") != cve
-                    or payload.get("state") not in {None, "published"}
+                    or payload.get("state") != "published"
                     or not payload.get("published_at")
                 ):
                     raise SourceError("Vendor advisory identity or published state mismatch")
@@ -66,7 +71,10 @@ class VendorAdvisoryCollector(GitHubAdvisoryCollector):
                 item.source_url = f"https://github.com/{owner}/{repo}/security/advisories/{ghsa}"
                 items.append(item)
             return items, self.timed_health("healthy", started, len(watches), len(items))
-        except Exception as error:
-            # Fail atomically: don't claim successful monitoring from a
-            # partially fetched/ambiguous advisory watch list.
-            return [], self.timed_health("failed", started, err=error)
+        except Exception:
+            # Keep upstream response bodies/exception strings (which may
+            # contain sensitive URL or header details) out of public reports.
+            # An incomplete watch never becomes successful monitoring.
+            return [], self.timed_health(
+                "failed", started, err=SourceError("Vendor advisory fetch or verification failed")
+            )
