@@ -62,7 +62,8 @@ def test_php_vendor_advisories_are_independent_ranked_cve_items():
     assert all(item.fixed_versions == ["8.4.27"] and item.source_type == "vendor_advisory" for item in items)
     assert all(url.startswith("https://api.github.com/repos/php/php-src/security-advisories/") for url, _ in http.calls)
     assert all(
-        kwargs["headers"] == {
+        kwargs["headers"]
+        == {
             "Accept": "application/vnd.github+json",
             "X-GitHub-Api-Version": "2026-03-10",
         }
