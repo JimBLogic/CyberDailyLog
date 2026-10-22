@@ -55,13 +55,19 @@ class FakeHttp:
 
 def test_php_vendor_advisories_are_independent_ranked_cve_items():
     http = FakeHttp([advisory(w["ghsa_id"], w["cve_id"]) for w in WATCH])
-    items, health = VendorAdvisoryCollector(http, token="synthetic", advisories=WATCH).collect(SINCE, UNTIL)
+    items, health = VendorAdvisoryCollector(http, advisories=WATCH).collect(SINCE, UNTIL)
     assert health.status == "healthy"
     assert {item.canonical_id for item in items} == {"CVE-2026-109618", "CVE-2026-109619"}
     assert all(item.cvss_score == 9.2 and item.severity == "critical" for item in items)
     assert all(item.fixed_versions == ["8.4.27"] and item.source_type == "vendor_advisory" for item in items)
     assert all(url.startswith("https://api.github.com/repos/php/php-src/security-advisories/") for url, _ in http.calls)
-    assert all(kwargs["headers"] == {"Authorization": "Bearer synthetic"} for _, kwargs in http.calls)
+    assert all(
+        kwargs["headers"] == {
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2026-03-10",
+        }
+        for _, kwargs in http.calls
+    )
     scored = score_items(items, load_yaml(Path("config/scoring.yml")), {}, SINCE, UNTIL)
     assert all(item.priority_score >= 9.0 for item in scored)
     health_rows = [
@@ -116,7 +122,7 @@ def test_vendor_advisory_requires_published_state_not_missing_state():
     assert health.sanitized_error_message == "Vendor advisory fetch or verification failed"
 
 
-def test_vendor_watch_cannot_send_gitHub_token_to_unreviewed_repositories():
+def test_vendor_watch_rejects_unreviewed_repositories_before_network_access():
     watch = [
         {
             "owner": "untrusted",
@@ -126,6 +132,6 @@ def test_vendor_watch_cannot_send_gitHub_token_to_unreviewed_repositories():
         }
     ]
     http = FakeHttp([])
-    items, health = VendorAdvisoryCollector(http, token="synthetic", advisories=watch).collect(SINCE, UNTIL)
+    items, health = VendorAdvisoryCollector(http, advisories=watch).collect(SINCE, UNTIL)
     assert items == [] and health.status == "failed"
     assert http.calls == []
