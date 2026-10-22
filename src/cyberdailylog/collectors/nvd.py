@@ -113,7 +113,9 @@ class NvdCollector(BaseCollector):
                             received += 1
                             cid = obj["cve"]["id"]
                             if cid in seen:
-                                raise SourceError("NVD pagination returned a duplicate CVE; refusing incomplete coverage")
+                                raise SourceError(
+                                    "NVD pagination returned a duplicate CVE; refusing incomplete coverage"
+                                )
                             seen.add(cid)
                             if obj["cve"].get("vulnStatus") == "Rejected":
                                 rejected += 1
