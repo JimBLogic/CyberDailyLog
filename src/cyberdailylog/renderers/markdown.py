@@ -200,9 +200,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     # Publication readiness and *complete core coverage* are different
     # dimensions: the publisher permits a useful quorum-backed partial report.
     missing_core = [
-        item.source
-        for item in report.source_health
-        if item.required and item.status not in {"healthy", "fixture_only"}
+        item.source for item in report.source_health if item.required and item.status not in {"healthy", "fixture_only"}
     ]
     status = (
         "Degraded — inspect source health"
