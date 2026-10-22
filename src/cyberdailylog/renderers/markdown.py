@@ -197,6 +197,21 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     actionable = immediate + vulnerabilities + advisories + releases
     above_threshold = sum(_qualifies(item, minimum) for item in report.items)
 
+    # Publication readiness and *complete core coverage* are different
+    # dimensions: the publisher permits a useful quorum-backed partial report.
+    missing_core = [
+        item.source
+        for item in report.source_health
+        if item.required and item.status not in {"healthy", "fixture_only"}
+    ]
+    status = (
+        "Degraded — inspect source health"
+        if report.degraded
+        else "Partial core coverage — " + ", ".join(missing_core)
+        if missing_core
+        else "Operational"
+    )
+
     lines = [
         f"# CyberDailyLog — Daily Blue Team Brief · {report.coverage_end.date()}",
         "",
@@ -204,7 +219,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
         "",
         f"**Updated:** {report.generated_at.isoformat()}  ",
         f"**Coverage:** {report.coverage_start.isoformat()} → {report.coverage_end.isoformat()}  ",
-        f"**Status:** {'Degraded — inspect source health' if report.degraded else 'Operational'}",
+        f"**Status:** {status}",
         "",
         "[Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · "
         "[Source health](source-health.json) · [Archive](archive/)",
