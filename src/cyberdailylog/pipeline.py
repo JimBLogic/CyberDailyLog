@@ -166,7 +166,12 @@ class Pipeline:
             generated_at=datetime.now(timezone.utc).replace(microsecond=0),
             coverage_start=since,
             coverage_end=until,
-            degraded=not quorum_ok(health),
+            # Publication quorum controls availability; degraded indicates
+            # incomplete core-source coverage even when an alternate source
+            # allows the partial digest to be served.
+            degraded=any(
+                source.required and source.status not in {"healthy", "fixture_only"} for source in health
+            ),
             items=selected,
             source_health=health,
             cti_summary={
@@ -177,12 +182,12 @@ class Pipeline:
                 "tracked_vulnerabilities": len(ledger.records),
             },
         )
-        if report.degraded and fail_on_degraded:
-            raise SystemExit(2)
         write_markdown(report, self.output_dir, self.report_config)
         write_json(report, self.output_dir)
         self.timing.mark("render")
-        if not dry_run and not report.degraded:
+        # Persist quorum-backed partial reports while retaining the old
+        # watermark for the missing required source's recovery window.
+        if not dry_run and quorum_ok(health):
             ledger.save()
         self.timing.mark("ledger_write")
         self.timing.data.update(
