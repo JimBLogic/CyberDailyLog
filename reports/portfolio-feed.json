@@ -1,16 +1,16 @@
 {
-  "above_threshold": 5,
+  "above_threshold": 34,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 612,
-    "discussion_url": "https://news.ycombinator.com/item?id=50172041",
-    "published_at": "2026-10-20T20:15:50+00:00",
-    "score": 1445,
+    "comments": 172,
+    "discussion_url": "https://news.ycombinator.com/item?id=50181114",
+    "published_at": "2026-10-21T14:00:26+00:00",
+    "score": 522,
     "source_name": "Hacker News",
-    "source_url": "https://news-web.php.net/php.announce/509",
-    "title": "Upcoming critical PHP security release (CVE-2026-109618 / -109619)"
+    "source_url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/",
+    "title": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor"
   },
-  "coverage_end": "2026-10-21T16:03:49+00:00",
+  "coverage_end": "2026-10-22T10:15:21+00:00",
   "coverage_start": "2026-10-20T08:42:24+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-21T16:08:22+00:00",
+  "generated_at": "2026-10-22T10:23:47+00:00",
   "human_context": {
-    "author": "Brian Krebs",
-    "excerpt": "Expect to see quite a few websites serving \"404\" or \"Page Not Found\" errors today: Nearly 70 percent of websites need to update their\u2026",
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-21T15:26:07+00:00",
-    "source_name": "Krebs on Security",
-    "source_url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
-    "title": "Widespread PHP Flaw May Cause Many Site Outages Today"
+    "published_at": "2026-10-22T02:00:02+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33446",
+    "title": "ISC Stormcast For Thursday, October 22nd, 2026 https://isc.sans.edu/podcastdetail/10146, (Thu, Oct 22nd)"
   },
   "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 12,
+  "qualified_developments": 74,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -147,61 +147,65 @@
     },
     {
       "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 9.1,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-hq85-5cpj-mr62"
+      "cve_ids": [
+        "CVE-2026-112900"
       ],
-      "id": "GHSA-hq85-5cpj-mr62",
+      "cvss_score": 9.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.36293,
+      "epss_score": 0.00431,
+      "ghsa_ids": [
+        "GHSA-w889-685w-c8fh"
+      ],
+      "id": "CVE-2026-112900",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.3,
+      "priority_score": 9.4,
       "products": [
-        "uv"
+        "Pillow"
       ],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "priority technology: windows +8",
+        "official source +5"
       ],
-      "selection_score": 20,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-hq85-5cpj-mr62",
-      "title": "uv's bundled CA store trusts an emSign root whose intermediate CA keys are compromised",
-      "why_it_matters": "CVSS 9.1; detection opportunity"
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112900",
+      "title": "Pillow is a Python imaging library. From 2.6.0 until 13.0.0, Pillow is vulnerable to argument injection when invoking Gh",
+      "why_it_matters": "CVSS 9.2; priority technology: windows"
     },
     {
       "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 9.1,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-6q48-6c7w-9gw2"
+      "cve_ids": [
+        "CVE-2026-112393"
       ],
-      "id": "GHSA-6q48-6c7w-9gw2",
+      "cvss_score": 9.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.43818,
+      "epss_score": 0.00528,
+      "ghsa_ids": [
+        "GHSA-332p-7hrc-92wf"
+      ],
+      "id": "CVE-2026-112393",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.3,
+      "priority_score": 9.4,
       "products": [
-        "certifi"
+        "Pillow"
       ],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "modified metadata in window -5"
+        "priority technology: linux +8",
+        "official source +5"
       ],
-      "selection_score": 20,
-      "severity": "critical",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2",
-      "title": "certifi bundles emSign root CAs with compromised intermediate CA keys",
-      "why_it_matters": "CVSS 9.1; detection opportunity"
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112393",
+      "title": "Pillow is a Python imaging library. From 2.0.0 until 13.0.0, Pillow has a heap buffer overflow and stale-heap disclosure",
+      "why_it_matters": "CVSS 9.2; priority technology: linux"
     }
   ]
 }
