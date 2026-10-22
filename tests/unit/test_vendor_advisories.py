@@ -105,3 +105,27 @@ def test_vendor_advisories_skip_network_in_offline_fixtures():
     items, health = VendorAdvisoryCollector(http, advisories=WATCH, offline=True).collect(SINCE, UNTIL)
     assert items == [] and health.status == "fixture_only"
     assert not http.calls
+
+
+def test_vendor_advisory_requires_published_state_not_missing_state():
+    payload = advisory(WATCH[0]["ghsa_id"], WATCH[0]["cve_id"])
+    del payload["state"]
+    http = FakeHttp([payload])
+    items, health = VendorAdvisoryCollector(http, advisories=WATCH[:1]).collect(SINCE, UNTIL)
+    assert items == [] and health.status == "failed"
+    assert health.sanitized_error_message == "Vendor advisory fetch or verification failed"
+
+
+def test_vendor_watch_cannot_send_gitHub_token_to_unreviewed_repositories():
+    watch = [
+        {
+            "owner": "untrusted",
+            "repo": "claimed-php",
+            "ghsa_id": "GHSA-w8hw-w9fx-j79w",
+            "cve_id": "CVE-2026-109618",
+        }
+    ]
+    http = FakeHttp([])
+    items, health = VendorAdvisoryCollector(http, token="synthetic", advisories=watch).collect(SINCE, UNTIL)
+    assert items == [] and health.status == "failed"
+    assert http.calls == []
