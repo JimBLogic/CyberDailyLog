@@ -75,6 +75,10 @@ def summarize_report(report: dict[str, Any]) -> dict[str, Any]:
     }
     health = report.get("source_health")
     health_rows = [entry for entry in health if isinstance(entry, dict)] if isinstance(health, list) else []
+    incomplete_core = any(
+        entry.get("required") is True and str(entry.get("status")) not in {"healthy", "fixture_only"}
+        for entry in health_rows
+    )
 
     return {
         "date": generated_at[:10],
@@ -91,7 +95,7 @@ def summarize_report(report: dict[str, Any]) -> dict[str, Any]:
         "unknown": severity_counts["UNKNOWN"],
         "sources_total": len(health_rows),
         "sources_healthy": sum(str(entry.get("status") or "") in {"healthy", "fixture_only"} for entry in health_rows),
-        "degraded": bool(report.get("degraded")),
+        "degraded": bool(report.get("degraded")) or incomplete_core,
     }
 
 
