@@ -123,9 +123,7 @@ class Pipeline:
         # optional source as a successful NVD bulk collection.
         if self.vendor_advisories and not self.offline:
             collectors.append(
-                VendorAdvisoryCollector(
-                    self.http, token=os.getenv("GITHUB_TOKEN"), advisories=self.vendor_advisories
-                )
+                VendorAdvisoryCollector(self.http, token=os.getenv("GITHUB_TOKEN"), advisories=self.vendor_advisories)
             )
 
         items = load_operational_evidence(self.config_dir / "operational-evidence.yml")
@@ -180,9 +178,7 @@ class Pipeline:
             # Publication quorum controls availability; degraded indicates
             # incomplete core-source coverage even when an alternate source
             # allows the partial digest to be served.
-            degraded=any(
-                source.required and source.status not in {"healthy", "fixture_only"} for source in health
-            ),
+            degraded=any(source.required and source.status not in {"healthy", "fixture_only"} for source in health),
             items=selected,
             source_health=health,
             cti_summary={
