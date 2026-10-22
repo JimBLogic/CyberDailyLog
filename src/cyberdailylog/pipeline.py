@@ -11,6 +11,7 @@ from .collectors.cisa_kev import CisaKevCollector
 from .collectors.nvd import NvdCollector
 from .collectors.epss import EpssCollector
 from .collectors.github_advisories import GitHubAdvisoryCollector
+from .collectors.vendor_advisories import VendorAdvisoryCollector
 from .collectors.rss import RssCollector
 from .collectors.github_releases import GitHubReleaseCollector
 from .collectors.hacker_news import HackerNewsCollector
@@ -31,6 +32,8 @@ class Pipeline:
         self.scoring = load_yaml(self.config_dir / "scoring.yml")
         self.report_config = load_yaml(self.config_dir / "report.yml")
         self.tech = load_yaml(self.config_dir / "technologies.yml")
+        vendor_path = self.config_dir / "vendor-advisories.yml"
+        self.vendor_advisories = load_yaml(vendor_path).get("advisories", []) if vendor_path.exists() else []
         hosts = {
             "www.cisa.gov",
             "services.nvd.nist.gov",
@@ -116,6 +119,14 @@ class Pipeline:
         hacker_news = self.sources.get("hacker_news", {})
         if hacker_news.get("enabled", False):
             collectors.append(HackerNewsCollector(self.http, offline=self.offline, config=hacker_news))
+        # Independent, bounded public vendor evidence. Do not count this
+        # optional source as a successful NVD bulk collection.
+        if self.vendor_advisories and not self.offline:
+            collectors.append(
+                VendorAdvisoryCollector(
+                    self.http, token=os.getenv("GITHUB_TOKEN"), advisories=self.vendor_advisories
+                )
+            )
 
         items = load_operational_evidence(self.config_dir / "operational-evidence.yml")
         health = []
