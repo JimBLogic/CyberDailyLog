@@ -123,7 +123,7 @@ class Pipeline:
         # optional source as a successful NVD bulk collection.
         if self.vendor_advisories and not self.offline:
             collectors.append(
-                VendorAdvisoryCollector(self.http, token=os.getenv("GITHUB_TOKEN"), advisories=self.vendor_advisories)
+                VendorAdvisoryCollector(self.http, advisories=self.vendor_advisories)
             )
 
         items = load_operational_evidence(self.config_dir / "operational-evidence.yml")
