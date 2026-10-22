@@ -139,7 +139,9 @@ def test_php_critical_cves_survive_an_unstable_page_count_after_full_restart(mon
                 "cvssMetricV40": [{"cvssData": {"baseScore": 9.2, "version": "4.0"}, "baseSeverity": "CRITICAL"}]
             }
             total = 3 if len(calls) == 1 else 4 if len(calls) == 2 else 2
-            return Response({"totalResults": total, "resultsPerPage": 1, "startIndex": index, "vulnerabilities": [record]})
+            return Response(
+                {"totalResults": total, "resultsPerPage": 1, "startIndex": index, "vulnerabilities": [record]}
+            )
 
     monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
     collector = NvdCollector(HTTP(), token="test")
@@ -165,8 +167,14 @@ def test_unstable_nvd_only_restarts_once_and_never_returns_partial_rows(monkeypa
             # Every second page changes totalResults. Even after the
             # bounded replay, do not report incomplete coverage as healthy.
             total = 2 if offset == 0 else 3
-            return Response({"totalResults": total, "resultsPerPage": 1,
-                             "startIndex": offset, "vulnerabilities": [deepcopy(fixture)]})
+            return Response(
+                {
+                    "totalResults": total,
+                    "resultsPerPage": 1,
+                    "startIndex": offset,
+                    "vulnerabilities": [deepcopy(fixture)],
+                }
+            )
 
     monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
     collector = NvdCollector(HTTP())
