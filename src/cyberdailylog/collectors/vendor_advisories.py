@@ -19,8 +19,10 @@ class VendorAdvisoryCollector(GitHubAdvisoryCollector):
     # reviewed upstream repo, not an arbitrary configurable API repository.
     APPROVED_REPOSITORIES = {("php", "php-src")}
 
-    def __init__(self, http=None, *, token=None, advisories=None, offline=False):
-        super().__init__(http, token=token, offline=offline)
+    def __init__(self, http=None, *, advisories=None, offline=False):
+        # Published advisories are public: no GitHub credential is required
+        # or forwarded to another repository's API path.
+        super().__init__(http, offline=offline)
         self.advisories = advisories or []
 
     @staticmethod
@@ -53,7 +55,10 @@ class VendorAdvisoryCollector(GitHubAdvisoryCollector):
                 url = f"https://api.github.com/repos/{owner}/{repo}/security-advisories/{ghsa}"
                 response = self.http.get(
                     url,
-                    headers={"Authorization": f"Bearer {self.token}"} if self.token else {},
+                    headers={
+                        "Accept": "application/vnd.github+json",
+                        "X-GitHub-Api-Version": "2026-03-10",
+                    },
                     expect_json=True,
                 )
                 payload = response.json()
