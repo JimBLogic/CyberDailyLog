@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-22T14:48:56.187606+00:00",
+  "started_at": "2026-10-23T11:24:03.994547+00:00",
   "phases_ms": {
-    "ledger_load": 648.184,
-    "prepare": 1.857,
-    "collection": 609135.686,
-    "epss": 11770.611,
-    "matching": 2204.623,
-    "render": 425.382,
-    "ledger_write": 3819.595
+    "ledger_load": 739.427,
+    "prepare": 39.468,
+    "collection": 486620.826,
+    "epss": 7102.856,
+    "matching": 1678.782,
+    "render": 146.856,
+    "ledger_write": 4093.666
   },
-  "baseline_records": 60968,
+  "baseline_records": 63849,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -19,17 +19,17 @@
     },
     "nvd": {
       "status": "healthy",
-      "http_attempts": 14,
-      "http_retries": 4,
-      "requests": 10,
-      "pages": 10,
+      "http_attempts": 11,
+      "http_retries": 5,
+      "requests": 6,
+      "pages": 6,
       "page_size_reductions": 0,
-      "response_bytes": 17940701,
-      "wait_seconds": 54.0
+      "response_bytes": 9973379,
+      "wait_seconds": 30.0
     },
     "github_advisories": {
       "status": "healthy",
-      "http_attempts": 2,
+      "http_attempts": 1,
       "http_retries": 0
     },
     "rss_krebs": {
@@ -49,20 +49,20 @@
     },
     "hacker_news": {
       "status": "healthy",
-      "http_attempts": 22,
+      "http_attempts": 32,
       "http_retries": 0
     },
     "epss": {
       "status": "healthy",
-      "http_attempts": 63,
+      "http_attempts": 46,
       "http_retries": 0
     }
   },
-  "tracked_records": 63849,
-  "report_generated": "2026-10-22T14:59:19+00:00",
-  "ledger_bytes": 11225409,
+  "tracked_records": 64181,
+  "report_generated": "2026-10-23T11:32:20+00:00",
+  "ledger_bytes": 11347276,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-22T14:59:24.260873+00:00",
-  "total_ms": 628073.288
+  "finished_at": "2026-10-23T11:32:24.491260+00:00",
+  "total_ms": 500496.738
 }

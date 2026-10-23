@@ -1,17 +1,17 @@
 {
-  "above_threshold": 2254,
+  "above_threshold": 398,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 185,
-    "discussion_url": "https://news.ycombinator.com/item?id=50181114",
-    "published_at": "2026-10-21T14:00:26+00:00",
-    "score": 568,
+    "comments": 167,
+    "discussion_url": "https://news.ycombinator.com/item?id=50196718",
+    "published_at": "2026-10-22T15:26:22+00:00",
+    "score": 453,
     "source_name": "Hacker News",
-    "source_url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/",
-    "title": "Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor"
+    "source_url": "https://github.com/oosexgang/hackios-xnu-kernel",
+    "title": "Run full iOS 16.5 firmware on Android Devices"
   },
-  "coverage_end": "2026-10-22T14:48:56+00:00",
-  "coverage_start": "2026-10-20T08:42:24+00:00",
+  "coverage_end": "2026-10-23T11:24:03+00:00",
+  "coverage_start": "2026-10-22T11:24:03+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-22T14:59:19+00:00",
+  "generated_at": "2026-10-23T11:32:20+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-22T02:00:02+00:00",
+    "published_at": "2026-10-23T10:25:11+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33446",
-    "title": "ISC Stormcast For Thursday, October 22nd, 2026 https://isc.sans.edu/podcastdetail/10146, (Thu, Oct 22nd)"
+    "source_url": "https://isc.sans.edu/diary/rss/33448",
+    "title": "ISC Stormcast For Friday, October 23rd, 2026 https://isc.sans.edu/podcastdetail/10148, (Fri, Oct 23rd)"
   },
-  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 5,
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 3119,
+  "qualified_developments": 523,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,70 +60,12 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2024-21762"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99684,
-      "epss_score": 0.83428,
-      "ghsa_ids": [],
-      "id": "CVE-2024-21762",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "FortiOS"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 183,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2024-21762 exploited in CISA KEV: Fortinet FortiOS",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-28318"
-      ],
-      "cvss_score": 7.5,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.9874,
-      "epss_score": 0.43651,
-      "ghsa_ids": [],
-      "id": "CVE-2026-28318",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Serv-U"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "high CVSS +10"
-      ],
-      "selection_score": 130,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-28318 exploited in CISA KEV: SolarWinds Serv-U",
-      "why_it_matters": "CVSS 7.5; EPSS >= 30%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-96656"
       ],
       "cvss_score": 8.6,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.54661,
-      "epss_score": 0.00758,
+      "epss_percentile": 0.56645,
+      "epss_score": 0.00816,
       "ghsa_ids": [],
       "id": "CVE-2026-96656",
       "known_exploited": true,
@@ -180,8 +122,8 @@
       ],
       "cvss_score": 6.9,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.36449,
-      "epss_score": 0.00432,
+      "epss_percentile": 0.3929,
+      "epss_score": 0.00465,
       "ghsa_ids": [],
       "id": "CVE-2026-96654",
       "known_exploited": true,
@@ -201,6 +143,60 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-96654 exploited in CISA KEV: Plex Media Server",
       "why_it_matters": "CVSS 6.9; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-83938"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-83938",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: cloud +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83938",
+      "title": "Missing authentication for critical function in Azure Kubernetes Configuration Service allows an unauthorized attacker t",
+      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-76036"
+      ],
+      "cvss_score": 9.6,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.42319,
+      "epss_score": 0.00506,
+      "ghsa_ids": [],
+      "id": "CVE-2026-76036",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76036",
+      "title": "Buffer overflow in Dawn in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker to execute arbi",
+      "why_it_matters": "CVSS 9.6; priority technology: browsers"
     }
   ]
 }
