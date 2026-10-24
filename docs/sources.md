@@ -16,3 +16,36 @@ Last verification date for documentation review: 2026-07-15. Fixture tests are i
 ## Implemented but disabled / future
 
 Red Hat OVAL, abuse.ch ThreatFox, URLhaus, MalwareBazaar, AlienVault OTX, MISP feeds, paid services, and LLM APIs are documented as future interfaces only. They are disabled until terms, safety, volume, parser reliability, and tests are reviewed.
+
+
+## Publisher-backed emergency corroboration (PR #50; not deployed)
+
+The optional `vendor_advisories` source is an explicitly allowlisted, bounded
+`php/php-src` public security-advisory watch covering
+`CVE-2026-109618`/`GHSA-w8hw-w9fx-j79w` and
+`CVE-2026-109619`/`GHSA-6wmf-4rv5-p3rp`. Source:
+`https://api.github.com/repos/php/php-src/security-advisories/{GHSA}`,
+with anonymous HTTPS GET, exact published-state/identifier validation and the
+existing fixed-origin, payload-size and timeout rules. No GitHub token is sent.
+Official vendor links:
+`https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w`
+and `https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp`.
+
+The branch tests use synthetic API responses and do **not** prove successful
+live API access or deployment. Watch entries are checked daily only if this
+PR is merged. A failed watch is reported as an optional failed source; it
+never replaces NVD and never upgrades a partial core-source close to complete.
+The 21 October advisories carry CVSS 4.0 9.2 each. Patched supported branches:
+PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12. These are severity observations,
+**not** proof of active exploitation or CISA KEV listing.
+
+NVD changes in the same branch: a changed `totalResults` mid-pagination
+causes one complete restart from offset zero, discarding first-attempt rows.
+A second instability or any schema/duplicate/transport failure is still a
+failed source. No partial NVD snapshot is marked healthy. The report's legacy
+`degraded` flag is a *publication quorum gate*, while the Markdown report,
+compact feed and dashboard history separately disclose incomplete required
+core coverage. This distinction preserves publication and recovery controls.
+
+Review the PR, CI and a real, authorized collection before merging or
+claiming that both PHP CVEs are present in the public dashboard.

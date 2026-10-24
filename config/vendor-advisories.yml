@@ -1,0 +1,12 @@
+# Public, official vendor advisories used as an independent emergency
+# corroboration path when a bulk vulnerability feed cannot complete.
+# Only add first-party published advisories, with verified GHSA/CVE pairs.
+advisories:
+  - owner: php
+    repo: php-src
+    ghsa_id: GHSA-w8hw-w9fx-j79w
+    cve_id: CVE-2026-109618
+  - owner: php
+    repo: php-src
+    ghsa_id: GHSA-6wmf-4rv5-p3rp
+    cve_id: CVE-2026-109619

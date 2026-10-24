@@ -226,6 +226,11 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         (core if entry.get("required") is True else optional).append(entry)
 
     healthy_statuses = {"healthy", "fixture_only"}
+    # Quorum-backed partial publication is useful, but a failed required
+    # feed must never be labelled operational or fully covered.
+    coverage_degraded = bool(report.get("degraded")) or any(
+        str(entry.get("status")) not in healthy_statuses for entry in core
+    )
     source_health = {
         "total": len(health),
         "status_counts": health_counts,
@@ -248,8 +253,8 @@ def build_portfolio_feed(report: dict[str, Any], limit: int = DEFAULT_LIMIT) -> 
         "generated_at": str(report["generated_at"]),
         "coverage_start": str(report["coverage_start"]),
         "coverage_end": str(report["coverage_end"]),
-        "degraded": bool(report.get("degraded")),
-        "pipeline_status": "degraded" if report.get("degraded") else "operational",
+        "degraded": coverage_degraded,
+        "pipeline_status": "degraded" if coverage_degraded else "operational",
         "qualified_developments": len(items),
         "above_threshold": len(ranked),
         "minimum_priority": MINIMUM_PRIORITY,

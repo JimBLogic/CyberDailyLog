@@ -118,3 +118,67 @@ def test_raw_cpe_pages_are_released_while_items_are_accumulated(monkeypatch):
     monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
     items, health = NvdCollector(HTTP()).collect(START, END)
     assert health.status == "healthy" and len(items) == 4
+
+
+def test_php_critical_cves_survive_an_unstable_page_count_after_full_restart(monkeypatch):
+    # Mirrors a NVD feed changing while the first walk is in progress.
+    # Never combine the obsolete first page with the new snapshot.
+    fixture = pages()[0]["vulnerabilities"][0]
+    calls = []
+    cves = ("CVE-2026-109618", "CVE-2026-109619")
+
+    class HTTP:
+        def get(self, url, **kwargs):
+            index = kwargs["params"]["startIndex"]
+            calls.append(index)
+            record = deepcopy(fixture)
+            record["cve"]["id"] = cves[0 if index == 0 else 1]
+            record["cve"]["published"] = "2026-10-21T13:40:00.000"
+            record["cve"]["lastModified"] = "2026-10-21T13:40:00.000"
+            record["cve"]["metrics"] = {
+                "cvssMetricV40": [{"cvssData": {"baseScore": 9.2, "version": "4.0"}, "baseSeverity": "CRITICAL"}]
+            }
+            total = 3 if len(calls) == 1 else 4 if len(calls) == 2 else 2
+            return Response(
+                {"totalResults": total, "resultsPerPage": 1, "startIndex": index, "vulnerabilities": [record]}
+            )
+
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
+    collector = NvdCollector(HTTP(), token="test")
+    items, health = collector.collect(
+        datetime(2026, 10, 20, tzinfo=timezone.utc),
+        datetime(2026, 10, 22, tzinfo=timezone.utc),
+    )
+    assert health.status == "healthy"
+    assert [item.canonical_id for item in items] == list(cves)
+    assert all(item.cvss_score == 9.2 for item in items)
+    assert calls == [0, 1, 0, 1]
+    assert collector.metrics["pagination_restarts"] == 1
+
+
+def test_unstable_nvd_only_restarts_once_and_never_returns_partial_rows(monkeypatch):
+    fixture = pages()[0]["vulnerabilities"][0]
+    calls = []
+
+    class HTTP:
+        def get(self, url, **kwargs):
+            offset = kwargs["params"]["startIndex"]
+            calls.append(offset)
+            # Every second page changes totalResults. Even after the
+            # bounded replay, do not report incomplete coverage as healthy.
+            total = 2 if offset == 0 else 3
+            return Response(
+                {
+                    "totalResults": total,
+                    "resultsPerPage": 1,
+                    "startIndex": offset,
+                    "vulnerabilities": [deepcopy(fixture)],
+                }
+            )
+
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
+    collector = NvdCollector(HTTP())
+    items, health = collector.collect(START, END)
+    assert items == [] and health.status == "failed"
+    assert collector.metrics["pagination_restarts"] == 1
+    assert calls == [0, 1, 0, 1]
