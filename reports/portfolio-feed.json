@@ -1,17 +1,17 @@
 {
-  "above_threshold": 398,
+  "above_threshold": 1106,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 167,
-    "discussion_url": "https://news.ycombinator.com/item?id=50196718",
-    "published_at": "2026-10-22T15:26:22+00:00",
-    "score": 453,
+    "comments": 44,
+    "discussion_url": "https://news.ycombinator.com/item?id=50218430",
+    "published_at": "2026-10-24T04:49:58+00:00",
+    "score": 159,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/oosexgang/hackios-xnu-kernel",
-    "title": "Run full iOS 16.5 firmware on Android Devices"
+    "source_url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.0",
+    "title": "OBS Studio 33"
   },
-  "coverage_end": "2026-10-23T11:24:03+00:00",
-  "coverage_start": "2026-10-22T11:24:03+00:00",
+  "coverage_end": "2026-10-24T10:13:24+00:00",
+  "coverage_start": "2026-10-23T09:24:03+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-23T11:32:20+00:00",
+  "generated_at": "2026-10-24T10:14:54+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "Yesterday everyone was running around like crazy (me included :) because of the php2shell vulnerability.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-23T10:25:11+00:00",
+    "published_at": "2026-10-23T20:04:47+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33448",
-    "title": "ISC Stormcast For Friday, October 23rd, 2026 https://isc.sans.edu/podcastdetail/10148, (Fri, Oct 23rd)"
+    "source_url": "https://isc.sans.edu/diary/rss/33452",
+    "title": "(Reliable)? php2shell exploitability, (Fri, Oct 23rd)"
   },
   "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 523,
+  "qualified_developments": 1531,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,132 +60,110 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-96656"
+        "CVE-2026-65400"
       ],
-      "cvss_score": 8.6,
+      "cvss_score": 9.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.56645,
-      "epss_score": 0.00816,
+      "epss_percentile": 0.77346,
+      "epss_score": 0.01723,
       "ghsa_ids": [],
-      "id": "CVE-2026-96656",
+      "id": "CVE-2026-65400",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Media Server"
+        "macOS"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "high CVSS +10"
+        "critical CVSS +20"
       ],
-      "selection_score": 105,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-96656 exploited in CISA KEV: Plex Media Server",
-      "why_it_matters": "CVSS 8.6; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-106931"
-      ],
-      "cvss_score": 8.5,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.67149,
-      "epss_score": 0.0117,
-      "ghsa_ids": [],
-      "id": "CVE-2026-106931",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "SiteGuard Server Edition"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "high CVSS +10"
-      ],
-      "selection_score": 105,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-106931 exploited in CISA KEV: EG Secure Solutions SiteGuard Server Edition",
-      "why_it_matters": "CVSS 8.5; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-96654"
-      ],
-      "cvss_score": 6.9,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.3929,
-      "epss_score": 0.00465,
-      "ghsa_ids": [],
-      "id": "CVE-2026-96654",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Media Server"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "official source +5"
-      ],
-      "selection_score": 95,
-      "severity": "MEDIUM",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-96654 exploited in CISA KEV: Plex Media Server",
-      "why_it_matters": "CVSS 6.9; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-83938"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-83938",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
+      "selection_score": 120,
       "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83938",
-      "title": "Missing authentication for critical function in Azure Kubernetes Configuration Service allows an unauthorized attacker t",
-      "why_it_matters": "CVSS 10.0; priority technology: cloud"
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-65400 exploited in CISA KEV: Apple macOS",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-114625"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.45586,
+      "epss_score": 0.00555,
+      "ghsa_ids": [],
+      "id": "CVE-2026-114625",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "VeloCloud Orchestrator"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-110447"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.68615,
+      "epss_score": 0.01225,
+      "ghsa_ids": [],
+      "id": "CVE-2026-110447",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Collabora Online \u2013 Built-in CODE Server"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 115,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online \u2013 Built-in CODE Server",
+      "why_it_matters": "CVSS 9.2; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-76036"
+        "CVE-2026-73483"
       ],
-      "cvss_score": 9.6,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.42319,
-      "epss_score": 0.00506,
-      "ghsa_ids": [],
-      "id": "CVE-2026-76036",
+      "epss_percentile": 0.4916,
+      "epss_score": 0.00621,
+      "ghsa_ids": [
+        "GHSA-9gvv-qjj3-2p6g"
+      ],
+      "id": "CVE-2026-73483",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [],
+      "products": [
+        "flowise",
+        "flowise-components"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
         "priority technology: browsers +8",
@@ -194,9 +172,40 @@
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76036",
-      "title": "Buffer overflow in Dawn in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker to execute arbi",
-      "why_it_matters": "CVSS 9.6; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73483",
+      "title": "Flowise (packages flowise and flowise-components) in versions <= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no",
+      "why_it_matters": "CVSS 9.4; priority technology: browsers"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-72804"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.36481,
+      "epss_score": 0.00432,
+      "ghsa_ids": [
+        "GHSA-vpjw-wf5h-cgpq"
+      ],
+      "id": "CVE-2026-72804",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [
+        "github.com/siyuan-note/siyuan/kernel"
+      ],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: linux +8",
+        "official source +5"
+      ],
+      "selection_score": 33,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72804",
+      "title": "SiYuan versions before v3.7.4 fail to validate publish-password tier in getGraph and getLocalGraph endpoints, allowing a",
+      "why_it_matters": "CVSS 9.2; priority technology: linux"
     }
   ]
 }

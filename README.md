@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-23T11:32:20+00:00  
-**Coverage:** 2026-10-22T11:24:03+00:00 → 2026-10-23T11:24:03+00:00  
+**Updated:** 2026-10-24T10:14:54+00:00  
+**Coverage:** 2026-10-23T09:24:03+00:00 → 2026-10-24T10:13:24+00:00  
 **Pipeline:** **Operational**
 
 3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 523 source-backed developments
-- **Above threshold:** 398
+- **Assessed:** 1531 source-backed developments
+- **Above threshold:** 1106
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-96656](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96656 exploited in CISA KEV: Plex Media Server — CVSS 8.6; detection opportunity
-- **[CVE-2026-106931](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-106931 exploited in CISA KEV: EG Secure Solutions SiteGuard Server Edition — CVSS 8.5; detection opportunity
-- **[CVE-2026-96654](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96654 exploited in CISA KEV: Plex Media Server — CVSS 6.9; detection opportunity
-- **[CVE-2026-83938](https://nvd.nist.gov/vuln/detail/CVE-2026-83938) · 9.4/10** — Missing authentication for critical function in Azure Kubernetes Configuration Service allows an unauthorized attacker t — CVSS 10.0; priority technology: cloud
-- **[CVE-2026-76036](https://nvd.nist.gov/vuln/detail/CVE-2026-76036) · 9.4/10** — Buffer overflow in Dawn in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker to execute arbi — CVSS 9.6; priority technology: browsers
+- **[CVE-2026-65400](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-65400 exploited in CISA KEV: Apple macOS — CVSS 9.8; detection opportunity
+- **[CVE-2026-114625](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.4; detection opportunity
+- **[CVE-2026-110447](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online – Built-in CODE Server — CVSS 9.2; detection opportunity
+- **[CVE-2026-73483](https://nvd.nist.gov/vuln/detail/CVE-2026-73483) · 9.4/10** — Flowise (packages flowise and flowise-components) in versions &lt;= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no — CVSS 9.4; priority technology: browsers
+- **[CVE-2026-72804](https://nvd.nist.gov/vuln/detail/CVE-2026-72804) · 9.4/10** — SiYuan versions before v3.7.4 fail to validate publish-password tier in getGraph and getLocalGraph endpoints, allowing a — CVSS 9.2; priority technology: linux
 
 ### Human context
 
-**[ISC Stormcast For Friday, October 23rd, 2026 https://isc.sans.edu/podcastdetail/10148, (Fri, Oct 23rd)](https://isc.sans.edu/diary/rss/33448)**
+**[(Reliable)? php2shell exploitability, (Fri, Oct 23rd)](https://isc.sans.edu/diary/rss/33452)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Yesterday everyone was running around like crazy (me included :) because of the php2shell vulnerability.
 
 ### Community pulse
 
-**[Run full iOS 16.5 firmware on Android Devices](https://github.com/oosexgang/hackios-xnu-kernel)** — Hacker News · 453 points · 167 comments
-[Open discussion](https://news.ycombinator.com/item?id=50196718)
+**[OBS Studio 33](https://github.com/obsproject/obs-studio/releases/tag/33.0.0)** — Hacker News · 159 points · 44 comments
+[Open discussion](https://news.ycombinator.com/item?id=50218430)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
