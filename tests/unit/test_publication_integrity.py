@@ -155,3 +155,21 @@ def test_manifest_detects_changed_bytes_even_when_json_semantics_match(tmp_path,
     monkeypatch.setattr(sys, "argv", ["verify", "--root", str(root)])
     with pytest.raises(ValueError, match="integrity mismatch"):
         guard["main"]()
+
+
+def test_publishable_partial_quorum_does_not_claim_complete_daily_close(tmp_path):
+    # The full report's degraded flag is the existing publication gate,
+    # not a guarantee that every independent core source is healthy.
+    root = artifact(tmp_path / "partial", nvd="failed")
+    manifest, report = guard["bundle"](root)
+    assert manifest["schema_version"] == 1
+    assert report["degraded"] is False
+    assert guard["daily_close"](report) is None
+
+    # Losing quorum still fails closed.
+    path = root / "reports/latest.json"
+    incomplete = json.loads(path.read_text())
+    incomplete["degraded"] = True
+    path.write_text(json.dumps(incomplete))
+    with pytest.raises(ValueError, match="degraded publication"):
+        guard["bundle"](root)

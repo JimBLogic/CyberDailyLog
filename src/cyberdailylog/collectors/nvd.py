@@ -85,32 +85,55 @@ class NvdCollector(BaseCollector):
 
     def collect(self, since, until):
         started = datetime.now(timezone.utc)
-        self.metrics = {"requests": 0, "pages": 0, "page_size_reductions": 0, "response_bytes": 0, "wait_seconds": 0.0}
+        self.metrics = {
+            "requests": 0,
+            "pages": 0,
+            "page_size_reductions": 0,
+            "pagination_restarts": 0,
+            "response_bytes": 0,
+            "wait_seconds": 0.0,
+        }
         try:
-            if self.offline:
-                pages = (self.fixture_json(name) for name in ("nvd_page1.json", "nvd_page2.json"))
-            else:
-                pages = self._pages(since, until)
-            items = []
-            received = 0
-            rejected = 0
-            seen = set()
-            for data in pages:
-                self.metrics["pages"] += 1
-                for obj in data["vulnerabilities"]:
-                    received += 1
-                    cid = obj["cve"]["id"]
-                    if cid in seen:
-                        raise SourceError("NVD pagination returned a duplicate CVE; refusing incomplete coverage")
-                    seen.add(cid)
-                    if obj["cve"].get("vulnStatus") == "Rejected":
-                        rejected += 1
-                        continue
-                    items.append(self._item(obj))
-                # Do not retain unused CPE trees from every raw page in memory.
-            return items, self.timed_health(
-                "fixture_only" if self.offline else "healthy", started, received, len(items), rejected
-            )
+            # NVD's result set can change while its pages are being fetched.
+            # Discard the *entire* first attempt and restart at offset zero once;
+            # never mark a mixture of different result sets as complete.
+            for attempt in range(2):
+                try:
+                    if self.offline:
+                        pages = (self.fixture_json(name) for name in ("nvd_page1.json", "nvd_page2.json"))
+                    else:
+                        pages = self._pages(since, until)
+                    items = []
+                    received = 0
+                    rejected = 0
+                    seen = set()
+                    for data in pages:
+                        self.metrics["pages"] += 1
+                        for obj in data["vulnerabilities"]:
+                            received += 1
+                            cid = obj["cve"]["id"]
+                            if cid in seen:
+                                raise SourceError(
+                                    "NVD pagination returned a duplicate CVE; refusing incomplete coverage"
+                                )
+                            seen.add(cid)
+                            if obj["cve"].get("vulnStatus") == "Rejected":
+                                rejected += 1
+                                continue
+                            items.append(self._item(obj))
+                        # Do not retain unused CPE trees from every raw page in memory.
+                    return items, self.timed_health(
+                        "fixture_only" if self.offline else "healthy", started, received, len(items), rejected
+                    )
+                except SourceError as error:
+                    if (
+                        self.offline
+                        or attempt > 0
+                        or str(error) != "NVD result set changed during pagination; retry the complete window"
+                    ):
+                        raise
+                    self.metrics["pagination_restarts"] += 1
+            raise SourceError("NVD pagination remained unstable after bounded retry")
         except Exception as e:
             return [], self.timed_health("failed", started, err=e)
 

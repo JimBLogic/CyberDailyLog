@@ -111,3 +111,59 @@ def test_compact_feed_and_readme_expose_context_as_additive_fields():
     assert "### Human context" in snapshot
     assert "### Community pulse" in snapshot
     assert "Open discussion" in snapshot
+
+
+def test_required_nvd_failure_cannot_appear_operational_in_public_feeds():
+    from cyberdailylog.dashboard_feed import summarize_report
+
+    report = _report()
+    report.degraded = False  # Simulates an old quorum-backed partial report.
+    report.source_health.append(
+        SourceHealth(
+            source="github_advisories",
+            status="healthy",
+            started_at=NOW,
+            finished_at=NOW,
+            duration_ms=10,
+            required=True,
+        )
+    )
+    report.source_health[0].status = "failed"
+    raw = report.to_dict()
+    feed = build_portfolio_feed(raw)
+    point = summarize_report(raw)
+    assert feed["pipeline_status"] == "degraded"
+    assert feed["degraded"] is True
+    assert point["degraded"] is True
+    assert feed["source_health"]["core"] == {"total": 2, "healthy": 1}
+
+
+def test_quorum_report_explicitly_marks_nvd_failure_in_markdown_without_changing_publishability():
+    report = _report()
+    report.degraded = False  # Publication quorum still satisfied by other required collectors.
+    report.source_health[0].status = "failed"
+    report.source_health.append(
+        SourceHealth(
+            source="cisa_kev",
+            status="healthy",
+            started_at=NOW,
+            finished_at=NOW,
+            duration_ms=1,
+            required=True,
+        )
+    )
+    report.source_health.append(
+        SourceHealth(
+            source="github_advisories",
+            status="healthy",
+            started_at=NOW,
+            finished_at=NOW,
+            duration_ms=1,
+            required=True,
+        )
+    )
+    text = render_markdown(report, load_yaml(Path("config/report.yml")))
+    assert "Partial core coverage — nvd" in text
+    assert "Core sources: **2/3 healthy**" in text
+    assert report.degraded is False
+    assert build_portfolio_feed(report.to_dict())["pipeline_status"] == "degraded"
