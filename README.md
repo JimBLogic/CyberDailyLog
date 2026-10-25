@@ -9,34 +9,28 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-24T10:14:54+00:00  
-**Coverage:** 2026-10-23T09:24:03+00:00 → 2026-10-24T10:13:24+00:00  
+**Updated:** 2026-10-25T11:43:39+00:00  
+**Coverage:** 2026-10-24T08:13:24+00:00 → 2026-10-25T11:42:18+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+5 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 1531 source-backed developments
-- **Above threshold:** 1106
+- **Assessed:** 1425 source-backed developments
+- **Above threshold:** 1191
 - Core sources: **3/3 healthy**. Optional sources: **5 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-65400](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-65400 exploited in CISA KEV: Apple macOS — CVSS 9.8; detection opportunity
+- **[CVE-2026-15410](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-15410 exploited in CISA KEV: SonicWall SMA1000 Appliances — CVSS 7.2; EPSS percentile &gt;= 95%
+- **[CVE-2026-15409](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 10.0/10** — CVE-2026-15409 exploited in CISA KEV: SonicWall SMA1000 Appliances — CVSS 10.0; detection opportunity
+- **[CVE-2026-9586](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-9586 exploited in CISA KEV: Sangoma Switchvox — CVSS 9.3; EPSS percentile &gt;= 95%
 - **[CVE-2026-114625](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.4; detection opportunity
 - **[CVE-2026-110447](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online – Built-in CODE Server — CVSS 9.2; detection opportunity
-- **[CVE-2026-73483](https://nvd.nist.gov/vuln/detail/CVE-2026-73483) · 9.4/10** — Flowise (packages flowise and flowise-components) in versions &lt;= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no — CVSS 9.4; priority technology: browsers
-- **[CVE-2026-72804](https://nvd.nist.gov/vuln/detail/CVE-2026-72804) · 9.4/10** — SiYuan versions before v3.7.4 fail to validate publish-password tier in getGraph and getLocalGraph endpoints, allowing a — CVSS 9.2; priority technology: linux
-
-### Human context
-
-**[(Reliable)? php2shell exploitability, (Fri, Oct 23rd)](https://isc.sans.edu/diary/rss/33452)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> Yesterday everyone was running around like crazy (me included :) because of the php2shell vulnerability.
 
 ### Community pulse
 
-**[OBS Studio 33](https://github.com/obsproject/obs-studio/releases/tag/33.0.0)** — Hacker News · 159 points · 44 comments
-[Open discussion](https://news.ycombinator.com/item?id=50218430)
+**[GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000&#x27;s cards](https://github.com/Zagitta/gpu-unlock)** — Hacker News · 262 points · 73 comments
+[Open discussion](https://news.ycombinator.com/item?id=50219700)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

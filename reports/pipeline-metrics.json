@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-24T10:13:24.202097+00:00",
+  "started_at": "2026-10-25T11:42:18.592773+00:00",
   "phases_ms": {
-    "ledger_load": 1088.516,
-    "prepare": 14.831,
-    "collection": 73117.821,
-    "epss": 11811.962,
-    "matching": 4240.365,
-    "render": 422.994,
-    "ledger_write": 7701.368
+    "ledger_load": 1131.118,
+    "prepare": 42.465,
+    "collection": 69873.996,
+    "epss": 4871.152,
+    "matching": 4697.226,
+    "render": 419.795,
+    "ledger_write": 8048.081
   },
-  "baseline_records": 64181,
+  "baseline_records": 64976,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -19,17 +19,17 @@
     },
     "nvd": {
       "status": "healthy",
-      "http_attempts": 10,
+      "http_attempts": 11,
       "http_retries": 0,
-      "requests": 10,
-      "pages": 10,
+      "requests": 11,
+      "pages": 11,
       "page_size_reductions": 0,
-      "response_bytes": 18281002,
-      "wait_seconds": 54.0
+      "response_bytes": 18881944,
+      "wait_seconds": 60.0
     },
     "github_advisories": {
       "status": "healthy",
-      "http_attempts": 2,
+      "http_attempts": 1,
       "http_retries": 0
     },
     "rss_krebs": {
@@ -54,15 +54,15 @@
     },
     "epss": {
       "status": "healthy",
-      "http_attempts": 61,
+      "http_attempts": 67,
       "http_retries": 0
     }
   },
-  "tracked_records": 64976,
-  "report_generated": "2026-10-24T10:14:54+00:00",
-  "ledger_bytes": 11669788,
+  "tracked_records": 65791,
+  "report_generated": "2026-10-25T11:43:39+00:00",
+  "ledger_bytes": 11955109,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-24T10:15:02.711080+00:00",
-  "total_ms": 98509.006
+  "finished_at": "2026-10-25T11:43:47.790084+00:00",
+  "total_ms": 89197.334
 }

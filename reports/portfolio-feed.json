@@ -1,17 +1,17 @@
 {
-  "above_threshold": 1106,
+  "above_threshold": 1191,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 44,
-    "discussion_url": "https://news.ycombinator.com/item?id=50218430",
-    "published_at": "2026-10-24T04:49:58+00:00",
-    "score": 159,
+    "comments": 73,
+    "discussion_url": "https://news.ycombinator.com/item?id=50219700",
+    "published_at": "2026-10-24T09:58:27+00:00",
+    "score": 262,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.0",
-    "title": "OBS Studio 33"
+    "source_url": "https://github.com/Zagitta/gpu-unlock",
+    "title": "GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000's cards"
   },
-  "coverage_end": "2026-10-24T10:13:24+00:00",
-  "coverage_start": "2026-10-23T09:24:03+00:00",
+  "coverage_end": "2026-10-25T11:42:18+00:00",
+  "coverage_start": "2026-10-24T08:13:24+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,14 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-24T10:14:54+00:00",
-  "human_context": {
-    "author": null,
-    "excerpt": "Yesterday everyone was running around like crazy (me included :) because of the php2shell vulnerability.",
-    "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-23T20:04:47+00:00",
-    "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33452",
-    "title": "(Reliable)? php2shell exploitability, (Fri, Oct 23rd)"
-  },
-  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 3,
+  "generated_at": "2026-10-25T11:43:39+00:00",
+  "human_context": null,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1531,
+  "qualified_developments": 1425,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,31 +52,89 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-65400"
+        "CVE-2026-15410"
       ],
-      "cvss_score": 9.8,
+      "cvss_score": 7.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.77346,
-      "epss_score": 0.01723,
+      "epss_percentile": 0.96086,
+      "epss_score": 0.11791,
       "ghsa_ids": [],
-      "id": "CVE-2026-65400",
+      "id": "CVE-2026-15410",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "SMA1000 Appliances"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 140,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-15410 exploited in CISA KEV: SonicWall SMA1000 Appliances",
+      "why_it_matters": "CVSS 7.2; EPSS percentile >= 95%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-15409"
+      ],
+      "cvss_score": 10.0,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.93996,
+      "epss_score": 0.06795,
+      "ghsa_ids": [],
+      "id": "CVE-2026-15409",
+      "known_exploited": true,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
+      "products": [
+        "SMA1000 Appliances"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "known ransomware use +25"
+      ],
+      "selection_score": 140,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-15409 exploited in CISA KEV: SonicWall SMA1000 Appliances",
+      "why_it_matters": "CVSS 10.0; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-9586"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.97302,
+      "epss_score": 0.18979,
+      "ghsa_ids": [],
+      "id": "CVE-2026-9586",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "macOS"
+        "Switchvox"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 120,
+      "selection_score": 130,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-65400 exploited in CISA KEV: Apple macOS",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "title": "CVE-2026-9586 exploited in CISA KEV: Sangoma Switchvox",
+      "why_it_matters": "CVSS 9.3; EPSS percentile >= 95%"
     },
     {
       "cisa_kev": true,
@@ -93,8 +143,8 @@
       ],
       "cvss_score": 9.4,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.45586,
-      "epss_score": 0.00555,
+      "epss_percentile": 0.56613,
+      "epss_score": 0.00813,
       "ghsa_ids": [],
       "id": "CVE-2026-114625",
       "known_exploited": true,
@@ -122,8 +172,8 @@
       ],
       "cvss_score": 9.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.68615,
-      "epss_score": 0.01225,
+      "epss_percentile": 0.83062,
+      "epss_score": 0.02285,
       "ghsa_ids": [],
       "id": "CVE-2026-110447",
       "known_exploited": true,
@@ -143,69 +193,6 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online \u2013 Built-in CODE Server",
       "why_it_matters": "CVSS 9.2; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-73483"
-      ],
-      "cvss_score": 9.4,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.4916,
-      "epss_score": 0.00621,
-      "ghsa_ids": [
-        "GHSA-9gvv-qjj3-2p6g"
-      ],
-      "id": "CVE-2026-73483",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [
-        "flowise",
-        "flowise-components"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: browsers +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73483",
-      "title": "Flowise (packages flowise and flowise-components) in versions <= 3.1.2 contain a sandbox escape in the vm2/@flowiseai/no",
-      "why_it_matters": "CVSS 9.4; priority technology: browsers"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-72804"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.36481,
-      "epss_score": 0.00432,
-      "ghsa_ids": [
-        "GHSA-vpjw-wf5h-cgpq"
-      ],
-      "id": "CVE-2026-72804",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [
-        "github.com/siyuan-note/siyuan/kernel"
-      ],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: linux +8",
-        "official source +5"
-      ],
-      "selection_score": 33,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72804",
-      "title": "SiYuan versions before v3.7.4 fail to validate publish-password tier in getGraph and getLocalGraph endpoints, allowing a",
-      "why_it_matters": "CVSS 9.2; priority technology: linux"
     }
   ]
 }
