@@ -60,6 +60,7 @@ test("renders the CyberDailyLog product shell", async () => {
     /(Conectado al repositorio|Respaldo oficial activo|Informe de respaldo verificado)/i,
   );
   assert.match(html, /Proyecto/i);
+  assert.match(html, /aria-label="Activar modo oscuro"/);
   assert.match(html, /role="group"[^>]*aria-label="Idioma"/i);
   assert.match(html, /aria-label="English"[^>]*aria-pressed="false"/i);
   assert.match(html, /aria-label="Español"[^>]*aria-pressed="true"/i);

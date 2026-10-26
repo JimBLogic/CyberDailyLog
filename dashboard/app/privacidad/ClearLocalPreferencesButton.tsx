@@ -19,7 +19,7 @@ export function ClearLocalPreferencesButton() {
       <p role="status" aria-live="polite">
         {cleared
           ? "Preferencias borradas de este navegador. / Preferences cleared from this browser."
-          : "El botón elimina únicamente el idioma y la lista de seguimiento guardados por CyberDailyLog."}
+          : "El botón elimina únicamente el idioma, el modo de color y la lista de seguimiento guardados por CyberDailyLog."}
       </p>
     </div>
   );

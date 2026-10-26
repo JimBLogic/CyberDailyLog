@@ -1,3 +1,4 @@
+import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/local-preferences";
 import type { Metadata } from "next";
 import "@fontsource/archivo-black/400.css";
 import "@fontsource-variable/inter";
@@ -78,7 +79,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} /></head>
       <body>{children}</body>
     </html>
   );
