@@ -194,6 +194,15 @@ def test_official_feed_cannot_attribute_external_or_unsafe_links_to_cert_eu():
         assert health.status == "degraded"
 
 
+def test_official_feed_encodes_legacy_path_spaces_without_relaxing_origin_checks():
+    payload = """<rss><channel><item><title>Guidance reference</title>
+    <link>https://cert.europa.eu/publications/legacy guidance/</link>
+    <pubDate>Wed, 15 Jul 2026 09:00:00 GMT</pubDate></item></channel></rss>"""
+    items, health = _configured_live_collector(payload).collect(SINCE, UNTIL)
+    assert health.status == "healthy"
+    assert items[0].source_url == "https://cert.europa.eu/publications/legacy%20guidance/"
+
+
 def test_optional_rss_outage_does_not_break_complete_core_pipeline(tmp_path, monkeypatch):
     from cyberdailylog.pipeline import Pipeline
     from cyberdailylog.models import SourceHealth

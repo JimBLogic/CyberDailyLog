@@ -24,6 +24,8 @@ context lane. RSS headlines do not establish affected versions, CVSS, active
 exploitation or confirmed asset exposure. No such fields are inferred or added
 to the CVE ledger. Read the original and its vendor references for mitigation.
 The feed timestamp is not asserted to be the original CVE disclosure date.
+Literal spaces in legacy article URLs are percent-encoded before strict HTTPS
+origin validation; other control characters and off-origin links remain rejected.
 
 Each feed is fetched once per existing collection, using the normal identified,
 bounded HTTPS client. No new scheduler, article crawler, credential or private
@@ -67,10 +69,11 @@ popular post is not proof of exploitation in the wild.
 ## Reliability and rollout evidence
 
 - Base: `0e1732a8e8c96ae9eafa02e202b85462fcf60029`.
-- Direct read-only probes with the actual collector: advisories 10/10 accepted,
-  guidance 9 accepted/1 rejected during the initial broad-window probe; a repeat
-  date/link diagnostic found no invalid record. No completeness claim is made
-  across changing feed responses. Test fixtures are synthetic, not copied articles.
+- Direct read-only probes with the actual collector: advisories 10/10 accepted.
+  Guidance initially rejected one legacy URL containing spaces; that observed
+  incompatibility is repaired by percent-encoding spaces, with a regression test.
+  Test fixtures are synthetic, not copied articles. No archive completeness or
+  future provider uptime is inferred from a successful probe.
 - New regression cases cover no body copying, attribution links, no inferred CVE
   state, CET/CEST conversion, unsafe origin rejection, DTD/entity rejection,
   empty/HTML/error payloads and successful core publication during RSS outages.

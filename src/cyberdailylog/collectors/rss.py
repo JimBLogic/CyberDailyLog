@@ -152,6 +152,10 @@ class RssCollector(BaseCollector):
 
                     link = _entry_link(entry, str(source.get("url") or ""))
                     if source.get("allowed_entry_hosts"):
+                        # Some older CERT-EU paths contain literal spaces.
+                        # Percent-encode them before applying the same origin
+                        # checks; other control characters remain rejected.
+                        link = link.replace(" ", "%20")
                         try:
                             parsed = urlsplit(link)
                             safe = (
