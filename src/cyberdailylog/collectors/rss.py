@@ -6,6 +6,7 @@ from html import unescape
 from html.parser import HTMLParser
 import re
 import xml.etree.ElementTree as ET
+from urllib.parse import urlsplit
 
 from cyberdailylog.exceptions import SourceError
 from cyberdailylog.models import IntelligenceItem
@@ -79,6 +80,10 @@ def _entry_datetime(element: ET.Element) -> datetime:
     raw = _first_text(element, {"pubdate", "published", "updated", "date"})
     if not raw:
         raise ValueError("feed entry has no publication timestamp")
+    # CERT-EU uses these non-RFC abbreviations. Do not interpret Madrid time
+    # as UTC (especially around the October DST change).
+    raw = re.sub(r"\bCEST$", "+0200", raw)
+    raw = re.sub(r"\bCET$", "+0100", raw)
     try:
         parsed = parsedate_to_datetime(raw)
     except (TypeError, ValueError):
@@ -128,8 +133,14 @@ class RssCollector(BaseCollector):
                 )
                 if not text.strip():
                     raise SourceError("empty feed response")
+                if re.search(r"<!\s*(DOCTYPE|ENTITY)\b", text, re.IGNORECASE):
+                    raise SourceError("feed DTDs and entities are not permitted")
                 root = ET.fromstring(text)
-                for entry in _feed_entries(root):
+                entries = _feed_entries(root)
+                if source.get("require_entries") and not entries:
+                    raise SourceError("feed contains no entries; payload is not verified")
+                source_rejected = rejected
+                for entry in entries:
                     received += 1
                     try:
                         published = _entry_datetime(entry)
@@ -140,6 +151,26 @@ class RssCollector(BaseCollector):
                         continue
 
                     link = _entry_link(entry, str(source.get("url") or ""))
+                    if source.get("allowed_entry_hosts"):
+                        # Some older CERT-EU paths contain literal spaces.
+                        # Percent-encode them before applying the same origin
+                        # checks; other control characters remain rejected.
+                        link = link.replace(" ", "%20")
+                        try:
+                            parsed = urlsplit(link)
+                            safe = (
+                                parsed.scheme == "https"
+                                and parsed.hostname in source["allowed_entry_hosts"]
+                                and parsed.port in (None, 443)
+                                and not parsed.username
+                                and not parsed.password
+                                and not any(ord(c) <= 32 for c in link)
+                            )
+                        except ValueError:
+                            safe = False
+                        if not safe:
+                            rejected += 1
+                            continue
                     title = _plain_text(_first_text(entry, {"title"})) or "Untitled"
                     raw_excerpt = _first_text(entry, {"description", "summary", "content", "encoded"})
                     excerpt = _truncate_excerpt(
@@ -147,6 +178,8 @@ class RssCollector(BaseCollector):
                         int(source.get("excerpt_max_words", 24)),
                         int(source.get("excerpt_max_characters", 240)),
                     )
+                    if source.get("metadata_only"):
+                        excerpt = ""
                     author = str(source.get("author") or _first_text(entry, {"creator", "author", "name"})).strip()
                     category = str(source.get("category") or "advisory")
                     items.append(
@@ -164,11 +197,13 @@ class RssCollector(BaseCollector):
                             modified_at=published,
                             author=author or None,
                             excerpt_origin="publisher_feed" if excerpt else None,
-                            references=[link],
+                            references=[link, *source.get("attribution_urls", [])],
                             blue_team_relevance=str(source.get("blue_team_relevance") or ""),
                             confidence="medium",
                         )
                     )
+                if source.get("require_entries") and rejected > source_rejected:
+                    errors.append(f"{source_name}: some feed entries failed date or link validation")
             except Exception as exc:
                 errors.append(f"{source_name}: {exc}")
 

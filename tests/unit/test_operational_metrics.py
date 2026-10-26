@@ -19,7 +19,8 @@ def test_pipeline_metrics_are_separate_consistent_and_contain_no_credentials(tmp
         for p in ["ledger_load", "prepare", "collection", "epss", "matching", "render", "ledger_write"]
     )
     assert metrics["sources"]["nvd"]["pages"] == 2
-    assert len(metrics["sources"]) == len(report.source_health) == 8
+    assert len(metrics["sources"]) == len(report.source_health) == 10
+    assert {"rss_cert_eu_advisories", "rss_cert_eu_guidance"} <= metrics["sources"].keys()
     assert "pipeline_metrics" not in json.loads((tmp_path / "latest.json").read_text())
 
 
