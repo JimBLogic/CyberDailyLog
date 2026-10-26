@@ -66,7 +66,12 @@ export function normalizePublication(value: unknown) {
   if (raw.schema_version !== 2) return null;
   const statuses = ["on_time", "delayed", "stale", "failed", "unknown"];
   const stages = ["scheduler", "dispatch", "workflow_queue", "pipeline", "publication", "within_threshold", "unknown"];
-  const slo = record(raw.slo);
+  // Publication-only history predates complete core-source measurement. Never
+  // substitute that older series when complete-close evidence is unavailable.
+  const slo = record(raw.complete_close_slo);
+  const measuredDays = number(slo.measured_days, 30);
+  const validDays = measuredDays !== null && Number.isInteger(measuredDays);
+  const percentage = number(slo.attainment_percentage, 100);
   const evidenceUrl = (value: unknown) => {
     const url = safeWebUrl(value);
     return /^https:\/\/github\.com\/JimBLogic\/CyberDailyLog\/actions\/runs\/\d+(?:\?[^#]*)?$/.test(url) ? url : "";
@@ -91,8 +96,11 @@ export function normalizePublication(value: unknown) {
       creationLagSeconds: number(attempt.trigger_creation_lag_seconds, 31_536_000),
       runUrl: evidenceUrl(attempt.run_url),
     } : null,
-    sloPercentage: number(slo.attainment_percentage, 100), measuredDays: number(slo.measured_publications, 30),
-    fullWindow: slo.full_window_observed === true, evaluatedAt: date(slo.evaluated_at),
+    coreComplete: typeof raw.core_complete === "boolean" ? raw.core_complete : null,
+    sloPercentage: validDays && measuredDays > 0 ? percentage : null,
+    measuredDays: validDays ? measuredDays : null,
+    fullWindow: validDays && measuredDays === 30 && slo.window_days === 30 && slo.full_window_observed === true,
+    evaluatedAt: date(slo.evaluated_at),
   };
 }
 export type PublicationReliability = NonNullable<ReturnType<typeof normalizePublication>>;

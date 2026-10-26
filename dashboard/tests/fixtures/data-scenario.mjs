@@ -55,7 +55,16 @@ globalThis.fetch = async (input) => {
   } : {schema_version:2,status:'on_time',scheduled_for:iso(-120_000),actual_publication_time:iso(-60_000),
     publication_lag_seconds:60,report_generated:report.generated_at,root_cause_stage:'within_threshold',
     run_url:'https://github.com/JimBLogic/CyberDailyLog/actions/runs/123',
-    slo:{attainment_percentage:100,measured_publications:1,full_window_observed:false,evaluated_at:iso()},
+    // Deliberately contradictory legacy evidence must never replace complete closes.
+    slo:{attainment_percentage:70,measured_publications:30,full_window_observed:true,evaluated_at:iso()},
+    core_complete: scenario !== 'partial-core',
+    ...(scenario === 'missing-complete-slo' ? {} : {complete_close_slo:{
+      attainment_percentage:50, measured_days:6, window_days:30,
+      full_window_observed:false, evaluated_at:iso(),
+      ...(scenario === 'zero-complete-days' ? {measured_days:0,attainment_percentage:100} : {}),
+      ...(scenario === 'invalid-complete-days' ? {measured_days:6.5,full_window_observed:true} : {}),
+      ...(scenario === 'full-complete-window' ? {measured_days:30,full_window_observed:true} : {}),
+    }}),
     ...(scenario === 'skipped-recovery' ? {
       status:'delayed',publication_lag_seconds:3999,root_cause_stage:'dispatch',trigger_origin:'external_push',
       dispatch_requested_at:iso(-4_100_000),workflow_created:iso(-4_097_000),workflow_actual_start:iso(-4_097_000),
@@ -124,6 +133,21 @@ if (['future','offline'].includes(scenario)) {
     assert.equal(p.lastAttempt.status,'skipped');
     assert.equal(p.lastAttempt.creationLagSeconds,14790);
     assert.notEqual(p.runUrl,p.lastAttempt.runUrl);
+  }
+  if (['complete-slo','missing-complete-slo','zero-complete-days','invalid-complete-days','full-complete-window','partial-core'].includes(scenario)) {
+    const p = data.publicationReliability;
+    const unknown = ['missing-complete-slo','invalid-complete-days'].includes(scenario);
+    assert.equal(p.sloPercentage, unknown || scenario === 'zero-complete-days' ? null : 50);
+    assert.equal(p.measuredDays, unknown ? null : scenario === 'zero-complete-days' ? 0 : scenario === 'full-complete-window' ? 30 : 6);
+    assert.equal(p.fullWindow, scenario === 'full-complete-window');
+    assert.equal(p.coreComplete, scenario !== 'partial-core');
+    const page = await worker.fetch(new Request('http://localhost/',{headers:{accept:'text/html'}}),env,ctx);
+    assert.equal(page.status,200);
+    const html = await page.text();
+    assert.match(html,/SLO de cierres completos/);
+    assert.doesNotMatch(html,/70\.0%/);
+    if (!unknown && scenario !== 'zero-complete-days') assert.match(html,/50\.0%/);
+    if (scenario === 'partial-core') assert.match(html,/cobertura core parcial/);
   }
   const csv = await worker.fetch(new Request('http://localhost/api/export?format=csv'),env,ctx);
   const text = await csv.text();
