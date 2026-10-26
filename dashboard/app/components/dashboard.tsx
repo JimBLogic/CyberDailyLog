@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeToggle } from "./theme-toggle";
+import { availableSeverityOptions, resolveSeverityFilter } from "@/lib/severity-filters";
 import { deadlineLabel } from "@/lib/deadlines";
 import { OperationalStatus, CtiHistory } from "./operational-status";
 
@@ -104,9 +105,9 @@ const COPY = {
     verify: "Treat community interest as a lead, not verified intelligence.",
     readSource: "Read at source",
     openDiscussion: "Open discussion",
-    allIntel: "All ranked intelligence",
+    allIntel: "Prioritized advisories",
     intelIntro:
-      "Search and triage the bounded dataset published by the latest pipeline run.",
+      "Search and triage up to 80 prioritized advisories from the latest pipeline run.",
     search: "Search CVE, product or description",
     allSeverities: "All severities",
     attentionOnly: "Exploitation / KEV only",
@@ -335,9 +336,9 @@ const COPY = {
     verify: "El interés comunitario es una pista, no inteligencia verificada.",
     readSource: "Leer en la fuente",
     openDiscussion: "Abrir debate",
-    allIntel: "Toda la inteligencia priorizada",
+    allIntel: "Avisos priorizados",
     intelIntro:
-      "Busca y clasifica el conjunto acotado publicado por la última ejecución.",
+      "Busca y clasifica una selección de hasta 80 avisos priorizados de la última ejecución.",
     search: "Buscar CVE, producto o descripción",
     allSeverities: "Todas las severidades",
     attentionOnly: "Solo explotación / KEV",
@@ -522,13 +523,6 @@ const COPY = {
   },
 } as const;
 
-const SEVERITY_ORDER: Severity[] = [
-  "CRITICAL",
-  "HIGH",
-  "MEDIUM",
-  "LOW",
-  "UNKNOWN",
-];
 
 const VIEW_KEYS: View[] = [
   "overview",
@@ -1652,10 +1646,17 @@ function VulnerabilityList({
   const [attention, setAttention] = useState(false);
   const [watchOnly, setWatchOnly] = useState(false);
   const [sort, setSort] = useState<"priority" | "newest" | "cvss">("priority");
+  const severityOptions = useMemo(() => availableSeverityOptions(data.vulnerabilities), [data.vulnerabilities]);
+  const activeSeverity = resolveSeverityFilter(severity, severityOptions);
+  useEffect(() => {
+    if (activeSeverity === severity) return;
+    const frame = window.requestAnimationFrame(() => setSeverity("ALL"));
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeSeverity, severity]);
   const items = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return data.vulnerabilities
-      .filter((item) => severity === "ALL" || item.severity === severity)
+      .filter((item) => activeSeverity === "ALL" || item.severity === activeSeverity)
       .filter((item) => !attention || attentionItem(item))
       .filter((item) => !watchOnly || watchlist.has(item.id))
       .filter(
@@ -1675,7 +1676,7 @@ function VulnerabilityList({
         }
         return b.priorityScore - a.priorityScore;
       });
-  }, [attention, data.vulnerabilities, query, severity, sort, watchOnly, watchlist]);
+  }, [activeSeverity, attention, data.vulnerabilities, query, sort, watchOnly, watchlist]);
 
   return (
     <section className="view-section">
@@ -1709,15 +1710,16 @@ function VulnerabilityList({
         <label className="select-field">
           <span className="sr-only">{t.allSeverities}</span>
           <select
-            value={severity}
+            value={activeSeverity}
+            aria-describedby="severity-scope"
             onChange={(event) =>
               setSeverity(event.target.value as Severity | "ALL")
             }
           >
-            <option value="ALL">{t.allSeverities}</option>
-            {SEVERITY_ORDER.map((value) => (
+            <option value="ALL">{t.allSeverities} ({data.vulnerabilities.length})</option>
+            {severityOptions.map(({ severity: value, count }) => (
               <option value={value} key={value}>
-                {severityLabel(value, language)}
+                {severityLabel(value, language)} ({count})
               </option>
             ))}
           </select>
@@ -1751,7 +1753,7 @@ function VulnerabilityList({
       </div>
       <div className="list-summary" role="status" aria-live="polite">
         <span>{t.showing} <strong>{items.length}</strong> / {data.vulnerabilities.length} {t.items}</span>
-        <span className="dataset-scope">{language === "es" ? "Selección priorizada; informe completo en GitHub." : "Prioritized selection; full report on GitHub."}</span>
+        <span className="dataset-scope" id="severity-scope">{language === "es" ? "Severidades de esta selección; informe completo en GitHub." : "Severities in this selection; full report on GitHub."}</span>
         {(query || severity !== "ALL" || attention || watchOnly) ? (
           <button type="button" className="reset-filters" onClick={() => { setQuery(""); setSeverity("ALL"); setAttention(false); setWatchOnly(false); }}>
             {language === "es" ? "Limpiar filtros" : "Clear filters"}
