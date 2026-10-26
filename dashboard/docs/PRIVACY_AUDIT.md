@@ -100,3 +100,7 @@ Referencias del proveedor:
 ## Retirada de la prueba Guard
 
 La ruta pública `/guard/` devuelve 410 y sus APIs privadas siguen cerradas. Se conserva el aviso bilingüe de retirada y la información sobre las antiguas preferencias locales en `/privacidad`. Los datos y el desarrollo del producto privado no forman parte de este dashboard.
+
+## Actualización 26 octubre 2026 · Modo de color
+
+El selector claro/oscuro añade `cyberdailylog-theme` (`light` o `dark`) como tercera preferencia local. Se lee antes del primer pintado, no se transmite a APIs y se elimina con el control de borrado. Si el almacenamiento está bloqueado, el selector continúa funcionando durante la visita. El modo claro sigue siendo el predeterminado.

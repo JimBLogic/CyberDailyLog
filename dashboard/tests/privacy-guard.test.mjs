@@ -110,7 +110,7 @@ test("outbound server requests are restricted to the essential data hosts", asyn
   }
 });
 
-test("application source only persists the two documented local preferences", async () => {
+test("application source only persists the three documented local preferences", async () => {
   const files = (await Promise.all(SCAN_ROOTS.map(sourceFiles))).flat();
   const storageFiles = [];
   for (const relativePath of files) {
@@ -129,9 +129,10 @@ test("application source only persists the two documented local preferences", as
   const helper = await readFile(path.join(ROOT, "lib/local-preferences.ts"), "utf8");
   assert.match(helper, /"cyberdailylog-language"/);
   assert.match(helper, /"cyberdailylog-watchlist"/);
-  assert.equal((helper.match(/\.getItem\(/g) ?? []).length, 2);
-  assert.equal((helper.match(/\.setItem\(/g) ?? []).length, 2);
-  assert.equal((helper.match(/\.removeItem\(/g) ?? []).length, 2);
+  assert.match(helper, /"cyberdailylog-theme"/);
+  assert.equal((helper.match(/\.getItem\(/g) ?? []).length, 4);
+  assert.equal((helper.match(/\.setItem\(/g) ?? []).length, 3);
+  assert.equal((helper.match(/\.removeItem\(/g) ?? []).length, 3);
 
   const dashboard = await readFile(path.join(ROOT, "app/components/dashboard.tsx"), "utf8");
   assert.match(dashboard, /onClick=\{\(\) => changeLanguage\("en"\)\}/);

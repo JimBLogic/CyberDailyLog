@@ -1,3 +1,4 @@
+import { ThemeToggle } from "../components/theme-toggle";
 import Link from "next/link";
 import { ClearLocalPreferencesButton } from "./ClearLocalPreferencesButton";
 
@@ -14,7 +15,8 @@ export default function PrivacyPage() {
         <Link href="/" aria-label="Volver a CyberDailyLog">
           ← CyberDailyLog
         </Link>
-        <span>Última revisión · 4 septiembre 2026</span>
+        <ThemeToggle />
+        <span>Última revisión · 26 octubre 2026</span>
       </header>
 
       <section className="privacy-intro" lang="es">
@@ -52,9 +54,10 @@ export default function PrivacyPage() {
                 <code>cyberdailylog-watchlist</code>: guarda solo los identificadores
                 públicos de los avisos que añades a seguimiento.
               </li>
+              <li><code>cyberdailylog-theme</code>: guarda <code>light</code> o <code>dark</code> cuando eliges un modo de color.</li>
             </ul>
             <p>
-              Ambas preferencias permanecen en <code>localStorage</code> hasta que
+              Las tres preferencias permanecen en <code>localStorage</code> hasta que
               las borres con el control inferior o desde la configuración del
               navegador. El código no las envía a CyberDailyLog, a las APIs de
               fuentes ni a un servidor propio, y no añade un identificador del
@@ -167,9 +170,10 @@ export default function PrivacyPage() {
                 <code>cyberdailylog-watchlist</code> stores only the public IDs of
                 advisories you add to your watchlist.
               </li>
+              <li><code>cyberdailylog-theme</code> stores <code>light</code> or <code>dark</code> when you choose a color mode.</li>
             </ul>
             <p>
-              Both stay in <code>localStorage</code> until you use the control below
+              All three stay in <code>localStorage</code> until you use the control below
               or clear this site&apos;s browser data. The application does not send
               them to CyberDailyLog, source APIs or an app-owned server, and it does
               not add a visitor identifier.

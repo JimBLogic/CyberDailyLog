@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeToggle } from "./theme-toggle";
 import { deadlineLabel } from "@/lib/deadlines";
 import { OperationalStatus, CtiHistory } from "./operational-status";
 
@@ -1119,7 +1120,7 @@ function RiskDistribution({
         {data.distribution.map((item) => (
           <div className="risk-row" key={item.key}>
             <span className="risk-label">
-              <i style={{ background: item.color }} />
+              <i style={{ background: `var(--chart-${item.key.toLowerCase()}, ${item.color})` }} />
               {severityLabel(item.key, language)}
             </span>
             <span className="risk-track">
@@ -1127,7 +1128,7 @@ function RiskDistribution({
                 className="risk-fill"
                 style={{
                   width: `${Math.max(2, (item.count / maximum) * 100)}%`,
-                  background: item.color,
+                  background: `var(--chart-${item.key.toLowerCase()}, ${item.color})`,
                 }}
               />
             </span>
@@ -2656,6 +2657,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
             <span aria-hidden="true">☼</span>
             {t.morning}
           </span>
+          <ThemeToggle language={language} />
           <span className="language-toggle" role="group" aria-label={t.language}>
             <button
               type="button"
