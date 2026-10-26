@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-25T11:42:18.592773+00:00",
+  "started_at": "2026-10-26T10:03:03.207713+00:00",
   "phases_ms": {
-    "ledger_load": 1131.118,
-    "prepare": 42.465,
-    "collection": 69873.996,
-    "epss": 4871.152,
-    "matching": 4697.226,
-    "render": 419.795,
-    "ledger_write": 8048.081
+    "ledger_load": 968.439,
+    "prepare": 28.202,
+    "collection": 297722.914,
+    "epss": 9641.6,
+    "matching": 2952.94,
+    "render": 782.481,
+    "ledger_write": 6411.341
   },
-  "baseline_records": 64976,
+  "baseline_records": 65791,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -19,15 +19,25 @@
     },
     "nvd": {
       "status": "healthy",
-      "http_attempts": 11,
+      "http_attempts": 10,
       "http_retries": 0,
-      "requests": 11,
-      "pages": 11,
+      "requests": 10,
+      "pages": 10,
       "page_size_reductions": 0,
-      "response_bytes": 18881944,
-      "wait_seconds": 60.0
+      "response_bytes": 17093901,
+      "wait_seconds": 54.0
     },
     "github_advisories": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "rss_cert_eu_advisories": {
+      "status": "healthy",
+      "http_attempts": 1,
+      "http_retries": 0
+    },
+    "rss_cert_eu_guidance": {
       "status": "healthy",
       "http_attempts": 1,
       "http_retries": 0
@@ -54,15 +64,15 @@
     },
     "epss": {
       "status": "healthy",
-      "http_attempts": 67,
+      "http_attempts": 59,
       "http_retries": 0
     }
   },
-  "tracked_records": 65791,
-  "report_generated": "2026-10-25T11:43:39+00:00",
-  "ledger_bytes": 11955109,
+  "tracked_records": 69861,
+  "report_generated": "2026-10-26T10:08:14+00:00",
+  "ledger_bytes": 12562928,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-25T11:43:47.790084+00:00",
-  "total_ms": 89197.334
+  "finished_at": "2026-10-26T10:08:21.819908+00:00",
+  "total_ms": 318612.22
 }
