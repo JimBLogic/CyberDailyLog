@@ -19,3 +19,7 @@ Run locally and self-host using README.md and docs/SELF_HOSTING.md. Compare the 
 The light edition remains the default. The header and privacy page expose a keyboard-accessible theme toggle. `cyberdailylog-theme` stores only the explicit choice; clearing local preferences restores light. Theme restoration runs before hydration, supports other tabs and remains usable when storage is blocked.
 
 Shared semantic tokens cover text, links, controls, status colors, translucent panels and charts. Original illustrations remain unfiltered on a warm paper inset in dark mode. Fixed dark editorial panels keep an independent inverse palette. Automated checks verify at least 4.5:1 for the principal text/status and primary-control token pairs in both editions; this is not a claim of a complete accessibility certification.
+
+## Severity filters reflect the displayed selection
+
+The priorities view contains up to 80 ranked advisories, while the report-wide distribution may include other severities. The dropdown now lists only categories present in that displayed selection, with counts; medium, low and unclassified reappear automatically when present. Counts do not depend on the active search or watchlist. If a refresh removes a selected severity, the filter safely returns to all without clearing the other controls. The title and scope note identify this view as a selection rather than the complete report.
