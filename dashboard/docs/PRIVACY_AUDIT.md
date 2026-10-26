@@ -96,3 +96,7 @@ Referencias del proveedor:
 - una llamada de servidor que eluda la política de cinco hosts esenciales;
 - una ruta sin el aviso de privacidad, las cabeceras de seguridad o las garantías
   de almacenamiento comprobadas.
+
+## Retirada de la prueba Guard
+
+La ruta pública `/guard/` devuelve 410 y sus APIs privadas siguen cerradas. Se conserva el aviso bilingüe de retirada y la información sobre las antiguas preferencias locales en `/privacidad`. Los datos y el desarrollo del producto privado no forman parte de este dashboard.

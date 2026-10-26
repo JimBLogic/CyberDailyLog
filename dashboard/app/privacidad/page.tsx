@@ -113,13 +113,24 @@ export default function PrivacyPage() {
           <section>
             <h3>Formularios, cuentas y tecnologías no esenciales</h3>
             <p>
-              La aplicación no incluye formularios, cuentas, autenticación,
+              El panel público principal no incluye formularios, cuentas, autenticación,
               publicidad, píxeles, fingerprinting, embeds, iframes, IndexedDB ni
               service workers. No se ha encontrado tecnología no esencial
               controlable por la aplicación que deba bloquearse antes de una
               elección; por eso no se muestra un banner o panel de consentimiento
               ficticio.
             </p>
+          </section>
+
+          <section>
+            <h3>Guard: prueba pública retirada</h3>
+            <p>La prueba de Guard se ha retirado de este Site. Su desarrollo continúa
+              en un entorno privado de acceso restringido. Este panel público no
+              recoge inventarios, cuentas ni alertas personales de Guard.</p>
+            <p>Si utilizaste la prueba, pueden permanecer las preferencias
+              <code> guard.language</code> y <code>guard.theme</code> en este navegador.
+              Puedes eliminarlas desde sus ajustes de datos del sitio.
+              La prueba no guardaba inventarios en el navegador.</p>
           </section>
 
           <section>
@@ -211,12 +222,23 @@ export default function PrivacyPage() {
           <section>
             <h3>Forms, accounts and non-essential technology</h3>
             <p>
-              The application has no forms, accounts, authentication, advertising,
+              The main public dashboard has no forms, accounts, authentication, advertising,
               pixels, fingerprinting, embeds, iframes, IndexedDB or service workers.
               The audit found no app-controlled non-essential technology that must
               be blocked before a choice, so no misleading consent banner or panel
               is shown.
             </p>
+          </section>
+
+          <section>
+            <h3>Guard: public test edition retired</h3>
+            <p>The Guard test edition has been retired from this Site. Development
+              continues in a restricted private environment. This public dashboard
+              does not collect Guard inventories, accounts or personal alerts.</p>
+            <p>If you used the test edition, <code>guard.language</code> and
+              <code> guard.theme</code> preferences may remain in this browser.
+              Remove them through your browser&apos;s site data settings.
+              The test edition did not store inventories in the browser.</p>
           </section>
 
           <section>

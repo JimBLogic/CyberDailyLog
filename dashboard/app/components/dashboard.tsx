@@ -65,8 +65,8 @@ const COPY = {
     engineering: "Project",
     morning: "Daily threat brief",
     eyebrow: "Daily Blue Team intelligence",
-    heroA: "See the threat.",
-    heroB: "Act with confidence.",
+    heroA: "Read the signals.",
+    heroB: "Follow the evidence.",
     heroText:
       "CyberDailyLog gathers trusted sources, separates evidence from noise and shows defenders what to review first.",
     openBrief: "View priorities",
@@ -296,7 +296,7 @@ const COPY = {
     engineering: "Proyecto",
     morning: "Resumen diario de amenazas",
     eyebrow: "Inteligencia Blue Team diaria",
-    heroA: "Entiende la amenaza.",
+    heroA: "Lee las señales.",
     heroB: "Actúa con criterio.",
     heroText:
       "CyberDailyLog reúne fuentes fiables, separa la evidencia del ruido y te muestra qué conviene revisar primero.",
@@ -2324,6 +2324,23 @@ python -m cyberdailylog.portfolio_feed \\
   );
 }
 
+function ArchiveArt({ name, eager = false }: { name: string; eager?: boolean }) {
+  return <img className="archive-art" src={`/illustrations/${name}.webp`} alt="" width={768} height={512} loading={eager ? "eager" : "lazy"} decoding="async" />;
+}
+
+function ArchiveIntro({ view, language }: { view: View; language: Language }) {
+  const es = language === "es";
+  const entries = {
+    vulnerabilities: ["02-prioridades", es ? "El archivo de prioridades" : "The priority archive", es ? "Busca una tecnología. Contrasta la evidencia. Decide qué revisar." : "Find a technology. Check the evidence. Decide what to review."],
+    sources: ["04-fuentes", es ? "Sigue el hilo hasta la fuente" : "Follow the thread to the source", es ? "Procedencia, cobertura y límites de cada señal, a la vista." : "Provenance, coverage and limits of every signal, in view."],
+    methodology: ["10-aprendizaje", es ? "Entender antes de actuar" : "Understand before you act", es ? "Cómo recogemos, priorizamos y verificamos la información." : "How we collect, prioritize and verify information."],
+    engineering: ["07-fiabilidad", es ? "La fiabilidad deja rastro" : "Reliability leaves a trail", es ? "Consulta el código, las mediciones y sus límites." : "Explore the code, measurements and their limits."],
+    overview: ["01-briefing", "", ""],
+  };
+  const [art, title, text] = entries[view];
+  return <aside className="archive-intro"><div><span className="eyebrow">CyberDailyLog / {es ? "Archivo de señales" : "Signal archive"}</span><h2>{title}</h2><p>{text}</p></div><ArchiveArt name={art} eager /></aside>;
+}
+
 function DetailDialog({
   item,
   language,
@@ -2405,6 +2422,7 @@ function DetailDialog({
         <div className="dialog-body">
           <h3>{item.title}</h3>
           <p className="dialog-summary">{item.summary}</p>
+          <details className="evidence-guide"><summary>{language === "es" ? "Cómo leer estas señales" : "How to read these signals"}</summary><p>{language === "es" ? "CVSS describe severidad técnica. EPSS estima probabilidad de explotación a 30 días. CISA KEV registra explotación conocida. Ninguna señal confirma por sí sola que tu versión esté afectada: contrasta producto y versión con el aviso original." : "CVSS describes technical severity. EPSS estimates exploitation probability over 30 days. CISA KEV records known exploitation. No signal alone confirms that your version is affected: check the product and version in the original advisory."}</p></details>
           <CtiHistory item={item} language={language} />
           <div className="dialog-section">
             <span>{t.reasons}</span>
@@ -2427,11 +2445,11 @@ function DetailDialog({
           </div>
           {item.references.length ? (
             <div className="dialog-section">
-              <span>{t.references}</span>
+              <span>{t.references}</span><ArchiveArt name="03-evidencia" />
               <div className="reference-links">
                 {item.references.map((reference, index) => (
                   <a href={reference} target="_blank" rel="noreferrer" key={reference}>
-                    {t.reference} {index + 1} <Icon name="external" size={14} />
+                    {t.reference} {index + 1} · {reference.replace(/^https?:\/\//, "").split("/")[0]} <Icon name="external" size={14} />
                   </a>
                 ))}
               </div>
@@ -2704,14 +2722,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
                     </button>
                   </div>
                 </div>
-                <div className="pipeline-wrap">
-                  <Pipeline
-                    language={language}
-                    status={data.pipelineStatus}
-                    dataMode={data.dataMode}
-                  />
-                  <DataDelivery data={data} language={language} now={clock} />
-                </div>
+                <div className="briefing-art"><ArchiveArt name="01-briefing" eager /><span>{language === "es" ? "ARCHIVO DE SEÑALES / EDICIÓN DIARIA" : "SIGNAL ARCHIVE / DAILY EDITION"}</span></div>
               </div>
               <RiskDistribution data={data} language={language} />
             </div>
@@ -2720,7 +2731,11 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
             ) : null}
           </section>
           <MetricStrip data={data} language={language} now={clock} />
-          <OperationalStatus data={data} language={language} now={clock} />
+          <section className="daily-picks" aria-labelledby="daily-picks-title">
+            <div className="daily-picks-heading"><div><span className="eyebrow">01 / {language === "es" ? "Lectura rápida" : "Quick read"}</span><h2 id="daily-picks-title">{language === "es" ? "En el foco" : "In focus"}</h2><p>{language === "es" ? "Selección por prioridad del último informe disponible. Abre cada expediente para comprobar sus fuentes." : "Ranked selection from the latest available report. Open each case to check its sources."}</p></div><button className="button secondary compact" onClick={() => navigate("vulnerabilities")}>{t.allIntel} <Icon name="arrow" size={16} /></button></div>
+            <div className="daily-picks-grid">{[...data.vulnerabilities].sort((a,b) => b.priorityScore - a.priorityScore).slice(0,3).map((item,index) => <button className="daily-pick" key={item.id} onClick={() => setSelected(item)}><span className="pick-number">0{index+1}</span><span className="pick-content"><span className="pick-id">{item.id}</span><strong>{item.title}</strong><span className="pick-signals"><span>CVSS {item.cvssScore?.toFixed(1) ?? "—"}</span><span>EPSS {percent(item.epssScore)}</span><span>KEV {item.cisaKev ? t.yes : "—"}</span></span><span className="pick-open">{t.details} ↗</span></span></button>)}</div>
+          </section>
+          <details className="operations-disclosure"><summary><span>{language === "es" ? "Estado y cobertura del informe" : "Report status and coverage"}</span><span>{language === "es" ? "Ver mediciones" : "View measurements"} +</span></summary><div className="operations-content"><Pipeline language={language} status={data.pipelineStatus} dataMode={data.dataMode} /><DataDelivery data={data} language={language} now={clock} /><OperationalStatus data={data} language={language} now={clock} /></div></details>
           <SourceRail sources={data.sourceHealth} language={language} now={clock} />
           <div className="below-fold-grid">
             <HistoryChart
@@ -2747,6 +2762,7 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
         </div>
       ) : null}
 
+      {view !== "overview" ? <ArchiveIntro view={view} language={language} /> : null}
       {view === "vulnerabilities" ? (
         <VulnerabilityList
           data={data}

@@ -41,8 +41,12 @@ test("renders the CyberDailyLog product shell", async () => {
   const html = await response.text();
   assert.match(html, /CyberDailyLog/);
   assert.match(html, /Inteligencia Blue Team diaria/i);
-  assert.match(html, /Entiende la amenaza/i);
+  assert.match(html, /Lee las señales/i);
   assert.match(html, /Estado de los datos/i);
+  assert.match(html, /id="daily-picks-title"/);
+  assert.equal((html.match(/class="daily-pick"/g) ?? []).length, 3);
+  assert.match(html, /<details class="operations-disclosure">/);
+  assert.match(html, /src="\/illustrations\/01-briefing.webp" alt="" width="768" height="512"/);
   assert.match(html, /Puntualidad de publicación/i);
   assert.match(html, /CVE con cambios de estado/i);
   assert.match(html, /Europe\/Madrid/i);
