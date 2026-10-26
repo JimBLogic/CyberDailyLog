@@ -15,6 +15,8 @@ def test_only_enabled_curated_rss_sources_are_active():
     collector = RssCollector(offline=True, sources=sources)
 
     assert [source["name"] for source in collector.sources] == [
+        "CERT-EU Security Advisories",
+        "CERT-EU Security Guidance",
         "Krebs on Security",
         "SANS Internet Storm Center Handler's Diary",
     ]
@@ -116,3 +118,91 @@ def test_rss_empty_feed_is_degraded_without_crashing_pipeline():
     assert items == []
     assert health.status == "degraded"
     assert health.error_type == "SourceError"
+
+
+def test_cert_eu_metadata_only_attribution_and_no_inferred_vulnerability_state():
+    sources = load_yaml(Path("config/sources.yml"))["rss_sources"][:2]
+    for source in sources:
+        items, health = RssCollector(offline=True, sources=[source]).collect(SINCE, UNTIL)
+        assert health.status == "fixture_only" and health.required is False
+        assert len(items) == 1
+        item = items[0]
+        assert item.summary == "" and item.excerpt_origin is None
+        assert item.author == "CERT-EU" and item.official_source
+        assert item.category == "analyst_diary"
+        assert item.published_at.hour == 9  # 11:00 CEST is 09:00 UTC
+        assert "https://cert.europa.eu/legal-notice" in item.references
+        assert "https://creativecommons.org/licenses/by/4.0/" in item.references
+        assert not item.cve_ids and not item.fixed_versions
+        assert item.known_exploited is None and item.cisa_kev is None
+
+
+def test_cet_dates_are_converted_without_assuming_utc():
+    from cyberdailylog.collectors.rss import _entry_datetime
+    import xml.etree.ElementTree as ET
+
+    item = ET.fromstring("<item><pubDate>Mon, 26 Oct 2026 11:00:00 CET</pubDate></item>")
+    assert _entry_datetime(item) == datetime(2026, 10, 26, 10, tzinfo=timezone.utc)
+
+
+def _configured_live_collector(payload):
+    class FakeHttp:
+        def get(self, url, max_bytes=0):
+            return type("Response", (), {"text": payload})()
+
+    source = load_yaml(Path("config/sources.yml"))["rss_sources"][0]
+    return RssCollector(FakeHttp(), sources=[source])
+
+
+def test_metadata_policy_does_not_fetch_article_bodies_or_copy_descriptions():
+    payload = """<rss><channel><item><title>Reference</title>
+    <link>https://cert.europa.eu/publications/test/</link>
+    <pubDate>Wed, 15 Jul 2026 09:00:00 GMT</pubDate>
+    <description>Entire article that must never be copied.</description></item></channel></rss>"""
+    items, health = _configured_live_collector(payload).collect(SINCE, UNTIL)
+    assert health.status == "healthy"
+    assert items[0].summary == ""
+    assert "Entire article" not in str(items[0].to_dict())
+
+
+def test_new_feeds_reject_empty_or_masquerading_documents():
+    for payload in ["<html>blocked</html>", "<rss><channel/></rss>", "<error>Unavailable</error>"]:
+        items, health = _configured_live_collector(payload).collect(SINCE, UNTIL)
+        assert items == [] and health.status == "degraded"
+        assert health.required is False
+
+
+def test_rss_rejects_dtd_entity_payload_before_parsing():
+    payload = '<!DOCTYPE rss [<!ENTITY secret "injected">]><rss><channel/></rss>'
+    items, health = _configured_live_collector(payload).collect(SINCE, UNTIL)
+    assert items == [] and health.status == "degraded"
+    assert "entities" in health.sanitized_error_message
+
+
+def test_official_feed_cannot_attribute_external_or_unsafe_links_to_cert_eu():
+    for link in [
+        "https://attacker.example/test",
+        "javascript:alert(1)",
+        "https://user:pass@cert.europa.eu/test",
+        "https://cert.europa.eu:8443/test",
+        "https://cert.europa.eu:bad/test",
+    ]:
+        payload = f"""<rss><channel><item><title>Reference</title><link>{link}</link>
+        <pubDate>Wed, 15 Jul 2026 09:00:00 GMT</pubDate></item></channel></rss>"""
+        items, health = _configured_live_collector(payload).collect(SINCE, UNTIL)
+        assert items == [] and health.items_rejected == 1
+        assert health.status == "degraded"
+
+
+def test_optional_rss_outage_does_not_break_complete_core_pipeline(tmp_path, monkeypatch):
+    from cyberdailylog.pipeline import Pipeline
+    from cyberdailylog.models import SourceHealth
+
+    def failed(self, since, until):
+        return [], SourceHealth(self.name, "degraded", SINCE, UNTIL, 1, required=False)
+
+    monkeypatch.setattr(RssCollector, "collect", failed)
+    report = Pipeline(output_dir=tmp_path, offline=True).run(SINCE, UNTIL)
+    assert report.degraded is False
+    assert all(h.status == "fixture_only" for h in report.source_health if h.required)
+    assert len([h for h in report.source_health if h.source.startswith("rss_cert_eu")]) == 2

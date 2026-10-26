@@ -1,4 +1,35 @@
 rss_sources:
+  # Optional reference/context lanes: no CVE/exploitation/version inference.
+  - name: CERT-EU Security Advisories
+    url: https://cert.europa.eu/publications/security-advisories-rss
+    health_name: rss_cert_eu_advisories
+    author: CERT-EU
+    category: analyst_diary
+    source_type: official_rss
+    source_tier: 2
+    official_source: true
+    metadata_only: true
+    require_entries: true
+    allowed_entry_hosts: [cert.europa.eu]
+    attribution_urls:
+      - https://cert.europa.eu/legal-notice
+      - https://creativecommons.org/licenses/by/4.0/
+    blue_team_relevance: Official advisory reference; read the original for affected products and mitigation. Metadata only; no article text reproduced.
+  - name: CERT-EU Security Guidance
+    url: https://cert.europa.eu/publications/security-guidance-rss
+    health_name: rss_cert_eu_guidance
+    author: CERT-EU
+    category: analyst_diary
+    source_type: official_rss
+    source_tier: 2
+    official_source: true
+    metadata_only: true
+    require_entries: true
+    allowed_entry_hosts: [cert.europa.eu]
+    attribution_urls:
+      - https://cert.europa.eu/legal-notice
+      - https://creativecommons.org/licenses/by/4.0/
+    blue_team_relevance: Official defensive learning reference. Metadata only; no article text reproduced.
   - name: CISA Cybersecurity Advisories
     url: https://www.cisa.gov/news.xml
     owner: Cybersecurity and Infrastructure Security Agency

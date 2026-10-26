@@ -44,6 +44,7 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 - **Dashboard-feed contract:** [`schemas/dashboard-feed.schema.json`](schemas/dashboard-feed.schema.json)
 - **Complete evidence JSON:** [`reports/latest.json`](reports/latest.json)
 - **Collector health:** [`reports/source-health.json`](reports/source-health.json)
+- **Source catalogue, learning links and reuse decisions:** [`docs/SOURCE_CATALOG.md`](docs/SOURCE_CATALOG.md)
 - **Publication timing and SLO:** [`reports/publication-timing.json`](reports/publication-timing.json)
 - **CTI state and reliability design:** [`docs/cti-reliability.md`](docs/cti-reliability.md)
 - **Daily archive:** [`reports/archive/`](reports/archive/)
