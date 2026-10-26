@@ -82,3 +82,7 @@ API alojada de ese proyecto.
 - `tests/`: regresiones del render y API.
 - `.openai/hosting.json`: identidad del proyecto de Sites; no impide ejecutarlo
   fuera de Sites.
+
+## UI · Archivo de señales
+
+Diseño adaptable y evidencias de validación: [UI_RELEASE.md](docs/UI_RELEASE.md). Los recursos WebP se sirven localmente. La antigua ruta pública `/guard/` conserva su respuesta 410 de retirada, sin activar el producto privado.
