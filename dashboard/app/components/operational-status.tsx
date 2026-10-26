@@ -44,12 +44,13 @@ export function OperationalStatus({data, language, now}: {data: DashboardData; l
       <div><span>{es ? "Objetivo diario" : "Daily target"}</span><strong>12:00 Europe/Madrid</strong><small>{es ? "≥95 % en un máximo de 60 min" : "≥95% within 60 minutes"}</small></div>
       <div><span>{es ? "Última publicación medida" : "Last measured publication"}</span><strong>{timestamp(p?.actual, language)}</strong><small>{es ? "Prevista: " : "Scheduled: "}{timestamp(p?.scheduledFor, language)}</small></div>
       <div><span>{es ? "Retraso medido" : "Measured delay"}</span><strong>{p?.lagSeconds != null ? (p.lagSeconds / 60).toFixed(1) + " min" : "—"}</strong><small>{causes[p?.rootCause ?? "unknown"]}</small></div>
-      <div><span>{es ? "SLO · ventana de 30 días" : "SLO · 30-day window"}</span><strong>{p?.sloPercentage != null ? p.sloPercentage.toFixed(1) + "%" : "—"}</strong><small>{p?.measuredDays ?? 0} {es ? "días medidos" : "days measured"} · {p?.fullWindow ? (es ? "ventana completa" : "full window") : (es ? "muestra parcial" : "partial sample")}</small></div>
+      <div><span>{es ? "SLO de cierres completos · 30 días" : "Complete-close SLO · 30 days"}</span><strong>{p?.sloPercentage != null ? p.sloPercentage.toFixed(1) + "%" : "—"}</strong><small>{p?.measuredDays ?? "—"} {es ? "días medidos" : "days measured"} · {p?.fullWindow ? (es ? "ventana completa" : "full window") : (es ? "muestra parcial" : "partial sample")}</small></div>
     </div>
     <p className="operational-caption">
       {missingToday ? (es ? "No hay medición publicada para el objetivo de hoy. " : "No published measurement for today's target. ") : ""}
       {es ? "El SLO corresponde a la evaluación del " : "SLO evaluated at "}{timestamp(p?.evaluatedAt, language)}.
-      {" "}{es ? "Mide publicación en GitHub; el panel comprueba novedades cada 15 min." : "Measures GitHub publication; the dashboard checks updates every 15 minutes."}
+      {" "}{es ? "Exige CISA KEV, NVD y GHSA completos y publicación en GitHub dentro de plazo. No mide disponibilidad del sitio; el panel comprueba novedades cada 15 min." : "Requires complete CISA KEV, NVD and GHSA coverage and on-time GitHub publication. Does not measure site availability; the dashboard checks updates every 15 minutes."}
+      {" "}{p?.coreComplete === false ? (es ? "La última publicación tiene cobertura core parcial." : "The latest publication has partial core coverage.") : ""}
       {p?.runUrl ? <> <a href={p.runUrl} target="_blank" rel="noreferrer">{es ? "Ver evidencia" : "View evidence"} ↗</a></> : null}
     </p>
     {p ? <details className="publication-evidence">
