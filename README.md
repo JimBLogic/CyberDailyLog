@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-26T10:08:14+00:00  
-**Coverage:** 2026-10-25T09:42:18+00:00 → 2026-10-26T10:03:03+00:00  
+**Updated:** 2026-10-26T11:58:53+00:00  
+**Coverage:** 2026-10-25T11:56:26+00:00 → 2026-10-26T11:56:26+00:00  
 **Pipeline:** **Operational**
 
-6 item(s) include exploitation, KEV or ransomware signals.
+2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 4209 source-backed developments
-- **Above threshold:** 3101
+- **Assessed:** 874 source-backed developments
+- **Above threshold:** 712
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-56291](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-56291 exploited in CISA KEV: Balbooa Forms — CVSS 10.0; EPSS percentile &gt;= 95%
-- **[CVE-2026-48939](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-48939 exploited in CISA KEV: iCagenda iCagenda — CVSS 10.0; EPSS percentile &gt;= 95%
 - **[CVE-2026-110447](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online – Built-in CODE Server — CVSS 9.2; EPSS percentile &gt;= 95%
-- **[CVE-2026-49869](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-49869 exploited in CISA KEV: Kestra Kestra OSS — CVSS 10.0; detection opportunity
 - **[CVE-2026-114625](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.4; detection opportunity
+- **[CVE-2026-49441](https://nvd.nist.gov/vuln/detail/CVE-2026-49441) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.3.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
+- **[CVE-2026-48162](https://nvd.nist.gov/vuln/detail/CVE-2026-48162) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
+- **[CVE-2026-48024](https://nvd.nist.gov/vuln/detail/CVE-2026-48024) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
 
 ### Human context
 
@@ -35,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP](https://github.com/KrushnaVardhanReddy/PaperPilot)** — Hacker News · 137 points · 30 comments
+**[PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP](https://github.com/KrushnaVardhanReddy/PaperPilot)** — Hacker News · 160 points · 51 comments
 [Open discussion](https://news.ycombinator.com/item?id=50238739)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)

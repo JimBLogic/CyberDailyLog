@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-26T10:03:03.207713+00:00",
+  "started_at": "2026-10-26T11:56:26.157319+00:00",
   "phases_ms": {
-    "ledger_load": 968.439,
-    "prepare": 28.202,
-    "collection": 297722.914,
-    "epss": 9641.6,
-    "matching": 2952.94,
-    "render": 782.481,
-    "ledger_write": 6411.341
+    "ledger_load": 1237.4,
+    "prepare": 86.473,
+    "collection": 137994.544,
+    "epss": 4263.368,
+    "matching": 3946.459,
+    "render": 652.649,
+    "ledger_write": 8651.127
   },
-  "baseline_records": 65791,
+  "baseline_records": 69861,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -19,13 +19,13 @@
     },
     "nvd": {
       "status": "healthy",
-      "http_attempts": 10,
+      "http_attempts": 12,
       "http_retries": 0,
-      "requests": 10,
-      "pages": 10,
+      "requests": 12,
+      "pages": 12,
       "page_size_reductions": 0,
-      "response_bytes": 17093901,
-      "wait_seconds": 54.0
+      "response_bytes": 21733902,
+      "wait_seconds": 66.0
     },
     "github_advisories": {
       "status": "healthy",
@@ -64,15 +64,15 @@
     },
     "epss": {
       "status": "healthy",
-      "http_attempts": 59,
+      "http_attempts": 70,
       "http_retries": 0
     }
   },
-  "tracked_records": 69861,
-  "report_generated": "2026-10-26T10:08:14+00:00",
-  "ledger_bytes": 12562928,
+  "tracked_records": 70695,
+  "report_generated": "2026-10-26T11:58:53+00:00",
+  "ledger_bytes": 12696505,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-26T10:08:21.819908+00:00",
-  "total_ms": 318612.22
+  "finished_at": "2026-10-26T11:59:03.117240+00:00",
+  "total_ms": 156959.945
 }
