@@ -2403,6 +2403,20 @@ function DetailDialog({
         className="detail-dialog"
         aria-modal="true"
         aria-labelledby="dialog-title"
+        onKeyDown={(event) => {
+          if (event.key !== "Tab") return;
+          const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], summary, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          )).filter(element => element.getClientRects().length > 0 && element.tabIndex >= 0);
+          const first = controls[0];
+          const last = controls[controls.length - 1];
+          if (!first || !last) { event.preventDefault(); event.currentTarget.focus(); return; }
+          if (event.shiftKey && (document.activeElement === first || document.activeElement === event.currentTarget)) {
+            event.preventDefault(); last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault(); first.focus();
+          }
+        }}
         onCancel={(event) => { event.preventDefault(); onClose(); }}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;

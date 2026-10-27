@@ -18,7 +18,7 @@ const report = {
   }, {canonical_id:'CVE-2026-23456', title:'Second', category:'vulnerability', priority_score:1.5, severity:'LOW'}],
 };
 if (scenario === 'future') report.generated_at = iso(86_400_000);
-if (scenario === 'partial-core') { report.degraded = true; health[1].status = 'failed'; }
+if (scenario === 'partial-core') { report.degraded = false; health[1].status = 'failed'; }
 if (scenario === 'missing-health') delete report.source_health;
 if (scenario === 'cti') {
   report.cti_summary = {new_vulnerabilities:0, state_changes:1};
@@ -142,6 +142,10 @@ if (['future','offline'].includes(scenario)) {
     assert.equal(p.measuredDays, unknown ? null : scenario === 'zero-complete-days' ? 0 : scenario === 'full-complete-window' ? 30 : 6);
     assert.equal(p.fullWindow, scenario === 'full-complete-window');
     assert.equal(p.coreComplete, scenario !== 'partial-core');
+    if (scenario === 'partial-core') {
+      assert.equal(data.pipelineStatus, 'degraded');
+      assert.equal(data.history.at(-1).degraded, true, 'current history status must agree with core source coverage even if the raw flag is false');
+    }
     const page = await worker.fetch(new Request('http://localhost/',{headers:{accept:'text/html'}}),env,ctx);
     assert.equal(page.status,200);
     const html = await page.text();

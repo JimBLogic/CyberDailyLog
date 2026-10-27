@@ -708,7 +708,7 @@ async function fetchDashboardData(): Promise<DashboardData> {
     high: securityItems.filter(
       (item) => safeSeverity(item.severity) === "HIGH",
     ).length,
-    degraded: booleanValue(report.degraded),
+    degraded: booleanValue(report.degraded) || reportIsStale || assessCoverage(sourceHealth, "live").coverageState !== "sufficient",
   };
   const resolvedHistory =
     history.length > 0
