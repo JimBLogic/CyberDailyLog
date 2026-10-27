@@ -94,7 +94,7 @@ def test_daily_workflow_safe_mode_and_publication_contract():
     assert "git add README.md reports" in publish_script
     assert "git diff --cached --quiet" in publish_script
     assert "exit 0" in publish_script
-    assert "git push" in publish_script
+    assert "bash scripts/push_publication.sh" in publish_script
     assert "git add ." not in publish_script
     assert publish_script.index("publication-check.json") < publish_script.index(
         "cp -a incoming-publication/reports/. reports/"
