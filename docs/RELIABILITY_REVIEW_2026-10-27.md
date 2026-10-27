@@ -37,3 +37,9 @@ Run 40508422492 collected all ten sources successfully (including NVD), but `Com
 The publisher now permits at most three ordinary pushes. After a rejected push it retries only when origin/main actually advanced, revalidates the immutable bundle and retained ledger against that exact new baseline, suppresses publication if another complete daily close exists, and rebases without force. A conflict, history regression, authorization failure without a main advance or exhausted attempts stops publication. Successful push timestamps are emitted only after a successful push; duplicate closes emit only the duplicate receipt.
 
 Local Git integration tests reproduce code-only concurrent advancement, a concurrent complete close, a newer remote ledger and a push denial. They verify both branches' changes survive the successful recovery, duplicate/newer history remains untouched, and failures never produce a successful push receipt.
+
+## Bounded NVD window recovery
+
+The latest failed NVD capture reported a changing total during pagination, rather than a connection failure. Retry a changed total or duplicate-CVE window once from offset zero using the same original dates. Discard the entire abandoned attempt, keep pacing and metrics cumulative across the restart, and record `window_restarts`. Invalid metadata, no progress and transport errors do not restart the full window (transport retries remain owned by the HTTP client). Persistent instability returns no items and a failed source; it never becomes healthy by merging partial pages.
+
+Regression tests cover total and duplicate recovery without mixed CVEs, identical date bounds, rate pacing across the restart, persistent instability bounded to two attempts, and no extra full-window retry for transport failures. This improves recovery but does not establish an immutable provider snapshot or punctual daily publication; reliability measurements and Guard's paused state remain unchanged.

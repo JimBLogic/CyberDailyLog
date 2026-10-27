@@ -30,6 +30,10 @@ def extract_reference_urls(references: Any) -> list[str]:
     return urls
 
 
+class _ResultSetChanged(SourceError):
+    """The provider changed a mutable result window while it was paginated."""
+
+
 class NvdCollector(BaseCollector):
     name = "nvd"
     required = True
@@ -85,34 +89,51 @@ class NvdCollector(BaseCollector):
 
     def collect(self, since, until):
         started = datetime.now(timezone.utc)
-        self.metrics = {"requests": 0, "pages": 0, "page_size_reductions": 0, "response_bytes": 0, "wait_seconds": 0.0}
-        try:
-            if self.offline:
-                pages = (self.fixture_json(name) for name in ("nvd_page1.json", "nvd_page2.json"))
-            else:
-                pages = self._pages(since, until)
-            items = []
-            received = 0
-            rejected = 0
-            seen = set()
-            for data in pages:
-                self.metrics["pages"] += 1
-                for obj in data["vulnerabilities"]:
-                    received += 1
-                    cid = obj["cve"]["id"]
-                    if cid in seen:
-                        raise SourceError("NVD pagination returned a duplicate CVE; refusing incomplete coverage")
-                    seen.add(cid)
-                    if obj["cve"].get("vulnStatus") == "Rejected":
-                        rejected += 1
-                        continue
-                    items.append(self._item(obj))
-                # Do not retain unused CPE trees from every raw page in memory.
-            return items, self.timed_health(
-                "fixture_only" if self.offline else "healthy", started, received, len(items), rejected
-            )
-        except Exception as e:
-            return [], self.timed_health("failed", started, err=e)
+        self.metrics = {
+            "requests": 0,
+            "pages": 0,
+            "page_size_reductions": 0,
+            "response_bytes": 0,
+            "wait_seconds": 0.0,
+            "window_restarts": 0,
+        }
+        # NVD does not supply snapshot pagination. Discard an unstable attempt
+        # in full, then retry the SAME bounded dates once from offset zero.
+        # Request counters remain cumulative so rate limiting also spans retries.
+        for attempt in range(2):
+            try:
+                if self.offline:
+                    pages = (self.fixture_json(name) for name in ("nvd_page1.json", "nvd_page2.json"))
+                else:
+                    pages = self._pages(since, until)
+                items = []
+                received = 0
+                rejected = 0
+                seen = set()
+                for data in pages:
+                    self.metrics["pages"] += 1
+                    for obj in data["vulnerabilities"]:
+                        received += 1
+                        cid = obj["cve"]["id"]
+                        if cid in seen:
+                            raise _ResultSetChanged(
+                                "NVD pagination returned a duplicate CVE; refusing incomplete coverage"
+                            )
+                        seen.add(cid)
+                        if obj["cve"].get("vulnStatus") == "Rejected":
+                            rejected += 1
+                            continue
+                        items.append(self._item(obj))
+                    # Do not retain unused CPE trees from every raw page in memory.
+                return items, self.timed_health(
+                    "fixture_only" if self.offline else "healthy", started, received, len(items), rejected
+                )
+            except Exception as error:
+                if isinstance(error, _ResultSetChanged) and not self.offline and attempt == 0:
+                    self.metrics["window_restarts"] += 1
+                    continue
+                return [], self.timed_health("failed", started, err=error)
+        raise AssertionError("NVD bounded collection exhausted without a result")
 
     def _pages(self, since, until):
         headers = {"apiKey": self.token} if self.token else {}
@@ -159,7 +180,7 @@ class NvdCollector(BaseCollector):
             ):
                 raise SourceError("Invalid NVD pagination metadata")
             if total is not None and total != current_total:
-                raise SourceError("NVD result set changed during pagination; retry the complete window")
+                raise _ResultSetChanged("NVD result set changed during pagination; retry the complete window")
             total = current_total
             if params["startIndex"] + count > total or (count == 0 and params["startIndex"] < total):
                 raise SourceError("NVD pagination made no progress")
