@@ -18,6 +18,7 @@ const report = {
   }, {canonical_id:'CVE-2026-23456', title:'Second', category:'vulnerability', priority_score:1.5, severity:'LOW'}],
 };
 if (scenario === 'future') report.generated_at = iso(86_400_000);
+if (scenario === 'partial-core') { report.degraded = true; health[1].status = 'failed'; }
 if (scenario === 'missing-health') delete report.source_health;
 if (scenario === 'cti') {
   report.cti_summary = {new_vulnerabilities:0, state_changes:1};
@@ -48,7 +49,7 @@ globalThis.fetch = async (input) => {
     minimum_priority: 5, above_threshold: 999, immediate_attention_count: 888,
     human_context: {title: 'Wrong generation', source_url:'javascript:alert(1)'},
   });
-  if (url.pathname.endsWith('/dashboard-feed.json')) return Response.json({history:[]});
+  if (url.pathname.endsWith('/dashboard-feed.json')) return Response.json({history: scenario === 'full-complete-window' ? [{date:iso(-86400000).slice(0,10),assessed:10,above_threshold:3,degraded:false}] : []});
   if (url.pathname.endsWith('/publication-timing.json')) return Response.json(scenario === 'invalid-timing' ? {
     schema_version:2, status:'made_up', publication_lag_seconds:-3, actual_publication_time:'invalid',
     run_url:'javascript:alert(1)', slo:{attainment_percentage:999,measured_publications:999},
@@ -147,7 +148,18 @@ if (['future','offline'].includes(scenario)) {
     assert.match(html,/SLO de cierres completos/);
     assert.doesNotMatch(html,/70\.0%/);
     if (!unknown && scenario !== 'zero-complete-days') assert.match(html,/50\.0%/);
-    if (scenario === 'partial-core') assert.match(html,/cobertura core parcial/);
+    if (scenario === 'full-complete-window') {
+      assert.match(html, /Consultar los datos de la gráfica/);
+      assert.match(html, /<caption>Valores del histórico diario<\/caption>/);
+      assert.match(html, /<th scope="col">Fecha<\/th>/);
+      assert.match(html, /<th scope="row">\d{4}-\d{2}-\d{2}<\/th>/);
+    }
+    if (scenario === 'partial-core') {
+      assert.match(html,/cobertura core parcial/);
+      assert.match(html, /class="freshness-banner limited" role="status"/);
+      assert.match(html, /Informe disponible con cobertura limitada/);
+      assert.match(html, /Fuentes afectadas.*NVD/);
+    }
   }
   const csv = await worker.fetch(new Request('http://localhost/api/export?format=csv'),env,ctx);
   const text = await csv.text();

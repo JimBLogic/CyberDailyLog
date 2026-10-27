@@ -40,6 +40,8 @@ rss_sources:
   - name: Krebs on Security
     url: https://krebsonsecurity.com/feed/
     health_name: rss_krebs
+    require_entries: true
+    allowed_entry_hosts: [krebsonsecurity.com]
     author: Brian Krebs
     category: expert_commentary
     source_type: expert_rss
@@ -51,6 +53,8 @@ rss_sources:
   - name: SANS Internet Storm Center Handler's Diary
     url: https://isc.sans.edu/rssfeed_full.xml
     health_name: rss_sans_isc
+    require_entries: true
+    allowed_entry_hosts: [isc.sans.edu]
     category: analyst_diary
     source_type: analyst_rss
     source_tier: 2

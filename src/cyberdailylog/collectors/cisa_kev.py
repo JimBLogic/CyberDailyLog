@@ -1,6 +1,21 @@
 from datetime import datetime, timezone
+import re
+from urllib.parse import urlsplit
 from .base import BaseCollector
 from cyberdailylog.models import IntelligenceItem
+
+
+def reference_urls(notes, fallback):
+    urls = []
+    for match in re.findall(r"https?://[^\s<>\"']+", str(notes or "")):
+        url = match.rstrip(";,. )")
+        try:
+            parsed = urlsplit(url)
+            if parsed.hostname and not parsed.username and not parsed.password and url not in urls:
+                urls.append(url)
+        except ValueError:
+            continue
+    return urls or [fallback]
 
 
 class CisaKevCollector(BaseCollector):
@@ -47,7 +62,7 @@ class CisaKevCollector(BaseCollector):
                     else None,
                     exploitation_status="confirmed_exploitation",
                     recommended_actions=[v.get("requiredAction", "")],
-                    references=[v.get("notes", "") or self.url],
+                    references=reference_urls(v.get("notes"), self.url),
                     confidence="high",
                 )
                 item.add_provenance("known_exploited", "CISA KEV", True)

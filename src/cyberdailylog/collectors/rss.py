@@ -136,6 +136,8 @@ class RssCollector(BaseCollector):
                 if re.search(r"<!\s*(DOCTYPE|ENTITY)\b", text, re.IGNORECASE):
                     raise SourceError("feed DTDs and entities are not permitted")
                 root = ET.fromstring(text)
+                if _local_name(root.tag) not in {"rss", "rdf", "feed"}:
+                    raise SourceError("response is not an RSS or Atom feed")
                 entries = _feed_entries(root)
                 if source.get("require_entries") and not entries:
                     raise SourceError("feed contains no entries; payload is not verified")
@@ -150,27 +152,30 @@ class RssCollector(BaseCollector):
                     if not since <= published <= until:
                         continue
 
-                    link = _entry_link(entry, str(source.get("url") or ""))
-                    if source.get("allowed_entry_hosts"):
-                        # Some older CERT-EU paths contain literal spaces.
-                        # Percent-encode them before applying the same origin
-                        # checks; other control characters remain rejected.
-                        link = link.replace(" ", "%20")
-                        try:
-                            parsed = urlsplit(link)
-                            safe = (
-                                parsed.scheme == "https"
-                                and parsed.hostname in source["allowed_entry_hosts"]
-                                and parsed.port in (None, 443)
-                                and not parsed.username
-                                and not parsed.password
-                                and not any(ord(c) <= 32 for c in link)
+                    link = _entry_link(entry, "")
+                    # Some older CERT-EU paths contain literal spaces.
+                    # Percent-encode them before applying the same origin
+                    # checks; other control characters remain rejected.
+                    link = link.replace(" ", "%20")
+                    try:
+                        parsed = urlsplit(link)
+                        safe = (
+                            parsed.scheme == "https"
+                            and bool(parsed.hostname)
+                            and (
+                                not source.get("allowed_entry_hosts")
+                                or parsed.hostname in source["allowed_entry_hosts"]
                             )
-                        except ValueError:
-                            safe = False
-                        if not safe:
-                            rejected += 1
-                            continue
+                            and parsed.port in (None, 443)
+                            and not parsed.username
+                            and not parsed.password
+                            and not any(ord(c) <= 32 for c in link)
+                        )
+                    except ValueError:
+                        safe = False
+                    if not safe:
+                        rejected += 1
+                        continue
                     title = _plain_text(_first_text(entry, {"title"})) or "Untitled"
                     raw_excerpt = _first_text(entry, {"description", "summary", "content", "encoded"})
                     excerpt = _truncate_excerpt(
