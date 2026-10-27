@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-26T11:58:53+00:00  
-**Coverage:** 2026-10-25T11:56:26+00:00 → 2026-10-26T11:56:26+00:00  
+**Updated:** 2026-10-27T12:29:52+00:00  
+**Coverage:** 2026-10-26T09:56:26+00:00 → 2026-10-27T12:28:01+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 874 source-backed developments
-- **Above threshold:** 712
-- Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
+- **Assessed:** 51 source-backed developments
+- **Above threshold:** 23
+- Core sources: **2/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-110447](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online – Built-in CODE Server — CVSS 9.2; EPSS percentile &gt;= 95%
-- **[CVE-2026-114625](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator — CVSS 9.4; detection opportunity
-- **[CVE-2026-49441](https://nvd.nist.gov/vuln/detail/CVE-2026-49441) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.3.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
-- **[CVE-2026-48162](https://nvd.nist.gov/vuln/detail/CVE-2026-48162) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
-- **[CVE-2026-48024](https://nvd.nist.gov/vuln/detail/CVE-2026-48024) · 9.4/10** — Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an — CVSS 9.1; priority technology: security_products
+- **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
+- **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
+- **[CVE-2026-55107](https://nvd.nist.gov/vuln/detail/CVE-2026-55107) · 9.4/10** — Kobako is a Ruby gem that embeds a Wasm-isolated mruby interpreter inside applications, allowing execution of untrusted — CVSS 10.0; priority technology: linux
+- **[CVE-2026-49875](https://nvd.nist.gov/vuln/detail/CVE-2026-49875) · 9.4/10** — Apache CXF&#x27;s EndpointReferenceUtils and W3CMultiSchemaFactory classes construct a SAXParserFactory without the necessary — CVSS 9.8; detection opportunity
+- **[CVE-2025-57735](https://nvd.nist.gov/vuln/detail/CVE-2025-57735) · 9.3/10** — When user logged out, the JWT token the user had authtenticated with was not invalidated, which could lead to reuse of t — CVSS 9.1; detection opportunity
 
 ### Human context
 
-**[Looking for a Language \[Guest Diary\], (Wed, Oct 21st)](https://isc.sans.edu/diary/rss/33442)**
+**[ISC Stormcast For Tuesday, October 27th, 2026 https://isc.sans.edu/podcastdetail/10152, (Tue, Oct 27th)](https://isc.sans.edu/diary/rss/33462)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> \[This is a Guest Diary by Jeffray Spence, an ISC intern as part of the SANS.edu BACS program\]
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP](https://github.com/KrushnaVardhanReddy/PaperPilot)** — Hacker News · 160 points · 51 comments
-[Open discussion](https://news.ycombinator.com/item?id=50238739)
+**[The Exponential Time Hypothesis Is False \[pdf\]](https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf)** — Hacker News · 670 points · 250 comments
+[Open discussion](https://news.ycombinator.com/item?id=50251661)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

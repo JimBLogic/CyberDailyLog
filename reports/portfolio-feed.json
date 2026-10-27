@@ -1,17 +1,17 @@
 {
-  "above_threshold": 712,
+  "above_threshold": 23,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 51,
-    "discussion_url": "https://news.ycombinator.com/item?id=50238739",
-    "published_at": "2026-10-26T03:29:05+00:00",
-    "score": 160,
+    "comments": 250,
+    "discussion_url": "https://news.ycombinator.com/item?id=50251661",
+    "published_at": "2026-10-26T21:59:15+00:00",
+    "score": 670,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/KrushnaVardhanReddy/PaperPilot",
-    "title": "PaperPilot \u2013 Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP"
+    "source_url": "https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf",
+    "title": "The Exponential Time Hypothesis Is False [pdf]"
   },
-  "coverage_end": "2026-10-26T11:56:26+00:00",
-  "coverage_start": "2026-10-25T11:56:26+00:00",
+  "coverage_end": "2026-10-27T12:28:01+00:00",
+  "coverage_start": "2026-10-26T09:56:26+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-26T11:58:53+00:00",
+  "generated_at": "2026-10-27T12:29:52+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "[This is a Guest Diary by Jeffray Spence, an ISC intern as part of the SANS.edu BACS program]",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-26T09:38:03+00:00",
+    "published_at": "2026-10-27T02:55:13+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33442",
-    "title": "Looking for a Language [Guest Diary], (Wed, Oct 21st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33462",
+    "title": "ISC Stormcast For Tuesday, October 27th, 2026 https://isc.sans.edu/podcastdetail/10152, (Tue, Oct 27th)"
   },
   "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 874,
+  "qualified_developments": 51,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -51,7 +51,8 @@
       "total": 7
     },
     "status_counts": {
-      "healthy": 10
+      "failed": 1,
+      "healthy": 9
     },
     "total": 10
   },
@@ -60,141 +61,153 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-110447"
+        "CVE-2026-109619"
       ],
       "cvss_score": 9.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.96163,
-      "epss_score": 0.12328,
+      "epss_percentile": 0.99989,
+      "epss_score": 0.99997,
       "ghsa_ids": [],
-      "id": "CVE-2026-110447",
+      "id": "CVE-2026-109619",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Collabora Online \u2013 Built-in CODE Server"
+        "PHP"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 125,
+      "selection_score": 150,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-110447 exploited in CISA KEV: Collabora Collabora Online \u2013 Built-in CODE Server",
-      "why_it_matters": "CVSS 9.2; EPSS percentile >= 95%"
+      "title": "CVE-2026-109619 exploited in CISA KEV: PHP Group PHP",
+      "why_it_matters": "CVSS 9.2; EPSS >= 70%"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-114625"
+        "CVE-2026-109618"
       ],
-      "cvss_score": 9.4,
+      "cvss_score": 9.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.63324,
-      "epss_score": 0.01025,
+      "epss_percentile": 0.99981,
+      "epss_score": 0.99981,
       "ghsa_ids": [],
-      "id": "CVE-2026-114625",
+      "id": "CVE-2026-109618",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "VeloCloud Orchestrator"
+        "PHP"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 115,
+      "selection_score": 150,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-114625 exploited in CISA KEV: Arista VeloCloud Orchestrator",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "title": "CVE-2026-109618 exploited in CISA KEV: PHP Group PHP",
+      "why_it_matters": "CVSS 9.2; EPSS >= 70%"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-49441"
+        "CVE-2026-55107"
       ],
-      "cvss_score": 9.1,
+      "cvss_score": 10.0,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.55466,
-      "epss_score": 0.00774,
-      "ghsa_ids": [],
-      "id": "CVE-2026-49441",
+      "epss_percentile": 0.56282,
+      "epss_score": 0.00799,
+      "ghsa_ids": [
+        "GHSA-7pwq-q9jf-539h"
+      ],
+      "id": "CVE-2026-55107",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [],
+      "products": [
+        "kobako"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: security_products +8",
+        "priority technology: linux +8",
         "official source +5"
       ],
       "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49441",
-      "title": "Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.3.0 until 4.14.6 an",
-      "why_it_matters": "CVSS 9.1; priority technology: security_products"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55107",
+      "title": "Kobako is a Ruby gem that embeds a Wasm-isolated mruby interpreter inside applications, allowing execution of untrusted",
+      "why_it_matters": "CVSS 10.0; priority technology: linux"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-48162"
+        "CVE-2026-49875"
       ],
-      "cvss_score": 9.1,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.50911,
-      "epss_score": 0.00651,
-      "ghsa_ids": [],
-      "id": "CVE-2026-48162",
+      "epss_percentile": 0.43667,
+      "epss_score": 0.00516,
+      "ghsa_ids": [
+        "GHSA-xw5h-cmh3-8j6j"
+      ],
+      "id": "CVE-2026-49875",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [],
+      "products": [
+        "org.apache.cxf:cxf-core"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: security_products +8",
-        "official source +5"
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 33,
+      "selection_score": 20,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48162",
-      "title": "Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an",
-      "why_it_matters": "CVSS 9.1; priority technology: security_products"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49875",
+      "title": "Apache CXF's EndpointReferenceUtils and W3CMultiSchemaFactory classes construct a SAXParserFactory without the necessary",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-48024"
+        "CVE-2025-57735"
       ],
       "cvss_score": 9.1,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.55676,
-      "epss_score": 0.00781,
-      "ghsa_ids": [],
-      "id": "CVE-2026-48024",
+      "epss_percentile": 0.38792,
+      "epss_score": 0.00471,
+      "ghsa_ids": [
+        "GHSA-c92r-g8j5-vhcx"
+      ],
+      "id": "CVE-2025-57735",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
+      "priority_score": 9.3,
+      "products": [
+        "apache-airflow"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: security_products +8",
-        "official source +5"
+        "official source +5",
+        "modified metadata in window -5"
       ],
-      "selection_score": 33,
+      "selection_score": 20,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48024",
-      "title": "Wazuh is a free and open source platform used for threat prevention, detection, and response. From 4.0.0 until 4.14.6 an",
-      "why_it_matters": "CVSS 9.1; priority technology: security_products"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-57735",
+      "title": "When user logged out, the JWT token the user had authtenticated with was not invalidated, which could lead to reuse of t",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
     }
   ]
 }
