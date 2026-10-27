@@ -27,3 +27,9 @@ Existing skip link, focus outlines, labelled native search/select, pressed state
 - Operational reliability remains degraded: recent publication is partial due to NVD failure; see the reliability review. No historical evidence was rewritten, scheduler secretly activated or measurement reset.
 
 Final production interaction checks and deployment/PR references are recorded in the delivery response. No claim of full accessibility compliance is made.
+
+## Final browser follow-up
+
+Version 31 production checks passed for all five sections, browser Back, Spanish/English, light/dark and persisted preferences after reload, search/clear focus, watchlist add/remove and filtered-removal focus, native Escape/return focus, explicit source links and thirty-row chart table. Desktop page overflow was not observed.
+
+Reverse Tab at the first modal control exposed a focus boundary gap, so add explicit first/last Tab wrapping while retaining the native modal and Escape behavior. The new current-day history table also revealed that the raw report's degraded flag can be false with a failed core source; compute that row from the same current source coverage used by the panel. Retain historical rows as recorded. Add a regression with raw degraded=false and NVD failed.
