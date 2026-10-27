@@ -279,10 +279,7 @@ jobs:
           fi
 
           git commit -m "intel: publish daily blue team digest [skip ci]"
-          git push
-          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          echo "commit_created=$(git show -s --format=%cI HEAD)" >> "$GITHUB_OUTPUT"
-          echo "push_completed=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          bash scripts/push_publication.sh
 
   timing:
     name: Publication timing evidence

@@ -29,3 +29,11 @@ Punctuality is degraded. Verify the independent scheduler in its actual Cloudfla
 ## Follow-up after recovery publication
 
 Run 40503898871 completed successfully. Public API subsequently reported generation 12:29:52 UTC and publication 12:30:29 UTC (13:30:29 Europe/Madrid), 5,429 seconds after the noon objective. `coreComplete=false`: NVD failed while CISA and GitHub Advisories were healthy. Complete-close SLO is now 50% over eight measured days, still an incomplete observation window. A successful workflow and a recent partial report do not establish a complete daily close.
+
+## Publication race found during final checks
+
+Run 40508422492 collected all ten sources successfully (including NVD), but `Commit and push generated outputs` failed with `main -> main (fetch first)` after another main commit landed. This is a publication race, not a provider failure. No complete-close receipt was produced.
+
+The publisher now permits at most three ordinary pushes. After a rejected push it retries only when origin/main actually advanced, revalidates the immutable bundle and retained ledger against that exact new baseline, suppresses publication if another complete daily close exists, and rebases without force. A conflict, history regression, authorization failure without a main advance or exhausted attempts stops publication. Successful push timestamps are emitted only after a successful push; duplicate closes emit only the duplicate receipt.
+
+Local Git integration tests reproduce code-only concurrent advancement, a concurrent complete close, a newer remote ledger and a push denial. They verify both branches' changes survive the successful recovery, duplicate/newer history remains untouched, and failures never produce a successful push receipt.
