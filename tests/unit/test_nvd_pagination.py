@@ -118,3 +118,69 @@ def test_raw_cpe_pages_are_released_while_items_are_accumulated(monkeypatch):
     monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
     items, health = NvdCollector(HTTP()).collect(START, END)
     assert health.status == "healthy" and len(items) == 4
+
+
+@pytest.mark.parametrize("fault", ["total", "duplicate"])
+def test_changed_window_restarts_once_without_mixing_records(monkeypatch, fault):
+    fixtures = pages()
+    abandoned = deepcopy(fixtures[0])
+    abandoned["vulnerabilities"][0]["cve"]["id"] = "CVE-2026-99999"
+    unstable = deepcopy(fixtures[1])
+    if fault == "total":
+        unstable["totalResults"] += 1
+    else:
+        unstable["vulnerabilities"][0] = deepcopy(abandoned["vulnerabilities"][0])
+    responses = [abandoned, unstable, *fixtures]
+    calls, waits = [], []
+
+    class HTTP:
+        def get(self, url, **kwargs):
+            calls.append(deepcopy(kwargs["params"]))
+            return Response(responses[len(calls) - 1])
+
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", waits.append)
+    collector = NvdCollector(HTTP())
+    items, health = collector.collect(START, END)
+    expected, _ = NvdCollector(offline=True).collect(START, END)
+    assert health.status == "healthy" and health.items_received == 3 and health.items_rejected == 1
+    assert [i.canonical_id for i in items] == [i.canonical_id for i in expected]
+    assert all(i.canonical_id != "CVE-2026-99999" for i in items)
+    assert [p["startIndex"] for p in calls] == [0, 2, 0, 2]
+    assert len({(p["lastModStartDate"], p["lastModEndDate"]) for p in calls}) == 1
+    assert waits == [6, 6, 6]
+    assert collector.metrics["requests"] == 4 and collector.metrics["window_restarts"] == 1
+
+
+def test_persistently_changing_window_fails_after_two_attempts(monkeypatch):
+    fixtures = pages()
+    calls = []
+
+    class HTTP:
+        def get(self, url, **kwargs):
+            index = kwargs["params"]["startIndex"]
+            calls.append(index)
+            data = deepcopy(fixtures[0 if index == 0 else 1])
+            if index:
+                data["totalResults"] += 1
+            return Response(data)
+
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
+    collector = NvdCollector(HTTP())
+    items, health = collector.collect(START, END)
+    assert items == [] and health.status == "failed" and health.items_accepted == 0
+    assert calls == [0, 2, 0, 2] and collector.metrics["window_restarts"] == 1
+
+
+def test_transport_failure_does_not_trigger_a_second_full_window(monkeypatch):
+    calls = []
+
+    class HTTP:
+        def get(self, url, **kwargs):
+            calls.append(kwargs["params"]["startIndex"])
+            raise SourceError("Transport failure")
+
+    monkeypatch.setattr("cyberdailylog.collectors.nvd.time.sleep", lambda _: None)
+    collector = NvdCollector(HTTP())
+    items, health = collector.collect(START, END)
+    assert items == [] and health.status == "failed"
+    assert calls == [0] and collector.metrics["window_restarts"] == 0
