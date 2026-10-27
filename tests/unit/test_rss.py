@@ -215,3 +215,32 @@ def test_optional_rss_outage_does_not_break_complete_core_pipeline(tmp_path, mon
     assert report.degraded is False
     assert all(h.status == "fixture_only" for h in report.source_health if h.required)
     assert len([h for h in report.source_health if h.source.startswith("rss_cert_eu")]) == 2
+
+
+def test_legacy_rss_rejects_html_empty_and_missing_article_link():
+    source = next(
+        s for s in load_yaml(Path("config/sources.yml"))["rss_sources"] if s.get("health_name") == "rss_krebs"
+    )
+    for payload in [
+        "<html><body>Blocked</body></html>",
+        "<rss><channel/></rss>",
+        "<rss><channel><item><title>No link</title><pubDate>Wed, 15 Jul 2026 09:00:00 GMT</pubDate></item></channel></rss>",
+    ]:
+
+        class Http:
+            def get(self, *args, **kwargs):
+                return type("Response", (), {"text": payload})()
+
+        items, health = RssCollector(Http(), sources=[source]).collect(SINCE, UNTIL)
+        assert not items
+        assert health.status == "degraded"
+
+
+def test_cisa_notes_are_individual_safe_reference_urls():
+    from cyberdailylog.collectors.cisa_kev import reference_urls
+
+    assert reference_urls("https://vendor.test/a ; BOD: https://cisa.gov/b ; https://vendor.test/a", "fallback") == [
+        "https://vendor.test/a",
+        "https://cisa.gov/b",
+    ]
+    assert reference_urls("No reference; https://user:pass@vendor.test/a https://[invalid", "fallback") == ["fallback"]

@@ -3,7 +3,7 @@ import { normalizeCti, normalizePublication } from "./cti";
 import { FALLBACK_DATA } from "./fallback-data";
 import { getOfficialBackup } from "./official-backup";
 import { essentialServerUrl } from "./network-policy";
-import { safeWebUrl } from "./safe-url";
+import { safeWebUrl, referenceUrls } from "./safe-url";
 import { SOURCE_LABELS, sourceExpectedIntervalMs } from "./source-labels";
 import type {
   AnalystItem,
@@ -167,7 +167,7 @@ function normalizeVulnerability(item: RawRecord): Vulnerability {
       ...stringArray(item.ecosystems),
       ...stringArray(item.vendors),
     ].slice(0, 4),
-    references: [...new Set(stringArray(item.references).map((url) => safeWebUrl(url)).filter(Boolean))].slice(0, 6),
+    references: referenceUrls(stringArray(item.references)),
     reasons: (
       stringArray(item.priority_reasons).length
         ? stringArray(item.priority_reasons)

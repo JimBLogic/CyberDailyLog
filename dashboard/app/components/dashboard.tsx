@@ -97,7 +97,7 @@ const COPY = {
     total: "of security items",
     sourceHealth: "Source health",
     sourceFreshness: "Status from the latest collection run",
-    historical: "Eight-day signal",
+    historical: "Daily history",
     historicalText:
       "Daily volume, high-impact items and pipeline status from the repository archive.",
     humanContext: "Analyst context",
@@ -328,7 +328,7 @@ const COPY = {
     total: "de elementos de seguridad",
     sourceHealth: "Salud de las fuentes",
     sourceFreshness: "Estado según la última recopilación",
-    historical: "Señal de ocho días",
+    historical: "Histórico diario",
     historicalText:
       "Volumen diario, elementos de alto impacto y estado del proceso desde el archivo.",
     humanContext: "Contexto de analistas",
@@ -1033,7 +1033,17 @@ function FreshnessBanner({
   onRefresh: () => void;
 }) {
   const stale = isStaleSnapshot(data.generatedAt, now);
-  if (data.dataMode === "live" && !stale) return null;
+  const limited = data.coverageState !== "sufficient" || data.pipelineStatus !== "operational" || data.publicationReliability?.coreComplete === false;
+  if (data.dataMode === "live" && !stale && !limited) return null;
+  if (data.dataMode === "live" && !stale && limited) {
+    const gaps = data.sourceHealth.filter(source => source.status !== "healthy").map(source => source.label);
+    return <aside className="freshness-banner limited" role="status">
+      <span className="freshness-icon" aria-hidden="true">!</span>
+      <div><strong>{language === "es" ? "Informe disponible con cobertura limitada" : "Report available with limited coverage"}</strong>
+      <p>{language === "es" ? "La publicación es reciente, pero hay limitaciones de cobertura. Consulta Fuentes y las mediciones del cierre antes de usarla como informe completo." : "The publication is recent, but coverage is limited. Check Sources and close measurements before treating it as a complete report."}{gaps.length ? ` ${language === "es" ? "Fuentes afectadas" : "Affected sources"}: ${gaps.join(", ")}.` : ""}</p></div>
+      <button onClick={onRefresh} disabled={refreshing}>{refreshing ? COPY[language].refreshing : COPY[language].refresh}</button>
+    </aside>;
+  }
   const copy =
     language === "es"
       ? data.dataMode === "official-backup"
@@ -1425,6 +1435,15 @@ function HistoryChart({
           </g>
         ))}
       </svg>
+      <details className="history-data">
+        <summary>{language === "es" ? "Consultar los datos de la gráfica" : "View chart data"}</summary>
+        <div className="table-scroll" role="region" tabIndex={0} aria-label={language === "es" ? "Tabla del histórico diario" : "Daily history table"}>
+          <table><caption>{language === "es" ? "Valores del histórico diario" : "Daily history values"}</caption>
+            <thead><tr><th scope="col">{language === "es" ? "Fecha" : "Date"}</th><th scope="col">{t.assessed}</th><th scope="col">{t.above}</th><th scope="col">{t.status}</th></tr></thead>
+            <tbody>{history.map(point => <tr key={point.date}><th scope="row">{point.date}</th><td>{point.assessed}</td><td>{point.aboveThreshold}</td><td>{point.degraded ? (language === "es" ? "Degradado" : "Degraded") : (language === "es" ? "Operativo" : "Operational")}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </details>
     </section>
   );
 }
@@ -1642,6 +1661,8 @@ function VulnerabilityList({
 }) {
   const t = COPY[language];
   const [query, setQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
+  const watchFilterRef = useRef<HTMLButtonElement>(null);
   const [severity, setSeverity] = useState<Severity | "ALL">("ALL");
   const [attention, setAttention] = useState(false);
   const [watchOnly, setWatchOnly] = useState(false);
@@ -1687,19 +1708,21 @@ function VulnerabilityList({
           <p>{t.intelIntro}</p>
         </div>
         <div className="export-actions">
-          <a className="button secondary compact" href="/api/export?format=json">
+          <a className="button secondary compact" aria-describedby="export-scope" href="/api/export?format=json">
             <Icon name="download" size={17} /> {t.exportJson}
           </a>
-          <a className="button secondary compact" href="/api/export?format=csv">
+          <a className="button secondary compact" aria-describedby="export-scope" href="/api/export?format=csv">
             <Icon name="download" size={17} /> {t.exportCsv}
           </a>
         </div>
       </div>
+      <p className="export-scope" id="export-scope">{language === "es" ? "Las exportaciones incluyen todos los avisos de esta selección, sin aplicar filtros." : "Exports include every advisory in this selection, without applying filters."}</p>
       <div className="filter-bar">
         <label className="search-field">
           <span className="sr-only">{t.search}</span>
           <Icon name="search" size={18} />
           <input
+            ref={searchRef}
             type="search"
             maxLength={200}
             value={query}
@@ -1732,6 +1755,7 @@ function VulnerabilityList({
           <Icon name="filter" size={17} /> {t.attentionOnly}
         </button>
         <button
+          ref={watchFilterRef}
           className={`filter-toggle ${watchOnly ? "active" : ""}`}
           onClick={() => setWatchOnly((value) => !value)}
           aria-pressed={watchOnly}
@@ -1755,7 +1779,7 @@ function VulnerabilityList({
         <span>{t.showing} <strong>{items.length}</strong> / {data.vulnerabilities.length} {t.items}</span>
         <span className="dataset-scope" id="severity-scope">{language === "es" ? "Severidades de esta selección; informe completo en GitHub." : "Severities in this selection; full report on GitHub."}</span>
         {(query || severity !== "ALL" || attention || watchOnly) ? (
-          <button type="button" className="reset-filters" onClick={() => { setQuery(""); setSeverity("ALL"); setAttention(false); setWatchOnly(false); }}>
+          <button type="button" className="reset-filters" onClick={() => { setQuery(""); setSeverity("ALL"); setAttention(false); setWatchOnly(false); searchRef.current?.focus(); }}>
             {language === "es" ? "Limpiar filtros" : "Clear filters"}
           </button>
         ) : null}
@@ -1765,8 +1789,8 @@ function VulnerabilityList({
           <article className="vulnerability-row" key={item.id}>
             <button
               className={`watch-button ${watchlist.has(item.id) ? "active" : ""}`}
-              onClick={() => onWatchlist(item.id)}
-              aria-label={watchlist.has(item.id) ? t.unwatch : t.watch}
+              onClick={() => { if (watchOnly) watchFilterRef.current?.focus(); onWatchlist(item.id); }}
+              aria-label={`${watchlist.has(item.id) ? t.unwatch : t.watch}: ${item.id}`}
               aria-pressed={watchlist.has(item.id)}
               title={watchlist.has(item.id) ? t.unwatch : t.watch}
             >
@@ -1776,7 +1800,7 @@ function VulnerabilityList({
               <span>{item.priorityScore.toFixed(1)}</span>
               <small>{severityLabel(item.severity, language)}</small>
             </div>
-            <button className="vulnerability-main" onClick={() => onOpen(item)}>
+            <button className="vulnerability-main" aria-label={`${t.details}: ${item.id} — ${item.title}`} onClick={() => onOpen(item)}>
               <span className="vulnerability-id">{item.id}</span>
               <strong>{item.title}</strong>
               <span className="vulnerability-summary">{item.summary}</span>
@@ -1964,13 +1988,13 @@ function SourcesView({
               <span className={`status-pill ${source.status === "healthy" ? freshnessClass : source.status}`}>
                 <i /> {source.status === "healthy" ? sourceFreshnessLabel(source, language, now) : statusLabel(source.status, language)}
               </span>
-              <strong>{source.itemsReceived.toLocaleString()}</strong>
-              <strong>{source.itemsAccepted.toLocaleString()}</strong>
+              <strong><span className="sr-only">{t.received}: </span>{source.itemsReceived.toLocaleString()}</strong>
+              <strong><span className="sr-only">{t.accepted}: </span>{source.itemsAccepted.toLocaleString()}</strong>
               <span className="latency-cell">
                 <span className="latency-track">
                   <i style={{ width: `${Math.max(3, (source.durationMs / maxLatency) * 100)}%` }} />
                 </span>
-                <strong>{source.durationMs}ms</strong>
+                <strong><span className="sr-only">{t.latency}: </span>{source.durationMs}ms</strong>
               </span>
             </a>
           );
@@ -2341,7 +2365,7 @@ function ArchiveIntro({ view, language }: { view: View; language: Language }) {
     overview: ["01-briefing", "", ""],
   };
   const [art, title, text] = entries[view];
-  return <aside className="archive-intro"><div><span className="eyebrow">CyberDailyLog / {es ? "Archivo de señales" : "Signal archive"}</span><h2>{title}</h2><p>{text}</p></div><ArchiveArt name={art} eager /></aside>;
+  return <aside className="archive-intro"><div><span className="eyebrow">CyberDailyLog / {es ? "Archivo de señales" : "Signal archive"}</span><p className="archive-title">{title}</p><p>{text}</p></div><ArchiveArt name={art} eager /></aside>;
 }
 
 function DetailDialog({
@@ -2359,15 +2383,17 @@ function DetailDialog({
 }) {
   const t = COPY[language];
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const dialog = dialogRef.current;
     if (dialog && !dialog.open) dialog.showModal();
+    closeRef.current?.focus();
     document.body.classList.add("modal-open");
     return () => {
       dialog?.close();
       document.body.classList.remove("modal-open");
-      previousFocus?.focus({ preventScroll: true });
+      (previousFocus?.isConnected ? previousFocus : document.getElementById("main-content"))?.focus({ preventScroll: true });
     };
   }, []);
 
@@ -2395,11 +2421,12 @@ function DetailDialog({
             <button
               className={`icon-button ${watched ? "active" : ""}`}
               onClick={onWatchlist}
-              aria-label={watched ? t.unwatch : t.watch}
+              aria-label={`${watched ? t.unwatch : t.watch}: ${item.id}`}
+              aria-pressed={watched}
             >
               <Icon name="star" />
             </button>
-            <button className="icon-button" onClick={onClose} aria-label={t.close} autoFocus>
+            <button ref={closeRef} className="icon-button" onClick={onClose} aria-label={t.close} autoFocus>
               <Icon name="x" />
             </button>
           </div>

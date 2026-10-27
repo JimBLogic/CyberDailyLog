@@ -4211,7 +4211,7 @@ a {
 .operations-content { padding:0 20px 20px; display:grid; gap:20px; }
 .operations-content .pipeline { max-width:500px; }
 .archive-intro { display:flex; align-items:center; justify-content:space-between; gap:28px; border-bottom:1px solid var(--rule); padding:24px 0; }
-.archive-intro h2 { font:600 clamp(1.6rem,3vw,2.8rem)/1.15 "Source Serif 4 Variable",Georgia,serif; margin:12px 0; }
+.archive-intro .archive-title { font:600 clamp(1.6rem,3vw,2.8rem)/1.15 "Source Serif 4 Variable",Georgia,serif; margin:12px 0; }
 .archive-intro p { color:var(--muted); line-height:1.6; margin:0; }
 .archive-intro .archive-art { width:clamp(140px,22vw,260px); height:150px; }
 .evidence-guide { border:1px solid var(--rule); padding:14px; border-radius:4px; margin:20px 0; }
@@ -4334,3 +4334,23 @@ a {
  .theme-toggle { min-width:44px; padding-inline:9px; }
  .masthead-meta { gap:6px; }
 }
+
+/* Equivalent chart data, keyboard scrolling and high contrast user settings. */
+.history-data { margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.history-data summary { cursor: pointer; padding: 12px 0; min-height: 44px; color: var(--blue); }
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.history-data table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.history-data caption { text-align: left; padding: 12px 0; font-weight: 600; }
+.history-data th, .history-data td { padding: 10px; text-align: left; border-bottom: 1px solid var(--rule); }
+.freshness-banner.limited { border-color: var(--amber); }
+@media (forced-colors: active) {
+  :focus-visible { outline: 3px solid Highlight; }
+  button[aria-pressed="true"], nav [aria-current="page"] { border: 2px solid Highlight; }
+  .severity-marker, .status-pill, .flag { border: 1px solid CanvasText; }
+}
+
+.freshness-banner strong { font-size: .95rem; }
+.freshness-banner p { font-size: .875rem; line-height: 1.6; }
+.freshness-banner button { min-height: 44px; font-size: .875rem; }
+
+.export-scope { margin: 0 0 14px; color: var(--muted); font-size: .875rem; line-height: 1.6; }

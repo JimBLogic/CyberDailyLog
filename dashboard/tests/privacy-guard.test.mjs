@@ -15,6 +15,7 @@ const APPROVED_EXTERNAL_HOSTS = new Set([
   "github.com",
   "help.openai.com",
   "isc.sans.edu",
+  "cert.europa.eu",
   "jira.mongodb.org",
   "krebsonsecurity.com",
   "news.ycombinator.com",
