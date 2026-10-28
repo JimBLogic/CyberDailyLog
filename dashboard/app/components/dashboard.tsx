@@ -2224,6 +2224,7 @@ function EngineeringView({
   const generatedAt = parseTimestamp(data.generatedAt);
   const freshnessHours = generatedAt !== null && now !== null ? Math.max(0, (now - generatedAt) / 3_600_000) : null;
   const r = copy.reliability;
+  const recovery = data.publicationReliability?.recovery;
   const commands = `git clone https://github.com/JimBLogic/CyberDailyLog.git
 cd CyberDailyLog
 python -m venv .venv
@@ -2276,9 +2277,24 @@ python -m cyberdailylog.portfolio_feed \\
             [r[4], `${duplicateRate.toFixed(1)}%`, r[10]],
             [r[5], freshnessHours === null ? "—" : `${freshnessHours.toFixed(1)}h`, r[11]],
           ].map(([label, value, note], index) => <article key={label}><span>{label}</span><strong>{value}</strong><small>{note}</small><em className={index === 3 && (freshnessHours === null || freshnessHours >= 36) ? "warn" : ""}>{index === 3 ? r[16] : r[15]}</em></article>)}
-          <article className="instrumentation-gap"><span>{r[6]}</span><strong>{r[7]}</strong><small>{r[12]}</small><em>{language === "es" ? "Brecha declarada" : "Declared gap"}</em></article>
+          <article className={recovery?.attempts.length ? "" : "instrumentation-gap"}><span>{r[6]}</span>
+            <strong>{recovery?.attempts.length ? (recovery.recovery_seconds == null ? (language === "es" ? "Sin recuperación acreditada" : "No evidenced recovery") : `${recovery.recovery_seconds.toFixed(1)} s`) : r[7]}</strong>
+            <small>{recovery?.attempts.length ? `${recovery.attempts.length} ${language === "es" ? "intentos observados" : "observed attempts"} · ${recovery.retry_count} ${language === "es" ? "reintentos enlazados" : "linked retries"}` : r[12]}</small>
+            <em>{recovery?.attempts.length ? (language === "es" ? "Telemetría observada" : "Observed telemetry") : (language === "es" ? "Brecha declarada" : "Declared gap")}</em>
+          </article>
         </div>
-        <code>{r[17]}</code>
+        {recovery?.attempts.length ? <details><summary>{language === "es" ? "Intento inicial observado y reintentos" : "First observed attempt and retries"}</summary>
+          <p>{language === "es" ? "Solo evidencia conservada. Un intento omitido no es una publicación. Las fechas o vínculos ausentes se muestran como desconocidos." : "Retained evidence only. A skipped attempt is not a publication. Missing timestamps or links remain unknown."}</p>
+          <div role="region" aria-label={language === "es" ? "Telemetría de recuperación" : "Recovery telemetry"} tabIndex={0} style={{overflowX:"auto"}}><table>
+            <caption>{language === "es" ? "Contrato de recuperación por intento" : "Per-attempt recovery contract"}</caption>
+            <thead><tr>{["run_id","trigger","started_at","finished_at","outcome","recovered_from","publication_id"].map(key=><th scope="col" key={key}>{key}</th>)}</tr></thead>
+            <tbody>{recovery.attempts.map(row=><tr key={`${row.run_id}:${row.run_attempt}`}>
+              <th scope="row"><a href={`https://github.com/JimBLogic/CyberDailyLog/actions/runs/${row.run_id}`} target="_blank" rel="noreferrer">{row.run_id} · #{row.run_attempt}</a></th>
+              <td>{row.trigger}</td><td>{row.started_at ? formatDate(row.started_at,language) : "—"}</td><td>{row.finished_at ? formatDate(row.finished_at,language) : "—"}</td><td>{row.outcome}</td>
+              <td>{row.recovered_from ? `${row.recovered_from.run_id} · #${row.recovered_from.run_attempt}` : "—"}</td>
+              <td>{row.publication_id ? <a href={`https://github.com/JimBLogic/CyberDailyLog/commit/${row.publication_id}`} target="_blank" rel="noreferrer">{row.publication_id.slice(0,12)}</a> : "—"}</td>
+            </tr>)}</tbody>
+          </table></div></details> : <code>{r[17]}</code>}
       </section>
 
       <div className="engineering-grid">

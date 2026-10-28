@@ -37,7 +37,7 @@ def setup(tmp_path, real=False):
         shutil.copyfile(Path("scripts/publication_timing.py"), seed / "scripts/publication_timing.py")
         package = seed / "src/cyberdailylog"
         package.mkdir(parents=True)
-        for name in ["__init__.py", "reliability.py"]:
+        for name in ["__init__.py", "reliability.py", "recovery.py"]:
             shutil.copyfile(Path("src/cyberdailylog") / name, package / name)
     else:
         (seed / "scripts/publication_timing.py").write_text(GENERATOR)
