@@ -19,6 +19,8 @@ const report = {
 };
 if (scenario === 'future') report.generated_at = iso(86_400_000);
 if (scenario === 'partial-core') { report.degraded = false; health[1].status = 'failed'; }
+if (scenario === 'missing-core') report.source_health = [health[0]];
+if (scenario === 'duplicate-core') report.source_health = [health[0], health[0], health[2]];
 if (scenario === 'missing-health') delete report.source_health;
 if (scenario === 'cti') {
   report.cti_summary = {new_vulnerabilities:0, state_changes:1};
@@ -104,6 +106,10 @@ if (['future','offline'].includes(scenario)) {
   if (['stale','missing-health'].includes(scenario)) {
     assert.equal(data.pipelineStatus,'degraded');
     assert.equal(data.coverageState,'insufficient');
+  }
+  if (['missing-core','duplicate-core'].includes(scenario)) {
+    assert.equal(data.pipelineStatus,'degraded');
+    assert.equal(data.coverageState,'limited');
   }
   if (scenario === 'mixed') assert.equal(data.humanContext,null);
   if (scenario === 'cti') {

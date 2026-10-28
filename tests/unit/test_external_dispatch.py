@@ -30,7 +30,13 @@ def test_external_timer_uses_madrid_noon_and_dst():
 
 def test_external_dispatch_skips_published_day_but_not_missing_or_bad_evidence():
     now = at("2026-09-22T10:20:00Z")
-    current = {"schema_version": 2, "status": "on_time", "actual_publication_time": "2026-09-22T10:01:00Z"}
+    current = {
+        "schema_version": 2,
+        "status": "on_time",
+        "core_complete": True,
+        "report_generated": "2026-09-22T10:00:30Z",
+        "actual_publication_time": "2026-09-22T10:01:00Z",
+    }
     assert decision(now, current)["dispatch"] is False
     for value in ("2026-09-21T10:01:00Z", "2026-09-22T09:59:00Z", "2099-01-01T12:00:00Z", "invalid"):
         assert decision(now, {**current, "actual_publication_time": value})["dispatch"] is True
@@ -71,3 +77,22 @@ def test_cli_previews_without_post_and_apply_sends_only_scoped_dispatch(monkeypa
     assert request.method == "POST"
     assert json.loads(request.data)["inputs"]["dispatch_requested_at"] == "2026-09-22T10:00:00+00:00"
     assert "test-credential-never-log" not in capsys.readouterr().out
+
+
+def test_partial_or_incoherent_close_keeps_recovery_enabled():
+    now = at("2026-12-22T11:20:00Z")
+    timing = {
+        "schema_version": 2,
+        "status": "on_time",
+        "core_complete": True,
+        "report_generated": "2026-12-22T11:04:00Z",
+        "actual_publication_time": "2026-12-22T11:05:00Z",
+    }
+    assert decision(now, timing)["dispatch"] is False
+    for value in (False, None, "true", 1):
+        assert decision(now, {**timing, "core_complete": value})["dispatch"] is True
+    for value in ("invalid", "2026-12-22T10:59:00Z", "2026-12-22T11:06:00Z"):
+        assert decision(now, {**timing, "report_generated": value})["dispatch"] is True
+    missing = dict(timing)
+    del missing["report_generated"]
+    assert decision(now, missing)["dispatch"] is True

@@ -155,3 +155,14 @@ def test_manifest_detects_changed_bytes_even_when_json_semantics_match(tmp_path,
     monkeypatch.setattr(sys, "argv", ["verify", "--root", str(root)])
     with pytest.raises(ValueError, match="integrity mismatch"):
         guard["main"]()
+
+
+@pytest.mark.parametrize("relative", ["reports/publication-manifest.json", "reports/archive/publication-manifest.json"])
+def test_nested_manifest_cannot_bypass_artifact_allowlist(tmp_path, relative):
+    root = artifact(tmp_path / "artifact")
+    manifest, _ = guard["bundle"](root)
+    (root / "publication-manifest.json").write_text(json.dumps(manifest))
+    guard["bundle"](root)  # The root manifest is the sole intentional exception.
+    (root / relative).write_text("{}")
+    with pytest.raises(ValueError, match="unexpected publication artifact files"):
+        guard["bundle"](root)

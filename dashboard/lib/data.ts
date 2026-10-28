@@ -401,6 +401,8 @@ async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean
     }
     try {
       const response = await fetch(essentialServerUrl(url), {
+        // Reject redirects before a second destination can bypass the host policy.
+        redirect: "error",
         headers: { Accept: "application/json" },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
@@ -474,8 +476,12 @@ function assessCoverage(
   dataMode: DashboardData["dataMode"],
 ) {
   const now = Date.now();
-  const core = sourceHealth.filter((source) => source.required);
-  const currentCore = core.filter((source) => {
+  const expectedCore = ["cisa_kev", "nvd", "github_advisories"];
+  const core = sourceHealth.filter((source) => expectedCore.includes(source.source));
+  const currentCore = expectedCore.filter((identity) => {
+    const matches = core.filter((source) => source.source === identity);
+    if (matches.length !== 1) return false;
+    const source = matches[0];
     const finishedAt = Date.parse(source.finishedAt);
     return (
       source.status === "healthy" &&
@@ -484,7 +490,7 @@ function assessCoverage(
     );
   }).length;
 
-  if (dataMode === "live" && core.length > 0 && currentCore === core.length) {
+  if (dataMode === "live" && currentCore === expectedCore.length) {
     const optionalGaps = sourceHealth.some(source => !source.required && (source.status !== "healthy" ||
       !source.finishedAt || now - Date.parse(source.finishedAt) > sourceExpectedIntervalMs(source.source) * 2));
     return { coverageConfidence: optionalGaps ? "medium" as const : "high" as const, coverageState: "sufficient" as const };

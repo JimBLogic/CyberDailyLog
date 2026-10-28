@@ -38,6 +38,7 @@ def merge_items(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
         ),
     ):
         item = deepcopy(original)
+        item.add_provenance("withdrawn", item.source_name, item.withdrawn)
         k = key(item)
         if k not in out:
             out[k] = item
@@ -93,5 +94,7 @@ def merge_items(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
             cur.published_at = item.published_at
         if item.modified_at and (not cur.modified_at or item.modified_at > cur.modified_at):
             cur.modified_at = item.modified_at
-        cur.withdrawn = cur.withdrawn or item.withdrawn
+        # Withdrawal applies to the source advisory, not every record of its CVE.
+        # Keep the aggregate active while any merged source remains active.
+        cur.withdrawn = cur.withdrawn and item.withdrawn
     return sorted(out.values(), key=lambda i: i.canonical_id)

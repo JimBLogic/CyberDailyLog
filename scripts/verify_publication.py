@@ -86,7 +86,11 @@ def bundle(root):
         folder + ".md",
         folder + "-source-health.json",
     }
-    names = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file() and p.name != MANIFEST}
+    names = {
+        p.relative_to(root).as_posix()
+        for p in root.rglob("*")
+        if p.is_file() and p.relative_to(root).as_posix() != MANIFEST
+    }
     if names != required or any(p.is_symlink() for p in root.rglob("*")):
         raise ValueError("Incomplete or unexpected publication artifact files")
     if report.get("degraded") is not False or not isinstance(report.get("items"), list):

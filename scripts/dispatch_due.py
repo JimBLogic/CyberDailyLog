@@ -28,13 +28,16 @@ def decision(now, timing):
         return {"dispatch": False, "reason": "outside launch window"}
     try:
         published = datetime.fromisoformat(str(timing.get("actual_publication_time", "")).replace("Z", "+00:00"))
+        generated = datetime.fromisoformat(str(timing.get("report_generated", "")).replace("Z", "+00:00"))
         if (
             timing.get("schema_version") == 2
+            and timing.get("core_complete") is True
             and timing.get("status") in {"on_time", "delayed", "stale"}
             and published.tzinfo is not None
-            and target <= published <= now + timedelta(minutes=5)
+            and generated.tzinfo is not None
+            and target <= generated <= published <= now + timedelta(seconds=30)
         ):
-            return {"dispatch": False, "reason": "today's publication already exists"}
+            return {"dispatch": False, "reason": "today's complete publication already exists"}
     except (ValueError, TypeError):
         pass
     return {
