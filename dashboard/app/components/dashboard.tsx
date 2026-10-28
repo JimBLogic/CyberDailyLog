@@ -1448,11 +1448,10 @@ function HistoryChart({
   );
 }
 
-function SourceArtwork({ source }: { source: string }) {
+function SourceArtwork({ community = false }: { community?: boolean }) {
   return (
-    <div className="source-artwork source-artwork-fallback" aria-hidden="true">
-      <span>{source.slice(0, 1)}</span>
-      <i />
+    <div className="source-artwork signal-symbol" aria-hidden="true">
+      <Icon name={community ? "pulse" : "shield"} size={28} />
     </div>
   );
 }
@@ -1488,6 +1487,8 @@ function SignalDesk({
       : data.communityPulse
         ? [data.communityPulse]
         : [];
+  const communityHealth = data.sourceHealth.find(item => item.source === "hacker_news");
+  const communityChecked = communityHealth?.status === "healthy";
   return (
     <section className="signal-desk" aria-labelledby="signal-desk-title">
       <div className="signal-desk-heading">
@@ -1513,7 +1514,7 @@ function SignalDesk({
                 className={`signal-card analyst-signal ${index === 0 ? "featured" : ""}`}
                 key={`${item.sourceUrl}-${item.publishedAt}`}
               >
-                <SourceArtwork source={item.sourceName} />
+                <SourceArtwork />
                 <div className="signal-card-copy">
                   <span className="context-kicker">
                     {item.sourceUrl === SALITY_SOURCE
@@ -1549,12 +1550,30 @@ function SignalDesk({
             <strong>{community.length}</strong>
           </div>
           <div className="signal-list">
+            {community.length === 0 ? <article className="community-empty">
+              <SourceArtwork community />
+              <div>
+                <span className="context-kicker">{language === "es" ? "Hacker News · última recopilación" : "Hacker News · latest collection"}</span>
+                <h3>{communityChecked
+                  ? (language === "es" ? "Sin señales que cumplan los filtros" : "No qualifying community signals")
+                  : (language === "es" ? "Sin señales comunitarias verificables en esta edición" : "No verifiable community signals in this edition")}</h3>
+                <p>{communityChecked
+                  ? (language === "es" ? `${communityHealth.itemsReceived} entradas revisadas; ninguna seleccionada para este informe. La fuente respondió correctamente.` : `${communityHealth.itemsReceived} entries reviewed; none selected for this report. The source responded successfully.`)
+                  : (language === "es" ? "Esta edición no conserva señales comunitarias válidas. Consulta Fuentes para comprobar su estado." : "This edition contains no valid community signals. Check Sources for collection status.")}</p>
+                <dl>
+                  <div><dt>{language === "es" ? "Selección" : "Selection"}</dt><dd>{language === "es" ? "Relevancia en seguridad y actividad suficiente" : "Security relevance and sufficient engagement"}</dd></div>
+                  <div><dt>{language === "es" ? "Edición" : "Edition"}</dt><dd>{formatDate(data.generatedAt, language)}</dd></div>
+                </dl>
+                <a href="https://news.ycombinator.com/" target="_blank" rel="noreferrer">{language === "es" ? "Explorar Hacker News" : "Explore Hacker News"} <Icon name="external" size={14} /></a>
+                <small>{t.verify}</small>
+              </div>
+            </article> : null}
             {community.map((item, index) => (
               <article
                 className={`signal-card community-signal ${index === 0 ? "featured" : ""}`}
                 key={`${item.discussionUrl}-${item.publishedAt}`}
               >
-                <SourceArtwork source={item.sourceName} />
+                <SourceArtwork community />
                 <div className="signal-card-copy">
                   <span className="context-kicker">{t.community}</span>
                   <h3>{item.title}</h3>
@@ -1568,7 +1587,7 @@ function SignalDesk({
                     </span>
                   </div>
                   <div className="signal-meta">
-                    <span>{item.sourceName}</span>
+                    <span>{item.sourceName} · {formatDate(item.publishedAt, language, true)}</span>
                     <a
                       href={item.discussionUrl}
                       target="_blank"

@@ -17,6 +17,10 @@ const report = {
     references: ['data:text/html,bad', 'https://nvd.nist.gov/vuln/detail/CVE-2026-12345', 'https://user:pass@example.com/'],
   }, {canonical_id:'CVE-2026-23456', title:'Second', category:'vulnerability', priority_score:1.5, severity:'LOW'}],
 };
+if (scenario.startsWith('community-')) {
+  health.push({source:'hacker_news', required:false, status:scenario === 'community-unavailable' ? 'failed' : 'healthy', finished_at:iso(), items_received:40, items_accepted:scenario === 'community-populated' ? 1 : 0});
+  if (scenario === 'community-populated') report.items.push({canonical_id:'hn:123', category:'community_pulse', title:'Security discussion fixture', source_name:'Hacker News', source_url:'https://example.com/security', discussion_url:'https://news.ycombinator.com/item?id=123', published_at:iso(), community_score:100, community_comments:30});
+}
 if (scenario === 'future') report.generated_at = iso(86_400_000);
 if (scenario === 'partial-core') { report.degraded = false; health[1].status = 'failed'; }
 if (scenario === 'missing-core') report.source_health = [health[0]];
@@ -183,6 +187,27 @@ if (['future','offline'].includes(scenario)) {
       assert.match(html, /class="freshness-banner limited" role="status"/);
       assert.match(html, /Informe disponible con cobertura limitada/);
       assert.match(html, /Fuentes afectadas.*NVD/);
+    }
+  }
+  if (scenario.startsWith('community-')) {
+    const page = await worker.fetch(new Request('http://localhost/', {headers:{accept:'text/html'}}),env,ctx);
+    assert.equal(page.status,200);
+    const html = await page.text();
+    assert.doesNotMatch(html, /source-artwork-fallback/);
+    if (scenario === 'community-populated') {
+      assert.equal(data.communitySignals.length,1);
+      assert.match(html, /Security discussion fixture/);
+      assert.match(html, /news.ycombinator.com\/item\?id=123/);
+      assert.doesNotMatch(html, /class="community-empty"/);
+    } else {
+      assert.equal(data.communitySignals.length,0);
+      assert.match(html, /class="community-empty"/);
+      assert.match(html, /Explorar Hacker News/);
+      if (scenario === 'community-empty') assert.match(html, /40 entradas revisadas/);
+      else {
+        assert.match(html, /Consulta Fuentes para comprobar su estado/);
+        assert.doesNotMatch(html, /La fuente respondió correctamente/);
+      }
     }
   }
   const csv = await worker.fetch(new Request('http://localhost/api/export?format=csv'),env,ctx);

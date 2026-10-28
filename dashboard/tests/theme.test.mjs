@@ -88,3 +88,24 @@ for (const mode of ["light", "dark"]) {
     assert.ok(ratio(tokens["on-ink"],tokens.ink) >= 4.5);
   });
 }
+
+// Check the component's actual color binding, not just unrelated palette pairs.
+for (const mode of ["light", "dark"]) {
+  test(`${mode} proof heading contrasts with its persistent dark panel and gradient`, () => {
+    const base = css.match(/:root \{([^}]+)\}/)[1];
+    const overrides = mode === "dark" ? css.match(/:root\[data-theme="dark"\] \{([^}]+)\}/)[1] : "";
+    const tokens = Object.fromEntries([...`${base}${overrides}`.matchAll(/--([\w-]+):\s*([^;]+);/g)].map(m => [m[1], m[2].trim()]));
+    const heading = [...css.matchAll(/\.proof-story h2\s*\{([^}]+)\}/g)].map(m => m[1]).join(";");
+    const foregroundToken = heading.match(/color:\s*var\(--([\w-]+)\)/)[1];
+    const panel = css.match(/\.interview-proof\s*\{([^}]+)\}/)[1];
+    const backgroundToken = panel.match(/var\(--([\w-]+)\);/)[1];
+    const foreground = tokens[foregroundToken];
+    const background = tokens[backgroundToken];
+    assert.ok(ratio(foreground, background) >= 4.5, `${foregroundToken} on ${backgroundToken} is below 4.5:1`);
+    const alpha = Number(panel.match(/accent-rgb\) \/ ([\d.]+)/)[1]);
+    const accent = tokens["accent-rgb"].split(/\s+/).map(Number);
+    const baseRgb = background.match(/[a-f0-9]{2}/gi).map(x => parseInt(x, 16));
+    const gradientPeak = "#" + baseRgb.map((v, i) => Math.round(v * (1 - alpha) + accent[i] * alpha).toString(16).padStart(2, "0")).join("");
+    assert.ok(ratio(foreground, gradientPeak) >= 4.5, "Heading fails on the brightest gradient stop");
+  });
+}
