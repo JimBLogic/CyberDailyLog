@@ -1,8 +1,8 @@
 {
-  "above_threshold": 21,
+  "above_threshold": 54,
   "community_pulse": null,
-  "coverage_end": "2026-10-28T09:34:21+00:00",
-  "coverage_start": "2026-10-27T09:34:21+00:00",
+  "coverage_end": "2026-10-28T12:21:33+00:00",
+  "coverage_start": "2026-10-27T12:21:33+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,7 +11,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-28T09:36:18+00:00",
+  "generated_at": "2026-10-28T12:22:34+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -26,7 +26,7 @@
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 61,
+  "qualified_developments": 210,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -109,14 +109,14 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-86400"
+        "CVE-2026-86384"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-86400",
+      "id": "CVE-2026-86384",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -128,21 +128,21 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86400",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86384",
       "title": "Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-86397"
+        "CVE-2026-114278"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-86397",
+      "id": "CVE-2026-114278",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
@@ -154,24 +154,24 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86397",
-      "title": "Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114278",
+      "title": "The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespa",
       "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-90717"
+        "CVE-2026-112197"
       ],
-      "cvss_score": 9.1,
+      "cvss_score": 9.4,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-90717",
+      "id": "CVE-2026-112197",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.3,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
@@ -180,9 +180,9 @@
       "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90717",
-      "title": "Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions",
-      "why_it_matters": "CVSS 9.1; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112197",
+      "title": "Vulnerability due to a lack of authentication in critical functions of the NoviGest Desktop App's Java RMI service. An a",
+      "why_it_matters": "CVSS 9.4; detection opportunity"
     }
   ]
 }

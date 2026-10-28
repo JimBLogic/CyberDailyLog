@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-28T09:36:18+00:00  
-**Coverage:** 2026-10-27T09:34:21+00:00 → 2026-10-28T09:34:21+00:00  
+**Updated:** 2026-10-28T12:22:34+00:00  
+**Coverage:** 2026-10-27T12:21:33+00:00 → 2026-10-28T12:21:33+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 61 source-backed developments
-- **Above threshold:** 21
+- **Assessed:** 210 source-backed developments
+- **Above threshold:** 54
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
 - **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
-- **[CVE-2026-86400](https://nvd.nist.gov/vuln/detail/CVE-2026-86400) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
-- **[CVE-2026-86397](https://nvd.nist.gov/vuln/detail/CVE-2026-86397) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
-- **[CVE-2026-90717](https://nvd.nist.gov/vuln/detail/CVE-2026-90717) · 9.3/10** — Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions — CVSS 9.1; detection opportunity
+- **[CVE-2026-86384](https://nvd.nist.gov/vuln/detail/CVE-2026-86384) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
+- **[CVE-2026-114278](https://nvd.nist.gov/vuln/detail/CVE-2026-114278) · 9.4/10** — The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespa — CVSS 9.8; detection opportunity
+- **[CVE-2026-112197](https://nvd.nist.gov/vuln/detail/CVE-2026-112197) · 9.4/10** — Vulnerability due to a lack of authentication in critical functions of the NoviGest Desktop App&#x27;s Java RMI service. An a — CVSS 9.4; detection opportunity
 
 ### Human context
 
