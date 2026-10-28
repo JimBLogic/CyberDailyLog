@@ -1,4 +1,4 @@
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import unquote_plus, urlsplit, urlunsplit
 import hashlib
 from copy import deepcopy
 from .models import IntelligenceItem
@@ -6,7 +6,16 @@ from .models import IntelligenceItem
 
 def norm_url(u: str) -> str:
     p = urlsplit(u)
-    return urlunsplit((p.scheme, p.netloc, p.path.rstrip("/"), "", ""))
+    # Query identifiers can select different resources (for example HN item?id=).
+    # Preserve their original encoding/order; strip only recognized tracking keys.
+    parts = []
+    for part in p.query.split("&"):
+        name = unquote_plus(part.partition("=")[0]).lower()
+        if name.startswith("utm_") or name in {"fbclid", "gclid", "msclkid"}:
+            continue
+        if part:
+            parts.append(part)
+    return urlunsplit((p.scheme, p.netloc, p.path.rstrip("/"), "&".join(parts), ""))
 
 
 def key(item: IntelligenceItem) -> str:

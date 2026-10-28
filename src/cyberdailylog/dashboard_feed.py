@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
+from zoneinfo import ZoneInfo
 
 
 SCHEMA_VERSION = 1
@@ -49,6 +51,11 @@ def summarize_report(report: dict[str, Any]) -> dict[str, Any]:
     generated_at = str(report.get("generated_at") or "")
     if len(generated_at) < 10:
         raise ValueError("report generated_at must be an ISO date-time")
+    generated = datetime.fromisoformat(generated_at.replace("Z", "+00:00"))
+    # Legacy timestamps without an offset are interpreted as UTC, never host local time.
+    if generated.tzinfo is None:
+        generated = generated.replace(tzinfo=timezone.utc)
+    local_date = generated.astimezone(ZoneInfo("Europe/Madrid")).date().isoformat()
     raw_items = report.get("items")
     if not isinstance(raw_items, list):
         raise ValueError("report items must be an array")
@@ -83,7 +90,7 @@ def summarize_report(report: dict[str, Any]) -> dict[str, Any]:
     )
 
     return {
-        "date": generated_at[:10],
+        "date": local_date,
         "generated_at": generated_at,
         "assessed": len(raw_items),
         "security_items": len(items),

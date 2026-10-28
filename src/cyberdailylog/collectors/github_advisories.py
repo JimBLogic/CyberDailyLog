@@ -100,6 +100,7 @@ class GitHubAdvisoryCollector(BaseCollector):
             items = []
             rec = 0
             rej = 0
+            seen_advisories = set()
             for data in self._pages(since, until):
                 for a in data:
                     rec += 1
@@ -108,6 +109,10 @@ class GitHubAdvisoryCollector(BaseCollector):
                     except (ValueError, TypeError, KeyError, AttributeError, IndexError):
                         rej += 1
                         continue
+                    identity = ("ghsa", item.ghsa_ids[0]) if item.ghsa_ids else ("cve", item.canonical_id)
+                    if identity in seen_advisories:
+                        raise SourceError("Advisory pagination repeated an advisory; refusing incomplete coverage")
+                    seen_advisories.add(identity)
                     items.append(item)
             return items, self.timed_health(
                 "fixture_only" if self.offline else ("degraded" if rej else "healthy"), started, rec, len(items), rej
