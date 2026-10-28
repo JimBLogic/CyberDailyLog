@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-28T08:57:52+00:00  
-**Coverage:** 2026-10-27T08:57:12+00:00 → 2026-10-28T08:57:12+00:00  
+**Updated:** 2026-10-28T09:36:18+00:00  
+**Coverage:** 2026-10-27T09:34:21+00:00 → 2026-10-28T09:34:21+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 44 source-backed developments
-- **Above threshold:** 9
+- **Assessed:** 61 source-backed developments
+- **Above threshold:** 21
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
 - **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
-- **[CVE-2026-92797](https://nvd.nist.gov/vuln/detail/CVE-2026-92797) · 9.1/10** — The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14. — CVSS 8.8; detection opportunity
-- **[GHSA-m64x-33q8-m5h7](https://github.com/advisories/GHSA-m64x-33q8-m5h7) · 8.4/10** — GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines — CVSS 8.7; priority technology: browsers
-- **[GHSA-23mf-xhv8-69c2](https://github.com/advisories/GHSA-23mf-xhv8-69c2) · 6.8/10** — GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679) — CVSS 7.1; priority technology: linux
+- **[CVE-2026-86400](https://nvd.nist.gov/vuln/detail/CVE-2026-86400) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
+- **[CVE-2026-86397](https://nvd.nist.gov/vuln/detail/CVE-2026-86397) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
+- **[CVE-2026-90717](https://nvd.nist.gov/vuln/detail/CVE-2026-90717) · 9.3/10** — Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions — CVSS 9.1; detection opportunity
 
 ### Human context
 

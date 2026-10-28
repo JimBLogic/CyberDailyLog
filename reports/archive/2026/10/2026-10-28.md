@@ -2,17 +2,17 @@
 
 > Automated, source-backed defensive intelligence for the previous 24 hours.
 
-**Updated:** 2026-10-28T08:57:52+00:00  
-**Coverage:** 2026-10-27T08:57:12+00:00 → 2026-10-28T08:57:12+00:00  
+**Updated:** 2026-10-28T09:36:18+00:00  
+**Coverage:** 2026-10-27T09:34:21+00:00 → 2026-10-28T09:34:21+00:00  
 **Status:** Operational
 
 [Full JSON](latest.json) · [Compact feed](portfolio-feed.json) · [Source health](source-health.json) · [Archive](archive/)
 
 ## Today in 30 seconds
 
-- **44** source-backed developments assessed.
-- **9** met the editorial threshold of **5.0/10** or an exploitation override.
-- **10** unique items are displayed after curation.
+- **61** source-backed developments assessed.
+- **21** met the editorial threshold of **5.0/10** or an exploitation override.
+- **13** unique items are displayed after curation.
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ## Immediate attention
@@ -24,13 +24,16 @@
 
 | Threat | Priority | CVSS | EPSS | Signal | Why it matters |
 | --- | ---: | ---: | ---: | --- | --- |
-| [CVE-2026-92797 — CVE-2026-92797: The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions…](https://nvd.nist.gov/vuln/detail/CVE-2026-92797) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-86400 — CVE-2026-86400: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-86400) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-86397 — CVE-2026-86397: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-86397) | 9.4 | 9.8 | n/a | — | CVSS 9.8; detection opportunity |
+| [CVE-2026-90717 — CVE-2026-90717: Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through…](https://nvd.nist.gov/vuln/detail/CVE-2026-90717) | 9.3 | 9.1 | n/a | — | CVSS 9.1; detection opportunity |
+| [CVE-2026-86398 — CVE-2026-86398: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-86398) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
+| [CVE-2026-86396 — CVE-2026-86396: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-86396) | 9.1 | 8.8 | n/a | — | CVSS 8.8; detection opportunity |
 | [GHSA-m64x-33q8-m5h7 — GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines](https://github.com/advisories/GHSA-m64x-33q8-m5h7) | 8.4 | 8.7 | n/a | — | CVSS 8.7; priority technology: browsers |
-| [GHSA-23mf-xhv8-69c2 — GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of…](https://github.com/advisories/GHSA-23mf-xhv8-69c2) | 6.8 | 7.1 | n/a | — | CVSS 7.1; priority technology: linux |
-| [CVE-2026-101935 — CVE-2026-101935: The Echo Knowledge Base – Documentation, FAQs, Chat &amp; Smart Search plugin for WordPress is…](https://nvd.nist.gov/vuln/detail/CVE-2026-101935) | 6.8 | 6.1 | n/a | — | CVSS 6.1; priority technology: browsers |
-| [GHSA-fmmf-xq98-g327 — Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check](https://github.com/advisories/GHSA-fmmf-xq98-g327) | 6.7 | 6.9 | n/a | — | CVSS 6.9; priority technology: microsoft_365 |
-| [GHSA-763v-5pjm-fx36 — Strands Agents: Default FileSessionManager storage is world-readable on shared systems](https://github.com/advisories/GHSA-763v-5pjm-fx36) | 6.0 | 5.7 | n/a | — | CVSS 5.7; detection opportunity |
-| [CVE-2026-118435 — CVE-2026-118435: Out-of-bounds write vulnerability in Samsung Open Source escargot allows Buffer Manipulation.](https://nvd.nist.gov/vuln/detail/CVE-2026-118435) | 5.7 | 5.4 | n/a | — | CVSS 5.4; detection opportunity |
+| [CVE-2024-46507 — CVE-2024-46507: A SSTI (server side template injection) vulnerability in the custom template export function…](https://nvd.nist.gov/vuln/detail/CVE-2024-46507) | 7.8 | 7.3 | 3.9% | — | CVSS 7.3; detection opportunity |
+| [CVE-2026-86399 — CVE-2026-86399: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-86399) | 7.5 | 7.2 | n/a | — | CVSS 7.2; detection opportunity |
+| [CVE-2026-86395 — CVE-2026-86395: Dell PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.8,…](https://nvd.nist.gov/vuln/detail/CVE-2026-86395) | 7.5 | 7.2 | n/a | — | CVSS 7.2; detection opportunity |
+| [CVE-2026-90720 — CVE-2026-90720: Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release…](https://nvd.nist.gov/vuln/detail/CVE-2026-90720) | 7.0 | 6.7 | n/a | — | CVSS 6.7; detection opportunity |
 
 ## Human context
 
@@ -58,9 +61,9 @@ No allowlisted defensive release qualified in this coverage window.
 
 - **CVE-2026-109619:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
 - **CVE-2026-109618:** Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in…
-- **CVE-2026-92797:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **GHSA-m64x-33q8-m5h7:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
-- **GHSA-23mf-xhv8-69c2:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-86400:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-86397:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
+- **CVE-2026-90717:** Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.
 
 ## Source health
 
@@ -71,16 +74,16 @@ Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 | Source | Required | Status | Accepted | Duration | Detail |
 | --- | --- | --- | ---: | ---: | --- |
-| cisa_kev | yes | healthy | 1760 | 504 ms |  |
-| nvd | yes | healthy | 1913 | 25255 ms |  |
-| github_advisories | yes | healthy | 206 | 1944 ms |  |
-| rss_cert_eu_advisories | no | healthy | 0 | 591 ms |  |
-| rss_cert_eu_guidance | no | healthy | 0 | 645 ms |  |
-| rss_krebs | no | healthy | 0 | 57 ms |  |
-| rss_sans_isc | no | healthy | 1 | 327 ms |  |
-| github_releases | no | healthy | 0 | 1744 ms |  |
-| hacker_news | no | healthy | 0 | 3626 ms |  |
-| epss | no | healthy | 3005 | 1472 ms |  |
+| cisa_kev | yes | healthy | 1760 | 398 ms |  |
+| nvd | yes | healthy | 1936 | 91989 ms |  |
+| github_advisories | yes | healthy | 206 | 4507 ms |  |
+| rss_cert_eu_advisories | no | healthy | 0 | 741 ms |  |
+| rss_cert_eu_guidance | no | healthy | 0 | 723 ms |  |
+| rss_krebs | no | healthy | 0 | 112 ms |  |
+| rss_sans_isc | no | healthy | 1 | 354 ms |  |
+| github_releases | no | healthy | 0 | 2513 ms |  |
+| hacker_news | no | healthy | 0 | 4162 ms |  |
+| epss | no | healthy | 3014 | 8613 ms |  |
 
 </details>
 

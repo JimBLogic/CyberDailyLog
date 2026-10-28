@@ -1,8 +1,8 @@
 {
-  "above_threshold": 9,
+  "above_threshold": 21,
   "community_pulse": null,
-  "coverage_end": "2026-10-28T08:57:12+00:00",
-  "coverage_start": "2026-10-27T08:57:12+00:00",
+  "coverage_end": "2026-10-28T09:34:21+00:00",
+  "coverage_start": "2026-10-27T09:34:21+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,7 +11,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-28T08:57:52+00:00",
+  "generated_at": "2026-10-28T09:36:18+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -26,7 +26,7 @@
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 44,
+  "qualified_developments": 61,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -109,86 +109,80 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-92797"
+        "CVE-2026-86400"
       ],
-      "cvss_score": 8.8,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-92797",
+      "id": "CVE-2026-86400",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.1,
+      "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
-        "high CVSS +10",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 15,
-      "severity": "HIGH",
+      "selection_score": 25,
+      "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92797",
-      "title": "The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14.",
-      "why_it_matters": "CVSS 8.8; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86400",
+      "title": "Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 8.7,
+      "cve_ids": [
+        "CVE-2026-86397"
+      ],
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-m64x-33q8-m5h7"
-      ],
-      "id": "GHSA-m64x-33q8-m5h7",
+      "ghsa_ids": [],
+      "id": "CVE-2026-86397",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 8.4,
-      "products": [
-        "GitPython"
-      ],
+      "priority_score": 9.4,
+      "products": [],
       "selection_reasons": [
-        "high CVSS +10",
-        "priority technology: browsers +8",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 18,
-      "severity": "high",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-m64x-33q8-m5h7",
-      "title": "GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines",
-      "why_it_matters": "CVSS 8.7; priority technology: browsers"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86397",
+      "title": "Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7",
+      "why_it_matters": "CVSS 9.8; detection opportunity"
     },
     {
       "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 7.1,
+      "cve_ids": [
+        "CVE-2026-90717"
+      ],
+      "cvss_score": 9.1,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
       "epss_percentile": null,
       "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-23mf-xhv8-69c2"
-      ],
-      "id": "GHSA-23mf-xhv8-69c2",
+      "ghsa_ids": [],
+      "id": "CVE-2026-90717",
       "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 6.8,
-      "products": [
-        "GitPython"
-      ],
+      "priority_score": 9.3,
+      "products": [],
       "selection_reasons": [
-        "high CVSS +10",
-        "priority technology: linux +8",
+        "critical CVSS +20",
         "official source +5"
       ],
-      "selection_score": 18,
-      "severity": "high",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-23mf-xhv8-69c2",
-      "title": "GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679)",
-      "why_it_matters": "CVSS 7.1; priority technology: linux"
+      "selection_score": 25,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90717",
+      "title": "Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions",
+      "why_it_matters": "CVSS 9.1; detection opportunity"
     }
   ]
 }

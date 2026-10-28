@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-28T08:57:12.998178+00:00",
+  "started_at": "2026-10-28T09:34:21.430620+00:00",
   "phases_ms": {
-    "ledger_load": 1534.282,
-    "prepare": 1.471,
-    "collection": 34701.525,
-    "epss": 1483.696,
-    "matching": 2019.241,
-    "render": 31.472,
-    "ledger_write": 9173.299
+    "ledger_load": 1313.101,
+    "prepare": 1.509,
+    "collection": 105506.21,
+    "epss": 8622.904,
+    "matching": 1589.147,
+    "render": 30.314,
+    "ledger_write": 7311.462
   },
-  "baseline_records": 76435,
+  "baseline_records": 76439,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -24,7 +24,7 @@
       "requests": 5,
       "pages": 5,
       "page_size_reductions": 0,
-      "response_bytes": 5620089,
+      "response_bytes": 5665119,
       "wait_seconds": 24.0,
       "window_restarts": 0
     },
@@ -69,11 +69,11 @@
       "http_retries": 0
     }
   },
-  "tracked_records": 76439,
-  "report_generated": "2026-10-28T08:57:52+00:00",
-  "ledger_bytes": 13620145,
+  "tracked_records": 76460,
+  "report_generated": "2026-10-28T09:36:18+00:00",
+  "ledger_bytes": 13623518,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-28T08:58:02.072017+00:00",
-  "total_ms": 49073.864
+  "finished_at": "2026-10-28T09:36:25.926040+00:00",
+  "total_ms": 124495.449
 }
