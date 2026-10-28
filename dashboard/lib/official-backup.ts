@@ -1,4 +1,7 @@
 import { calendarDate } from "./deadlines";
+import { publicationDate } from "./publication-date";
+import { boundedScore } from "./bounded-score";
+import { officialSourceHealth } from "./official-source-health";
 import type { Severity, SourceHealth, Vulnerability } from "./types";
 import { essentialServerUrl } from "./network-policy";
 import { safeWebUrl } from "./safe-url";
@@ -43,23 +46,6 @@ function records(value: unknown): JsonRecord[] {
 
 function text(value: unknown, fallback = "") {
   return typeof value === "string" && value.trim() ? value.trim() : fallback;
-}
-
-function numeric(value: unknown): number | null {
-  if (typeof value === "number" && Number.isFinite(value)) return value;
-  if (typeof value === "string" && value.trim()) {
-    const parsed = Number(value);
-    return Number.isFinite(parsed) ? parsed : null;
-  }
-  return null;
-}
-
-function safeDate(value: unknown, fallback: string) {
-  const candidate = text(value);
-  const parsed = Date.parse(candidate);
-  return Number.isFinite(parsed) && parsed >= Date.UTC(2000, 0, 1)
-    ? new Date(parsed).toISOString()
-    : fallback;
 }
 
 function safeSeverity(value: unknown): Severity {
@@ -112,7 +98,7 @@ function metricFor(cve: JsonRecord) {
   const entry = groups.find((group) => group.length)?.[0] ?? null;
   const data = record(entry?.cvssData);
   return {
-    score: numeric(data?.baseScore),
+    score: boundedScore(data?.baseScore, 10),
     version: text(data?.version) || null,
     vector: text(data?.vectorString) || null,
     severity: safeSeverity(data?.baseSeverity ?? entry?.baseSeverity),
@@ -194,7 +180,7 @@ function nvdVulnerabilities(value: unknown, cisaMap: Map<string, JsonRecord>) {
         triageRequired: /forensics? triage/i.test(text(cisa?.requiredAction)),
         sourceName: "NVD API 2.0",
         sourceUrl: `https://nvd.nist.gov/vuln/detail/${id}`,
-        publishedAt: safeDate(cve.published, new Date().toISOString()),
+        publishedAt: publicationDate(cve.published),
         products: cisa
           ? [text(cisa.vendorProject), text(cisa.product)].filter(Boolean)
           : [],
@@ -250,7 +236,7 @@ function latestCisaOnly(
         triageRequired: /forensics? triage/i.test(text(cisa?.requiredAction)),
         sourceName: "CISA KEV JSON",
         sourceUrl: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-        publishedAt: safeDate(cisa.dateAdded, new Date().toISOString()),
+        publishedAt: publicationDate(cisa.dateAdded),
         products: [text(cisa.vendorProject), text(cisa.product)].filter(Boolean),
         references: [],
         reasons: [
@@ -287,8 +273,8 @@ async function enrichWithEpss(items: Vulnerability[]) {
   for (const item of candidates) {
     const score = scores.get(item.id);
     if (!score) continue;
-    item.epssScore = numeric(score.epss);
-    item.epssPercentile = numeric(score.percentile);
+    item.epssScore = boundedScore(score.epss, 1);
+    item.epssPercentile = boundedScore(score.percentile, 1);
     item.priorityScore = initialPriority(item);
     if (item.epssScore !== null) item.reasons.push("FIRST EPSS");
   }
@@ -313,6 +299,8 @@ async function fetchOfficialBackup(): Promise<OfficialBackupResult | null> {
   ]);
   if (nvd.data === null && cisa.data === null) return null;
 
+  const nvdHealth = officialSourceHealth(nvd.data, "nvd");
+  const cisaHealth = officialSourceHealth(cisa.data, "cisa");
   const cisaMap = cisaMapFrom(cisa.data);
   const items = nvdVulnerabilities(nvd.data, cisaMap);
   const existing = new Set(items.map((item) => item.id));
@@ -320,13 +308,13 @@ async function fetchOfficialBackup(): Promise<OfficialBackupResult | null> {
   items.sort(
     (a, b) =>
       b.priorityScore - a.priorityScore ||
-      Date.parse(b.publishedAt) - Date.parse(a.publishedAt),
+      (Date.parse(b.publishedAt) || 0) - (Date.parse(a.publishedAt) || 0),
   );
   const epss = await enrichWithEpss(items);
   items.sort(
     (a, b) =>
       b.priorityScore - a.priorityScore ||
-      Date.parse(b.publishedAt) - Date.parse(a.publishedAt),
+      (Date.parse(b.publishedAt) || 0) - (Date.parse(a.publishedAt) || 0),
   );
 
   const generatedAt = new Date(now).toISOString();
@@ -339,26 +327,26 @@ async function fetchOfficialBackup(): Promise<OfficialBackupResult | null> {
       {
         source: "official_nvd_backup",
         label: "NVD API 2.0",
-        status: nvd.data === null ? "failed" : "healthy",
+        status: nvdHealth.status,
         required: true,
         durationMs: nvd.durationMs,
-        itemsReceived: records(record(nvd.data)?.vulnerabilities).length,
+        itemsReceived: nvdHealth.received,
         itemsAccepted: items.filter((item) => item.sourceName === "NVD API 2.0").length,
-        itemsRejected: 0,
+        itemsRejected: nvdHealth.rejected,
         finishedAt: generatedAt,
-        error: nvd.data === null ? "Official API unavailable" : null,
+        error: nvdHealth.error,
       },
       {
         source: "official_cisa_backup",
         label: "CISA KEV JSON",
-        status: cisa.data === null ? "failed" : "healthy",
+        status: cisaHealth.status,
         required: true,
         durationMs: cisa.durationMs,
-        itemsReceived: cisaMap.size,
+        itemsReceived: cisaHealth.received,
         itemsAccepted: items.filter((item) => item.cisaKev).length,
-        itemsRejected: 0,
+        itemsRejected: cisaHealth.rejected,
         finishedAt: generatedAt,
-        error: cisa.data === null ? "Official feed unavailable" : null,
+        error: cisaHealth.error,
       },
       {
         source: "official_epss_backup",
