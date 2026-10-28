@@ -7922,10 +7922,10 @@
     "workflow_queue_seconds": 0.0
   },
   {
-    "actual_publication_time": "2026-10-28T07:26:43+00:00",
+    "actual_publication_time": "2026-10-28T07:58:57+00:00",
     "collect_result": "success",
-    "commit_created": "2026-10-28T07:26:40+00:00",
-    "commit_sha": "ea9b176c7c35f9b00cff3c134286a4e6bc1ca8cf",
+    "commit_created": "2026-10-28T07:58:55+00:00",
+    "commit_sha": "9c1a524ec4a90e44582d23e6eed52ce04821a5bf",
     "complete_close_on_time": null,
     "complete_close_status": "unknown",
     "core_complete": true,
@@ -7934,33 +7934,33 @@
     "dispatch_timestamp_error": null,
     "dry_run": false,
     "event": "push",
-    "fetch_duration_seconds": 79.924,
-    "fetch_end": "2026-10-28T07:26:07.486336+00:00",
-    "fetch_start": "2026-10-28T07:24:47.562577+00:00",
+    "fetch_duration_seconds": 41.81,
+    "fetch_end": "2026-10-28T07:58:21.548160+00:00",
+    "fetch_start": "2026-10-28T07:57:39.738391+00:00",
     "job_durations_seconds": {
       "Publication timing evidence": null,
-      "collect": 113.0,
-      "preflight": 11.0,
-      "publish": 21.0
+      "collect": 75.0,
+      "preflight": 13.0,
+      "publish": 19.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
     "monitoring_started_at": "2026-09-16T10:00:00+00:00",
     "pipeline_metrics": {
-      "baseline_records": 75690,
+      "baseline_records": 76435,
       "dry_run": false,
-      "finished_at": "2026-10-28T07:26:16.414750+00:00",
-      "ledger_bytes": 13619399,
+      "finished_at": "2026-10-28T07:58:32.967877+00:00",
+      "ledger_bytes": 13620001,
       "outcome": "complete",
       "phases_ms": {
-        "collection": 74089.742,
-        "epss": 5843.364,
-        "ledger_load": 1117.031,
-        "ledger_write": 7108.91,
-        "matching": 1366.494,
-        "prepare": 83.437,
-        "render": 319.854
+        "collection": 39757.509,
+        "epss": 2062.202,
+        "ledger_load": 1510.983,
+        "ledger_write": 9217.08,
+        "matching": 2009.907,
+        "prepare": 26.779,
+        "render": 56.406
       },
-      "report_generated": "2026-10-28T07:26:08+00:00",
+      "report_generated": "2026-10-28T07:58:23+00:00",
       "schema_version": 1,
       "sources": {
         "cisa_kev": {
@@ -8020,22 +8020,22 @@
           "status": "healthy"
         }
       },
-      "started_at": "2026-10-28T07:24:46.360882+00:00",
-      "total_ms": 90053.896,
+      "started_at": "2026-10-28T07:57:38.199210+00:00",
+      "total_ms": 54768.691,
       "tracked_records": 76435
     },
-    "preflight_reason": "latest report date is 2026-10-27; collection is required for 2026-10-28",
+    "preflight_reason": "latest report date is missing; collection is required for 2026-10-28",
     "preflight_result": "success",
     "preflight_should_run": "true",
     "publication_lag_seconds": null,
     "publish_result": "success",
-    "push_completed": "2026-10-28T07:26:43+00:00",
-    "report_generated": "2026-10-28T07:26:08+00:00",
+    "push_completed": "2026-10-28T07:58:57+00:00",
+    "report_generated": "2026-10-28T07:58:23+00:00",
     "root_cause_stage": "unknown",
     "run_attempt": "1",
-    "run_id": "40649842192",
-    "run_to_commit_seconds": 146.0,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40649842192",
+    "run_id": "40653380801",
+    "run_to_commit_seconds": 111.0,
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40653380801",
     "schedule_basis": "unknown",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
@@ -8046,8 +8046,8 @@
     "step_durations_seconds": {
       "Publication timing evidence": {
         "Calculate publication lag": null,
-        "Checkout published main": 10.0,
-        "Download this run's reports": 3.0,
+        "Checkout published main": 9.0,
+        "Download this run's reports": 4.0,
         "Post Checkout published main": null,
         "Preserve publication timing": null,
         "Publish timing evidence": null,
@@ -8057,37 +8057,37 @@
       "collect": {
         "Bind the complete report bundle": 0.0,
         "Check artifact file sizes": 0.0,
-        "Checkout": 10.0,
+        "Checkout": 9.0,
         "Complete job": 0.0,
         "Generate compact portfolio feed": 0.0,
         "Generate dashboard history feed": 1.0,
-        "Install application": 5.0,
-        "Post Checkout": 0.0,
+        "Install application": 4.0,
+        "Post Checkout": 1.0,
         "Post Setup Python": 0.0,
         "Resolve execution mode": 0.0,
-        "Run collection": 90.0,
+        "Run collection": 55.0,
         "Set up job": 1.0,
         "Setup Python": 0.0,
         "Show source health": 0.0,
-        "Stage bounded publication artifact": 0.0,
+        "Stage bounded publication artifact": 1.0,
         "Update repository landing snapshot": 0.0,
-        "Upload generated outputs": 2.0,
+        "Upload generated outputs": 1.0,
         "Validate public outputs": 0.0,
-        "Validate reports": 1.0
+        "Validate reports": 0.0
       },
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 7.0,
+        "Checkout": 9.0,
         "Complete job": 0.0,
         "Post Checkout": 1.0,
         "Set up job": 1.0
       },
       "publish": {
         "Checkout main": 8.0,
-        "Commit and push generated outputs": 4.0,
+        "Commit and push generated outputs": 3.0,
         "Complete job": 0.0,
         "Download generated outputs": 2.0,
-        "Post Checkout main": 0.0,
+        "Post Checkout main": 1.0,
         "Set up job": 1.0,
         "Verify bundle and historical integrity against current main": 3.0
       }
@@ -8098,8 +8098,8 @@
     "trigger_origin": "push",
     "trigger_scheduled_for": null,
     "trigger_start_lag_seconds": null,
-    "workflow_actual_start": "2026-10-28T07:24:14+00:00",
-    "workflow_created": "2026-10-28T07:24:14+00:00",
+    "workflow_actual_start": "2026-10-28T07:57:04+00:00",
+    "workflow_created": "2026-10-28T07:57:04+00:00",
     "workflow_queue_seconds": 0.0
   }
 ]
