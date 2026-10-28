@@ -1,17 +1,8 @@
 {
-  "above_threshold": 3411,
-  "community_pulse": {
-    "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 254,
-    "discussion_url": "https://news.ycombinator.com/item?id=50251661",
-    "published_at": "2026-10-26T21:59:15+00:00",
-    "score": 687,
-    "source_name": "Hacker News",
-    "source_url": "https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf",
-    "title": "The Exponential Time Hypothesis Is False [pdf]"
-  },
-  "coverage_end": "2026-10-27T13:37:19+00:00",
-  "coverage_start": "2026-10-26T09:56:26+00:00",
+  "above_threshold": 448,
+  "community_pulse": null,
+  "coverage_end": "2026-10-28T07:24:46+00:00",
+  "coverage_start": "2026-10-27T07:24:46+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +11,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-27T13:43:50+00:00",
+  "generated_at": "2026-10-28T07:26:08+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-27T02:55:13+00:00",
+    "published_at": "2026-10-28T02:30:11+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33462",
-    "title": "ISC Stormcast For Tuesday, October 27th, 2026 https://isc.sans.edu/podcastdetail/10152, (Tue, Oct 27th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33464",
+    "title": "ISC Stormcast For Wednesday, October 28th, 2026 https://isc.sans.edu/podcastdetail/10154, (Wed, Oct 28th)"
   },
-  "immediate_attention": "16 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 16,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 5097,
+  "qualified_developments": 898,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,118 +51,35 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-0257"
-      ],
-      "cvss_score": 7.8,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99861,
-      "epss_score": 0.95012,
-      "ghsa_ids": [],
-      "id": "CVE-2026-0257",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "PAN-OS"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 173,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-0257 exploited in CISA KEV: Palo Alto Networks PAN-OS",
-      "why_it_matters": "CVSS 7.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-45321"
-      ],
-      "cvss_score": 9.6,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.8834,
-      "epss_score": 0.03278,
-      "ghsa_ids": [],
-      "id": "CVE-2026-45321",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "TanStack"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 140,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-45321 exploited in CISA KEV: TanStack TanStack",
-      "why_it_matters": "CVSS 9.6; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-39808"
+        "CVE-2025-3248"
       ],
       "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99833,
-      "epss_score": 0.93189,
-      "ghsa_ids": [],
-      "id": "CVE-2026-39808",
+      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "epss_percentile": 0.99987,
+      "epss_score": 0.99993,
+      "ghsa_ids": [
+        "GHSA-rvqx-wpfh-mfx7"
+      ],
+      "id": "CVE-2025-3248",
       "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "known_ransomware_use": true,
+      "priority_score": 10.0,
       "products": [
-        "FortiSandbox"
+        "Langflow",
+        "langflow",
+        "langflow-base"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "critical CVSS +20"
+        "known ransomware use +25"
       ],
-      "selection_score": 158,
+      "selection_score": 175,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-39808 exploited in CISA KEV: Fortinet FortiSandbox",
+      "title": "CVE-2025-3248 exploited in CISA KEV: Langflow Langflow",
       "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-20182"
-      ],
-      "cvss_score": 10.0,
-      "defensive_action": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlined in CISA\u2019s Emergency Directive 26-03 (URL listed below in\u2026",
-      "epss_percentile": 0.99815,
-      "epss_score": 0.91817,
-      "ghsa_ids": [],
-      "id": "CVE-2026-20182",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Catalyst SD-WAN"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 150,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-20182 exploited in CISA KEV: Cisco Catalyst SD-WAN",
-      "why_it_matters": "CVSS 10.0; EPSS >= 70%"
     },
     {
       "cisa_kev": true,
@@ -180,8 +88,8 @@
       ],
       "cvss_score": 9.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99989,
-      "epss_score": 0.99997,
+      "epss_percentile": 0.99999,
+      "epss_score": 0.99999,
       "ghsa_ids": [],
       "id": "CVE-2026-109619",
       "known_exploited": true,
@@ -201,6 +109,93 @@
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
       "title": "CVE-2026-109619 exploited in CISA KEV: PHP Group PHP",
       "why_it_matters": "CVSS 9.2; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-109618"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.99998,
+      "epss_score": 0.99999,
+      "ghsa_ids": [],
+      "id": "CVE-2026-109618",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "PHP"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 150,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-109618 exploited in CISA KEV: PHP Group PHP",
+      "why_it_matters": "CVSS 9.2; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-48356"
+      ],
+      "cvss_score": 9.3,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.98231,
+      "epss_score": 0.30582,
+      "ghsa_ids": [],
+      "id": "CVE-2026-48356",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Commerce and Magento"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 140,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-48356 exploited in CISA KEV: Adobe Commerce and Magento",
+      "why_it_matters": "CVSS 9.3; EPSS >= 30%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-111497"
+      ],
+      "cvss_score": 9.2,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.9903,
+      "epss_score": 0.55483,
+      "ghsa_ids": [],
+      "id": "CVE-2026-111497",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Brotli"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "critical CVSS +20"
+      ],
+      "selection_score": 140,
+      "severity": "CRITICAL",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-111497 exploited in CISA KEV: Google Brotli",
+      "why_it_matters": "CVSS 9.2; EPSS >= 30%"
     }
   ]
 }
