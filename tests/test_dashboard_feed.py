@@ -145,3 +145,22 @@ def test_history_requires_all_unique_healthy_core_sources(fault):
     assert summarize_report(value)["degraded"] is (fault != "none")
     value["degraded"] = True
     assert summarize_report(value)["degraded"] is True
+
+
+@pytest.mark.parametrize(
+    ("generated_at", "expected"),
+    [
+        ("2026-10-28T23:30:00Z", "2026-10-29"),
+        ("2026-07-21T22:30:00Z", "2026-07-22"),
+        ("2026-07-22T00:30:00+02:00", "2026-07-22"),
+        ("2026-10-25T00:30:00Z", "2026-10-25"),
+        ("2026-10-25T01:30:00Z", "2026-10-25"),
+        ("2026-10-28T23:30:00", "2026-10-29"),
+    ],
+)
+def test_history_calendar_uses_madrid_including_dst(generated_at, expected):
+    value = report("2026-10-28")
+    value["generated_at"] = generated_at
+    point = summarize_report(value)
+    assert point["date"] == expected
+    assert point["generated_at"] == generated_at

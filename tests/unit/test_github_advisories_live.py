@@ -91,3 +91,31 @@ def test_page_budget_does_not_silently_claim_full_coverage():
     items, health = collector.collect(SINCE, UNTIL)
     assert not items
     assert health.status == "failed"
+
+
+def test_distinct_cursors_with_overlapping_advisories_fail_closed():
+    http = FakeHttp(
+        [
+            response([advisory()], '<https://api.github.com/advisories?after=second>; rel="next"'),
+            response([advisory()]),
+        ]
+    )
+    items, health = GitHubAdvisoryCollector(http).collect(SINCE, UNTIL)
+    assert items == []
+    assert health.status == "failed"
+    assert "repeated an advisory" in health.sanitized_error_message
+    assert len(http.calls) == 2
+
+
+def test_distinct_ghsas_for_same_cve_are_not_pagination_duplicates():
+    first, second = advisory(), advisory("GHSA-2345-6789-0123")
+    first["cve_id"] = second["cve_id"] = "CVE-2026-12345"
+    items, health = GitHubAdvisoryCollector(FakeHttp([response([first, second])])).collect(SINCE, UNTIL)
+    assert len(items) == 2
+    assert health.status == "healthy"
+
+
+def test_duplicate_rows_within_a_page_also_fail_closed():
+    items, health = GitHubAdvisoryCollector(FakeHttp([response([advisory(), advisory()])])).collect(SINCE, UNTIL)
+    assert items == []
+    assert health.status == "failed"
