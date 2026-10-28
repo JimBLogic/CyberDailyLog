@@ -308,9 +308,10 @@ jobs:
         run: |
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > workflow-run.json
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > workflow-jobs.json
-      - name: Calculate publication lag
+      - name: Calculate and publish timing evidence
         if: ${{ always() }}
         env:
+          TIMING_CAN_PUBLISH: ${{ success() }}
           TRIGGER_CRON: ${{ github.event.schedule }}
           # The connected external scheduler can publish one request file without a PAT.
           # Use GitHub's immutable push commit timestamp, not a moving file on main.
@@ -329,7 +330,7 @@ jobs:
           COMMIT_CREATED: ${{ needs.publish.outputs.commit_created }}
           PUSH_COMPLETED: ${{ needs.publish.outputs.push_completed }}
         run: |
-          PYTHONPATH=src python scripts/publication_timing.py \
+          bash scripts/publish_timing.sh \
             --run workflow-run.json \
             --health timing-input/reports/source-health.json \
             --feed timing-input/reports/portfolio-feed.json \
@@ -337,18 +338,6 @@ jobs:
             --history reports/publication-timing-history.json \
             --jobs workflow-jobs.json \
             --metrics timing-input/reports/pipeline-metrics.json
-      - name: Publish timing evidence
-        if: ${{ success() }}
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/publication-timing.json reports/publication-timing-history.json
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "ops: persist publication SLO evidence [skip ci]"
-          git push
       - name: Preserve publication timing
         if: ${{ always() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
