@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
+from .recovery import recovery_telemetry
 
 MADRID = ZoneInfo("Europe/Madrid")
 SLOTS = {"0 12 * * *": (12, 0), "17 12 * * *": (12, 17), "30 13 * * *": (13, 30)}
@@ -169,8 +170,15 @@ def build_evidence(run, health, feed, env, jobs=None, metrics=None):
         stage = "pipeline"
     elif actual and generated and delta(actual, generated) > 3600:
         stage = "publication"
+    terminal_ends = [
+        parse_timestamp(job.get("completed_at"))
+        for job in (jobs or {}).get("jobs", [])
+        if job.get("name") in {"preflight", "collect", "publish"} and job.get("completed_at")
+    ]
+    attempt_finished = actual or (max(terminal_ends, default=None) if result in {"failure", "skipped"} else None)
     evidence = {
         "schema_version": 2,
+        "attempt_finished_at": iso(attempt_finished),
         "run_id": env.get("GITHUB_RUN_ID"),
         "run_attempt": env.get("GITHUB_RUN_ATTEMPT"),
         "run_url": f"https://github.com/{env.get('GITHUB_REPOSITORY')}/actions/runs/{env.get('GITHUB_RUN_ID')}",
@@ -326,6 +334,7 @@ def publication_view(previous, evidence, history, now):
     if view.get("status") == "skipped":
         view["status"] = "unknown"
     view["last_attempt"] = dict(evidence)
+    view["recovery_telemetry"] = recovery_telemetry(history, view.get("scheduled_for"))
     view["slo"] = slo_summary(history, now)
     # Older winning rows may predate this additive signal; retain their actual
     # source completeness/timestamps and leave unknown evidence unknown.

@@ -69,6 +69,10 @@ globalThis.fetch = async (input) => {
       ...(scenario === 'invalid-complete-days' ? {measured_days:6.5,full_window_observed:true} : {}),
       ...(scenario === 'full-complete-window' ? {measured_days:30,full_window_observed:true} : {}),
     }}),
+    ...(scenario === 'recovery-contract' ? {recovery_telemetry:{schema_version:1, recovery_seconds:999999, attempts:[
+      {run_id:'101',run_attempt:'1',trigger:'schedule',started_at:iso(-240000),finished_at:iso(-180000),outcome:'failed',publication_id:null,recovered_from:null},
+      {run_id:'102',run_attempt:'1',trigger:'external_push',started_at:iso(-150000),finished_at:iso(-60000),outcome:'published',publication_id:'a'.repeat(40),recovered_from:{run_id:'101',run_attempt:'1'}},
+    ]}} : {}),
     ...(scenario === 'skipped-recovery' ? {
       status:'delayed',publication_lag_seconds:3999,root_cause_stage:'dispatch',trigger_origin:'external_push',
       dispatch_requested_at:iso(-4_100_000),workflow_created:iso(-4_097_000),workflow_actual_start:iso(-4_097_000),
@@ -112,6 +116,14 @@ if (['future','offline'].includes(scenario)) {
   if (['missing-core','duplicate-core'].includes(scenario)) {
     assert.equal(data.pipelineStatus,'degraded');
     assert.equal(data.coverageState,'limited');
+  }
+  if (scenario === 'recovery-contract') {
+    const telemetry = data.publicationReliability.recovery;
+    assert.equal(telemetry.attempts.length,2);
+    assert.equal(telemetry.retry_count,1);
+    assert.equal(telemetry.recovery_seconds,120, 'derive duration from observed milestones, not an unverified counter');
+    assert.equal(telemetry.attempts[1].recovered_from.run_id,'101');
+    for (const key of ['run_id','trigger','started_at','finished_at','outcome','recovered_from','publication_id']) assert.ok(key in telemetry.attempts[1]);
   }
   if (scenario === 'mixed') assert.equal(data.humanContext,null);
   if (scenario === 'cti') {

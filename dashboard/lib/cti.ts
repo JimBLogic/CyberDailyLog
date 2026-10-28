@@ -1,3 +1,4 @@
+import { normalizeRecovery } from "./recovery";
 import { safeWebUrl } from "./safe-url";
 
 export const CHANGE_LABELS: Record<string, [string, string]> = {
@@ -79,6 +80,7 @@ export function normalizePublication(value: unknown) {
   const origin = (value: unknown) => ["external_push", "external", "schedule", "manual", "push", "workflow_dispatch"].includes(String(value)) ? String(value) : "unknown";
   const attempt = record(raw.last_attempt);
   return {
+    recovery: normalizeRecovery(raw.recovery_telemetry),
     status: statuses.includes(String(raw.status)) ? String(raw.status) : "unknown",
     scheduledFor: date(raw.scheduled_for), actual: date(raw.actual_publication_time),
     reportGenerated: date(raw.report_generated), lagSeconds: number(raw.publication_lag_seconds, 31_536_000),
