@@ -1,3 +1,4 @@
+import { readBoundedJson } from "./bounded-json";
 import { calendarDate } from "./deadlines";
 import { publicationDate } from "./publication-date";
 import { boundedScore } from "./bounded-score";
@@ -60,7 +61,7 @@ async function fetchJson<T>(url: string) {
   try {
     const response = await fetch(essentialServerUrl(url), {
       // Reject redirects before a second destination can bypass the host policy.
-      redirect: "error",
+      redirect: "manual",
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(OFFICIAL_TIMEOUT_MS),
     });
@@ -68,7 +69,7 @@ async function fetchJson<T>(url: string) {
       return { data: null as T | null, durationMs: Date.now() - startedAt };
     }
     return {
-      data: (await response.json()) as T,
+      data: await readBoundedJson<T>(response),
       durationMs: Date.now() - startedAt,
     };
   } catch {

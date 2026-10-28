@@ -1,3 +1,4 @@
+import { readBoundedJson, ResponseLimitError } from "./bounded-json";
 import { deadlineRank, calendarDate } from "./deadlines";
 import { normalizeCti, normalizePublication } from "./cti";
 import { FALLBACK_DATA } from "./fallback-data";
@@ -375,6 +376,7 @@ function recordEndpointFailure(
 }
 
 function endpointFailureReason(error: unknown) {
+  if (error instanceof ResponseLimitError) return "Source response exceeds byte limit";
   return error instanceof DOMException &&
     ["AbortError", "TimeoutError"].includes(error.name)
     ? "Request timed out"
@@ -402,12 +404,12 @@ async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean
     try {
       const response = await fetch(essentialServerUrl(url), {
         // Reject redirects before a second destination can bypass the host policy.
-        redirect: "error",
+        redirect: "manual",
         headers: { Accept: "application/json" },
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       });
       if (response.ok) {
-        const data: unknown = await response.json();
+        const data: unknown = await readBoundedJson(response);
         if (validate && !validate(data)) throw new Error("Invalid feed payload");
         endpointCircuits.delete(circuitKey);
         attempts.push({

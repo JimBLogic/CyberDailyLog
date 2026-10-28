@@ -41,6 +41,7 @@ globalThis.fetch = async (input) => {
     reportFetches++;
     if (scenario === 'offline') throw new Error('offline');
     if (url.hostname === 'raw.githubusercontent.com') {
+      if (scenario === 'oversized-primary') return new Response('{}', {headers:{'Content-Length':'8388609'}});
       if (scenario === 'invalid-json') return new Response('<html>not JSON</html>');
       if (scenario === 'invalid-schema') return Response.json({items: 'invalid'});
     }
@@ -98,10 +99,11 @@ if (['future','offline'].includes(scenario)) {
   assert.equal(data.immediateAttentionCount,1);
   assert.equal(data.vulnerabilities[0].sourceUrl,'https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md');
   assert.deepEqual(data.vulnerabilities[0].references,['https://nvd.nist.gov/vuln/detail/CVE-2026-12345']);
-  if (['invalid-json','invalid-schema'].includes(scenario)) {
+  if (['invalid-json','invalid-schema','oversized-primary'].includes(scenario)) {
     assert.equal(data.deliveryOrigin,'jsdelivr-cdn');
     assert.equal(data.deliveryChain[0].status,'failed');
     assert.equal(reportFetches,2);
+    if (scenario === 'oversized-primary') assert.equal(data.deliveryChain[0].reason, 'Source response exceeds byte limit');
   } else assert.equal(reportFetches,1, 'concurrent requests must share collection');
   if (['stale','missing-health'].includes(scenario)) {
     assert.equal(data.pipelineStatus,'degraded');
