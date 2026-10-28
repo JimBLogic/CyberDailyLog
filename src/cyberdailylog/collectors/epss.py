@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from math import isfinite
 from urllib.parse import urlencode
 
 from .base import BaseCollector
@@ -45,12 +46,18 @@ def _extract_scores(data: object) -> tuple[dict[str, dict[str, float | str | Non
             cve = str(row["cve"]).strip().upper()
             if not cve:
                 raise ValueError("empty CVE")
+            values = [row["epss"], row["percentile"]]
+            if any(isinstance(value, bool) for value in values):
+                raise ValueError("boolean EPSS value")
+            score, percentile = (float(value) for value in values)
+            if not all(isfinite(value) and 0 <= value <= 1 for value in (score, percentile)):
+                raise ValueError("EPSS values must be finite probabilities")
             scores[cve] = {
-                "epss_score": float(row["epss"]),
-                "epss_percentile": float(row["percentile"]),
+                "epss_score": score,
+                "epss_percentile": percentile,
                 "date": str(row["date"]) if row.get("date") is not None else None,
             }
-        except (KeyError, TypeError, ValueError):
+        except (KeyError, TypeError, ValueError, OverflowError):
             malformed += 1
     return scores, malformed
 
