@@ -1,8 +1,8 @@
 {
-  "actual_publication_time": "2026-10-28T07:58:57+00:00",
+  "actual_publication_time": "2026-10-28T08:58:29+00:00",
   "collect_result": "success",
-  "commit_created": "2026-10-28T07:58:55+00:00",
-  "commit_sha": "9c1a524ec4a90e44582d23e6eed52ce04821a5bf",
+  "commit_created": "2026-10-28T08:58:26+00:00",
+  "commit_sha": "7eef214b2a81d281f05bb5598c8dba5fcd3982c9",
   "complete_close_on_time": null,
   "complete_close_slo": {
     "attainment_percentage": 50.0,
@@ -42,7 +42,7 @@
     ],
     "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-28T07:59:19.485461+00:00",
+    "evaluated_at": "2026-10-28T08:58:49.629640+00:00",
     "full_window_observed": false,
     "measured_days": 8,
     "met": false,
@@ -59,20 +59,20 @@
   "dispatch_timestamp_error": null,
   "dry_run": false,
   "event": "push",
-  "fetch_duration_seconds": 41.81,
-  "fetch_end": "2026-10-28T07:58:21.548160+00:00",
-  "fetch_start": "2026-10-28T07:57:39.738391+00:00",
+  "fetch_duration_seconds": 36.176,
+  "fetch_end": "2026-10-28T08:57:50.710829+00:00",
+  "fetch_start": "2026-10-28T08:57:14.535305+00:00",
   "job_durations_seconds": {
     "Publication timing evidence": null,
-    "collect": 75.0,
-    "preflight": 13.0,
-    "publish": 19.0
+    "collect": 70.0,
+    "preflight": 11.0,
+    "publish": 22.0
   },
   "last_attempt": {
-    "actual_publication_time": "2026-10-28T07:58:57+00:00",
+    "actual_publication_time": "2026-10-28T08:58:29+00:00",
     "collect_result": "success",
-    "commit_created": "2026-10-28T07:58:55+00:00",
-    "commit_sha": "9c1a524ec4a90e44582d23e6eed52ce04821a5bf",
+    "commit_created": "2026-10-28T08:58:26+00:00",
+    "commit_sha": "7eef214b2a81d281f05bb5598c8dba5fcd3982c9",
     "complete_close_on_time": null,
     "complete_close_status": "unknown",
     "core_complete": true,
@@ -81,33 +81,33 @@
     "dispatch_timestamp_error": null,
     "dry_run": false,
     "event": "push",
-    "fetch_duration_seconds": 41.81,
-    "fetch_end": "2026-10-28T07:58:21.548160+00:00",
-    "fetch_start": "2026-10-28T07:57:39.738391+00:00",
+    "fetch_duration_seconds": 36.176,
+    "fetch_end": "2026-10-28T08:57:50.710829+00:00",
+    "fetch_start": "2026-10-28T08:57:14.535305+00:00",
     "job_durations_seconds": {
       "Publication timing evidence": null,
-      "collect": 75.0,
-      "preflight": 13.0,
-      "publish": 19.0
+      "collect": 70.0,
+      "preflight": 11.0,
+      "publish": 22.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
     "monitoring_started_at": "2026-09-16T10:00:00+00:00",
     "pipeline_metrics": {
       "baseline_records": 76435,
       "dry_run": false,
-      "finished_at": "2026-10-28T07:58:32.967877+00:00",
-      "ledger_bytes": 13620001,
+      "finished_at": "2026-10-28T08:58:02.072017+00:00",
+      "ledger_bytes": 13620145,
       "outcome": "complete",
       "phases_ms": {
-        "collection": 39757.509,
-        "epss": 2062.202,
-        "ledger_load": 1510.983,
-        "ledger_write": 9217.08,
-        "matching": 2009.907,
-        "prepare": 26.779,
-        "render": 56.406
+        "collection": 34701.525,
+        "epss": 1483.696,
+        "ledger_load": 1534.282,
+        "ledger_write": 9173.299,
+        "matching": 2019.241,
+        "prepare": 1.471,
+        "render": 31.472
       },
-      "report_generated": "2026-10-28T07:58:23+00:00",
+      "report_generated": "2026-10-28T08:57:52+00:00",
       "schema_version": 1,
       "sources": {
         "cisa_kev": {
@@ -141,7 +141,7 @@
           "page_size_reductions": 0,
           "pages": 5,
           "requests": 5,
-          "response_bytes": 5670496,
+          "response_bytes": 5620089,
           "status": "healthy",
           "wait_seconds": 24.0,
           "window_restarts": 0
@@ -167,22 +167,22 @@
           "status": "healthy"
         }
       },
-      "started_at": "2026-10-28T07:57:38.199210+00:00",
-      "total_ms": 54768.691,
-      "tracked_records": 76435
+      "started_at": "2026-10-28T08:57:12.998178+00:00",
+      "total_ms": 49073.864,
+      "tracked_records": 76439
     },
     "preflight_reason": "latest report date is missing; collection is required for 2026-10-28",
     "preflight_result": "success",
     "preflight_should_run": "true",
     "publication_lag_seconds": null,
     "publish_result": "success",
-    "push_completed": "2026-10-28T07:58:57+00:00",
-    "report_generated": "2026-10-28T07:58:23+00:00",
+    "push_completed": "2026-10-28T08:58:29+00:00",
+    "report_generated": "2026-10-28T08:57:52+00:00",
     "root_cause_stage": "unknown",
     "run_attempt": "1",
-    "run_id": "40653380801",
-    "run_to_commit_seconds": 111.0,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40653380801",
+    "run_id": "40660434705",
+    "run_to_commit_seconds": 105.0,
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40660434705",
     "schedule_basis": "unknown",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
@@ -194,12 +194,12 @@
       "Publication timing evidence": {
         "Calculate publication lag": null,
         "Checkout published main": 9.0,
-        "Download this run's reports": 4.0,
+        "Download this run's reports": 2.0,
         "Post Checkout published main": null,
         "Preserve publication timing": null,
         "Publish timing evidence": null,
         "Read workflow timing from GitHub": null,
-        "Set up job": 2.0
+        "Set up job": 3.0
       },
       "collect": {
         "Bind the complete report bundle": 0.0,
@@ -208,34 +208,34 @@
         "Complete job": 0.0,
         "Generate compact portfolio feed": 0.0,
         "Generate dashboard history feed": 1.0,
-        "Install application": 4.0,
-        "Post Checkout": 1.0,
-        "Post Setup Python": 0.0,
+        "Install application": 5.0,
+        "Post Checkout": 0.0,
+        "Post Setup Python": 1.0,
         "Resolve execution mode": 0.0,
-        "Run collection": 55.0,
+        "Run collection": 50.0,
         "Set up job": 1.0,
         "Setup Python": 0.0,
         "Show source health": 0.0,
-        "Stage bounded publication artifact": 1.0,
+        "Stage bounded publication artifact": 0.0,
         "Update repository landing snapshot": 0.0,
         "Upload generated outputs": 1.0,
         "Validate public outputs": 0.0,
-        "Validate reports": 0.0
+        "Validate reports": 1.0
       },
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 9.0,
+        "Checkout": 8.0,
         "Complete job": 0.0,
         "Post Checkout": 1.0,
         "Set up job": 1.0
       },
       "publish": {
         "Checkout main": 8.0,
-        "Commit and push generated outputs": 3.0,
+        "Commit and push generated outputs": 4.0,
         "Complete job": 0.0,
         "Download generated outputs": 2.0,
-        "Post Checkout main": 1.0,
-        "Set up job": 1.0,
+        "Post Checkout main": 0.0,
+        "Set up job": 2.0,
         "Verify bundle and historical integrity against current main": 3.0
       }
     },
@@ -245,8 +245,8 @@
     "trigger_origin": "push",
     "trigger_scheduled_for": null,
     "trigger_start_lag_seconds": null,
-    "workflow_actual_start": "2026-10-28T07:57:04+00:00",
-    "workflow_created": "2026-10-28T07:57:04+00:00",
+    "workflow_actual_start": "2026-10-28T08:56:41+00:00",
+    "workflow_created": "2026-10-28T08:56:41+00:00",
     "workflow_queue_seconds": 0.0
   },
   "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -254,19 +254,19 @@
   "pipeline_metrics": {
     "baseline_records": 76435,
     "dry_run": false,
-    "finished_at": "2026-10-28T07:58:32.967877+00:00",
-    "ledger_bytes": 13620001,
+    "finished_at": "2026-10-28T08:58:02.072017+00:00",
+    "ledger_bytes": 13620145,
     "outcome": "complete",
     "phases_ms": {
-      "collection": 39757.509,
-      "epss": 2062.202,
-      "ledger_load": 1510.983,
-      "ledger_write": 9217.08,
-      "matching": 2009.907,
-      "prepare": 26.779,
-      "render": 56.406
+      "collection": 34701.525,
+      "epss": 1483.696,
+      "ledger_load": 1534.282,
+      "ledger_write": 9173.299,
+      "matching": 2019.241,
+      "prepare": 1.471,
+      "render": 31.472
     },
-    "report_generated": "2026-10-28T07:58:23+00:00",
+    "report_generated": "2026-10-28T08:57:52+00:00",
     "schema_version": 1,
     "sources": {
       "cisa_kev": {
@@ -300,7 +300,7 @@
         "page_size_reductions": 0,
         "pages": 5,
         "requests": 5,
-        "response_bytes": 5670496,
+        "response_bytes": 5620089,
         "status": "healthy",
         "wait_seconds": 24.0,
         "window_restarts": 0
@@ -326,9 +326,9 @@
         "status": "healthy"
       }
     },
-    "started_at": "2026-10-28T07:57:38.199210+00:00",
-    "total_ms": 54768.691,
-    "tracked_records": 76435
+    "started_at": "2026-10-28T08:57:12.998178+00:00",
+    "total_ms": 49073.864,
+    "tracked_records": 76439
   },
   "preflight_reason": "latest report date is missing; collection is required for 2026-10-28",
   "preflight_result": "success",
@@ -370,7 +370,7 @@
       }
     ],
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-28T07:59:19.485461+00:00",
+    "evaluated_at": "2026-10-28T08:58:49.629640+00:00",
     "full_window_observed": false,
     "interpretation": "Operational 30-day observation; not a statistical guarantee of future reliability.",
     "measured_publications": 8,
@@ -383,13 +383,13 @@
   },
   "publication_lag_seconds": null,
   "publish_result": "success",
-  "push_completed": "2026-10-28T07:58:57+00:00",
-  "report_generated": "2026-10-28T07:58:23+00:00",
+  "push_completed": "2026-10-28T08:58:29+00:00",
+  "report_generated": "2026-10-28T08:57:52+00:00",
   "root_cause_stage": "unknown",
   "run_attempt": "1",
-  "run_id": "40653380801",
-  "run_to_commit_seconds": 111.0,
-  "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40653380801",
+  "run_id": "40660434705",
+  "run_to_commit_seconds": 105.0,
+  "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40660434705",
   "schedule_basis": "unknown",
   "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
   "schedule_timezone": "Europe/Madrid",
@@ -516,7 +516,7 @@
         "status": "delayed"
       }
     ],
-    "evaluated_at": "2026-10-28T07:59:19.485461+00:00",
+    "evaluated_at": "2026-10-28T08:58:49.629640+00:00",
     "full_window_observed": false,
     "measured_publications": 29,
     "met": false,
@@ -530,12 +530,12 @@
     "Publication timing evidence": {
       "Calculate publication lag": null,
       "Checkout published main": 9.0,
-      "Download this run's reports": 4.0,
+      "Download this run's reports": 2.0,
       "Post Checkout published main": null,
       "Preserve publication timing": null,
       "Publish timing evidence": null,
       "Read workflow timing from GitHub": null,
-      "Set up job": 2.0
+      "Set up job": 3.0
     },
     "collect": {
       "Bind the complete report bundle": 0.0,
@@ -544,34 +544,34 @@
       "Complete job": 0.0,
       "Generate compact portfolio feed": 0.0,
       "Generate dashboard history feed": 1.0,
-      "Install application": 4.0,
-      "Post Checkout": 1.0,
-      "Post Setup Python": 0.0,
+      "Install application": 5.0,
+      "Post Checkout": 0.0,
+      "Post Setup Python": 1.0,
       "Resolve execution mode": 0.0,
-      "Run collection": 55.0,
+      "Run collection": 50.0,
       "Set up job": 1.0,
       "Setup Python": 0.0,
       "Show source health": 0.0,
-      "Stage bounded publication artifact": 1.0,
+      "Stage bounded publication artifact": 0.0,
       "Update repository landing snapshot": 0.0,
       "Upload generated outputs": 1.0,
       "Validate public outputs": 0.0,
-      "Validate reports": 0.0
+      "Validate reports": 1.0
     },
     "preflight": {
       "Check daily publication freshness": 0.0,
-      "Checkout": 9.0,
+      "Checkout": 8.0,
       "Complete job": 0.0,
       "Post Checkout": 1.0,
       "Set up job": 1.0
     },
     "publish": {
       "Checkout main": 8.0,
-      "Commit and push generated outputs": 3.0,
+      "Commit and push generated outputs": 4.0,
       "Complete job": 0.0,
       "Download generated outputs": 2.0,
-      "Post Checkout main": 1.0,
-      "Set up job": 1.0,
+      "Post Checkout main": 0.0,
+      "Set up job": 2.0,
       "Verify bundle and historical integrity against current main": 3.0
     }
   },
@@ -581,7 +581,7 @@
   "trigger_origin": "push",
   "trigger_scheduled_for": null,
   "trigger_start_lag_seconds": null,
-  "workflow_actual_start": "2026-10-28T07:57:04+00:00",
-  "workflow_created": "2026-10-28T07:57:04+00:00",
+  "workflow_actual_start": "2026-10-28T08:56:41+00:00",
+  "workflow_created": "2026-10-28T08:56:41+00:00",
   "workflow_queue_seconds": 0.0
 }
