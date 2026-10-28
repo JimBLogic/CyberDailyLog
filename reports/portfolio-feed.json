@@ -1,8 +1,8 @@
 {
-  "above_threshold": 6,
+  "above_threshold": 9,
   "community_pulse": null,
-  "coverage_end": "2026-10-28T07:57:38+00:00",
-  "coverage_start": "2026-10-27T07:57:38+00:00",
+  "coverage_end": "2026-10-28T08:57:12+00:00",
+  "coverage_start": "2026-10-27T08:57:12+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,7 +11,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-28T07:58:23+00:00",
+  "generated_at": "2026-10-28T08:57:52+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -26,7 +26,7 @@
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 40,
+  "qualified_developments": 44,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -108,6 +108,32 @@
     },
     {
       "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-92797"
+      ],
+      "cvss_score": 8.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-92797",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.1,
+      "products": [],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92797",
+      "title": "The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14.",
+      "why_it_matters": "CVSS 8.8; detection opportunity"
+    },
+    {
+      "cisa_kev": false,
       "cve_ids": [],
       "cvss_score": 8.7,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
@@ -163,35 +189,6 @@
       "source_url": "https://github.com/advisories/GHSA-23mf-xhv8-69c2",
       "title": "GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679)",
       "why_it_matters": "CVSS 7.1; priority technology: linux"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [],
-      "cvss_score": 6.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [
-        "GHSA-fmmf-xq98-g327"
-      ],
-      "id": "GHSA-fmmf-xq98-g327",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 6.7,
-      "products": [
-        "code.vikunja.io/api"
-      ],
-      "selection_reasons": [
-        "priority technology: microsoft_365 +8",
-        "official source +5",
-        "modified metadata in window -5"
-      ],
-      "selection_score": 8,
-      "severity": "medium",
-      "source_name": "GitHub Global Security Advisories",
-      "source_url": "https://github.com/advisories/GHSA-fmmf-xq98-g327",
-      "title": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check",
-      "why_it_matters": "CVSS 6.9; priority technology: microsoft_365"
     }
   ]
 }

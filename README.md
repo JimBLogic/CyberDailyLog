@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-28T07:58:23+00:00  
-**Coverage:** 2026-10-27T07:57:38+00:00 → 2026-10-28T07:57:38+00:00  
+**Updated:** 2026-10-28T08:57:52+00:00  
+**Coverage:** 2026-10-27T08:57:12+00:00 → 2026-10-28T08:57:12+00:00  
 **Pipeline:** **Operational**
 
 2 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 40 source-backed developments
-- **Above threshold:** 6
+- **Assessed:** 44 source-backed developments
+- **Above threshold:** 9
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
 - **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
+- **[CVE-2026-92797](https://nvd.nist.gov/vuln/detail/CVE-2026-92797) · 9.1/10** — The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14. — CVSS 8.8; detection opportunity
 - **[GHSA-m64x-33q8-m5h7](https://github.com/advisories/GHSA-m64x-33q8-m5h7) · 8.4/10** — GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines — CVSS 8.7; priority technology: browsers
 - **[GHSA-23mf-xhv8-69c2](https://github.com/advisories/GHSA-23mf-xhv8-69c2) · 6.8/10** — GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679) — CVSS 7.1; priority technology: linux
-- **[GHSA-fmmf-xq98-g327](https://github.com/advisories/GHSA-fmmf-xq98-g327) · 6.7/10** — Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check — CVSS 6.9; priority technology: microsoft_365
 
 ### Human context
 

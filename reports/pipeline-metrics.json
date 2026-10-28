@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-28T07:57:38.199210+00:00",
+  "started_at": "2026-10-28T08:57:12.998178+00:00",
   "phases_ms": {
-    "ledger_load": 1510.983,
-    "prepare": 26.779,
-    "collection": 39757.509,
-    "epss": 2062.202,
-    "matching": 2009.907,
-    "render": 56.406,
-    "ledger_write": 9217.08
+    "ledger_load": 1534.282,
+    "prepare": 1.471,
+    "collection": 34701.525,
+    "epss": 1483.696,
+    "matching": 2019.241,
+    "render": 31.472,
+    "ledger_write": 9173.299
   },
   "baseline_records": 76435,
   "sources": {
@@ -24,7 +24,7 @@
       "requests": 5,
       "pages": 5,
       "page_size_reductions": 0,
-      "response_bytes": 5670496,
+      "response_bytes": 5620089,
       "wait_seconds": 24.0,
       "window_restarts": 0
     },
@@ -69,11 +69,11 @@
       "http_retries": 0
     }
   },
-  "tracked_records": 76435,
-  "report_generated": "2026-10-28T07:58:23+00:00",
-  "ledger_bytes": 13620001,
+  "tracked_records": 76439,
+  "report_generated": "2026-10-28T08:57:52+00:00",
+  "ledger_bytes": 13620145,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-28T07:58:32.967877+00:00",
-  "total_ms": 54768.691
+  "finished_at": "2026-10-28T08:58:02.072017+00:00",
+  "total_ms": 49073.864
 }

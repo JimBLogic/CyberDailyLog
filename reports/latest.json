@@ -1,15 +1,15 @@
 {
-  "coverage_end": "2026-10-28T07:57:38+00:00",
-  "coverage_start": "2026-10-27T07:57:38+00:00",
+  "coverage_end": "2026-10-28T08:57:12+00:00",
+  "coverage_start": "2026-10-27T08:57:12+00:00",
   "cti_summary": {
     "kev_transitions": 0,
-    "new_vulnerabilities": 0,
+    "new_vulnerabilities": 4,
     "ransomware_transitions": 0,
     "state_changes": 0,
-    "tracked_vulnerabilities": 76435
+    "tracked_vulnerabilities": 76439
   },
   "degraded": false,
-  "generated_at": "2026-10-28T07:58:23+00:00",
+  "generated_at": "2026-10-28T08:57:52+00:00",
   "items": [
     {
       "affected_versions": [],
@@ -20,7 +20,7 @@
       "cisa_due_date": "2026-10-29T00:00:00+00:00",
       "cisa_kev": true,
       "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
-      "collected_at": "2026-10-28T07:57:39.833750+00:00",
+      "collected_at": "2026-10-28T08:57:14.703934+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -62,7 +62,7 @@
       "kev_date_added": "2026-10-26T00:00:00+00:00",
       "known_exploited": true,
       "known_ransomware_use": null,
-      "last_seen": "2026-10-28T07:58:21+00:00",
+      "last_seen": "2026-10-28T08:57:50+00:00",
       "modified_at": "2026-10-28T04:17:54.320000+00:00",
       "official_source": true,
       "previous_state": null,
@@ -84,7 +84,7 @@
       "provenance": {
         "cvss_score": [
           {
-            "collected_at": "2026-10-28T07:58:22.814312+00:00",
+            "collected_at": "2026-10-28T08:57:51.986224+00:00",
             "field": "cvss_score",
             "source_name": "NVD CVE API 2.0",
             "value": 9.2
@@ -92,7 +92,7 @@
         ],
         "cvss_vector": [
           {
-            "collected_at": "2026-10-28T07:58:22.814314+00:00",
+            "collected_at": "2026-10-28T08:57:51.986226+00:00",
             "field": "cvss_vector",
             "source_name": "NVD CVE API 2.0",
             "value": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
@@ -100,7 +100,7 @@
         ],
         "cvss_version": [
           {
-            "collected_at": "2026-10-28T07:58:22.814313+00:00",
+            "collected_at": "2026-10-28T08:57:51.986225+00:00",
             "field": "cvss_version",
             "source_name": "NVD CVE API 2.0",
             "value": "4.0"
@@ -108,7 +108,7 @@
         ],
         "severity": [
           {
-            "collected_at": "2026-10-28T07:58:22.814315+00:00",
+            "collected_at": "2026-10-28T08:57:51.986227+00:00",
             "field": "severity",
             "source_name": "NVD CVE API 2.0",
             "value": "CRITICAL"
@@ -116,13 +116,13 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:22.814216+00:00",
+            "collected_at": "2026-10-28T08:57:51.986125+00:00",
             "field": "withdrawn",
             "source_name": "CISA Known Exploited Vulnerabilities",
             "value": false
           },
           {
-            "collected_at": "2026-10-28T07:58:22.814294+00:00",
+            "collected_at": "2026-10-28T08:57:51.986205+00:00",
             "field": "withdrawn",
             "source_name": "NVD CVE API 2.0",
             "value": false
@@ -247,7 +247,7 @@
       "cisa_due_date": "2026-10-29T00:00:00+00:00",
       "cisa_kev": true,
       "cisa_required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
-      "collected_at": "2026-10-28T07:57:39.833663+00:00",
+      "collected_at": "2026-10-28T08:57:14.703898+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -289,7 +289,7 @@
       "kev_date_added": "2026-10-26T00:00:00+00:00",
       "known_exploited": true,
       "known_ransomware_use": null,
-      "last_seen": "2026-10-28T07:58:21+00:00",
+      "last_seen": "2026-10-28T08:57:50+00:00",
       "modified_at": "2026-10-28T04:17:46.930000+00:00",
       "official_source": true,
       "previous_state": null,
@@ -311,7 +311,7 @@
       "provenance": {
         "cvss_score": [
           {
-            "collected_at": "2026-10-28T07:58:22.813512+00:00",
+            "collected_at": "2026-10-28T08:57:51.985419+00:00",
             "field": "cvss_score",
             "source_name": "NVD CVE API 2.0",
             "value": 9.2
@@ -319,7 +319,7 @@
         ],
         "cvss_vector": [
           {
-            "collected_at": "2026-10-28T07:58:22.813514+00:00",
+            "collected_at": "2026-10-28T08:57:51.985421+00:00",
             "field": "cvss_vector",
             "source_name": "NVD CVE API 2.0",
             "value": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
@@ -327,7 +327,7 @@
         ],
         "cvss_version": [
           {
-            "collected_at": "2026-10-28T07:58:22.813513+00:00",
+            "collected_at": "2026-10-28T08:57:51.985420+00:00",
             "field": "cvss_version",
             "source_name": "NVD CVE API 2.0",
             "value": "4.0"
@@ -335,7 +335,7 @@
         ],
         "severity": [
           {
-            "collected_at": "2026-10-28T07:58:22.813515+00:00",
+            "collected_at": "2026-10-28T08:57:51.985422+00:00",
             "field": "severity",
             "source_name": "NVD CVE API 2.0",
             "value": "CRITICAL"
@@ -343,13 +343,13 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:22.813423+00:00",
+            "collected_at": "2026-10-28T08:57:51.985329+00:00",
             "field": "withdrawn",
             "source_name": "CISA Known Exploited Vulnerabilities",
             "value": false
           },
           {
-            "collected_at": "2026-10-28T07:58:22.813496+00:00",
+            "collected_at": "2026-10-28T08:57:51.985402+00:00",
             "field": "withdrawn",
             "source_name": "NVD CVE API 2.0",
             "value": false
@@ -457,6 +457,108 @@
       "withdrawn": false
     },
     {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-92797",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-28T08:57:40.296331+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 8.8,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "high",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-92797"
+      ],
+      "cvss_score": 8.8,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-28T08:57:50+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-28T08:57:50+00:00",
+      "modified_at": "2026-10-28T08:16:30.250000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "HIGH",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 8.8",
+        "detection opportunity"
+      ],
+      "priority_score": 9.1,
+      "products": [],
+      "provenance": {
+        "withdrawn": [
+          {
+            "collected_at": "2026-10-28T08:57:52.706767+00:00",
+            "field": "withdrawn",
+            "source_name": "NVD CVE API 2.0",
+            "value": false
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-28T08:16:30.250000+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://memberpress.com/change-log/#1.14.2",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/2fb6cdd0-cd48-49a5-b998-f1c3fbdc25f7?source=cve"
+      ],
+      "selection_reasons": [
+        "high CVSS +10",
+        "official source +5"
+      ],
+      "selection_score": 15,
+      "severity": "HIGH",
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92797",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14.1. This is due to a bypassable nonce verification check in the save_profile_fields() function that uses an isset() condition at line 1119, allowing the security check to be completely bypassed by simply omitting the nonce parameter from the request. This makes it possible for unauthenticated attackers to change authenticated users' email addresses via a forged request granted they can trick an authenticated user into performing an action such as clicking on a link, leading to account takeover through password reset functionality.",
+      "title": "CVE-2026-92797: The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14.",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
       "affected_versions": [
         "<= 3.1.62"
       ],
@@ -467,7 +569,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217843+00:00",
+      "collected_at": "2026-10-28T08:57:41.927250+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -520,7 +622,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217848+00:00",
+            "collected_at": "2026-10-28T08:57:41.927257+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -530,7 +632,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909780+00:00",
+            "collected_at": "2026-10-28T08:57:51.077192+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -580,7 +682,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217790+00:00",
+      "collected_at": "2026-10-28T08:57:41.927192+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -633,7 +735,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217795+00:00",
+            "collected_at": "2026-10-28T08:57:41.927200+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -643,7 +745,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909332+00:00",
+            "collected_at": "2026-10-28T08:57:51.076754+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -683,6 +785,116 @@
       "withdrawn": false
     },
     {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-101935",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-28T08:57:34.209589+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 6.1,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-101935"
+      ],
+      "cvss_score": 6.1,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-28T08:57:50+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-28T08:57:50+00:00",
+      "modified_at": "2026-10-28T08:16:29.567000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 6.1",
+        "priority technology: browsers",
+        "detection opportunity"
+      ],
+      "priority_score": 6.8,
+      "products": [],
+      "provenance": {
+        "withdrawn": [
+          {
+            "collected_at": "2026-10-28T08:57:51.912029+00:00",
+            "field": "withdrawn",
+            "source_name": "NVD CVE API 2.0",
+            "value": false
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-28T08:16:29.567000+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/admin/editor/class-epkb-frontend-editor.php#L1072",
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/admin/editor/class-epkb-frontend-editor.php#L848",
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/class-epkb-utilities.php#L836",
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/features/articles/class-epkb-articles-setup.php#L131",
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/features/articles/class-epkb-articles-setup.php#L319",
+        "https://plugins.trac.wordpress.org/browser/echo-knowledge-base/tags/17.214.0/includes/features/layouts/class-epkb-layouts-setup.php#L45",
+        "https://plugins.trac.wordpress.org/changeset/3727663/echo-knowledge-base/trunk/includes/admin/editor/class-epkb-frontend-editor.php",
+        "https://plugins.trac.wordpress.org/changeset?reponame=&new=3727647%40echo-knowledge-base%2Ftags%2F17.311.0&old=3672811%40echo-knowledge-base%2Ftags%2F17.214.0",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/3bfab9cf-4ccb-45fc-83ce-b5250f0f6482?source=cve"
+      ],
+      "selection_reasons": [
+        "priority technology: browsers +8",
+        "official source +5"
+      ],
+      "selection_score": 13,
+      "severity": "MEDIUM",
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101935",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "The Echo Knowledge Base \u2013 Documentation, FAQs, Chat & Smart Search plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'new_kb_config' parameter (specifically the article-mobile-break-point-v2 key, among other config keys interpolated into the <style> element) in versions up to, and including, 17.214.0 This is due to insufficient input sanitization and output escaping in EPKB_Frontend_Editor::fe_preview_config() and EPKB_Articles_Setup: on every knowledge base article page view, when the request supplies epkb_fe_reload_mode=on, an attacker-controlled JSON blob is merged over the stored KB configuration and several values are concatenated directly into a stylesheet emitted inside a literal <style> element without escaping (minify_css() does not strip <, > or /). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user (with Editor-level access or above, holding the manage_categories capability, or an Administrator) into performing an action such as clicking on a specially crafted link.",
+      "title": "CVE-2026-101935: The Echo Knowledge Base \u2013 Documentation, FAQs, Chat & Smart Search plugin for WordPress is vulnerable to Reflected Cross",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
       "affected_versions": [
         ">= 0.13.0, <= 2.6.0"
       ],
@@ -693,7 +905,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218732+00:00",
+      "collected_at": "2026-10-28T08:57:41.928159+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -746,7 +958,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218737+00:00",
+            "collected_at": "2026-10-28T08:57:41.928164+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -756,7 +968,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909951+00:00",
+            "collected_at": "2026-10-28T08:57:51.077353+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -804,7 +1016,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217631+00:00",
+      "collected_at": "2026-10-28T08:57:41.927023+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -855,7 +1067,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217636+00:00",
+            "collected_at": "2026-10-28T08:57:41.927028+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -865,7 +1077,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908647+00:00",
+            "collected_at": "2026-10-28T08:57:51.076163+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -902,6 +1114,215 @@
       "withdrawn": false
     },
     {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-118435",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-28T08:57:34.209603+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 5.4,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-118435"
+      ],
+      "cvss_score": 5.4,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-28T08:57:50+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-28T08:57:50+00:00",
+      "modified_at": "2026-10-28T08:16:29.737000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 5.4",
+        "detection opportunity"
+      ],
+      "priority_score": 5.7,
+      "products": [],
+      "provenance": {
+        "withdrawn": [
+          {
+            "collected_at": "2026-10-28T08:57:52.357644+00:00",
+            "field": "withdrawn",
+            "source_name": "NVD CVE API 2.0",
+            "value": false
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-28T08:16:29.737000+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/Samsung/escargot/pull/1750"
+      ],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": "MEDIUM",
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118435",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "Out-of-bounds write vulnerability in Samsung Open Source escargot allows Buffer Manipulation.",
+      "title": "CVE-2026-118435: Out-of-bounds write vulnerability in Samsung Open Source escargot allows Buffer Manipulation.",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
+      "affected_versions": [],
+      "author": null,
+      "blue_team_relevance": "",
+      "canonical_id": "CVE-2026-85655",
+      "category": "vulnerability",
+      "cisa_due_date": null,
+      "cisa_kev": null,
+      "cisa_required_action": null,
+      "collected_at": "2026-10-28T08:57:34.209622+00:00",
+      "community_comments": null,
+      "community_score": null,
+      "confidence": "medium",
+      "critical_asset_exposure": null,
+      "current_state": {
+        "cisa_due_date": null,
+        "cisa_kev": null,
+        "cisa_required_action": null,
+        "critical_asset_exposure": null,
+        "cvss_score": 4.3,
+        "exploitation_status": "unknown",
+        "fixed_versions": [],
+        "known_exploited": null,
+        "known_ransomware_use": null,
+        "public_exploit": null,
+        "severity": "medium",
+        "vendor_confirmed_exploitation": null,
+        "withdrawn": false
+      },
+      "cve_ids": [
+        "CVE-2026-85655"
+      ],
+      "cvss_score": 4.3,
+      "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+      "cvss_version": "3.1",
+      "detection_opportunities": [
+        "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance."
+      ],
+      "discovery_type": "new_vulnerability",
+      "discussion_url": null,
+      "ecosystems": [],
+      "epss_percentile": null,
+      "epss_score": null,
+      "excerpt_origin": null,
+      "exploitation_status": null,
+      "first_seen": "2026-10-28T08:57:50+00:00",
+      "fixed_versions": [],
+      "ghsa_ids": [],
+      "kev_date_added": null,
+      "known_exploited": null,
+      "known_ransomware_use": null,
+      "last_seen": "2026-10-28T08:57:50+00:00",
+      "modified_at": "2026-10-28T08:16:30.083000+00:00",
+      "official_source": true,
+      "previous_state": null,
+      "priority_after": null,
+      "priority_before": null,
+      "priority_level": "NORMAL",
+      "priority_level_before": null,
+      "priority_reasons": [
+        "CVSS 4.3",
+        "detection opportunity"
+      ],
+      "priority_score": 4.5,
+      "products": [],
+      "provenance": {
+        "withdrawn": [
+          {
+            "collected_at": "2026-10-28T08:57:52.639201+00:00",
+            "field": "withdrawn",
+            "source_name": "NVD CVE API 2.0",
+            "value": false
+          }
+        ]
+      },
+      "public_exploit": null,
+      "published_at": "2026-10-28T08:16:30.083000+00:00",
+      "recommended_actions": [],
+      "references": [
+        "https://github.com/short-pixel-optimizer/enable-media-replace/releases/tag/v4.2.3",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.1.9/build/shortpixel/replacer/src/Replacer.php#L250",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.1.9/classes/Controller/ReplaceController.php#L253",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.1.9/classes/ViewController/UploadViewController.php#L59",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.1.9/classes/ViewController/UploadViewController.php#L66",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.2.2/build/shortpixel/replacer/src/Replacer.php#L250",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.2.2/classes/Controller/ReplaceController.php#L253",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.2.2/classes/ViewController/UploadViewController.php#L59",
+        "https://plugins.trac.wordpress.org/browser/enable-media-replace/tags/4.2.2/classes/ViewController/UploadViewController.php#L66",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/aff42473-63c6-41ca-8312-058f213e2302?source=cve"
+      ],
+      "selection_reasons": [
+        "official source +5"
+      ],
+      "selection_score": 5,
+      "severity": "MEDIUM",
+      "source_name": "NVD CVE API 2.0",
+      "source_tier": 1,
+      "source_type": "vulnerability_database",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85655",
+      "state_changed_at": null,
+      "state_transitions": [],
+      "summary": "The Enable Media Replace plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.2.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with author-level access and above, to modify the post_content of any published post referencing the replaced media \u2014 including Administrator-owned posts \u2014 making changes immediately visible to unauthenticated visitors. The doReplaceQuery() method performs a database-wide search-and-replace across all posts containing the old media URL without any per-post capability check, meaning a single Author-triggered request can silently overwrite a large number of posts that WordPress's standard admin UI and REST API would otherwise forbid that user from editing.",
+      "title": "CVE-2026-85655: The Enable Media Replace plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including",
+      "transition_type": [],
+      "vendor_confirmed_exploitation": null,
+      "vendors": [],
+      "weaknesses": [],
+      "withdrawn": false
+    },
+    {
       "affected_versions": [
         "< 0.23.46",
         ">= 0.24.0-dev.1, < 0.24.0-dev.2"
@@ -913,7 +1334,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217376+00:00",
+      "collected_at": "2026-10-28T08:57:41.926739+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -968,7 +1389,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217385+00:00",
+            "collected_at": "2026-10-28T08:57:41.926748+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -979,7 +1400,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908320+00:00",
+            "collected_at": "2026-10-28T08:57:51.075137+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1030,7 +1451,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217620+00:00",
+      "collected_at": "2026-10-28T08:57:41.927011+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1082,7 +1503,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217625+00:00",
+            "collected_at": "2026-10-28T08:57:41.927017+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1092,7 +1513,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908564+00:00",
+            "collected_at": "2026-10-28T08:57:51.076056+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1140,7 +1561,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218990+00:00",
+      "collected_at": "2026-10-28T08:57:41.928447+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1191,7 +1612,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218995+00:00",
+            "collected_at": "2026-10-28T08:57:41.928452+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1201,7 +1622,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910282+00:00",
+            "collected_at": "2026-10-28T08:57:51.077682+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1247,7 +1668,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217821+00:00",
+      "collected_at": "2026-10-28T08:57:41.927228+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1300,7 +1721,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217827+00:00",
+            "collected_at": "2026-10-28T08:57:41.927233+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1310,7 +1731,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909589+00:00",
+            "collected_at": "2026-10-28T08:57:51.077005+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1360,7 +1781,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:12.478280+00:00",
+      "collected_at": "2026-10-28T08:57:41.136775+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1416,7 +1837,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:12.478286+00:00",
+            "collected_at": "2026-10-28T08:57:41.136780+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1427,7 +1848,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908148+00:00",
+            "collected_at": "2026-10-28T08:57:51.074943+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1478,7 +1899,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217800+00:00",
+      "collected_at": "2026-10-28T08:57:41.927205+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1531,7 +1952,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217806+00:00",
+            "collected_at": "2026-10-28T08:57:41.927210+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1541,7 +1962,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909505+00:00",
+            "collected_at": "2026-10-28T08:57:51.076922+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1590,7 +2011,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217832+00:00",
+      "collected_at": "2026-10-28T08:57:41.927239+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1643,7 +2064,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217837+00:00",
+            "collected_at": "2026-10-28T08:57:41.927244+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1653,7 +2074,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909674+00:00",
+            "collected_at": "2026-10-28T08:57:51.077106+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1703,7 +2124,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217344+00:00",
+      "collected_at": "2026-10-28T08:57:41.926704+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1759,7 +2180,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217366+00:00",
+            "collected_at": "2026-10-28T08:57:41.926727+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -1770,7 +2191,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908232+00:00",
+            "collected_at": "2026-10-28T08:57:51.075034+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -1820,7 +2241,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:14.987781+00:00",
+      "collected_at": "2026-10-28T08:57:43.863801+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "medium",
@@ -1860,7 +2281,7 @@
       "provenance": {
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.911028+00:00",
+            "collected_at": "2026-10-28T08:57:51.078472+00:00",
             "field": "withdrawn",
             "source_name": "SANS Internet Storm Center Handler's Diary",
             "value": false
@@ -1903,7 +2324,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217653+00:00",
+      "collected_at": "2026-10-28T08:57:41.927049+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -1949,7 +2370,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217659+00:00",
+            "collected_at": "2026-10-28T08:57:41.927054+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": []
@@ -1957,7 +2378,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908777+00:00",
+            "collected_at": "2026-10-28T08:57:51.076252+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -2005,7 +2426,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219249+00:00",
+      "collected_at": "2026-10-28T08:57:41.928733+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2053,7 +2474,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219254+00:00",
+            "collected_at": "2026-10-28T08:57:41.928738+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2063,7 +2484,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910797+00:00",
+            "collected_at": "2026-10-28T08:57:51.078189+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -2110,7 +2531,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:12.477556+00:00",
+      "collected_at": "2026-10-28T08:57:41.135960+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2165,7 +2586,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:12.477561+00:00",
+            "collected_at": "2026-10-28T08:57:41.135965+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2176,7 +2597,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.907974+00:00",
+            "collected_at": "2026-10-28T08:57:51.074764+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2226,7 +2647,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:12.478268+00:00",
+      "collected_at": "2026-10-28T08:57:41.136757+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2281,7 +2702,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:12.478274+00:00",
+            "collected_at": "2026-10-28T08:57:41.136768+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2292,7 +2713,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908063+00:00",
+            "collected_at": "2026-10-28T08:57:51.074853+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2344,7 +2765,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219272+00:00",
+      "collected_at": "2026-10-28T08:57:41.928758+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2390,7 +2811,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219278+00:00",
+            "collected_at": "2026-10-28T08:57:41.928763+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": []
@@ -2398,7 +2819,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910879+00:00",
+            "collected_at": "2026-10-28T08:57:51.078271+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -2444,7 +2865,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217758+00:00",
+      "collected_at": "2026-10-28T08:57:41.927157+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2496,7 +2917,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217763+00:00",
+            "collected_at": "2026-10-28T08:57:41.927164+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2506,7 +2927,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909128+00:00",
+            "collected_at": "2026-10-28T08:57:51.076586+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2554,7 +2975,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219146+00:00",
+      "collected_at": "2026-10-28T08:57:41.928618+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2606,7 +3027,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219152+00:00",
+            "collected_at": "2026-10-28T08:57:41.928625+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2616,7 +3037,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910609+00:00",
+            "collected_at": "2026-10-28T08:57:51.078004+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2663,7 +3084,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:12.477341+00:00",
+      "collected_at": "2026-10-28T08:57:41.135723+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2711,7 +3132,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:12.477346+00:00",
+            "collected_at": "2026-10-28T08:57:41.135731+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2721,7 +3142,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.907882+00:00",
+            "collected_at": "2026-10-28T08:57:51.074676+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -2765,7 +3186,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219079+00:00",
+      "collected_at": "2026-10-28T08:57:41.928581+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2817,7 +3238,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219118+00:00",
+            "collected_at": "2026-10-28T08:57:41.928589+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2827,7 +3248,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910448+00:00",
+            "collected_at": "2026-10-28T08:57:51.077842+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2875,7 +3296,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217779+00:00",
+      "collected_at": "2026-10-28T08:57:41.927181+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -2927,7 +3348,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217784+00:00",
+            "collected_at": "2026-10-28T08:57:41.927186+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -2937,7 +3358,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909212+00:00",
+            "collected_at": "2026-10-28T08:57:51.076673+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -2985,7 +3406,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217734+00:00",
+      "collected_at": "2026-10-28T08:57:41.927134+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3037,7 +3458,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217740+00:00",
+            "collected_at": "2026-10-28T08:57:41.927139+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3047,7 +3468,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908954+00:00",
+            "collected_at": "2026-10-28T08:57:51.076422+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -3095,7 +3516,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218721+00:00",
+      "collected_at": "2026-10-28T08:57:41.928145+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3147,7 +3568,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218726+00:00",
+            "collected_at": "2026-10-28T08:57:41.928153+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3157,7 +3578,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909865+00:00",
+            "collected_at": "2026-10-28T08:57:51.077272+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -3204,7 +3625,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217811+00:00",
+      "collected_at": "2026-10-28T08:57:41.927216+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3256,7 +3677,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217816+00:00",
+            "collected_at": "2026-10-28T08:57:41.927223+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3266,7 +3687,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909424+00:00",
+            "collected_at": "2026-10-28T08:57:51.076836+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -3317,7 +3738,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:12.477276+00:00",
+      "collected_at": "2026-10-28T08:57:41.135645+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3378,7 +3799,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:12.477281+00:00",
+            "collected_at": "2026-10-28T08:57:41.135656+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3391,7 +3812,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.907784+00:00",
+            "collected_at": "2026-10-28T08:57:51.074574+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -3444,7 +3865,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217609+00:00",
+      "collected_at": "2026-10-28T08:57:41.926997+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3492,7 +3913,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217614+00:00",
+            "collected_at": "2026-10-28T08:57:41.927005+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3502,7 +3923,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908480+00:00",
+            "collected_at": "2026-10-28T08:57:51.075964+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -3549,7 +3970,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217686+00:00",
+      "collected_at": "2026-10-28T08:57:41.927108+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3595,7 +4016,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217715+00:00",
+            "collected_at": "2026-10-28T08:57:41.927114+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": []
@@ -3603,7 +4024,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908871+00:00",
+            "collected_at": "2026-10-28T08:57:51.076335+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -3653,7 +4074,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219192+00:00",
+      "collected_at": "2026-10-28T08:57:41.928668+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3701,7 +4122,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219197+00:00",
+            "collected_at": "2026-10-28T08:57:41.928673+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3711,7 +4132,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910709+00:00",
+            "collected_at": "2026-10-28T08:57:51.078105+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -3761,7 +4182,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217586+00:00",
+      "collected_at": "2026-10-28T08:57:41.926971+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3807,7 +4228,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217592+00:00",
+            "collected_at": "2026-10-28T08:57:41.926979+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": []
@@ -3815,7 +4236,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.908400+00:00",
+            "collected_at": "2026-10-28T08:57:51.075223+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -3860,7 +4281,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219327+00:00",
+      "collected_at": "2026-10-28T08:57:41.928814+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -3908,7 +4329,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219332+00:00",
+            "collected_at": "2026-10-28T08:57:41.928822+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -3918,7 +4339,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910964+00:00",
+            "collected_at": "2026-10-28T08:57:51.078351+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -3967,7 +4388,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219136+00:00",
+      "collected_at": "2026-10-28T08:57:41.928606+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4013,7 +4434,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219141+00:00",
+            "collected_at": "2026-10-28T08:57:41.928611+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": []
@@ -4021,7 +4442,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910527+00:00",
+            "collected_at": "2026-10-28T08:57:51.077923+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": true
@@ -4068,7 +4489,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218743+00:00",
+      "collected_at": "2026-10-28T08:57:41.928170+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4120,7 +4541,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218748+00:00",
+            "collected_at": "2026-10-28T08:57:41.928175+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -4130,7 +4551,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910032+00:00",
+            "collected_at": "2026-10-28T08:57:51.077436+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -4177,7 +4598,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.219000+00:00",
+      "collected_at": "2026-10-28T08:57:41.928458+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4229,7 +4650,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.219005+00:00",
+            "collected_at": "2026-10-28T08:57:41.928466+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -4239,7 +4660,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910365+00:00",
+            "collected_at": "2026-10-28T08:57:51.077763+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -4286,7 +4707,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218978+00:00",
+      "collected_at": "2026-10-28T08:57:41.928434+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4338,7 +4759,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218984+00:00",
+            "collected_at": "2026-10-28T08:57:41.928441+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -4348,7 +4769,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910201+00:00",
+            "collected_at": "2026-10-28T08:57:51.077597+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -4397,7 +4818,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.217747+00:00",
+      "collected_at": "2026-10-28T08:57:41.927146+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4455,7 +4876,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.217752+00:00",
+            "collected_at": "2026-10-28T08:57:41.927151+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -4467,7 +4888,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.909043+00:00",
+            "collected_at": "2026-10-28T08:57:51.076506+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -4515,7 +4936,7 @@
       "cisa_due_date": null,
       "cisa_kev": null,
       "cisa_required_action": null,
-      "collected_at": "2026-10-28T07:58:13.218851+00:00",
+      "collected_at": "2026-10-28T08:57:41.928295+00:00",
       "community_comments": null,
       "community_score": null,
       "confidence": "high",
@@ -4567,7 +4988,7 @@
       "provenance": {
         "fixed_versions": [
           {
-            "collected_at": "2026-10-28T07:58:13.218856+00:00",
+            "collected_at": "2026-10-28T08:57:41.928300+00:00",
             "field": "fixed_versions",
             "source_name": "GitHub reviewed advisory",
             "value": [
@@ -4577,7 +4998,7 @@
         ],
         "withdrawn": [
           {
-            "collected_at": "2026-10-28T07:58:21.910116+00:00",
+            "collected_at": "2026-10-28T08:57:51.077515+00:00",
             "field": "withdrawn",
             "source_name": "GitHub Global Security Advisories",
             "value": false
@@ -4620,9 +5041,9 @@
   "source_health": [
     {
       "cache_status": null,
-      "duration_ms": 429,
+      "duration_ms": 504,
       "error_type": null,
-      "finished_at": "2026-10-28T07:57:40.168289+00:00",
+      "finished_at": "2026-10-28T08:57:15.039907+00:00",
       "http_status": null,
       "items_accepted": 1760,
       "items_received": 1760,
@@ -4630,29 +5051,29 @@
       "required": true,
       "sanitized_error_message": null,
       "source": "cisa_kev",
-      "started_at": "2026-10-28T07:57:39.738391+00:00",
+      "started_at": "2026-10-28T08:57:14.535305+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 31552,
+      "duration_ms": 25255,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:11.721832+00:00",
+      "finished_at": "2026-10-28T08:57:40.296364+00:00",
       "http_status": null,
-      "items_accepted": 1922,
-      "items_received": 2010,
+      "items_accepted": 1913,
+      "items_received": 2001,
       "items_rejected": 88,
       "required": true,
       "sanitized_error_message": null,
       "source": "nvd",
-      "started_at": "2026-10-28T07:57:40.168949+00:00",
+      "started_at": "2026-10-28T08:57:15.040607+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 1799,
+      "duration_ms": 1944,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:13.521553+00:00",
+      "finished_at": "2026-10-28T08:57:42.241325+00:00",
       "http_status": null,
       "items_accepted": 206,
       "items_received": 206,
@@ -4660,14 +5081,14 @@
       "required": true,
       "sanitized_error_message": null,
       "source": "github_advisories",
-      "started_at": "2026-10-28T07:58:11.721960+00:00",
+      "started_at": "2026-10-28T08:57:40.296480+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 554,
+      "duration_ms": 591,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:14.076265+00:00",
+      "finished_at": "2026-10-28T08:57:42.832989+00:00",
       "http_status": null,
       "items_accepted": 0,
       "items_received": 10,
@@ -4675,14 +5096,14 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "rss_cert_eu_advisories",
-      "started_at": "2026-10-28T07:58:13.521605+00:00",
+      "started_at": "2026-10-28T08:57:42.241438+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 530,
+      "duration_ms": 645,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:14.606904+00:00",
+      "finished_at": "2026-10-28T08:57:43.478731+00:00",
       "http_status": null,
       "items_accepted": 0,
       "items_received": 10,
@@ -4690,14 +5111,14 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "rss_cert_eu_guidance",
-      "started_at": "2026-10-28T07:58:14.076297+00:00",
+      "started_at": "2026-10-28T08:57:42.833022+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
       "duration_ms": 57,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:14.664515+00:00",
+      "finished_at": "2026-10-28T08:57:43.536567+00:00",
       "http_status": null,
       "items_accepted": 0,
       "items_received": 10,
@@ -4705,14 +5126,14 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "rss_krebs",
-      "started_at": "2026-10-28T07:58:14.606934+00:00",
+      "started_at": "2026-10-28T08:57:43.478759+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 323,
+      "duration_ms": 327,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:14.987907+00:00",
+      "finished_at": "2026-10-28T08:57:43.863923+00:00",
       "http_status": null,
       "items_accepted": 1,
       "items_received": 10,
@@ -4720,14 +5141,14 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "rss_sans_isc",
-      "started_at": "2026-10-28T07:58:14.664574+00:00",
+      "started_at": "2026-10-28T08:57:43.536650+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 1352,
+      "duration_ms": 1744,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:16.340868+00:00",
+      "finished_at": "2026-10-28T08:57:45.608664+00:00",
       "http_status": null,
       "items_accepted": 0,
       "items_received": 90,
@@ -4735,14 +5156,14 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "github_releases",
-      "started_at": "2026-10-28T07:58:14.987988+00:00",
+      "started_at": "2026-10-28T08:57:43.864015+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 3153,
+      "duration_ms": 3626,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:19.494445+00:00",
+      "finished_at": "2026-10-28T08:57:49.235416+00:00",
       "http_status": null,
       "items_accepted": 0,
       "items_received": 40,
@@ -4750,22 +5171,22 @@
       "required": false,
       "sanitized_error_message": null,
       "source": "hacker_news",
-      "started_at": "2026-10-28T07:58:16.341219+00:00",
+      "started_at": "2026-10-28T08:57:45.609055+00:00",
       "status": "healthy"
     },
     {
       "cache_status": null,
-      "duration_ms": 2051,
+      "duration_ms": 1472,
       "error_type": null,
-      "finished_at": "2026-10-28T07:58:21.548160+00:00",
+      "finished_at": "2026-10-28T08:57:50.710829+00:00",
       "http_status": null,
-      "items_accepted": 3015,
-      "items_received": 3823,
-      "items_rejected": 808,
+      "items_accepted": 3005,
+      "items_received": 3814,
+      "items_rejected": 809,
       "required": false,
       "sanitized_error_message": null,
       "source": "epss",
-      "started_at": "2026-10-28T07:58:19.496829+00:00",
+      "started_at": "2026-10-28T08:57:49.237858+00:00",
       "status": "healthy"
     }
   ]
