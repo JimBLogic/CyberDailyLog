@@ -303,6 +303,7 @@ jobs:
           name: reports-${{ github.run_id }}
           path: timing-input
       - name: Read workflow timing from GitHub
+        id: read_timing
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -311,7 +312,7 @@ jobs:
       - name: Calculate and publish timing evidence
         if: ${{ always() }}
         env:
-          TIMING_CAN_PUBLISH: ${{ success() }}
+          TIMING_CAN_PUBLISH: ${{ steps.read_timing.outcome == 'success' }}
           TRIGGER_CRON: ${{ github.event.schedule }}
           # The connected external scheduler can publish one request file without a PAT.
           # Use GitHub's immutable push commit timestamp, not a moving file on main.
