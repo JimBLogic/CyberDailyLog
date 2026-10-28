@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from cyberdailylog.models import IntelligenceItem, Report
+from cyberdailylog.readme_snapshot import markdown_url
 
 
 DEFAULT_CURATION = {
@@ -223,7 +224,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     if immediate:
         for item in immediate:
             title = _md_text(_truncate(item.title, title_limit))
-            link = item.source_url or "#"
+            link = markdown_url(item.source_url)
             lines.append(
                 f"- **[{_md_text(_identifier(item))}]({link}) · {item.priority_score:.1f}/10** — "
                 f"{title}. **Action:** {_md_text(_action(item, reason_limit))}"
@@ -253,7 +254,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
             else:
                 signal = "—"
             lines.append(
-                f"| [{_table_cell(label)}]({item.source_url or '#'}) | {item.priority_score:.1f} | "
+                f"| [{_table_cell(label)}]({markdown_url(item.source_url)}) | {item.priority_score:.1f} | "
                 f"{cvss} | {epss} | {signal} | {_table_cell(_why(item, reason_limit))} |"
             )
     else:
@@ -265,7 +266,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
         byline = " · ".join(part for part in [item.author, item.source_name] if part)
         lines.extend(
             [
-                f"### [{_md_text(_truncate(item.title, title_limit))}]({item.source_url or '#'})",
+                f"### [{_md_text(_truncate(item.title, title_limit))}]({markdown_url(item.source_url)})",
                 "",
                 f"**{_md_text(byline or item.source_name)}**",
                 "",
@@ -289,8 +290,8 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     if community_pulse:
         item = community_pulse[0]
         metrics = f"{item.community_score or 0} points · {item.community_comments or 0} comments"
-        lines.append(f"- **[{_md_text(_truncate(item.title, title_limit))}]({item.source_url or '#'})**")
-        discussion = item.discussion_url or item.source_url or "#"
+        lines.append(f"- **[{_md_text(_truncate(item.title, title_limit))}]({markdown_url(item.source_url)})**")
+        discussion = markdown_url(item.discussion_url or item.source_url)
         lines.append(f"  Hacker News · {metrics} · [Open discussion]({discussion})")
         lines.append("  _Community interest signal only; validate claims against primary sources._")
     else:
@@ -299,7 +300,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     lines += ["", "## Notable official advisories", ""]
     if advisories:
         lines.extend(
-            f"- [{_md_text(_truncate(item.title, title_limit))}]({item.source_url}) — "
+            f"- [{_md_text(_truncate(item.title, title_limit))}]({markdown_url(item.source_url)}) — "
             f"{_md_text(_why(item, reason_limit))}"
             for item in advisories
         )
@@ -309,7 +310,7 @@ def render_markdown(report: Report, config: dict[str, Any] | None = None) -> str
     lines += ["", "## Defensive tooling and detection content", ""]
     if releases:
         lines.extend(
-            f"- [{_md_text(_truncate(item.title, title_limit))}]({item.source_url})"
+            f"- [{_md_text(_truncate(item.title, title_limit))}]({markdown_url(item.source_url)})"
             + (f" — {_md_text(_truncate(item.blue_team_relevance, reason_limit))}" if item.blue_team_relevance else "")
             for item in releases
         )

@@ -48,7 +48,9 @@ async function inventory(root, relativeDirectory = "") {
       continue;
     }
 
-    if (!entry.isFile()) continue;
+    if (!entry.isFile()) {
+      throw new Error(`Unsupported mirror entry (expected regular file or directory): ${relativePath}`);
+    }
     const content = await readFile(path.join(root, relativePath));
     files.set(
       relativePath.split(path.sep).join("/"),

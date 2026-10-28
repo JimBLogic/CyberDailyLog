@@ -73,6 +73,8 @@ async function fetchJson<T>(url: string) {
   const startedAt = Date.now();
   try {
     const response = await fetch(essentialServerUrl(url), {
+      // Reject redirects before a second destination can bypass the host policy.
+      redirect: "error",
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(OFFICIAL_TIMEOUT_MS),
     });
