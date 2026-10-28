@@ -1,8 +1,8 @@
 {
-  "above_threshold": 448,
+  "above_threshold": 6,
   "community_pulse": null,
-  "coverage_end": "2026-10-28T07:24:46+00:00",
-  "coverage_start": "2026-10-27T07:24:46+00:00",
+  "coverage_end": "2026-10-28T07:57:38+00:00",
+  "coverage_start": "2026-10-27T07:57:38+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,7 +11,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-28T07:26:08+00:00",
+  "generated_at": "2026-10-28T07:58:23+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -21,12 +21,12 @@
     "source_url": "https://isc.sans.edu/diary/rss/33464",
     "title": "ISC Stormcast For Wednesday, October 28th, 2026 https://isc.sans.edu/podcastdetail/10154, (Wed, Oct 28th)"
   },
-  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 5,
+  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 2,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 898,
+  "qualified_developments": 40,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -48,39 +48,6 @@
   },
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2025-3248"
-      ],
-      "cvss_score": 9.8,
-      "defensive_action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-      "epss_percentile": 0.99987,
-      "epss_score": 0.99993,
-      "ghsa_ids": [
-        "GHSA-rvqx-wpfh-mfx7"
-      ],
-      "id": "CVE-2025-3248",
-      "known_exploited": true,
-      "known_ransomware_use": true,
-      "priority_score": 10.0,
-      "products": [
-        "Langflow",
-        "langflow",
-        "langflow-base"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "known ransomware use +25"
-      ],
-      "selection_score": 175,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2025-3248 exploited in CISA KEV: Langflow Langflow",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
-    },
     {
       "cisa_kev": true,
       "cve_ids": [
@@ -140,62 +107,91 @@
       "why_it_matters": "CVSS 9.2; EPSS >= 70%"
     },
     {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-48356"
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 8.7,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-m64x-33q8-m5h7"
       ],
-      "cvss_score": 9.3,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.98231,
-      "epss_score": 0.30582,
-      "ghsa_ids": [],
-      "id": "CVE-2026-48356",
-      "known_exploited": true,
+      "id": "GHSA-m64x-33q8-m5h7",
+      "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 8.4,
       "products": [
-        "Commerce and Magento"
+        "GitPython"
       ],
       "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
+        "high CVSS +10",
+        "priority technology: browsers +8",
+        "official source +5"
       ],
-      "selection_score": 140,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-48356 exploited in CISA KEV: Adobe Commerce and Magento",
-      "why_it_matters": "CVSS 9.3; EPSS >= 30%"
+      "selection_score": 18,
+      "severity": "high",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-m64x-33q8-m5h7",
+      "title": "GitPython parse_actor_and_date() is vulnerable to quadratic backtracking on malformed identity lines",
+      "why_it_matters": "CVSS 8.7; priority technology: browsers"
     },
     {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-111497"
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 7.1,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-23mf-xhv8-69c2"
       ],
-      "cvss_score": 9.2,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.9903,
-      "epss_score": 0.55483,
-      "ghsa_ids": [],
-      "id": "CVE-2026-111497",
-      "known_exploited": true,
+      "id": "GHSA-23mf-xhv8-69c2",
+      "known_exploited": false,
       "known_ransomware_use": false,
-      "priority_score": 9.6,
+      "priority_score": 6.8,
       "products": [
-        "Brotli"
+        "GitPython"
       ],
       "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
+        "high CVSS +10",
+        "priority technology: linux +8",
+        "official source +5"
       ],
-      "selection_score": 140,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-111497 exploited in CISA KEV: Google Brotli",
-      "why_it_matters": "CVSS 9.2; EPSS >= 30%"
+      "selection_score": 18,
+      "severity": "high",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-23mf-xhv8-69c2",
+      "title": "GitPython: arbitrary file read via attacker-controlled branch name in `Head.checkout()` (incomplete fix of CVE-2026-78679)",
+      "why_it_matters": "CVSS 7.1; priority technology: linux"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [],
+      "cvss_score": 6.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [
+        "GHSA-fmmf-xq98-g327"
+      ],
+      "id": "GHSA-fmmf-xq98-g327",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 6.7,
+      "products": [
+        "code.vikunja.io/api"
+      ],
+      "selection_reasons": [
+        "priority technology: microsoft_365 +8",
+        "official source +5",
+        "modified metadata in window -5"
+      ],
+      "selection_score": 8,
+      "severity": "medium",
+      "source_name": "GitHub Global Security Advisories",
+      "source_url": "https://github.com/advisories/GHSA-fmmf-xq98-g327",
+      "title": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check",
+      "why_it_matters": "CVSS 6.9; priority technology: microsoft_365"
     }
   ]
 }

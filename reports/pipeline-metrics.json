@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "started_at": "2026-10-28T07:24:46.360882+00:00",
+  "started_at": "2026-10-28T07:57:38.199210+00:00",
   "phases_ms": {
-    "ledger_load": 1117.031,
-    "prepare": 83.437,
-    "collection": 74089.742,
-    "epss": 5843.364,
-    "matching": 1366.494,
-    "render": 319.854,
-    "ledger_write": 7108.91
+    "ledger_load": 1510.983,
+    "prepare": 26.779,
+    "collection": 39757.509,
+    "epss": 2062.202,
+    "matching": 2009.907,
+    "render": 56.406,
+    "ledger_write": 9217.08
   },
-  "baseline_records": 75690,
+  "baseline_records": 76435,
   "sources": {
     "cisa_kev": {
       "status": "healthy",
@@ -70,10 +70,10 @@
     }
   },
   "tracked_records": 76435,
-  "report_generated": "2026-10-28T07:26:08+00:00",
-  "ledger_bytes": 13619399,
+  "report_generated": "2026-10-28T07:58:23+00:00",
+  "ledger_bytes": 13620001,
   "dry_run": false,
   "outcome": "complete",
-  "finished_at": "2026-10-28T07:26:16.414750+00:00",
-  "total_ms": 90053.896
+  "finished_at": "2026-10-28T07:58:32.967877+00:00",
+  "total_ms": 54768.691
 }
