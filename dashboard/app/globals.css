@@ -4354,3 +4354,19 @@ a {
 .freshness-banner button { min-height: 44px; font-size: .875rem; }
 
 .export-scope { margin: 0 0 14px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+
+/* Recovery evidence remains readable without widening the page on small screens. */
+.reliability-grid .recovery-metric { grid-column: 1 / -1; min-height: 0; border-top: 1px solid var(--rule); border-right: 0; }
+.reliability-grid .recovery-metric > strong { margin-top: 10px; font-size: clamp(1.3rem, 2.3vw, 2rem); line-height: 1.2; }
+.recovery-details { min-width: 0; margin-top: 18px; }
+.recovery-details summary { min-height: 44px; padding: 12px 0; color: var(--blue); cursor: pointer; font-weight: 700; }
+.recovery-details > p { margin: 0 0 12px; color: var(--body-muted); font-size: .875rem; line-height: 1.6; }
+.recovery-details .table-scroll { border: 1px solid var(--rule); border-radius: 4px; }
+.recovery-details table { width: 100%; border-collapse: collapse; font-size: .8rem; line-height: 1.5; }
+.recovery-details caption { padding: 12px 14px; text-align: left; font-weight: 700; }
+.recovery-details th, .recovery-details td { padding: 12px 14px; text-align: left; vertical-align: top; border-top: 1px solid var(--rule); }
+.recovery-details thead th { background: rgb(var(--accent-rgb) / .045); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .75rem; white-space: nowrap; }
+.recovery-details tbody th { font-weight: 500; white-space: nowrap; }
+.recovery-details td { min-width: 9rem; }
+.recovery-details td:nth-child(3), .recovery-details td:nth-child(4) { min-width: 11rem; }
+.recovery-details a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
