@@ -129,3 +129,19 @@ def test_build_dashboard_feed_rejects_invalid_days(tmp_path: Path, days: int) ->
 
     with pytest.raises(ValueError, match="positive integer"):
         build_dashboard_feed([], latest_path=latest, days=days)
+
+
+@pytest.mark.parametrize("fault", ["failed", "missing", "duplicate", "fixture_only", "none"])
+def test_history_requires_all_unique_healthy_core_sources(fault):
+    value = report("2026-10-28")
+    health = [{"source": source, "status": "healthy"} for source in ("cisa_kev", "nvd", "github_advisories")]
+    if fault in {"failed", "fixture_only"}:
+        health[1]["status"] = fault
+    elif fault == "missing":
+        health.pop(1)
+    elif fault == "duplicate":
+        health.append(dict(health[1]))
+    value["source_health"] = health
+    assert summarize_report(value)["degraded"] is (fault != "none")
+    value["degraded"] = True
+    assert summarize_report(value)["degraded"] is True
