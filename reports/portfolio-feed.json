@@ -1,8 +1,17 @@
 {
-  "above_threshold": 54,
-  "community_pulse": null,
-  "coverage_end": "2026-10-28T12:21:33+00:00",
-  "coverage_start": "2026-10-27T12:21:33+00:00",
+  "above_threshold": 529,
+  "community_pulse": {
+    "caveat": "Community interest signal; validate claims against primary sources.",
+    "comments": 149,
+    "discussion_url": "https://news.ycombinator.com/item?id=50284255",
+    "published_at": "2026-10-29T03:33:42+00:00",
+    "score": 405,
+    "source_name": "Hacker News",
+    "source_url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+    "title": "Claude Code regularly sends each background agent\u2019s transcript to its model"
+  },
+  "coverage_end": "2026-10-29T11:05:26+00:00",
+  "coverage_start": "2026-10-28T10:21:33+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -11,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-28T12:22:34+00:00",
+  "generated_at": "2026-10-29T11:07:54+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "Building your malware analysis lab is a key point before playing with malware. Today, thanks to virtualization, it&#;x26;#;39;s convenient to play with snapshots in\u2026",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-28T02:30:11+00:00",
+    "published_at": "2026-10-29T06:17:41+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33464",
-    "title": "ISC Stormcast For Wednesday, October 28th, 2026 https://isc.sans.edu/podcastdetail/10154, (Wed, Oct 28th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33470",
+    "title": "Deploying a Local Ghidra Server for Your Malware Analysis Lab, (Thu, Oct 29th)"
   },
-  "immediate_attention": "2 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 2,
+  "immediate_attention": "4 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 4,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 210,
+  "qualified_developments": 774,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -107,82 +116,89 @@
       "why_it_matters": "CVSS 9.2; EPSS >= 70%"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-86384"
+        "CVE-2026-46300"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "cvss_score": 7.8,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.95651,
+      "epss_score": 0.10192,
       "ghsa_ids": [],
-      "id": "CVE-2026-86384",
-      "known_exploited": false,
+      "id": "CVE-2026-46300",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
+      "priority_score": 9.6,
+      "products": [
+        "Kernel"
+      ],
       "selection_reasons": [
-        "critical CVSS +20",
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 123,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-46300 exploited in CISA KEV: Linux Kernel",
+      "why_it_matters": "CVSS 7.8; EPSS percentile >= 95%"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-41709"
+      ],
+      "cvss_score": 2.7,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.22291,
+      "epss_score": 0.00297,
+      "ghsa_ids": [],
+      "id": "CVE-2026-41709",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "VMware ESX"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
         "official source +5"
       ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86384",
-      "title": "Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
+      "selection_score": 95,
+      "severity": "LOW",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-41709 exploited in CISA KEV: Broadcom VMware ESX",
+      "why_it_matters": "CVSS 2.7; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-114278"
+        "CVE-2026-74989"
       ],
       "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.47042,
+      "epss_score": 0.0057,
       "ghsa_ids": [],
-      "id": "CVE-2026-114278",
+      "id": "CVE-2026-74989",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
       "products": [],
       "selection_reasons": [
         "critical CVSS +20",
+        "priority technology: browsers +8",
         "official source +5"
       ],
-      "selection_score": 25,
+      "selection_score": 33,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114278",
-      "title": "The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespa",
-      "why_it_matters": "CVSS 9.8; detection opportunity"
-    },
-    {
-      "cisa_kev": false,
-      "cve_ids": [
-        "CVE-2026-112197"
-      ],
-      "cvss_score": 9.4,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-112197",
-      "known_exploited": false,
-      "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "official source +5"
-      ],
-      "selection_score": 25,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112197",
-      "title": "Vulnerability due to a lack of authentication in critical functions of the NoviGest Desktop App's Java RMI service. An a",
-      "why_it_matters": "CVSS 9.4; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74989",
+      "title": "Internally found bugs present in Firefox 153. Some of these bugs showed evidence of memory corruption or another securit",
+      "why_it_matters": "CVSS 9.8; priority technology: browsers"
     }
   ]
 }

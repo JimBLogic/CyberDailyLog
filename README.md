@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-28T12:22:34+00:00  
-**Coverage:** 2026-10-27T12:21:33+00:00 → 2026-10-28T12:21:33+00:00  
+**Updated:** 2026-10-29T11:07:54+00:00  
+**Coverage:** 2026-10-28T10:21:33+00:00 → 2026-10-29T11:05:26+00:00  
 **Pipeline:** **Operational**
 
-2 item(s) include exploitation, KEV or ransomware signals.
+4 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 210 source-backed developments
-- **Above threshold:** 54
+- **Assessed:** 774 source-backed developments
+- **Above threshold:** 529
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
 - **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
-- **[CVE-2026-86384](https://nvd.nist.gov/vuln/detail/CVE-2026-86384) · 9.4/10** — Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7 — CVSS 9.8; detection opportunity
-- **[CVE-2026-114278](https://nvd.nist.gov/vuln/detail/CVE-2026-114278) · 9.4/10** — The che-machine-exec service constructs a shell command by concatenating user-controlled input (the username and namespa — CVSS 9.8; detection opportunity
-- **[CVE-2026-112197](https://nvd.nist.gov/vuln/detail/CVE-2026-112197) · 9.4/10** — Vulnerability due to a lack of authentication in critical functions of the NoviGest Desktop App&#x27;s Java RMI service. An a — CVSS 9.4; detection opportunity
+- **[CVE-2026-46300](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-46300 exploited in CISA KEV: Linux Kernel — CVSS 7.8; EPSS percentile &gt;= 95%
+- **[CVE-2026-41709](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-41709 exploited in CISA KEV: Broadcom VMware ESX — CVSS 2.7; detection opportunity
+- **[CVE-2026-74989](https://nvd.nist.gov/vuln/detail/CVE-2026-74989) · 9.4/10** — Internally found bugs present in Firefox 153. Some of these bugs showed evidence of memory corruption or another securit — CVSS 9.8; priority technology: browsers
 
 ### Human context
 
-**[ISC Stormcast For Wednesday, October 28th, 2026 https://isc.sans.edu/podcastdetail/10154, (Wed, Oct 28th)](https://isc.sans.edu/diary/rss/33464)**
+**[Deploying a Local Ghidra Server for Your Malware Analysis Lab, (Thu, Oct 29th)](https://isc.sans.edu/diary/rss/33470)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Building your malware analysis lab is a key point before playing with malware. Today, thanks to virtualization, it&amp;#;x26;#;39;s convenient to play with snapshots in…
+
+### Community pulse
+
+**[Claude Code regularly sends each background agent’s transcript to its model](https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce)** — Hacker News · 405 points · 149 comments
+[Open discussion](https://news.ycombinator.com/item?id=50284255)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
