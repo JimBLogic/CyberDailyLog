@@ -51,7 +51,7 @@
     ],
     "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-29T17:11:49.191930+00:00",
+    "evaluated_at": "2026-10-29T17:27:39.266038+00:00",
     "full_window_observed": false,
     "measured_days": 10,
     "met": false,
@@ -79,7 +79,7 @@
   },
   "last_attempt": {
     "actual_publication_time": null,
-    "attempt_finished_at": "2026-10-29T17:11:33+00:00",
+    "attempt_finished_at": "2026-10-29T17:27:22+00:00",
     "collect_result": "skipped",
     "commit_created": null,
     "commit_sha": null,
@@ -96,9 +96,9 @@
     "fetch_start": null,
     "job_durations_seconds": {
       "Publication timing evidence": null,
-      "collect": 0.0,
-      "preflight": 16.0,
-      "publish": 0.0
+      "collect": -1.0,
+      "preflight": 15.0,
+      "publish": -1.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
     "monitoring_started_at": "2026-09-16T10:00:00+00:00",
@@ -112,9 +112,9 @@
     "report_generated": null,
     "root_cause_stage": "scheduler",
     "run_attempt": "1",
-    "run_id": "40918886278",
+    "run_id": "40921443197",
     "run_to_commit_seconds": null,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40918886278",
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/40921443197",
     "schedule_basis": "inferred from original run creation and IANA cron slot",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
@@ -135,21 +135,21 @@
       "collect": {},
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 12.0,
-        "Complete job": 0.0,
+        "Checkout": 10.0,
+        "Complete job": 1.0,
         "Post Checkout": 0.0,
-        "Set up job": 0.0
+        "Set up job": 1.0
       },
       "publish": {}
     },
     "target_time": "12:00 Europe/Madrid",
-    "trigger_creation_lag_seconds": 22275.0,
-    "trigger_cron": "0 12 * * *",
+    "trigger_creation_lag_seconds": 22204.0,
+    "trigger_cron": "17 12 * * *",
     "trigger_origin": "schedule",
-    "trigger_scheduled_for": "2026-10-29T11:00:00+00:00",
-    "trigger_start_lag_seconds": 22275.0,
-    "workflow_actual_start": "2026-10-29T17:11:15+00:00",
-    "workflow_created": "2026-10-29T17:11:15+00:00",
+    "trigger_scheduled_for": "2026-10-29T11:17:00+00:00",
+    "trigger_start_lag_seconds": 22204.0,
+    "workflow_actual_start": "2026-10-29T17:27:04+00:00",
+    "workflow_created": "2026-10-29T17:27:04+00:00",
     "workflow_queue_seconds": 0.0
   },
   "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -281,7 +281,7 @@
       }
     ],
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-29T17:11:49.191930+00:00",
+    "evaluated_at": "2026-10-29T17:27:39.266038+00:00",
     "full_window_observed": false,
     "interpretation": "Operational 30-day observation; not a statistical guarantee of future reliability.",
     "measured_publications": 10,
@@ -315,6 +315,16 @@
         "run_attempt": "1",
         "run_id": "40918886278",
         "started_at": "2026-10-29T17:11:15+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "finished_at": "2026-10-29T17:27:22+00:00",
+        "outcome": "skipped",
+        "publication_id": null,
+        "recovered_from": null,
+        "run_attempt": "1",
+        "run_id": "40921443197",
+        "started_at": "2026-10-29T17:27:04+00:00",
         "trigger": "schedule"
       }
     ],
@@ -461,7 +471,7 @@
         "status": "on_time"
       }
     ],
-    "evaluated_at": "2026-10-29T17:11:49.191930+00:00",
+    "evaluated_at": "2026-10-29T17:27:39.266038+00:00",
     "full_window_observed": true,
     "measured_publications": 30,
     "met": false,
