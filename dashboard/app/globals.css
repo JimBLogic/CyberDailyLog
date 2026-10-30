@@ -2555,6 +2555,8 @@ a {
 }
 
 .source-table {
+  /* Contain absolutely positioned screen-reader labels inside the scroller. */
+  position: relative;
   border-top: 2px solid var(--ink);
 }
 
@@ -4390,3 +4392,13 @@ a {
 .signal-meta { flex-wrap: wrap; align-items: flex-start; font-size: .75rem; line-height: 1.5; }
 .signal-meta > span { white-space: normal; overflow-wrap: anywhere; }
 @media (max-width: 680px) { .signal-card { grid-template-columns: 44px minmax(0, 1fr); } .signal-card .signal-symbol { width: 32px; height: 32px; margin-left: 12px; } }
+
+/* Keep intrinsic table and headline widths inside the mobile page. */
+.view-section { min-width: 0; }
+.view-heading > div:first-child { min-width: 0; max-width: 100%; }
+.view-heading h1 { overflow-wrap: anywhere; }
+.source-table { min-width: 0; width: 100%; max-width: 100%; }
+@media (max-width: 680px) {
+  .source-table { overflow-x: auto; }
+  .view-heading h1 { font-size: clamp(2rem, 8vw, 3rem); line-height: 1.05; }
+}
