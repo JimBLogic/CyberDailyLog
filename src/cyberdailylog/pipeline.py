@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 
 from .settings import load_yaml
 from .http import SafeHttpClient
+from .collector_recovery import collect_with_recovery
 from .models import Report
 from .collectors.cisa_kev import CisaKevCollector
 from .collectors.nvd import NvdCollector
@@ -122,7 +123,7 @@ class Pipeline:
         self.timing.data["sources"] = {}
         for collector in collectors:
             before_http = dict(self.http.metrics)
-            got, source_health = collector.collect(since, until)
+            got, source_health = collect_with_recovery(collector, since, until)
             items += got
             health.append(source_health)
             self.timing.data["sources"][source_health.source] = {
@@ -191,3 +192,4 @@ class Pipeline:
             ledger_bytes=ledger.path.stat().st_size if ledger.path.exists() else None,
         )
         return report
+
