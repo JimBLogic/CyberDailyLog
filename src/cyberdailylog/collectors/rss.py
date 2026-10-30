@@ -36,7 +36,16 @@ class _TextExtractor(HTMLParser):
 
 def _plain_text(value: str) -> str:
     parser = _TextExtractor()
-    parser.feed(unescape(value or ""))
+    # Some publisher feeds insert a stray semicolon after the numeric marker,
+    # including inside nested escapes (&#;x26;#;39;). Repair only numeric refs.
+    decoded = value or ""
+    for _ in range(4):
+        normalized = re.sub(r"&#;(?=(?:[xX][0-9a-fA-F]+|[0-9]+);)", "&#", decoded)
+        normalized = unescape(normalized)
+        if normalized == decoded:
+            break
+        decoded = normalized
+    parser.feed(decoded)
     parser.close()
     return " ".join(" ".join(parser.parts).split())
 
