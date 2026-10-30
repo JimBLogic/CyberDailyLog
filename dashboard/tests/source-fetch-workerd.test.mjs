@@ -36,7 +36,8 @@ for (const redirect of [false, true]) {
       assert.equal(data.dataMode,"live");
       assert.equal(data.vulnerabilities[0].id,"CVE-2026-12345");
       assert.equal(data.deliveryOrigin,redirect ? "jsdelivr-cdn" : "github-raw");
-      assert.ok(calls.some(url => url.endsWith("/latest.json")), "native fetch reached the outbound fixture");
+      assert.ok(calls.some(url => new URL(url).pathname.endsWith("/latest.json")), "native fetch reached the outbound fixture");
+      assert.ok(calls.every(url => /^\d+$/.test(new URL(url).searchParams.get("_cdl"))), "upstream cache keys use a shared minute bucket");
       assert.ok(!calls.some(url => url.includes("disallowed.invalid")));
       if (redirect) assert.equal(data.deliveryChain[0].reason,"HTTP 302");
     } finally { await mf.dispose(); }

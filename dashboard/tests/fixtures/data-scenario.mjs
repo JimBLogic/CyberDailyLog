@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 
 const scenario = process.argv[2];
 const now = Date.now();
+let clock = now;
+if (scenario === 'partial-cache-recovery') Date.now = () => clock;
 const iso = (offset = 0) => new Date(now + offset).toISOString();
 const old = scenario === 'stale' ? -3 * 86_400_000 : 0;
 const health = ['cisa_kev', 'nvd', 'github_advisories'].map(source => ({
@@ -23,6 +25,7 @@ if (scenario.startsWith('community-')) {
 }
 if (scenario === 'future') report.generated_at = iso(86_400_000);
 if (scenario === 'partial-core') { report.degraded = false; health[1].status = 'failed'; }
+if (scenario === 'partial-cache-recovery') health[1].status = 'failed';
 if (scenario === 'missing-core') report.source_health = [health[0]];
 if (scenario === 'duplicate-core') report.source_health = [health[0], health[0], health[2]];
 if (scenario === 'missing-health') delete report.source_health;
@@ -39,10 +42,12 @@ if (scenario === 'cti') {
   });
 }
 let reportFetches = 0;
+const reportUrls = [];
 globalThis.fetch = async (input) => {
   const url = new URL(input instanceof Request ? input.url : String(input));
   if (url.pathname.endsWith('/latest.json')) {
     reportFetches++;
+    reportUrls.push(url);
     if (scenario === 'offline') throw new Error('offline');
     if (url.hostname === 'raw.githubusercontent.com') {
       if (scenario === 'oversized-primary') return new Response('{}', {headers:{'Content-Length':'8388609'}});
@@ -214,5 +219,29 @@ if (['future','offline'].includes(scenario)) {
   const text = await csv.text();
   assert.ok(text.includes('"\'=HYPERLINK(""danger"")"'), 'CSV formulas must be neutralized');
   assert.ok(text.includes('\r\n'));
+}
+if (scenario === 'partial-cache-recovery') {
+  assert.equal(data.coverageState, 'limited');
+  assert.equal(data.refreshIntervalMinutes, 1);
+  assert.equal(Date.parse(data.nextRefreshAt) - Date.parse(data.lastFetchAt), 60000);
+  clock = now + 59000;
+  await api();
+  assert.equal(reportFetches, 1, 'partial cache still prevents repeated upstream requests');
+  clock = now + 61000;
+  health[1].status = 'healthy';
+  report.generated_at = iso(61000);
+  report.coverage_end = iso(61000);
+  const recovered = await Promise.all([api(), api()]);
+  const complete = await recovered[0].json();
+  assert.equal(reportFetches, 2, 'concurrent readers share the recovery refresh');
+  assert.equal(complete.coverageState, 'sufficient');
+  assert.equal(complete.pipelineStatus, 'operational');
+  assert.equal(complete.refreshIntervalMinutes, 15);
+  assert.notEqual(reportUrls[0].searchParams.get('_cdl'), reportUrls[1].searchParams.get('_cdl'));
+  const html = await (await worker.fetch(new Request('http://localhost/',{headers:{accept:'text/html'}}),env,ctx)).text();
+  assert.doesNotMatch(html, /Informe disponible con cobertura limitada/);
+  clock += 14 * 60000;
+  await api();
+  assert.equal(reportFetches, 2, 'complete reports retain the fifteen-minute cache');
 }
 console.log(`PASS ${scenario}`);
