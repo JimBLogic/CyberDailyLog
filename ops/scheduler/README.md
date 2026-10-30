@@ -1,6 +1,37 @@
 # External publication wake-up
 
-## Operational status — 19 October 2026
+## Current operating contract — 30 October 2026
+
+One existing ChatGPT task runs with exact_schedule at **12:00 and 13:00,
+Europe/Madrid**. Its reproducible definition is in automations.json; task IDs
+and credentials remain outside the repository. It requires a complete,
+consistent core close before skipping work.
+
+Core collectors now get one additional collection attempt after **20 seconds**
+only when their HTTP client exhausted retries on 500/502/503/504. The same
+coverage dates are used; partial pages are discarded. Healthy and optional
+collectors are not repeated. Authentication, TLS, malformed responses, rate
+limits and Retry-After beyond budget retain their failure behavior. Per-source
+pipeline metrics record recovery attempts, wait, initial error and outcome;
+request/page/byte counters include both collections.
+
+The task reconciles a finished partial/transiently failed workflow and, after
+**90 seconds**, may issue one sequential recovery request without waiting for
+13:00. At most two deterministic request IDs are allowed per invocation.
+It checks for an active run and a winning complete publication before every
+write, preserves the noon SLO target and never modifies files other than
+ops/scheduler/request.json. These task-level retries cover failures remaining
+after the pipeline's own bounded source recovery.
+
+GitHub cron remains backup at 12:00, 12:17 and 13:30. GitHub and ChatGPT dispatch
+may still be delayed; these changes do not guarantee punctuality or source
+availability. Cloudflare Cron source/tests remain prepared but **not deployed
+or production-verified**. No additional scheduler, token or paid service was
+introduced.
+
+The sections below preserve earlier observations, not the current task count.
+
+## Historical status — 19 October 2026
 
 The independent Cloudflare adapter from PR43 is reconciled against main after
 PR47/48 in [cloudflare/](cloudflare/README.md). Source/tests are prepared;
