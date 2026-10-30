@@ -1965,7 +1965,7 @@ function SourcesView({
           </div>
         </div>
       </section>
-      <div className="source-table" aria-label={t.sourceOperations}>
+      <div className="source-table" role="region" tabIndex={0} aria-label={t.sourceOperations}>
         <div className="source-table-head" aria-hidden="true">
           <span>{t.sources}</span>
           <span>{t.status}</span>
