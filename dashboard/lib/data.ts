@@ -30,6 +30,7 @@ const REPOSITORY_URL = "https://github.com/JimBLogic/CyberDailyLog";
 const REPORT_URL = `${REPOSITORY_URL}/blob/main/reports/latest.md`;
 const FETCH_TIMEOUT_MS = 4_500;
 const DATA_CACHE_TTL_MS = 15 * 60 * 1_000;
+const LIMITED_RECHECK_MS = 60 * 1_000;
 const MAX_REPOSITORY_AGE_MS = 36 * 60 * 60 * 1_000;
 const MIN_VALID_TIMESTAMP = Date.UTC(2000, 0, 1);
 
@@ -402,7 +403,11 @@ async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean
       continue;
     }
     try {
-      const response = await fetch(essentialServerUrl(url), {
+      // Bound upstream cache keys to one per minute, shared by all visitors.
+      // A successful JSON response can still be an older, partial publication.
+      const requestUrl = essentialServerUrl(url);
+      requestUrl.searchParams.set("_cdl", String(Math.floor(Date.now() / LIMITED_RECHECK_MS)));
+      const response = await fetch(requestUrl, {
         // Reject redirects before a second destination can bypass the host policy.
         redirect: "manual",
         headers: { Accept: "application/json" },
@@ -799,6 +804,12 @@ export async function getDashboardData(): Promise<DashboardData> {
   if (!refreshInFlight) {
     refreshInFlight = fetchDashboardData()
       .then((data) => {
+        // Recheck partial repository reports promptly after recovery. Keep the
+        // longer budget for complete reports and direct official API fallbacks.
+        if (data.dataMode === "live" && data.coverageState !== "sufficient") {
+          data.nextRefreshAt = new Date(Date.parse(data.lastFetchAt) + LIMITED_RECHECK_MS).toISOString();
+          data.refreshIntervalMinutes = LIMITED_RECHECK_MS / 60_000;
+        }
         cachedSnapshot = {
           data,
           expiresAt: Date.parse(data.nextRefreshAt),
