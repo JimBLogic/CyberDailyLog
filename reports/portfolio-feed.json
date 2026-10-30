@@ -1,16 +1,16 @@
 {
-  "above_threshold": 18,
+  "above_threshold": 493,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 146,
+    "comments": 151,
     "discussion_url": "https://news.ycombinator.com/item?id=50298436",
     "published_at": "2026-10-30T00:42:41+00:00",
-    "score": 226,
+    "score": 231,
     "source_name": "Hacker News",
     "source_url": "https://github.com/herdrdev/herdr-app",
     "title": "Herdr has released native app"
   },
-  "coverage_end": "2026-10-30T11:06:37+00:00",
+  "coverage_end": "2026-10-30T11:25:29+00:00",
   "coverage_start": "2026-10-29T09:05:26+00:00",
   "degraded": false,
   "endpoints": {
@@ -20,7 +20,7 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-30T11:08:26+00:00",
+  "generated_at": "2026-10-30T11:26:01+00:00",
   "human_context": {
     "author": null,
     "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
@@ -30,19 +30,19 @@
     "source_url": "https://isc.sans.edu/diary/rss/33472",
     "title": "ISC Stormcast For Friday, October 30th, 2026 https://isc.sans.edu/podcastdetail/10158, (Fri, Oct 30th)"
   },
-  "immediate_attention": "4 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 4,
+  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 3,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 43,
+  "qualified_developments": 835,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 2,
+      "healthy": 3,
       "total": 3
     },
     "optional": {
@@ -51,46 +51,12 @@
       "total": 7
     },
     "status_counts": {
-      "failed": 1,
-      "healthy": 9
+      "healthy": 10
     },
     "total": 10
   },
   "title": "Blue Team Intelligence Digest",
   "top_vulnerabilities": [
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-111497"
-      ],
-      "cvss_score": 9.2,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99665,
-      "epss_score": 0.82641,
-      "ghsa_ids": [
-        "GHSA-9v8h-qqgm-4m35"
-      ],
-      "id": "CVE-2026-111497",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Brotli",
-        "brotli",
-        "brotlicffi"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "critical CVSS +20"
-      ],
-      "selection_score": 150,
-      "severity": "CRITICAL",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-111497 exploited in CISA KEV: Google Brotli",
-      "why_it_matters": "CVSS 9.2; EPSS >= 70%"
-    },
     {
       "cisa_kev": true,
       "cve_ids": [
@@ -181,33 +147,56 @@
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-54458"
+        "CVE-2024-8517"
       ],
-      "cvss_score": 9.6,
-      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
-      "epss_percentile": 0.42555,
-      "epss_score": 0.00508,
-      "ghsa_ids": [
-        "GHSA-8whc-2wmv-ww35"
-      ],
-      "id": "CVE-2026-54458",
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.99855,
+      "epss_score": 0.94614,
+      "ghsa_ids": [],
+      "id": "CVE-2024-8517",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [
-        "WWBN/AVideo"
-      ],
+      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "official source +5",
-        "defensive detection opportunity +5"
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10"
       ],
-      "selection_score": 25,
+      "selection_score": 55,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54458",
-      "title": "WWBN AVideo is an open source video platform. Versions prior to 29.0 contain a stored DOM Cross-Site Scripting vulnerabi",
-      "why_it_matters": "CVSS 9.6; detection opportunity"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8517",
+      "title": "SPIP before 4.3.2, 4.2.16, and 4.1.18 is vulnerable to a command injection issue. A remote and unauthenticated attacke",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2026-90868"
+      ],
+      "cvss_score": 9.9,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": null,
+      "epss_score": null,
+      "ghsa_ids": [],
+      "id": "CVE-2026-90868",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "priority technology: windows +8",
+        "official source +5"
+      ],
+      "selection_score": 28,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90868",
+      "title": "An OS command injection vulnerability in Progress Software WS_FTP Server versions prior to 2024.0.7 and 2025.0.4 on Wind",
+      "why_it_matters": "CVSS 9.9; priority technology: windows"
     }
   ]
 }

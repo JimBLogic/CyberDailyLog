@@ -9,23 +9,23 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-30T11:08:26+00:00  
-**Coverage:** 2026-10-29T09:05:26+00:00 → 2026-10-30T11:06:37+00:00  
+**Updated:** 2026-10-30T11:26:01+00:00  
+**Coverage:** 2026-10-29T09:05:26+00:00 → 2026-10-30T11:25:29+00:00  
 **Pipeline:** **Operational**
 
-4 item(s) include exploitation, KEV or ransomware signals.
+3 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 43 source-backed developments
-- **Above threshold:** 18
-- Core sources: **2/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
+- **Assessed:** 835 source-backed developments
+- **Above threshold:** 493
+- Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-111497](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-111497 exploited in CISA KEV: Google Brotli — CVSS 9.2; EPSS &gt;= 70%
 - **[CVE-2026-97229](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-97229 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition — CVSS 10.0; EPSS percentile &gt;= 95%
 - **[CVE-2026-46300](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-46300 exploited in CISA KEV: Linux Kernel — CVSS 7.8; EPSS percentile &gt;= 95%
 - **[CVE-2026-76418](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76418 exploited in CISA KEV: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software — CVSS 8.6; priority technology: firewalls
-- **[CVE-2026-54458](https://nvd.nist.gov/vuln/detail/CVE-2026-54458) · 9.4/10** — WWBN AVideo is an open source video platform. Versions prior to 29.0 contain a stored DOM Cross-Site Scripting vulnerabi — CVSS 9.6; detection opportunity
+- **[CVE-2024-8517](https://nvd.nist.gov/vuln/detail/CVE-2024-8517) · 9.4/10** — SPIP before 4.3.2, 4.2.16, and 4.1.18 is vulnerable to a command injection issue. A remote and unauthenticated attacke — CVSS 9.8; EPSS &gt;= 70%
+- **[CVE-2026-90868](https://nvd.nist.gov/vuln/detail/CVE-2026-90868) · 9.4/10** — An OS command injection vulnerability in Progress Software WS_FTP Server versions prior to 2024.0.7 and 2025.0.4 on Wind — CVSS 9.9; priority technology: windows
 
 ### Human context
 
@@ -35,7 +35,7 @@ SANS Internet Storm Center Handler&#x27;s Diary
 
 ### Community pulse
 
-**[Herdr has released native app](https://github.com/herdrdev/herdr-app)** — Hacker News · 226 points · 146 comments
+**[Herdr has released native app](https://github.com/herdrdev/herdr-app)** — Hacker News · 231 points · 151 comments
 [Open discussion](https://news.ycombinator.com/item?id=50298436)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
