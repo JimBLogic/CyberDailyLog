@@ -244,3 +244,22 @@ def test_cisa_notes_are_individual_safe_reference_urls():
         "https://cisa.gov/b",
     ]
     assert reference_urls("No reference; https://user:pass@vendor.test/a https://[invalid", "fallback") == ["fallback"]
+
+
+def test_rss_decodes_sans_malformed_and_nested_numeric_entities():
+    from cyberdailylog.collectors.rss import _plain_text, _truncate_excerpt
+
+    assert _plain_text("it&#;x26;#;39;s convenient") == "it's convenient"
+    assert _plain_text("it&amp;#39;s convenient") == "it's convenient"
+    assert _plain_text("A &amp; B &#x2014; &#233;") == "A & B — é"
+    assert _plain_text("Unknown &custom; stays") == "Unknown &custom; stays"
+    assert _truncate_excerpt("it&#;x26;#;39;s convenient to work", 2, 240) == "it's convenient…"
+
+
+def test_rss_entity_decoding_keeps_script_and_style_filtering():
+    from cyberdailylog.collectors.rss import _plain_text
+
+    assert _plain_text(
+        "&amp;lt;script&amp;gt;hidden&amp;lt;/script&amp;gt;"
+        "<style>hidden too</style><p>Visible &#;39;text&#;39;</p>"
+    ) == "Visible 'text'"
