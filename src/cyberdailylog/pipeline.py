@@ -192,4 +192,3 @@ class Pipeline:
             ledger_bytes=ledger.path.stat().st_size if ledger.path.exists() else None,
         )
         return report
-
