@@ -4400,4 +4400,5 @@ a {
 .source-table { min-width: 0; width: 100%; max-width: 100%; }
 @media (max-width: 680px) {
   .source-table { overflow-x: auto; }
+  .view-heading h1 { font-size: clamp(2rem, 8vw, 3rem); line-height: 1.05; }
 }
