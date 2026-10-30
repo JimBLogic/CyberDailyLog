@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-29T11:07:54+00:00  
-**Coverage:** 2026-10-28T10:21:33+00:00 → 2026-10-29T11:05:26+00:00  
+**Updated:** 2026-10-30T11:08:26+00:00  
+**Coverage:** 2026-10-29T09:05:26+00:00 → 2026-10-30T11:06:37+00:00  
 **Pipeline:** **Operational**
 
 4 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 774 source-backed developments
-- **Above threshold:** 529
-- Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
+- **Assessed:** 43 source-backed developments
+- **Above threshold:** 18
+- Core sources: **2/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-109619](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109619 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
-- **[CVE-2026-109618](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-109618 exploited in CISA KEV: PHP Group PHP — CVSS 9.2; EPSS &gt;= 70%
+- **[CVE-2026-111497](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-111497 exploited in CISA KEV: Google Brotli — CVSS 9.2; EPSS &gt;= 70%
+- **[CVE-2026-97229](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-97229 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition — CVSS 10.0; EPSS percentile &gt;= 95%
 - **[CVE-2026-46300](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-46300 exploited in CISA KEV: Linux Kernel — CVSS 7.8; EPSS percentile &gt;= 95%
-- **[CVE-2026-41709](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-41709 exploited in CISA KEV: Broadcom VMware ESX — CVSS 2.7; detection opportunity
-- **[CVE-2026-74989](https://nvd.nist.gov/vuln/detail/CVE-2026-74989) · 9.4/10** — Internally found bugs present in Firefox 153. Some of these bugs showed evidence of memory corruption or another securit — CVSS 9.8; priority technology: browsers
+- **[CVE-2026-76418](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76418 exploited in CISA KEV: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software — CVSS 8.6; priority technology: firewalls
+- **[CVE-2026-54458](https://nvd.nist.gov/vuln/detail/CVE-2026-54458) · 9.4/10** — WWBN AVideo is an open source video platform. Versions prior to 29.0 contain a stored DOM Cross-Site Scripting vulnerabi — CVSS 9.6; detection opportunity
 
 ### Human context
 
-**[Deploying a Local Ghidra Server for Your Malware Analysis Lab, (Thu, Oct 29th)](https://isc.sans.edu/diary/rss/33470)**
+**[ISC Stormcast For Friday, October 30th, 2026 https://isc.sans.edu/podcastdetail/10158, (Fri, Oct 30th)](https://isc.sans.edu/diary/rss/33472)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Building your malware analysis lab is a key point before playing with malware. Today, thanks to virtualization, it&amp;#;x26;#;39;s convenient to play with snapshots in…
+> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
 
 ### Community pulse
 
-**[Claude Code regularly sends each background agent’s transcript to its model](https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce)** — Hacker News · 405 points · 149 comments
-[Open discussion](https://news.ycombinator.com/item?id=50284255)
+**[Herdr has released native app](https://github.com/herdrdev/herdr-app)** — Hacker News · 226 points · 146 comments
+[Open discussion](https://news.ycombinator.com/item?id=50298436)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

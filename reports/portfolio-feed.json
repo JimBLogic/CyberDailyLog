@@ -1,17 +1,17 @@
 {
-  "above_threshold": 529,
+  "above_threshold": 18,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 149,
-    "discussion_url": "https://news.ycombinator.com/item?id=50284255",
-    "published_at": "2026-10-29T03:33:42+00:00",
-    "score": 405,
+    "comments": 146,
+    "discussion_url": "https://news.ycombinator.com/item?id=50298436",
+    "published_at": "2026-10-30T00:42:41+00:00",
+    "score": 226,
     "source_name": "Hacker News",
-    "source_url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
-    "title": "Claude Code regularly sends each background agent\u2019s transcript to its model"
+    "source_url": "https://github.com/herdrdev/herdr-app",
+    "title": "Herdr has released native app"
   },
-  "coverage_end": "2026-10-29T11:05:26+00:00",
-  "coverage_start": "2026-10-28T10:21:33+00:00",
+  "coverage_end": "2026-10-30T11:06:37+00:00",
+  "coverage_start": "2026-10-29T09:05:26+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,29 +20,29 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-29T11:07:54+00:00",
+  "generated_at": "2026-10-30T11:08:26+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Building your malware analysis lab is a key point before playing with malware. Today, thanks to virtualization, it&#;x26;#;39;s convenient to play with snapshots in\u2026",
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-29T06:17:41+00:00",
+    "published_at": "2026-10-30T03:30:17+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33470",
-    "title": "Deploying a Local Ghidra Server for Your Malware Analysis Lab, (Thu, Oct 29th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33472",
+    "title": "ISC Stormcast For Friday, October 30th, 2026 https://isc.sans.edu/podcastdetail/10158, (Fri, Oct 30th)"
   },
   "immediate_attention": "4 item(s) include exploitation, KEV or ransomware signals.",
   "immediate_attention_count": 4,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 774,
+  "qualified_developments": 43,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
   "schema_version": 1,
   "source_health": {
     "core": {
-      "healthy": 3,
+      "healthy": 2,
       "total": 3
     },
     "optional": {
@@ -51,7 +51,8 @@
       "total": 7
     },
     "status_counts": {
-      "healthy": 10
+      "failed": 1,
+      "healthy": 9
     },
     "total": 10
   },
@@ -60,19 +61,23 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-109619"
+        "CVE-2026-111497"
       ],
       "cvss_score": 9.2,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99999,
-      "epss_score": 0.99999,
-      "ghsa_ids": [],
-      "id": "CVE-2026-109619",
+      "epss_percentile": 0.99665,
+      "epss_score": 0.82641,
+      "ghsa_ids": [
+        "GHSA-9v8h-qqgm-4m35"
+      ],
+      "id": "CVE-2026-111497",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "PHP"
+        "Brotli",
+        "brotli",
+        "brotlicffi"
       ],
       "selection_reasons": [
         "CISA KEV +50",
@@ -83,37 +88,37 @@
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-109619 exploited in CISA KEV: PHP Group PHP",
+      "title": "CVE-2026-111497 exploited in CISA KEV: Google Brotli",
       "why_it_matters": "CVSS 9.2; EPSS >= 70%"
     },
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-109618"
+        "CVE-2026-97229"
       ],
-      "cvss_score": 9.2,
+      "cvss_score": 10.0,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.99998,
-      "epss_score": 0.99999,
+      "epss_percentile": 0.97229,
+      "epss_score": 0.18427,
       "ghsa_ids": [],
-      "id": "CVE-2026-109618",
+      "id": "CVE-2026-97229",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "PHP"
+        "Community Edition and Enterprise Edition"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
         "critical CVSS +20"
       ],
-      "selection_score": 150,
+      "selection_score": 125,
       "severity": "CRITICAL",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-109618 exploited in CISA KEV: PHP Group PHP",
-      "why_it_matters": "CVSS 9.2; EPSS >= 70%"
+      "title": "CVE-2026-97229 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition",
+      "why_it_matters": "CVSS 10.0; EPSS percentile >= 95%"
     },
     {
       "cisa_kev": true,
@@ -122,8 +127,8 @@
       ],
       "cvss_score": 7.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.95651,
-      "epss_score": 0.10192,
+      "epss_percentile": 0.96854,
+      "epss_score": 0.15719,
       "ghsa_ids": [],
       "id": "CVE-2026-46300",
       "known_exploited": true,
@@ -147,58 +152,62 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-41709"
+        "CVE-2026-76418"
       ],
-      "cvss_score": 2.7,
+      "cvss_score": 8.6,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.22291,
-      "epss_score": 0.00297,
+      "epss_percentile": 0.47308,
+      "epss_score": 0.00574,
       "ghsa_ids": [],
-      "id": "CVE-2026-41709",
+      "id": "CVE-2026-76418",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "VMware ESX"
+        "Secure Firewall ASA Software and Cisco Secure FTD Software"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "official source +5"
+        "high CVSS +10"
       ],
-      "selection_score": 95,
-      "severity": "LOW",
+      "selection_score": 113,
+      "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-41709 exploited in CISA KEV: Broadcom VMware ESX",
-      "why_it_matters": "CVSS 2.7; detection opportunity"
+      "title": "CVE-2026-76418 exploited in CISA KEV: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software",
+      "why_it_matters": "CVSS 8.6; priority technology: firewalls"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2026-74989"
+        "CVE-2026-54458"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.47042,
-      "epss_score": 0.0057,
-      "ghsa_ids": [],
-      "id": "CVE-2026-74989",
+      "cvss_score": 9.6,
+      "defensive_action": "Analyst context generated from structured source fields: inventory affected products, review exposure, authentication and network telemetry where applicable, and follow vendor\u2026",
+      "epss_percentile": 0.42555,
+      "epss_score": 0.00508,
+      "ghsa_ids": [
+        "GHSA-8whc-2wmv-ww35"
+      ],
+      "id": "CVE-2026-54458",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [],
+      "products": [
+        "WWBN/AVideo"
+      ],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: browsers +8",
-        "official source +5"
+        "official source +5",
+        "defensive detection opportunity +5"
       ],
-      "selection_score": 33,
+      "selection_score": 25,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74989",
-      "title": "Internally found bugs present in Firefox 153. Some of these bugs showed evidence of memory corruption or another securit",
-      "why_it_matters": "CVSS 9.8; priority technology: browsers"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54458",
+      "title": "WWBN AVideo is an open source video platform. Versions prior to 29.0 contain a stored DOM Cross-Site Scripting vulnerabi",
+      "why_it_matters": "CVSS 9.6; detection opportunity"
     }
   ]
 }
