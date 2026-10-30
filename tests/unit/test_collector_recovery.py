@@ -99,7 +99,9 @@ class CollectorRecoveryTests(unittest.TestCase):
         self.assertEqual(len(collector.calls), 1)
 
     def test_real_nvd_discards_failed_second_page_and_restarts_complete_window(self):
-        fixtures = [json.loads(Path("tests/fixtures", name).read_text()) for name in ("nvd_page1.json", "nvd_page2.json")]
+        fixtures = [
+            json.loads(Path("tests/fixtures", name).read_text()) for name in ("nvd_page1.json", "nvd_page2.json")
+        ]
         calls = []
 
         class Response:
