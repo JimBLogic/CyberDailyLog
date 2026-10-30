@@ -43,10 +43,12 @@ class Collector:
 
 class CollectorRecoveryTests(unittest.TestCase):
     def test_transient_failure_recovers_without_mixing_partial_items(self):
-        collector = Collector([
-            (["discard-me"], health("failed", error="HTTP 503 from services.nvd.nist.gov")),
-            (["complete"], health("healthy", offset=25)),
-        ])
+        collector = Collector(
+            [
+                (["discard-me"], health("failed", error="HTTP 503 from services.nvd.nist.gov")),
+                (["complete"], health("healthy", offset=25)),
+            ]
+        )
         with patch("cyberdailylog.collector_recovery.time.sleep") as sleep:
             items, result = collect_with_recovery(collector, START, END)
         self.assertEqual(items, ["complete"])
@@ -97,10 +99,7 @@ class CollectorRecoveryTests(unittest.TestCase):
         self.assertEqual(len(collector.calls), 1)
 
     def test_real_nvd_discards_failed_second_page_and_restarts_complete_window(self):
-        fixtures = [
-            json.loads(Path("tests/fixtures", name).read_text())
-            for name in ("nvd_page1.json", "nvd_page2.json")
-        ]
+        fixtures = [json.loads(Path("tests/fixtures", name).read_text()) for name in ("nvd_page1.json", "nvd_page2.json")]
         calls = []
 
         class Response:
