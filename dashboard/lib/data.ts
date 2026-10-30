@@ -405,9 +405,9 @@ async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean
     try {
       // Bound upstream cache keys to one per minute, shared by all visitors.
       // A successful JSON response can still be an older, partial publication.
-      const requestUrl = essentialServerUrl(url);
+      const requestUrl = new URL(url);
       requestUrl.searchParams.set("_cdl", String(Math.floor(Date.now() / LIMITED_RECHECK_MS)));
-      const response = await fetch(requestUrl, {
+      const response = await fetch(essentialServerUrl(requestUrl), {
         // Reject redirects before a second destination can bypass the host policy.
         redirect: "manual",
         headers: { Accept: "application/json" },
