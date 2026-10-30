@@ -2555,6 +2555,8 @@ a {
 }
 
 .source-table {
+  /* Contain absolutely positioned screen-reader labels inside the scroller. */
+  position: relative;
   border-top: 2px solid var(--ink);
 }
 
