@@ -59,7 +59,7 @@
     ],
     "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-31T16:07:50.145152+00:00",
+    "evaluated_at": "2026-10-31T17:19:39.340265+00:00",
     "full_window_observed": false,
     "measured_days": 12,
     "met": false,
@@ -87,7 +87,7 @@
   },
   "last_attempt": {
     "actual_publication_time": null,
-    "attempt_finished_at": "2026-10-31T16:07:33+00:00",
+    "attempt_finished_at": "2026-10-31T17:19:22+00:00",
     "collect_result": "skipped",
     "commit_created": null,
     "commit_sha": null,
@@ -104,8 +104,8 @@
     "fetch_start": null,
     "job_durations_seconds": {
       "Publication timing evidence": null,
-      "collect": -1.0,
-      "preflight": 11.0,
+      "collect": 0.0,
+      "preflight": 15.0,
       "publish": -1.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -120,9 +120,9 @@
     "report_generated": null,
     "root_cause_stage": "scheduler",
     "run_attempt": "1",
-    "run_id": "41218121255",
+    "run_id": "41223934865",
     "run_to_commit_seconds": null,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41218121255",
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41223934865",
     "schedule_basis": "inferred from original run creation and IANA cron slot",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
@@ -133,17 +133,17 @@
     "step_durations_seconds": {
       "Publication timing evidence": {
         "Calculate and publish timing evidence": null,
-        "Checkout published main": 9.0,
+        "Checkout published main": 10.0,
         "Download this run's reports": 0.0,
         "Post Checkout published main": null,
         "Preserve publication timing": null,
         "Read workflow timing from GitHub": null,
-        "Set up job": 1.0
+        "Set up job": 2.0
       },
       "collect": {},
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 8.0,
+        "Checkout": 10.0,
         "Complete job": 0.0,
         "Post Checkout": 0.0,
         "Set up job": 1.0
@@ -151,13 +151,13 @@
       "publish": {}
     },
     "target_time": "12:00 Europe/Madrid",
-    "trigger_creation_lag_seconds": 17420.0,
-    "trigger_cron": "17 12 * * *",
+    "trigger_creation_lag_seconds": 17345.0,
+    "trigger_cron": "30 13 * * *",
     "trigger_origin": "schedule",
-    "trigger_scheduled_for": "2026-10-31T11:17:00+00:00",
-    "trigger_start_lag_seconds": 17420.0,
-    "workflow_actual_start": "2026-10-31T16:07:20+00:00",
-    "workflow_created": "2026-10-31T16:07:20+00:00",
+    "trigger_scheduled_for": "2026-10-31T12:30:00+00:00",
+    "trigger_start_lag_seconds": 17345.0,
+    "workflow_actual_start": "2026-10-31T17:19:05+00:00",
+    "workflow_created": "2026-10-31T17:19:05+00:00",
     "workflow_queue_seconds": 0.0
   },
   "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -297,7 +297,7 @@
       }
     ],
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-10-31T16:07:50.145152+00:00",
+    "evaluated_at": "2026-10-31T17:19:39.340265+00:00",
     "full_window_observed": false,
     "interpretation": "Operational 30-day observation; not a statistical guarantee of future reliability.",
     "measured_publications": 12,
@@ -331,6 +331,16 @@
         "run_attempt": "1",
         "run_id": "41218121255",
         "started_at": "2026-10-31T16:07:20+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "finished_at": "2026-10-31T17:19:22+00:00",
+        "outcome": "skipped",
+        "publication_id": null,
+        "recovered_from": null,
+        "run_attempt": "1",
+        "run_id": "41223934865",
+        "started_at": "2026-10-31T17:19:05+00:00",
         "trigger": "schedule"
       }
     ],
@@ -477,7 +487,7 @@
         "status": "stale"
       }
     ],
-    "evaluated_at": "2026-10-31T16:07:50.145152+00:00",
+    "evaluated_at": "2026-10-31T17:19:39.340265+00:00",
     "full_window_observed": true,
     "measured_publications": 30,
     "met": false,
