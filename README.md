@@ -9,14 +9,14 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-30T11:26:01+00:00  
-**Coverage:** 2026-10-29T09:05:26+00:00 → 2026-10-30T11:25:29+00:00  
+**Updated:** 2026-10-31T15:56:06+00:00  
+**Coverage:** 2026-10-30T09:25:29+00:00 → 2026-10-31T15:55:13+00:00  
 **Pipeline:** **Operational**
 
-3 item(s) include exploitation, KEV or ransomware signals.
+5 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 835 source-backed developments
-- **Above threshold:** 493
+- **Assessed:** 1182 source-backed developments
+- **Above threshold:** 943
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
@@ -24,19 +24,19 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 - **[CVE-2026-97229](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-97229 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition — CVSS 10.0; EPSS percentile &gt;= 95%
 - **[CVE-2026-46300](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-46300 exploited in CISA KEV: Linux Kernel — CVSS 7.8; EPSS percentile &gt;= 95%
 - **[CVE-2026-76418](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76418 exploited in CISA KEV: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software — CVSS 8.6; priority technology: firewalls
-- **[CVE-2024-8517](https://nvd.nist.gov/vuln/detail/CVE-2024-8517) · 9.4/10** — SPIP before 4.3.2, 4.2.16, and 4.1.18 is vulnerable to a command injection issue. A remote and unauthenticated attacke — CVSS 9.8; EPSS &gt;= 70%
-- **[CVE-2026-90868](https://nvd.nist.gov/vuln/detail/CVE-2026-90868) · 9.4/10** — An OS command injection vulnerability in Progress Software WS_FTP Server versions prior to 2024.0.7 and 2025.0.4 on Wind — CVSS 9.9; priority technology: windows
+- **[CVE-2026-111357](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-111357 exploited in CISA KEV: Ivanti Connect Secure — CVSS 7.0; priority technology: vpn_remote_access
+- **[CVE-2026-118527](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure — no severity score; priority technology: vpn_remote_access
 
 ### Human context
 
-**[ISC Stormcast For Friday, October 30th, 2026 https://isc.sans.edu/podcastdetail/10158, (Fri, Oct 30th)](https://isc.sans.edu/diary/rss/33472)**
+**[Wireshark 5.0.0rc1 Release, (Sat, Oct 31st)](https://isc.sans.edu/diary/rss/33476)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> (c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.
+> Wireshark Release Candidate 5.0.0 was published : soon we can expect a new major version of Wireshark.
 
 ### Community pulse
 
-**[Herdr has released native app](https://github.com/herdrdev/herdr-app)** — Hacker News · 231 points · 151 comments
-[Open discussion](https://news.ycombinator.com/item?id=50298436)
+**[Northflank Breached](https://status.northflank.com)** — Hacker News · 460 points · 339 comments
+[Open discussion](https://news.ycombinator.com/item?id=50305025)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

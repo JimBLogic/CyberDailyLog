@@ -1,17 +1,17 @@
 {
-  "above_threshold": 493,
+  "above_threshold": 943,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 151,
-    "discussion_url": "https://news.ycombinator.com/item?id=50298436",
-    "published_at": "2026-10-30T00:42:41+00:00",
-    "score": 231,
+    "comments": 339,
+    "discussion_url": "https://news.ycombinator.com/item?id=50305025",
+    "published_at": "2026-10-30T15:10:31+00:00",
+    "score": 460,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/herdrdev/herdr-app",
-    "title": "Herdr has released native app"
+    "source_url": "https://status.northflank.com",
+    "title": "Northflank Breached"
   },
-  "coverage_end": "2026-10-30T11:25:29+00:00",
-  "coverage_start": "2026-10-29T09:05:26+00:00",
+  "coverage_end": "2026-10-31T15:55:13+00:00",
+  "coverage_start": "2026-10-30T09:25:29+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-30T11:26:01+00:00",
+  "generated_at": "2026-10-31T15:56:06+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+    "excerpt": "Wireshark Release Candidate 5.0.0 was published : soon we can expect a new major version of Wireshark.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-30T03:30:17+00:00",
+    "published_at": "2026-10-31T10:52:53+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33472",
-    "title": "ISC Stormcast For Friday, October 30th, 2026 https://isc.sans.edu/podcastdetail/10158, (Fri, Oct 30th)"
+    "source_url": "https://isc.sans.edu/diary/rss/33476",
+    "title": "Wireshark 5.0.0rc1 Release, (Sat, Oct 31st)"
   },
-  "immediate_attention": "3 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 3,
+  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 5,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 835,
+  "qualified_developments": 1182,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -64,8 +64,8 @@
       ],
       "cvss_score": 10.0,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.97229,
-      "epss_score": 0.18427,
+      "epss_percentile": 0.9806,
+      "epss_score": 0.273,
       "ghsa_ids": [],
       "id": "CVE-2026-97229",
       "known_exploited": true,
@@ -93,8 +93,8 @@
       ],
       "cvss_score": 7.8,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.96854,
-      "epss_score": 0.15719,
+      "epss_percentile": 0.96927,
+      "epss_score": 0.1613,
       "ghsa_ids": [],
       "id": "CVE-2026-46300",
       "known_exploited": true,
@@ -122,8 +122,8 @@
       ],
       "cvss_score": 8.6,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.47308,
-      "epss_score": 0.00574,
+      "epss_percentile": 0.57306,
+      "epss_score": 0.00821,
       "ghsa_ids": [],
       "id": "CVE-2026-76418",
       "known_exploited": true,
@@ -145,58 +145,62 @@
       "why_it_matters": "CVSS 8.6; priority technology: firewalls"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2024-8517"
+        "CVE-2026-111357"
       ],
-      "cvss_score": 9.8,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.99855,
-      "epss_score": 0.94614,
+      "cvss_score": 7.0,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.45029,
+      "epss_score": 0.00533,
       "ghsa_ids": [],
-      "id": "CVE-2024-8517",
-      "known_exploited": false,
+      "id": "CVE-2026-111357",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "EPSS >= 0.70 +25",
-        "EPSS percentile >= 0.95 +10"
+      "priority_score": 9.6,
+      "products": [
+        "Connect Secure"
       ],
-      "selection_score": 55,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8517",
-      "title": "SPIP before 4.3.2, 4.2.16, and 4.1.18 is vulnerable to a command injection issue. A remote and unauthenticated attacke",
-      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "high CVSS +10"
+      ],
+      "selection_score": 113,
+      "severity": "HIGH",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-111357 exploited in CISA KEV: Ivanti Connect Secure",
+      "why_it_matters": "CVSS 7.0; priority technology: vpn_remote_access"
     },
     {
-      "cisa_kev": false,
+      "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-90868"
+        "CVE-2026-118527"
       ],
-      "cvss_score": 9.9,
-      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "cvss_score": null,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
       "epss_percentile": null,
       "epss_score": null,
       "ghsa_ids": [],
-      "id": "CVE-2026-90868",
-      "known_exploited": false,
+      "id": "CVE-2026-118527",
+      "known_exploited": true,
       "known_ransomware_use": false,
-      "priority_score": 9.4,
-      "products": [],
-      "selection_reasons": [
-        "critical CVSS +20",
-        "priority technology: windows +8",
-        "official source +5"
+      "priority_score": 9.6,
+      "products": [
+        "Connect Secure"
       ],
-      "selection_score": 28,
-      "severity": "CRITICAL",
-      "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90868",
-      "title": "An OS command injection vulnerability in Progress Software WS_FTP Server versions prior to 2024.0.7 and 2025.0.4 on Wind",
-      "why_it_matters": "CVSS 9.9; priority technology: windows"
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "priority technology: vpn_remote_access +8"
+      ],
+      "selection_score": 103,
+      "severity": "unknown",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure",
+      "why_it_matters": "no severity score; priority technology: vpn_remote_access"
     }
   ]
 }
