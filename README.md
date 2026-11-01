@@ -9,34 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-10-31T15:56:06+00:00  
-**Coverage:** 2026-10-30T09:25:29+00:00 → 2026-10-31T15:55:13+00:00  
+**Updated:** 2026-11-01T16:57:47+00:00  
+**Coverage:** 2026-10-31T13:55:13+00:00 → 2026-11-01T16:57:28+00:00  
 **Pipeline:** **Operational**
 
-5 item(s) include exploitation, KEV or ransomware signals.
+6 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 1182 source-backed developments
-- **Above threshold:** 943
+- **Assessed:** 102 source-backed developments
+- **Above threshold:** 62
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
 - **[CVE-2026-97229](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-97229 exploited in CISA KEV: GitLab Community Edition and Enterprise Edition — CVSS 10.0; EPSS percentile &gt;= 95%
-- **[CVE-2026-46300](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-46300 exploited in CISA KEV: Linux Kernel — CVSS 7.8; EPSS percentile &gt;= 95%
 - **[CVE-2026-76418](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-76418 exploited in CISA KEV: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software — CVSS 8.6; priority technology: firewalls
 - **[CVE-2026-111357](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-111357 exploited in CISA KEV: Ivanti Connect Secure — CVSS 7.0; priority technology: vpn_remote_access
-- **[CVE-2026-118527](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure — no severity score; priority technology: vpn_remote_access
+- **[CVE-2026-110936](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110936 exploited in CISA KEV: Siemens Software Center — CVSS 8.4; detection opportunity
+- **[CVE-2026-96655](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96655 exploited in CISA KEV: Plex Media Server — CVSS 5.3; detection opportunity
 
 ### Human context
 
-**[Wireshark 5.0.0rc1 Release, (Sat, Oct 31st)](https://isc.sans.edu/diary/rss/33476)**
+**[OneNote File Extraction, (Sun, Nov 1st)](https://isc.sans.edu/diary/rss/33478)**
 SANS Internet Storm Center Handler&#x27;s Diary  
-> Wireshark Release Candidate 5.0.0 was published : soon we can expect a new major version of Wireshark.
+> Recently, I had to extract embedded files from a set of OneNote files (extension .one).
 
 ### Community pulse
 
-**[Northflank Breached](https://status.northflank.com)** — Hacker News · 460 points · 339 comments
-[Open discussion](https://news.ycombinator.com/item?id=50305025)
+**[Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard](https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve)** — Hacker News · 362 points · 179 comments
+[Open discussion](https://news.ycombinator.com/item?id=50320995)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->

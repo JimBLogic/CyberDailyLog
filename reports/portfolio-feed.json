@@ -1,17 +1,17 @@
 {
-  "above_threshold": 943,
+  "above_threshold": 62,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 339,
-    "discussion_url": "https://news.ycombinator.com/item?id=50305025",
-    "published_at": "2026-10-30T15:10:31+00:00",
-    "score": 460,
+    "comments": 179,
+    "discussion_url": "https://news.ycombinator.com/item?id=50320995",
+    "published_at": "2026-10-31T22:46:12+00:00",
+    "score": 362,
     "source_name": "Hacker News",
-    "source_url": "https://status.northflank.com",
-    "title": "Northflank Breached"
+    "source_url": "https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve",
+    "title": "Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard"
   },
-  "coverage_end": "2026-10-31T15:55:13+00:00",
-  "coverage_start": "2026-10-30T09:25:29+00:00",
+  "coverage_end": "2026-11-01T16:57:28+00:00",
+  "coverage_start": "2026-10-31T13:55:13+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-10-31T15:56:06+00:00",
+  "generated_at": "2026-11-01T16:57:47+00:00",
   "human_context": {
     "author": null,
-    "excerpt": "Wireshark Release Candidate 5.0.0 was published : soon we can expect a new major version of Wireshark.",
+    "excerpt": "Recently, I had to extract embedded files from a set of OneNote files (extension .one).",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-10-31T10:52:53+00:00",
+    "published_at": "2026-11-01T09:12:23+00:00",
     "source_name": "SANS Internet Storm Center Handler's Diary",
-    "source_url": "https://isc.sans.edu/diary/rss/33476",
-    "title": "Wireshark 5.0.0rc1 Release, (Sat, Oct 31st)"
+    "source_url": "https://isc.sans.edu/diary/rss/33478",
+    "title": "OneNote File Extraction, (Sun, Nov 1st)"
   },
-  "immediate_attention": "5 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 5,
+  "immediate_attention": "6 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 6,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 1182,
+  "qualified_developments": 102,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -64,7 +64,7 @@
       ],
       "cvss_score": 10.0,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.9806,
+      "epss_percentile": 0.98061,
       "epss_score": 0.273,
       "ghsa_ids": [],
       "id": "CVE-2026-97229",
@@ -89,40 +89,11 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-46300"
-      ],
-      "cvss_score": 7.8,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.96927,
-      "epss_score": 0.1613,
-      "ghsa_ids": [],
-      "id": "CVE-2026-46300",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Kernel"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "high CVSS +10"
-      ],
-      "selection_score": 123,
-      "severity": "HIGH",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-46300 exploited in CISA KEV: Linux Kernel",
-      "why_it_matters": "CVSS 7.8; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
         "CVE-2026-76418"
       ],
       "cvss_score": 8.6,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.57306,
+      "epss_percentile": 0.57307,
       "epss_score": 0.00821,
       "ghsa_ids": [],
       "id": "CVE-2026-76418",
@@ -151,7 +122,7 @@
       ],
       "cvss_score": 7.0,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.45029,
+      "epss_percentile": 0.45024,
       "epss_score": 0.00533,
       "ghsa_ids": [],
       "id": "CVE-2026-111357",
@@ -176,31 +147,60 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-118527"
+        "CVE-2026-110936"
       ],
-      "cvss_score": null,
+      "cvss_score": 8.4,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": null,
-      "epss_score": null,
+      "epss_percentile": 0.61754,
+      "epss_score": 0.00967,
       "ghsa_ids": [],
-      "id": "CVE-2026-118527",
+      "id": "CVE-2026-110936",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Connect Secure"
+        "Software Center"
       ],
       "selection_reasons": [
         "CISA KEV +50",
         "confirmed exploitation +40",
-        "priority technology: vpn_remote_access +8"
+        "high CVSS +10"
       ],
-      "selection_score": 103,
-      "severity": "unknown",
+      "selection_score": 105,
+      "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure",
-      "why_it_matters": "no severity score; priority technology: vpn_remote_access"
+      "title": "CVE-2026-110936 exploited in CISA KEV: Siemens Software Center",
+      "why_it_matters": "CVSS 8.4; detection opportunity"
+    },
+    {
+      "cisa_kev": true,
+      "cve_ids": [
+        "CVE-2026-96655"
+      ],
+      "cvss_score": 5.3,
+      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
+      "epss_percentile": 0.7634,
+      "epss_score": 0.01637,
+      "ghsa_ids": [],
+      "id": "CVE-2026-96655",
+      "known_exploited": true,
+      "known_ransomware_use": false,
+      "priority_score": 9.6,
+      "products": [
+        "Media Server"
+      ],
+      "selection_reasons": [
+        "CISA KEV +50",
+        "confirmed exploitation +40",
+        "official source +5"
+      ],
+      "selection_score": 95,
+      "severity": "MEDIUM",
+      "source_name": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "title": "CVE-2026-96655 exploited in CISA KEV: Plex Media Server",
+      "why_it_matters": "CVSS 5.3; detection opportunity"
     }
   ]
 }
