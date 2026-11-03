@@ -9,29 +9,34 @@ CyberDailyLog is an automated, transparent and curated 24-hour Blue Team intelli
 <!-- CYBERDAILYLOG:DAILY:START -->
 ## Latest automated brief
 
-**Updated:** 2026-11-02T20:36:01+00:00  
-**Coverage:** 2026-11-01T14:57:28+00:00 → 2026-11-02T20:35:13+00:00  
+**Updated:** 2026-11-03T18:11:51+00:00  
+**Coverage:** 2026-11-02T18:10:39+00:00 → 2026-11-03T18:10:39+00:00  
 **Pipeline:** **Operational**
 
 4 item(s) include exploitation, KEV or ransomware signals.
 
-- **Assessed:** 675 source-backed developments
-- **Above threshold:** 377
+- **Assessed:** 652 source-backed developments
+- **Above threshold:** 441
 - Core sources: **3/3 healthy**. Optional sources: **7 healthy**, **0 degraded**.
 
 ### Highest-priority items
 
-- **[CVE-2026-111357](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-111357 exploited in CISA KEV: Ivanti Connect Secure — CVSS 7.0; priority technology: vpn_remote_access
+- **[CVE-2026-96652](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96652 exploited in CISA KEV: Plex Media Server — CVSS 5.3; EPSS percentile &gt;= 95%
 - **[CVE-2026-110936](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-110936 exploited in CISA KEV: Siemens Software Center — CVSS 8.4; detection opportunity
+- **[CVE-2026-118527](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure — CVSS 4.3; priority technology: vpn_remote_access
 - **[CVE-2026-96655](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96655 exploited in CISA KEV: Plex Media Server — CVSS 5.3; detection opportunity
-- **[CVE-2026-96652](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) · 9.6/10** — CVE-2026-96652 exploited in CISA KEV: Plex Media Server — CVSS 5.3; detection opportunity
-- **[CVE-2026-97718](https://nvd.nist.gov/vuln/detail/CVE-2026-97718) · 9.4/10** — CVE-2026-97718 Is a cross-site request forgery vulnerability in version 14.60 of the Secure Access server. Because of a — CVSS 9.4; detection opportunity
+- **[CVE-2025-71336](https://nvd.nist.gov/vuln/detail/CVE-2025-71336) · 9.4/10** — Flowise before 3.0.6 (affected versions 2.2.7-patch.1 and earlier) contains an unsandboxed remote code execution vulnera — CVSS 9.3; priority technology: cloud
 
 ### Human context
 
-**[Mutipath TCP: Use and Detection, (Mon, Nov 2nd)](https://isc.sans.edu/diary/rss/33482)**
-SANS Internet Storm Center Handler&#x27;s Diary  
-> Last week, an often-ignored&amp;#;x26;#;xc2;&amp;#;x26;#;xa0;TCP option, introduced in 2020, made the news due to a new vulnerability in Linux&amp;#;x26;#;39;s implementation (RFC&amp;#;x26;#;xc2;&amp;#;x26;#;xa0;8684, &amp;#;x26;#;xc2;&amp;#;x26;#;xa0;CVE-2026-98432)
+**[Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies](https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/)**
+Brian Krebs · Krebs on Security  
+> Google said today it worked with industry partners to dismantle a botnet made up of more than 1.3 million Android TV set-top boxes that…
+
+### Community pulse
+
+**[Nvidia – open-source auto-ontology](https://github.com/NVIDIA/auto-ontology)** — Hacker News · 243 points · 105 comments
+[Open discussion](https://news.ycombinator.com/item?id=50348962)
 
 [Open the concise report](reports/latest.md) · [Use the compact JSON feed](reports/portfolio-feed.json) · [Inspect source health](reports/source-health.json) · [Integration guide](docs/INTEGRATION.md)
 <!-- CYBERDAILYLOG:DAILY:END -->
