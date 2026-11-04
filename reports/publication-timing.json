@@ -6,7 +6,7 @@
   "commit_sha": "b3ab8f14dbfdf68e4ed754820d2651b084bd9c5e",
   "complete_close_on_time": true,
   "complete_close_slo": {
-    "attainment_percentage": 40.0,
+    "attainment_percentage": 43.8,
     "days": [
       {
         "date": "2026-10-20",
@@ -67,16 +67,20 @@
       {
         "date": "2026-11-03",
         "status": "late"
+      },
+      {
+        "date": "2026-11-04",
+        "status": "on_time"
       }
     ],
     "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-11-04T11:07:18.919988+00:00",
+    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
     "full_window_observed": false,
-    "measured_days": 15,
+    "measured_days": 16,
     "met": false,
     "objective": ">=95% complete CISA KEV/NVD/GHSA closes pushed within 60 minutes of 12:00 Europe/Madrid",
-    "on_time_complete_closes": 6,
+    "on_time_complete_closes": 7,
     "site_visibility": "Measured separately; a GitHub push does not prove Site availability",
     "started_at": "2026-10-20T10:00:00+00:00",
     "window_days": 30
@@ -98,184 +102,78 @@
     "publish": 36.0
   },
   "last_attempt": {
-    "actual_publication_time": "2026-11-04T11:06:55+00:00",
-    "attempt_finished_at": "2026-11-04T11:06:55+00:00",
-    "collect_result": "success",
-    "commit_created": "2026-11-04T11:06:42+00:00",
-    "commit_sha": "b3ab8f14dbfdf68e4ed754820d2651b084bd9c5e",
-    "complete_close_on_time": true,
-    "complete_close_status": "on_time",
-    "core_complete": true,
-    "dispatch_creation_lag_seconds": 2.0,
-    "dispatch_requested_at": "2026-11-04T11:02:44+00:00",
+    "actual_publication_time": null,
+    "attempt_finished_at": "2026-11-04T18:20:42+00:00",
+    "collect_result": "skipped",
+    "commit_created": null,
+    "commit_sha": null,
+    "complete_close_on_time": null,
+    "complete_close_status": "skipped",
+    "core_complete": null,
+    "dispatch_creation_lag_seconds": null,
+    "dispatch_requested_at": null,
     "dispatch_timestamp_error": null,
     "dry_run": false,
-    "event": "push",
-    "fetch_duration_seconds": 154.372,
-    "fetch_end": "2026-11-04T11:05:59.178595+00:00",
-    "fetch_start": "2026-11-04T11:03:24.806994+00:00",
+    "event": "schedule",
+    "fetch_duration_seconds": null,
+    "fetch_end": null,
+    "fetch_start": null,
     "job_durations_seconds": {
       "Publication timing evidence": null,
-      "collect": 194.0,
-      "preflight": 13.0,
-      "publish": 36.0
+      "collect": 0.0,
+      "preflight": 17.0,
+      "publish": 0.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
     "monitoring_started_at": "2026-09-16T10:00:00+00:00",
-    "pipeline_metrics": {
-      "baseline_records": 79824,
-      "dry_run": false,
-      "finished_at": "2026-11-04T11:06:11.880711+00:00",
-      "ledger_bytes": 14568799,
-      "outcome": "complete",
-      "phases_ms": {
-        "collection": 89122.337,
-        "epss": 65259.982,
-        "ledger_load": 1560.874,
-        "ledger_write": 9652.085,
-        "matching": 2253.672,
-        "prepare": 19.321,
-        "render": 665.502
-      },
-      "report_generated": "2026-11-04T11:06:01+00:00",
-      "schema_version": 1,
-      "sources": {
-        "cisa_kev": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "epss": {
-          "http_attempts": 44,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "github_advisories": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "github_releases": {
-          "http_attempts": 3,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "hacker_news": {
-          "http_attempts": 41,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "nvd": {
-          "http_attempts": 6,
-          "http_retries": 0,
-          "page_size_reductions": 0,
-          "pages": 6,
-          "requests": 6,
-          "response_bytes": 8682780,
-          "status": "healthy",
-          "wait_seconds": 30.0,
-          "window_restarts": 0
-        },
-        "rss_cert_eu_advisories": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "rss_cert_eu_guidance": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "rss_krebs": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        },
-        "rss_sans_isc": {
-          "http_attempts": 1,
-          "http_retries": 0,
-          "status": "healthy"
-        }
-      },
-      "started_at": "2026-11-04T11:03:23.225456+00:00",
-      "total_ms": 168655.28,
-      "tracked_records": 80525
-    },
-    "preflight_reason": "latest report date is 2026-11-03; collection is required for 2026-11-04",
+    "pipeline_metrics": null,
+    "preflight_reason": "a report is already published for 2026-11-04",
     "preflight_result": "success",
-    "preflight_should_run": "true",
-    "publication_lag_seconds": 415.0,
-    "publish_result": "success",
-    "push_completed": "2026-11-04T11:06:55+00:00",
-    "report_generated": "2026-11-04T11:06:01+00:00",
-    "root_cause_stage": "within_threshold",
+    "preflight_should_run": "false",
+    "publication_lag_seconds": null,
+    "publish_result": "skipped",
+    "push_completed": null,
+    "report_generated": null,
+    "root_cause_stage": "scheduler",
     "run_attempt": "1",
-    "run_id": "41818221009",
-    "run_to_commit_seconds": 236.0,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41818221009",
-    "schedule_basis": "external request commit timestamp",
+    "run_id": "41886154431",
+    "run_to_commit_seconds": null,
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41886154431",
+    "schedule_basis": "inferred from original run creation and IANA cron slot",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
     "scheduled_for": "2026-11-04T11:00:00+00:00",
-    "scheduler_request_lag_seconds": 164.0,
+    "scheduler_request_lag_seconds": null,
     "schema_version": 2,
-    "status": "on_time",
+    "status": "skipped",
     "step_durations_seconds": {
       "Publication timing evidence": {
         "Calculate and publish timing evidence": null,
-        "Checkout published main": 11.0,
-        "Download this run's reports": 3.0,
+        "Checkout published main": 15.0,
+        "Download this run's reports": 0.0,
         "Post Checkout published main": null,
         "Preserve publication timing": null,
         "Read workflow timing from GitHub": null,
         "Set up job": 1.0
       },
-      "collect": {
-        "Bind the complete report bundle": 0.0,
-        "Check artifact file sizes": 0.0,
-        "Checkout": 10.0,
-        "Complete job": 0.0,
-        "Generate compact portfolio feed": 1.0,
-        "Generate dashboard history feed": 1.0,
-        "Install application": 5.0,
-        "Post Checkout": 1.0,
-        "Post Setup Python": 0.0,
-        "Resolve execution mode": 0.0,
-        "Run collection": 168.0,
-        "Set up job": 1.0,
-        "Setup Python": 1.0,
-        "Show source health": 0.0,
-        "Stage bounded publication artifact": 0.0,
-        "Update repository landing snapshot": 0.0,
-        "Upload generated outputs": 2.0,
-        "Validate public outputs": 1.0,
-        "Validate reports": 0.0
-      },
+      "collect": {},
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 10.0,
+        "Checkout": 13.0,
         "Complete job": 0.0,
-        "Post Checkout": 0.0,
-        "Set up job": 1.0
+        "Post Checkout": 1.0,
+        "Set up job": 0.0
       },
-      "publish": {
-        "Checkout main": 11.0,
-        "Commit and push generated outputs": 17.0,
-        "Complete job": 0.0,
-        "Download generated outputs": 2.0,
-        "Post Checkout main": 0.0,
-        "Set up job": 1.0,
-        "Verify bundle and historical integrity against current main": 3.0
-      }
+      "publish": {}
     },
     "target_time": "12:00 Europe/Madrid",
-    "trigger_creation_lag_seconds": null,
-    "trigger_cron": null,
-    "trigger_origin": "external_push",
-    "trigger_scheduled_for": null,
-    "trigger_start_lag_seconds": null,
-    "workflow_actual_start": "2026-11-04T11:02:46+00:00",
-    "workflow_created": "2026-11-04T11:02:46+00:00",
+    "trigger_creation_lag_seconds": 26421.0,
+    "trigger_cron": "0 12 * * *",
+    "trigger_origin": "schedule",
+    "trigger_scheduled_for": "2026-11-04T11:00:00+00:00",
+    "trigger_start_lag_seconds": 26421.0,
+    "workflow_actual_start": "2026-11-04T18:20:21+00:00",
+    "workflow_created": "2026-11-04T18:20:21+00:00",
     "workflow_queue_seconds": 0.0
   },
   "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -431,7 +329,7 @@
       }
     ],
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-11-04T11:07:18.919988+00:00",
+    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
     "full_window_observed": false,
     "interpretation": "Operational 30-day observation; not a statistical guarantee of future reliability.",
     "measured_publications": 16,
@@ -456,6 +354,16 @@
         "run_id": "41818221009",
         "started_at": "2026-11-04T11:02:46+00:00",
         "trigger": "external_push"
+      },
+      {
+        "finished_at": "2026-11-04T18:20:42+00:00",
+        "outcome": "skipped",
+        "publication_id": null,
+        "recovered_from": null,
+        "run_attempt": "1",
+        "run_id": "41886154431",
+        "started_at": "2026-11-04T18:20:21+00:00",
+        "trigger": "schedule"
       }
     ],
     "first_observed_run_id": "41818221009",
@@ -601,7 +509,7 @@
         "status": "on_time"
       }
     ],
-    "evaluated_at": "2026-11-04T11:07:18.919988+00:00",
+    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
     "full_window_observed": true,
     "measured_publications": 30,
     "met": false,
