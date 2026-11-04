@@ -1,17 +1,17 @@
 {
-  "above_threshold": 441,
+  "above_threshold": 637,
   "community_pulse": {
     "caveat": "Community interest signal; validate claims against primary sources.",
-    "comments": 105,
-    "discussion_url": "https://news.ycombinator.com/item?id=50348962",
-    "published_at": "2026-11-03T07:04:50+00:00",
-    "score": 243,
+    "comments": 444,
+    "discussion_url": "https://news.ycombinator.com/item?id=50354960",
+    "published_at": "2026-11-03T17:22:37+00:00",
+    "score": 1307,
     "source_name": "Hacker News",
-    "source_url": "https://github.com/NVIDIA/auto-ontology",
-    "title": "Nvidia \u2013 open-source auto-ontology"
+    "source_url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+    "title": "Postman silently auto-installs AI plugins and attempts to share all API data"
   },
-  "coverage_end": "2026-11-03T18:10:39+00:00",
-  "coverage_start": "2026-11-02T18:10:39+00:00",
+  "coverage_end": "2026-11-04T11:03:23+00:00",
+  "coverage_start": "2026-11-03T11:03:23+00:00",
   "degraded": false,
   "endpoints": {
     "compact_feed": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/portfolio-feed.json",
@@ -20,22 +20,22 @@
     "schema": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
     "source_health": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/reports/source-health.json"
   },
-  "generated_at": "2026-11-03T18:11:51+00:00",
+  "generated_at": "2026-11-04T11:06:01+00:00",
   "human_context": {
-    "author": "Brian Krebs",
-    "excerpt": "Google said today it worked with industry partners to dismantle a botnet made up of more than 1.3 million Android TV set-top boxes that\u2026",
+    "author": null,
+    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
     "excerpt_origin": "publisher_feed",
-    "published_at": "2026-11-03T02:24:31+00:00",
-    "source_name": "Krebs on Security",
-    "source_url": "https://krebsonsecurity.com/2026/11/tech-firms-dismantle-botnet-that-turned-1-3m-tv-boxes-into-proxies/",
-    "title": "Tech Firms Dismantle Botnet That Turned 1.3M TV Boxes Into Proxies"
+    "published_at": "2026-11-04T02:10:02+00:00",
+    "source_name": "SANS Internet Storm Center Handler's Diary",
+    "source_url": "https://isc.sans.edu/diary/rss/33486",
+    "title": "ISC Stormcast For Wednesday, November 4th, 2026 https://isc.sans.edu/podcastdetail/10164, (Wed, Nov 4th)"
   },
-  "immediate_attention": "4 item(s) include exploitation, KEV or ransomware signals.",
-  "immediate_attention_count": 4,
+  "immediate_attention": "1 item(s) include exploitation, KEV or ransomware signals.",
+  "immediate_attention_count": 1,
   "minimum_priority": 5.0,
   "pipeline_status": "operational",
   "project": "CyberDailyLog",
-  "qualified_developments": 652,
+  "qualified_developments": 954,
   "report_url": "https://github.com/JimBLogic/CyberDailyLog/blob/main/reports/latest.md",
   "repository_url": "https://github.com/JimBLogic/CyberDailyLog",
   "schema_url": "https://raw.githubusercontent.com/JimBLogic/CyberDailyLog/main/schemas/portfolio-feed.schema.json",
@@ -60,48 +60,19 @@
     {
       "cisa_kev": true,
       "cve_ids": [
-        "CVE-2026-96652"
+        "CVE-2026-119977"
       ],
-      "cvss_score": 5.3,
+      "cvss_score": 8.1,
       "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.96107,
-      "epss_score": 0.11886,
+      "epss_percentile": 0.48751,
+      "epss_score": 0.006,
       "ghsa_ids": [],
-      "id": "CVE-2026-96652",
+      "id": "CVE-2026-119977",
       "known_exploited": true,
       "known_ransomware_use": false,
       "priority_score": 9.6,
       "products": [
-        "Media Server"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "EPSS percentile >= 0.95 +10"
-      ],
-      "selection_score": 105,
-      "severity": "MEDIUM",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-96652 exploited in CISA KEV: Plex Media Server",
-      "why_it_matters": "CVSS 5.3; EPSS percentile >= 95%"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-110936"
-      ],
-      "cvss_score": 8.4,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.61786,
-      "epss_score": 0.00967,
-      "ghsa_ids": [],
-      "id": "CVE-2026-110936",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Software Center"
+        "WordPress Core"
       ],
       "selection_reasons": [
         "CISA KEV +50",
@@ -112,97 +83,116 @@
       "severity": "HIGH",
       "source_name": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-110936 exploited in CISA KEV: Siemens Software Center",
-      "why_it_matters": "CVSS 8.4; detection opportunity"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-118527"
-      ],
-      "cvss_score": 4.3,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": null,
-      "epss_score": null,
-      "ghsa_ids": [],
-      "id": "CVE-2026-118527",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Connect Secure"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "priority technology: vpn_remote_access +8"
-      ],
-      "selection_score": 103,
-      "severity": "MEDIUM",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-118527 exploited in CISA KEV: Ivanti Connect Secure",
-      "why_it_matters": "CVSS 4.3; priority technology: vpn_remote_access"
-    },
-    {
-      "cisa_kev": true,
-      "cve_ids": [
-        "CVE-2026-96655"
-      ],
-      "cvss_score": 5.3,
-      "defensive_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and\u2026",
-      "epss_percentile": 0.76365,
-      "epss_score": 0.01637,
-      "ghsa_ids": [],
-      "id": "CVE-2026-96655",
-      "known_exploited": true,
-      "known_ransomware_use": false,
-      "priority_score": 9.6,
-      "products": [
-        "Media Server"
-      ],
-      "selection_reasons": [
-        "CISA KEV +50",
-        "confirmed exploitation +40",
-        "official source +5"
-      ],
-      "selection_score": 95,
-      "severity": "MEDIUM",
-      "source_name": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
-      "title": "CVE-2026-96655 exploited in CISA KEV: Plex Media Server",
-      "why_it_matters": "CVSS 5.3; detection opportunity"
+      "title": "CVE-2026-119977 exploited in CISA KEV: WordPress WordPress Core",
+      "why_it_matters": "CVSS 8.1; detection opportunity"
     },
     {
       "cisa_kev": false,
       "cve_ids": [
-        "CVE-2025-71336"
+        "CVE-2024-49112"
       ],
-      "cvss_score": 9.3,
+      "cvss_score": 9.8,
       "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
-      "epss_percentile": 0.65933,
-      "epss_score": 0.01148,
-      "ghsa_ids": [
-        "GHSA-6933-jpx5-q87q"
-      ],
-      "id": "CVE-2025-71336",
+      "epss_percentile": 0.99436,
+      "epss_score": 0.72173,
+      "ghsa_ids": [],
+      "id": "CVE-2024-49112",
       "known_exploited": false,
       "known_ransomware_use": false,
       "priority_score": 9.4,
-      "products": [
-        "flowise"
-      ],
+      "products": [],
       "selection_reasons": [
         "critical CVSS +20",
-        "priority technology: cloud +8",
-        "official source +5"
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10"
       ],
-      "selection_score": 28,
+      "selection_score": 63,
       "severity": "CRITICAL",
       "source_name": "NVD CVE API 2.0",
-      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71336",
-      "title": "Flowise before 3.0.6 (affected versions 2.2.7-patch.1 and earlier) contains an unsandboxed remote code execution vulnera",
-      "why_it_matters": "CVSS 9.3; priority technology: cloud"
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-49112",
+      "title": "Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2024-9264"
+      ],
+      "cvss_score": 9.4,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.99902,
+      "epss_score": 0.97553,
+      "ghsa_ids": [],
+      "id": "CVE-2024-9264",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10"
+      ],
+      "selection_score": 55,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9264",
+      "title": "The SQL Expressions experimental feature of Grafana allows for the evaluation of `duckdb` queries containing user input.",
+      "why_it_matters": "CVSS 9.4; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2024-53677"
+      ],
+      "cvss_score": 9.5,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.99439,
+      "epss_score": 0.72367,
+      "ghsa_ids": [],
+      "id": "CVE-2024-53677",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10"
+      ],
+      "selection_score": 55,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-53677",
+      "title": "File upload logic in Apache Struts is flawed. An attacker can manipulate file upload params to enable paths traversal an",
+      "why_it_matters": "CVSS 9.5; EPSS >= 70%"
+    },
+    {
+      "cisa_kev": false,
+      "cve_ids": [
+        "CVE-2024-41730"
+      ],
+      "cvss_score": 9.8,
+      "defensive_action": "Inventory affected products, verify exposure and follow the vendor remediation or mitigation guidance.",
+      "epss_percentile": 0.99528,
+      "epss_score": 0.75866,
+      "ghsa_ids": [],
+      "id": "CVE-2024-41730",
+      "known_exploited": false,
+      "known_ransomware_use": false,
+      "priority_score": 9.4,
+      "products": [],
+      "selection_reasons": [
+        "critical CVSS +20",
+        "EPSS >= 0.70 +25",
+        "EPSS percentile >= 0.95 +10"
+      ],
+      "selection_score": 55,
+      "severity": "CRITICAL",
+      "source_name": "NVD CVE API 2.0",
+      "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-41730",
+      "title": "In SAP BusinessObjects Business Intelligence Platform, if Single Signed On is enabled on Enterprise authentication, an u",
+      "why_it_matters": "CVSS 9.8; EPSS >= 70%"
     }
   ]
 }
