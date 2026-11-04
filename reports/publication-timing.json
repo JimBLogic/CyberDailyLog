@@ -75,7 +75,7 @@
     ],
     "denominator": "Every Madrid calendar day whose 13:00 deadline elapsed in this observation window",
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
+    "evaluated_at": "2026-11-04T18:40:09.154745+00:00",
     "full_window_observed": false,
     "measured_days": 16,
     "met": false,
@@ -103,7 +103,7 @@
   },
   "last_attempt": {
     "actual_publication_time": null,
-    "attempt_finished_at": "2026-11-04T18:20:42+00:00",
+    "attempt_finished_at": "2026-11-04T18:39:51+00:00",
     "collect_result": "skipped",
     "commit_created": null,
     "commit_sha": null,
@@ -121,7 +121,7 @@
     "job_durations_seconds": {
       "Publication timing evidence": null,
       "collect": 0.0,
-      "preflight": 17.0,
+      "preflight": 19.0,
       "publish": 0.0
     },
     "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -136,9 +136,9 @@
     "report_generated": null,
     "root_cause_stage": "scheduler",
     "run_attempt": "1",
-    "run_id": "41886154431",
+    "run_id": "41889309395",
     "run_to_commit_seconds": null,
-    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41886154431",
+    "run_url": "https://github.com/JimBLogic/CyberDailyLog/actions/runs/41889309395",
     "schedule_basis": "inferred from original run creation and IANA cron slot",
     "schedule_limitation": "GitHub exposes no nominal occurrence ID; delays over one day cannot be disambiguated.",
     "schedule_timezone": "Europe/Madrid",
@@ -149,7 +149,7 @@
     "step_durations_seconds": {
       "Publication timing evidence": {
         "Calculate and publish timing evidence": null,
-        "Checkout published main": 15.0,
+        "Checkout published main": 12.0,
         "Download this run's reports": 0.0,
         "Post Checkout published main": null,
         "Preserve publication timing": null,
@@ -159,21 +159,21 @@
       "collect": {},
       "preflight": {
         "Check daily publication freshness": 0.0,
-        "Checkout": 13.0,
+        "Checkout": 14.0,
         "Complete job": 0.0,
-        "Post Checkout": 1.0,
-        "Set up job": 0.0
+        "Post Checkout": 0.0,
+        "Set up job": 1.0
       },
       "publish": {}
     },
     "target_time": "12:00 Europe/Madrid",
-    "trigger_creation_lag_seconds": 26421.0,
-    "trigger_cron": "0 12 * * *",
+    "trigger_creation_lag_seconds": 26549.0,
+    "trigger_cron": "17 12 * * *",
     "trigger_origin": "schedule",
-    "trigger_scheduled_for": "2026-11-04T11:00:00+00:00",
-    "trigger_start_lag_seconds": 26421.0,
-    "workflow_actual_start": "2026-11-04T18:20:21+00:00",
-    "workflow_created": "2026-11-04T18:20:21+00:00",
+    "trigger_scheduled_for": "2026-11-04T11:17:00+00:00",
+    "trigger_start_lag_seconds": 26549.0,
+    "workflow_actual_start": "2026-11-04T18:39:29+00:00",
+    "workflow_created": "2026-11-04T18:39:29+00:00",
     "workflow_queue_seconds": 0.0
   },
   "measurement_note": "Successful push measures repository publication, not dashboard visibility. Missing milestones stay null.",
@@ -329,7 +329,7 @@
       }
     ],
     "earliest_full_window_date": "2026-11-18",
-    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
+    "evaluated_at": "2026-11-04T18:40:09.154745+00:00",
     "full_window_observed": false,
     "interpretation": "Operational 30-day observation; not a statistical guarantee of future reliability.",
     "measured_publications": 16,
@@ -363,6 +363,16 @@
         "run_attempt": "1",
         "run_id": "41886154431",
         "started_at": "2026-11-04T18:20:21+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "finished_at": "2026-11-04T18:39:51+00:00",
+        "outcome": "skipped",
+        "publication_id": null,
+        "recovered_from": null,
+        "run_attempt": "1",
+        "run_id": "41889309395",
+        "started_at": "2026-11-04T18:39:29+00:00",
         "trigger": "schedule"
       }
     ],
@@ -509,7 +519,7 @@
         "status": "on_time"
       }
     ],
-    "evaluated_at": "2026-11-04T18:21:03.388978+00:00",
+    "evaluated_at": "2026-11-04T18:40:09.154745+00:00",
     "full_window_observed": true,
     "measured_publications": 30,
     "met": false,
