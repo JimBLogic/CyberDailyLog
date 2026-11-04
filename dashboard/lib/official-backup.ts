@@ -66,6 +66,7 @@ async function fetchJson<T>(url: string) {
       signal: AbortSignal.timeout(OFFICIAL_TIMEOUT_MS),
     });
     if (!response.ok) {
+      await response.body?.cancel().catch(() => {});
       return { data: null as T | null, durationMs: Date.now() - startedAt };
     }
     return {
