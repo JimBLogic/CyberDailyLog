@@ -443,6 +443,9 @@ async function fetchJson<T>(path: string, validate?: (value: unknown) => boolean
           attempts,
         };
       }
+      // Error and redirect bodies are not parsed. Release their upstream
+      // stream before opening a fallback request in the Worker runtime.
+      await response.body?.cancel().catch(() => {});
       const reason = `HTTP ${response.status}`;
       const state = recordEndpointFailure(
         circuitKey,
@@ -806,7 +809,8 @@ export async function getDashboardData(): Promise<DashboardData> {
       .then((data) => {
         // Recheck partial repository reports promptly after recovery. Keep the
         // longer budget for complete reports and direct official API fallbacks.
-        if (data.dataMode === "live" && data.coverageState !== "sufficient") {
+        if (data.dataMode === "live" && (data.coverageState !== "sufficient" ||
+          data.pipelineStatus !== "operational" || data.publicationReliability?.coreComplete === false)) {
           data.nextRefreshAt = new Date(Date.parse(data.lastFetchAt) + LIMITED_RECHECK_MS).toISOString();
           data.refreshIntervalMinutes = LIMITED_RECHECK_MS / 60_000;
         }

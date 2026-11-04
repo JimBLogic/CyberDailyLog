@@ -49,7 +49,7 @@ export function OperationalStatus({data, language, now}: {data: DashboardData; l
     <p className="operational-caption">
       {missingToday ? (es ? "No hay medición publicada para el objetivo de hoy. " : "No published measurement for today's target. ") : ""}
       {es ? "El SLO corresponde a la evaluación del " : "SLO evaluated at "}{timestamp(p?.evaluatedAt, language)}.
-      {" "}{es ? "Exige CISA KEV, NVD y GHSA completos y publicación en GitHub dentro de plazo. No mide disponibilidad del sitio; el panel comprueba novedades cada 15 min." : "Requires complete CISA KEV, NVD and GHSA coverage and on-time GitHub publication. Does not measure site availability; the dashboard checks updates every 15 minutes."}
+      {" "}{es ? "Exige CISA KEV, NVD y GHSA completos y publicación en GitHub dentro de plazo. No mide disponibilidad del sitio; el panel comprueba novedades cada " : "Requires complete CISA KEV, NVD and GHSA coverage and on-time GitHub publication. Does not measure site availability; the dashboard checks updates every "}{data.refreshIntervalMinutes}{es ? " min." : data.refreshIntervalMinutes === 1 ? " minute." : " minutes."}
       {" "}{p?.coreComplete === false ? (es ? "La última publicación tiene cobertura core parcial." : "The latest publication has partial core coverage.") : ""}
       {p?.runUrl ? <> <a href={p.runUrl} target="_blank" rel="noreferrer">{es ? "Ver evidencia" : "View evidence"} ↗</a></> : null}
     </p>

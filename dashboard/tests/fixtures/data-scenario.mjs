@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 const scenario = process.argv[2];
 const now = Date.now();
 let clock = now;
-if (scenario === 'partial-cache-recovery') Date.now = () => clock;
+const cacheRecovery = ['partial-cache-recovery', 'degraded-cache-recovery', 'incomplete-cache-recovery'].includes(scenario);
+if (cacheRecovery) Date.now = () => clock;
 const iso = (offset = 0) => new Date(now + offset).toISOString();
 const old = scenario === 'stale' ? -3 * 86_400_000 : 0;
 const health = ['cisa_kev', 'nvd', 'github_advisories'].map(source => ({
@@ -26,6 +27,8 @@ if (scenario.startsWith('community-')) {
 if (scenario === 'future') report.generated_at = iso(86_400_000);
 if (scenario === 'partial-core') { report.degraded = false; health[1].status = 'failed'; }
 if (scenario === 'partial-cache-recovery') health[1].status = 'failed';
+if (scenario === 'degraded-cache-recovery') report.degraded = true;
+let coreComplete = scenario !== 'incomplete-cache-recovery';
 if (scenario === 'missing-core') report.source_health = [health[0]];
 if (scenario === 'duplicate-core') report.source_health = [health[0], health[0], health[2]];
 if (scenario === 'missing-health') delete report.source_health;
@@ -70,7 +73,7 @@ globalThis.fetch = async (input) => {
     run_url:'https://github.com/JimBLogic/CyberDailyLog/actions/runs/123',
     // Deliberately contradictory legacy evidence must never replace complete closes.
     slo:{attainment_percentage:70,measured_publications:30,full_window_observed:true,evaluated_at:iso()},
-    core_complete: scenario !== 'partial-core',
+    core_complete: scenario !== 'partial-core' && coreComplete,
     ...(scenario === 'missing-complete-slo' ? {} : {complete_close_slo:{
       attainment_percentage:50, measured_days:6, window_days:30,
       full_window_observed:false, evaluated_at:iso(),
@@ -220,8 +223,9 @@ if (['future','offline'].includes(scenario)) {
   assert.ok(text.includes('"\'=HYPERLINK(""danger"")"'), 'CSV formulas must be neutralized');
   assert.ok(text.includes('\r\n'));
 }
-if (scenario === 'partial-cache-recovery') {
-  assert.equal(data.coverageState, 'limited');
+if (cacheRecovery) {
+  assert.equal(data.coverageState, scenario === 'partial-cache-recovery' ? 'limited' : 'sufficient');
+  assert.ok(data.pipelineStatus !== 'operational' || data.publicationReliability.coreComplete === false, 'the initial report must have a visible coverage limitation');
   assert.equal(data.refreshIntervalMinutes, 1);
   assert.equal(Date.parse(data.nextRefreshAt) - Date.parse(data.lastFetchAt), 60000);
   clock = now + 59000;
@@ -229,6 +233,8 @@ if (scenario === 'partial-cache-recovery') {
   assert.equal(reportFetches, 1, 'partial cache still prevents repeated upstream requests');
   clock = now + 61000;
   health[1].status = 'healthy';
+  report.degraded = false;
+  coreComplete = true;
   report.generated_at = iso(61000);
   report.coverage_end = iso(61000);
   const recovered = await Promise.all([api(), api()]);
