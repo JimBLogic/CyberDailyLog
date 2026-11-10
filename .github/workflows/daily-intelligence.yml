@@ -1,16 +1,5 @@
 name: Daily Blue Team Intelligence
 "on":
-  push:
-    branches: [main]
-    paths: ["src/cyberdailylog/**", "config/**", ".github/workflows/daily-intelligence.yml", "scripts/validate_publication.py", "scripts/verify_publication.py", "scripts/publication_date.py", "ops/scheduler/request.json"]
-  schedule:
-    - cron: "0 12 * * *"
-      timezone: "Europe/Madrid"
-    # Off-peak recovery inside the 60-minute objective; preflight prevents duplicate publication.
-    - cron: "17 12 * * *"
-      timezone: "Europe/Madrid"
-    - cron: "30 13 * * *"
-      timezone: "Europe/Madrid"
   workflow_dispatch:
     inputs:
       lookback_hours:
