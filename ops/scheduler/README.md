@@ -1,6 +1,10 @@
 # External publication wake-up
 
-## Current operating contract — 30 October 2026
+## Current operating contract
+
+Since 10 November 2026, the daily edition runs in [CyberDailyLog Sites](https://cyberdailylog.jimblogic.chatgpt.site/) at 12:00 Europe/Madrid, with verification and recovery at 13:00. Check [Sites health](https://cyberdailylog.jimblogic.chatgpt.site/api/health) for the daily publication record. The GitHub archive workflow runs only on dispatch. The scheduler definitions below describe the previous GitHub publication path.
+
+## Historical operating contract — 30 October 2026
 
 One existing ChatGPT task runs with exact_schedule at **12:00 and 13:00,
 Europe/Madrid**. Its reproducible definition is in automations.json; task IDs

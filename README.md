@@ -118,7 +118,9 @@ Canonical records retain field-level provenance where collectors provide importa
 
 ## Automation and safety
 
-`.github/workflows/daily-intelligence.yml` targets 12:00 Europe/Madrid, with idempotent recovery at 12:17 and 13:30. The timezone-aware schedule follows Madrid daylight-saving changes automatically. Publication is measured against a rolling 30-day objective of at least 95% within 60 minutes; this is a monitored objective, not a scheduler guarantee. Manual runs publish by default; set `dry_run=true` for a preview. Changes to the pipeline, configuration or workflow also trigger a freshness check and collection when needed. Every publication requires the source quorum and writes generated README/report outputs with the built-in `GITHUB_TOKEN`.
+The daily edition runs in [CyberDailyLog Sites](https://cyberdailylog.jimblogic.chatgpt.site/) at 12:00 Europe/Madrid, with a verification and recovery window at 13:00. Check [the Sites health endpoint](https://cyberdailylog.jimblogic.chatgpt.site/api/health) for publication evidence.
+
+The repository pipeline in `.github/workflows/daily-intelligence.yml` runs only on dispatch. Manual runs publish to the GitHub archive by default. Set `dry_run=true` for a preview. Every archive publication requires the source quorum and writes generated README and report outputs with the built-in `GITHUB_TOKEN`. The repository's historical publication timing describes that pipeline.
 
 The durable per-CVE ledger preserves observations and material transitions, including KEV entry, confirmed exploitation, ransomware, vendor evidence, public exploit references, severity and remediation changes. Unchanged CVEs are not presented as daily discoveries. Unknown evidence stays unknown, and an optional-source outage does not erase previously confirmed intelligence. See [CTI state and reliability](docs/cti-reliability.md) for migration, timing evidence and operating limits.
 

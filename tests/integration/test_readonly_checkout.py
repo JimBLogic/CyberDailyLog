@@ -52,13 +52,8 @@ def test_only_trusted_main_publication_jobs_require_writer_tokens() -> None:
     assert all(job["permissions"]["contents"] == "read" for job in (jobs["preflight"], jobs["collect"]))
 
 
-def test_publication_schedule_and_manual_preview_are_unchanged() -> None:
+def test_manual_publication_preserves_preview() -> None:
     workflow = _load("daily-intelligence.yml")
-    assert workflow["on"]["schedule"] == [
-        {"cron": "0 12 * * *", "timezone": "Europe/Madrid"},
-        {"cron": "17 12 * * *", "timezone": "Europe/Madrid"},
-        {"cron": "30 13 * * *", "timezone": "Europe/Madrid"},
-    ]
     assert workflow["on"]["workflow_dispatch"]["inputs"]["dry_run"]["default"] is False
     assert workflow["on"]["workflow_dispatch"]["inputs"]["dry_run"]["type"] == "boolean"
     collect = workflow["jobs"]["collect"]
